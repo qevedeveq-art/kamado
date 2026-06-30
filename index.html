@@ -1718,9 +1718,24 @@ function scaleIng(s,f){if(!f||f===1)return s;
   s=s.replace(new RegExp("(\\d+[\\.,]?\\d*)\\s*"+U+"\\b","gi"),(mm,n,u)=>scaleNum(parseFloat(n.replace(",",".")),f)+" "+u);
   if(!hadUnit)s=s.replace(/^(\d+)(\s+[A-Za-zÀ-ÿ])/,(mm,n,rest)=>scaleNum(parseInt(n),f)+rest);
   return s;}
-function parseDur(t){let h=t.match(/(\d+)\s*h(?:\s*(\d+))?/i);if(h)return(parseInt(h[1])*60+(h[2]?parseInt(h[2]):0))*60;
-  let mn=t.match(/(\d+)(?:\s*[–-]\s*(\d+))?\s*min/i);if(mn)return(parseInt(mn[2]||mn[1]))*60;
-  let sc=t.match(/(\d+)(?:\s*[–-]\s*(\d+))?\s*s(?:ec)?\b/i);if(sc)return parseInt(sc[2]||sc[1]);return null;}
+function parseAllDurs(t){
+  const list=[]; let temp=t.replace(/[–—]/g,"-").replace(/\bà\b/g,"-");
+  let m, reHM=/(\d+)\s*h\s*(\d+)(?:\s*min)?\b/gi;
+  while(m=reHM.exec(temp)){ list.push({sec:(parseInt(m[1])*60+parseInt(m[2]))*60,text:`${m[1]} h ${m[2]} min`}); temp=temp.slice(0,m.index)+" ".repeat(m[0].length)+temp.slice(m.index+m[0].length); }
+  let reHR=/(\d+)\s*h?\s*-\s*(\d+)\s*h\b/gi;
+  while(m=reHR.exec(temp)){ list.push({sec:parseInt(m[2])*3600,text:`${m[2]} h`}); temp=temp.slice(0,m.index)+" ".repeat(m[0].length)+temp.slice(m.index+m[0].length); }
+  let reH=/(\d+)\s*h(?:eures?)?\b/gi;
+  while(m=reH.exec(temp)){ list.push({sec:parseInt(m[1])*3600,text:`${m[1]} h`}); temp=temp.slice(0,m.index)+" ".repeat(m[0].length)+temp.slice(m.index+m[0].length); }
+  let reMR=/(\d+)\s*-\s*(\d+)\s*min(?:utes?)?\b/gi;
+  while(m=reMR.exec(temp)){ list.push({sec:parseInt(m[2])*60,text:`${m[2]} min`}); temp=temp.slice(0,m.index)+" ".repeat(m[0].length)+temp.slice(m.index+m[0].length); }
+  let reM=/(\d+)\s*min(?:utes?)?\b/gi;
+  while(m=reM.exec(temp)){ list.push({sec:parseInt(m[1])*60,text:`${m[1]} min`}); temp=temp.slice(0,m.index)+" ".repeat(m[0].length)+temp.slice(m.index+m[0].length); }
+  let reSR=/(\d+)\s*-\s*(\d+)\s*s(?:ec)?\b/gi;
+  while(m=reSR.exec(temp)){ list.push({sec:parseInt(m[2]),text:`${m[2]} s`}); temp=temp.slice(0,m.index)+" ".repeat(m[0].length)+temp.slice(m.index+m[0].length); }
+  let reS=/(\d+)\s*s(?:ec)?\b/gi;
+  while(m=reS.exec(temp)){ list.push({sec:parseInt(m[1]),text:`${m[1]} s`}); temp=temp.slice(0,m.index)+" ".repeat(m[0].length)+temp.slice(m.index+m[0].length); }
+  return list;
+}
 
 /* ---- stockage local (favoris + notes) ---- */
 const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
@@ -1887,8 +1902,8 @@ function openRecipe(i){
     let stepsHtml;
     if(stepMode){
       stepsHtml=`<ul class="csteps">`+r.etapes.map((x,n)=>{
-        const sec=parseDur(x);
-        const btn=sec?`<button class="tbtn" data-sec="${sec}" data-lab="Étape ${n+1}">▶ ${sec>=60?Math.round(sec/60)+' min':sec+' s'}</button>`:'';
+        const durs=parseAllDurs(x);
+        const btn=durs.map(d=>`<button class="tbtn" data-sec="${d.sec}" data-lab="Étape ${n+1} (${d.text})">▶ ${d.text}</button>`).join(" ");
         return `<li class="cstep"><label><input type="checkbox" class="ck"><span>${x}</span></label>${btn}</li>`;
       }).join("")+`</ul>`;
     } else {
