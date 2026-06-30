@@ -47,7 +47,35 @@ L'onglet **Données** vous permet de :
 Avant de publier des modifications sur les recettes ou le code, exécutez le script d'audit des données :
 
 ```bash
-node scripts/audit-data.js
+node scripts/extract-data.js   # rafraîchit data/recipes.json depuis index.html
+node scripts/audit-data.js     # contrôle conformité, doublons, modes, allergènes
+node --test 'tests/*.test.js'  # exécute la suite de tests (Node natif)
 ```
 
 Ce script contrôle la conformité des schémas de données, l'absence de doublons de noms, la compatibilité des modes de cuisson Kamado, la détection des allergènes, piquant et saisons.
+
+---
+
+## 📦 Schéma des recettes
+
+Chaque recette respecte un schéma de base (`nom`, `categorie`, `ingredients`, `etapes`, `cuisson`, `temps`, `tempK`, `astuce`) et peut, depuis la **v1.1.0**, s'enrichir de champs optionnels pour les cuissons longues ou techniques :
+
+| Champ | Type | Usage |
+|-------|------|-------|
+| `phases` | `[{name, mode, temp_C, duration_min, action}]` | Timeline structurée (fumage → wrap → repos) |
+| `wrap` | `{at_temp_coeur_C, materiau, apres}` | Texas crutch : papier boucher / alu |
+| `brine` | `{hours, recette}` | Saumure sèche ou humide |
+| `marinade_h` | `number` | Durée de marinade en heures |
+| `repos_min` | `number` | Repos avant tranche (carryover) |
+| `charbon_kg` | `number` | Charge charbon estimée |
+| `difficulty` | `1..5` | Niveau (1 = facile, 5 = expert) |
+| `vents` | `{bottom, top}` | Réglage évents kamado |
+| `equipement` | `string[]` | Matériel spécifique (sonde, papier, glacière) |
+| `substitutions` | `string[]` | Alternatives d'ingrédients |
+| `erreurs` | `string[]` | Pièges classiques à éviter |
+| `notes_securite` | `string[]` | Hygiène, températures cibles, allergènes critiques |
+| `source` | `string` | Référence (Aaron Franklin, Meathead, etc.) |
+
+Tous ces champs sont **optionnels** et rétrocompatibles. Le rendu côté UI (`renderRichSchema` dans `index.html`) ne génère un bloc que si le champ est présent.
+
+**Couverture v1.1.0** : 206 / 206 recettes de cuisson enrichies (34 hand-authored + 172 dérivés mécaniquement).
