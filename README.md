@@ -25,3 +25,13 @@ L'onglet `Données` permet aussi de générer un code ou un lien de transfert. E
 - `Recettes` : cuissons kamado uniquement.
 - `Menus` : génération d'un menu complet autour d'une cuisson kamado.
 - `Bases` : sauces, rubs et marinades utiles, séparés des recettes principales.
+
+Chaque fiche recette affiche une sauce associée. Les nouvelles recettes peuvent définir leur sauce directement ; les anciennes bénéficient d'une suggestion automatique selon la famille de cuisson et les ingrédients.
+
+## Améliorations envisagées
+
+- Mode saison : été, automne, hiver, fêtes.
+- Liste de courses groupée pour un menu complet.
+- Échelle de piquant et allergènes.
+- Historique des dernières recettes consultées.
+- Impression PDF propre pour cuisiner sans téléphone.
