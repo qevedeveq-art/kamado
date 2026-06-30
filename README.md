@@ -28,6 +28,8 @@ L'onglet `Données` permet aussi de générer un code ou un lien de transfert. E
 
 Les fiches affichent une ou plusieurs sauces uniquement quand c'est pertinent. Les nouvelles recettes peuvent définir leurs sauces directement ; les anciennes bénéficient d'une suggestion automatique selon la famille de cuisson et les ingrédients, ou n'affichent rien si une sauce n'apporte pas de valeur.
 
+La recherche d'ingrédients accepte aussi les exclusions : `poulet citron -gluten -porc` conserve les recettes contenant poulet/citron et retire celles qui mentionnent gluten ou porc.
+
 ## Améliorations envisagées
 
 - Filtres saisonniers : printemps, été, automne, hiver/fêtes.
@@ -42,3 +44,13 @@ Les fiches affichent une ou plusieurs sauces uniquement quand c'est pertinent. L
 - Notation personnelle des recettes.
 - Planification de cuisson multi-plats avec rappels.
 - Export PDF d'un menu complet.
+
+## Vérification qualité
+
+Avant publication :
+
+```bash
+node scripts/audit-data.js
+```
+
+Le script contrôle les champs obligatoires, doublons, catégories, méthodes de cuisson compatibles kamado, saisons, piquant, allergènes et suggestions de sauces.

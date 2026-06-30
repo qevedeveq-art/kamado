@@ -398,7 +398,7 @@ header{background:linear-gradient(180deg,rgba(29,32,25,.97),rgba(20,22,17,.96));
 <section id="tab-recettes">
   <div class="chips" id="chips"></div>
   <div id="filterbar"></div>
-  <div class="ingredientbar"><input id="have" type="search" placeholder="J'ai ces ingrédients : poulet citron thym…" autocomplete="off"></div>
+  <div class="ingredientbar"><input id="have" type="search" placeholder="J'ai : poulet citron thym · exclure : -porc -gluten" autocomplete="off"></div>
   <div class="historybar" id="historybar"></div>
   <div class="count" id="count"></div>
   <div class="grid" id="grid"></div>
@@ -1312,6 +1312,80 @@ astuce:"Choisissez des pêches fermes : trop mûres, elles se défont sur la gri
 ings:["180 g chocolat noir","120 g beurre","120 g sucre","3 œufs","70 g farine","Noix de pécan"],
 etapes:["Faites fondre chocolat et beurre, ajoutez sucre, œufs puis farine.","Versez dans une poêle fonte beurrée, ajoutez noix de pécan.","Cuisez en indirect à 175 °C.","Sortez quand les bords sont pris et le centre encore fondant.","Servez tiède avec sauce chocolat café."],
 astuce:"Le brownie continue de cuire dans la fonte hors du feu : sortez-le un peu tremblotant au centre."},
+
+/* ===== AJOUTS v8 — RECETTES KAMADO SUPPLÉMENTAIRES QUALIFIÉES ===== */
+{cat:"boeuf",nom:"Côte de bœuf caveman sur braises",ori:"USA · saisie primitive contrôlée",pour:"4 pers",mode:"Direct sur braises puis indirect",tempK:"braises vives puis 140 °C",coeur:"52–55 °C",temps:"35–45 min",bois:"Chêne",tags:"cote boeuf caveman braises direct reverse sear",sauce:"Beurre maître d'hôtel ou chimichurri",
+ings:["1 côte de bœuf de 1,2 kg","Gros sel, poivre noir","Huile neutre","Beurre maître d'hôtel"],
+etapes:["Séchez parfaitement la côte, salez 1 h avant cuisson.","Soufflez les cendres des braises et posez la viande directement dessus, 60–90 s par face.","Brossez les éventuelles poussières de charbon.","Finissez en indirect à 140 °C jusqu'à 52–55 °C à cœur.","Repos 12 min, poivre et beurre maître d'hôtel."],
+astuce:"La méthode caveman ne donne pas un goût de cendre si les braises sont propres et bien rouges. Ne la tentez jamais sur charbon traité ou briquettes."},
+{cat:"boeuf",nom:"Burnt ends de poitrine de bœuf",ori:"Kansas City · cubes confits fumés",pour:"6 pers",mode:"Fumage indirect",tempK:"115 °C puis 135 °C",coeur:"95 °C",temps:"8–10 h",bois:"Chêne + cerisier",tags:"burnt ends brisket boeuf kansas fumage",sauce:"Sauce BBQ épaisse + jus de cuisson réduit",
+ings:["1 pointe de brisket (point) de 2 kg","Rub sel-poivre-paprika","Beurre, cassonade, miel","Sauce BBQ maison"],
+etapes:["Assaisonnez la pointe de brisket et fumez à 115 °C jusqu'à 75 °C à cœur.","Emballez jusqu'à tendreté, puis coupez en cubes de 3 cm.","Placez les cubes en barquette avec beurre, miel, cassonade et BBQ.","Remettez en indirect à 135 °C, non couvert, 1 h 30–2 h.","Servez quand les cubes sont collants, sombres et fondants."],
+astuce:"Les burnt ends exigent une pièce grasse : avec du plat de brisket trop maigre, le résultat sera sec."},
+{cat:"porc",nom:"Poitrine de porc miso-érable en cubes",ori:"Japon/Canada · cubes fumés umami",pour:"6 pers",mode:"Fumage indirect",tempK:"120 °C puis 150 °C",coeur:"fondants",temps:"3 h 30–4 h",bois:"Pommier",tags:"poitrine porc miso erable cubes fumage umami",sauce:"Laque miso-érable, soja et vinaigre de riz",
+ings:["1,5 kg de poitrine de porc sans couenne en cubes","Miso blanc, sirop d'érable, sauce soja","Gingembre, ail","Vinaigre de riz"],
+etapes:["Coupez la poitrine en cubes réguliers et enrobez légèrement de miso-soja-gingembre.","Fumez les cubes sur grille à 120 °C pendant 2 h.","Transférez en barquette avec sirop d'érable, ail et un trait de vinaigre de riz.","Couvrez 45 min à 150 °C, puis découvrez 30–45 min pour glacer.","Servez quand chaque cube est brillant, collant et fondant."],
+astuce:"Le miso sale vite : dosez légèrement au départ et ajustez la laque en fin de cuisson."},
+{cat:"porc",nom:"Filet mignon farci chorizo-manchego",ori:"Espagne · porc roulé fumé",pour:"4 pers",mode:"Indirect puis direct",tempK:"160 °C puis 240 °C",coeur:"63 °C",temps:"35–45 min",bois:"Cerisier",tags:"filet mignon porc farci chorizo manchego espagne",sauce:"Crème poivron grillé-paprika",
+ings:["2 filets mignons de porc","Chorizo doux en fines tranches","Manchego ou brebis sec","Paprika fumé, huile, sel"],
+etapes:["Ouvrez les filets en portefeuille, garnissez de chorizo et fromage.","Ficelez, huilez et assaisonnez au paprika.","Cuisez en indirect à 160 °C avec cerisier jusqu'à 58 °C à cœur.","Saisissez rapidement en direct pour colorer.","Sortez à 63 °C, repos 8 min, tranchez épais."],
+astuce:"Le fromage doit être ferme et peu aqueux pour rester dans la farce au lieu de couler."},
+{cat:"volaille",nom:"Canard entier laqué orange-soja",ori:"France/Asie · peau brillante",pour:"4 pers",mode:"Indirect puis direct",tempK:"170 °C puis 240 °C",coeur:"74 °C cuisse",temps:"1 h 30–1 h 45",bois:"Cerisier",tags:"canard entier laqué orange soja kamado",sauce:"Réduction orange-soja-miel au jus de canard",
+ings:["1 canard de 2 kg","Laque : jus d'orange, soja, miel, gingembre","Sel, poivre","Orange en quartiers"],
+etapes:["Piquez légèrement la peau sans entamer la chair, salez la veille si possible.","Cuisez en indirect à 170 °C avec lèchefrite, poitrine vers le haut.","Badigeonnez de laque toutes les 20 min après la première heure.","Montez à 240 °C en fin pour tendre et colorer la peau.","Repos 15 min, servez avec réduction orange-soja."],
+astuce:"Récupérez le gras dans la lèchefrite : il est parfait pour des pommes de terre au kamado."},
+{cat:"volaille",nom:"Yakitori de cuisses de poulet",ori:"Japon · brochettes laquées",pour:"4 pers",mode:"Direct",tempK:"230–250 °C",coeur:"78 °C",temps:"10–12 min",bois:"—",tags:"yakitori poulet cuisse brochette tare japon",sauce:"Tare yakitori soja-mirin-saké",
+ings:["700 g de hauts de cuisse désossés","Cébettes en tronçons","Sauce tare","Sésame"],
+etapes:["Coupez le poulet en morceaux de 3 cm et alternez avec cébettes sur brochettes.","Grille directe à 240 °C, tournez souvent.","Cuisez 8 min avant de laquer.","Laquez 2–3 fois sur les 3 dernières minutes.","Sortez à 78 °C, sésame au service."],
+astuce:"Les hauts de cuisse sont plus adaptés que le blanc : ils restent juteux malgré la cuisson directe."},
+{cat:"agneau",nom:"Méchoui d'épaule d'agneau effilochée",ori:"Maghreb · épices et fumée douce",pour:"6 pers",mode:"Fumage indirect puis braisé",tempK:"130 °C puis 150 °C",coeur:"92 °C",temps:"5–6 h",bois:"Olivier",tags:"mechoui epaule agneau effiloche fumage braise",sauce:"Chermoula citronnée ou yaourt menthe-cumin",
+ings:["1 épaule d'agneau de 2 kg","Ras-el-hanout, cumin, paprika, ail","Huile d'olive, citron","Bouillon"],
+etapes:["Frottez l'épaule avec huile, citron, ail et épices.","Fumez en indirect à 130 °C pendant 2 h.","Placez en cocotte avec un fond de bouillon, couvrez.","Braisez à 150 °C jusqu'à 92 °C, chair effilochable.","Effilochez dans le jus réduit, servez avec chermoula."],
+astuce:"Le passage à découvert construit le goût fumé, la cocotte garantit ensuite le fondant."},
+{cat:"agneau",nom:"Brochettes d'agneau zaatar-citron",ori:"Levant · grillade aromatique",pour:"4 pers",mode:"Direct",tempK:"250 °C",coeur:"58–62 °C",temps:"8–10 min",bois:"—",tags:"brochettes agneau zaatar citron levant",sauce:"Labneh citronné, menthe et sumac",
+ings:["800 g d'épaule d'agneau en cubes","Zaatar, ail, citron, huile d'olive","Oignon rouge","Labneh ou yaourt grec"],
+etapes:["Marine l'agneau 3 h avec zaatar, citron, ail et huile.","Montez en brochettes avec oignon rouge.","Grille directe à 250 °C, tournez toutes les 2 min.","Sortez rosé à 58–62 °C selon goût.","Servez avec labneh citronné et sumac."],
+astuce:"Le zaatar brûle si la flamme lèche les brochettes : couvercle fermé et braises régulières."},
+{cat:"poisson",nom:"Tacos de poisson croustillant sur plancha",ori:"Baja California · poisson grillé",pour:"4 pers",mode:"Direct sur plaque",tempK:"240 °C",coeur:"58 °C",temps:"8–10 min",bois:"—",tags:"tacos poisson baja plaque chou citron vert",sauce:"Crème citron vert-chipotle",
+ings:["700 g de cabillaud ou lieu en gros bâtons","Épices : cumin, paprika, ail, sel","Tortillas de maïs","Chou émincé, citron vert"],
+etapes:["Assaisonnez le poisson et huilez légèrement.","Chauffez une plaque fonte à 240 °C.","Saisissez le poisson 3–4 min par face sans trop le bouger.","Réchauffez les tortillas sur la grille.","Garnissez avec chou, poisson et crème citron vert-chipotle."],
+astuce:"La plaque évite au poisson fragile de casser entre les barreaux et donne une croûte nette."},
+{cat:"poisson",nom:"Huîtres gratinées au kamado",ori:"Atlantique · entrée iodée",pour:"4 pers",mode:"Indirect très chaud",tempK:"240 °C",coeur:"gratinées",temps:"6–8 min",bois:"—",tags:"huitres gratinees kamado beurre persil entree",sauce:"Beurre ail-persil-citron",
+ings:["24 huîtres ouvertes","Beurre mou","Ail, persil, citron","Chapelure fine"],
+etapes:["Ouvrez les huîtres et videz la première eau.","Déposez une noisette de beurre ail-persil et une pincée de chapelure.","Placez sur grille ou lit de gros sel dans un plat.","Cuisez en indirect très chaud 6–8 min, couvercle fermé.","Servez dès que le beurre bouillonne et gratine."],
+astuce:"Stabilisez les coquilles sur gros sel pour ne pas perdre le jus pendant la cuisson."},
+{cat:"legumes",nom:"Endives braisées au kamado",ori:"Nord de la France · amer-doux fumé",pour:"4 pers",mode:"Braisé indirect",tempK:"180 °C",coeur:"fondantes",temps:"35–45 min",bois:"Hêtre léger",tags:"endives braisees legumes hiver kamado",sauce:"Jus beurre-orange-moutarde",
+ings:["8 endives","Beurre, huile","Orange, moutarde à l'ancienne","Sel, poivre"],
+etapes:["Coupez les endives en deux et colorez-les en direct dans une poêle fonte.","Ajoutez beurre, jus d'orange, moutarde, sel et poivre.","Passez en indirect à 180 °C, couvercle du plat entrouvert.","Braisez 30–35 min jusqu'à fondant.","Réduisez le jus et nappez."],
+astuce:"Une légère amertume est normale : l'orange et le beurre l'arrondissent sans la masquer."},
+{cat:"legumes",nom:"Betteraves rôties en croûte de sel",ori:"Végétal · cuisson douce fumée",pour:"4 pers",mode:"Indirect",tempK:"190 °C",coeur:"tendres",temps:"1 h–1 h 15",bois:"Pommier léger",tags:"betterave croute sel vegetarien legumes",sauce:"Crème raifort-yaourt ou tahini citron",
+ings:["6 betteraves moyennes","Gros sel","Thym","Huile d'olive"],
+etapes:["Brossez les betteraves sans les peler.","Posez-les sur un lit de gros sel avec thym.","Cuisez en indirect à 190 °C jusqu'à tendreté.","Laissez tiédir, pelez à la main.","Servez en quartiers avec crème raifort ou tahini citron."],
+astuce:"La croûte de sel concentre le goût terreux-sucré sans rendre la betterave aqueuse."},
+{cat:"vegetarien",nom:"Céleri-rave entier rôti comme une pièce",ori:"Végétarien · centre de table",pour:"4 pers",mode:"Indirect",tempK:"180 °C",coeur:"fondant",temps:"1 h 30–2 h",bois:"Hêtre léger",tags:"celeri rave entier roti vegetarien vegan",sauce:"Sauce tahini-citron, câpres et herbes",
+ings:["1 céleri-rave entier brossé","Huile d'olive","Sel, poivre, thym","Câpres, herbes"],
+etapes:["Brossez le céleri-rave, piquez-le à plusieurs endroits.","Huilez, salez, poivrez et enveloppez lâchement dans papier cuisson puis alu.","Cuisez en indirect à 180 °C pendant 1 h 15.","Ouvrez l'emballage et poursuivez 20–30 min pour sécher la peau.","Découpez en quartiers, sauce tahini-citron."],
+astuce:"Le céleri-rave se sert comme une pièce rôtie : tranche épaisse, sauce vive, garniture croquante."},
+{cat:"vegetarien",nom:"Quesadillas légumes fumés",ori:"Mexique/fusion · végétarien rapide",pour:"4 pers",mode:"Direct sur plaque",tempK:"220 °C",coeur:"fromage fondu",temps:"10–12 min",bois:"—",tags:"quesadilla vegetarien legumes fromage plaque",sauce:"Salsa roja ou crème citron vert-coriandre",
+ings:["8 tortillas","Poivrons et oignons grillés","Fromage râpé","Haricots noirs, coriandre"],
+etapes:["Garnissez les tortillas de légumes grillés, haricots et fromage.","Pliez en demi-lunes.","Cuisez sur plaque fonte à 220 °C, 2–3 min par face.","Le fromage doit fondre et la tortilla devenir croustillante.","Coupez en triangles, servez avec salsa."],
+astuce:"Ne surchargez pas : une quesadilla trop épaisse chauffe mal et se retourne difficilement."},
+{cat:"pizza",nom:"Pizza blanche poire-gorgonzola-noix",ori:"Italie/fusion · sucré-salé",pour:"2 pizzas",mode:"Direct sur pierre",tempK:"320–350 °C",coeur:"pâte soufflée",temps:"2–4 min par pizza",bois:"—",tags:"pizza blanche poire gorgonzola noix pierre",sauce:"Base crème légère au poivre",
+ings:["2 pâtons à pizza","Crème fraîche légère","Gorgonzola","Poire fine en lamelles","Noix, roquette"],
+etapes:["Chauffez la pierre à 330 °C au moins 30 min.","Étalez la pâte, base crème, gorgonzola et poire.","Enfournez sur pierre 2–4 min en tournant si besoin.","Ajoutez noix et roquette après cuisson.","Servez immédiatement."],
+astuce:"Les lamelles de poire doivent être très fines pour cuire en quelques minutes sans détremper la pâte."},
+{cat:"pizza",nom:"Lahmacun agneau épicé",ori:"Turquie · pizza fine à rouler",pour:"4 pièces",mode:"Direct sur pierre",tempK:"300 °C",coeur:"pâte croustillante",temps:"3–5 min pièce",bois:"—",tags:"lahmacun turquie agneau pizza fine pierre",sauce:"Yaourt citron-ail et persil",
+ings:["4 pâtons très fins","300 g agneau haché","Tomate, poivron, oignon, ail","Paprika, cumin, piment doux","Persil, citron"],
+etapes:["Mixez tomate, poivron, oignon et épices, mélangez avec l'agneau.","Étalez une couche très fine sur les pâtons.","Cuisez sur pierre à 300 °C, 3–5 min.","La pâte doit croustiller, la viande rester juteuse.","Servez roulé avec persil, citron et yaourt ail."],
+astuce:"La couche de viande doit être fine comme une tartinade : sinon elle rend trop d'eau."},
+{cat:"dessert",nom:"Abricots rôtis romarin-amande",ori:"Été · fruit rapide au feu",pour:"4 pers",mode:"Direct puis indirect",tempK:"210 °C",coeur:"fondants",temps:"8–10 min",bois:"—",tags:"abricots rotis dessert romarin amande ete",
+ings:["12 abricots mûrs mais fermes","Miel","Romarin","Amandes effilées","Yaourt grec ou glace"],
+etapes:["Coupez les abricots en deux et retirez les noyaux.","Marquez côté chair 1–2 min en direct.","Passez en indirect avec miel et romarin 5–6 min.","Torréfiez les amandes quelques secondes sur plaque.","Servez tiède avec yaourt grec ou glace."],
+astuce:"Les abricots doivent rester fermes au départ : trop mûrs, ils s'écrasent au retournement."},
+{cat:"dessert",nom:"Cobbler fruits rouges en fonte",ori:"USA · dessert de partage",pour:"6 pers",mode:"Indirect",tempK:"180 °C",coeur:"bouillonnant",temps:"30–35 min",bois:"—",tags:"cobbler fruits rouges dessert fonte kamado",
+ings:["700 g fruits rouges","80 g sucre","Pâte : farine, sucre, levure, beurre, lait","Vanille, citron"],
+etapes:["Mélangez les fruits avec sucre, vanille et citron dans une poêle fonte.","Déposez la pâte à cobbler en grosses cuillerées dessus.","Cuisez en indirect à 180 °C.","Sortez quand les fruits bouillonnent et la pâte est dorée.","Repos 10 min avant service."],
+astuce:"Placez une lèchefrite sous la poêle si elle est très remplie : les fruits peuvent déborder en bouillonnant."},
 ];
 
 /* ================= GUIDE ================= */
@@ -1725,8 +1799,11 @@ function matches(r){
   if(curQ&&!haystack(r).includes(norm(curQ)))return false;
   if(curHave){
     const h=haystack(r);
-    const wanted=norm(curHave).split(/[,\s]+/).filter(Boolean);
+    const terms=norm(curHave).split(/[,\s]+/).filter(Boolean);
+    const wanted=terms.filter(x=>!x.startsWith("-"));
+    const excluded=terms.filter(x=>x.startsWith("-")).map(x=>x.slice(1)).filter(Boolean);
     if(wanted.length&&!wanted.every(x=>h.includes(x)))return false;
+    if(excluded.some(x=>h.includes(x)))return false;
   }
   return true;
 }
