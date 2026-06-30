@@ -12,7 +12,7 @@ Application web progressive (PWA) de recettes, d'assistance et de planification 
 
 L'application a été enrichie d'outils interactifs avancés pour offrir une expérience culinaire de premier ordre :
 
-*   **📖 Livre de Recettes Premium &amp; Bases** : 219 recettes classées par familles (Bœuf, Porc, Volaille, Agneau, Poissons, Légumes, Pizzas, Desserts, Sauces &amp; Rubs). Moteur de recherche avancé avec inclusions et exclusions (ex: `poulet citron -gluten`).
+*   **📖 Livre de Recettes Premium &amp; Bases** : 206 recettes de cuisson et 21 bases classées par familles (Bœuf, Porc, Volaille, Agneau, Poissons, Légumes, Pizzas, Desserts, Sauces &amp; Rubs). Moteur de recherche avancé avec inclusions et exclusions (ex: `poulet citron -gluten`).
 *   **📅 Planificateur de Session BBQ (Timeline)** : Indiquez simplement votre heure de repas cible (ex: 13h00) et ajoutez vos recettes. L'application calcule à rebours et planifie chaque étape de votre journée (allumage, stabilisation, enfournement de chaque plat selon sa durée, repos des viandes).
 *   **📈 Simulateur de Cuisson Low &amp; Slow** : Visualisez graphiquement l'évolution de la température à cœur de votre viande (Pulled Pork, Brisket, Ribs 3-2-1) sur un graphique SVG interactif modélisant la phase de plateau (*stall*).
 *   **🔥 Calculateur de Charbon &amp; Bois** : Obtenez des estimations précises sur la quantité de charbon requise, l'essence et le nombre de morceaux de bois de fumage (*chunks*) ainsi que le réglage de départ des évents selon votre type de viande et le mode de cuisson.

@@ -716,7 +716,10 @@ td b { color: #fff; }
   .chips { flex-wrap: wrap; overflow: visible; justify-content: flex-start; mask-image: none; -webkit-mask-image: none; }
   #filterbar { padding-top: 12px; }
   
-  .quickstats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 12px 16px 4px; }
+  .quickstats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 12px 16px 4px; max-width: 1120px; margin: 0 auto; }
+  .qstat { display: flex; align-items: baseline; justify-content: center; gap: 4px; color: var(--muted); }
+  .qstat b { color: var(--txt); font-size: 16px; }
+  .qstat span { font-size: 13px; }
   
   .grid { padding: 16px 20px 60px; gap: 18px; }
   .rc { padding: 18px 20px; }
