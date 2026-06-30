@@ -7792,5 +7792,812 @@
       ],
       "allergens": []
     }
+  },
+  {
+    "cat": "boeuf",
+    "nom": "Picanha au sel de gros (churrasco)",
+    "ori": "Brésil · capello da padre saisi sur braises",
+    "pour": "4–5 pers",
+    "mode": "Direct",
+    "tempK": "280 °C grille",
+    "coeur": "54 °C (saignant)",
+    "temps": "8–10 min direct + 10 min repos",
+    "bois": "Chêne ou aucune chip (braises pures)",
+    "tags": "picanha churrasco bresil sel gros gras croustillant",
+    "sauce": "Chimichurri argentin",
+    "ings": [
+      "1 picanha de 1,2 kg avec sa coiffe de gras (2 cm)",
+      "2 c. à s. de gros sel gris",
+      "Poivre du moulin (optionnel — au Brésil, sel seul)",
+      "Huile neutre pour la grille"
+    ],
+    "etapes": [
+      "Sortez la picanha 1 h avant. Coiffe de gras vers le haut, incisez le gras en croisillons sans toucher la chair.",
+      "Salez très généreusement les 2 faces au gros sel, tapotez. Laissez 30 min à T° ambiante.",
+      "Allumez ~1,5 kg de charbon en cheminée. Lit de braises uniforme, grille fonte huilée placée 10 cm au-dessus.",
+      "Posez côté gras d'abord, saisissez 4 min à feu vif jusqu'à dorure profonde et crépitement du gras.",
+      "Retournez, 3–4 min côté chair. Plantez la sonde au cœur du muscle (pas dans le gras).",
+      "Sortez à 50–51 °C (le repos + saisie marginale ajoutent 3–4 °C). Repos 10 min sous alu très lâche.",
+      "Tranchez en biais contre le grain, en lamelles épaisses 1,5 cm. Servez avec chimichurri."
+    ],
+    "astuce": "La signature picanha = caramélisation extrême de la coiffe grasse. Ne piquez jamais le gras avec une fourchette : utilisez une pince. Saler au gros sel 30 min avant (et non plus tôt) évite l'effet osmose qui assèche.",
+    "difficulty": 2,
+    "charbon_kg": 1.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "ouvert grand",
+      "top": "3/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Saisie direct",
+        "mode": "direct",
+        "temp_C": 280,
+        "duration_min": 8,
+        "action": "Saisir d'abord côté gras 4 min, puis 3–4 min côté chair. Surveiller à la sonde."
+      }
+    ],
+    "equipement": [
+      "Grille fonte",
+      "Sonde à viande",
+      "Pince longue (jamais de fourchette)"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Picanha entière 1,2 kg",
+        "par": "À défaut, rumsteck avec couvercle gras laissé sur place — demander au boucher 'cap of rump'"
+      },
+      {
+        "ingredient": "Gros sel gris",
+        "par": "Fleur de sel brute, ou sel de Guérande — éviter sel fin qui sur-sale"
+      }
+    ],
+    "erreurs": [
+      "Trop saler trop tôt (>1h) : la viande perd ses jus → saler max 30 min avant cuisson, jamais la veille",
+      "Sortir trop tard à 60 °C : la picanha durcit → la sonde fait foi, sortez à 50 °C max pour viser 54 °C après repos",
+      "Couper dans le sens du grain : la viande devient filandreuse → trancher perpendiculairement aux fibres"
+    ],
+    "_derived": {
+      "spice": "Doux",
+      "season": "toute",
+      "sauces": [
+        "Chimichurri argentin"
+      ],
+      "allergens": [
+        "œuf"
+      ]
+    }
+  },
+  {
+    "cat": "boeuf",
+    "nom": "Tomahawk reverse-sear",
+    "ori": "USA · côte à os long de 5 cm d'épaisseur",
+    "pour": "3–4 pers",
+    "mode": "Indirect puis Direct",
+    "tempK": "110 °C indirect puis 350 °C direct",
+    "coeur": "52 °C (saignant)",
+    "temps": "50–70 min indirect + 4 min direct + 12 min repos",
+    "bois": "Hêtre (touche subtile) + chêne",
+    "tags": "tomahawk reverse sear cote a os persillee",
+    "sauce": "Beurre maître d'hôtel échalote-persil",
+    "ings": [
+      "1 tomahawk de 1,2–1,4 kg (5 cm d'épaisseur, manche 20 cm)",
+      "Gros sel marin, poivre concassé",
+      "60 g de beurre + 2 échalotes ciselées + 1 botte de persil plat haché",
+      "2 gousses d'ail en chemise écrasées",
+      "Branches de thym frais"
+    ],
+    "etapes": [
+      "Sortez la viande 90 min avant. Séchez parfaitement, salez généreusement sur les 2 faces et la tranche.",
+      "Préparez le kamado en indirect : pierre déflectrice en place, sonde d'ambiance à 110 °C, copeaux de hêtre déposés sur charbon allumé.",
+      "Posez la côte loin du foyer, sonde de cœur dans le muscle central (pas contre l'os, pas dans le gras).",
+      "Cuisez très lentement jusqu'à 47 °C à cœur (45–60 min selon épaisseur). La surface doit être sèche au toucher.",
+      "Retirez la viande ET la pierre. Ouvrez les évents en grand pour monter à 350 °C (braises vives).",
+      "Saisissez 90 s par face directement sur la grille, plus la tranche grasse 60 s.",
+      "Arrosez de beurre fondu + thym + ail à la spatule pendant les 30 dernières secondes.",
+      "Repos 12 min sous alu lâche. Tranchez perpendiculairement à l'os, servez avec le beurre maître d'hôtel."
+    ],
+    "astuce": "Le reverse-sear inverse l'ordre classique : la chaleur basse et constante donne une cuisson rose 'edge-to-edge' sans anneau gris. Le secret : sortir à 47 °C avant la saisie car celle-ci ajoute 4–5 °C et le repos 2–3 °C.",
+    "difficulty": 3,
+    "charbon_kg": 2,
+    "repos_min": 12,
+    "vents": {
+      "bottom": "1/4 ouvert (phase 1)",
+      "top": "1/4 ouvert (phase 1) puis ouvert grand (phase 2)"
+    },
+    "wrap": null,
+    "phases": [
+      {
+        "name": "Cuisson indirecte",
+        "mode": "indirect",
+        "temp_C": 110,
+        "duration_min": 60,
+        "action": "Pierre déflectrice, sonde dans muscle central. Sortir à 47 °C à cœur."
+      },
+      {
+        "name": "Saisie direct",
+        "mode": "direct",
+        "temp_C": 350,
+        "duration_min": 4,
+        "action": "Retirer pierre, monter à fond. 90 s par face + 60 s sur tranche grasse, arroser au beurre/thym/ail."
+      }
+    ],
+    "equipement": [
+      "Pierre céramique déflectrice",
+      "Sonde 2 canaux (ambiance + cœur)",
+      "Grille fonte",
+      "Gant haute température (manche de l'os)"
+    ],
+    "source": "Méthode reverse-sear popularisée par J. Kenji López-Alt (Serious Eats)",
+    "substitutions": [
+      {
+        "ingredient": "Tomahawk 1,2 kg",
+        "par": "Côte de bœuf classique d'égale épaisseur — la méthode reverse-sear est identique"
+      },
+      {
+        "ingredient": "Bois de hêtre",
+        "par": "Chêne, ou aucun (le bœuf de qualité n'a pas besoin de beaucoup de fumée)"
+      }
+    ],
+    "erreurs": [
+      "Sonde plantée contre l'os : lecture faussée vers le bas → planter dans la partie la plus épaisse du muscle, à 2 cm de l'os",
+      "Saisie trop longue : la viande grise jusqu'à 1 cm → 90 s max par face, ne JAMAIS dépasser 2 min",
+      "Pas de repos après la saisie : les jus s'écoulent → 12 min minimum sous alu lâche (jamais hermétique)"
+    ],
+    "_derived": {
+      "spice": "Doux",
+      "season": "toute",
+      "sauces": [
+        "Beurre maître d'hôtel échalote-persil"
+      ],
+      "allergens": [
+        "lait",
+        "œuf"
+      ]
+    }
+  },
+  {
+    "cat": "boeuf",
+    "nom": "Pastrami fumé maison (saumure 7 jours)",
+    "ori": "USA / NYC · poitrine saumurée fumée et étuvée",
+    "pour": "8–10 pers",
+    "mode": "Fumage indirect + vapeur",
+    "tempK": "110 °C fumage puis 95 °C vapeur",
+    "coeur": "96 °C (collagène fondu)",
+    "temps": "7 j saumure + 6–8 h fumage + 2 h vapeur + 1 h repos",
+    "bois": "Chêne + cerisier (mélange équilibré)",
+    "tags": "pastrami fumage saumure poitrine bœuf nyc",
+    "sauce": "Moutarde brune piquante (style Katz's)",
+    "ings": [
+      "1 poitrine de bœuf (brisket flat) de 2,5 kg parée, gras laissé sur 5 mm",
+      "SAUMURE (pour 4 L d'eau) : 320 g de sel fin non iodé, 15 g de sel rose #1 (nitrité 0,6%), 180 g de cassonade, 6 feuilles de laurier, 2 c. à s. de baies de coriandre concassées",
+      "CROÛTE D'ÉPICES : 4 c. à s. de poivre noir concassé grossier, 4 c. à s. de coriandre concassée, 2 c. à s. d'ail granulé, 1 c. à s. de paprika fumé",
+      "Glace pour refroidir la saumure"
+    ],
+    "etapes": [
+      "JOUR 1 : Faites bouillir 1 L d'eau avec sel fin, sel rose, cassonade et épices. Hors feu, ajoutez 3 L d'eau glacée. Vérifiez T° saumure < 4 °C avant immersion.",
+      "Immergez la poitrine dans la saumure dans un récipient non-réactif (verre/inox). Lestez si elle flotte. Réfrigérateur 4 °C, 7 jours pleins. Retournez tous les 2 jours.",
+      "JOUR 7 : Sortez la viande, rincez 5 min sous eau froide pour retirer l'excès de sel. Test : tranchez 5 mm, faites cuire à la poêle, goûtez — si trop salé, dessalez 1 h supplémentaire dans eau froide.",
+      "Séchez parfaitement, saupoudrez la croûte d'épices uniformément en pressant. Laissez 1 h au frais (pellicle).",
+      "Préparez le kamado : indirect 110 °C, pierre déflectrice, bac d'eau bouillante en dessous. Bois en gros morceaux pour fumage long.",
+      "Posez la poitrine côté gras vers le haut, sonde au cœur du muscle le plus épais. Fumage stable 110 °C, vérifiez bois + braises toutes les 90 min.",
+      "À 71 °C à cœur (~5–6 h), wrappez la viande dans 2 couches de papier boucher. Remettez sur le kamado.",
+      "Continuez jusqu'à 92 °C à cœur (1–2 h). Sortez, transférez dans une cocotte avec 2 cm d'eau bouillante.",
+      "Étuvez à la vapeur (couvercle hermétique) sur le kamado à 95 °C pendant 1 h 30–2 h, jusqu'à ce que la sonde glisse comme dans du beurre à 96 °C.",
+      "Repos 30 min hors cocotte, papier boucher ouvert. Tranchez très finement (2–3 mm) contre le grain, servez sur pain de seigle avec moutarde et cornichons."
+    ],
+    "astuce": "La séquence saumure → fumage → vapeur est ce qui distingue le vrai pastrami du brisket fumé. La vapeur finale fond le collagène restant et hydrate, donnant la texture fondante caractéristique de Katz's. Le sel rose #1 (nitrité) est OBLIGATOIRE pour la couleur rose et la sécurité botulique lors du fumage long < 60 °C.",
+    "difficulty": 5,
+    "charbon_kg": 3.5,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/8 ouvert (110 °C steady)",
+      "top": "1/8 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 71,
+      "materiau": "papier boucher",
+      "apres": "Continuer jusqu'à 92 °C puis vapeur en cocotte"
+    },
+    "brine": {
+      "hours": 168,
+      "recette": "4 L eau, 320 g sel fin, 15 g sel rose #1, 180 g cassonade, épices entières"
+    },
+    "phases": [
+      {
+        "name": "Saumure",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 10080,
+        "action": "Saumure complète immersion 7 jours en réfrigérateur. Retourner tous les 2 jours."
+      },
+      {
+        "name": "Fumage low&slow",
+        "mode": "indirect",
+        "temp_C": 110,
+        "duration_min": 360,
+        "action": "Pierre déflectrice + bac d'eau. Fumage stable jusqu'à 71 °C à cœur."
+      },
+      {
+        "name": "Wrap papier boucher",
+        "mode": "indirect",
+        "temp_C": 110,
+        "duration_min": 90,
+        "action": "Wrapper en 2 couches de papier boucher. Continuer jusqu'à 92 °C."
+      },
+      {
+        "name": "Vapeur en cocotte",
+        "mode": "indirect",
+        "temp_C": 95,
+        "duration_min": 90,
+        "action": "Cocotte avec 2 cm d'eau bouillante. Cuire jusqu'à 96 °C, sonde glisse comme dans du beurre."
+      }
+    ],
+    "equipement": [
+      "Récipient saumure verre/inox 6 L",
+      "Sonde 2 canaux (ambiance + cœur)",
+      "Pierre céramique",
+      "Bac d'eau inox",
+      "Papier boucher (non ciré)",
+      "Cocotte fonte avec couvercle hermétique"
+    ],
+    "source": "Inspiré de la méthode Katz's Delicatessen (New York), adaptée pour kamado par Aaron Franklin (Franklin Barbecue)",
+    "notes_securite": "Le sel rose #1 (nitrite de sodium 0,6%) est OBLIGATOIRE et non substituable par sel ordinaire : il prévient le botulisme lors des longues phases < 60 °C et donne la couleur rose. Dose stricte : 2,5 g par kg de viande, jamais plus. Stocker hors de portée des enfants (toxique pur). Vérifier la T° de la saumure < 4 °C en permanence pendant les 7 jours.",
+    "substitutions": [
+      {
+        "ingredient": "Brisket flat 2,5 kg",
+        "par": "Pointe de poitrine ou plat de côtes — réduire saumure à 5 j si pièce plus fine"
+      },
+      {
+        "ingredient": "Papier boucher",
+        "par": "Papier sulfurisé épais OU papier kraft non blanchi — JAMAIS d'aluminium qui retient trop de vapeur et bouillit la croûte"
+      }
+    ],
+    "erreurs": [
+      "Saumure pas assez froide (>6 °C) : risque sanitaire grave → glaçons supplémentaires, vérification thermomètre",
+      "Oublier le sel rose #1 : botulisme possible + viande grise → indispensable, dose précise à la balance 0,1 g",
+      "Wrapper trop tôt (<65 °C cœur) : pas de bark formée → attendre 71 °C, croûte brun foncé bien sèche",
+      "Sauter la vapeur finale : pastrami sec et filandreux → la vapeur fond le dernier collagène, étape non négociable"
+    ],
+    "_derived": {
+      "spice": "Épicé doux",
+      "season": "toute",
+      "sauces": [
+        "Moutarde brune piquante (style Katz's)"
+      ],
+      "allergens": [
+        "lait",
+        "gluten",
+        "œuf"
+      ]
+    }
+  },
+  {
+    "cat": "porc",
+    "nom": "Porchetta italienne (poitrine roulée 24h)",
+    "ori": "Italie · Lazio · poitrine et longe roulées aux herbes",
+    "pour": "8–10 pers",
+    "mode": "Indirect puis Direct sear",
+    "tempK": "130 °C indirect puis 250 °C direct",
+    "coeur": "71 °C",
+    "temps": "24 h marinade + 3 h indirect + 20 min direct + 20 min repos",
+    "bois": "Olivier ou cerisier",
+    "tags": "porchetta italie poitrine roulee herbes croustillante",
+    "sauce": "Sauce verte italienne (salsa verde)",
+    "ings": [
+      "1 poitrine de porc plate 2 kg avec couenne (idéalement avec longe attachée)",
+      "6 gousses d'ail écrasées au mortier",
+      "2 c. à s. de graines de fenouil",
+      "2 c. à s. de romarin frais haché",
+      "2 c. à s. de sauge fraîche hachée",
+      "Zeste d'1 citron",
+      "2 c. à s. de gros sel marin",
+      "1 c. à c. de poivre noir concassé",
+      "Huile d'olive extra vierge",
+      "Ficelle de cuisine 100% coton"
+    ],
+    "etapes": [
+      "VEILLE : Mortier — pilez ail, fenouil, romarin, sauge, zeste, sel, poivre avec 4 c. à s. d'huile d'olive jusqu'à pâte aromatique.",
+      "Étalez la poitrine côté chair vers le haut. Tartinez généreusement de la pâte d'herbes en massant.",
+      "Roulez serré (couenne à l'extérieur), ficelez tous les 3 cm avec ficelle coton, nœuds serrés.",
+      "Marinade : 24 h au réfrigérateur, ficelle visible, sur grille pour aération de la couenne (qui doit sécher).",
+      "JOUR J : Sortez 90 min avant cuisson. Séchez parfaitement la couenne au papier absorbant. Marquez la couenne en croisillons fins (1 cm).",
+      "Préparez le kamado : indirect 130 °C, pierre déflectrice, bois de cerisier sur charbon.",
+      "Posez la porchetta, sonde au cœur du muscle. Cuisez stable 130 °C jusqu'à 68 °C à cœur (~3 h).",
+      "Retirez la porchetta + la pierre. Ouvrez les évents pour monter à 250 °C.",
+      "Remettez la porchetta 15–20 min en rotation pour faire éclater la couenne — elle doit cloquer et devenir vitreuse.",
+      "Sondez 71 °C. Repos 20 min sous alu lâche. Coupez la ficelle, tranchez en tronçons de 2 cm."
+    ],
+    "astuce": "Le double registre 130 °C → 250 °C est le secret d'une porchetta réussie : la phase lente cuit le porc en gardant les jus, la phase brûlante explose la couenne en chips ultra-croustillantes. Si la couenne ne cloque pas, ouvrez davantage les évents : il faut un coup de chaleur sec, pas humide.",
+    "difficulty": 4,
+    "charbon_kg": 2.5,
+    "marinade_h": 24,
+    "repos_min": 20,
+    "vents": {
+      "bottom": "1/4 ouvert (phase 1) puis ouvert grand (phase 2)",
+      "top": "1/4 ouvert puis ouvert grand"
+    },
+    "phases": [
+      {
+        "name": "Marinade aux herbes",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 1440,
+        "action": "Pâte d'herbes massée puis roulé ficelé, 24 h réfrigéré sur grille pour sécher la couenne."
+      },
+      {
+        "name": "Cuisson indirecte",
+        "mode": "indirect",
+        "temp_C": 130,
+        "duration_min": 180,
+        "action": "Pierre déflectrice, bois de cerisier. Sondez 68 °C à cœur."
+      },
+      {
+        "name": "Soufflage couenne",
+        "mode": "direct",
+        "temp_C": 250,
+        "duration_min": 20,
+        "action": "Retirer pierre, monter en T°. Rotation 1/4 toutes les 5 min jusqu'à cloquage complet et T° cœur 71 °C."
+      }
+    ],
+    "equipement": [
+      "Mortier et pilon",
+      "Ficelle 100% coton",
+      "Pierre céramique",
+      "Sonde à viande",
+      "Cutter pour scarifier la couenne"
+    ],
+    "source": "Tradition lazio (Ariccia, fête médiévale 'Sagra della Porchetta'). Adaptation kamado par Steven Raichlen.",
+    "substitutions": [
+      {
+        "ingredient": "Poitrine 2 kg avec couenne",
+        "par": "Demander au boucher 'poitrine de porc plate à rouler' — éviter poitrine déjà tranchée"
+      },
+      {
+        "ingredient": "Bois d'olivier",
+        "par": "Cerisier, pommier ou hêtre — JAMAIS de résineux (pin, sapin)"
+      },
+      {
+        "ingredient": "Ficelle coton",
+        "par": "Évitez ficelle synthétique qui fond à 250 °C"
+      }
+    ],
+    "erreurs": [
+      "Couenne humide au moment du sear : pas de cloquage → séchage 24 h obligatoire au frigo, séchage final au papier",
+      "Pâte d'herbes mal répartie : zones fades → étaler intégralement, masser dans les recoins",
+      "Trancher tiède : la couenne ramollit → manger immédiatement après 20 min de repos exact"
+    ],
+    "_derived": {
+      "spice": "Doux",
+      "season": "toute",
+      "sauces": [
+        "Sauce verte italienne (salsa verde)"
+      ],
+      "allergens": [
+        "gluten"
+      ]
+    }
+  },
+  {
+    "cat": "monde",
+    "nom": "Char Siu cantonais laqué",
+    "ori": "Hong-Kong / Canton · porc rôti laqué hoisin-miel",
+    "pour": "4–5 pers",
+    "mode": "Indirect + glaçage final",
+    "tempK": "160 °C indirect",
+    "coeur": "68 °C",
+    "temps": "12 h marinade + 35–45 min cuisson + 5 min repos",
+    "bois": "Pommier ou cerisier",
+    "tags": "char siu chine canton porc laque hoisin miel rouge",
+    "sauce": "Laque hoisin-miel-soja",
+    "ings": [
+      "800 g d'échine de porc ou de longe (en bandes de 4 cm × 4 cm × 20 cm)",
+      "MARINADE/LAQUE : 4 c. à s. de sauce hoisin",
+      "2 c. à s. de sauce soja claire",
+      "2 c. à s. de sauce d'huître",
+      "3 c. à s. de miel",
+      "2 c. à s. de vin de Shaoxing (ou xérès sec)",
+      "2 c. à s. de sucre roux",
+      "1 c. à c. de cinq-épices chinois",
+      "2 gousses d'ail râpées",
+      "1 c. à c. de gingembre râpé",
+      "1 c. à c. de pâte de soja fermenté rouge (nam yu) pour la couleur — optionnel",
+      "GLAÇAGE : 3 c. à s. de miel chaud + 2 c. à s. de marinade réservée"
+    ],
+    "etapes": [
+      "Mélangez tous les ingrédients de la marinade dans un grand sac de congélation. Réservez 4 c. à s. pour le glaçage final.",
+      "Ajoutez les bandes de porc, massez et chassez l'air. 12 h au réfrigérateur (idéalement 24 h).",
+      "Préparez le kamado en indirect 160 °C avec pierre déflectrice et bois fruitier.",
+      "Égouttez le porc, gardez la marinade dans un bol. Posez les bandes sur la grille espacées.",
+      "Cuisez 25 min, retournez à mi-cuisson, badigeonnez de marinade tous les 10 min.",
+      "Préparez le glaçage : faites tiédir 3 c. à s. de miel + 2 c. à s. de marinade réservée jusqu'à fluide.",
+      "À 60 °C à cœur, badigeonnez 2 fois de glaçage à 5 min d'intervalle. La surface doit devenir brillante et collante.",
+      "Sortez à 68 °C cœur. Repos 5 min, tranchez perpendiculairement au grain en tranches fines de 5 mm."
+    ],
+    "astuce": "Le char siu authentique se reconnaît à sa surface brillante brun-rouge avec des bords noircis caramélisés. Pour ça, le glaçage au miel doit être appliqué SUR la fin de cuisson, jamais au début (le sucre brûlerait). Le rouge profond vient du nam yu (soja rouge fermenté) — sans, ajoutez 1 goutte de colorant rouge ou de la sauce sriracha.",
+    "difficulty": 2,
+    "marinade_h": 12,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Marinade",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 720,
+        "action": "Sac hermétique, 12 h minimum, idéalement 24 h."
+      },
+      {
+        "name": "Cuisson indirecte",
+        "mode": "indirect",
+        "temp_C": 160,
+        "duration_min": 35,
+        "action": "Pierre déflectrice. Retourner à mi-cuisson, badigeonner toutes les 10 min."
+      },
+      {
+        "name": "Glaçage miel",
+        "mode": "indirect",
+        "temp_C": 160,
+        "duration_min": 10,
+        "action": "Badigeonner 2x de glaçage chaud à 5 min d'intervalle dès que cœur atteint 60 °C."
+      }
+    ],
+    "source": "Cuisine Cha Siu cantonaise — l'authentique se trouve dans les boutiques 'siu mei' de Hong Kong",
+    "substitutions": [
+      {
+        "ingredient": "Pâte de soja rouge fermenté (nam yu)",
+        "par": "1 c. à c. de pâte de tomate concentrée + 2 gouttes de colorant rouge alimentaire — la teinte sera différente mais lisible"
+      },
+      {
+        "ingredient": "Vin de Shaoxing",
+        "par": "Xérès sec ('fino' ou 'amontillado'), JAMAIS de saké sucré"
+      },
+      {
+        "ingredient": "Échine de porc",
+        "par": "Filet mignon de porc (plus sec mais ok), ou poitrine de porc désossée"
+      }
+    ],
+    "erreurs": [
+      "Glaçer trop tôt : le miel brûle, devient amer → glaçage seulement sur les 10 dernières minutes",
+      "Bandes trop épaisses : cuisson inégale, cœur cru → max 4 cm d'épaisseur, sinon couper en deux",
+      "Sauter le repos : les jus s'écoulent → 5 min minimum, ni plus ni moins"
+    ],
+    "_derived": {
+      "spice": "Épicé doux",
+      "season": "toute",
+      "sauces": [
+        "Laque hoisin-miel-soja"
+      ],
+      "allergens": [
+        "gluten",
+        "soja"
+      ]
+    }
+  },
+  {
+    "cat": "volaille",
+    "nom": "Magret de canard fumé-séché (charcuterie)",
+    "ori": "Sud-Ouest France · technique de séchoir de Pierre Wynants",
+    "pour": "4 pers (apéritif/charcuterie)",
+    "mode": "Fumage à froid + séchage",
+    "tempK": "< 25 °C ambiant",
+    "coeur": "non applicable (charcuterie crue)",
+    "temps": "24 h salage + 4–6 h fumage à froid + 14 j séchage",
+    "bois": "Hêtre (sec, en sciure pour cold smoke generator)",
+    "tags": "magret canard fumage froid sechage charcuterie sud-ouest",
+    "sauce": "À déguster nature ou avec confit d'oignon",
+    "ings": [
+      "2 magrets de canard frais 350 g chacun (qualité IGP Sud-Ouest si possible)",
+      "Gros sel marin gris (non iodé) — quantité = poids des magrets",
+      "2 c. à s. de poivre noir concassé",
+      "2 c. à c. d'épices au choix : 5-épices, fenouil, baies de genièvre, romarin",
+      "Étamine de coton ou collant nylon pour le séchage"
+    ],
+    "etapes": [
+      "JOUR 0 : Parez le magret, retirez les nerfs visibles, gardez le gras. Dans un plat creux, faites un lit de gros sel, posez les magrets, recouvrez intégralement de sel.",
+      "Réfrigérez 24 h pile pour un magret de 350 g (12 h si plus fin, 18 h si très épais). Le sel tire l'eau et 'cuit' chimiquement la chair.",
+      "JOUR 1 : Sortez, rincez 30 s sous eau froide, séchez parfaitement avec papier absorbant. La chair doit être ferme et de couleur foncée.",
+      "Roulez les magrets dans le poivre concassé + épices, en pressant pour adhérer.",
+      "FUMAGE À FROID : Allumez un cold smoke generator (labyrinthe à sciure) avec sciure de hêtre sèche. Posez les magrets côté gras vers le haut sur grille, kamado fermé sans charbon, ÉVENTS GRAND OUVERTS.",
+      "Fumée à T° ambiante ≤ 25 °C pendant 4–6 h. Si la T° monte > 25 °C, arrêtez et reprenez à la fraîche.",
+      "SÉCHAGE : Enveloppez chaque magret dans 2 épaisseurs d'étamine de coton, ficelez. Suspendez dans une cave fraîche (12–14 °C) hygrométrie 70–80% pendant 14 jours.",
+      "Vérifiez tous les 3 jours : un magret prêt a perdu 30% de poids initial et est ferme partout (pas de zone molle).",
+      "Tranchez en tranches très fines (1 mm) à la trancheuse ou couteau bien aiguisé. Servez avec un verre de Jurançon moelleux."
+    ],
+    "astuce": "Le salage à sec sous gros sel est l'étape critique : 24 h pour un magret de 350 g, pas une heure de plus (sinon trop salé), pas une heure de moins (sinon pas assez 'cuit' et risque sanitaire). Pesez vos magrets avant et notez la date sur un post-it.",
+    "difficulty": 4,
+    "vents": {
+      "bottom": "ouvert grand (extraction fumée seule)",
+      "top": "ouvert grand"
+    },
+    "phases": [
+      {
+        "name": "Salage à sec",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 1440,
+        "action": "Couvrir intégralement de gros sel. 24 h pour magret 350 g, ajuster ±6 h selon épaisseur."
+      },
+      {
+        "name": "Fumage à froid",
+        "mode": "fumage",
+        "temp_C": 25,
+        "duration_min": 300,
+        "action": "Cold smoke generator + sciure hêtre. Évents grand ouverts. T° ambiante MAX 25 °C."
+      },
+      {
+        "name": "Séchage",
+        "mode": "préparation",
+        "temp_C": 13,
+        "duration_min": 20160,
+        "action": "Cave 12–14 °C, hygrométrie 70–80%, 14 j. Perte 30% du poids initial."
+      }
+    ],
+    "equipement": [
+      "Cold smoke generator (labyrinthe à sciure)",
+      "Sciure de hêtre alimentaire",
+      "Thermomètre/hygromètre",
+      "Étamine de coton",
+      "Cave ou frigo dédié à 13 °C",
+      "Trancheuse ou couteau japonais sashimi"
+    ],
+    "source": "Charcuterie traditionnelle Sud-Ouest, technique de salage popularisée par Hugues Pouget",
+    "notes_securite": "DANGER CRITIQUE : la fumée à froid se fait OBLIGATOIREMENT à T° ambiante ≤ 25 °C. Si T° dépasse 30 °C, vous entrez dans la 'zone danger' (bactéries actives sans cuisson) — JETER. Faites cette recette uniquement par temps frais (automne/hiver/printemps) ou avec un fumoir réfrigéré. La salaison < 25 °C couplée à la perte d'eau > 30% est ce qui garantit la salubrité — ne pas réduire ces paramètres. En cas de moisissure noire pendant le séchage : JETER, ne consommez pas. Moisissures blanches/grises = normales, frotter au vinaigre.",
+    "substitutions": [
+      {
+        "ingredient": "Sciure de hêtre",
+        "par": "Sciure de chêne, cerisier ou pommier — JAMAIS de résineux"
+      },
+      {
+        "ingredient": "Cave 12–14 °C",
+        "par": "Bas de réfrigérateur réglé au plus chaud (5–7 °C) — séchage plus lent (21 j) mais sûr"
+      }
+    ],
+    "erreurs": [
+      "Fumage à T° > 25 °C : risque bactériologique majeur → thermomètre ambiant en permanence, arrêter si dépassement",
+      "Salage > 30 h : magret immangeable de salinité → minuter au quart d'heure près",
+      "Séchage en pièce trop sèche (<60% HR) : croûte dure et cœur encore humide ('case hardening') → bol d'eau dans le frigo",
+      "Trancher trop tôt (<10 j séchage) : texture spongieuse → respecter les 14 j, la patience est la moitié de la recette"
+    ],
+    "_derived": {
+      "spice": "Épicé doux",
+      "season": "ete",
+      "sauces": [
+        "À déguster nature ou avec confit d'oignon"
+      ],
+      "allergens": []
+    }
+  },
+  {
+    "cat": "poisson",
+    "nom": "Saumon gravlax fumé à froid",
+    "ori": "Scandinavie · gravlax suédois revisité fumée nordique",
+    "pour": "6–8 pers",
+    "mode": "Salaison + fumage à froid",
+    "tempK": "< 25 °C ambiant",
+    "coeur": "non applicable (poisson cru transformé)",
+    "temps": "36 h gravlax + 6 h fumage à froid + 24 h repos",
+    "bois": "Aulne ou hêtre (sciure)",
+    "tags": "saumon gravlax fumage froid sechage scandinavie nordique aneth",
+    "sauce": "Sauce hollandaise à l'aneth ou crème fraîche citron",
+    "ings": [
+      "1 filet de saumon frais sashimi-grade 1 kg avec peau, désarêté",
+      "SAUMURE SÈCHE : 250 g de gros sel marin",
+      "150 g de sucre",
+      "2 c. à s. de poivre blanc concassé",
+      "3 grosses bottes d'aneth frais",
+      "Zeste de 2 citrons jaunes",
+      "4 c. à s. de schnaps ou aquavit (optionnel mais traditionnel)"
+    ],
+    "etapes": [
+      "JOUR 0 : Inspectez le filet (sashimi-grade impératif — congelé à -20 °C ≥ 24 h pour neutraliser les parasites Anisakis si nécessaire).",
+      "Posez le filet peau vers le bas sur film alimentaire. Aspergez d'aquavit si utilisé.",
+      "Mélangez sel, sucre, poivre, zeste. Recouvrez généreusement la chair de ce mélange, puis tapissez d'aneth haché grossier.",
+      "Repliez le film hermétiquement, posez dans un plat avec un poids (2–3 kg) sur le dessus pour presser. Réfrigérez 36 h, retournez à mi-temps.",
+      "JOUR 2 : Sortez, retirez l'aneth, rincez délicatement le sel sous filet d'eau froide 30 s. Séchez parfaitement au papier absorbant. La chair est devenue ferme et translucide.",
+      "Posez sur grille, frigo à découvert 2 h pour former la pellicle (couche brillante collante essentielle au fumage).",
+      "FUMAGE À FROID : Cold smoke generator + sciure aulne. Posez le saumon peau vers le bas sur grille au kamado fermé SANS charbon, évents grand ouverts.",
+      "Fumée à T° ambiante ≤ 25 °C pendant 6 h. Surveillez le thermomètre — si dépassement, arrêtez.",
+      "Enveloppez dans papier sulfurisé, repos 24 h au réfrigérateur pour homogénéiser la fumée.",
+      "Tranchez en biais en lamelles très fines (2–3 mm) avec un couteau japonais. Servez sur blinis avec crème fraîche et aneth."
+    ],
+    "astuce": "La pellicle (pellicule brillante après séchage à l'air) est ce qui retient la fumée — sans elle, la fumée glisse et n'imprègne pas. 2 h de séchage frigo à découvert sont essentielles. Le repos final de 24 h adoucit la fumée trop âcre et donne le profil aromatique élégant 'norvégien'.",
+    "difficulty": 3,
+    "vents": {
+      "bottom": "ouvert grand (extraction fumée seule)",
+      "top": "ouvert grand"
+    },
+    "brine": {
+      "hours": 36,
+      "recette": "Salaison sèche : 250 g sel + 150 g sucre + poivre + 3 bottes aneth + zeste citron + aquavit, presser sous 2–3 kg"
+    },
+    "phases": [
+      {
+        "name": "Gravlax (salaison)",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 2160,
+        "action": "Salaison sèche pressée 36 h au frigo, retourner à 18 h."
+      },
+      {
+        "name": "Formation pellicle",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 120,
+        "action": "Frigo à découvert 2 h pour former pellicule brillante essentielle au fumage."
+      },
+      {
+        "name": "Fumage à froid",
+        "mode": "fumage",
+        "temp_C": 25,
+        "duration_min": 360,
+        "action": "Cold smoke generator + sciure aulne. Évents grand ouverts. T° ambiante MAX 25 °C."
+      },
+      {
+        "name": "Repos",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 1440,
+        "action": "24 h au frigo emballé dans papier sulfurisé pour homogénéiser la fumée."
+      }
+    ],
+    "equipement": [
+      "Cold smoke generator",
+      "Sciure d'aulne",
+      "Thermomètre ambiant",
+      "Couteau japonais sashimi tranchant",
+      "Film alimentaire qualité",
+      "Pinces à arêtes"
+    ],
+    "source": "Adaptation du gravlax suédois classique avec fumage cold smoke style 'røkt laks' norvégien",
+    "notes_securite": "DANGER PARASITES : le saumon doit être 'sashimi-grade' — soit pêché en mer (pas d'élevage non certifié), soit congelé à -20 °C pendant ≥ 24 h pour détruire les Anisakis. Sans cette précaution : risque réel d'anisakiase. Le sel + sucre + déshydratation + fumée ne tuent PAS les parasites — seule la congélation le fait. T° de fumage ≤ 25 °C absolue : au-delà, on entre en zone bactérienne. Conservation après fumage : 7 jours max au frigo, ou congélation -18 °C 3 mois max.",
+    "substitutions": [
+      {
+        "ingredient": "Sciure d'aulne",
+        "par": "Sciure de hêtre — saveur plus prononcée mais excellente"
+      },
+      {
+        "ingredient": "Aquavit",
+        "par": "Vodka, ou rien du tout (purement traditionnel, pas indispensable)"
+      },
+      {
+        "ingredient": "Saumon frais sashimi",
+        "par": "Truite saumonée fraîche — temps de salaison réduit à 24 h"
+      }
+    ],
+    "erreurs": [
+      "Saumon non sashimi-grade : risque parasitaire → soit pêche fiable, soit congelé -20 °C 24 h, vérifier auprès du poissonnier",
+      "Sauter la pellicle : fumée superficielle qui ne tient pas → séchage frigo 2 h obligatoire avant fumée",
+      "Fumée trop chaude : poisson semi-cuit collant → T° ambiante 25 °C MAX, par temps frais"
+    ],
+    "_derived": {
+      "spice": "Doux",
+      "season": "printemps",
+      "sauces": [
+        "Sauce hollandaise à l'aneth ou crème fraîche citron"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
+    "cat": "pizza",
+    "nom": "Pizza al taglio romaine 72h",
+    "ori": "Italie · Rome · pâte hydratée fermentée 72 h",
+    "pour": "2 plaques 40×30 cm",
+    "mode": "Indirect sur pierre",
+    "tempK": "280 °C pierre",
+    "coeur": "non applicable (pain)",
+    "temps": "72 h pousse + 12 min cuisson par plaque",
+    "bois": "Hêtre (touche subtile) ou aucun",
+    "tags": "pizza al taglio rome romaine fermentation longue 72h pierre",
+    "sauce": "Sauce tomate San Marzano simple",
+    "ings": [
+      "PÂTE : 500 g de farine type 0 W320 (ou T55 forte)",
+      "350 g d'eau froide (70% hydratation)",
+      "2 g de levure sèche de boulanger (ou 6 g fraîche)",
+      "12 g de sel fin",
+      "15 g d'huile d'olive extra vierge",
+      "GARNITURE BASE : 400 g de sauce tomate San Marzano nature (jus + chair)",
+      "250 g de mozzarella fior di latte égouttée 24 h",
+      "Origan, basilic, huile d'olive piquante (extra)"
+    ],
+    "etapes": [
+      "JOUR -3 (72 h avant) : Dissolvez la levure dans l'eau froide. Versez la farine en pluie en mélangeant doucement à la spatule jusqu'à absorption. Ajoutez le sel, puis l'huile. Pétrissez en bol 5 min jusqu'à pâte collante mais cohérente.",
+      "Couvrez d'un film, autolyse 30 min à T° ambiante. Puis 'stretch and fold' : étirez et rabattez 4 fois à 30 min d'intervalle (2 h au total).",
+      "Boulez délicatement, transférez dans une grande boîte hermétique huilée. Réfrigérateur (4 °C) pendant 72 h. La pâte va plus que doubler et développer un goût complexe.",
+      "JOUR J - 3h : Sortez la pâte du frigo, divisez en 2 portions de 430 g. Boulez, couvrez, laissez monter à T° ambiante 2 h 30.",
+      "Allumez le kamado : pierre à pizza en position haute, montée à 280 °C stable (45 min). Bois de hêtre optionnel pour une touche fumée légère.",
+      "Étalez chaque pâton à la main dans une plaque alu rectangulaire huilée 40×30 cm, en respectant la structure aérée (ne dégazez pas brutalement).",
+      "Garnissez : étalez la sauce tomate uniformément. CUISSON BLANCHE D'ABORD : enfournez 7 min sans la mozza. Cela cuit le fond et évite la pâte détrempée.",
+      "Sortez, ajoutez la mozzarella en lamelles. Renfournez 4–5 min sur la pierre jusqu'à fonte complète et bordures dorées brun.",
+      "Sortez, arrosez d'huile d'olive piquante, parsemez d'origan et de basilic frais. Coupez en parts rectangulaires de 10×8 cm."
+    ],
+    "astuce": "La pâte 72 h développe maltose et acidité lactique qui donnent à la pizza al taglio son goût caractéristique 'noisette' et sa croûte alvéolée. La cuisson en 2 temps (blanc puis garni) est typique des friggitorie romaines : le fond cuit complètement et reste croustillant, la mozza ne se vitrifie pas.",
+    "difficulty": 3,
+    "vents": {
+      "bottom": "ouvert grand pour atteindre 280 °C",
+      "top": "ouvert grand"
+    },
+    "phases": [
+      {
+        "name": "Autolyse + stretch&fold",
+        "mode": "préparation",
+        "temp_C": 22,
+        "duration_min": 120,
+        "action": "Mélange grossier, repos 30 min, puis 4 plis 'stretch & fold' à 30 min d'intervalle."
+      },
+      {
+        "name": "Fermentation longue",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 4320,
+        "action": "Pâte huilée en boîte hermétique, 72 h frigo 4 °C. La pâte plus que double."
+      },
+      {
+        "name": "Pousse finale",
+        "mode": "préparation",
+        "temp_C": 22,
+        "duration_min": 150,
+        "action": "Sortir du frigo, diviser, bouler, pousse 2 h 30 à T° ambiante."
+      },
+      {
+        "name": "Cuisson blanche",
+        "mode": "indirect",
+        "temp_C": 280,
+        "duration_min": 7,
+        "action": "Sur pierre haute, 7 min sans mozza pour cuire le fond."
+      },
+      {
+        "name": "Cuisson garnie",
+        "mode": "indirect",
+        "temp_C": 280,
+        "duration_min": 5,
+        "action": "Ajouter mozza, 4–5 min jusqu'à fonte et bordures brun."
+      }
+    ],
+    "equipement": [
+      "Pierre à pizza ronde ou rectangulaire",
+      "Plaques alu fines 40×30 cm",
+      "Pelle à pizza",
+      "Balance précise (1 g)",
+      "Boîte hermétique 3 L pour fermentation",
+      "Thermomètre infrarouge pour vérifier la pierre"
+    ],
+    "source": "Style 'al taglio' romain (Pizzarium Bonci, Forno Campo de' Fiori). Pâte hydratée selon Gabriele Bonci 'Il gioco della pizza'",
+    "substitutions": [
+      {
+        "ingredient": "Farine type 0 W320",
+        "par": "T55 forte (W280+) + 5% de farine semi-complète pour le caractère"
+      },
+      {
+        "ingredient": "Mozzarella fior di latte",
+        "par": "Mozzarella de bufflonne (encore meilleure), JAMAIS de mozzarella basique humide qui détrempe"
+      },
+      {
+        "ingredient": "Tomate San Marzano",
+        "par": "Pelati italiens entiers DOP — éviter sauce industrielle déjà préparée"
+      }
+    ],
+    "erreurs": [
+      "Hydratation mal pesée : pâte indomptable ou sèche → balance précise, pas de cuillère doseuse",
+      "Mozzarella pas égouttée : pizza détrempée → 24 h égouttage en chinois au frigo, indispensable",
+      "Pierre pas assez chaude (<260 °C) : pâte pâle → vérifier au thermomètre IR, pas seulement à la T° d'ambiance du kamado",
+      "Étaler au rouleau : tue les bulles, pâte dense → étalage main exclusivement, du centre vers l'extérieur"
+    ],
+    "_derived": {
+      "spice": "Relevé",
+      "season": "ete",
+      "sauces": [
+        "Sauce tomate San Marzano simple"
+      ],
+      "allergens": [
+        "lait",
+        "gluten"
+      ]
+    }
   }
 ]

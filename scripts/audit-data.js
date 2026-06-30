@@ -34,6 +34,95 @@ const issues = [];
 const VALID_SPICE = new Set(["Doux", "Épicé doux", "Relevé"]);
 const VALID_SEASON = new Set(["printemps", "ete", "automne", "hiver", "toute"]);
 const KAMADO_MODE = /(direct|indirect|fumage|brais|cocotte|pierre|plaque|grill|rôti|roti|mijot|préparation|preparation)/i;
+const VALID_WRAP_MATERIAU = new Set(["papier boucher", "alu", "papier sulfurisé"]);
+
+function isPositiveNumber(value) {
+  return typeof value === "number" && Number.isFinite(value) && value > 0;
+}
+function isNonNegativeNumber(value) {
+  return typeof value === "number" && Number.isFinite(value) && value >= 0;
+}
+function isNonEmptyString(value) {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function validateRichSchema(recipe, label, i, issues) {
+  if (recipe.phases != null) {
+    if (!Array.isArray(recipe.phases) || recipe.phases.length === 0) {
+      issues.push(`${i}: ${label} phases must be a non-empty array`);
+    } else {
+      recipe.phases.forEach((p, j) => {
+        if (!isNonEmptyString(p.name)) issues.push(`${i}: ${label} phase[${j}] missing name`);
+        if (!isNonEmptyString(p.mode)) issues.push(`${i}: ${label} phase[${j}] missing mode`);
+        if (!isNonNegativeNumber(p.temp_C)) issues.push(`${i}: ${label} phase[${j}] temp_C must be a number`);
+        if (!isNonNegativeNumber(p.duration_min)) issues.push(`${i}: ${label} phase[${j}] duration_min must be a number`);
+      });
+    }
+  }
+  if (recipe.vents != null) {
+    if (typeof recipe.vents !== "object" || !isNonEmptyString(recipe.vents.bottom) || !isNonEmptyString(recipe.vents.top)) {
+      issues.push(`${i}: ${label} vents must have non-empty bottom and top fields`);
+    }
+  }
+  if (recipe.wrap !== undefined && recipe.wrap !== null) {
+    if (typeof recipe.wrap !== "object") {
+      issues.push(`${i}: ${label} wrap must be object or null`);
+    } else {
+      if (!isNonNegativeNumber(recipe.wrap.at_temp_coeur_C)) {
+        issues.push(`${i}: ${label} wrap.at_temp_coeur_C must be a number`);
+      }
+      if (!VALID_WRAP_MATERIAU.has(recipe.wrap.materiau)) {
+        issues.push(`${i}: ${label} wrap.materiau must be one of: ${[...VALID_WRAP_MATERIAU].join(", ")}`);
+      }
+    }
+  }
+  if (recipe.repos_min != null && !isNonNegativeNumber(recipe.repos_min)) {
+    issues.push(`${i}: ${label} repos_min must be a non-negative number`);
+  }
+  if (recipe.charbon_kg != null && !isPositiveNumber(recipe.charbon_kg)) {
+    issues.push(`${i}: ${label} charbon_kg must be a positive number`);
+  }
+  if (recipe.marinade_h != null && !isNonNegativeNumber(recipe.marinade_h)) {
+    issues.push(`${i}: ${label} marinade_h must be a non-negative number`);
+  }
+  if (recipe.brine != null) {
+    if (typeof recipe.brine !== "object" || !isPositiveNumber(recipe.brine.hours)) {
+      issues.push(`${i}: ${label} brine.hours must be a positive number`);
+    }
+  }
+  if (recipe.difficulty != null) {
+    if (!Number.isInteger(recipe.difficulty) || recipe.difficulty < 1 || recipe.difficulty > 5) {
+      issues.push(`${i}: ${label} difficulty must be integer 1..5`);
+    }
+  }
+  if (recipe.equipement != null) {
+    if (!Array.isArray(recipe.equipement) || recipe.equipement.some(e => !isNonEmptyString(e))) {
+      issues.push(`${i}: ${label} equipement must be array of non-empty strings`);
+    }
+  }
+  if (recipe.substitutions != null) {
+    if (!Array.isArray(recipe.substitutions)) {
+      issues.push(`${i}: ${label} substitutions must be an array`);
+    } else {
+      recipe.substitutions.forEach((s, j) => {
+        if (!isNonEmptyString(s?.ingredient) || !isNonEmptyString(s?.par)) {
+          issues.push(`${i}: ${label} substitutions[${j}] must have ingredient + par`);
+        }
+      });
+    }
+  }
+  if (recipe.erreurs != null) {
+    if (!Array.isArray(recipe.erreurs) || recipe.erreurs.some(e => !isNonEmptyString(e))) {
+      issues.push(`${i}: ${label} erreurs must be array of non-empty strings`);
+    }
+  }
+  if (recipe.notes_securite != null && !isNonEmptyString(recipe.notes_securite)) {
+    issues.push(`${i}: ${label} notes_securite must be a non-empty string`);
+  }
+  if (recipe.source != null && !isNonEmptyString(recipe.source)) {
+    issues.push(`${i}: ${label} source must be a non-empty string`);
+  }
+}
 
 for (const [i, recipe] of RECIPES.entries()) {
   const label = recipe.nom || "(sans nom)";
@@ -81,9 +170,13 @@ for (const [i, recipe] of RECIPES.entries()) {
       if (!Array.isArray(derived.allergens)) issues.push(`${i}: ${label} allergens() must return an array`);
     }
   }
+
+  validateRichSchema(recipe, label, i, issues);
 }
 
 const cooking = RECIPES.filter(recipe => recipe.cat !== "sauces");
+const RICH_FIELDS = ["phases", "vents", "wrap", "brine", "marinade_h", "repos_min", "charbon_kg", "difficulty", "equipement", "substitutions", "erreurs", "notes_securite", "source"];
+const richRecipes = RECIPES.filter(recipe => RICH_FIELDS.some(f => recipe[f] != null));
 const summary = {
   total: RECIPES.length,
   cooking: cooking.length,
@@ -91,6 +184,7 @@ const summary = {
   withSauce: cooking.filter(recipe => (recipe._derived?.sauces || []).length).length,
   withoutSauce: cooking.filter(recipe => !(recipe._derived?.sauces || []).length).length,
   categories: Object.fromEntries(CATS.filter(c => c.id !== "all").map(c => [c.id, RECIPES.filter(recipe => recipe.cat === c.id).length])),
+  richSchema: richRecipes.length,
   issues: issues.length
 };
 
