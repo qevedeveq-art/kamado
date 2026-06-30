@@ -781,7 +781,7 @@
       "Miel dès le début : brûle",
       "Pas de marinade : aromatique pauvre"
     ],
-    "source": "Twist BBQ d'une pièce noble",
+    "source": "Reverse-sear popularisé par Meathead Goldwyn (AmazingRibs.com)",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -1348,7 +1348,7 @@
       "Pas de sonde : cuisse rosée → risque",
       "Marrons crus : amers, prendre cuits sous vide"
     ],
-    "source": "Cuisine festive française",
+    "source": "Cuisine festive française (pintade aux marrons, tradition périgourdine)",
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -4180,7 +4180,7 @@
       "Vin médiocre : sauce déséquilibrée",
       "Couvercle entrouvert : trop de réduction"
     ],
-    "source": "Cuisine bourgeoise française",
+    "source": "Cuisine bourgeoise française (Pellaprat, Larousse gastronomique)",
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -5427,7 +5427,7 @@
       "Sortir trop tôt : centre liquide",
       "Pas de bain-marie : cuit en couronne"
     ],
-    "source": "Twist fumé sur classique NY cheesecake",
+    "source": "Twist fumé sur le classique NY cheesecake (Junior's, Brooklyn)",
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -7149,7 +7149,7 @@
       "Sauce trop sucrée : caramélise",
       "Sans fumage : c'est juste des haricots à la sauce"
     ],
-    "source": "BBQ side dish nord-américain",
+    "source": "Side dish classique du BBQ américain (Boston baked beans, Steven Raichlen)",
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
