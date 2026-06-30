@@ -1,0 +1,32 @@
+name: Data audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Regenerate data extracts
+        run: node scripts/extract-data.js
+
+      - name: Verify extracts are committed and up to date
+        run: |
+          if [ -n "$(git status --porcelain data/)" ]; then
+            echo "::error::data/ is out of sync with index.html. Run 'node scripts/extract-data.js' and commit."
+            git status --porcelain data/
+            git diff data/ | head -200
+            exit 1
+          fi
+
+      - name: Run recipe audit
+        run: node scripts/audit-data.js
