@@ -655,6 +655,9 @@ td b { color: #fff; }
 }
 .fbtn.on { background: var(--accent2); color: #161813; border-color: var(--accent2); }
 #fRand { color: var(--accent2); font-weight: 700; }
+.multifilter { display:flex; flex-wrap:wrap; align-items:center; gap:6px; padding:4px 6px; border:1px solid var(--line); border-radius:18px; background:var(--card); }
+.multifilter-label { color:var(--muted); font-size:12px; font-weight:800; padding:0 4px; }
+.multifilter .fbtn { padding:5px 9px; font-size:12px; }
 
 .ingredientbar { padding: 8px 16px 0; max-width: 1120px; margin: 0 auto; }
 .ingredientbar input {
@@ -3852,6 +3855,14 @@ let viewHistory=LS.get("kokko_history",[]);
 let shoppingList=LS.get("kokko_shopping",[]);
 let pantryProfile=LS.get("kokko_pantry_profile",{have:"",avoid:"",diet:"all",equipment:"all",available:"all"});
 const rid=r=>r.nom;
+function multiValues(value){
+  if(Array.isArray(value))return value.filter(v=>v&&v!=="all");
+  if(!value||value==="all")return[];
+  return [value];
+}
+function toggleMulti(list,value){
+  return list.includes(value)?list.filter(x=>x!==value):[...list,value];
+}
 
 function addToShoppingList(recipe, servings) {
   const scale = servings / baseServ(recipe);
@@ -3884,7 +3895,7 @@ function renderHistory(){
 }
 
 /* ---- état filtres ---- */
-let curCat="all",curQ="",curHave=pantryProfile.have||"",curMode="all",curTime="all",curDiff="all",curSeason="all",curDiet=pantryProfile.diet||"all",curEquip=pantryProfile.equipment||"all",curAvailable=pantryProfile.available||"all",favOnly=false;
+let curCat="all",curQ="",curHave=pantryProfile.have||"",curMode="all",curTime="all",curDiff="all",curSeason="all",curDiet=multiValues(pantryProfile.diet),curEquip=multiValues(pantryProfile.equipment),curAvailable=pantryProfile.available||"all",favOnly=false;
 
 function renderStats(){
   const total=cookingRecipes().length;
@@ -3938,22 +3949,21 @@ function renderFilterBar(){
      <option value="automne">Automne</option>
      <option value="hiver">Hiver / fêtes</option>
    </select>
-   <select id="fDiet" class="fsel">
-     <option value="all">Régime : tous</option>
-     <option value="sans gluten">Sans gluten</option>
-     <option value="sans lactose">Sans lactose</option>
-     <option value="végétarien">Végétarien</option>
-     <option value="keto">Keto</option>
-   </select>
-   <select id="fEquip" class="fsel">
-     <option value="all">Matériel : tout</option>
-     <option value="deflecteur">Déflecteur</option>
-     <option value="pierre">Pierre</option>
-     <option value="plancha">Plancha / fonte</option>
-     <option value="cocotte">Cocotte</option>
-     <option value="sonde">Sonde</option>
-     <option value="rotissoire">Rôtissoire</option>
-   </select>
+   <div class="multifilter" role="group" aria-label="Régimes">
+     <span class="multifilter-label">Régimes</span>
+     ${["sans gluten","sans lactose","végétarien","keto"].map(v=>`<button class="fbtn multi-diet ${curDiet.includes(v)?'on':''}" data-value="${v}">${v}</button>`).join("")}
+   </div>
+   <div class="multifilter" role="group" aria-label="Matériel">
+     <span class="multifilter-label">Matériel</span>
+     ${[
+       ["deflecteur","Déflecteur"],
+       ["pierre","Pierre"],
+       ["plancha","Plancha / fonte"],
+       ["cocotte","Cocotte"],
+       ["sonde","Sonde"],
+       ["rotissoire","Rôtissoire"]
+     ].map(([v,l])=>`<button class="fbtn multi-equip ${curEquip.includes(v)?'on':''}" data-value="${v}">${l}</button>`).join("")}
+   </div>
    <select id="fAvailable" class="fsel">
      <option value="all">Disponible : tout</option>
      <option value="45">Ce soir (&lt; 45 min)</option>
@@ -3962,13 +3972,13 @@ function renderFilterBar(){
    </select>
    <button id="fFav" class="fbtn ${favOnly?'on':''}">${favOnly?'★':'☆'} Favoris</button>
    <button id="fRand" class="fbtn">🎲 Au hasard</button>`;
-  $("#fMode").value=curMode;$("#fTime").value=curTime;$("#fDiff").value=curDiff;$("#fSeason").value=curSeason;$("#fDiet").value=curDiet;$("#fEquip").value=curEquip;$("#fAvailable").value=curAvailable;
+  $("#fMode").value=curMode;$("#fTime").value=curTime;$("#fDiff").value=curDiff;$("#fSeason").value=curSeason;$("#fAvailable").value=curAvailable;
   $("#fMode").onchange=e=>{curMode=e.target.value;renderList();};
   $("#fTime").onchange=e=>{curTime=e.target.value;renderList();};
   $("#fDiff").onchange=e=>{curDiff=e.target.value;renderList();};
   $("#fSeason").onchange=e=>{curSeason=e.target.value;renderList();};
-  $("#fDiet").onchange=e=>{curDiet=e.target.value;pantryProfile.diet=curDiet;LS.set("kokko_pantry_profile",pantryProfile);renderList();};
-  $("#fEquip").onchange=e=>{curEquip=e.target.value;pantryProfile.equipment=curEquip;LS.set("kokko_pantry_profile",pantryProfile);renderList();};
+  $$(".multi-diet").forEach(b=>b.onclick=()=>{curDiet=toggleMulti(curDiet,b.dataset.value);pantryProfile.diet=curDiet;LS.set("kokko_pantry_profile",pantryProfile);renderFilterBar();renderSmartBar();renderList();});
+  $$(".multi-equip").forEach(b=>b.onclick=()=>{curEquip=toggleMulti(curEquip,b.dataset.value);pantryProfile.equipment=curEquip;LS.set("kokko_pantry_profile",pantryProfile);renderFilterBar();renderSmartBar();renderList();});
   $("#fAvailable").onchange=e=>{curAvailable=e.target.value;pantryProfile.available=curAvailable;LS.set("kokko_pantry_profile",pantryProfile);renderList();};
   $("#fFav").onclick=()=>{favOnly=!favOnly;renderFilterBar();renderStats();renderList();renderBases();};
   $("#fRand").onclick=()=>{const l=RECIPES.filter(matches);const pool=l.length?l:cookingRecipes();openRecipe(RECIPES.indexOf(pool[Math.floor(Math.random()*pool.length)]));};
@@ -3983,16 +3993,16 @@ function renderSmartBar(){
     <button id="sReset" class="fbtn">Réinitialiser</button>`;
   const active=[];
   if(curHave)active.push(`ingrédients : ${curHave}`);
-  if(curDiet!=="all")active.push(curDiet);
-  if(curEquip!=="all")active.push(`matériel : ${curEquip}`);
+  if(curDiet.length)active.push(`régimes : ${curDiet.join(", ")}`);
+  if(curEquip.length)active.push(`matériel : ${curEquip.join(", ")}`);
   if(curAvailable!=="all")active.push(`temps max : ${curAvailable} min`);
   sn.textContent=active.length?`Profil actif · ${active.join(" · ")}`:"Astuce : combinez ingrédients, exclusions, régime, matériel et temps disponible pour trouver une cuisson réaliste.";
   $("#sTonight").onclick=()=>{curAvailable=curAvailable==="all"?"90":"all";pantryProfile.available=curAvailable;LS.set("kokko_pantry_profile",pantryProfile);renderFilterBar();renderSmartBar();renderList();};
   $("#sSeason").onclick=()=>{curSeason=curSeason===currentSeason()?"all":currentSeason();renderFilterBar();renderSmartBar();renderList();};
   $("#sPantry").onclick=()=>{$("#have").focus();};
   $("#sReset").onclick=()=>{
-    curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet="all";curEquip="all";curAvailable="all";favOnly=false;
-    pantryProfile={have:"",avoid:"",diet:"all",equipment:"all",available:"all"};
+    curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet=[];curEquip=[];curAvailable="all";favOnly=false;
+    pantryProfile={have:"",avoid:"",diet:[],equipment:[],available:"all"};
     LS.set("kokko_pantry_profile",pantryProfile);
     $("#q").value="";$("#have").value="";
     renderFilterBar();renderSmartBar();renderStats();renderChips();renderList();renderBases();
@@ -4011,8 +4021,8 @@ function matches(r){
   if(curTime!=="all"&&timeBucket(r)!==curTime)return false;
   if(curDiff!=="all"&&niveau(r)!==curDiff)return false;
   if(curSeason!=="all"&&seasonFor(r)!==curSeason)return false;
-  if(curDiet!=="all"&&!dietTags(r).includes(curDiet))return false;
-  if(curEquip!=="all"&&!equipmentTags(r).includes(curEquip))return false;
+  if(curDiet.length&&!curDiet.every(v=>dietTags(r).includes(v)))return false;
+  if(curEquip.length&&!curEquip.every(v=>equipmentTags(r).includes(v)))return false;
   if(curAvailable!=="all"){
     const max=parseInt(curAvailable,10), m=parseRecipeDuration(r);
     if(m>max)return false;
@@ -5052,7 +5062,7 @@ function mergeImportedData(data){
   LS.set("kokko_shopping",shoppingList);
   LS.set("kokko_pantry_profile",pantryProfile);
   LS.set("kokko_history",viewHistory);
-  curHave=pantryProfile.have||"";curDiet=pantryProfile.diet||"all";curEquip=pantryProfile.equipment||"all";curAvailable=pantryProfile.available||"all";
+  curHave=pantryProfile.have||"";curDiet=multiValues(pantryProfile.diet);curEquip=multiValues(pantryProfile.equipment);curAvailable=pantryProfile.available||"all";
   if($("#have"))$("#have").value=curHave;
   renderStats();
   renderHistory();

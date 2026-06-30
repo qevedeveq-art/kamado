@@ -20,7 +20,7 @@ L'application a été enrichie d'outils interactifs avancés pour offrir une exp
 *   **🍷 Accords Vins &amp; Régimes (Diets)** : Les badges d'allergènes et de régimes (*Sans Gluten, Végétarien, Keto*) ainsi que des suggestions d'accords vins précises et gastronomiques sont automatiquement calculés et affichés pour chaque plat.
 *   **🛒 Liste de courses triée par rayons** : Ajoutez des ingrédients depuis n'importe quelle recette pour générer une liste globale. La copie presse-papiers classe automatiquement vos achats par rayons (Boucherie, Fruits &amp; Légumes, Épicerie) au format Markdown compatible avec Obsidian et Apple Notes.
 *   **🖨️ Fiche d'Impression Premium avec QR Code** : Imprimez vos recettes ou générez des PDF parfaits, nettoyés de l'interface numérique et équipés d'un QR code dynamique permettant de revenir en un flash à la fiche interactive en ligne.
-*   **🎯 Garde-manger &amp; mode "Ce soir"** : Combinez ingrédients disponibles, exclusions, régime, matériel et temps disponible pour trouver une recette réaliste immédiatement.
+*   **🎯 Garde-manger &amp; mode "Ce soir"** : Combinez ingrédients disponibles, exclusions, plusieurs régimes, plusieurs matériels et temps disponible pour trouver une recette réaliste immédiatement.
 *   **✅ Qualité &amp; cuisson guidée** : Chaque fiche affiche son niveau de détail, les signes visuels de bonne cuisson, les erreurs fréquentes et les repères sécurité quand disponibles.
 *   **🌡️ Menus compatibles Kamado** : Le générateur évite les menus incohérents en rapprochant les plats selon leur plage de température (fumage, rôtissage, cuisson vive).
 
