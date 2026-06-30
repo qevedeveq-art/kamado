@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract tag message
+        id: tag
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          echo "name=$TAG" >> "$GITHUB_OUTPUT"
+          {
+            echo "body<<EOF"
+            git tag -l --format='%(contents)' "$TAG"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view "${{ steps.tag.outputs.name }}" >/dev/null 2>&1 && exit 0
+          gh release create "${{ steps.tag.outputs.name }}" \
+            --title "${{ steps.tag.outputs.name }}" \
+            --notes "${{ steps.tag.outputs.body }}"

@@ -30,3 +30,6 @@ jobs:
 
       - name: Run recipe audit
         run: node scripts/audit-data.js
+
+      - name: Run unit tests
+        run: node --test 'tests/*.test.js'
