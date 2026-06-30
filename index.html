@@ -672,6 +672,12 @@ td b { color: #fff; }
 }
 .ingredientbar input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(231,90,30,0.2); }
 .ingredientbar input::placeholder { color: var(--muted); }
+.smartbar { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 8px; padding: 8px 16px 0; max-width: 1120px; margin: 0 auto; }
+.smartnote { font-size: 12.5px; color: var(--muted); padding: 6px 16px 0; max-width: 1120px; margin: 0 auto; }
+.quality-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; margin-top:10px; }
+.quality-tile { background:rgba(31,34,26,.55); border:1px solid var(--line); border-radius:8px; padding:10px; }
+.quality-tile b { display:block; color:var(--accent2); font-size:18px; line-height:1; }
+.quality-tile span { color:var(--muted); font-size:12px; }
 
 .historybar { display: flex; gap: 8px; padding: 8px 16px 0; overflow-x: auto; scrollbar-width: none; max-width: 1120px; margin: 0 auto; }
 .historybar:empty { display: none; }
@@ -796,6 +802,8 @@ td b { color: #fff; }
   <div class="chips" id="chips"></div>
   <div id="filterbar"></div>
   <div class="ingredientbar"><input id="have" type="search" placeholder="J'ai : poulet citron thym · exclure : -porc -gluten" autocomplete="off"></div>
+  <div class="smartbar" id="smartbar"></div>
+  <div class="smartnote" id="smartnote"></div>
   <div class="historybar" id="historybar"></div>
   <div class="count" id="count"></div>
   <div class="grid" id="grid"></div>
@@ -3722,6 +3730,67 @@ function recipeOfDay(){
   const day=Math.floor(new Date().setHours(0,0,0,0)/86400000);
   return pool[Math.abs(day)%pool.length]||cookingRecipes()[0];
 }
+function firstTempC(txt){
+  const m=String(txt||"").match(/(\d{2,3})(?:[,.]\d+)?\s*°?\s*C/i);
+  return m?parseInt(m[1],10):null;
+}
+function tempBand(r){
+  const t=firstTempC(r.tempK);
+  if(t==null)return"mixte";
+  if(t<140)return"low";
+  if(t<220)return"roti";
+  return"vif";
+}
+function bandLabel(b){return ({low:"fumage 100-140 °C",roti:"rôtissage 140-220 °C",vif:"cuisson vive 220 °C+",mixte:"température variable"})[b]||b;}
+function isCompatibleWith(r, band){
+  const b=tempBand(r);
+  return band==="mixte"||b==="mixte"||b===band||(band==="vif"&&/dessert|pain|pizza/i.test(haystack(r)));
+}
+function qualityInfo(r){
+  let score=0;
+  if(r.source)score++;
+  if(Array.isArray(r.erreurs)&&r.erreurs.length)score++;
+  if(r.notes_securite)score++;
+  if(Array.isArray(r.phases)&&r.phases.length)score++;
+  if(Array.isArray(r.substitutions)&&r.substitutions.length)score++;
+  const label=score>=4?"très détaillée":score>=2?"solide":"à compléter";
+  return {score,label};
+}
+function donenessSigns(r){
+  const h=haystack(r);
+  if(/brisket|short ribs|pulled|effiloch|épaule|epaule|travers|ribs/.test(h))return"Texture : la sonde entre sans résistance, les fibres se détendent et la viande se détache sans être sèche.";
+  if(r.cat==="boeuf"||r.cat==="agneau"||/gibier|magret/.test(h))return"Texture : croûte bien marquée, jus clair au repos, tranche rosée selon la cible et fibre encore souple.";
+  if(r.cat==="volaille")return"Repère : jus clair, peau dorée, articulation de cuisse souple; mesurez toujours la zone la plus épaisse.";
+  if(r.cat==="poisson")return"Repère : chair nacrée qui s'ouvre en flocons, encore brillante au centre pour une cuisson moelleuse.";
+  if(r.cat==="pizza")return"Repère : dessous tacheté, bord gonflé, fromage fondu sans brûler et pâte qui se tient à la pelle.";
+  if(r.cat==="dessert")return"Repère : centre pris mais souple, bords dorés, repos respecté avant découpe.";
+  return"Repère : surface colorée, intérieur tendre à la pointe d'un couteau et humidité conservée.";
+}
+function dietTags(r){
+  const alls=allergens(r), h=haystack(r), tags=[];
+  if(!alls.includes("gluten"))tags.push("sans gluten");
+  if(!alls.includes("lait"))tags.push("sans lactose");
+  if(["legumes","vegetarien","dessert","pizza","sauces"].includes(r.cat)&&!/bœuf|boeuf|porc|poulet|agneau|canard|dinde|jambon|lard|saumon|thon|cabillaud|crevette|gambas|moule|homard|calamar|saint-jacques/.test(h))tags.push("végétarien");
+  if(/bœuf|boeuf|porc|poulet|agneau|canard|dinde|saumon|thon|cabillaud|crevette|gambas|œuf|oeuf|fromage|beurre/.test(h)&&!/sucre|miel|farine|pain|pâte|pate|riz|pomme de terre|patate|sirop|banane|pêche|peche/.test(h))tags.push("keto");
+  return tags;
+}
+function equipmentTags(r){
+  const h=haystack(r), tags=[];
+  if(/pierre|pizza|pain|naan|focaccia/.test(h))tags.push("pierre");
+  if(/déflect|deflect|indirect|fumage|brais|confit|low/.test(h))tags.push("deflecteur");
+  if(/plancha|fonte|plaque/.test(h))tags.push("plancha");
+  if(/cocotte|dutch|tagine|plat en fonte/.test(h))tags.push("cocotte");
+  if(/sonde|cœur|coeur|température à cœur/.test(h))tags.push("sonde");
+  if(/broche|rotissoire|rôtissoire/.test(h))tags.push("rotissoire");
+  return [...new Set(tags)];
+}
+function shoppingSection(txt){
+  const t=norm(txt);
+  if(/boeuf|bœuf|porc|poulet|agneau|veau|canard|dinde|cuisse|blanc|echine|travers|viande|bacon|lard|filet|saumon|thon|cabillaud|crevette|gambas|homard|moule|saint-jacques|calamar|poisson/.test(t))return"Boucherie & poissonnerie";
+  if(/ail\b|oignon|carotte|citron|concombre|tomate|aubergine|gingembre|coriandre|herbes|menthe|persil|echalote|courgette|poivron|pomme de terre|patate|asperge|avocat|salade|pomme|poire|peche|ananas|champignon/.test(t))return"Fruits, légumes & herbes";
+  if(/sel\b|poivre|huile|vinaigre|sauce|soja|hoisin|sucre|miel|curry|paprika|epice|moutarde|ketchup|beurre|creme|lait|fromage|feta|parmesan|mozzarella|farine|levure|bouillon|riz|semoule|pates|pâte|chapelure/.test(t))return"Épicerie, épices & sauces";
+  return"Autres";
+}
 
 /* ---- helpers analyse ---- */
 function parseMinutes(t){if(!t)return null;let max=0,found=false,m;
@@ -3781,6 +3850,7 @@ let notes=LS.get("kokko_notes",{});
 let ratings=LS.get("kokko_ratings",{});
 let viewHistory=LS.get("kokko_history",[]);
 let shoppingList=LS.get("kokko_shopping",[]);
+let pantryProfile=LS.get("kokko_pantry_profile",{have:"",avoid:"",diet:"all",equipment:"all",available:"all"});
 const rid=r=>r.nom;
 
 function addToShoppingList(recipe, servings) {
@@ -3814,7 +3884,7 @@ function renderHistory(){
 }
 
 /* ---- état filtres ---- */
-let curCat="all",curQ="",curHave="",curMode="all",curTime="all",curDiff="all",curSeason="all",favOnly=false;
+let curCat="all",curQ="",curHave=pantryProfile.have||"",curMode="all",curTime="all",curDiff="all",curSeason="all",curDiet=pantryProfile.diet||"all",curEquip=pantryProfile.equipment||"all",curAvailable=pantryProfile.available||"all",favOnly=false;
 
 function renderStats(){
   const total=cookingRecipes().length;
@@ -3868,15 +3938,65 @@ function renderFilterBar(){
      <option value="automne">Automne</option>
      <option value="hiver">Hiver / fêtes</option>
    </select>
+   <select id="fDiet" class="fsel">
+     <option value="all">Régime : tous</option>
+     <option value="sans gluten">Sans gluten</option>
+     <option value="sans lactose">Sans lactose</option>
+     <option value="végétarien">Végétarien</option>
+     <option value="keto">Keto</option>
+   </select>
+   <select id="fEquip" class="fsel">
+     <option value="all">Matériel : tout</option>
+     <option value="deflecteur">Déflecteur</option>
+     <option value="pierre">Pierre</option>
+     <option value="plancha">Plancha / fonte</option>
+     <option value="cocotte">Cocotte</option>
+     <option value="sonde">Sonde</option>
+     <option value="rotissoire">Rôtissoire</option>
+   </select>
+   <select id="fAvailable" class="fsel">
+     <option value="all">Disponible : tout</option>
+     <option value="45">Ce soir (&lt; 45 min)</option>
+     <option value="90">Ce soir (&lt; 1 h 30)</option>
+     <option value="180">Demi-journée (&lt; 3 h)</option>
+   </select>
    <button id="fFav" class="fbtn ${favOnly?'on':''}">${favOnly?'★':'☆'} Favoris</button>
    <button id="fRand" class="fbtn">🎲 Au hasard</button>`;
-  $("#fMode").value=curMode;$("#fTime").value=curTime;$("#fDiff").value=curDiff;$("#fSeason").value=curSeason;
+  $("#fMode").value=curMode;$("#fTime").value=curTime;$("#fDiff").value=curDiff;$("#fSeason").value=curSeason;$("#fDiet").value=curDiet;$("#fEquip").value=curEquip;$("#fAvailable").value=curAvailable;
   $("#fMode").onchange=e=>{curMode=e.target.value;renderList();};
   $("#fTime").onchange=e=>{curTime=e.target.value;renderList();};
   $("#fDiff").onchange=e=>{curDiff=e.target.value;renderList();};
   $("#fSeason").onchange=e=>{curSeason=e.target.value;renderList();};
+  $("#fDiet").onchange=e=>{curDiet=e.target.value;pantryProfile.diet=curDiet;LS.set("kokko_pantry_profile",pantryProfile);renderList();};
+  $("#fEquip").onchange=e=>{curEquip=e.target.value;pantryProfile.equipment=curEquip;LS.set("kokko_pantry_profile",pantryProfile);renderList();};
+  $("#fAvailable").onchange=e=>{curAvailable=e.target.value;pantryProfile.available=curAvailable;LS.set("kokko_pantry_profile",pantryProfile);renderList();};
   $("#fFav").onclick=()=>{favOnly=!favOnly;renderFilterBar();renderStats();renderList();renderBases();};
   $("#fRand").onclick=()=>{const l=RECIPES.filter(matches);const pool=l.length?l:cookingRecipes();openRecipe(RECIPES.indexOf(pool[Math.floor(Math.random()*pool.length)]));};
+}
+
+function renderSmartBar(){
+  const sb=$("#smartbar"), sn=$("#smartnote");
+  sb.innerHTML=`
+    <button id="sTonight" class="fbtn ${curAvailable!=="all"?'on':''}">Ce soir</button>
+    <button id="sSeason" class="fbtn ${curSeason===currentSeason()?'on':''}">Saison</button>
+    <button id="sPantry" class="fbtn ${curHave?'on':''}">Garde-manger</button>
+    <button id="sReset" class="fbtn">Réinitialiser</button>`;
+  const active=[];
+  if(curHave)active.push(`ingrédients : ${curHave}`);
+  if(curDiet!=="all")active.push(curDiet);
+  if(curEquip!=="all")active.push(`matériel : ${curEquip}`);
+  if(curAvailable!=="all")active.push(`temps max : ${curAvailable} min`);
+  sn.textContent=active.length?`Profil actif · ${active.join(" · ")}`:"Astuce : combinez ingrédients, exclusions, régime, matériel et temps disponible pour trouver une cuisson réaliste.";
+  $("#sTonight").onclick=()=>{curAvailable=curAvailable==="all"?"90":"all";pantryProfile.available=curAvailable;LS.set("kokko_pantry_profile",pantryProfile);renderFilterBar();renderSmartBar();renderList();};
+  $("#sSeason").onclick=()=>{curSeason=curSeason===currentSeason()?"all":currentSeason();renderFilterBar();renderSmartBar();renderList();};
+  $("#sPantry").onclick=()=>{$("#have").focus();};
+  $("#sReset").onclick=()=>{
+    curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet="all";curEquip="all";curAvailable="all";favOnly=false;
+    pantryProfile={have:"",avoid:"",diet:"all",equipment:"all",available:"all"};
+    LS.set("kokko_pantry_profile",pantryProfile);
+    $("#q").value="";$("#have").value="";
+    renderFilterBar();renderSmartBar();renderStats();renderChips();renderList();renderBases();
+  };
 }
 
 /* ---- filtrage ---- */
@@ -3891,6 +4011,12 @@ function matches(r){
   if(curTime!=="all"&&timeBucket(r)!==curTime)return false;
   if(curDiff!=="all"&&niveau(r)!==curDiff)return false;
   if(curSeason!=="all"&&seasonFor(r)!==curSeason)return false;
+  if(curDiet!=="all"&&!dietTags(r).includes(curDiet))return false;
+  if(curEquip!=="all"&&!equipmentTags(r).includes(curEquip))return false;
+  if(curAvailable!=="all"){
+    const max=parseInt(curAvailable,10), m=parseRecipeDuration(r);
+    if(m>max)return false;
+  }
   if(curQ&&!haystack(r).includes(norm(curQ)))return false;
   if(curHave){
     const h=haystack(r);
@@ -3909,6 +4035,7 @@ function card(r){
   const nc=niv==='Avancé'?'n3':niv==='Intermédiaire'?'n2':'n1';
   const sauces=sauceText(r), alls=allergens(r);
   const rating=ratings[rid(r)];
+  const q=qualityInfo(r), diets=dietTags(r);
   return `<div class="rc" data-i="${i}">
     <div class="top">
       <div><h3>${r.nom}</h3><div class="ori">${r.ori}</div></div>
@@ -3924,6 +4051,8 @@ function card(r){
       <span class="badge">⏱️ ${r.temps}</span>
       <span class="badge niv ${nc}">${niv}</span>
       <span class="badge spice">${spiceLevel(r)}</span>
+      <span class="badge">Qualité : ${q.label}</span>
+      ${diets.slice(0,2).map(d=>`<span class="badge">${d}</span>`).join("")}
       ${rating?`<span class="badge">★ ${rating}/5</span>`:''}
       ${alls.length?`<span class="badge allergen">Allergènes : ${alls.join(", ")}</span>`:''}
       ${sauces?`<span class="badge sauce">Sauce : ${sauces}</span>`:''}
@@ -3998,6 +4127,7 @@ function openRecipe(i){
     const fav=favs.has(rid(r));
     const sauces=sauceText(r), alls=allergens(r);
     const rating=+ratings[rid(r)]||0;
+    const q=qualityInfo(r), diets=dietTags(r), equip=equipmentTags(r);
     const ings=r.ings.map(x=>`<li>${scaleIng(x,f)}</li>`).join("");
     let stepsHtml;
     if(stepMode){
@@ -4031,7 +4161,10 @@ function openRecipe(i){
         <div class="spec"><div class="l">Saison</div><div class="v">${seasonLabel(seasonFor(r))}</div></div>
         ${r.bois?`<div class="spec"><div class="l">Bois conseillé</div><div class="v" style="font-size:13px">${r.bois}</div></div>`:''}
         ${alls.length?`<div class="spec"><div class="l">Allergènes</div><div class="v" style="font-size:13px">${alls.join(", ")}</div></div>`:''}
+        ${diets.length?`<div class="spec"><div class="l">Régimes</div><div class="v" style="font-size:13px">${diets.join(", ")}</div></div>`:''}
         ${sauces?`<div class="spec"><div class="l">Sauce</div><div class="v" style="font-size:13px">${sauces}</div></div>`:''}
+        <div class="spec"><div class="l">Qualité fiche</div><div class="v" style="font-size:13px">${q.label} (${q.score}/5)</div></div>
+        ${equip.length?`<div class="spec"><div class="l">Matériel</div><div class="v" style="font-size:13px">${equip.join(", ")}</div></div>`:''}
         ${r.difficulty?`<div class="spec"><div class="l">Difficulté</div><div class="v diff">${'★'.repeat(r.difficulty)}${'☆'.repeat(5-r.difficulty)}</div></div>`:''}
         ${r.charbon_kg?`<div class="spec"><div class="l">Charbon</div><div class="v">${String(r.charbon_kg).replace(".",",")} kg</div></div>`:''}
         ${r.repos_min?`<div class="spec"><div class="l">Repos</div><div class="v">${r.repos_min} min</div></div>`:''}
@@ -4055,6 +4188,7 @@ function openRecipe(i){
       </div>
       ${stepMode?`<div class="hint">Cochez les étapes au fur et à mesure · ▶ lance un minuteur</div>`:''}
       ${stepsHtml}
+      <div class="tip"><b>👁 Signes de bonne cuisson.</b> ${donenessSigns(r)}</div>
       ${sauces?`<div class="tip"><b>🥣 Sauce associée.</b> ${sauces}</div>`:''}
       ${r.astuce?`<div class="tip"><b>💡 Astuce du chef.</b> ${r.astuce}</div>`:''}
       ${renderRichSchema(r)}
@@ -4236,6 +4370,14 @@ function renderAssistant(){
   const A=document.querySelector("#assistant");
   const today=recipeOfDay();
   const todaySauce=sauceText(today);
+  const tonightPool=cookingRecipes().filter(r=>parseRecipeDuration(r)<=90&&(seasonFor(r)===currentSeason()||seasonFor(r)==="toute"));
+  const tonight=tonightPool[Math.floor(new Date().getDate()%Math.max(1,tonightPool.length))]||today;
+  const qualityStats={
+    source:cookingRecipes().filter(r=>r.source).length,
+    errors:cookingRecipes().filter(r=>Array.isArray(r.erreurs)&&r.erreurs.length).length,
+    security:cookingRecipes().filter(r=>r.notes_securite).length,
+    phases:cookingRecipes().filter(r=>Array.isArray(r.phases)&&r.phases.length).length
+  };
   
   A.innerHTML=`
     <h2>🧮 Assistant de cuisson</h2>
@@ -4252,6 +4394,28 @@ function renderAssistant(){
         ${todaySauce?`<span class="badge sauce">Sauce : ${todaySauce}</span>`:''}
       </div>
       <button id="todayOpen" class="actbtn on" style="width:100%;margin-top:10px">Ouvrir la recette</button>
+    </div>
+    <div class="callout" style="border-color:var(--green)">
+      <h3>⚡ Ce soir</h3>
+      <p style="margin:0 0 10px;font-size:13px;color:var(--muted)">Une cuisson réaliste en moins de 1 h 30, compatible avec la saison quand possible.</p>
+      <div style="font-weight:900;font-size:17px">${tonight.nom}</div>
+      <div class="meta" style="margin-top:8px">
+        <span class="badge mode">${tonight.mode}</span>
+        <span class="badge temp">${tonight.tempK}</span>
+        <span class="badge">${tonight.temps}</span>
+        ${sauceText(tonight)?`<span class="badge sauce">Sauce : ${sauceText(tonight)}</span>`:''}
+      </div>
+      <button id="tonightOpen" class="actbtn on" style="width:100%;margin-top:10px">Ouvrir la recette rapide</button>
+    </div>
+    <div class="callout">
+      <h3>✅ Qualité des recettes</h3>
+      <p style="margin:0;color:var(--muted);font-size:13px">Suivi des champs qui rendent une fiche vraiment exploitable pendant une cuisson.</p>
+      <div class="quality-grid">
+        <div class="quality-tile"><b>${qualityStats.source}/${cookingRecipes().length}</b><span>sources ou inspirations</span></div>
+        <div class="quality-tile"><b>${qualityStats.errors}/${cookingRecipes().length}</b><span>erreurs fréquentes</span></div>
+        <div class="quality-tile"><b>${qualityStats.security}/${cookingRecipes().length}</b><span>notes sécurité</span></div>
+        <div class="quality-tile"><b>${qualityStats.phases}/${cookingRecipes().length}</b><span>phases structurées</span></div>
+      </div>
     </div>
     
     <div class="callout" style="border-color:var(--blue)">
@@ -4347,6 +4511,7 @@ function renderAssistant(){
     </div>`;
 
   document.querySelector("#todayOpen").onclick=()=>openRecipe(RECIPES.indexOf(today));
+  document.querySelector("#tonightOpen").onclick=()=>openRecipe(RECIPES.indexOf(tonight));
   
   const planSelect = document.querySelector("#planRecipeSelect");
   const cookingRecs = RECIPES.filter(r => r.cat !== "sauces");
@@ -4570,20 +4735,22 @@ function renderAssistant(){
     }
     const grouped = {};
     shoppingList.forEach(item => {
-      if (!grouped[item.recipe]) grouped[item.recipe] = [];
-      grouped[item.recipe].push(item);
+      const section=shoppingSection(item.txt);
+      if (!grouped[section]) grouped[section] = [];
+      grouped[section].push(item);
     });
     
     let html = "";
-    for (const recipeName in grouped) {
-      html += `<div style="font-weight:700;font-size:13px;color:var(--accent2);margin-top:10px;margin-bottom:4px">${recipeName}</div>`;
+    for (const section of ["Boucherie & poissonnerie","Fruits, légumes & herbes","Épicerie, épices & sauces","Autres"]) {
+      if(!grouped[section])continue;
+      html += `<div style="font-weight:700;font-size:13px;color:var(--accent2);margin-top:10px;margin-bottom:4px">${section}</div>`;
       html += `<ul class="csteps" style="margin-bottom:10px">`;
-      grouped[recipeName].forEach(item => {
+      grouped[section].forEach(item => {
         html += `
           <li class="cstep" style="padding:6px 0;border-bottom:1px solid rgba(74,81,61,0.15)">
             <label class="${item.checked?'done':''}" style="font-size:13.5px">
               <input type="checkbox" class="shop-ck" data-id="${item.id}" ${item.checked?'checked':''}>
-              <span>${item.txt}</span>
+              <span>${item.txt} <small style="color:var(--muted)">· ${item.recipe}</small></span>
             </label>
             <button class="shop-del" data-id="${item.id}" style="background:none;border:none;color:var(--ember);cursor:pointer;font-size:14px;padding:0 6px">✕</button>
           </li>`;
@@ -4765,16 +4932,27 @@ function renderMenuBuilder(){
     if(style==="rapide")mains=mains.filter(r=>timeBucket(r)==="express");
     if(style==="fumage")mains=mains.filter(r=>/fumage|brais|confit/i.test(r.mode));
     if(style==="vegetarien")mains=cookingRecipes().filter(r=>["vegetarien","legumes","pizza"].includes(r.cat)&&r.cat!=="dessert");
-    const sides=cookingRecipes().filter(r=>["legumes","vegetarien","pizza"].includes(r.cat)&&r.cat!=="dessert");
-    const desserts=cookingRecipes().filter(r=>r.cat==="dessert");
     const seed=Date.now()+parseInt(guests,10);
+    const main=pickFrom(mains,seed);
+    const mainBand=main?tempBand(main):"mixte";
+    const sides=cookingRecipes().filter(r=>["legumes","vegetarien","pizza"].includes(r.cat)&&r.cat!=="dessert"&&isCompatibleWith(r,mainBand));
+    const desserts=cookingRecipes().filter(r=>r.cat==="dessert"&&isCompatibleWith(r,mainBand));
     const picks=[
-      {label:"Plat principal",r:pickFrom(mains,seed)},
+      {label:"Plat principal",r:main},
       {label:"Accompagnement",r:pickFrom(sides,seed>>3)},
       {label:"Dessert",r:pickFrom(desserts,seed>>5)}
     ];
     currentMenu=picks.filter(p=>p.r);
-    $("#menuOut").innerHTML=picks.map(p=>p.r?`
+    const bands=[...new Set(currentMenu.map(p=>tempBand(p.r)))];
+    const compatibility=bands.length<=1||bands.includes("mixte")?"Menu compatible en température":"Menu à séquencer en deux températures";
+    $("#menuOut").innerHTML=`<div class="menu-card" style="grid-column:1/-1">
+        <h3>Compatibilité cuisson</h3>
+        <div class="meta">
+          <span class="badge temp">${bandLabel(mainBand)}</span>
+          <span class="badge">${compatibility}</span>
+          <span class="badge">${guests} personnes</span>
+        </div>
+      </div>`+picks.map(p=>p.r?`
       <div class="menu-card">
         <h3>${p.label}</h3>
         <div style="font-weight:800">${p.r.nom}</div>
@@ -4783,6 +4961,7 @@ function renderMenuBuilder(){
           <span class="badge mode">${p.r.mode}</span>
           <span class="badge temp">${p.r.tempK}</span>
           <span class="badge">${p.r.temps}</span>
+          <span class="badge">${bandLabel(tempBand(p.r))}</span>
           ${sauceText(p.r)?`<span class="badge sauce">Sauce : ${sauceText(p.r)}</span>`:''}
         </div>
         <button class="actbtn" data-open="${RECIPES.indexOf(p.r)}">Ouvrir</button>
@@ -4840,7 +5019,9 @@ function buildExportPayload(){
     favs:[...favs],
     notes,
     ratings,
-    history:viewHistory
+    history:viewHistory,
+    shopping:shoppingList,
+    pantryProfile
   };
 }
 function encodeTransfer(data){
@@ -4862,15 +5043,22 @@ function mergeImportedData(data){
   favs=new Set([...favs,...data.favs]);
   notes={...notes,...data.notes};
   if(data.ratings&&typeof data.ratings==="object")ratings={...ratings,...data.ratings};
+  if(Array.isArray(data.shopping))shoppingList=[...shoppingList,...data.shopping].filter((x,i,a)=>a.findIndex(y=>y.txt===x.txt&&y.recipe===x.recipe)===i);
+  if(data.pantryProfile&&typeof data.pantryProfile==="object")pantryProfile={...pantryProfile,...data.pantryProfile};
   viewHistory=[...(Array.isArray(data.history)?data.history:[]),...viewHistory].filter((x,i,a)=>a.indexOf(x)===i).slice(0,8);
   saveFavs();
   LS.set("kokko_notes",notes);
   LS.set("kokko_ratings",ratings);
+  LS.set("kokko_shopping",shoppingList);
+  LS.set("kokko_pantry_profile",pantryProfile);
   LS.set("kokko_history",viewHistory);
+  curHave=pantryProfile.have||"";curDiet=pantryProfile.diet||"all";curEquip=pantryProfile.equipment||"all";curAvailable=pantryProfile.available||"all";
+  if($("#have"))$("#have").value=curHave;
   renderStats();
   renderHistory();
   renderChips();
   renderFilterBar();
+  renderSmartBar();
   renderList();
   renderBases();
 }
@@ -4964,7 +5152,8 @@ function renderDataTools(){
 
 /* ---- recherche + onglets ---- */
 $("#q").addEventListener("input",e=>{curQ=e.target.value.toLowerCase().trim();renderList();});
-$("#have").addEventListener("input",e=>{curHave=e.target.value.trim();renderList();});
+$("#have").value=curHave;
+$("#have").addEventListener("input",e=>{curHave=e.target.value.trim();pantryProfile.have=curHave;LS.set("kokko_pantry_profile",pantryProfile);renderSmartBar();renderList();});
 const TAB_NAMES=["recettes","menus","bases","guide","temp","vins","assistant","donnees"];
 function activateTab(target){
   $$(".tab").forEach(x=>{
@@ -5006,7 +5195,7 @@ renderAssistant();
 renderMenuBuilder();
 renderBases();
 renderDataTools();
-renderStats();renderChips();renderFilterBar();renderHistory();renderList();
+renderStats();renderChips();renderFilterBar();renderSmartBar();renderHistory();renderList();
 importHashTransfer();
 if("serviceWorker" in navigator && location.protocol!=="file:"){
   navigator.serviceWorker.register("./sw.js").catch(()=>{});

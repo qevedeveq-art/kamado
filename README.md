@@ -20,6 +20,9 @@ L'application a été enrichie d'outils interactifs avancés pour offrir une exp
 *   **🍷 Accords Vins &amp; Régimes (Diets)** : Les badges d'allergènes et de régimes (*Sans Gluten, Végétarien, Keto*) ainsi que des suggestions d'accords vins précises et gastronomiques sont automatiquement calculés et affichés pour chaque plat.
 *   **🛒 Liste de courses triée par rayons** : Ajoutez des ingrédients depuis n'importe quelle recette pour générer une liste globale. La copie presse-papiers classe automatiquement vos achats par rayons (Boucherie, Fruits &amp; Légumes, Épicerie) au format Markdown compatible avec Obsidian et Apple Notes.
 *   **🖨️ Fiche d'Impression Premium avec QR Code** : Imprimez vos recettes ou générez des PDF parfaits, nettoyés de l'interface numérique et équipés d'un QR code dynamique permettant de revenir en un flash à la fiche interactive en ligne.
+*   **🎯 Garde-manger &amp; mode "Ce soir"** : Combinez ingrédients disponibles, exclusions, régime, matériel et temps disponible pour trouver une recette réaliste immédiatement.
+*   **✅ Qualité &amp; cuisson guidée** : Chaque fiche affiche son niveau de détail, les signes visuels de bonne cuisson, les erreurs fréquentes et les repères sécurité quand disponibles.
+*   **🌡️ Menus compatibles Kamado** : Le générateur évite les menus incohérents en rapprochant les plats selon leur plage de température (fumage, rôtissage, cuisson vive).
 
 ---
 
@@ -37,7 +40,7 @@ L'application fonctionne entièrement en mode hors ligne (Offline First) après 
 Toutes vos données personnelles (favoris, notes libres, notations de recettes) sont stockées localement dans votre navigateur.
 L'onglet **Données** vous permet de :
 1.  **Exporter** une sauvegarde JSON complète.
-2.  **Importer** un fichier pour fusionner vos notes et favoris entre vos appareils sans écraser l'existant.
+2.  **Importer** un fichier pour fusionner vos notes, favoris, liste de courses et profil garde-manger entre vos appareils sans écraser l'existant.
 3.  Générer un **Lien de transfert rapide** (hash) pour synchroniser votre iPhone et votre PC en un clic.
 
 ---
