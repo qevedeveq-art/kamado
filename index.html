@@ -303,6 +303,22 @@ header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));
   .spec{min-width:68px}
 }
 
+#timerbar.hide{display:none!important}
+
+/* — Assistant de cuisson — */
+.arow{display:flex;align-items:center;gap:8px;margin:8px 0;flex-wrap:wrap}
+.alab{font-size:13px;color:var(--muted);min-width:46px}
+.ainput{background:var(--bg2);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:9px 11px;font-size:15px;width:92px;outline:none}
+.arow>span{color:var(--muted);font-size:13px}
+.aout{margin-top:10px;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-size:14.5px;line-height:1.5}
+/* — Minuteurs empilés — */
+#timers{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 12px);max-width:760px;margin:0 auto;z-index:200;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.tcard{pointer-events:auto;background:linear-gradient(180deg,#3a2616,#2b1d16);border:1px solid var(--accent);border-radius:14px;padding:11px 13px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 28px rgba(0,0,0,.6)}
+.tcard.done{border-color:var(--ember);animation:pulse 1s infinite}
+.tinfo{flex:1;display:flex;flex-direction:column;min-width:0}
+.tlab{font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tnum{font-size:21px;font-weight:800;color:var(--accent2);font-variant-numeric:tabular-nums}
+.tcard .tbp,.tcard .tbx{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card2);color:var(--txt);font-size:15px;cursor:pointer;flex-shrink:0}
 </style>
 </head>
 <body>
@@ -317,6 +333,7 @@ header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));
     <div class="tab" data-tab="guide">📖 Maîtriser le Kokko</div>
     <div class="tab" data-tab="temp">🌡️ Températures</div>
     <div class="tab" data-tab="vins">🍷 Accords vins</div>
+    <div class="tab" data-tab="assistant">🧮 Assistant</div>
   </div>
 </header>
 
@@ -341,6 +358,11 @@ header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));
 <!-- VINS -->
 <section id="tab-vins" class="hide">
   <div class="prose" id="vins"></div>
+</section>
+
+<!-- ASSISTANT -->
+<section id="tab-assistant" class="hide">
+  <div class="prose" id="assistant"></div>
 </section>
 
 <!-- DETAIL -->
@@ -1552,29 +1574,89 @@ function closeModal(){$("#modal").classList.remove("open");document.body.style.o
 $("#back").onclick=closeModal;
 $("#modal").onclick=e=>{if(e.target.id==="modal")closeModal();};
 
-/* ---- minuteur ---- */
-let tInt=null,tRem=0,tPaused=false;
-const timerbar=document.createElement("div");timerbar.id="timerbar";timerbar.className="hide";
-timerbar.innerHTML=`<span id="tlabel"></span><span id="tdisp"></span><button id="tPause">⏸</button><button id="tStop">✕</button>`;
-document.body.appendChild(timerbar);
-const fmtT=s=>Math.floor(s/60)+":"+String(Math.max(0,s)%60).padStart(2,"0");
-function startTimer(sec,label){clearInterval(tInt);tRem=sec;tPaused=false;
-  $("#tlabel").textContent="⏱️ "+label;$("#tdisp").textContent=fmtT(tRem);$("#tPause").textContent="⏸";
-  timerbar.classList.remove("hide","done");
-  tInt=setInterval(()=>{if(tPaused)return;tRem--;$("#tdisp").textContent=fmtT(tRem);if(tRem<=0){clearInterval(tInt);alarm(label);}},1000);}
-function alarm(label){$("#tlabel").textContent="⏰ "+label+" — terminé !";timerbar.classList.add("done");
-  try{const a=new(window.AudioContext||window.webkitAudioContext)();const o=a.createOscillator(),g=a.createGain();
-    o.connect(g);g.connect(a.destination);o.type="sine";o.frequency.value=880;g.gain.value=.001;o.start();
-    let n=0;const iv=setInterval(()=>{g.gain.value=g.gain.value>.05?.001:.35;if(++n>12){clearInterval(iv);o.stop();}},220);}catch(e){}
-  if(navigator.vibrate)navigator.vibrate([300,150,300,150,400]);}
-timerbar.querySelector("#tPause").onclick=()=>{tPaused=!tPaused;$("#tPause").textContent=tPaused?"▶":"⏸";};
-timerbar.querySelector("#tStop").onclick=()=>{clearInterval(tInt);timerbar.classList.add("hide");};
+/* ---- minuteurs multiples ---- */
+const timersWrap=document.createElement("div");timersWrap.id="timers";document.body.appendChild(timersWrap);
+const fmtT=s=>{s=Math.max(0,Math.round(s));const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),x=s%60;return (h?h+":"+String(m).padStart(2,"0"):m)+":"+String(x).padStart(2,"0");};
+function beepAlarm(){try{const a=new(window.AudioContext||window.webkitAudioContext)();const o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.type="sine";o.frequency.value=880;g.gain.value=.001;o.start();let n=0;const iv=setInterval(()=>{g.gain.value=g.gain.value>.05?.001:.35;if(++n>12){clearInterval(iv);o.stop();}},220);}catch(e){}if(navigator.vibrate)navigator.vibrate([300,150,300,150,400]);}
+function startTimer(sec,label){
+  const card=document.createElement("div");card.className="tcard";
+  card.innerHTML=`<div class="tinfo"><span class="tlab"></span><span class="tnum"></span></div><button class="tbp">⏸</button><button class="tbx">✕</button>`;
+  timersWrap.appendChild(card);
+  const lab=card.querySelector(".tlab"),num=card.querySelector(".tnum"),bp=card.querySelector(".tbp"),bx=card.querySelector(".tbx");
+  let rem=sec,paused=false; lab.textContent=label||"Minuteur"; num.textContent=fmtT(rem);
+  const iv=setInterval(()=>{if(paused)return;rem--;num.textContent=fmtT(rem);if(rem<=0){clearInterval(iv);card.classList.add("done");lab.textContent="⏰ "+(label||"Minuteur");beepAlarm();}},1000);
+  bp.onclick=()=>{paused=!paused;bp.textContent=paused?"▶":"⏸";};
+  bx.onclick=()=>{clearInterval(iv);card.remove();};
+}
+
+/* ---- Assistant de cuisson ---- */
+function renderAssistant(){
+  const presets=[
+    {n:"Brisket (poitrine de bœuf)",mpk:80,kt:"110 °C",ct:"94 °C",mode:"Fumage"},
+    {n:"Pulled pork (épaule de porc)",mpk:90,kt:"110 °C",ct:"94 °C",mode:"Fumage"},
+    {n:"Rôti de bœuf (rosbif, rosé)",mpk:33,kt:"160 °C",ct:"54 °C",mode:"Indirect"},
+    {n:"Gigot d'agneau (rosé)",mpk:30,kt:"170 °C",ct:"55 °C",mode:"Indirect"},
+    {n:"Rôti de porc / porchetta",mpk:60,kt:"160 °C",ct:"70 °C",mode:"Indirect"},
+    {n:"Poulet entier",mpk:45,kt:"180 °C",ct:"74 °C",mode:"Indirect"},
+    {n:"Dinde / chapon",mpk:45,kt:"160 °C",ct:"74 °C",mode:"Indirect"}
+  ];
+  const charbon=[
+    {n:"Grillade directe (saisie, < 1 h)",txt:"~1 à 1,5 kg de charbon en gros morceaux, foyer aux 2/3. Évents bien ouverts (75–100 %)."},
+    {n:"Rôtissage indirect (1–2 h, 150–200 °C)",txt:"~1,5 à 2 kg, foyer aux 3/4, pierre-déflecteur en place. Évents 25–50 %."},
+    {n:"Low & slow / fumage (4–14 h)",txt:"Foyer rempli à ras (~3 à 4 kg) + 3–4 morceaux de bois. Tient plus de 10 h sur le L 18\"."}
+  ];
+  const A=document.querySelector("#assistant");
+  A.innerHTML=`
+   <h2>🧮 Assistant de cuisson</h2>
+   <div class="callout">
+     <h3>⏲️ Temps de cuisson selon le poids</h3>
+     <p style="margin:0 0 8px;font-size:13px;color:var(--muted)">Estimation indicative pour le Kokko L 18". <b>Fiez-vous toujours à la température à cœur</b> (sonde) plutôt qu'à l'heure.</p>
+     <select id="aDish" class="fsel" style="width:100%;margin-bottom:8px"></select>
+     <div class="arow"><label class="alab">Poids</label><input id="aWeight" type="number" inputmode="decimal" min="0.1" step="0.1" value="2" class="ainput"><span>kg</span></div>
+     <div id="aTimeOut" class="aout"></div>
+   </div>
+   <div class="callout">
+     <h3>🌡️ Convertisseur de température</h3>
+     <div class="arow"><input id="aC" type="number" inputmode="decimal" class="ainput"><span>°C</span><span style="margin:0 4px">⇄</span><input id="aF" type="number" inputmode="decimal" class="ainput"><span>°F</span></div>
+   </div>
+   <div class="callout">
+     <h3>⚖️ Convertisseur de poids</h3>
+     <div class="arow"><input id="aG" type="number" inputmode="decimal" class="ainput"><span>g</span><span style="margin:0 4px">⇄</span><input id="aOz" type="number" inputmode="decimal" class="ainput"><span>oz</span></div>
+     <div id="aLb" class="aout" style="font-size:13px"></div>
+   </div>
+   <div class="callout">
+     <h3>🔥 Quantité de charbon (Kokko L 18")</h3>
+     <select id="aCharType" class="fsel" style="width:100%;margin-bottom:8px"></select>
+     <div id="aCharOut" class="aout"></div>
+   </div>
+   <div class="callout">
+     <h3>⏱️ Minuteurs</h3>
+     <p style="margin:0 0 8px;font-size:13px;color:var(--muted)">Lancez-en autant que nécessaire : ils s'empilent en bas de l'écran et tournent en parallèle.</p>
+     <div class="arow"><input id="aTLabel" type="text" placeholder="Nom (ex : travers)" class="ainput" style="flex:2;width:auto"><input id="aTMin" type="number" inputmode="numeric" min="1" value="30" class="ainput" style="flex:1;width:auto"><span>min</span></div>
+     <button id="aTGo" class="actbtn on" style="width:100%;margin-top:8px">▶ Lancer le minuteur</button>
+   </div>`;
+  const dish=document.querySelector("#aDish");presets.forEach((p,i)=>{const o=document.createElement("option");o.value=i;o.textContent=p.n;dish.appendChild(o);});
+  const ch=document.querySelector("#aCharType");charbon.forEach((c,i)=>{const o=document.createElement("option");o.value=i;o.textContent=c.n;ch.appendChild(o);});
+  function fmtMin(m){const h=Math.floor(m/60),mn=Math.round(m%60);return (h?h+" h ":"")+(mn?mn+" min":(h?"":"0 min"));}
+  function calcTime(){const p=presets[+dish.value];const w=parseFloat(document.querySelector("#aWeight").value)||0;const t=p.mpk*w;document.querySelector("#aTimeOut").innerHTML=`<b>Durée estimée :</b> ${fmtMin(Math.round(t*0.85))} à ${fmtMin(Math.round(t*1.15))}<br><span style="color:var(--accent2)">Kamado ${p.kt} · ${p.mode}</span> · <span style="color:var(--green)">à cœur ${p.ct}</span>`;}
+  dish.onchange=calcTime;document.querySelector("#aWeight").oninput=calcTime;calcTime();
+  const c=document.querySelector("#aC"),fr=document.querySelector("#aF");c.value=110;fr.value=230;
+  c.oninput=()=>{fr.value=c.value===""?"":Math.round(parseFloat(c.value)*9/5+32);};
+  fr.oninput=()=>{c.value=fr.value===""?"":Math.round((parseFloat(fr.value)-32)*5/9);};
+  const g=document.querySelector("#aG"),oz=document.querySelector("#aOz");
+  function showLb(gr){const lb=Math.floor(gr/453.592),r=Math.round((gr-lb*453.592)/28.3495);document.querySelector("#aLb").textContent=gr?`≈ ${lb} lb ${r} oz`:"";}
+  g.oninput=()=>{const v=parseFloat(g.value);if(isNaN(v)){oz.value="";showLb(0);return;}oz.value=(v/28.3495).toFixed(1);showLb(v);};
+  oz.oninput=()=>{const v=parseFloat(oz.value);if(isNaN(v)){g.value="";showLb(0);return;}const gr=v*28.3495;g.value=Math.round(gr);showLb(gr);};
+  g.value=500;oz.value=(500/28.3495).toFixed(1);showLb(500);
+  function calcChar(){document.querySelector("#aCharOut").innerHTML=charbon[+ch.value].txt;}ch.onchange=calcChar;calcChar();
+  document.querySelector("#aTGo").onclick=()=>{const min=parseInt(document.querySelector("#aTMin").value)||0;if(min<=0)return;startTimer(min*60,document.querySelector("#aTLabel").value.trim()||"Minuteur");};
+}
 
 /* ---- recherche + onglets ---- */
 $("#q").addEventListener("input",e=>{curQ=e.target.value.toLowerCase().trim();renderList();});
 $$(".tab").forEach(t=>t.onclick=()=>{
   $$(".tab").forEach(x=>x.classList.remove("active"));t.classList.add("active");
-  ["recettes","guide","temp","vins"].forEach(n=>$("#tab-"+n).classList.toggle("hide",n!==t.dataset.tab));
+  ["recettes","guide","temp","vins","assistant"].forEach(n=>$("#tab-"+n).classList.toggle("hide",n!==t.dataset.tab));
   window.scrollTo({top:0,behavior:'smooth'});
 });
 
@@ -1582,6 +1664,7 @@ $$(".tab").forEach(t=>t.onclick=()=>{
 $("#guide").innerHTML=GUIDE;
 $("#temp").innerHTML=TEMP;
 $("#vins").innerHTML=VINS;
+renderAssistant();
 renderChips();renderFilterBar();renderList();
 </script>
 </body>
