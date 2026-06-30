@@ -871,7 +871,23 @@ astuce:"Pour le quadrillage : à mi-cuisson de chaque face, tournez la viande d'
 {cat:"boeuf",nom:"Brisket fumé (poitrine de bœuf)",ori:"USA · Texas low & slow, le Graal du BBQ",pour:"8–10 pers",mode:"Fumage indirect",tempK:"110–120 °C",coeur:"90–96 °C",temps:"10–14 h",bois:"Noyer/hickory + chêne",tags:"texas low slow fumé poitrine",
 ings:["1 poitrine de bœuf (brisket) de 4–5 kg avec son gras","Rub : 50/50 gros poivre concassé + gros sel","Papier boucher non couché ou alu","Vaporisateur d'eau ou cidre"],
 etapes:["Parez le gras à 0,5 cm. Enrobez généreusement de poivre+sel la veille, réservez au frais.","Kamado en indirect avec pierre-déflecteur, 110 °C, 3–4 morceaux de bois. Foyer chargé à ras pour tenir la nuit.","Posez le brisket gras vers le haut, sonde au cœur de la partie épaisse.","Fumez sans ouvrir. Vaporisez toutes les 2 h après la 1ʳᵉ croûte (env. 4 h).","Vers 70 °C, la temp stagne (le « stall ») : emballez serré dans le papier boucher et poursuivez.","Sortez à 93–96 °C quand la sonde s'enfonce comme dans du beurre.","Repos impératif 1 h (jusqu'à 2 h) emballé dans une glacière. Tranchez contre le grain, épaisseur d'un crayon."],
-astuce:"Le brisket est prêt au toucher, pas à l'heure. Patience : le stall peut durer 2–3 h, n'augmentez pas le feu, le papier aide à le passer."},
+astuce:"Le brisket est prêt au toucher, pas à l'heure. Patience : le stall peut durer 2–3 h, n'augmentez pas le feu, le papier aide à le passer.",
+difficulty:5, charbon_kg:4, repos_min:60,
+vents:{bottom:"1/8 ouvert (110 °C steady)", top:"1/8 ouvert"},
+wrap:{at_temp_coeur_C:71, materiau:"papier boucher", apres:"Continuer jusqu'à 93–96 °C cœur, sonde glisse comme dans du beurre"},
+phases:[
+  {name:"Fumage low&slow nu", mode:"fumage", temp_C:110, duration_min:360, action:"Gras vers le haut, pas d'ouverture. Vaporiser eau/cidre toutes les 2 h après formation du bark (~4 h)."},
+  {name:"Wrap papier boucher", mode:"indirect", temp_C:110, duration_min:240, action:"Emballer serré au franchissement du stall (71 °C). Le papier laisse respirer sans détremper le bark."},
+  {name:"Repos glacière", mode:"préparation", temp_C:65, duration_min:60, action:"Emballé dans serviette + glacière sèche. Indispensable pour la redistribution des jus."}
+],
+equipement:["Pierre céramique déflectrice","Sonde 2 canaux (ambiance + cœur)","Papier boucher non couché","Vaporisateur","Glacière sèche pour le repos","Gants haute température"],
+source:"Méthode 'Texas low & slow' popularisée par Aaron Franklin (Franklin Barbecue, Austin)",
+erreurs:[
+  "Sonde dans le 'point' (partie grasse) : lecture faussée → planter au cœur du 'flat' (partie maigre)",
+  "Ouvrir le kamado trop souvent : perte de T° et fumée → 'if you're lookin', you ain't cookin'",
+  "Wrap avant formation complète du bark : croûte molle → attendre 71 °C ET bark sombre/sec",
+  "Pas de repos en glacière : viande sèche → 1 h minimum, jusqu'à 4 h pour les grosses pièces"
+]},
 
 {cat:"boeuf",nom:"Rosbif rôti à l'anglaise",ori:"France/UK · rôti du dimanche",pour:"5–6 pers",mode:"Indirect",tempK:"160 °C",coeur:"54–56 °C (rosé)",temps:"50–70 min",bois:"Hêtre (léger)",tags:"roti dimanche tende de tranche rumsteck",
 ings:["1,2 kg de rumsteck ou tende de tranche ficelé","2 c. à s. d'huile, sel, poivre","1 c. à s. de moutarde","Thym, romarin","Légumes racines (facultatif)"],
@@ -912,12 +928,39 @@ astuce:"Le passage fumé avant le braisage apporte une profondeur qu'on n'obtien
 {cat:"porc",nom:"Pulled pork (échine effilochée)",ori:"USA · le roi du low & slow",pour:"8–10 pers",mode:"Fumage indirect",tempK:"110–120 °C",coeur:"92–96 °C",temps:"10–14 h",bois:"Pommier + hickory",tags:"effiloché épaule sandwich burger",
 ings:["1 échine ou palette de porc de 3–4 kg","Rub : cassonade, paprika fumé, sel, ail, cumin, poivre, moutarde en poudre","Moutarde jaune (liant)","Jus de pomme en vaporisateur","Sauce BBQ pour servir"],
 etapes:["La veille : badigeonnez de moutarde, massez avec le rub, filmez, réservez au frais.","Kamado indirect avec pierre-déflecteur à 110 °C, 3–4 morceaux de bois, foyer plein.","Posez l'épaule gras vers le haut, sonde au cœur.","Fumez sans ouvrir. Vaporisez au jus de pomme toutes les 2 h après la 4ᵉ heure.","Au stall (~70 °C), emballez dans l'alu avec un trait de jus de pomme pour accélérer.","Sortez à 94 °C quand l'os central se retire tout seul. Repos 45 min emballé.","Effilochez à la fourchette ou aux griffes, mélangez aux jus, servez avec sauce BBQ et coleslaw."],
-astuce:"Comptez ~1 h 30 par kilo. Lancez tôt le matin pour le soir. Le pulled pork se congèle parfaitement avec ses jus."},
+astuce:"Comptez ~1 h 30 par kilo. Lancez tôt le matin pour le soir. Le pulled pork se congèle parfaitement avec ses jus.",
+difficulty:4, charbon_kg:3.5, repos_min:45,
+vents:{bottom:"1/8 ouvert (110 °C steady)", top:"1/8 ouvert"},
+wrap:{at_temp_coeur_C:70, materiau:"alu", apres:"Continuer jusqu'à 94 °C, l'os central doit se retirer tout seul"},
+phases:[
+  {name:"Fumage nu", mode:"fumage", temp_C:110, duration_min:300, action:"Sonde au cœur du muscle le plus épais. Vaporiser jus de pomme toutes les 2 h dès la 4ᵉ heure."},
+  {name:"Wrap alu + jus de pomme", mode:"indirect", temp_C:110, duration_min:180, action:"Emballer serré au stall avec 2 c. à s. de jus de pomme. Accélère le franchissement."},
+  {name:"Repos glacière", mode:"préparation", temp_C:65, duration_min:45, action:"Repos emballé dans glacière sèche pour redistribuer les jus avant effilochage."}
+],
+equipement:["Pierre céramique déflectrice","Sonde 2 canaux","Vaporisateur","Alu épais","Griffes à effilocher (ou 2 fourchettes)","Glacière sèche pour le repos"],
+erreurs:[
+  "Sortir trop tôt (<92 °C) : difficile à effilocher, fibres dures → l'os doit se retirer sans résistance",
+  "Effilocher trop chaud (<60 °C cœur) : la chair se déchire mal → laisser tiédir un peu",
+  "Oublier la sauce/jus pendant l'effilochage : pulled sec → mélanger aux jus de cuisson recueillis"
+]},
 
 {cat:"porc",nom:"Travers de porc glacés (ribs)",ori:"USA · méthode 3-2-1",pour:"4 pers",mode:"Fumage indirect",tempK:"120 °C",coeur:"90–94 °C",temps:"5–6 h",bois:"Pommier ou cerisier",tags:"ribs spareribs cotes levée glaze",
 ings:["2 racks de travers de porc","Rub BBQ (cassonade, paprika, sel, ail, poivre)","Jus de pomme","Beurre, miel, cassonade (pour la phase emballée)","Sauce BBQ pour glacer"],
 etapes:["Retirez la membrane sous les côtes (côté os). Enrobez de rub, reposez 1 h.","Méthode 3-2-1 → 3 h de fumage nu à 120 °C, côté os en bas.","2 h emballés dans l'alu avec beurre, miel, cassonade et un trait de jus de pomme (ça attendrit).","1 h déballés, badigeonnés de sauce BBQ toutes les 15 min pour caraméliser le glaçage.","Test : les côtes plient et la chair craque (« bend test »), ~92 °C.","Découpez entre les os et servez."],
-astuce:"Pour des côtes moins tombantes (qui tiennent à l'os), réduisez la phase emballée à 1 h 30 (méthode 3-1,5-1)."},
+astuce:"Pour des côtes moins tombantes (qui tiennent à l'os), réduisez la phase emballée à 1 h 30 (méthode 3-1,5-1).",
+difficulty:3, charbon_kg:2, repos_min:10,
+vents:{bottom:"1/4 ouvert (120 °C steady)", top:"1/4 ouvert"},
+phases:[
+  {name:"3 h fumage nu", mode:"fumage", temp_C:120, duration_min:180, action:"Côté os en bas, sans ouverture. Vaporiser jus de pomme à 90 min puis toutes les 30 min."},
+  {name:"2 h emballées", mode:"indirect", temp_C:120, duration_min:120, action:"Alu hermétique avec beurre + miel + cassonade + jus de pomme. Attendrit en profondeur."},
+  {name:"1 h glaçage", mode:"indirect", temp_C:120, duration_min:60, action:"Déballer, badigeonner BBQ toutes les 15 min. La sauce doit devenir brillante et collante."}
+],
+equipement:["Pierre céramique déflectrice","Pince longue","Pinceau silicone","Vaporisateur","Alu épais"],
+erreurs:[
+  "Garder la membrane sous les côtes : empêche la fumée de pénétrer → la retirer impérativement, côté os",
+  "Glacer trop tôt : le sucre brûle → glaçage uniquement sur la dernière heure, déballé",
+  "Tester à l'horloge plutôt qu'au bend test : côtes trop fermes → soulever au milieu, les côtes doivent ployer en angle droit"
+]},
 
 {cat:"porc",nom:"Carré de porc rôti aux herbes",ori:"France · rôti généreux",pour:"5–6 pers",mode:"Indirect",tempK:"160 °C",coeur:"63 °C (rosé) / 70 °C",temps:"50–70 min",bois:"Pommier",tags:"carré côtes premières roti",
 ings:["1 carré de porc de 1,2 kg (4–5 côtes)","Huile, sel, poivre","Ail, romarin, thym, sauge","1 c.à.s de moutarde"],
@@ -958,7 +1001,18 @@ astuce:"Pour un jambonneau ultra-fondant, emballez-le dans l'alu après 3 h de f
 {cat:"volaille",nom:"Poulet entier à la cannette (beer can)",ori:"USA · poulet vapeur-rôti spectaculaire",pour:"4 pers",mode:"Indirect",tempK:"180 °C",coeur:"74 °C (cuisse)",temps:"1 h 15–1 h 30",bois:"Pommier",tags:"poulet entier beer can canette rôti",
 ings:["1 poulet fermier de 1,5 kg","1 canette de bière à moitié pleine","Rub : paprika fumé, ail, sel, poivre, thym","Huile"],
 etapes:["Séchez le poulet, huilez, massez de rub dedans et dehors.","Ouvrez la canette, buvez/videz la moitié, ajoutez ail et thym dedans.","Plantez le poulet sur la canette pour qu'il tienne debout (trépied avec les cuisses).","Indirect (pierre-déflecteur) à 180 °C, poulet debout au centre.","Cuisez 1 h 15–1 h 30 jusqu'à 74 °C dans la cuisse. Peau dorée et croustillante.","Retirez délicatement (la canette est brûlante), repos 10 min."],
-astuce:"La vapeur de bière garde la chair ultra-moelleuse pendant que la chaleur tournante croustille la peau."},
+astuce:"La vapeur de bière garde la chair ultra-moelleuse pendant que la chaleur tournante croustille la peau.",
+difficulty:1, charbon_kg:1, repos_min:10,
+vents:{bottom:"1/2 ouvert (180 °C steady)", top:"1/2 ouvert"},
+phases:[
+  {name:"Cuisson indirecte vapeur", mode:"indirect", temp_C:180, duration_min:80, action:"Pierre déflectrice, poulet debout au centre. Sonde dans la cuisse, jamais contre l'os."}
+],
+equipement:["Pierre céramique déflectrice","Sonde à viande","Pince longue (la canette est brûlante)","Gant haute température"],
+erreurs:[
+  "Sonde plantée contre l'os : lecture faussée 5–8 °C plus bas → planter dans le muscle de la cuisse à 1 cm de l'os",
+  "Canette pleine : risque d'explosion → bien la vider à moitié et la perforer aux ciseaux pour évacuer la vapeur",
+  "Retirer la canette à main nue : brûlures graves → toujours pince + gant, attendre 5 min"
+]},
 
 {cat:"volaille",nom:"Poulet crapaudine (spatchcock)",ori:"France/USA · cuisson rapide & homogène",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"74 °C",temps:"40 min indirect + 5–15 min direct",bois:"Cerisier",tags:"poulet crapaudine spatchcock aplati",
 ings:["1 poulet de 1,4 kg","Beurre pommade aux herbes (ail, persil, estragon)","Sel, poivre, citron"],
@@ -1132,7 +1186,21 @@ astuce:"Griller les légumes avant de les mijoter apporte une dimension fumée q
 {cat:"pizza",nom:"Pizza napolitaine",ori:"Italie · le four à bois à la maison",pour:"4 pizzas",mode:"Direct sur pierre",tempK:"350–400 °C",coeur:"pâte gonflée",temps:"4–6 min/pizza",bois:"—",tags:"pizza napolitaine margherita pierre pate",
 ings:["Pâte : 500 g farine T00, 325 g eau, 10 g sel, 3 g levure (poussée 24 h)","Sauce tomate San Marzano, mozzarella di bufala","Basilic, huile d'olive","Semoule fine pour enfourner"],
 etapes:["Préparez la pâte la veille, laissez pousser 24 h au frais puis boulez (pâtons de 250 g).","Posez la pierre à pizza À FROID, montez le kamado à 380–400 °C, évents grands ouverts, 30 min de chauffe.","Étalez un pâton à la main sur un plan fariné à la semoule. Garnissez rapidement (peu de sauce).","Enfournez sur la pierre, fermez le couvercle.","Cuisez 4–6 min en tournant à mi-cuisson (la chaleur du fond est plus forte).","Basilic et filet d'huile à la sortie."],
-astuce:"La règle d'or : pierre brûlante + pizza fine + garniture légère + cuisson courte. Trop de garniture = pâte molle."},
+astuce:"La règle d'or : pierre brûlante + pizza fine + garniture légère + cuisson courte. Trop de garniture = pâte molle.",
+difficulty:3, marinade_h:24,
+vents:{bottom:"ouvert grand (pour 380–400 °C)", top:"ouvert grand"},
+phases:[
+  {name:"Pousse longue", mode:"préparation", temp_C:4, duration_min:1440, action:"Pâtons 250 g au frigo 24 h, sortir 2 h avant cuisson pour T° ambiante."},
+  {name:"Préchauffage pierre", mode:"indirect", temp_C:400, duration_min:30, action:"Pierre placée à froid, montée progressive 30 min. Vérifier au thermomètre IR : surface pierre 380 °C minimum."},
+  {name:"Cuisson", mode:"direct", temp_C:400, duration_min:5, action:"4–6 min par pizza, rotation 180° à mi-cuisson (chaleur asymétrique du foyer)."}
+],
+equipement:["Pierre à pizza ronde (placement haut)","Pelle à pizza bois pour enfourner","Pelle métal fine pour défourner","Thermomètre infrarouge","Semoule de blé dur fine"],
+source:"Cuisson directe haute température style 'Vera Pizza Napoletana' (AVPN)",
+erreurs:[
+  "Pierre placée à chaud : choc thermique, fissure → toujours placer à froid puis monter en T°",
+  "Excès de sauce/mozza : pâte détrempée, ne cuit pas → max 80 g de sauce + 80 g de mozza par pizza",
+  "Garniture grasse (charcuteries) au début : brûle → ajouter herbes/charcuteries APRÈS sortie du four"
+]},
 
 {cat:"pizza",nom:"Focaccia romarin & gros sel",ori:"Italie · pain moelleux à l'huile",pour:"6 pers",mode:"Indirect sur pierre",tempK:"220 °C",coeur:"moelleux",temps:"20–25 min",bois:"—",tags:"focaccia pain italie romarin huile olive",
 ings:["500 g farine, 350 g eau, 10 g sel, 5 g levure","Huile d'olive généreuse","Romarin, gros sel, tomates cerises (option)"],
