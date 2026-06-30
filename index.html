@@ -2511,14 +2511,6 @@ function drawSimulationChart(duration, type) {
   
   return `
     <svg class="sim-chart" viewBox="0 0 ${width} ${height}" style="background:var(--bg2); border:1px solid var(--line); border-radius:var(--border-radius-md); margin:12px 0 6px; display:block; width:100%; height:auto;">
-      <defs>
-        <linearGradient id="chartGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="var(--blue)" />
-          <stop offset="50%" stop-color="var(--accent2)" />
-          <stop offset="100%" stop-color="var(--ember)" />
-        </linearGradient>
-      </defs>
-      
       <line x1="${paddingLeft}" y1="${paddingTop}" x2="${paddingLeft}" y2="${height - paddingBottom}" stroke="var(--line)" stroke-width="1.5" />
       <line x1="${paddingLeft}" y1="${height - paddingBottom}" x2="${width - paddingRight}" y2="${height - paddingBottom}" stroke="var(--line)" stroke-width="1.5" />
       <line x1="${paddingLeft}" y1="${paddingTop}" x2="${width - paddingRight}" y2="${paddingTop}" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
@@ -2532,7 +2524,7 @@ function drawSimulationChart(duration, type) {
       <text x="${width - paddingRight}" y="${height - paddingBottom + 16}" fill="var(--muted)" font-size="9" text-anchor="end">${duration.toFixed(1)}h</text>
       
       ${gridLines.join("")}
-      <path d="${pathD}" fill="none" stroke="url(#chartGrad)" stroke-width="3" stroke-linecap="round" />
+      <path d="${pathD}" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round" />
       ${keyMarkers}
       <text x="${paddingLeft + 10}" y="${paddingTop + 14}" fill="var(--green)" font-size="9" font-weight="700">📈 Température à cœur</text>
     </svg>
