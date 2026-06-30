@@ -255,7 +255,7 @@ section { padding: 12px 0 40px; }
   z-index: 5;
 }
 .back { font-size: 24px; background: none; border: none; color: var(--accent2); cursor: pointer; padding: 4px; display: flex; align-items: center; }
-.sheet-head h2 { font-size: 18px; font-weight: 800; margin: 0; flex: 1; color: #fff; font-family: var(--font-title); }
+.sheet-head h2 { font-size: 18px; font-weight: 800; margin: 0; flex: 1; color: #fff; font-family: var(--font-title); word-break: break-word; overflow-wrap: break-word; }
 .sheet-body { padding: 18px 20px; }
 .sheet-body .ori { color: var(--accent2); font-weight: 700; font-size: 13.5px; margin-bottom: 12px; }
 
@@ -270,7 +270,7 @@ section { padding: 12px 0 40px; }
   box-shadow: var(--shadow-inset);
 }
 .spec .l { font-size: 9.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; }
-.spec .v { font-size: 14.5px; font-weight: 700; margin-top: 4px; font-family: var(--font-title); }
+.spec .v { font-size: 14px; font-weight: 700; margin-top: 4px; font-family: var(--font-title); word-break: break-word; overflow-wrap: break-word; }
 .spec .v.temp { color: var(--accent2); }
 .spec .v.coeur { color: var(--green); }
 
@@ -344,12 +344,53 @@ section { padding: 12px 0 40px; }
 }
 .actbtn.on { background: var(--accent2); color: #161813; border-color: var(--accent2); box-shadow: 0 4px 10px rgba(242,169,59,0.3); }
 
-.servrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: var(--card); border: 1px solid var(--line); border-radius: var(--border-radius-md); padding: 10px 14px; margin: 16px 0 4px; box-shadow: var(--shadow-inset); }
+.servrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--border-radius-md);
+  padding: 10px 14px;
+  margin: 16px 0 4px;
+  box-shadow: var(--shadow-inset);
+}
 .servlbl { font-size: 13px; font-weight: 700; }
 .stp { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--card2); color: var(--txt); font-size: 20px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .stp:active { transform: scale(0.9); }
 .servval { min-width: 26px; text-align: center; font-size: 16px; font-weight: 800; color: var(--accent2); font-family: var(--font-title); }
-.copybtn { margin-left: auto; background: var(--accent); color: #fff; border: none; border-radius: 18px; padding: 8px 14px; font-size: 12.5px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 10px rgba(231,90,30,0.3); }
+.copybtn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(231,90,30,0.3);
+  white-space: nowrap;
+}
+.copybtn:last-child {
+  margin-left: 0;
+}
+.servrow > button#sCopy {
+  margin-left: auto;
+}
+
+@media(max-width: 480px) {
+  .servrow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    align-items: center;
+  }
+  .servlbl { grid-column: span 4; text-align: center; margin-bottom: 2px; }
+  .servrow .stp { justify-self: center; }
+  .servrow .servval { text-align: center; }
+  .servrow .copybtn { grid-column: span 2; width: 100%; text-align: center; justify-content: center; margin: 0 !important; }
+}
 
 .ratingrow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; }
 .ratingrow span { font-size: 12.5px; color: var(--muted); font-weight: 700; }
@@ -666,7 +707,7 @@ const CATS = [
 
 const RECIPES = [
 /* ===== BŒUF ===== */
-{cat:"boeuf",nom:"Côte de bœuf reverse-sear",ori:"France · la cuisson parfaite en 2 temps",pour:"3–4 pers",mode:"Indirect puis Direct",tempK:"120 °C puis 320 °C",coeur:"52–54 °C (saignant)",temps:"45–70 min",bois:"Chêne ou hêtre",tags:"cote rib eye persillée",
+{cat:"boeuf",nom:"Côte de bœuf reverse-sear",ori:"France · la cuisson parfaite en 2 temps",pour:"3–4 pers",mode:"Indirect puis Direct",tempK:"120 °C puis 320 °C",coeur:"52–54 °C (saignant)",temps:"40–60 min indirect + 5–10 min direct",bois:"Chêne ou hêtre",tags:"cote rib eye persillée",
 ings:["1 côte de bœuf de 1–1,2 kg (5 cm d'épaisseur)","Gros sel, poivre du moulin","1 c. à s. d'huile neutre","Beurre, thym, ail (pour arroser)","Fleur de sel pour servir"],
 etapes:["Sortez la viande 1 h avant, séchez-la bien, salez généreusement.","Config indirecte : pierre céramique en déflecteur, kamado à 120 °C. Posez la côte et plantez la sonde au cœur.","Laissez monter doucement jusqu'à 48–50 °C à cœur (45–60 min). Retirez la viande et la pierre.","Ouvrez les évents en grand, montez à 300–320 °C pour braises vives.","Saisissez la côte 60–90 s par face directement sur les braises, plus les tranches grasses.","Arrosez de beurre/thym/ail en fin de saisie. Repos 10 min sous alu avant de trancher contre le grain."],
 astuce:"Le reverse-sear donne une cuisson rose uniforme de bord à bord, sans anneau gris. Le secret : sortir à 48–50 °C car la saisie + le repos ajoutent 4–6 °C."},
@@ -701,7 +742,7 @@ ings:["700 g de rumsteck en cubes de 3 cm","Marinade : 3 c.à.s huile d'olive, 1
 etapes:["Marinez les cubes de bœuf 2–4 h au frais.","Montez les brochettes en alternant viande et légumes, sans trop serrer.","Grille directe à 280 °C. Saisissez en tournant tous les 2 min, env. 8–10 min.","Visez 54 °C à cœur pour un bœuf rosé.","Repos 3 min avant de servir."],
 astuce:"Si brochettes en bois, faites-les tremper 30 min. Les brochettes plates en métal empêchent la viande de tourner."},
 
-{cat:"boeuf",nom:"Tomahawk au beurre noisette",ori:"USA/France · pièce spectacle",pour:"2–3 pers",mode:"Indirect puis Direct",tempK:"120 °C puis 320 °C",coeur:"54 °C",temps:"45–60 min",bois:"Chêne",tags:"tomahawk cote os long",
+{cat:"boeuf",nom:"Tomahawk au beurre noisette",ori:"USA/France · pièce spectacle",pour:"2–3 pers",mode:"Indirect puis Direct",tempK:"120 °C puis 320 °C",coeur:"54 °C",temps:"40–50 min indirect + 5–10 min direct",bois:"Chêne",tags:"tomahawk cote os long",
 ings:["1 tomahawk de 1–1,3 kg","Gros sel, poivre concassé","60 g de beurre, gousse d'ail écrasée, thym","Fleur de sel"],
 etapes:["Salez la pièce, laissez tempérer 1 h.","Indirect à 120 °C (pierre-déflecteur), sonde au cœur, jusqu'à 48 °C (45 min env.).","Retirez, ouvrez les évents, montez à 320 °C.","Saisie directe 1 min par face sur braises vives.","Beurre noisette : faites mousser le beurre avec ail/thym, arrosez la viande.","Repos 10 min, tranchez le long de l'os."],
 astuce:"Tenez l'os avec un gant pour saisir les tranches de gras sur la tranche — c'est là que se concentre le goût."},
@@ -711,7 +752,7 @@ ings:["2 onglets de 200 g (nerf central retiré)","Huile, sel","Sauce : 20 cl cr
 etapes:["Préparez la sauce au poivre à part et gardez au chaud.","Huilez et salez l'onglet. Grille très chaude à 300 °C.","Saisissez 2–2,5 min par face — l'onglet se mange saignant impérativement.","Repos 5 min (la fibre se détend).","Tranchez contre le grain, nappez de sauce au poivre."],
 astuce:"L'onglet doit rester saignant à bleu : trop cuit, il devient caoutchouteux. C'est la pièce la plus savoureuse du bœuf."},
 
-{cat:"boeuf",nom:"Joue de bœuf fumée braisée",ori:"France · cuisson lente fondante",pour:"4 pers",mode:"Fumage puis braisé",tempK:"130 °C",coeur:"90 °C",temps:"5–6 h",bois:"Chêne + cerisier",tags:"joue braise mijote vin rouge",
+{cat:"boeuf",nom:"Joue de bœuf fumée braisée",ori:"France · cuisson lente fondante",pour:"4 pers",mode:"Fumage puis braisé",tempK:"130 °C",coeur:"90 °C",temps:"1 h 30 fumage + 3 h 30–4 h braisé",bois:"Chêne + cerisier",tags:"joue braise mijote vin rouge",
 ings:["4 joues de bœuf parées","Rub sel/poivre/paprika","2 oignons, 2 carottes, 50 cl vin rouge, fond de bœuf","Bouquet garni"],
 etapes:["Enrobez les joues de rub. Kamado en indirect à 130 °C avec bois.","Fumez les joues 1 h 30 à nu pour la croûte et le goût fumé.","Transférez dans une cocotte en fonte avec légumes, vin, fond, bouquet garni.","Remettez la cocotte couverte sur le kamado à 150 °C pendant 3,5–4 h.","La joue est prête à 90 °C, quand elle se défait à la fourchette.","Réduisez la sauce si besoin et servez avec une purée."],
 astuce:"Le passage fumé avant le braisage apporte une profondeur qu'on n'obtient jamais au four classique."},
@@ -737,12 +778,12 @@ ings:["2 filets mignons de porc","Sel, poivre","2 c.à.s miel, 1 c.à.s moutarde
 etapes:["Salez les filets, bardez de lard si souhaité. Kamado indirect à 130 °C avec 2 morceaux de cerisier.","Posez les filets, sonde au cœur, fumez 30 min.","Mélangez miel + moutarde, badigeonnez les filets, poursuivez la cuisson.","Sortez à 63 °C (rosé et fondant). Repos 5–8 min.","Tranchez en médaillons épais."],
 astuce:"Le filet mignon est maigre et cuit vite : la sonde évite à coup sûr de le dessécher."},
 
-{cat:"porc",nom:"Poitrine de porc croustillante",ori:"Asie/France · peau soufflée",pour:"4 pers",mode:"Indirect puis Direct",tempK:"150 °C puis 250 °C",coeur:"75 °C",temps:"2–2 h 30",bois:"Hêtre",tags:"poitrine lard crackling peau croustillante",
+{cat:"porc",nom:"Poitrine de porc croustillante",ori:"Asie/France · peau soufflée",pour:"4 pers",mode:"Indirect puis Direct",tempK:"150 °C puis 250 °C",coeur:"75 °C",temps:"1 h 30 indirect + 15–25 min direct",bois:"Hêtre",tags:"poitrine lard crackling peau croustillante",
 ings:["1 kg de poitrine de porc avec couenne","Gros sel","Cinq-épices ou simplement sel/poivre","1 c.à.s de vinaigre blanc"],
 etapes:["Incisez la couenne en croisillons sans atteindre la chair. Séchez très bien, frottez de vinaigre puis de gros sel.","Indirect (pierre-déflecteur) à 150 °C, couenne vers le haut, 1 h 30 jusqu'à 70 °C à cœur.","Retirez l'excès de sel. Montez à 250 °C, évents ouverts.","Exposez la couenne à la chaleur forte 15–25 min : elle gonfle et devient croustillante.","Sortez à 75 °C. Repos 10 min, découpez en gros cubes."],
 astuce:"Couenne sèche = couenne croustillante. Séchez-la au frigo à découvert quelques heures avant cuisson pour un crackling parfait."},
 
-{cat:"porc",nom:"Échine marinée à la bière",ori:"France · grillade du week-end",pour:"4 pers",mode:"Direct puis indirect",tempK:"220 °C",coeur:"68 °C",temps:"20–25 min",bois:"—",tags:"echine collier grillade biere",
+{cat:"porc",nom:"Échine marinée à la bière",ori:"France · grillade du week-end",pour:"4 pers",mode:"Direct puis indirect",tempK:"220 °C",coeur:"68 °C",temps:"6 min direct + 12–15 min indirect",bois:"—",tags:"echine collier grillade biere",
 ings:["4 tranches d'échine épaisses (2 cm)","Marinade : 25 cl bière brune, 2 c.à.s miel, moutarde, ail, paprika fumé","Sel, poivre"],
 etapes:["Marinez l'échine 3–4 h (ou la veille).","Égouttez, saisie directe à 220 °C 3 min par face pour marquer.","Décalez en indirect, badigeonnez de marinade réduite, finissez jusqu'à 68 °C.","Repos 5 min avant de servir."],
 astuce:"L'échine (collier) est persillée : elle pardonne mieux la cuisson qu'un filet et reste juteuse."},
@@ -768,7 +809,7 @@ ings:["1 poulet fermier de 1,5 kg","1 canette de bière à moitié pleine","Rub 
 etapes:["Séchez le poulet, huilez, massez de rub dedans et dehors.","Ouvrez la canette, buvez/videz la moitié, ajoutez ail et thym dedans.","Plantez le poulet sur la canette pour qu'il tienne debout (trépied avec les cuisses).","Indirect (pierre-déflecteur) à 180 °C, poulet debout au centre.","Cuisez 1 h 15–1 h 30 jusqu'à 74 °C dans la cuisse. Peau dorée et croustillante.","Retirez délicatement (la canette est brûlante), repos 10 min."],
 astuce:"La vapeur de bière garde la chair ultra-moelleuse pendant que la chaleur tournante croustille la peau."},
 
-{cat:"volaille",nom:"Poulet crapaudine (spatchcock)",ori:"France/USA · cuisson rapide & homogène",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"74 °C",temps:"45–55 min",bois:"Cerisier",tags:"poulet crapaudine spatchcock aplati",
+{cat:"volaille",nom:"Poulet crapaudine (spatchcock)",ori:"France/USA · cuisson rapide & homogène",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"74 °C",temps:"40 min indirect + 5–15 min direct",bois:"Cerisier",tags:"poulet crapaudine spatchcock aplati",
 ings:["1 poulet de 1,4 kg","Beurre pommade aux herbes (ail, persil, estragon)","Sel, poivre, citron"],
 etapes:["Retirez la colonne vertébrale aux ciseaux, aplatissez le poulet (cassez le bréchet).","Glissez le beurre d'herbes sous la peau. Salez.","Indirect à 190 °C, peau vers le haut, sonde dans la cuisse.","Cuisez 40 min jusqu'à 70 °C, puis passez 5 min côté peau sur zone plus directe pour croustiller.","Sortez à 74 °C. Repos 10 min, découpez."],
 astuce:"Aplati, le poulet cuit 2× plus vite et de façon homogène : fini les blancs secs / cuisses crues."},
@@ -778,12 +819,12 @@ ings:["2 magrets de canard","Sel, poivre","Option : 1 c.à.s miel + vinaigre bal
 etapes:["Quadrillez la peau au couteau sans toucher la chair. Salez.","Démarrez côté peau sur zone modérée (pas plein feu) pour fondre le gras doucement, 6–8 min.","Retirez l'excès de gras qui s'écoule (risque de flamme). Retournez côté chair 3–4 min.","Badigeonnez de miel/balsamique en fin si souhaité.","Sortez à 54–57 °C pour rosé. Repos 5 min, tranchez en aiguillettes."],
 astuce:"Gérez les flambées : le gras de canard s'enflamme. Travaillez sur une zone moins vive et fermez le couvercle si ça s'emballe."},
 
-{cat:"volaille",nom:"Cuisses de poulet marinées citron-thym",ori:"France · économique et savoureux",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"80 °C",temps:"35–45 min",bois:"Citronnier",tags:"cuisses pilons poulet citron marinade",
+{cat:"volaille",nom:"Cuisses de poulet marinées citron-thym",ori:"France · économique et savoureux",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"80 °C",temps:"30 min indirect + 5–10 min direct",bois:"Citronnier",tags:"cuisses pilons poulet citron marinade",
 ings:["8 hauts de cuisses / pilons","Marinade : huile d'olive, citron (jus+zeste), ail, thym, paprika, sel","Poivre"],
 etapes:["Marinez les cuisses 2–4 h.","Indirect à 190 °C, peau vers le haut, 30 min.","Passez sur la grille directe 5–8 min pour dorer et croustiller la peau.","Visez 80 °C à cœur (les cuisses sont meilleures bien cuites, jamais sèches grâce au gras).","Servez avec un filet de citron."],
 astuce:"Les cuisses tolèrent 80–82 °C : le collagène fond et la chair devient soyeuse, contrairement aux blancs."},
 
-{cat:"volaille",nom:"Ailes de poulet Buffalo",ori:"USA · l'apéro BBQ par excellence",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"82 °C",temps:"35–40 min",bois:"Hickory (option)",tags:"ailes wings buffalo apero piquant",
+{cat:"volaille",nom:"Ailes de poulet Buffalo",ori:"USA · l'apéro BBQ par excellence",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"82 °C",temps:"25 min indirect + 10 min direct",bois:"Hickory (option)",tags:"ailes wings buffalo apero piquant",
 ings:["1,2 kg d'ailes de poulet","1 c.à.s d'huile, sel, levure chimique (peau croustillante)","Sauce Buffalo : 80 g beurre fondu + sauce piquante (type Frank's)","Sauce bleu ou ranch pour tremper"],
 etapes:["Séchez les ailes, mélangez avec huile, sel et une pincée de levure chimique (croustillant).","Indirect à 190 °C, 25 min en retournant à mi-cuisson.","Passez sur la grille directe 5–8 min pour croustiller, jusqu'à 82 °C.","Mélangez immédiatement les ailes chaudes dans la sauce Buffalo.","Servez avec sauce au bleu et bâtonnets de céleri."],
 astuce:"La levure chimique (½ c.à.c pour 1 kg) modifie le pH de la peau et la rend incroyablement croustillante."},
@@ -809,7 +850,7 @@ ings:["1 gigot d'agneau de 2 kg","6 gousses d'ail en lamelles","Romarin, thym","
 etapes:["Piquez le gigot et insérez les lamelles d'ail et brins de romarin. Huilez, salez.","Saisie directe 8 min à 230 °C pour colorer toutes les faces.","Indirect (pierre-déflecteur) à 170 °C, sonde au cœur.","Comptez ~15 min/500 g, sortez à 54–56 °C pour rosé (60–65 °C à point).","Repos 15 min sous alu, tranchez."],
 astuce:"Ajoutez quelques branches de romarin sur les braises en fin de cuisson : le gigot s'imprègne d'un parfum méditerranéen."},
 
-{cat:"agneau",nom:"Carré d'agneau en croûte d'herbes",ori:"France · pièce raffinée",pour:"3–4 pers",mode:"Indirect puis direct",tempK:"180 °C",coeur:"54 °C (rosé)",temps:"25–35 min",bois:"Olivier",tags:"carré agneau croute herbes persillade",
+{cat:"agneau",nom:"Carré d'agneau en croûte d'herbes",ori:"France · pièce raffinée",pour:"3–4 pers",mode:"Indirect puis direct",tempK:"180 °C",coeur:"54 °C (rosé)",temps:"20–25 min indirect + 5–10 min direct",bois:"Olivier",tags:"carré agneau croute herbes persillade",
 ings:["2 carrés d'agneau (manchons nettoyés)","Croûte : chapelure, persil, ail, moutarde, beurre, parmesan","Sel, poivre"],
 etapes:["Saisie directe rapide des carrés à 230 °C, 2 min par face, pour dorer.","Badigeonnez de moutarde, pressez la croûte chapelure-herbes sur le côté chair.","Indirect à 180 °C, croûte vers le haut, sonde au cœur.","Sortez à 52–54 °C pour rosé (la croûte doit être dorée).","Repos 8 min, détaillez en côtelettes."],
 astuce:"Protégez les os avec de l'alu pour éviter qu'ils ne noircissent et présentez les côtelettes « en couronne »."},
@@ -829,7 +870,7 @@ ings:["4 souris d'agneau","2 oignons, ail, gingembre","Miel, cannelle, cumin, ra
 etapes:["Colorez les souris en direct à 220 °C sur toutes les faces.","Dans une cocotte : oignons, épices, miel, souris, bouillon à mi-hauteur.","Indirect à 150 °C, couvert, 3 h en retournant à mi-parcours.","Ajoutez les abricots la dernière heure.","Prêtes à 90 °C, la chair se détache de l'os."],
 astuce:"La sauce épicée-sucrée se marie parfaitement avec une semoule de couscous."},
 
-{cat:"agneau",nom:"Filet de chevreuil rôti, sauce grand veneur",ori:"France · gibier de saison",pour:"4 pers",mode:"Indirect puis direct",tempK:"160 °C",coeur:"52–56 °C (rosé)",temps:"20–30 min",bois:"Chêne",tags:"chevreuil gibier rosé grand veneur",
+{cat:"agneau",nom:"Filet de chevreuil rôti, sauce grand veneur",ori:"France · gibier de saison",pour:"4 pers",mode:"Indirect puis direct",tempK:"160 °C",coeur:"52–56 °C (rosé)",temps:"15–20 min indirect + 5–10 min direct",bois:"Chêne",tags:"chevreuil gibier rosé grand veneur",
 ings:["1 filet de chevreuil de 600 g","Huile, beurre, genièvre, poivre","Sel","Sauce grand veneur (fond de gibier, groseille, crème)"],
 etapes:["Sortez le filet 1 h avant, poivrez, frottez de baies de genièvre écrasées.","Indirect à 160 °C, sonde au cœur, jusqu'à 48 °C.","Saisie directe rapide 1 min par face à 280 °C avec beurre.","Sortez à 52–54 °C : le gibier se sert rosé, jamais sec.","Repos 8 min, nappez de sauce grand veneur."],
 astuce:"Le chevreuil est très maigre : au-delà de 58 °C il devient sec et fort en goût. Restez rosé."},
@@ -891,7 +932,7 @@ ings:["2 courgettes, 1 aubergine, 2 poivrons, 1 oignon rouge","Huile d'olive, ai
 etapes:["Coupez les légumes en tranches/quartiers réguliers. Enrobez d'huile, ail, herbes.","Grille directe à 230 °C.","Grillez chaque face 4–6 min jusqu'aux marques de grill et tendreté.","Les poivrons peuvent être noircis puis pelés pour plus de douceur.","Arrosez de balsamique et d'huile d'olive crue au service."],
 astuce:"Salez les aubergines 15 min avant et épongez : elles absorbent moins d'huile et grillent mieux."},
 
-{cat:"legumes",nom:"Aubergines fumées façon baba ganoush",ori:"Liban/Moyen-Orient · caviar d'aubergine",pour:"4 pers",mode:"Direct puis indirect",tempK:"220 °C",coeur:"fondantes",temps:"30–40 min",bois:"Olivier",tags:"aubergine baba ganoush fumé tahini mezzé",
+{cat:"legumes",nom:"Aubergines fumées façon baba ganoush",ori:"Liban/Moyen-Orient · caviar d'aubergine",pour:"4 pers",mode:"Direct puis indirect",tempK:"220 °C",coeur:"fondantes",temps:"15 min direct + 15–25 min indirect",bois:"Olivier",tags:"aubergine baba ganoush fumé tahini mezzé",
 ings:["3 grosses aubergines","2 c.à.s tahini, 1 gousse d'ail, jus de citron","Huile d'olive, cumin, sel","Persil, graines de grenade"],
 etapes:["Posez les aubergines entières directement sur la grille à 220 °C.","Tournez-les jusqu'à ce que la peau soit noircie et la chair effondrée (30–40 min).","Laissez tiédir, retirez la peau, récupérez la chair fumée.","Écrasez avec tahini, ail, citron, cumin, huile d'olive.","Servez tiède ou froid, parsemé de persil et grenade."],
 astuce:"C'est le contact direct des braises qui donne ce goût fumé caractéristique impossible à reproduire au four."},
@@ -931,7 +972,7 @@ ings:["2 belles grappes de pleurotes","Marinade : huile d'olive, balsamique, sau
 etapes:["Marinez les pleurotes 15 min dans le mélange balsamique.","Grille directe à 240 °C, posez les grappes.","Pressez-les avec une plaque ou spatule pendant la cuisson pour les saisir façon « steak ».","Retournez à mi-cuisson, 5–6 min par face, jusqu'à coloration ferme.","Servez avec une persillade."],
 astuce:"Presser les pleurotes expulse l'eau et concentre les saveurs : la texture devient charnue, presque carnée."},
 
-{cat:"legumes",nom:"Ratatouille fumée au kamado",ori:"Provence · le classique réinventé",pour:"4 pers",mode:"Direct puis indirect",tempK:"200 °C",coeur:"fondante",temps:"45 min",bois:"Olivier",tags:"ratatouille provence aubergine courgette tomate",
+{cat:"legumes",nom:"Ratatouille fumée au kamado",ori:"Provence · le classique réinventé",pour:"4 pers",mode:"Direct puis indirect",tempK:"200 °C",coeur:"fondante",temps:"10 min direct + 35 min indirect",bois:"Olivier",tags:"ratatouille provence aubergine courgette tomate",
 ings:["1 aubergine, 2 courgettes, 2 poivrons, 3 tomates, 1 oignon","Ail, thym, romarin, basilic","Huile d'olive, sel, poivre"],
 etapes:["Grillez d'abord aubergine, courgettes et poivrons en direct pour les marquer et les fumer.","Coupez tout en dés. Dans une cocotte en fonte : oignon, ail, puis tous les légumes.","Indirect à 200 °C avec un morceau d'olivier, couvercle entrouvert.","Mijotez 35–40 min en remuant, herbes de Provence.","Basilic frais au service."],
 astuce:"Griller les légumes avant de les mijoter apporte une dimension fumée qui sublime la ratatouille traditionnelle."},
@@ -947,7 +988,7 @@ ings:["500 g farine, 350 g eau, 10 g sel, 5 g levure","Huile d'olive généreuse
 etapes:["Pétrissez une pâte très hydratée, laissez pousser 2 h. Étalez dans un plat huilé.","Faites les trous caractéristiques avec les doigts, arrosez d'huile, romarin, gros sel.","Pierre en place, kamado indirect à 220 °C.","Cuisez 20–25 min jusqu'à dorure dorée et croûte croustillante.","Démoulez tiède, arrosez encore d'huile d'olive."],
 astuce:"L'abondance d'huile d'olive est essentielle : elle « frit » légèrement le dessous et donne le moelleux signature."},
 
-{cat:"pizza",nom:"Pain de campagne en cocotte",ori:"France · boulange maison",pour:"1 pain",mode:"Indirect (cocotte)",tempK:"230 °C puis 210 °C",coeur:"95 °C",temps:"45 min",bois:"—",tags:"pain campagne cocotte levain croute",
+{cat:"pizza",nom:"Pain de campagne en cocotte",ori:"France · boulange maison",pour:"1 pain",mode:"Indirect (cocotte)",tempK:"230 °C puis 210 °C",coeur:"95 °C",temps:"25 min couvert + 20 min découvert",bois:"—",tags:"pain campagne cocotte levain croute",
 ings:["400 g farine T65","100 g farine complète","350 g eau","10 g sel, levain ou 4 g levure","Semoule pour déposer le pâton"],
 etapes:["Pétrissez, laissez pousser 3–4 h avec rabats. Façonnez une boule, 2ᵉ pousse 1 h.","Préchauffez une cocotte en fonte fermée dans le kamado à 230 °C (indirect).","Déposez le pâton grigné dans la cocotte chaude, couvercle fermé.","Cuisez 25 min couvert (la vapeur développe la croûte), puis 20 min à découvert à 210 °C.","Pain prêt à 95 °C à cœur, croûte chantante. Refroidissez sur grille."],
 astuce:"La cocotte fermée recrée la vapeur d'un four de boulanger : croûte fine et croustillante, mie alvéolée."},
@@ -978,7 +1019,7 @@ ings:["600 g de cuisses de poulet désossées en cubes","Tare : sauce soja, miri
 etapes:["Préparez la tare en réduisant soja, mirin, saké, sucre jusqu'à consistance sirupeuse.","Montez les brochettes en alternant poulet et cébette.","Grille directe à 240 °C, cuisez 3 min en tournant.","Trempez dans la tare, repassez sur le feu, répétez 2–3 fois pour laquer.","Service avec un peu de tare et du shichimi togarashi."],
 astuce:"Le glaçage en plusieurs couches (tremper-griller-tremper) crée la laque brillante et caramélisée caractéristique."},
 
-{cat:"monde",nom:"Char siu (porc laqué chinois)",ori:"Chine · porc rôti cantonais",pour:"4 pers",mode:"Indirect puis direct",tempK:"160 °C",coeur:"68 °C",temps:"45–60 min",bois:"Cerisier",tags:"char siu chine porc laqué hoisin miel cinq epices",
+{cat:"monde",nom:"Char siu (porc laqué chinois)",ori:"Chine · porc rôti cantonais",pour:"4 pers",mode:"Indirect puis direct",tempK:"160 °C",coeur:"68 °C",temps:"40–50 min indirect + 5 min direct",bois:"Cerisier",tags:"char siu chine porc laqué hoisin miel cinq epices",
 ings:["800 g d'échine de porc en longs morceaux","Marinade : hoisin, sauce soja, miel, cinq-épices, ail, vin de riz, colorant rouge (option)","Miel pour laquer"],
 etapes:["Marinez le porc 4 h à toute une nuit dans le mélange hoisin.","Indirect (pierre-déflecteur) à 160 °C avec cerisier. Posez le porc, sonde au cœur.","Cuisez 40 min en badigeonnant de marinade toutes les 15 min.","Badigeonnez de miel et passez 5 min sur la grille directe pour caraméliser les bords.","Sortez à 68 °C. Repos, tranchez. Servez avec riz."],
 astuce:"Les bords légèrement carbonisés et brillants sont la signature du char siu : n'hésitez pas à pousser la caramélisation."},
@@ -993,7 +1034,7 @@ ings:["700 g de bœuf tranché très fin (faux-filet)","Marinade : soja, sucre, 
 etapes:["Marinez le bœuf finement tranché 2–4 h (la poire attendrit la viande).","Plaque en fonte très chaude à 260 °C.","Saisissez le bœuf en petites quantités, 2 min, il caramélise vite.","Parsemez de sésame et cébette.","Servez en ssam : enveloppé dans une feuille de laitue avec du riz et du ssamjang."],
 astuce:"La poire asiatique râpée contient une enzyme qui attendrit le bœuf et apporte une douceur fruitée typique."},
 
-{cat:"monde",nom:"Poulet tandoori",ori:"Inde · yaourt épicé et grillé",pour:"4 pers",mode:"Indirect puis direct",tempK:"200 °C",coeur:"80 °C",temps:"35–45 min",bois:"—",tags:"tandoori poulet inde yaourt garam masala tandoor",
+{cat:"monde",nom:"Poulet tandoori",ori:"Inde · yaourt épicé et grillé",pour:"4 pers",mode:"Indirect puis direct",tempK:"200 °C",coeur:"80 °C",temps:"30–35 min indirect + 5–10 min direct",bois:"—",tags:"tandoori poulet inde yaourt garam masala tandoor",
 ings:["8 cuisses de poulet incisées","Marinade : yaourt, jus de citron, ail, gingembre, garam masala, paprika, curcuma, piment","Beurre fondu pour badigeonner"],
 etapes:["Incisez le poulet, marinez dans le yaourt épicé 4 h à toute une nuit.","Indirect (pierre-déflecteur) à 200 °C, 30 min.","Badigeonnez de beurre, passez sur la grille directe pour charrer les bords.","Visez 80 °C dans la cuisse, croûte épicée et zones noircies.","Citron et oignon cru au service."],
 astuce:"Le yaourt forme une croûte qui emprisonne les épices et garde la chair moelleuse, comme dans un vrai four tandoor."},
@@ -1003,7 +1044,7 @@ ings:["700 g d'échine de porc en cubes","Marinade : huile d'olive, citron, ail,
 etapes:["Marinez le porc 2–4 h dans huile, citron, origan.","Montez en brochettes. Grille directe à 250 °C.","Cuisez 10–12 min en tournant, jusqu'à 70 °C et bords dorés.","Réchauffez les pitas sur la grille.","Servez en pita garni de tzatziki, tomate, oignon."],
 astuce:"L'origan séché et le citron sont l'âme de la cuisine grecque : ne lésinez pas dessus."},
 
-{cat:"monde",nom:"Tacos al pastor",ori:"Mexique · porc mariné à l'ananas",pour:"6 pers",mode:"Indirect puis direct",tempK:"180 °C",coeur:"71 °C",temps:"40–50 min",bois:"—",tags:"tacos al pastor mexique porc ananas achiote tortilla",
+{cat:"monde",nom:"Tacos al pastor",ori:"Mexique · porc mariné à l'ananas",pour:"6 pers",mode:"Indirect puis direct",tempK:"180 °C",coeur:"71 °C",temps:"35–40 min indirect + 5–10 min direct",bois:"—",tags:"tacos al pastor mexique porc ananas achiote tortilla",
 ings:["1 kg d'échine en fines tranches","Marinade : piments séchés (guajillo, ancho), achiote, ananas, ail, vinaigre, épices","Ananas frais, tortillas de maïs","Coriandre, oignon, citron vert"],
 etapes:["Mixez les piments réhydratés, achiote, ananas, ail et épices en marinade. Marinez le porc 4 h.","Empilez les tranches en « trompo » sur une brochette verticale, ananas au sommet.","Indirect (pierre-déflecteur) à 180 °C, 40 min, puis charrez les bords en direct.","Tranchez finement les bords caramélisés (comme un kebab).","Servez sur tortillas chaudes avec ananas grillé, coriandre, oignon, citron vert."],
 astuce:"À défaut de broche verticale, étalez les tranches sur la grille puis hachez-les : le goût achiote-ananas reste authentique."},
@@ -1033,13 +1074,13 @@ ings:["600 g d'agneau (ou bœuf) haché","Oignon râpé, ail, persil, cumin, pap
 etapes:["Malaxez longuement le haché avec oignon et épices (le pétrissage donne la texture liée).","Reposez 30 min au frais. Façonnez autour de brochettes plates.","Grille directe à 240 °C, tournez délicatement, 8–10 min jusqu'à 71 °C.","Servez avec pain plat, sumac, oignon, yaourt."],
 astuce:"Le malaxage prolongé et l'oignon râpé sont indispensables pour que les köfte tiennent sur la brochette sans se fendre."},
 
-{cat:"monde",nom:"Shawarma de poulet",ori:"Moyen-Orient · épices et broche",pour:"4 pers",mode:"Indirect puis direct",tempK:"180 °C",coeur:"78 °C",temps:"40 min",bois:"—",tags:"shawarma chawarma poulet liban broche pita ail toum",
+{cat:"monde",nom:"Shawarma de poulet",ori:"Moyen-Orient · épices et broche",pour:"4 pers",mode:"Indirect puis direct",tempK:"180 °C",coeur:"78 °C",temps:"35 min indirect + 5 min direct",bois:"—",tags:"shawarma chawarma poulet liban broche pita ail toum",
 ings:["1 kg de cuisses de poulet","Marinade : yaourt, ail, citron, cumin, coriandre, curcuma, cannelle, paprika","Sauce toum (ail) ou tahini, pain pita, crudités"],
 etapes:["Marinez le poulet 4 h dans le yaourt épicé.","Empilez les cuisses serrées sur une brochette verticale.","Indirect à 180 °C, 35 min, puis charrez l'extérieur en direct.","Tranchez les bords dorés au fur et à mesure.","Servez en pita avec toum, crudités, cornichons."],
 astuce:"Empiler les cuisses en bloc reproduit la broche à shawarma : l'extérieur croustille pendant que l'intérieur reste juteux."},
 
 /* ===== DESSERTS ===== */
-{cat:"dessert",nom:"Ananas rôti au rhum et miel",ori:"Antilles · dessert grillé caramélisé",pour:"4 pers",mode:"Direct puis indirect",tempK:"220 °C",coeur:"caramélisé",temps:"15–20 min",bois:"—",tags:"ananas rhum miel caramel dessert antilles",
+{cat:"dessert",nom:"Ananas rôti au rhum et miel",ori:"Antilles · dessert grillé caramélisé",pour:"4 pers",mode:"Direct puis indirect",tempK:"220 °C",coeur:"caramélisé",temps:"5 min direct + 10–15 min indirect",bois:"—",tags:"ananas rhum miel caramel dessert antilles",
 ings:["1 ananas pelé en tranches épaisses","Miel, rhum brun, beurre","Cannelle, vanille","Glace vanille pour servir"],
 etapes:["Mélangez miel, rhum, beurre fondu, cannelle, vanille.","Grille directe à 220 °C, marquez les tranches d'ananas 2 min par face.","Badigeonnez du mélange, passez en indirect pour caraméliser 10 min.","Le sucre de l'ananas caramélise et dore.","Servez chaud avec une boule de glace vanille."],
 astuce:"Un ananas bien mûr caramélise tout seul : le rhum et le miel ne font qu'amplifier sa douceur naturelle."},
@@ -1075,12 +1116,12 @@ ings:["1 rack de plat de côtes de bœuf (4 os, ~2 kg)","Rub : 50/50 gros sel + 
 etapes:["Parez le gras superficiel, laissez la membrane (elle tient les os). Enrobez de sel+poivre.","Indirect à 120 °C, chêne. Os vers le bas.","Fumez 7–9 h sans emballer (le « naked » texan), en vaporisant après 3 h.","La viande est prête à 95–98 °C : elle tremble comme un flan et la sonde glisse.","Repos 30–45 min. Servez un os par personne."],
 astuce:"Les beef ribs sont le « brisket sur l'os » : encore plus fondants et spectaculaires. Pas besoin de sauce, juste sel et poivre."},
 
-{cat:"boeuf",nom:"Tri-tip sauce Santa Maria",ori:"USA · Californie, le secret de la côte Ouest",pour:"5 pers",mode:"Indirect puis direct",tempK:"120 °C puis 300 °C",coeur:"54 °C (rosé)",temps:"45–60 min",bois:"Chêne rouge",tags:"tri tip aiguillette baronne santa maria californie reverse",
+{cat:"boeuf",nom:"Tri-tip sauce Santa Maria",ori:"USA · Californie, le secret de la côte Ouest",pour:"5 pers",mode:"Indirect puis direct",tempK:"120 °C puis 300 °C",coeur:"54 °C (rosé)",temps:"40 min indirect + 5–10 min direct",bois:"Chêne rouge",tags:"tri tip aiguillette baronne santa maria californie reverse",
 ings:["1 tri-tip (aiguillette baronne) de 1 kg","Rub Santa Maria : sel, poivre, ail en poudre, paprika","Salsa : tomate, oignon, coriandre, piment, citron vert"],
 etapes:["Enrobez la pièce de rub Santa Maria. Préparez la salsa.","Indirect à 120 °C, sonde au cœur, jusqu'à 48 °C (40 min).","Montez à 300 °C, saisie directe 2 min par face.","Sortez à 54 °C, repos 10 min.","Tranchez contre le grain (attention : le grain change de sens au milieu de la pièce). Servez avec la salsa."],
 astuce:"Le tri-tip a deux directions de fibres : repérez-les avant de trancher, sinon une moitié sera ferme."},
 
-{cat:"boeuf",nom:"Plat de côtes braisé au vin",ori:"France · cuisson lente du dimanche",pour:"4 pers",mode:"Fumage puis braisé",tempK:"150 °C",coeur:"94 °C",temps:"4 h",bois:"Chêne",tags:"plat de cotes braisé vin rouge mijoté pot au feu",
+{cat:"boeuf",nom:"Plat de côtes braisé au vin",ori:"France · cuisson lente du dimanche",pour:"4 pers",mode:"Fumage puis braisé",tempK:"150 °C",coeur:"94 °C",temps:"30 min direct + 3 h 30 braisé",bois:"Chêne",tags:"plat de cotes braisé vin rouge mijoté pot au feu",
 ings:["1,5 kg de plat de côtes de bœuf","2 oignons, 3 carottes, 2 gousses d'ail","50 cl vin rouge, 50 cl bouillon, concentré de tomate","Bouquet garni, sel, poivre"],
 etapes:["Colorez la viande en direct à 230 °C sur toutes les faces.","Dans une cocotte : oignons, carottes, ail, puis viande, vin, bouillon, tomate, bouquet garni.","Indirect à 150 °C avec chêne, couvercle de la cocotte fermé, 3 h 30.","La viande se détache à la fourchette (94 °C).","Réduisez la sauce, servez avec une purée ou des pâtes fraîches."],
 astuce:"Le fumage léger pendant la coloration apporte une profondeur que le braisé au four n'aura jamais."},
@@ -1107,7 +1148,7 @@ etapes:["Marinez les travers 4 h dans le mélange hoisin.","Indirect à 150 °C 
 astuce:"Le cinq-épices et le hoisin donnent la laque rouge-acajou des rôtisseries chinoises."},
 
 /* ===== AJOUTS — VOLAILLE ===== */
-{cat:"volaille",nom:"Poulet peri-peri",ori:"Mozambique/Portugal/Afrique du Sud · piment africain",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"80 °C",temps:"45 min",bois:"Bois fruitier",tags:"peri peri piri piri poulet portugal afrique nando piment citron",
+{cat:"volaille",nom:"Poulet peri-peri",ori:"Mozambique/Portugal/Afrique du Sud · piment africain",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"80 °C",temps:"30 min indirect + 15 min direct",bois:"Bois fruitier",tags:"peri peri piri piri poulet portugal afrique nando piment citron",
 ings:["1 poulet en crapaudine","Marinade peri-peri : piments oiseau, ail, paprika fumé, origan, citron, vinaigre, huile d'olive","Sel"],
 etapes:["Mixez la marinade peri-peri. Réservez-en un peu pour servir. Marinez le poulet aplati 4 h.","Indirect à 190 °C, peau vers le haut, 30 min.","Passez côté peau sur la grille directe pour charrer et croustiller.","Badigeonnez de marinade fraîche, visez 80 °C dans la cuisse.","Servez avec le reste de sauce et du citron."],
 astuce:"Ajustez le nombre de piments oiseau selon votre tolérance : le peri-peri authentique est franchement relevé."},
@@ -1117,7 +1158,7 @@ ings:["700 g de blancs de poulet en cubes","Marinade : yaourt, ail, citron, conc
 etapes:["Marinez le poulet dans le yaourt épicé 4 h à toute une nuit.","Montez en brochettes. Grille directe à 240 °C.","Cuisez 10–12 min en tournant, jusqu'à 75 °C et bords dorés.","Servez avec sauce toum, pita et crudités."],
 astuce:"Le yaourt attendrit le blanc de poulet et le garde moelleux : indispensable pour qu'il ne sèche pas sur la grille."},
 
-{cat:"volaille",nom:"Cuisses de poulet teriyaki",ori:"Japon · laque soja-mirin",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"80 °C",temps:"35 min",bois:"—",tags:"teriyaki poulet japon soja mirin laqué sesame gingembre",
+{cat:"volaille",nom:"Cuisses de poulet teriyaki",ori:"Japon · laque soja-mirin",pour:"4 pers",mode:"Indirect puis direct",tempK:"190 °C",coeur:"80 °C",temps:"25 min indirect + 10 min direct",bois:"—",tags:"teriyaki poulet japon soja mirin laqué sesame gingembre",
 ings:["8 hauts de cuisses désossés","Sauce teriyaki : soja, mirin, saké, sucre, gingembre (réduite)","Sésame, cébette"],
 etapes:["Réduisez la sauce teriyaki jusqu'à consistance sirupeuse.","Indirect à 190 °C, peau vers le haut, 25 min.","Badigeonnez de teriyaki, passez en direct pour laquer et croustiller la peau.","Répétez le laquage 2–3 fois. Visez 80 °C.","Sésame et cébette, servez sur riz."],
 astuce:"Les hauts de cuisses (vs blancs) restent juteux et supportent la laque sucrée sans sécher."},
@@ -1170,7 +1211,7 @@ ings:["1 kg de plat de côtes de bœuf tranché fin (coupe LA galbi)","Marinade 
 etapes:["Marinez les fines tranches de côtes 4 h (la poire attendrit et caramélise).","Plaque/grille très chaude à 260 °C.","Saisissez 2–3 min par face : la marinade caramélise vite.","Découpez en bouchées aux ciseaux (à la coréenne).","Servez en ssam : feuille de laitue, riz, galbi, ssamjang."],
 astuce:"La coupe « LA galbi » (tranchée à travers les os) cuit en quelques minutes. La poire est l'ingrédient secret de l'attendrissage coréen."},
 
-{cat:"monde",nom:"Birria de bœuf (tacos)",ori:"Mexique · Jalisco, le ragoût épicé",pour:"6 pers",mode:"Fumage puis braisé",tempK:"150 °C",coeur:"95 °C",temps:"4–5 h",bois:"Mesquite ou chêne",tags:"birria mexique boeuf piments tacos consomme quesabirria",
+{cat:"monde",nom:"Birria de bœuf (tacos)",ori:"Mexique · Jalisco, le ragoût épicé",pour:"6 pers",mode:"Fumage puis braisé",tempK:"150 °C",coeur:"95 °C",temps:"1 h fumage + 3–4 h braisé",bois:"Mesquite ou chêne",tags:"birria mexique boeuf piments tacos consomme quesabirria",
 ings:["1,5 kg de paleron/joue de bœuf","Piments séchés (guajillo, ancho, chipotle) réhydratés","Ail, oignon, tomate, cumin, origan mexicain, cannelle, clou de girofle, laurier","Bouillon, tortillas de maïs, fromage, coriandre, oignon"],
 etapes:["Colorez la viande en direct, puis fumez-la 1 h à 150 °C.","Mixez les piments réhydratés avec ail, oignon, tomate et épices en adobo.","Mettez viande + adobo + bouillon dans une cocotte, couvrez.","Braisez à 150 °C 3–4 h jusqu'à 95 °C (la viande s'effiloche).","Effilochez. Trempez les tortillas dans le gras rouge du dessus, garnissez de viande et fromage, grillez-les (quesabirria).","Servez avec le consommé (bouillon) pour tremper."],
 astuce:"Le rituel birria : tremper le taco dans le « consommé » gras et rouge. Le passage fumé avant le braisage corse le ragoût."},
@@ -1494,7 +1535,7 @@ etapes:["Écrasez les bananes, mélangez avec œufs, sucre et beurre.","Ajoutez 
 astuce:"La fumée doit rester très légère sur les desserts : un petit morceau de bois suffit largement."},
 
 /* ===== AJOUTS v7 — PLUS DE RECETTES KAMADO AVEC SAUCE ===== */
-{cat:"boeuf",nom:"Tri-tip californien reverse sear",ori:"USA · Santa Maria style",pour:"4 pers",mode:"Indirect puis direct",tempK:"135 °C puis 300 °C",coeur:"54 °C",temps:"45–55 min",bois:"Chêne",tags:"tri tip californie boeuf reverse sear santa maria",sauce:"Salsa verde persil-coriandre, ail, citron et huile d'olive",
+{cat:"boeuf",nom:"Tri-tip californien reverse sear",ori:"USA · Santa Maria style",pour:"4 pers",mode:"Indirect puis direct",tempK:"135 °C puis 300 °C",coeur:"54 °C",temps:"35–45 min indirect + 5–10 min direct",bois:"Chêne",tags:"tri tip californie boeuf reverse sear santa maria",sauce:"Salsa verde persil-coriandre, ail, citron et huile d'olive",
 ings:["1 tri-tip de 1 kg","Rub : sel, poivre, ail en poudre, paprika","Huile d'olive","Salsa verde pour servir"],
 etapes:["Assaisonnez le tri-tip 1 h avant cuisson.","Cuisez en indirect à 135 °C jusqu'à 48 °C à cœur.","Ouvrez les évents, montez à 300 °C et saisissez 1–2 min par face.","Sortez à 54 °C, repos 10 min.","Tranchez très finement contre le grain, avec la salsa verde."],
 astuce:"Le tri-tip a deux sens de fibres : repérez la ligne centrale et changez l'angle de découpe au milieu."},
@@ -1632,7 +1673,7 @@ astuce:"Placez une lèchefrite sous la poêle si elle est très remplie : les fr
 ings:["1 filet mignon de bœuf de 1 kg (paré)","1 kg de gros sel de cuisine","1 torchon propre en coton non teint","Ficelle de cuisine en coton","1 verre d'eau ou de bière pour humidifier le torchon"],
 etapes:["Humidifiez le torchon avec l'eau ou la bière, puis étalez-le à plat sur votre plan de travail.","Versez le gros sel sur le torchon en une couche uniforme d'environ 1 cm d'épaisseur.","Déposez le filet de bœuf au centre du sel. Enroulez serré le torchon pour emprisonner le bœuf dans le sel.","Ficelez solidement le paquet pour qu'il soit bien fermé et compact.","Posez le paquet de torchon directement sur les braises vives du kamado (sans grille).","Laissez cuire 10 min, retournez-le et laissez cuire encore 10–12 min (le torchon va brûler et le sel former une croûte dure).","Sortez le paquet, laissez reposer 10 min, puis cassez la croûte de sel avec le dos d'un couteau et brossez l'excédent de sel avant de trancher."],
 astuce:"Ne paniquez pas quand le torchon s'enflamme : la croûte de sel humide protège le filet de bœuf du feu direct et préserve tous ses jus, donnant une viande exceptionnellement tendre."},
-{cat:"boeuf",nom:"Bistecca alla Fiorentina (T-bone)",ori:"Italie · la reine de Florence sur braises",pour:"2–4 pers",mode:"Direct puis indirect",tempK:"300 °C puis 120 °C",coeur:"50–52 °C (bleu à saignant)",temps:"15–20 min",bois:"Chêne",tags:"bistecca fiorentina t-bone italie grill",sauce:"Beurre maître d'hôtel | Beurre de piment fumé (Chipotle)",
+{cat:"boeuf",nom:"Bistecca alla Fiorentina (T-bone)",ori:"Italie · la reine de Florence sur braises",pour:"2–4 pers",mode:"Direct puis indirect",tempK:"300 °C puis 120 °C",coeur:"50–52 °C (bleu à saignant)",temps:"8–10 min direct + 7–10 min indirect",bois:"Chêne",tags:"bistecca fiorentina t-bone italie grill",sauce:"Beurre maître d'hôtel | Beurre de piment fumé (Chipotle)",
 ings:["1 T-bone steak de 1,2 kg à 1,5 kg (5 cm d'épaisseur)","3 c. à s. d'huile d'olive extra-vierge","Gros sel, poivre noir concassé","1 branche de romarin pour badigeonner"],
 etapes:["Sortez le T-bone du réfrigérateur 2 h à l'avance pour qu'il soit à température ambiante.","Chauffez le kamado en direct à 300 °C avec de belles braises de chêne.","Saisissez le steak en direct 4–5 min de chaque face (le quadrillage doit être marqué).","Mettez le steak debout sur son os central sur la grille et laissez-le cuire ainsi 5–7 min pour diffuser la chaleur au cœur.","Si nécessaire pour atteindre 50 °C, terminez la cuisson en zone indirecte (déflecteur) quelques minutes.","Laissez reposer 10 min sous de l'aluminium. Tranchez la viande le long de l'os, arrosez d'huile d'olive de qualité, de gros sel et de poivre concassé."],
 astuce:"La Fiorentina se mange traditionnellement saignante à bleue. L'os sert de conducteur thermique durant la phase debout, ne le retirez pas avant cuisson."},
@@ -1644,7 +1685,7 @@ astuce:"Utilisez un morceau d'agneau bien persillé comme l'épaule. Les petits 
 ings:["700 g d'agneau haché (20% de gras minimum)","1 gros oignon râpé (très bien pressé pour extraire tout le jus)","1 c. à c. de safran infusé dans 2 c. à s. d'eau chaude","1 c. à c. de curcuma, sel, poivre noir","Sumac pour servir"],
 etapes:["Râpez l'oignon et pressez-le dans un torchon propre pour retirer le maximum d'eau (c'est crucial pour que la viande tienne sur la broche).","Dans un grand bol, mélangez l'agneau haché avec l'oignon pressé, le safran infusé, le curcuma, le sel et le poivre. Malaxez longuement jusqu'à obtenir une pâte collante.","Divisez la viande en 4 portions. Mouillez vos mains et étalez chaque portion le long d'une large brochette plate en métal en pressant avec vos doigts pour former des ondulations.","Placez les brochettes au frais pendant 1 h pour raffermir la viande.","Faites griller en direct à 240 °C sur le kamado en tournant les brochettes toutes les minutes pour cuire uniformément.","Servez saupoudré de sumac acide avec du riz basmati."],
 astuce:"Les brochettes Koobideh nécessitent des broches en métal très larges. Si vous utilisez des brochettes fines, la viande hachée se détachera et tombera dans les braises."},
-{cat:"monde",nom:"Sosaties d'agneau au curry & abricot",ori:"Afrique du Sud · le classique du braai",pour:"4–6 pers",mode:"Direct puis indirect",tempK:"220 °C",coeur:"60 °C (rosé)",temps:"10–12 min",bois:"—",tags:"sosaties afrique sud agneau curry abricot brochettes braai",sauce:"Sauce Tzatziki authentique | Sauce yaourt-ail express (façon toum)",
+{cat:"monde",nom:"Sosaties d'agneau au curry & abricot",ori:"Afrique du Sud · le classique du braai",pour:"4–6 pers",mode:"Direct puis indirect",tempK:"220 °C",coeur:"60 °C (rosé)",temps:"4 min direct + 6–8 min indirect",bois:"—",tags:"sosaties afrique sud agneau curry abricot brochettes braai",sauce:"Sauce Tzatziki authentique | Sauce yaourt-ail express (façon toum)",
 ings:["800 g de gigot d'agneau en cubes de 3 cm","150 g d'abricots secs","2 oignons rouges coupés en quartiers","Marinade : 1 c. à s. de curry en poudre, 2 c. à s. de confiture d'abricots, 3 c. à s. de vinaigre de vin, 2 c. à s. de l'huile, 2 gousses d'ail hachées, sel"],
 etapes:["Mélangez tous les ingrédients de la marinade. Ajoutez les cubes d'agneau et laissez mariner au frais pendant au moins 6 h (idéalement 24 h).","Faites tremper les abricots secs dans de l'eau tiède 30 min avant le montage.","Montez les brochettes en alternant viande, abricots secs et quartiers d'oignons rouges.","Cuisez sur la grille directe à 220 °C pendant 2 min de chaque côté pour bien dorer les morceaux.","Passez les brochettes en cuisson indirecte (ou décalées sur la grille) pendant 4–6 min supplémentaires pour terminer la cuisson sans brûler les abricots.","Servez avec le reste de la marinade chauffée en sauce."],
 astuce:"La confiture d'abricot dans la marinade apporte du sucre qui caramélise très vite. Surveillez bien la cuisson directe pour éviter que les brochettes ne noircissent."},
@@ -1680,7 +1721,7 @@ astuce:"Les feuilles de bétel apportent un parfum unique légèrement poivré e
 ings:["4 pavés de saumon avec la peau (150 g chacun)","120 g de yaourt grec et 1 c. à s. de jus de citron vert","1 c. à c. de garam masala et 1 c. à c. de curcuma","1 c. à c. de gingembre haché, 1 gousse d'ail écrasée, sel, poivre"],
 etapes:["Essuyez bien les pavés de saumon. Dans un bol, mélangez le yaourt avec le jus de citron vert, le garam masala, le curcuma, le gingembre, l'ail et le sel.","Enrobez le saumon de cette marinade (uniquement sur la chair, évitez la peau pour qu'elle puisse croustiller). Laissez reposer 20 min au frais.","Chauffez le kamado en direct à 220 °C sur une grille en fonte bien huilée.","Déposez le saumon côté peau en premier et laissez cuire 5–6 min sans y toucher (la peau doit croustiller et se détacher).","Retournez délicatement côté chair pour 2–3 min seulement.","Vérifiez la température à cœur (48 °C) pour garder le poisson juteux. Servez avec un chutney."],
 astuce:"La marinade au yaourt crée une croûte épicée parfumée très savoureuse qui protège la chair délicate du saumon du feu direct."},
-{cat:"porc",nom:"Lechón asado (porc rôti cubain)",ori:"Cuba · poitrine ou épaule de porc croustillante au mojo",pour:"6–8 pers",mode:"Indirect",tempK:"150 °C puis 230 °C",coeur:"75 °C",temps:"3 h–3 h 30",bois:"Oranger ou cerisier",tags:"lechon porc cubain croustillant mojo agrumes lard",sauce:"Mojo aux agrumes",
+{cat:"porc",nom:"Lechón asado (porc rôti cubain)",ori:"Cuba · poitrine ou épaule de porc croustillante au mojo",pour:"6–8 pers",mode:"Indirect",tempK:"150 °C puis 230 °C",coeur:"75 °C",temps:"2 h 45–3 h 10 indirect + 15–20 min direct",bois:"Oranger ou cerisier",tags:"lechon porc cubain croustillant mojo agrumes lard",sauce:"Mojo aux agrumes",
 ings:["1,5 kg de poitrine de porc ou d'épaule avec couenne","Marinade mojo : 15 cl de jus d'orange amère (ou 10 cl orange + 5 cl citron vert), 6 gousses d'ail écrasées, 1 c. à c. d'origan, 1 c. à c. de cumin moulu, sel, poivre","Gros sel"],
 etapes:["Piquez la chair du porc avec un couteau. Badigeonnez de marinade mojo la chair uniquement (gardez la couenne sèche). Laissez mariner au frais une nuit.","Le lendemain, séchez parfaitement la couenne, frottez-la de gros sel et de vinaigre blanc.","Chauffez le kamado en indirect à 150 °C avec du bois d'oranger ou cerisier.","Déposez le porc couenne vers le haut sur la grille. Cuisez 2 h 30 à 3 h jusqu'à 70 °C à cœur.","Retirez le porc, ouvrez les évents pour monter à 230 °C.","Remettez le porc 15–20 min pour faire gonfler et cloquer la couenne (elle doit devenir ultra croustillante). Sortez à 75 °C, laissez reposer 15 min avant de découper."],
 astuce:"L'utilisation du jus d'orange amère et de l'ail confère au porc sa saveur cubaine authentique. L'épisode de forte chaleur finale fait toute la différence pour la peau."}
