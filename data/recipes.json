@@ -412,6 +412,41 @@
       "Réduisez la sauce si besoin et servez avec une purée."
     ],
     "astuce": "Le passage fumé avant le braisage apporte une profondeur qu'on n'obtient jamais au four classique.",
+    "difficulty": 4,
+    "charbon_kg": 2.5,
+    "repos_min": 15,
+    "marinade_h": 12,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Fumage à nu",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 90,
+        "action": "Fumée légère (chêne+cerisier). Sondez au cœur de la pièce la plus épaisse."
+      },
+      {
+        "name": "Braisé en cocotte",
+        "mode": "braisé",
+        "temp_C": 160,
+        "duration_min": 210,
+        "action": "Cocotte fermée avec vin rouge + bouillon à mi-hauteur. La sonde glisse comme dans du beurre à 96 °C."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte avec couvercle",
+      "Pierre déflectrice",
+      "Sonde 2 canaux"
+    ],
+    "erreurs": [
+      "Braiser sans fumer d'abord : on perd la signature kamado",
+      "Liquide à ras des joues : elles bouillent au lieu de braiser → mi-hauteur max",
+      "Couper la cuisson à 90 °C : le collagène n'est pas fondu → patientez jusqu'à 96 °C"
+    ],
+    "source": "Bistronomie française adaptée au kamado",
     "_derived": {
       "spice": "Épicé doux",
       "season": "hiver",
@@ -1090,6 +1125,47 @@
       "Sortez quand blanc à 72 °C et cuisse à 74 °C. Repos 20–30 min impératif."
     ],
     "astuce": "Sur kamado, la chaleur enveloppante donne une dinde bien plus juteuse qu'au four. La sonde est indispensable sur une si grosse pièce.",
+    "difficulty": 4,
+    "charbon_kg": 2,
+    "repos_min": 25,
+    "marinade_h": 0,
+    "brine": {
+      "hours": 12,
+      "recette": "Saumure 6 % sel + 3 % sucre + laurier/genièvre, 12 h à 4 °C"
+    },
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Rôti indirect",
+        "mode": "indirect",
+        "temp_C": 160,
+        "duration_min": 180,
+        "action": "Pierre déflectrice, lèchefrite sous la volaille avec bouillon + aromates."
+      },
+      {
+        "name": "Coloration finale",
+        "mode": "direct",
+        "temp_C": 200,
+        "duration_min": 10,
+        "action": "Retirer la pierre 10 min en fin pour dorer la peau si pâle."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Lèchefrite/plat",
+      "Sonde 2 canaux",
+      "Ficelle de boucher"
+    ],
+    "notes_securite": "Volaille : cœur impératif ≥ 74 °C (cuisse) — la salmonelle ne pardonne pas. Ne JAMAIS rincer la volaille crue sous l'eau (projections).",
+    "erreurs": [
+      "Sortir trop tôt sans sonde : foyer de salmonelle",
+      "Pas de saumure : poitrine sèche garantie sur une grosse pièce",
+      "Pas de repos : jus partout dans l'assiette → 20 min sous alu sans serrer"
+    ],
+    "source": "Saumure Sérious Eats + technique kamado indirect",
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -1231,6 +1307,63 @@
       "Servez effilochée avec son jus, sur une semoule ou des légumes."
     ],
     "astuce": "« À la cuillère » : pas besoin de couteau. Arrosez régulièrement pendant la phase couverte pour nourrir la chair.",
+    "difficulty": 3,
+    "charbon_kg": 3,
+    "repos_min": 20,
+    "marinade_h": 24,
+    "vents": {
+      "bottom": "1/8 ouvert",
+      "top": "1/8 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 75,
+      "materiau": "alu",
+      "apres": "Continuer jusqu'à 93–95 °C cœur, la viande se détache à la cuillère"
+    },
+    "phases": [
+      {
+        "name": "Fumage nu",
+        "mode": "fumage",
+        "temp_C": 120,
+        "duration_min": 180,
+        "action": "Romarin + ail + huile d'olive. Pas d'ouverture pendant 3 h."
+      },
+      {
+        "name": "Wrap alu + braisé",
+        "mode": "braisé",
+        "temp_C": 120,
+        "duration_min": 210,
+        "action": "Emballer serré avec un peu de bouillon. Continuer jusqu'à effilochage spontané."
+      },
+      {
+        "name": "Repos",
+        "mode": "préparation",
+        "temp_C": 65,
+        "duration_min": 20,
+        "action": "Glacière sèche ou four éteint. Effilocher à la fourchette."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Alu épais",
+      "Sonde 2 canaux"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Romarin frais",
+        "par": "thym + sarriette"
+      },
+      {
+        "ingredient": "Vin blanc bouillon",
+        "par": "bouillon de légumes + jus de citron"
+      }
+    ],
+    "erreurs": [
+      "Stopper à 80 °C : la viande tient à l'os → 93 °C minimum pour l'effilochage",
+      "Pas de wrap : le bark devient amer après 5 h",
+      "Trop de fumée : l'agneau prend vite, 2 morceaux de bois suffisent"
+    ],
+    "source": "Technique méditerranéenne adaptée au low&slow",
     "_derived": {
       "spice": "Épicé doux",
       "season": "printemps",
@@ -1407,6 +1540,47 @@
       "Refroidissez, servez avec la sauce à l'aneth."
     ],
     "astuce": "La « pellicule » (surface séchée et collante) est le secret d'un fumage réussi : sans elle, la fumée adhère mal.",
+    "difficulty": 2,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "marinade_h": 0,
+    "brine": {
+      "hours": 1,
+      "recette": "Saumure express 8 % sel + 4 % sucre + aneth, 1 h à 4 °C"
+    },
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/8 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Séchage pellicule",
+        "mode": "préparation",
+        "temp_C": 20,
+        "duration_min": 60,
+        "action": "Après rinçage, sécher à l'air libre 1 h jusqu'à formation d'une pellicule brillante (pellicle) — capte la fumée."
+      },
+      {
+        "name": "Fumage à chaud",
+        "mode": "fumage",
+        "temp_C": 80,
+        "duration_min": 75,
+        "action": "Hêtre ou aulne, planche cèdre humidifiée. Cœur 60–62 °C : la chair se feuillette."
+      }
+    ],
+    "equipement": [
+      "Planche cèdre",
+      "Pierre déflectrice",
+      "Sonde fine",
+      "Aulne ou hêtre"
+    ],
+    "notes_securite": "Poisson cru : DLC max 24 h après achat, chaîne du froid stricte. Cœur ≥ 60 °C pour éliminer parasites.",
+    "erreurs": [
+      "Pas de pellicule : la fumée ne tient pas → 1 h de séchage non négociable",
+      "Fumée trop épaisse : amertume rapide sur le poisson → bois sec, foyer propre",
+      "Sortir à 65 °C cœur : chair sèche → arrêt strict à 62 °C"
+    ],
+    "source": "Technique pacifique nord-ouest (planche cèdre)",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -3045,6 +3219,55 @@
       "Repos 30–45 min. Servez un os par personne."
     ],
     "astuce": "Les beef ribs sont le « brisket sur l'os » : encore plus fondants et spectaculaires. Pas besoin de sauce, juste sel et poivre.",
+    "difficulty": 5,
+    "charbon_kg": 3.5,
+    "repos_min": 45,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/8 ouvert",
+      "top": "1/8 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 74,
+      "materiau": "papier boucher",
+      "apres": "Continuer jusqu'à 95–98 °C, sonde glisse comme dans du beurre"
+    },
+    "phases": [
+      {
+        "name": "Fumage nu",
+        "mode": "fumage",
+        "temp_C": 120,
+        "duration_min": 360,
+        "action": "Chêne post oak. Vaporiser eau toutes les 2 h après 3 h. Pas d'ouverture avant."
+      },
+      {
+        "name": "Wrap papier boucher",
+        "mode": "indirect",
+        "temp_C": 120,
+        "duration_min": 180,
+        "action": "Emballer au stall (74 °C). Le papier préserve le bark."
+      },
+      {
+        "name": "Repos glacière",
+        "mode": "préparation",
+        "temp_C": 60,
+        "duration_min": 45,
+        "action": "Glacière sèche + serviette. Tremblement de flan = signe de cuisson parfaite."
+      }
+    ],
+    "equipement": [
+      "Pierre céramique",
+      "Papier boucher non couché",
+      "Sonde 2 canaux",
+      "Vaporisateur",
+      "Glacière sèche"
+    ],
+    "erreurs": [
+      "Couper la membrane des os : les os tombent → laisser, elle tient la structure",
+      "Sortir à 90 °C : le collagène n'est pas fondu → 95 °C minimum",
+      "Sauce BBQ : c'est un crime au Texas → sel+poivre suffisent (« dalmatian rub »)"
+    ],
+    "source": "Texas-style beef ribs, Aaron Franklin / Goldee's BBQ",
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -3186,6 +3409,64 @@
       "Prêts au bend test (~92 °C)."
     ],
     "astuce": "Memphis = « dry ribs » sans sauce, par opposition à Kansas City. Le vaporisateur de vinaigre garde l'humidité et fait adhérer le rub.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 10,
+    "marinade_h": 12,
+    "vents": {
+      "bottom": "1/8 ouvert",
+      "top": "1/8 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 80,
+      "materiau": "alu",
+      "apres": "2 h wrap avec beurre + cassonade + miel, puis 1 h nu avec rub sec"
+    },
+    "phases": [
+      {
+        "name": "Fumage nu (3 h)",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 180,
+        "action": "Pommier + hickory. Retirer la membrane sous les os avant. Rub Memphis sec (paprika+sel+ail+poivre)."
+      },
+      {
+        "name": "Wrap beurre+cassonade (2 h)",
+        "mode": "indirect",
+        "temp_C": 110,
+        "duration_min": 120,
+        "action": "Alu avec beurre, cassonade, miel, vinaigre. Côté os vers le haut."
+      },
+      {
+        "name": "Dry rub final (1 h)",
+        "mode": "indirect",
+        "temp_C": 110,
+        "duration_min": 60,
+        "action": "Dépapilloter, repoudrer de rub sec. Memphis = pas de sauce, juste le rub."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Alu épais",
+      "Couteau ou cuillère pour membrane",
+      "Sonde ambiance"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Cassonade",
+        "par": "sucre roux + mélasse"
+      },
+      {
+        "ingredient": "Pommier",
+        "par": "cerisier"
+      }
+    ],
+    "erreurs": [
+      "Membrane non retirée : ribs caoutchouteuses → indispensable",
+      "Phase 2-1 mal dosée : trop de wrap = ribs qui tombent de l'os (style Kansas, pas Memphis) → Memphis garde du mordant",
+      "Sauce BBQ en fin : c'est St. Louis, pas Memphis → dry rub final uniquement"
+    ],
+    "source": "Memphis dry-rub tradition (Charles Vergos' Rendezvous)",
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -3219,6 +3500,65 @@
       "Servez en sandwich avec coleslaw."
     ],
     "astuce": "La Caroline du Nord ne jure que par le vinaigre : cette sauce fine et piquante tranche avec la graisse, c'est tout l'inverse du pulled pork sucré classique.",
+    "difficulty": 4,
+    "charbon_kg": 5,
+    "repos_min": 60,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/8 ouvert",
+      "top": "1/8 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 71,
+      "materiau": "alu",
+      "apres": "Continuer jusqu'à 95 °C cœur, la sonde s'enfonce dans toute la pièce"
+    },
+    "phases": [
+      {
+        "name": "Fumage nu",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 480,
+        "action": "Pommier + chêne. Sonde au cœur du muscle le plus épais. Pas d'ouverture 6 h."
+      },
+      {
+        "name": "Wrap alu + jus",
+        "mode": "indirect",
+        "temp_C": 110,
+        "duration_min": 180,
+        "action": "Emballer avec 100 ml de vinaigre de cidre. Le papier ne convient pas (sucres caramélisent)."
+      },
+      {
+        "name": "Repos glacière",
+        "mode": "préparation",
+        "temp_C": 60,
+        "duration_min": 60,
+        "action": "Repos 1 h minimum. Effilocher à la main avec gants, mélanger à la sauce vinaigrée."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Sonde 2 canaux",
+      "Alu épais",
+      "Gants effiloché",
+      "Bac aluminium"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Vinaigre de cidre",
+        "par": "vinaigre de pomme + 1 c.s. mélasse"
+      },
+      {
+        "ingredient": "Pommier",
+        "par": "cerisier ou hickory"
+      }
+    ],
+    "erreurs": [
+      "Stopper à 88 °C : la viande ne s'effiloche pas → 95 °C impératif (sonde test du couteau qui glisse)",
+      "Sauce sucrée Kansas : ce n'est plus du Carolina → vinaigre + piment uniquement",
+      "Pas de repos : viande qui se déchire au lieu de s'effilocher → 60 min mini"
+    ],
+    "source": "Eastern North Carolina BBQ tradition (whole hog hérité)",
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -6841,6 +7181,55 @@
       "Servez quand les cubes sont collants, sombres et fondants."
     ],
     "astuce": "Les burnt ends exigent une pièce grasse : avec du plat de brisket trop maigre, le résultat sera sec.",
+    "difficulty": 4,
+    "charbon_kg": 4,
+    "repos_min": 0,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/8 ouvert",
+      "top": "1/8 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 74,
+      "materiau": "papier boucher",
+      "apres": "Continuer jusqu'à 93 °C, puis couper en cubes et passer en bac avec rub + sauce"
+    },
+    "phases": [
+      {
+        "name": "Fumage brisket entier",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 420,
+        "action": "Chêne post oak. Travailler la pointe (point) qui sera la base des burnt ends."
+      },
+      {
+        "name": "Wrap papier boucher",
+        "mode": "indirect",
+        "temp_C": 110,
+        "duration_min": 120,
+        "action": "Emballer au stall, continuer jusqu'à 93 °C cœur."
+      },
+      {
+        "name": "Cubes glacés",
+        "mode": "indirect",
+        "temp_C": 135,
+        "duration_min": 60,
+        "action": "Couper le point en cubes de 3 cm, rub + sauce BBQ + cassonade dans un bac alu ouvert, retour au kamado."
+      }
+    ],
+    "equipement": [
+      "Pierre céramique",
+      "Papier boucher",
+      "Bac aluminium",
+      "Sonde 2 canaux",
+      "Pinceau à sauce"
+    ],
+    "erreurs": [
+      "Utiliser le 'flat' (partie maigre) : ça sèche → uniquement le 'point' (partie grasse)",
+      "Cubes trop petits : ils sèchent → 3 cm minimum",
+      "Sauce trop tôt : elle brûle → ajouter à mi-cuisson des cubes seulement"
+    ],
+    "source": "Kansas City BBQ tradition (Arthur Bryant's, Joe's KC)",
     "_derived": {
       "spice": "Épicé doux",
       "season": "ete",
