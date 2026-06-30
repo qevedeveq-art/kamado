@@ -1,4 +1,4 @@
-const CACHE_NAME = "kamado-kokko-v1";
+const CACHE_NAME = "kamado-kokko-v2";
 const APP_SHELL = ["./", "./index.html"];
 
 self.addEventListener("install", event => {

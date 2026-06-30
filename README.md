@@ -17,3 +17,11 @@ Sur PC : ouvrez le site dans Chrome ou Edge, puis utilisez l'icône d'installati
 Les favoris et notes sont stockés localement dans le navigateur. L'onglet `Données` permet d'exporter une sauvegarde JSON et de l'importer sur un autre appareil.
 
 L'import fusionne les favoris et notes existants au lieu de supprimer les données locales.
+
+L'onglet `Données` permet aussi de générer un code ou un lien de transfert. En ouvrant le lien sur un autre appareil, l'application fusionne automatiquement la sauvegarde locale.
+
+## Organisation
+
+- `Recettes` : cuissons kamado uniquement.
+- `Menus` : génération d'un menu complet autour d'une cuisson kamado.
+- `Bases` : sauces, rubs et marinades utiles, séparés des recettes principales.

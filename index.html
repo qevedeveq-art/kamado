@@ -14,9 +14,9 @@
 <title>Livre de recettes — Kamado Kokko</title>
 <style>
 :root{
-  --bg:#1c130e; --bg2:#241811; --card:#2e2018; --card2:#372619;
-  --line:#4a3526; --txt:#f3e9df; --muted:#bda58f; --accent:#e0701f;
-  --accent2:#f3a64a; --ember:#c63d12; --green:#7da64a; --blue:#5a9bd4;
+  --bg:#141611; --bg2:#1d2019; --card:#25291f; --card2:#303624;
+  --line:#4a513d; --txt:#f4efe7; --muted:#b9bea9; --accent:#d86f32;
+  --accent2:#f0b35a; --ember:#c64a1c; --green:#8faf63; --blue:#72a7c7;
   --shadow:0 6px 22px rgba(0,0,0,.45);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -47,6 +47,10 @@ header{
   background:var(--bg2);color:var(--txt);font-size:16px;outline:none;
 }
 .search input::placeholder{color:var(--muted)}
+.quickstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px 14px 2px}
+.qstat{background:rgba(55,38,25,.72);border:1px solid rgba(224,112,31,.24);border-radius:12px;padding:8px 9px;min-width:0}
+.qstat b{display:block;color:var(--accent2);font-size:15px;line-height:1.1}
+.qstat span{display:block;color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:.45px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 /* Tabs */
 .tabs{display:flex;gap:6px;padding:6px 14px 2px;overflow-x:auto;scrollbar-width:none}
@@ -150,6 +154,9 @@ td b{color:var(--txt)}
 .fbtn{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:18px;padding:7px 12px;font-size:12.5px;font-weight:700;cursor:pointer}
 .fbtn.on{background:var(--accent2);color:#2b1d16;border-color:var(--accent2)}
 #fRand{color:var(--accent2)}
+.ingredientbar{padding:8px 14px 0}
+.ingredientbar input{width:100%;background:var(--card);border:1px solid var(--line);border-radius:14px;color:var(--txt);font-size:14px;padding:10px 12px;outline:none}
+.ingredientbar input::placeholder{color:var(--muted)}
 
 /* ---- Carte : favori + niveau ---- */
 .rstack{display:flex;flex-direction:column;align-items:center;gap:4px}
@@ -202,7 +209,7 @@ td b{color:var(--txt)}
    ============================================================ */
 
 /* — Fond et rendu — */
-body{background:radial-gradient(1100px 620px at 50% -8%, #2c1d15 0%, var(--bg) 58%) fixed;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{background:radial-gradient(900px 520px at 20% -8%, rgba(216,111,50,.24) 0%, transparent 56%),radial-gradient(800px 520px at 95% 8%, rgba(114,167,199,.14) 0%, transparent 48%),linear-gradient(180deg,#171914 0%,var(--bg) 64%) fixed;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
 /* — Barres de défilement (desktop) — */
 *{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
@@ -215,7 +222,7 @@ body{background:radial-gradient(1100px 620px at 50% -8%, #2c1d15 0%, var(--bg) 5
 button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,.chip:focus-visible,.tab:focus-visible{outline:2px solid var(--accent2);outline-offset:2px;border-radius:8px}
 
 /* — En-tête : léger flou translucide — */
-header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));backdrop-filter:saturate(1.3) blur(10px);-webkit-backdrop-filter:saturate(1.3) blur(10px)}
+header{background:linear-gradient(180deg,rgba(29,32,25,.97),rgba(20,22,17,.96));backdrop-filter:saturate(1.3) blur(10px);-webkit-backdrop-filter:saturate(1.3) blur(10px)}
 .brand h1{font-weight:800}
 
 /* — Transitions douces — */
@@ -223,7 +230,7 @@ header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));
 
 /* — Cartes recette : grille fluide (1 col mobile → multi-col écran large) — */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:13px;align-items:stretch}
-.rc{display:flex;flex-direction:column;background:linear-gradient(158deg,var(--card2) 0%,var(--card) 70%);border:1px solid var(--line);border-radius:16px}
+.rc{display:flex;flex-direction:column;background:linear-gradient(158deg,rgba(48,54,36,.96) 0%,var(--card) 70%);border:1px solid var(--line);border-radius:16px}
 .rc .meta{margin-top:auto;padding-top:9px}
 .rc h3{font-size:16.5px;font-weight:750}
 .emoji{filter:drop-shadow(0 2px 3px rgba(0,0,0,.45))}
@@ -311,6 +318,14 @@ header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));
 .ainput{background:var(--bg2);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:9px 11px;font-size:15px;width:92px;outline:none}
 .arow>span{color:var(--muted);font-size:13px}
 .aout{margin-top:10px;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-size:14.5px;line-height:1.5}
+.menu-controls{display:grid;grid-template-columns:1fr;gap:10px;margin:8px 0 12px}
+.menu-grid{display:grid;gap:12px}
+.menu-card{background:linear-gradient(158deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:14px;padding:13px}
+.menu-card h3{font-size:15px;margin:0 0 4px;color:var(--accent2)}
+.menu-card button{margin-top:8px}
+.bases-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.bases-head p{margin:0;color:var(--muted);font-size:13px}
+.copybox{width:100%;min-height:90px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;color:var(--txt);font-size:12px;padding:10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;resize:vertical}
 /* — Minuteurs empilés — */
 #timers{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 12px);max-width:760px;margin:0 auto;z-index:200;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .tcard{pointer-events:auto;background:linear-gradient(180deg,#3a2616,#2b1d16);border:1px solid var(--accent);border-radius:14px;padding:11px 13px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 28px rgba(0,0,0,.6)}
@@ -329,17 +344,26 @@ header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));
 .filepick input{width:100%;margin-top:8px;color:var(--txt)}
 .syncstatus{min-height:22px;color:var(--accent2);font-size:13px;margin-top:8px}
 .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--card2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12px;color:var(--txt)}
+@media (min-width:760px){
+  .quickstats{max-width:1120px;margin:0 auto;grid-template-columns:repeat(4,1fr)}
+  .ingredientbar{max-width:1120px;margin:0 auto}
+  .menu-controls{grid-template-columns:repeat(3,1fr)}
+  .menu-grid{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 </head>
 <body>
 <header>
   <div class="brand">
     <span class="flame">🔥</span>
-    <div><h1>Livre de recettes Kamado</h1><small>Kamado Kokko · Édition complète</small></div>
+  <div><h1>Livre de recettes Kamado</h1><small>Kamado Kokko · Édition complète</small></div>
   </div>
+  <div class="quickstats" id="quickstats"></div>
   <div class="search"><input id="q" type="search" placeholder="Rechercher une recette, un ingrédient…" autocomplete="off"></div>
   <div class="tabs">
     <div class="tab active" data-tab="recettes">🍽️ Recettes</div>
+    <div class="tab" data-tab="menus">🍱 Menus</div>
+    <div class="tab" data-tab="bases">🧂 Bases</div>
     <div class="tab" data-tab="guide">📖 Maîtriser le Kokko</div>
     <div class="tab" data-tab="temp">🌡️ Températures</div>
     <div class="tab" data-tab="vins">🍷 Accords vins</div>
@@ -352,8 +376,19 @@ header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));
 <section id="tab-recettes">
   <div class="chips" id="chips"></div>
   <div id="filterbar"></div>
+  <div class="ingredientbar"><input id="have" type="search" placeholder="J'ai ces ingrédients : poulet citron thym…" autocomplete="off"></div>
   <div class="count" id="count"></div>
   <div class="grid" id="grid"></div>
+</section>
+
+<!-- MENUS -->
+<section id="tab-menus" class="hide">
+  <div class="prose" id="menus"></div>
+</section>
+
+<!-- BASES -->
+<section id="tab-bases" class="hide">
+  <div class="prose" id="bases"></div>
 </section>
 
 <!-- GUIDE -->
@@ -1429,6 +1464,10 @@ const VINS = `
 /* ================= LOGIQUE ================= */
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 function emojiFor(c){const m={boeuf:"🥩",porc:"🐖",volaille:"🍗",agneau:"🐑",poisson:"🐟",legumes:"🥗",pizza:"🍕",monde:"🌍",dessert:"🍮",vegetarien:"🌱",sauces:"🧂"};return m[c]||"🍴";}
+function norm(s){return (s||"").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+function haystack(r){return norm([r.nom,r.ori,r.cat,r.mode,r.tempK,r.coeur,r.temps,r.bois,(r.ings||[]).join(" "),(r.etapes||[]).join(" "),r.tags].join(" "));}
+const cookingRecipes=()=>RECIPES.filter(r=>r.cat!=="sauces");
+const baseRecipes=()=>RECIPES.filter(r=>r.cat==="sauces");
 
 /* ---- helpers analyse ---- */
 function parseMinutes(t){if(!t)return null;let max=0,found=false,m;
@@ -1461,12 +1500,24 @@ function saveFavs(){LS.set("kokko_favs",[...favs]);}
 function toggleFav(r){const k=rid(r);if(favs.has(k))favs.delete(k);else favs.add(k);saveFavs();}
 
 /* ---- état filtres ---- */
-let curCat="all",curQ="",curMode="all",curTime="all",curDiff="all",favOnly=false;
+let curCat="all",curQ="",curHave="",curMode="all",curTime="all",curDiff="all",favOnly=false;
+
+function renderStats(){
+  const total=cookingRecipes().length;
+  const favCount=[...favs].filter(n=>RECIPES.some(r=>r.cat!=="sauces"&&rid(r)===n)).length;
+  const quick=cookingRecipes().filter(r=>timeBucket(r)==="express").length;
+  const bases=baseRecipes().length;
+  $("#quickstats").innerHTML=`
+    <div class="qstat"><b>${total}</b><span>recettes kamado</span></div>
+    <div class="qstat"><b>${quick}</b><span>express</span></div>
+    <div class="qstat"><b>${favCount}</b><span>favoris</span></div>
+    <div class="qstat"><b>${bases}</b><span>bases utiles</span></div>`;
+}
 
 /* ---- chips catégories ---- */
 function renderChips(){
-  $("#chips").innerHTML=CATS.map(c=>{
-    const n=c.id==="all"?RECIPES.length:RECIPES.filter(r=>r.cat===c.id).length;
+  $("#chips").innerHTML=CATS.filter(c=>c.id!=="sauces").map(c=>{
+    const n=c.id==="all"?cookingRecipes().length:RECIPES.filter(r=>r.cat===c.id).length;
     return `<div class="chip ${c.id===curCat?'active':''}" data-cat="${c.id}">${c.e} ${c.nom}${c.id!=='all'?` <span style="opacity:.6">${n}</span>`:''}</div>`;
   }).join("");
   $$("#chips .chip").forEach(ch=>ch.onclick=()=>{curCat=ch.dataset.cat;renderChips();renderList();window.scrollTo({top:0,behavior:'smooth'});});
@@ -1500,12 +1551,13 @@ function renderFilterBar(){
   $("#fMode").onchange=e=>{curMode=e.target.value;renderList();};
   $("#fTime").onchange=e=>{curTime=e.target.value;renderList();};
   $("#fDiff").onchange=e=>{curDiff=e.target.value;renderList();};
-  $("#fFav").onclick=()=>{favOnly=!favOnly;renderFilterBar();renderList();};
+  $("#fFav").onclick=()=>{favOnly=!favOnly;renderFilterBar();renderStats();renderList();};
   $("#fRand").onclick=()=>{const l=RECIPES.filter(matches);const pool=l.length?l:RECIPES;openRecipe(RECIPES.indexOf(pool[Math.floor(Math.random()*pool.length)]));};
 }
 
 /* ---- filtrage ---- */
 function matches(r){
+  if(r.cat==="sauces")return false;
   if(curCat!=="all"&&r.cat!==curCat)return false;
   if(favOnly&&!favs.has(rid(r)))return false;
   if(curMode!=="all"){const x=r.mode.toLowerCase();
@@ -1514,7 +1566,12 @@ function matches(r){
     if(curMode==="direct"&&!x.includes("direct"))return false;}
   if(curTime!=="all"&&timeBucket(r)!==curTime)return false;
   if(curDiff!=="all"&&niveau(r)!==curDiff)return false;
-  if(curQ){const hay=(r.nom+" "+r.ori+" "+r.cat+" "+(r.ings||[]).join(" ")+" "+(r.tags||"")).toLowerCase();if(!hay.includes(curQ))return false;}
+  if(curQ&&!haystack(r).includes(norm(curQ)))return false;
+  if(curHave){
+    const h=haystack(r);
+    const wanted=norm(curHave).split(/[,\s]+/).filter(Boolean);
+    if(wanted.length&&!wanted.every(x=>h.includes(x)))return false;
+  }
   return true;
 }
 
@@ -1541,11 +1598,14 @@ function card(r){
 }
 function renderList(){
   const list=RECIPES.filter(matches);
-  $("#count").textContent=`${list.length} recette${list.length>1?'s':''}`+(favOnly?' · favoris':'');
-  if(!list.length){$("#grid").innerHTML=`<div class="empty">Aucune recette ne correspond.<br>Élargissez les filtres ou changez de mot-clé.</div>`;return;}
+  const bits=[];
+  if(favOnly)bits.push("favoris");
+  if(curHave)bits.push("avec vos ingrédients");
+  $("#count").textContent=`${list.length} recette${list.length>1?'s':''}`+(bits.length?` · ${bits.join(" · ")}`:"");
+  if(!list.length){$("#grid").innerHTML=`<div class="empty">Aucune recette ne correspond.<br>Élargissez les filtres, retirez un ingrédient ou changez de mot-clé.</div>`;return;}
   $("#grid").innerHTML=list.map(card).join("");
   $$("#grid .rc").forEach(c=>c.onclick=e=>{if(e.target.classList.contains('favstar'))return;openRecipe(+c.dataset.i);});
-  $$("#grid .favstar").forEach(b=>b.onclick=e=>{e.stopPropagation();toggleFav(RECIPES[+b.dataset.fav]);renderList();});
+  $$("#grid .favstar").forEach(b=>b.onclick=e=>{e.stopPropagation();toggleFav(RECIPES[+b.dataset.fav]);renderStats();renderList();});
 }
 
 /* ---- fiche détail ---- */
@@ -1603,7 +1663,7 @@ function openRecipe(i){
       <h4>📝 Mes notes</h4>
       <textarea id="dNote" class="note" placeholder="Vos réglages, vos variantes, le temps réel observé…">${(notes[rid(r)]||"").replace(/</g,"&lt;")}</textarea>
     `;
-    $("#dFav").onclick=()=>{toggleFav(r);render();};
+    $("#dFav").onclick=()=>{toggleFav(r);renderStats();render();};
     $("#sMinus").onclick=()=>{if(curServ>1){curServ--;render();}};
     $("#sPlus").onclick=()=>{if(curServ<60){curServ++;render();}};
     $("#sMode").onclick=()=>{stepMode=!stepMode;render();};
@@ -1702,15 +1762,85 @@ function renderAssistant(){
   document.querySelector("#aTGo").onclick=()=>{const min=parseInt(document.querySelector("#aTMin").value)||0;if(min<=0)return;startTimer(min*60,document.querySelector("#aTLabel").value.trim()||"Minuteur");};
 }
 
+/* ---- Menus complets kamado ---- */
+function pickFrom(list, seed){
+  if(!list.length)return null;
+  return list[Math.abs(seed)%list.length];
+}
+function renderMenuBuilder(){
+  const M=$("#menus");
+  M.innerHTML=`
+    <h2>🍱 Composer un menu kamado</h2>
+    <div class="callout" style="border-color:var(--accent)">
+      <h3>Générateur simple</h3>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:13px">Créez un menu cohérent avec une pièce principale, un accompagnement et un dessert cuits au kamado.</p>
+      <div class="menu-controls">
+        <select id="mStyle" class="fsel">
+          <option value="convivial">Convivial</option>
+          <option value="rapide">Rapide</option>
+          <option value="fumage">Fumage / low & slow</option>
+          <option value="vegetarien">Végétarien</option>
+        </select>
+        <select id="mGuests" class="fsel">
+          <option value="4">4 personnes</option>
+          <option value="6">6 personnes</option>
+          <option value="8">8 personnes</option>
+        </select>
+        <button id="mGo" class="actbtn on">Générer un menu</button>
+      </div>
+      <div id="menuOut" class="menu-grid"></div>
+    </div>`;
+  function renderMenu(){
+    const style=$("#mStyle").value, guests=$("#mGuests").value;
+    let mains=cookingRecipes().filter(r=>!["legumes","dessert","pizza"].includes(r.cat));
+    if(style==="rapide")mains=mains.filter(r=>timeBucket(r)==="express");
+    if(style==="fumage")mains=mains.filter(r=>/fumage|brais|confit/i.test(r.mode));
+    if(style==="vegetarien")mains=cookingRecipes().filter(r=>["vegetarien","legumes","pizza"].includes(r.cat)&&r.cat!=="dessert");
+    const sides=cookingRecipes().filter(r=>["legumes","vegetarien","pizza"].includes(r.cat)&&r.cat!=="dessert");
+    const desserts=cookingRecipes().filter(r=>r.cat==="dessert");
+    const seed=Date.now()+parseInt(guests,10);
+    const picks=[
+      {label:"Plat principal",r:pickFrom(mains,seed)},
+      {label:"Accompagnement",r:pickFrom(sides,seed>>3)},
+      {label:"Dessert",r:pickFrom(desserts,seed>>5)}
+    ];
+    $("#menuOut").innerHTML=picks.map(p=>p.r?`
+      <div class="menu-card">
+        <h3>${p.label}</h3>
+        <div style="font-weight:800">${p.r.nom}</div>
+        <div class="ori">${p.r.ori}</div>
+        <div class="meta" style="margin-top:8px">
+          <span class="badge mode">${p.r.mode}</span>
+          <span class="badge temp">${p.r.tempK}</span>
+          <span class="badge">${p.r.temps}</span>
+        </div>
+        <button class="actbtn" data-open="${RECIPES.indexOf(p.r)}">Ouvrir</button>
+      </div>`:`<div class="menu-card"><h3>${p.label}</h3><div class="empty" style="padding:12px">Aucune recette disponible.</div></div>`).join("");
+    $$("#menuOut [data-open]").forEach(b=>b.onclick=()=>openRecipe(+b.dataset.open));
+  }
+  $("#mGo").onclick=renderMenu;
+  renderMenu();
+}
+
+/* ---- Bases et accompagnements non principaux ---- */
+function renderBases(){
+  const B=$("#bases"), bases=baseRecipes();
+  B.innerHTML=`
+    <div class="bases-head">
+      <div>
+        <h2>🧂 Bases utiles</h2>
+        <p>Sauces, rubs et marinades conservés à part pour que l'onglet Recettes reste centré sur les cuissons kamado.</p>
+      </div>
+      <span class="badge">${bases.length} bases</span>
+    </div>
+    <div class="grid" style="padding:0">${bases.map(card).join("")}</div>`;
+  $$("#bases .rc").forEach(c=>c.onclick=e=>{if(e.target.classList.contains('favstar'))return;openRecipe(+c.dataset.i);});
+  $$("#bases .favstar").forEach(b=>b.onclick=e=>{e.stopPropagation();toggleFav(RECIPES[+b.dataset.fav]);renderStats();renderBases();});
+}
+
 /* ---- Sauvegarde / transfert iPhone + PC ---- */
 function exportData(){
-  const payload={
-    app:"kamado-kokko",
-    version:1,
-    exportedAt:new Date().toISOString(),
-    favs:[...favs],
-    notes
-  };
+  const payload=buildExportPayload();
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
   const url=URL.createObjectURL(blob);
   const a=document.createElement("a");
@@ -1721,20 +1851,53 @@ function exportData(){
   a.remove();
   setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
+function buildExportPayload(){
+  return {
+    app:"kamado-kokko",
+    version:1,
+    exportedAt:new Date().toISOString(),
+    favs:[...favs],
+    notes
+  };
+}
+function encodeTransfer(data){
+  return btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+}
+function decodeTransfer(code){
+  return JSON.parse(decodeURIComponent(escape(atob(code.trim()))));
+}
+function mergeImportedData(data){
+  if(data.app!=="kamado-kokko"||!Array.isArray(data.favs)||typeof data.notes!=="object"||data.notes===null)throw new Error("format");
+  favs=new Set([...favs,...data.favs]);
+  notes={...notes,...data.notes};
+  saveFavs();
+  LS.set("kokko_notes",notes);
+  renderStats();
+  renderChips();
+  renderFilterBar();
+  renderList();
+  renderBases();
+}
+function makeTransferCode(){
+  return encodeTransfer(buildExportPayload());
+}
+function makeTransferLink(){
+  return `${location.origin}${location.pathname}#sync=${makeTransferCode()}`;
+}
+function importHashTransfer(){
+  if(!location.hash.startsWith("#sync="))return;
+  try{
+    mergeImportedData(decodeTransfer(location.hash.slice(6)));
+    history.replaceState(null,"",location.pathname);
+  }catch(e){}
+}
 function importData(file){
   if(!file)return;
   const reader=new FileReader();
   reader.onload=()=>{
     try{
       const data=JSON.parse(reader.result);
-      if(data.app!=="kamado-kokko"||!Array.isArray(data.favs)||typeof data.notes!=="object"||data.notes===null)throw new Error("format");
-      favs=new Set([...favs,...data.favs]);
-      notes={...notes,...data.notes};
-      saveFavs();
-      LS.set("kokko_notes",notes);
-      renderChips();
-      renderFilterBar();
-      renderList();
+      mergeImportedData(data);
       $("#syncStatus").textContent=`Import terminé : ${favs.size} favori(s), ${Object.keys(notes).length} note(s).`;
     }catch(e){
       $("#syncStatus").textContent="Import impossible : fichier de sauvegarde Kamado invalide.";
@@ -1754,6 +1917,13 @@ function renderDataTools(){
         <label class="filepick">Importer une sauvegarde JSON
           <input id="dataImport" type="file" accept="application/json,.json">
         </label>
+        <button id="dataCode" class="syncbtn">Créer un code de transfert</button>
+        <button id="dataLink" class="syncbtn">Créer un lien de transfert</button>
+        <textarea id="transferCode" class="copybox" placeholder="Le code de transfert apparaît ici. Vous pouvez aussi coller un code reçu depuis l'autre appareil."></textarea>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <button id="copyCode" class="syncbtn">Copier le code</button>
+          <button id="importCode" class="syncbtn">Importer ce code</button>
+        </div>
         <div id="syncStatus" class="syncstatus"></div>
       </div>
     </div>
@@ -1768,13 +1938,40 @@ function renderDataTools(){
     </div>`;
   $("#dataExport").onclick=exportData;
   $("#dataImport").onchange=e=>importData(e.target.files[0]);
+  $("#dataCode").onclick=()=>{
+    $("#transferCode").value=makeTransferCode();
+    $("#syncStatus").textContent="Code généré. Copiez-le ou partagez-le vers l'autre appareil.";
+  };
+  $("#dataLink").onclick=()=>{
+    $("#transferCode").value=makeTransferLink();
+    $("#syncStatus").textContent="Lien généré. Ouvrez-le sur l'autre appareil pour fusionner les favoris et notes.";
+  };
+  $("#copyCode").onclick=()=>{
+    const code=$("#transferCode").value||makeTransferCode();
+    $("#transferCode").value=code;
+    const done=()=>{$("#syncStatus").textContent="Code copié."};
+    if(navigator.share){navigator.share({title:"Sauvegarde Kamado Kokko",text:code}).then(done).catch(()=>{});}
+    else if(navigator.clipboard){navigator.clipboard.writeText(code).then(done).catch(done);}
+    else done();
+  };
+  $("#importCode").onclick=()=>{
+    try{
+      const raw=$("#transferCode").value.trim();
+      const code=raw.includes("#sync=")?raw.split("#sync=")[1]:raw;
+      mergeImportedData(decodeTransfer(code));
+      $("#syncStatus").textContent=`Code importé : ${favs.size} favori(s), ${Object.keys(notes).length} note(s).`;
+    }catch(e){
+      $("#syncStatus").textContent="Code invalide ou incomplet.";
+    }
+  };
 }
 
 /* ---- recherche + onglets ---- */
 $("#q").addEventListener("input",e=>{curQ=e.target.value.toLowerCase().trim();renderList();});
+$("#have").addEventListener("input",e=>{curHave=e.target.value.trim();renderList();});
 $$(".tab").forEach(t=>t.onclick=()=>{
   $$(".tab").forEach(x=>x.classList.remove("active"));t.classList.add("active");
-  ["recettes","guide","temp","vins","assistant","donnees"].forEach(n=>$("#tab-"+n).classList.toggle("hide",n!==t.dataset.tab));
+  ["recettes","menus","bases","guide","temp","vins","assistant","donnees"].forEach(n=>$("#tab-"+n).classList.toggle("hide",n!==t.dataset.tab));
   window.scrollTo({top:0,behavior:'smooth'});
 });
 
@@ -1783,8 +1980,11 @@ $("#guide").innerHTML=GUIDE;
 $("#temp").innerHTML=TEMP;
 $("#vins").innerHTML=VINS;
 renderAssistant();
+renderMenuBuilder();
+renderBases();
 renderDataTools();
-renderChips();renderFilterBar();renderList();
+renderStats();renderChips();renderFilterBar();renderList();
+importHashTransfer();
 if("serviceWorker" in navigator && location.protocol!=="file:"){
   navigator.serviceWorker.register("./sw.js").catch(()=>{});
 }
