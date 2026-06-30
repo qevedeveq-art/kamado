@@ -450,6 +450,11 @@ section { padding: 12px 0 40px; }
   animation: slideUp 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 @keyframes slideUp { 0% { transform: translateY(30px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+.tring-wrap { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex-shrink: 0; }
+.tring { transform: rotate(0deg); }
+.tring-fg { transition: stroke-dashoffset 1s linear, stroke 0.3s; }
+.tcard.done .tring-fg { stroke: var(--ember); animation: pulse-ring 1s infinite alternate; }
+@keyframes pulse-ring { 0% { opacity: 0.3; } 100% { opacity: 1; } }
 .tcard.done { border-color: var(--ember); animation: pulse 1s infinite; }
 @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(211,55,25,0.5); } 50% { box-shadow: 0 0 0 8px rgba(211,55,25,0); } }
 .tinfo { flex: 1; min-width: 0; }
@@ -622,6 +627,8 @@ td b { color: #fff; }
   .sheet-body { padding: 24px 30px; }
 }
 
+.print-footer { display: none; }
+
 @media print{
   body{background:#fff!important;color:#111!important}
   header,#tab-recettes,#tab-menus,#tab-bases,#tab-guide,#tab-temp,#tab-vins,#tab-assistant,#tab-donnees,#timers,.modal:not(.open),.sheet-head .back,.dactions,.servrow,.stepswitch,.note{display:none!important}
@@ -632,7 +639,10 @@ td b { color: #fff; }
   .spec,.tip{background:#fff!important;border-color:#999!important;color:#111!important}
   .badge,.pill{border-color:#999!important;color:#111!important;background:#fff!important}
   .ings li,.steps li{border-bottom:1px solid #ddd!important;color:#111!important}
-  .print-only{display:block!important}
+  .print-footer { display: flex !important; align-items: center; justify-content: space-between; border-top: 1px solid #111!important; padding-top: 15px!important; margin-top: 30px!important; font-size: 11px!important; color: #555!important; }
+  .print-qr-wrap { display: flex !important; align-items: center!important; gap: 10px!important; }
+  .print-qr-img { width: 75px!important; height: 75px!important; display: block!important; }
+  .print-signature { font-weight: 700!important; font-family: var(--font-title)!important; text-transform: uppercase!important; letter-spacing: 0.5px!important; }
 }
 
 </style>
@@ -1837,6 +1847,29 @@ const GUIDE = `
   <p><b>🔄 Économiser le charbon.</b> En fermant hermétiquement les évents à la fin, vous étouffez le feu. Lors de la session suivante, <b>remuez simplement le charbon restant</b> avec le tisonnier pour faire tomber les cendres dans le cendrier, puis complétez avec du charbon frais. C'est économique et rapide.</p>
   <p><b>🌪️ Dompter le vent et l'humidité.</b> La météo influence le tirage. Par grand vent, fermez un peu plus l'évent bas pour éviter que l'air ne s'engouffre de force. Par temps humide ou froid, prévoyez 5 à 10 min de préchauffage supplémentaires pour que la céramique emmagasine bien sa chaleur.</p>
 </div>
+
+<h2>8. Gestes Techniques &amp; Préparations</h2>
+<div class="callout" style="border-color:var(--green)">
+  <h3>🐓 1. Découper un poulet en crapaudine (Spatchcock)</h3>
+  <p><i>Pourquoi ? Permet une cuisson ultra-uniforme sur la grille, une peau 100% croustillante et réduit le temps de cuisson de 30%.</i></p>
+  <ol class="steps-min">
+    <li>Posez le poulet sur une planche propre, poitrine vers le bas.</li>
+    <li>À l'aide de ciseaux à volaille robustes, <b>découpez le long de la colonne vertébrale</b>, d'un côté puis de l'autre, pour retirer entièrement l'os central.</li>
+    <li>Retournez le poulet (poitrine vers le haut) et <b>appuyez fermement sur le bréchet</b> avec la paume de la main jusqu'à entendre un claquement sec. Le poulet doit s'aplatir totalement.</li>
+    <li>Parez le surplus de peau ou de gras, badigeonnez d'un filet d'huile d'olive et appliquez votre rub sur toutes les faces.</li>
+  </ol>
+</div>
+
+<div class="callout" style="border-color:var(--accent)">
+  <h3>🥩 2. Parer un Brisket (Poitrine de bœuf) comme au Texas</h3>
+  <p><i>Pourquoi ? Un parage aérodynamique garantit un flux d'air régulier sans dessécher les bords, et permet au rub de pénétrer la viande sans être bloqué par le gras dur.</i></p>
+  <ol class="steps-min">
+    <li><b>Travaillez à froid.</b> La poitrine de bœuf doit être très froide pour faciliter la découpe nette du gras.</li>
+    <li><b>Retirez le gras dur (Deckle).</b> Ce gros nodule de gras cireux situé à la jonction des muscles ne fondra pas. Retirez-le complètement.</li>
+    <li><b>Uniformisez le gras de couverture.</b> Côté gras, laissez une épaisseur uniforme de <b>6 mm</b>. Trop épais, le rub ne touchera pas la viande ; trop fin, elle séchera.</li>
+    <li><b>Aérodynamisez la pièce.</b> Coupez les morceaux de viande trop fins ou qui pendent, et arrondissez les angles pour éviter qu'ils ne brûlent sous le flux de chaleur.</li>
+  </ol>
+</div>
 `;
 const TEMP = `
 <div class="callout" style="border-color:var(--green)">
@@ -2457,10 +2490,30 @@ function renderAssistant(){
      <div class="arow"><input id="aG" type="number" inputmode="decimal" class="ainput"><span>g</span><span style="margin:0 4px">⇄</span><input id="aOz" type="number" inputmode="decimal" class="ainput"><span>oz</span></div>
      <div id="aLb" class="aout" style="font-size:13px"></div>
    </div>
-   <div class="callout">
-     <h3>🔥 Quantité de charbon (Kokko L 18")</h3>
-     <select id="aCharType" class="fsel" style="width:100%;margin-bottom:8px"></select>
-     <div id="aCharOut" class="aout"></div>
+       <div class="callout" style="border-color:var(--accent)">
+      <h3>🔥 Calculateur de Charbon &amp; Bois</h3>
+      <p style="margin:0 0 10px;font-size:13px;color:var(--muted)">Estimez précisément le charbon et les essences de bois pour le Kokko L 18" selon votre cuisson.</p>
+      <div class="menu-controls">
+        <select id="aCharMeat" class="fsel">
+          <option value="boeuf">Bœuf / Gibier</option>
+          <option value="porc">Porc</option>
+          <option value="volaille">Volaille / Chapon</option>
+          <option value="agneau">Agneau</option>
+          <option value="poisson">Poisson / Crustacés</option>
+        </select>
+        <select id="aCharMode" class="fsel">
+          <option value="slow">Low &amp; Slow / Fumage (110-130°C)</option>
+          <option value="roast">Rôtissage indirect (160-200°C)</option>
+          <option value="grill">Saisie directe / Grill (220-300°C)</option>
+        </select>
+      </div>
+      <div class="arow" style="margin-top:10px">
+        <label class="alab">Poids viande</label>
+        <input id="aCharWeight" type="number" inputmode="decimal" min="0.1" step="0.1" value="1.5" class="ainput">
+        <span>kg</span>
+      </div>
+      <div id="aCharOut" class="aout" style="margin-top:12px"></div>
+    </div>
    </div>
    <div class="callout">
      <h3>⏱️ Minuteurs</h3>
@@ -2470,7 +2523,7 @@ function renderAssistant(){
    </div>`;
   document.querySelector("#todayOpen").onclick=()=>openRecipe(RECIPES.indexOf(today));
   const dish=document.querySelector("#aDish");presets.forEach((p,i)=>{const o=document.createElement("option");o.value=i;o.textContent=p.n;dish.appendChild(o);});
-  const ch=document.querySelector("#aCharType");charbon.forEach((c,i)=>{const o=document.createElement("option");o.value=i;o.textContent=c.n;ch.appendChild(o);});
+  // Calculateur de charbon dynamique
   function fmtMin(m){const h=Math.floor(m/60),mn=Math.round(m%60);return (h?h+" h ":"")+(mn?mn+" min":(h?"":"0 min"));}
   function calcTime(){const p=presets[+dish.value];const w=parseFloat(document.querySelector("#aWeight").value)||0;const t=p.mpk*w;document.querySelector("#aTimeOut").innerHTML=`<b>Durée estimée :</b> ${fmtMin(Math.round(t*0.85))} à ${fmtMin(Math.round(t*1.15))}<br><span style="color:var(--accent2)">Kamado ${p.kt} · ${p.mode}</span> · <span style="color:var(--green)">à cœur ${p.ct}</span>`;}
   dish.onchange=calcTime;document.querySelector("#aWeight").oninput=calcTime;calcTime();
@@ -2482,7 +2535,52 @@ function renderAssistant(){
   g.oninput=()=>{const v=parseFloat(g.value);if(isNaN(v)){oz.value="";showLb(0);return;}oz.value=(v/28.3495).toFixed(1);showLb(v);};
   oz.oninput=()=>{const v=parseFloat(oz.value);if(isNaN(v)){g.value="";showLb(0);return;}const gr=v*28.3495;g.value=Math.round(gr);showLb(gr);};
   g.value=500;oz.value=(500/28.3495).toFixed(1);showLb(500);
-  function calcChar(){document.querySelector("#aCharOut").innerHTML=charbon[+ch.value].txt;}ch.onchange=calcChar;calcChar();
+  const meatEl=document.querySelector("#aCharMeat"), modeEl=document.querySelector("#aCharMode"), weightEl=document.querySelector("#aCharWeight"), outEl=document.querySelector("#aCharOut");
+  function calcCharcoalAndWood(){
+    const meat = meatEl.value;
+    const mode = modeEl.value;
+    const w = parseFloat(weightEl.value) || 1.5;
+    let charbonKg = 1.5;
+    let woodText = "Aucun bois requis.";
+    let eventText = "";
+    let prepText = "";
+    if (mode === "slow") {
+      charbonKg = w <= 1.5 ? 3 : (w <= 3 ? 3.5 : 4);
+      eventText = "<b>Bas :</b> ouvert à 1/4 (1 cm) · <b>Haut :</b> fente de 2-3 mm.";
+      prepText = "Remplissez le foyer à ras, placez le déflecteur céramique.";
+      if (meat === "boeuf") woodText = "2-3 chunks de <b>Chêne rouge</b> ou <b>Hickory</b> (fumé intense).";
+      else if (meat === "porc") woodText = "3 chunks de <b>Pommier</b> ou <b>Cerisier</b> (fruité doux).";
+      else if (meat === "volaille") woodText = "2 chunks de <b>Cerisier</b> ou <b>Amandier</b> (coloration dorée, parfum doux).";
+      else if (meat === "agneau") woodText = "2-3 chunks d'<b>Olivier</b> ou de <b>Romarin séché</b> (méditerranéen).";
+      else woodText = "1-2 chunks de <b>Citronnier</b> ou d'<b>Aulne</b> (poisson respecté).";
+    } else if (mode === "roast") {
+      charbonKg = w <= 1.5 ? 1.8 : 2.2;
+      eventText = "<b>Bas et haut :</b> ouverts à 25-50%.";
+      prepText = "Foyer aux 3/4, pierre-déflecteur installée.";
+      if (meat === "boeuf") woodText = "Optionnel : 1 chunk de <b>Hêtre</b> ou <b>Chêne</b>.";
+      else if (meat === "porc") woodText = "Optionnel : 1-2 chunks de <b>Pommier</b>.";
+      else if (meat === "volaille") woodText = "Optionnel : 1 chunk de <b>Cerisier</b> ou <b>Pommier</b>.";
+      else if (meat === "agneau") woodText = "Optionnel : 1 chunk d'<b>Olivier</b>.";
+      else woodText = "Optionnel : 1 chunk d'<b>Amandier</b>.";
+    } else {
+      charbonKg = 1.2;
+      eventText = "<b>Bas et haut :</b> ouverts à 75-100%.";
+      prepText = "Foyer aux 2/3, grille directe directement au-dessus des braises.";
+      woodText = "Pas de bois de fumage recommandé pour les grillades directes.";
+    }
+    outEl.innerHTML = `
+      <div style="margin-bottom:8px"><b>🔥 Charbon estimé :</b> ~${charbonKg.toFixed(1)} kg</div>
+      <div style="margin-bottom:8px"><b>🪵 Essence de bois :</b> ${woodText}</div>
+      <div style="margin-bottom:8px"><b>🔧 Réglage évents :</b> ${eventText}</div>
+      <div style="color:var(--muted);font-size:12.5px">${prepText} Allumez 15 min avant de cuire.</div>
+    `;
+  }
+  if(meatEl && modeEl && weightEl && outEl) {
+    meatEl.onchange = calcCharcoalAndWood;
+    modeEl.onchange = calcCharcoalAndWood;
+    weightEl.oninput = calcCharcoalAndWood;
+    calcCharcoalAndWood();
+  }
   document.querySelector("#aTGo").onclick=()=>{const min=parseInt(document.querySelector("#aTMin").value)||0;if(min<=0)return;startTimer(min*60,document.querySelector("#aTLabel").value.trim()||"Minuteur");};
 
   /* ---- shopping list logic ---- */
@@ -2547,7 +2645,35 @@ function renderAssistant(){
   
   document.querySelector("#shopCopy").onclick = () => {
     if (shoppingList.length === 0) return;
-    const txt = "Ma liste de courses Kamado Kokko :\n" + shoppingList.map(x => `${x.checked?'[x]':'[ ]'} ${x.txt} (${x.recipe})`).join("\n");
+    
+    const categories = {
+      "🥩 Boucherie &amp; Poissonnerie": [],
+      "🥬 Fruits, Légumes &amp; Herbes": [],
+      "🧂 Épicerie, Épices &amp; Sauces": [],
+      "🛒 Autres ingrédients": []
+    };
+    
+    shoppingList.forEach(item => {
+      const txt = item.txt.toLowerCase();
+      const entry = `${item.checked ? '☒' : '☐'} ${item.txt} (${item.recipe})`;
+      if (/bœuf|boeuf|porc|poulet|agneau|veau|canard|dinde|cuisse|blanc|échine|travers|viande|bacon|lard|filet|saumon|thon|cabillaud|crevette|gambas|homard|moule|saint-jacques|calamar/i.test(txt)) {
+        categories["🥩 Boucherie &amp; Poissonnerie"].push(entry);
+      } else if (/ail\b|oignon|carotte|citron|concombre|tomate|aubergine|gingembre|coriandre|herbes|menthe|persil|échalote|courgette|poivron|pomme de terre|patate|asperge|avocat|salade/i.test(txt)) {
+        categories["🥬 Fruits, Légumes &amp; Herbes"].push(entry);
+      } else if (/sel\b|poivre|huile|vinaigre|sauce|soja|hoisin|sucre|miel|curry|paprika|epices|épice|moutarde|ketchup|beurre|crème|creme|lait|fromage|feta|parmesan|mozzarella|farine|levure|bouillon/i.test(txt)) {
+        categories["🧂 Épicerie, Épices &amp; Sauces"].push(entry);
+      } else {
+        categories["🛒 Autres ingrédients"].push(entry);
+      }
+    });
+    
+    let txt = "🛒 MA LISTE DE COURSES KAMADO KOKKO\n===================================\n";
+    for (const cat in categories) {
+      if (categories[cat].length > 0) {
+        txt += `\n${cat} :\n  ` + categories[cat].join("\n  ") + "\n";
+      }
+    }
+    
     const done = () => {
       document.querySelector("#shopCopy").textContent = "✅ Liste copiée !";
       setTimeout(() => document.querySelector("#shopCopy").textContent = "📋 Copier la liste", 1600);
