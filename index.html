@@ -110,7 +110,17 @@ header.header-hidden {
 .quickstats { display: none; }
 
 /* Tabs & Chips */
-.tabs { display: flex; gap: 6px; padding: 6px 16px 2px; overflow-x: auto; scrollbar-width: none; max-width: 1120px; margin: 0 auto; }
+.tabs {
+  display: flex;
+  gap: 6px;
+  padding: 6px 16px 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 1120px;
+  margin: 0 auto;
+  mask-image: linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
+}
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
   white-space: nowrap;
@@ -126,7 +136,17 @@ header.header-hidden {
 }
 .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 0 4px 12px rgba(231,90,30,0.3); }
 
-.chips { display: flex; gap: 8px; padding: 12px 16px 4px; overflow-x: auto; scrollbar-width: none; max-width: 1120px; margin: 0 auto; }
+.chips {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 1120px;
+  margin: 0 auto;
+  mask-image: linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
+}
 .chips::-webkit-scrollbar { display: none; }
 .chip {
   white-space: nowrap;
@@ -574,9 +594,9 @@ td b { color: #fff; }
   .brand small { display: block; color: var(--muted); font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-top: 1px; }
   .search { padding-top: 14px; }
   .search input { font-size: 15px; padding: 14px 18px; }
-  .tabs { justify-content: center; flex-wrap: wrap; overflow: visible; }
+  .tabs { justify-content: center; flex-wrap: wrap; overflow: visible; mask-image: none; -webkit-mask-image: none; }
   .tab { font-size: 14.5px; padding: 8px 18px; }
-  .chips { flex-wrap: wrap; overflow: visible; justify-content: flex-start; }
+  .chips { flex-wrap: wrap; overflow: visible; justify-content: flex-start; mask-image: none; -webkit-mask-image: none; }
   #filterbar { padding-top: 12px; }
   
   .quickstats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 12px 16px 4px; }
@@ -1806,8 +1826,17 @@ const GUIDE = `
 </div>
 
 <h2>6. Extinction & entretien</h2>
-<p><b>Pour éteindre :</b> fermez les deux évents complètement — le feu s'étouffe en quelques minutes et le charbon restant resservira.</p>
+<p><b>Pour éteindre :</b> fermez les deux évents complètement — le feu s'étouffe en quelques minutes et le charbon restant resservira pour votre prochaine session.</p>
 <p><b>Après chaque cuisson :</b> brossez la grille tiède (brosse inox). <b>Toutes les 5–10 utilisations :</b> autonettoyage à <b>~350 °C pendant 30 min</b>, les résidus se transforment en cendres. Videz le cendrier quand il est <b>froid</b>. Jamais de produits chimiques sur la céramique, un chiffon sec suffit. Housse de protection contre les intempéries.</p>
+
+<h2>7. Astuces de Pro & Secrets de Cuisson</h2>
+<div class="callout" style="border-color:var(--accent2)">
+  <p><b>💨 La « fumée propre » (Thin Blue Smoke).</b> Ne mettez jamais vos aliments quand la fumée est blanche, épaisse et odorante (créosote amère). Attendez qu'elle devienne <b>bleuâtre, fine et presque invisible</b>. C'est le signe d'une combustion propre du charbon et du bois de fumage, apportant un parfum subtil sans goût de suie.</p>
+  <p><b>💧 Le bac à graisses (Drip Pan) en cuisson indirecte.</b> Lors d'une cuisson indirecte au-dessus du déflecteur céramique, le gras de la viande peut brûler sur la pierre chaude et dégager des fumées âcres. Posez un <b>plat jetable en alu (rempli d'eau, de bière ou de cidre)</b> directement sur le déflecteur sous la viande. Cela évite les odeurs de gras brûlé et maintient une humidité élevée.</p>
+  <p><b>🪵 L'emplacement des morceaux de bois (Chunks).</b> Ne posez pas tout le bois de fumage au sommet du charbon. Disséminez 2 ou 3 morceaux <b>au cœur et sous le charbon</b>. Au fur et à mesure que le foyer se propage (en Low & Slow), le bois s'allumera progressivement, assurant un fumage constant sur 6 h à 10 h.</p>
+  <p><b>🔄 Économiser le charbon.</b> En fermant hermétiquement les évents à la fin, vous étouffez le feu. Lors de la session suivante, <b>remuez simplement le charbon restant</b> avec le tisonnier pour faire tomber les cendres dans le cendrier, puis complétez avec du charbon frais. C'est économique et rapide.</p>
+  <p><b>🌪️ Dompter le vent et l'humidité.</b> La météo influence le tirage. Par grand vent, fermez un peu plus l'évent bas pour éviter que l'air ne s'engouffre de force. Par temps humide ou froid, prévoyez 5 à 10 min de préchauffage supplémentaires pour que la céramique emmagasine bien sa chaleur.</p>
+</div>
 `;
 const TEMP = `
 <div class="callout" style="border-color:var(--green)">
