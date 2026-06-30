@@ -1,0 +1,62 @@
+[
+  {
+    "id": "all",
+    "nom": "Tout",
+    "e": "🍴"
+  },
+  {
+    "id": "boeuf",
+    "nom": "Bœuf",
+    "e": "🥩"
+  },
+  {
+    "id": "porc",
+    "nom": "Porc",
+    "e": "🐖"
+  },
+  {
+    "id": "volaille",
+    "nom": "Volaille",
+    "e": "🍗"
+  },
+  {
+    "id": "agneau",
+    "nom": "Agneau & Gibier",
+    "e": "🐑"
+  },
+  {
+    "id": "poisson",
+    "nom": "Poissons & Mer",
+    "e": "🐟"
+  },
+  {
+    "id": "legumes",
+    "nom": "Légumes & Sides",
+    "e": "🥗"
+  },
+  {
+    "id": "pizza",
+    "nom": "Pizzas & Pains",
+    "e": "🍕"
+  },
+  {
+    "id": "monde",
+    "nom": "Cuisines du monde",
+    "e": "🌍"
+  },
+  {
+    "id": "dessert",
+    "nom": "Desserts",
+    "e": "🍮"
+  },
+  {
+    "id": "vegetarien",
+    "nom": "Végétarien",
+    "e": "🌱"
+  },
+  {
+    "id": "sauces",
+    "nom": "Sauces & Marinades",
+    "e": "🧂"
+  }
+]
