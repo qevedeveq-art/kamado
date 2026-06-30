@@ -30,6 +30,7 @@ const required = ["cat", "nom", "ori", "pour", "mode", "tempK", "temps", "ings",
 const catIds = new Set(CATS.map(c => c.id));
 const seen = new Map();
 const issues = [];
+const warnings = [];
 
 const VALID_SPICE = new Set(["Doux", "Épicé doux", "Relevé"]);
 const VALID_SEASON = new Set(["printemps", "ete", "automne", "hiver", "toute"]);
@@ -124,6 +125,27 @@ function validateRichSchema(recipe, label, i, issues) {
   }
 }
 
+function qualityChecks(recipe) {
+  if (recipe.cat === "sauces") return [];
+  const steps = Array.isArray(recipe.etapes) ? recipe.etapes : [];
+  const ingredients = Array.isArray(recipe.ings) ? recipe.ings : [];
+  const joinedSteps = steps.join(" ");
+  return [
+    { id: "ingredients", ok: ingredients.length >= 3 },
+    { id: "steps", ok: steps.length >= 4 },
+    { id: "core", ok: !!recipe.coeur || /doré|tendre|nacré|sonde|flocon|prise|souple/i.test(joinedSteps) },
+    { id: "settings", ok: !!recipe.tempK && !!recipe.mode && !!recipe.bois },
+    { id: "timing", ok: !!recipe.temps && recipe.repos_min != null && recipe.charbon_kg != null },
+    { id: "phases", ok: Array.isArray(recipe.phases) && recipe.phases.length > 0 },
+    { id: "mistakes", ok: Array.isArray(recipe.erreurs) && recipe.erreurs.length > 0 },
+    { id: "context", ok: !!recipe.source }
+  ];
+}
+
+function qualityScore(recipe) {
+  return qualityChecks(recipe).filter(c => c.ok).length;
+}
+
 for (const [i, recipe] of RECIPES.entries()) {
   const label = recipe.nom || "(sans nom)";
 
@@ -172,6 +194,20 @@ for (const [i, recipe] of RECIPES.entries()) {
   }
 
   validateRichSchema(recipe, label, i, issues);
+
+  if (recipe.cat !== "sauces") {
+    const score = qualityScore(recipe);
+    if (score < 5) {
+      warnings.push(`${i}: ${label} has low operational detail score (${score}/8)`);
+    }
+    const longOrComplex = /fumage|brais|confit|low/i.test(recipe.mode || "") || (recipe._derived?.duration_min || 0) >= 180;
+    if (longOrComplex && !(Array.isArray(recipe.phases) && recipe.phases.length)) {
+      warnings.push(`${i}: ${label} is long/complex and would benefit from structured phases`);
+    }
+    if ((recipe.cat === "volaille" || recipe.cat === "poisson") && !recipe.notes_securite) {
+      warnings.push(`${i}: ${label} should eventually include a safety note`);
+    }
+  }
 }
 
 const cooking = RECIPES.filter(recipe => recipe.cat !== "sauces");
@@ -180,6 +216,24 @@ const richRecipes = RECIPES.filter(recipe => RICH_FIELDS.some(f => recipe[f] != 
 const coverage = Object.fromEntries(
   RICH_FIELDS.map(f => [f, cooking.filter(r => r[f] != null).length])
 );
+const qualityScores = cooking.map(qualityScore);
+const quality = {
+  average: Math.round((qualityScores.reduce((sum, score) => sum + score, 0) / Math.max(1, qualityScores.length)) * 10) / 10,
+  complete: qualityScores.filter(score => score >= 7).length,
+  solid: qualityScores.filter(score => score >= 5).length,
+  low: qualityScores.filter(score => score < 5).length,
+  byCategory: Object.fromEntries(
+    CATS.filter(c => c.id !== "all" && c.id !== "sauces").map(c => {
+      const recipes = cooking.filter(recipe => recipe.cat === c.id);
+      const scores = recipes.map(qualityScore);
+      return [c.id, {
+        average: Math.round((scores.reduce((sum, score) => sum + score, 0) / Math.max(1, scores.length)) * 10) / 10,
+        complete: scores.filter(score => score >= 7).length,
+        low: scores.filter(score => score < 5).length
+      }];
+    })
+  )
+};
 const summary = {
   total: RECIPES.length,
   cooking: cooking.length,
@@ -189,10 +243,18 @@ const summary = {
   categories: Object.fromEntries(CATS.filter(c => c.id !== "all").map(c => [c.id, RECIPES.filter(recipe => recipe.cat === c.id).length])),
   richSchema: richRecipes.length,
   coverage,
-  issues: issues.length
+  quality,
+  issues: issues.length,
+  warnings: warnings.length
 };
 
 console.log(JSON.stringify(summary, null, 2));
+
+if (warnings.length) {
+  console.error("\nData quality warnings:");
+  for (const warning of warnings.slice(0, 40)) console.error(`- ${warning}`);
+  if (warnings.length > 40) console.error(`- ... ${warnings.length - 40} more`);
+}
 
 if (issues.length) {
   console.error("\nData audit failed:");

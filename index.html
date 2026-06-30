@@ -367,6 +367,34 @@ section { padding: 12px 0 40px; }
   line-height: 1.5;
 }
 .rich-row b { color: var(--accent2); }
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 10px;
+}
+.detail-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--txt);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.detail-list li { margin: 5px 0; }
+.quality-checks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: 7px;
+}
+.qcheck {
+  border: 1px solid var(--line);
+  background: rgba(43,48,35,0.32);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.qcheck.ok { color: var(--txt); border-color: rgba(126,183,74,.45); }
+.qcheck.miss { border-color: rgba(211,55,25,.25); }
 .phases-list { list-style: none; padding: 0; margin: 0; counter-reset: ph; }
 .phase-card {
   counter-increment: ph;
@@ -3750,14 +3778,11 @@ function isCompatibleWith(r, band){
   return band==="mixte"||b==="mixte"||b===band||(band==="vif"&&/dessert|pain|pizza/i.test(haystack(r)));
 }
 function qualityInfo(r){
-  let score=0;
-  if(r.source)score++;
-  if(Array.isArray(r.erreurs)&&r.erreurs.length)score++;
-  if(r.notes_securite)score++;
-  if(Array.isArray(r.phases)&&r.phases.length)score++;
-  if(Array.isArray(r.substitutions)&&r.substitutions.length)score++;
-  const label=score>=4?"très détaillée":score>=2?"solide":"à compléter";
-  return {score,label};
+  const checks=recipeQualityChecks(r);
+  const score=checks.filter(c=>c.ok).length;
+  const max=checks.length;
+  const label=score>=7?"très détaillée":score>=5?"solide":"à compléter";
+  return {score,max,label,checks,gaps:checks.filter(c=>!c.ok)};
 }
 function donenessSigns(r){
   const h=haystack(r);
@@ -3769,6 +3794,77 @@ function donenessSigns(r){
   if(r.cat==="dessert")return"Repère : centre pris mais souple, bords dorés, repos respecté avant découpe.";
   return"Repère : surface colorée, intérieur tendre à la pointe d'un couteau et humidité conservée.";
 }
+function recipeQualityChecks(r){
+  if(r.cat==="sauces")return[];
+  const steps=Array.isArray(r.etapes)?r.etapes:[];
+  const ingredients=Array.isArray(r.ings)?r.ings:[];
+  return [
+    {id:"ingredients",label:"ingrédients complets",ok:ingredients.length>=3},
+    {id:"steps",label:"préparation détaillée",ok:steps.length>=4},
+    {id:"core",label:"température à cœur ou repère",ok:!!r.coeur||/doré|tendre|nacré|sonde|flocon|prise|souple/i.test(steps.join(" "))},
+    {id:"settings",label:"réglages kamado",ok:!!r.tempK&&!!r.mode&&!!r.bois},
+    {id:"timing",label:"timing exploitable",ok:!!r.temps&&r.repos_min!=null&&r.charbon_kg!=null},
+    {id:"phases",label:"phases structurées",ok:Array.isArray(r.phases)&&r.phases.length>0},
+    {id:"mistakes",label:"erreurs fréquentes",ok:Array.isArray(r.erreurs)&&r.erreurs.length>0},
+    {id:"context",label:"source ou inspiration",ok:!!r.source}
+  ];
+}
+function recipeQualityAdvice(r){
+  const q=qualityInfo(r);
+  if(!q.gaps.length)return["Fiche complète : les points essentiels de cuisson, timing et contrôle sont présents."];
+  return q.gaps.slice(0,4).map(g=>{
+    if(g.id==="phases")return"Ajouter une chronologie par phase si la cuisson nécessite plusieurs températures ou manipulations.";
+    if(g.id==="mistakes")return"Documenter les erreurs fréquentes observables pendant la cuisson.";
+    if(g.id==="context")return"Préciser l'inspiration ou le style pour mieux choisir l'assaisonnement et le service.";
+    if(g.id==="timing")return"Compléter repos et quantité de charbon pour préparer la session sans estimation de dernière minute.";
+    if(g.id==="core")return"Indiquer une cible à cœur ou un repère sensoriel vérifiable.";
+    return`Compléter : ${g.label}.`;
+  });
+}
+function activeTimeMin(r){
+  const total=parseRecipeDuration(r);
+  const steps=Array.isArray(r.etapes)?r.etapes.length:4;
+  const base=Math.max(10,steps*5);
+  if(/fumage|brais|confit|low/i.test(r.mode||""))return Math.min(60,Math.max(base,Math.round(total*0.12)));
+  if(/pizza|direct|plancha|grill/i.test(r.mode||""))return Math.min(45,Math.max(base,Math.round(total*0.55)));
+  return Math.min(75,Math.max(base,Math.round(total*0.3)));
+}
+function prepChecklist(r){
+  const h=haystack(r), list=[];
+  const equip=Array.isArray(r.equipement)&&r.equipement.length?r.equipement:equipmentTags(r);
+  list.push(`Sortir et peser les ingrédients, puis préparer ${equip.length?equip.slice(0,3).join(", "):"sonde, pince et plat de repos"}.`);
+  if(r.marinade_h)list.push(`Prévoir la marinade ${formatDurationMin(r.marinade_h*60)} avant l'allumage.`);
+  if(r.brine)list.push(`Lancer la saumure ${formatDurationMin(r.brine.hours*60)} à l'avance, puis bien sécher avant cuisson.`);
+  if(/fumage|low|brais|confit/i.test(r.mode||""))list.push("Stabiliser le kamado 20 à 30 min avant d'enfourner, déflecteur en place et fumée propre.");
+  else if(/pizza|pierre/i.test(h))list.push("Préchauffer la pierre jusqu'à saturation thermique avant la première pizza.");
+  else list.push("Stabiliser la grille avant cuisson et garder une zone moins chaude disponible.");
+  if(r.bois&&r.bois!=="—")list.push(`Préparer le bois conseillé : ${r.bois}.`);
+  list.push(`Temps actif estimé : ${formatDurationMin(activeTimeMin(r))}.`);
+  return list;
+}
+function safetyGuidance(r){
+  const h=haystack(r), out=[];
+  if(r.notes_securite)out.push(r.notes_securite);
+  if(r.cat==="volaille"||/poulet|dinde|chapon|canard/.test(h))out.push("Volaille : viser 74 °C dans la zone la plus épaisse et éviter tout contact entre jus cru et aliments prêts à servir.");
+  else if(r.cat==="porc"||/porc|saucisse|chair/.test(h))out.push("Porc et préparations hachées : contrôler la cuisson à cœur et laisser reposer avant découpe.");
+  else if(r.cat==="poisson"||/poisson|saumon|thon|cabillaud|crevette|gambas|coquillage/.test(h))out.push("Poisson et fruits de mer : travailler très frais, cuire juste et servir rapidement.");
+  else if(r.cat==="boeuf"||r.cat==="agneau"||/gibier|bœuf|boeuf|agneau/.test(h))out.push("Grosses pièces : utiliser une sonde propre, puis laisser reposer couvert pour homogénéiser les jus.");
+  if(/fumage a froid|fumage à froid/.test(h))out.push("Fumage à froid : respecter chaîne du froid, salage adapté et durée maîtrisée.");
+  return [...new Set(out)].slice(0,3);
+}
+function serviceGuidance(r){
+  const out=[];
+  if(r.repos_min!=null)out.push(r.repos_min>0?`Repos conseillé : ${formatDurationMin(r.repos_min)} avant découpe ou service.`:"Service immédiat recommandé.");
+  if(r.cat==="boeuf"||r.cat==="agneau")out.push("Trancher perpendiculairement aux fibres pour garder une texture tendre.");
+  if(r.cat==="porc")out.push("Servir avec une touche acide ou moutardée pour équilibrer le gras et la fumée.");
+  if(r.cat==="volaille")out.push("Découper après repos, puis napper juste avant service pour préserver la peau.");
+  if(r.cat==="poisson")out.push("Ajouter citron, herbes fraîches ou huile parfumée au dernier moment.");
+  if(r.cat==="pizza")out.push("Laisser 1 min sur grille avant découpe pour garder le dessous croustillant.");
+  if(r.cat==="dessert")out.push("Attendre la stabilisation du centre avant découpe nette.");
+  const sauces=saucesFor(r);
+  if(sauces.length)out.push(`Sauce pertinente : ${sauces.join(" ou ")}.`);
+  return [...new Set(out)].slice(0,4);
+}
 function dietTags(r){
   const alls=allergens(r), h=haystack(r), tags=[];
   if(!alls.includes("gluten"))tags.push("sans gluten");
@@ -3779,6 +3875,17 @@ function dietTags(r){
 }
 function equipmentTags(r){
   const h=haystack(r), tags=[];
+  if(Array.isArray(r.equipement)){
+    r.equipement.forEach(e=>{
+      const x=norm(e);
+      if(/pierre/.test(x))tags.push("pierre");
+      if(/deflect|déflect|indirect/.test(x))tags.push("deflecteur");
+      if(/plancha|fonte|plaque/.test(x))tags.push("plancha");
+      if(/cocotte|dutch|tagine/.test(x))tags.push("cocotte");
+      if(/sonde/.test(x))tags.push("sonde");
+      if(/broche|rotissoire|rôtissoire/.test(x))tags.push("rotissoire");
+    });
+  }
   if(/pierre|pizza|pain|naan|focaccia/.test(h))tags.push("pierre");
   if(/déflect|deflect|indirect|fumage|brais|confit|low/.test(h))tags.push("deflecteur");
   if(/plancha|fonte|plaque/.test(h))tags.push("plancha");
@@ -4068,7 +4175,7 @@ function matches(r){
   if(curQuality==="source"&&!r.source)return false;
   if(curQuality==="security"&&!r.notes_securite)return false;
   if(curQuality==="errors"&&!(Array.isArray(r.erreurs)&&r.erreurs.length))return false;
-  if(curQuality==="rich"&&qualityInfo(r).score<4)return false;
+  if(curQuality==="rich"&&qualityInfo(r).score<7)return false;
   if(curQ&&!haystack(r).includes(norm(curQ)))return false;
   if(curHave){
     const h=haystack(r);
@@ -4103,7 +4210,7 @@ function card(r){
       <span class="badge">⏱️ ${r.temps}</span>
       <span class="badge niv ${nc}">${niv}</span>
       <span class="badge spice">${spiceLevel(r)}</span>
-      <span class="badge">Qualité : ${q.label}</span>
+      <span class="badge">Qualité : ${q.label} ${q.score}/${q.max}</span>
       ${diets.slice(0,2).map(d=>`<span class="badge">${d}</span>`).join("")}
       ${rating?`<span class="badge">★ ${rating}/5</span>`:''}
       ${alls.length?`<span class="badge allergen">Allergènes : ${alls.join(", ")}</span>`:''}
@@ -4178,6 +4285,28 @@ function renderRichSchema(r){
   }
   return out.join("");
 }
+function renderRecipeDetailGuidance(r){
+  const q=qualityInfo(r);
+  const checks=q.checks.map(c=>`<div class="qcheck ${c.ok?'ok':'miss'}">${c.ok?'✓':'•'} ${c.label}</div>`).join("");
+  const prep=prepChecklist(r).map(x=>`<li>${x}</li>`).join("");
+  const safety=safetyGuidance(r).map(x=>`<li>${x}</li>`).join("");
+  const service=serviceGuidance(r).map(x=>`<li>${x}</li>`).join("");
+  const advice=recipeQualityAdvice(r).map(x=>`<li>${x}</li>`).join("");
+  return `
+    <div class="rich-section">
+      <h4>🧭 Avant de commencer</h4>
+      <ul class="detail-list">${prep}</ul>
+    </div>
+    <div class="rich-section">
+      <h4>✅ Contrôle qualité de la fiche</h4>
+      <div class="quality-checks">${checks}</div>
+      ${q.gaps.length?`<ul class="detail-list" style="margin-top:10px">${advice}</ul>`:""}
+    </div>
+    <div class="detail-grid">
+      ${safety?`<div class="rich-section"><h4>🛡 Contrôles sécurité</h4><ul class="detail-list">${safety}</ul></div>`:""}
+      ${service?`<div class="rich-section"><h4>🍽 Service & découpe</h4><ul class="detail-list">${service}</ul></div>`:""}
+    </div>`;
+}
 
 function openRecipe(i){
   const r=RECIPES[i],base=baseServ(r);let curServ=base;stepMode=false;
@@ -4223,7 +4352,7 @@ function openRecipe(i){
         ${alls.length?`<div class="spec"><div class="l">Allergènes</div><div class="v" style="font-size:13px">${alls.join(", ")}</div></div>`:''}
         ${diets.length?`<div class="spec"><div class="l">Régimes</div><div class="v" style="font-size:13px">${diets.join(", ")}</div></div>`:''}
         ${sauces?`<div class="spec"><div class="l">Sauce</div><div class="v" style="font-size:13px">${sauces}</div></div>`:''}
-        <div class="spec"><div class="l">Qualité fiche</div><div class="v" style="font-size:13px">${q.label} (${q.score}/5)</div></div>
+        <div class="spec"><div class="l">Qualité fiche</div><div class="v" style="font-size:13px">${q.label} (${q.score}/${q.max})</div></div>
         ${equip.length?`<div class="spec"><div class="l">Matériel</div><div class="v" style="font-size:13px">${equip.join(", ")}</div></div>`:''}
         ${r.difficulty?`<div class="spec"><div class="l">Difficulté</div><div class="v diff">${'★'.repeat(r.difficulty)}${'☆'.repeat(5-r.difficulty)}</div></div>`:''}
         ${r.charbon_kg?`<div class="spec"><div class="l">Charbon</div><div class="v">${String(r.charbon_kg).replace(".",",")} kg</div></div>`:''}
@@ -4251,6 +4380,7 @@ function openRecipe(i){
       <div class="tip"><b>👁 Signes de bonne cuisson.</b> ${donenessSigns(r)}</div>
       ${sauces?`<div class="tip"><b>🥣 Sauce associée.</b> ${sauces}</div>`:''}
       ${r.astuce?`<div class="tip"><b>💡 Astuce du chef.</b> ${r.astuce}</div>`:''}
+      ${renderRecipeDetailGuidance(r)}
       ${renderRichSchema(r)}
 
       <h4>📝 Mes notes</h4>
@@ -4438,6 +4568,9 @@ function renderAssistant(){
     security:cookingRecipes().filter(r=>r.notes_securite).length,
     phases:cookingRecipes().filter(r=>Array.isArray(r.phases)&&r.phases.length).length
   };
+  const qualityScores=cookingRecipes().map(r=>qualityInfo(r));
+  qualityStats.complete=qualityScores.filter(q=>q.score>=7).length;
+  qualityStats.avg=Math.round(qualityScores.reduce((sum,q)=>sum+q.score,0)/Math.max(1,qualityScores.length)*10)/10;
   
   A.innerHTML=`
     <h2>🧮 Assistant de cuisson</h2>
@@ -4471,6 +4604,8 @@ function renderAssistant(){
       <h3>✅ Qualité des recettes</h3>
       <p style="margin:0;color:var(--muted);font-size:13px">Suivi des champs qui rendent une fiche vraiment exploitable pendant une cuisson.</p>
       <div class="quality-grid">
+        <div class="quality-tile"><b>${qualityStats.complete}/${cookingRecipes().length}</b><span>fiches très détaillées</span></div>
+        <div class="quality-tile"><b>${String(qualityStats.avg).replace(".",",")}/8</b><span>score moyen</span></div>
         <div class="quality-tile"><b>${qualityStats.source}/${cookingRecipes().length}</b><span>sources ou inspirations</span></div>
         <div class="quality-tile"><b>${qualityStats.errors}/${cookingRecipes().length}</b><span>erreurs fréquentes</span></div>
         <div class="quality-tile"><b>${qualityStats.security}/${cookingRecipes().length}</b><span>notes sécurité</span></div>

@@ -36,6 +36,30 @@ test("all cooking recipes are enriched (rich schema coverage)", () => {
   assert.equal(enriched.length, cooking.length, `${cooking.length - enriched.length} cooking recipes are not enriched`);
 });
 
+function operationalQualityScore(r) {
+  const steps = Array.isArray(r.etapes) ? r.etapes : [];
+  const ingredients = Array.isArray(r.ings) ? r.ings : [];
+  const joinedSteps = steps.join(" ");
+  return [
+    ingredients.length >= 3,
+    steps.length >= 4,
+    !!r.coeur || /doré|tendre|nacré|sonde|flocon|prise|souple/i.test(joinedSteps),
+    !!r.tempK && !!r.mode && !!r.bois,
+    !!r.temps && r.repos_min != null && r.charbon_kg != null,
+    Array.isArray(r.phases) && r.phases.length > 0,
+    Array.isArray(r.erreurs) && r.erreurs.length > 0,
+    !!r.source
+  ].filter(Boolean).length;
+}
+
+test("all cooking recipes have enough operational detail to cook from", () => {
+  const weak = RECIPES
+    .filter(r => r.cat !== "sauces")
+    .map(r => ({ name: r.nom, score: operationalQualityScore(r) }))
+    .filter(r => r.score < 5);
+  assert.deepEqual(weak, []);
+});
+
 test("phases timeline is well-formed when present", () => {
   for (const r of RECIPES) {
     if (!r.phases) continue;
