@@ -14,9 +14,9 @@ Sur PC : ouvrez le site dans Chrome ou Edge, puis utilisez l'icône d'installati
 
 ## Données personnelles
 
-Les favoris et notes sont stockés localement dans le navigateur. L'onglet `Données` permet d'exporter une sauvegarde JSON et de l'importer sur un autre appareil.
+Les favoris, notes libres et notes chiffrées sont stockés localement dans le navigateur. L'onglet `Données` permet d'exporter une sauvegarde JSON et de l'importer sur un autre appareil.
 
-L'import fusionne les favoris et notes existants au lieu de supprimer les données locales.
+L'import fusionne les favoris, notes et notes chiffrées existants au lieu de supprimer les données locales.
 
 L'onglet `Données` permet aussi de générer un code ou un lien de transfert. En ouvrant le lien sur un autre appareil, l'application fusionne automatiquement la sauvegarde locale.
 
@@ -37,13 +37,14 @@ La recherche d'ingrédients accepte aussi les exclusions : `poulet citron -glute
 - Badges piquant et allergènes détectés automatiquement.
 - Historique local des dernières recettes consultées.
 - Impression/PDF propre depuis chaque fiche recette.
+- Notation personnelle des recettes.
+- Suggestion de cuisson du jour selon la saison.
 
 ## Prochaines améliorations possibles
 
-- Mode garde-manger avec exclusions d'ingrédients.
-- Notation personnelle des recettes.
 - Planification de cuisson multi-plats avec rappels.
 - Export PDF d'un menu complet.
+- Mode inventaire avancé avec quantités disponibles et dates limite.
 
 ## Vérification qualité
 
@@ -53,4 +54,4 @@ Avant publication :
 node scripts/audit-data.js
 ```
 
-Le script contrôle les champs obligatoires, doublons, catégories, méthodes de cuisson compatibles kamado, saisons, piquant, allergènes et suggestions de sauces.
+Le script contrôle les champs obligatoires, doublons, catégories, méthodes de cuisson compatibles kamado, niveau de détail minimal, saisons, piquant, allergènes et suggestions de sauces.

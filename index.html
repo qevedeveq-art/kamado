@@ -184,6 +184,10 @@ td b{color:var(--txt)}
 .stp{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--card2);color:var(--txt);font-size:19px;line-height:1;cursor:pointer}
 .servval{min-width:24px;text-align:center;font-size:16px;font-weight:800;color:var(--accent2)}
 .copybtn{margin-left:auto;background:var(--accent);color:#fff;border:none;border-radius:18px;padding:8px 13px;font-size:12.5px;font-weight:700;cursor:pointer}
+.ratingrow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:10px 0 0}
+.ratingrow span{font-size:12.5px;color:var(--muted);font-weight:700}
+.ratebtn{width:31px;height:31px;border-radius:50%;border:1px solid var(--line);background:var(--card2);color:#6b5641;font-size:17px;cursor:pointer}
+.ratebtn.on{color:var(--accent2);border-color:var(--accent2)}
 
 /* ---- Détail : mode cuisson pas-à-pas ---- */
 .stepswitch{display:flex;align-items:center;justify-content:space-between;margin:18px 0 8px;border-bottom:1px solid var(--line);padding-bottom:6px}
@@ -546,7 +550,7 @@ etapes:["Marinez l'échine 3–4 h (ou la veille).","Égouttez, saisie directe �
 astuce:"L'échine (collier) est persillée : elle pardonne mieux la cuisson qu'un filet et reste juteuse."},
 
 {cat:"porc",nom:"Saucisses & chipolatas grillées",ori:"France · le classique convivial",pour:"6 pers",mode:"Indirect doux",tempK:"160–180 °C",coeur:"71 °C",temps:"15–20 min",bois:"Hêtre (option)",tags:"saucisse chipolata merguez grillade",
-ings:["12 saucisses / chipolatas","Un peu d'huile"],
+ings:["12 saucisses / chipolatas","Un peu d'huile pour la grille","Moutarde, pain ou pommes de terre pour servir","Cornichons ou herbes fraîches (option)"],
 etapes:["Évitez la flamme directe trop vive qui brûle la peau avant la cuisson à cœur.","Config indirecte ou zone douce à 170 °C. Posez les saucisses.","Tournez régulièrement 15–20 min jusqu'à 71 °C à cœur, peau dorée.","Ne piquez jamais les saucisses : vous perdriez les jus."],
 astuce:"Démarrez les saucisses sur l'extension de grille (étage haut, plus doux), finissez-les sur la grille basse pour colorer."},
 
@@ -746,7 +750,7 @@ etapes:["Pétrissez une pâte très hydratée, laissez pousser 2 h. Étalez dans
 astuce:"L'abondance d'huile d'olive est essentielle : elle « frit » légèrement le dessous et donne le moelleux signature."},
 
 {cat:"pizza",nom:"Pain de campagne en cocotte",ori:"France · boulange maison",pour:"1 pain",mode:"Indirect (cocotte)",tempK:"230 °C puis 210 °C",coeur:"95 °C",temps:"45 min",bois:"—",tags:"pain campagne cocotte levain croute",
-ings:["400 g farine T65, 100 g farine complète, 350 g eau, 10 g sel, levain ou 4 g levure","Semoule"],
+ings:["400 g farine T65","100 g farine complète","350 g eau","10 g sel, levain ou 4 g levure","Semoule pour déposer le pâton"],
 etapes:["Pétrissez, laissez pousser 3–4 h avec rabats. Façonnez une boule, 2ᵉ pousse 1 h.","Préchauffez une cocotte en fonte fermée dans le kamado à 230 °C (indirect).","Déposez le pâton grigné dans la cocotte chaude, couvercle fermé.","Cuisez 25 min couvert (la vapeur développe la croûte), puis 20 min à découvert à 210 °C.","Pain prêt à 95 °C à cœur, croûte chantante. Refroidissez sur grille."],
 astuce:"La cocotte fermée recrée la vapeur d'un four de boulanger : croûte fine et croustillante, mie alvéolée."},
 
@@ -756,7 +760,7 @@ etapes:["Étalez la pâte très finement. Mélangez crème + fromage blanc, musc
 astuce:"La pâte sans levure doit être la plus fine possible — c'est ce qui distingue la vraie flammekueche d'une pizza."},
 
 {cat:"pizza",nom:"Naan à l'ail au beurre",ori:"Inde · pain plat indispensable",pour:"6 naans",mode:"Direct sur pierre",tempK:"300 °C",coeur:"gonflé moelleux",temps:"2–3 min/naan",bois:"—",tags:"naan pain indien ail beurre tandoor",
-ings:["350 g farine, 1 yaourt, 1 c.à.c levure, sel, sucre, eau tiède","Beurre fondu, ail haché, coriandre"],
+ings:["350 g farine","1 yaourt nature","1 c.à.c levure, sel, sucre, eau tiède","Beurre fondu, ail haché, coriandre"],
 etapes:["Pétrissez une pâte souple avec le yaourt, laissez pousser 1 h 30.","Étalez des ovales de pâte fins.","Pierre très chaude à 300 °C.","Posez le naan : il gonfle et se cloque en 1–2 min, retournez 1 min.","Badigeonnez de beurre à l'ail et coriandre à la sortie."],
 astuce:"Le yaourt rend la mie moelleuse et acidulée. Pour l'effet tandoor, collez le naan sur la pierre brûlante."},
 
@@ -984,7 +988,7 @@ etapes:["Colorez l'agneau en direct. Dans un tagine ou cocotte : oignons, épice
 astuce:"Le kamado maintient la chaleur douce et stable idéale pour un tagine, mieux qu'une plaque qui surchauffe par le fond."},
 
 {cat:"monde",nom:"Boerewors façon braai",ori:"Afrique du Sud · la saucisse du barbecue",pour:"6 pers",mode:"Direct doux",tempK:"180 °C",coeur:"71 °C",temps:"12–15 min",bois:"—",tags:"boerewors braai afrique du sud saucisse coriandre spirale",
-ings:["1 grande spirale de boerewors (saucisse bœuf/porc à la coriandre)","Pain, sauce tomate-oignon (chakalaka ou monkeygland) pour servir"],
+ings:["1 grande spirale de boerewors (saucisse bœuf/porc à la coriandre)","Pain ou petits pains à hot-dog","Sauce tomate-oignon (chakalaka ou monkeygland) pour servir","Coriandre moulue ou graines toastées (option)"],
 etapes:["Ne déroulez pas la spirale : maintenez-la avec 2 brochettes en croix.","Grille directe douce à 180 °C (pas trop vif, la peau brûlerait).","Tournez la spirale entière toutes les 4–5 min, 12–15 min au total.","Ne piquez jamais la saucisse. Visez 71 °C.","Servez en « boerie roll » (pain + relish) à la sud-africaine."],
 astuce:"Le braai est une institution en Afrique du Sud. La boerewors se cuit en spirale, à feu modéré, pour cuire à cœur sans éclater."},
 
@@ -1154,7 +1158,7 @@ astuce:"Cuits à découvert près des braises, les baked beans prennent un vrai 
 ings:["1 baguette ou pain ciabatta","100 g de beurre mou","4 gousses d'ail écrasées, persil","Mozzarella ou emmental râpé (option)"],
 etapes:["Mélangez beurre, ail et persil. Fendez le pain en tranches sans le séparer.","Tartinez généreusement le beurre d'ail entre les tranches.","Ajoutez du fromage râpé si souhaité, emballez en papillote alu (laissez le dessus ouvert).","Indirect à 200 °C, 10–12 min jusqu'à ce que le fromage gratine et que les bords croustillent.","Servez chaud, à partager."],
 astuce:"Laissez le dessus de la papillote ouvert les 4 dernières minutes pour que le pain croustille et que le fromage dore."},
-{cat:"legumes",nom:"Coleslaw maison",ori:"USA · la salade qui accompagne tout BBQ",pour:"6 pers",mode:"Préparation à froid",tempK:"—",temps:"15 min + 1 h",bois:"—",tags:"coleslaw chou carotte salade froide accompagnement ribs pulled pork",
+{cat:"legumes",nom:"Coleslaw maison",ori:"USA · la salade qui accompagne tout BBQ",pour:"6 pers",mode:"Préparation à froid",tempK:"—",coeur:"frais",temps:"15 min + 1 h",bois:"—",tags:"coleslaw chou carotte salade froide accompagnement ribs pulled pork",
 ings:["1/2 chou blanc émincé finement","2 carottes râpées","1 oignon nouveau","Sauce : mayonnaise, yaourt, vinaigre de cidre, moutarde, sucre","Sel, poivre, graines de céleri (option)"],
 etapes:["Émincez le chou très finement, râpez les carottes.","Mélangez la sauce mayo-yaourt-vinaigre-moutarde.","Mélangez les légumes à la sauce, salez, poivrez.","Laissez reposer au moins 1 h au frais pour que le chou s'attendrisse.","Servez bien frais avec ribs, pulled pork ou burgers."],
 astuce:"Le repos est essentiel : il attendrit le chou et lie les saveurs. La fraîcheur et l'acidité équilibrent le gras des viandes fumées."},
@@ -1476,6 +1480,11 @@ const TEMP = `
   <p style="margin:0">Les durées sont indicatives (elles varient avec l'épaisseur, la météo, la température de départ de la viande). <b>Ce qui garantit le résultat, c'est la température à cœur</b>, mesurée avec un thermomètre à sonde planté au centre de la pièce, sans toucher l'os.</p>
   <p style="margin:8px 0 0;font-size:13px;color:var(--muted)">🛌 <b>Repos.</b> Laissez reposer les grosses pièces 5–15 min (jusqu'à 30–45 min pour un brisket) sous une feuille d'alu lâche. La température monte encore de 2–5 °C (« carry-over ») et les jus se répartissent.</p>
 </div>
+<div class="callout" style="border-color:#c95f3f">
+  <h3>⚠️ Repères de sécurité alimentaire</h3>
+  <p style="margin:0">Les tableaux ci-dessous mélangent objectifs culinaires et repères de sécurité. Pour les publics fragiles, suivez les minimums officiels : volaille <b>74 °C</b>, viandes hachées <b>71 °C</b>, poissons <b>63 °C</b>, pièces entières de bœuf/porc/agneau <b>63 °C avec repos</b>. Les cuissons bleues, saignantes ou mi-cuites sont des choix gastronomiques pour produits très frais et bien manipulés.</p>
+  <p style="margin:8px 0 0;font-size:12px;color:var(--muted)">Sources : <a href="https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures" target="_blank" rel="noopener">FoodSafety.gov</a> et <a href="https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart" target="_blank" rel="noopener">USDA FSIS</a>.</p>
+</div>
 
 <h2>Bœuf — steak, côte, rôti</h2>
 <table>
@@ -1676,6 +1685,20 @@ function seasonFor(r){
   if(/peche|pêche|sardine|maquereau|tomate|courgette|aubergine|ete|été|elote|tacos/.test(h))return"ete";
   return"toute";
 }
+function currentSeason(){
+  const m=new Date().getMonth()+1;
+  if(m>=3&&m<=5)return"printemps";
+  if(m>=6&&m<=8)return"ete";
+  if(m>=9&&m<=11)return"automne";
+  return"hiver";
+}
+function seasonLabel(s){return ({printemps:"printemps",ete:"été",automne:"automne",hiver:"hiver",toute:"toute saison"})[s]||s;}
+function recipeOfDay(){
+  const s=currentSeason();
+  const pool=cookingRecipes().filter(r=>seasonFor(r)===s||seasonFor(r)==="toute");
+  const day=Math.floor(new Date().setHours(0,0,0,0)/86400000);
+  return pool[Math.abs(day)%pool.length]||cookingRecipes()[0];
+}
 
 /* ---- helpers analyse ---- */
 function parseMinutes(t){if(!t)return null;let max=0,found=false,m;
@@ -1703,6 +1726,7 @@ function parseDur(t){let h=t.match(/(\d+)\s*h(?:\s*(\d+))?/i);if(h)return(parseI
 const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
 let favs=new Set(LS.get("kokko_favs",[]));
 let notes=LS.get("kokko_notes",{});
+let ratings=LS.get("kokko_ratings",{});
 let viewHistory=LS.get("kokko_history",[]);
 const rid=r=>r.nom;
 function saveFavs(){LS.set("kokko_favs",[...favs]);}
@@ -1726,12 +1750,14 @@ let curCat="all",curQ="",curHave="",curMode="all",curTime="all",curDiff="all",cu
 function renderStats(){
   const total=cookingRecipes().length;
   const favCount=[...favs].filter(n=>RECIPES.some(r=>r.cat!=="sauces"&&rid(r)===n)).length;
+  const ratedCount=Object.keys(ratings).filter(n=>RECIPES.some(r=>r.cat!=="sauces"&&rid(r)===n)).length;
   const quick=cookingRecipes().filter(r=>timeBucket(r)==="express").length;
   const bases=baseRecipes().length;
   $("#quickstats").innerHTML=`
     <div class="qstat"><b>${total}</b><span>recettes kamado</span></div>
     <div class="qstat"><b>${quick}</b><span>express</span></div>
     <div class="qstat"><b>${favCount}</b><span>favoris</span></div>
+    <div class="qstat"><b>${ratedCount}</b><span>notées</span></div>
     <div class="qstat"><b>${bases}</b><span>bases utiles</span></div>`;
 }
 
@@ -1813,6 +1839,7 @@ function card(r){
   const i=RECIPES.indexOf(r),fav=favs.has(rid(r)),niv=niveau(r);
   const nc=niv==='Avancé'?'n3':niv==='Intermédiaire'?'n2':'n1';
   const sauces=sauceText(r), alls=allergens(r);
+  const rating=ratings[rid(r)];
   return `<div class="rc" data-i="${i}">
     <div class="top">
       <div><h3>${r.nom}</h3><div class="ori">${r.ori}</div></div>
@@ -1828,6 +1855,7 @@ function card(r){
       <span class="badge">⏱️ ${r.temps}</span>
       <span class="badge niv ${nc}">${niv}</span>
       <span class="badge spice">${spiceLevel(r)}</span>
+      ${rating?`<span class="badge">★ ${rating}/5</span>`:''}
       ${alls.length?`<span class="badge allergen">Allergènes : ${alls.join(", ")}</span>`:''}
       ${sauces?`<span class="badge sauce">Sauce : ${sauces}</span>`:''}
     </div>
@@ -1854,6 +1882,7 @@ function openRecipe(i){
     const f=curServ/base;
     const fav=favs.has(rid(r));
     const sauces=sauceText(r), alls=allergens(r);
+    const rating=+ratings[rid(r)]||0;
     const ings=r.ings.map(x=>`<li>${scaleIng(x,f)}</li>`).join("");
     let stepsHtml;
     if(stepMode){
@@ -1872,6 +1901,11 @@ function openRecipe(i){
         <button id="dFav" class="actbtn ${fav?'on':''}">${fav?'★ Favori':'☆ Ajouter aux favoris'}</button>
         <button id="dPrint" class="actbtn">Imprimer / PDF</button>
       </div>
+      <div class="ratingrow" id="ratingRow">
+        <span>Note perso</span>
+        ${[1,2,3,4,5].map(n=>`<button class="ratebtn ${n<=rating?'on':''}" data-rate="${n}" title="${n}/5">★</button>`).join("")}
+        ${rating?`<button class="actbtn" id="clearRating" style="padding:7px 10px">Effacer</button>`:''}
+      </div>
       <div class="specbar">
         <div class="spec"><div class="l">Mode</div><div class="v">${r.mode}</div></div>
         <div class="spec"><div class="l">Temp. Kamado</div><div class="v temp">${r.tempK}</div></div>
@@ -1879,7 +1913,7 @@ function openRecipe(i){
         <div class="spec"><div class="l">Cuisson</div><div class="v">${r.temps}</div></div>
         <div class="spec"><div class="l">Niveau</div><div class="v">${niveau(r)}</div></div>
         <div class="spec"><div class="l">Piquant</div><div class="v">${spiceLevel(r)}</div></div>
-        <div class="spec"><div class="l">Saison</div><div class="v">${seasonFor(r)==='ete'?'été':seasonFor(r)}</div></div>
+        <div class="spec"><div class="l">Saison</div><div class="v">${seasonLabel(seasonFor(r))}</div></div>
         ${r.bois?`<div class="spec"><div class="l">Bois conseillé</div><div class="v" style="font-size:13px">${r.bois}</div></div>`:''}
         ${alls.length?`<div class="spec"><div class="l">Allergènes</div><div class="v" style="font-size:13px">${alls.join(", ")}</div></div>`:''}
         ${sauces?`<div class="spec"><div class="l">Sauce</div><div class="v" style="font-size:13px">${sauces}</div></div>`:''}
@@ -1910,6 +1944,8 @@ function openRecipe(i){
     `;
     $("#dFav").onclick=()=>{toggleFav(r);renderStats();render();};
     $("#dPrint").onclick=()=>window.print();
+    $$("#ratingRow .ratebtn").forEach(b=>b.onclick=()=>{ratings[rid(r)]=+b.dataset.rate;LS.set("kokko_ratings",ratings);renderStats();renderList();render();});
+    const clear=$("#clearRating");if(clear)clear.onclick=()=>{delete ratings[rid(r)];LS.set("kokko_ratings",ratings);renderStats();renderList();render();};
     $("#sMinus").onclick=()=>{if(curServ>1){curServ--;render();}};
     $("#sPlus").onclick=()=>{if(curServ<60){curServ++;render();}};
     $("#sMode").onclick=()=>{stepMode=!stepMode;render();};
@@ -1962,8 +1998,24 @@ function renderAssistant(){
     {n:"Low & slow / fumage (4–14 h)",txt:"Foyer rempli à ras (~3 à 4 kg) + 3–4 morceaux de bois. Tient plus de 10 h sur le L 18\"."}
   ];
   const A=document.querySelector("#assistant");
+  const today=recipeOfDay();
+  const todaySauce=sauceText(today);
   A.innerHTML=`
    <h2>🧮 Assistant de cuisson</h2>
+   <div class="callout" style="border-color:var(--accent2)">
+     <h3>🔥 Cuisson du jour</h3>
+     <p style="margin:0 0 10px;font-size:13px;color:var(--muted)">Suggestion ${seasonLabel(currentSeason())}, choisie dans les recettes kamado adaptées à la saison.</p>
+     <div style="font-weight:900;font-size:17px">${today.nom}</div>
+     <div class="ori">${today.ori}</div>
+     <div class="meta" style="margin-top:8px">
+       <span class="badge mode">${today.mode}</span>
+       <span class="badge temp">${today.tempK}</span>
+       ${today.coeur?`<span class="badge coeur">à cœur ${today.coeur}</span>`:''}
+       <span class="badge">${today.temps}</span>
+       ${todaySauce?`<span class="badge sauce">Sauce : ${todaySauce}</span>`:''}
+     </div>
+     <button id="todayOpen" class="actbtn on" style="width:100%;margin-top:10px">Ouvrir la recette</button>
+   </div>
    <div class="callout">
      <h3>⏲️ Temps de cuisson selon le poids</h3>
      <p style="margin:0 0 8px;font-size:13px;color:var(--muted)">Estimation indicative pour le Kokko L 18". <b>Fiez-vous toujours à la température à cœur</b> (sonde) plutôt qu'à l'heure.</p>
@@ -1991,6 +2043,7 @@ function renderAssistant(){
      <div class="arow"><input id="aTLabel" type="text" placeholder="Nom (ex : travers)" class="ainput" style="flex:2;width:auto"><input id="aTMin" type="number" inputmode="numeric" min="1" value="30" class="ainput" style="flex:1;width:auto"><span>min</span></div>
      <button id="aTGo" class="actbtn on" style="width:100%;margin-top:8px">▶ Lancer le minuteur</button>
    </div>`;
+  document.querySelector("#todayOpen").onclick=()=>openRecipe(RECIPES.indexOf(today));
   const dish=document.querySelector("#aDish");presets.forEach((p,i)=>{const o=document.createElement("option");o.value=i;o.textContent=p.n;dish.appendChild(o);});
   const ch=document.querySelector("#aCharType");charbon.forEach((c,i)=>{const o=document.createElement("option");o.value=i;o.textContent=c.n;ch.appendChild(o);});
   function fmtMin(m){const h=Math.floor(m/60),mn=Math.round(m%60);return (h?h+" h ":"")+(mn?mn+" min":(h?"":"0 min"));}
@@ -2112,10 +2165,11 @@ function exportData(){
 function buildExportPayload(){
   return {
     app:"kamado-kokko",
-    version:1,
+    version:2,
     exportedAt:new Date().toISOString(),
     favs:[...favs],
     notes,
+    ratings,
     history:viewHistory
   };
 }
@@ -2129,9 +2183,11 @@ function mergeImportedData(data){
   if(data.app!=="kamado-kokko"||!Array.isArray(data.favs)||typeof data.notes!=="object"||data.notes===null)throw new Error("format");
   favs=new Set([...favs,...data.favs]);
   notes={...notes,...data.notes};
+  if(data.ratings&&typeof data.ratings==="object")ratings={...ratings,...data.ratings};
   viewHistory=[...(Array.isArray(data.history)?data.history:[]),...viewHistory].filter((x,i,a)=>a.indexOf(x)===i).slice(0,8);
   saveFavs();
   LS.set("kokko_notes",notes);
+  LS.set("kokko_ratings",ratings);
   LS.set("kokko_history",viewHistory);
   renderStats();
   renderHistory();
@@ -2160,7 +2216,7 @@ function importData(file){
     try{
       const data=JSON.parse(reader.result);
       mergeImportedData(data);
-      $("#syncStatus").textContent=`Import terminé : ${favs.size} favori(s), ${Object.keys(notes).length} note(s).`;
+      $("#syncStatus").textContent=`Import terminé : ${favs.size} favori(s), ${Object.keys(notes).length} note(s), ${Object.keys(ratings).length} note(s) chiffrée(s).`;
     }catch(e){
       $("#syncStatus").textContent="Import impossible : fichier de sauvegarde Kamado invalide.";
     }

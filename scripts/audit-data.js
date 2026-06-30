@@ -34,13 +34,26 @@ for (const [i, recipe] of RECIPES.entries()) {
   if (!catIds.has(recipe.cat)) issues.push(`${i}: ${recipe.nom} has unknown category "${recipe.cat}"`);
   if (!Array.isArray(recipe.ings) || recipe.ings.some(item => typeof item !== "string" || !item.trim())) {
     issues.push(`${i}: ${recipe.nom} has invalid ingredients`);
+  } else if (recipe.cat !== "sauces" && recipe.ings.length < 3) {
+    issues.push(`${i}: ${recipe.nom} needs at least 3 ingredient lines`);
   }
   if (!Array.isArray(recipe.etapes) || recipe.etapes.some(step => typeof step !== "string" || !step.trim())) {
     issues.push(`${i}: ${recipe.nom} has invalid steps`);
+  } else if (recipe.cat !== "sauces" && recipe.etapes.length < 4) {
+    issues.push(`${i}: ${recipe.nom} needs at least 4 preparation steps`);
   }
 
   if (recipe.cat !== "sauces" && !/(direct|indirect|fumage|brais|cocotte|pierre|plaque|grill|rôti|roti|mijot|préparation|preparation)/i.test(recipe.mode || "")) {
     issues.push(`${i}: ${recipe.nom} mode may not describe a kamado-compatible method: "${recipe.mode}"`);
+  }
+  if (recipe.cat !== "sauces" && !recipe.coeur) {
+    issues.push(`${i}: ${recipe.nom} needs a target core temperature or doneness cue`);
+  }
+  if (recipe.cat !== "sauces" && !recipe.bois) {
+    issues.push(`${i}: ${recipe.nom} needs a wood/fuel recommendation, even "—"`);
+  }
+  if (recipe.cat !== "sauces" && !recipe.astuce) {
+    issues.push(`${i}: ${recipe.nom} needs a practical kamado tip`);
   }
 
   if (!["Doux", "Épicé doux", "Relevé"].includes(spiceLevel(recipe))) {
