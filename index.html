@@ -207,16 +207,39 @@ section { padding: 12px 0 40px; }
 .favstar.on { color: var(--accent2); filter: drop-shadow(0 0 4px rgba(242,169,59,0.4)); }
 
 /* Detail modal & sheet */
-.modal { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.75); display: none; overflow-y: auto; backdrop-filter: blur(4px); }
-.modal.open { display: block; }
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+  overflow-y: auto;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
 .sheet {
   background: var(--bg2);
   max-width: 760px;
+  width: 100%;
   margin: 0 auto;
   min-height: 100%;
   padding: 0 0 60px;
   position: relative;
   box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.modal.open .sheet {
+  transform: translateY(0) scale(1);
 }
 .sheet-head {
   position: sticky;
@@ -526,7 +549,6 @@ td b { color: #fff; }
   th, td { padding: 12px 14px; }
   
   .modal { padding: 0; }
-  .modal.open { display: flex; align-items: flex-start; justify-content: center; }
   .sheet {
     margin: 40px auto;
     min-height: auto;
@@ -2053,8 +2075,8 @@ let curCat="all",curQ="",curHave="",curMode="all",curTime="all",curDiff="all",cu
 
 function renderStats(){
   const total=cookingRecipes().length;
-  const favCount=[...favs].filter(n=>RECIPES.some(r=>r.cat!=="sauces"&&rid(r)===n)).length;
-  const ratedCount=Object.keys(ratings).filter(n=>RECIPES.some(r=>r.cat!=="sauces"&&rid(r)===n)).length;
+  const favCount=[...favs].filter(n=>RECIPES.some(r=>rid(r)===n)).length;
+  const ratedCount=Object.keys(ratings).filter(n=>RECIPES.some(r=>rid(r)===n)).length;
   const quick=cookingRecipes().filter(r=>timeBucket(r)==="express").length;
   const bases=baseRecipes().length;
   $("#quickstats").innerHTML=`
@@ -2110,7 +2132,7 @@ function renderFilterBar(){
   $("#fTime").onchange=e=>{curTime=e.target.value;renderList();};
   $("#fDiff").onchange=e=>{curDiff=e.target.value;renderList();};
   $("#fSeason").onchange=e=>{curSeason=e.target.value;renderList();};
-  $("#fFav").onclick=()=>{favOnly=!favOnly;renderFilterBar();renderStats();renderList();};
+  $("#fFav").onclick=()=>{favOnly=!favOnly;renderFilterBar();renderStats();renderList();renderBases();};
   $("#fRand").onclick=()=>{const l=RECIPES.filter(matches);const pool=l.length?l:cookingRecipes();openRecipe(RECIPES.indexOf(pool[Math.floor(Math.random()*pool.length)]));};
 }
 
@@ -2607,16 +2629,18 @@ function renderMenuBuilder(){
 
 /* ---- Bases et accompagnements non principaux ---- */
 function renderBases(){
-  const B=$("#bases"), bases=baseRecipes();
+  const B=$("#bases");
+  let bases=baseRecipes();
+  if(favOnly) bases=bases.filter(r=>favs.has(rid(r)));
   B.innerHTML=`
     <div class="bases-head">
       <div>
-        <h2>🧂 Bases utiles</h2>
+        <h2>🧂 Bases utiles ${favOnly?'(Favoris)':''}</h2>
         <p>Sauces, rubs et marinades conservés à part pour que l'onglet Recettes reste centré sur les cuissons kamado.</p>
       </div>
       <span class="badge">${bases.length} bases</span>
     </div>
-    <div class="grid" style="padding:0">${bases.map(card).join("")}</div>`;
+    ${bases.length===0?`<div class="empty">Aucune base en favoris.</div>`:`<div class="grid" style="padding:0">${bases.map(card).join("")}</div>`}`;
   $$("#bases .rc").forEach(c=>c.onclick=e=>{if(e.target.classList.contains('favstar'))return;openRecipe(+c.dataset.i);});
   $$("#bases .favstar").forEach(b=>b.onclick=e=>{e.stopPropagation();toggleFav(RECIPES[+b.dataset.fav]);renderStats();renderBases();});
 }
