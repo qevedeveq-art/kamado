@@ -157,6 +157,11 @@ td b{color:var(--txt)}
 .ingredientbar{padding:8px 14px 0}
 .ingredientbar input{width:100%;background:var(--card);border:1px solid var(--line);border-radius:14px;color:var(--txt);font-size:14px;padding:10px 12px;outline:none}
 .ingredientbar input::placeholder{color:var(--muted)}
+.historybar{display:flex;gap:7px;padding:8px 14px 0;overflow-x:auto;scrollbar-width:none}
+.historybar:empty{display:none}
+.historybar::-webkit-scrollbar{display:none}
+.hitem{white-space:nowrap;background:var(--card);border:1px solid var(--line);border-radius:16px;color:var(--muted);font-size:12px;font-weight:700;padding:6px 10px;cursor:pointer}
+.hitem b{color:var(--accent2);font-weight:800}
 
 /* ---- Carte : favori + niveau ---- */
 .rstack{display:flex;flex-direction:column;align-items:center;gap:4px}
@@ -167,6 +172,8 @@ td b{color:var(--txt)}
 .badge.niv.n2{color:var(--accent2)}
 .badge.niv.n3{color:var(--ember)}
 .badge.sauce{color:var(--blue)}
+.badge.spice{color:#e88d5a}
+.badge.allergen{color:#d9c27c}
 
 /* ---- Détail : actions, portions ---- */
 .dactions{margin:2px 0 4px}
@@ -327,6 +334,7 @@ header{background:linear-gradient(180deg,rgba(29,32,25,.97),rgba(20,22,17,.96));
 .bases-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
 .bases-head p{margin:0;color:var(--muted);font-size:13px}
 .copybox{width:100%;min-height:90px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;color:var(--txt);font-size:12px;padding:10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;resize:vertical}
+.print-only{display:none}
 /* — Minuteurs empilés — */
 #timers{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom) + 12px);max-width:760px;margin:0 auto;z-index:200;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .tcard{pointer-events:auto;background:linear-gradient(180deg,#3a2616,#2b1d16);border:1px solid var(--accent);border-radius:14px;padding:11px 13px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 28px rgba(0,0,0,.6)}
@@ -348,8 +356,21 @@ header{background:linear-gradient(180deg,rgba(29,32,25,.97),rgba(20,22,17,.96));
 @media (min-width:760px){
   .quickstats{max-width:1120px;margin:0 auto;grid-template-columns:repeat(4,1fr)}
   .ingredientbar{max-width:1120px;margin:0 auto}
+  .historybar{max-width:1120px;margin:0 auto}
   .menu-controls{grid-template-columns:repeat(3,1fr)}
   .menu-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media print{
+  body{background:#fff!important;color:#111!important}
+  header,#tab-recettes,#tab-menus,#tab-bases,#tab-guide,#tab-temp,#tab-vins,#tab-assistant,#tab-donnees,#timers,.modal:not(.open),.sheet-head .back,.dactions,.servrow,.stepswitch,.note{display:none!important}
+  .modal.open{display:block!important;position:static!important;background:#fff!important;overflow:visible!important}
+  .sheet{box-shadow:none!important;max-width:none!important;margin:0!important;border-radius:0!important;background:#fff!important;color:#111!important;max-height:none!important;overflow:visible!important}
+  .sheet-head{position:static!important;background:#fff!important;color:#111!important;border-bottom:2px solid #111!important;padding:0 0 10px!important}
+  .sheet-body{padding:0!important}
+  .spec,.tip{background:#fff!important;border-color:#999!important;color:#111!important}
+  .badge,.pill{border-color:#999!important;color:#111!important;background:#fff!important}
+  .ings li,.steps li{border-bottom:1px solid #ddd!important;color:#111!important}
+  .print-only{display:block!important}
 }
 </style>
 </head>
@@ -378,6 +399,7 @@ header{background:linear-gradient(180deg,rgba(29,32,25,.97),rgba(20,22,17,.96));
   <div class="chips" id="chips"></div>
   <div id="filterbar"></div>
   <div class="ingredientbar"><input id="have" type="search" placeholder="J'ai ces ingrédients : poulet citron thym…" autocomplete="off"></div>
+  <div class="historybar" id="historybar"></div>
   <div class="count" id="count"></div>
   <div class="grid" id="grid"></div>
 </section>
@@ -1531,24 +1553,54 @@ function norm(s){return (s||"").toString().toLowerCase().normalize("NFD").replac
 function haystack(r){return norm([r.nom,r.ori,r.cat,r.mode,r.tempK,r.coeur,r.temps,r.bois,(r.ings||[]).join(" "),(r.etapes||[]).join(" "),r.tags].join(" "));}
 const cookingRecipes=()=>RECIPES.filter(r=>r.cat!=="sauces");
 const baseRecipes=()=>RECIPES.filter(r=>r.cat==="sauces");
-function sauceFor(r){
-  if(r.sauce)return r.sauce;
+function saucesFor(r){
+  if(r.cat==="sauces")return[];
+  if(r.sauce)return Array.isArray(r.sauce)?r.sauce:String(r.sauce).split(/\s+\+\s+|\s*\|\s*/).map(s=>s.trim()).filter(Boolean);
   const h=haystack(r);
-  if(/teriyaki|yakitori|japon|miso|tofu|tsukune/.test(h))return"Teriyaki maison ou laque soja-mirin-gingembre";
-  if(/coree|gochujang|bulgogi|samgyeopsal/.test(h))return"Ssamjang ou sauce gochujang-sésame";
-  if(/inde|tandoori|tikka|naan/.test(h))return"Raïta yaourt-menthe-citron";
-  if(/mexique|tacos|carne|elote/.test(h))return"Salsa verde citron vert-coriandre";
-  if(/maghreb|levant|kefta|shawarma|agneau|mechoui|aubergine/.test(h))return"Yaourt ail-menthe ou chermoula citronnée";
-  if(/bbq|ribs|pulled|brisket|short ribs|fumage|texas|burger/.test(h))return"Sauce barbecue maison Kansas City";
-  if(r.cat==="boeuf")return"Chimichurri argentin";
-  if(r.cat==="porc")return"Sauce moutarde-miel ou BBQ maison";
-  if(r.cat==="volaille")return"Sauce yaourt-ail aux herbes";
-  if(r.cat==="agneau")return"Jus réduit romarin-ail ou yaourt menthe";
-  if(r.cat==="poisson")return"Sauce vierge citron-herbes";
-  if(r.cat==="legumes"||r.cat==="vegetarien")return"Tahini-citron ou yaourt aux herbes";
-  if(r.cat==="pizza")return"Huile pimentée ou crème ail-romarin";
-  if(r.cat==="dessert")return"Crème vanillée, caramel ou coulis de fruits";
-  return"Condiment maison adapté à la cuisson";
+  if(r.cat==="dessert")return[];
+  if(r.cat==="pizza"&&/pain|naan|focaccia|pizza margherita|flammenkueche/.test(h))return[];
+  if(/picanha|asado|entran|entrana/.test(h))return["Chimichurri argentin"];
+  if(/char siu|porc laque chinois/.test(h))return["Laque hoisin-miel-soja"];
+  if(/satay/.test(h))return["Sauce satay cacahuète-coco"];
+  if(/souvlaki|kofte|kofte|boulettes turques/.test(h))return["Yaourt ail-citron","Tzatziki"];
+  if(/teriyaki|yakitori|japon|miso|tofu|tsukune/.test(h))return["Teriyaki maison","Laque soja-mirin-gingembre"];
+  if(/coree|gochujang|bulgogi|samgyeopsal/.test(h))return["Ssamjang","Sauce gochujang-sésame"];
+  if(/inde|tandoori|tikka/.test(h))return["Raïta yaourt-menthe-citron"];
+  if(/mexique|tacos|carne|elote/.test(h))return["Salsa verde citron vert-coriandre"];
+  if(/maghreb|levant|kefta|shawarma|mechoui|aubergine/.test(h))return["Yaourt ail-menthe","Chermoula citronnée"];
+  if(/bbq|ribs|pulled|brisket|short ribs|fumage|texas|burger/.test(h))return["Sauce barbecue maison Kansas City"];
+  if(r.cat==="boeuf")return["Chimichurri argentin"];
+  if(r.cat==="porc")return["Sauce moutarde-miel","BBQ maison"];
+  if(r.cat==="volaille")return["Sauce yaourt-ail aux herbes"];
+  if(r.cat==="agneau")return["Jus réduit romarin-ail","Yaourt menthe"];
+  if(r.cat==="poisson")return["Sauce vierge citron-herbes"];
+  if(r.cat==="legumes"||r.cat==="vegetarien")return["Tahini-citron","Yaourt aux herbes"];
+  return[];
+}
+function sauceText(r){return saucesFor(r).join(" · ");}
+function spiceLevel(r){
+  const h=haystack(r);
+  if(/piment|harissa|buffalo|jerk|gochujang|sriracha|cayenne|aji|peri|piquant/.test(h))return"Relevé";
+  if(/paprika|cumin|curry|tandoori|ras-el-hanout|epices|épic/.test(h))return"Épicé doux";
+  return"Doux";
+}
+function allergens(r){
+  const h=haystack(r), a=[];
+  if(/fromage|beurre|creme|crème|yaourt|lait|mozzarella|feta|cheddar|mascarpone|parmesan|halloumi/.test(h))a.push("lait");
+  if(/gluten|farine|pain|pita|naan|buns|baguette|pate\b|chapelure|focaccia|pizza/.test(h))a.push("gluten");
+  if(/oeuf|œuf|œufs|mayonnaise/.test(h))a.push("œuf");
+  if(/cacahuete|amande|pecan|sésame|sesame|tahini/.test(h)||(/noix/.test(h)&&!/saint-jacques/.test(h)))a.push("fruits à coque/sésame");
+  if(/soja|miso|teriyaki|tamari/.test(h))a.push("soja");
+  if(/crevette|gambas|moule|homard|saint-jacques|calamar|coquillage/.test(h))a.push("fruits de mer");
+  return [...new Set(a)];
+}
+function seasonFor(r){
+  const h=haystack(r);
+  if(/noel|fete|fêtes|dinde|chapon|marron|hiver|vin rouge|mont d'or/.test(h))return"hiver";
+  if(/courge|butternut|figue|raisin|gibier|chevreuil|sanglier|biche|automne|champignon/.test(h))return"automne";
+  if(/asperge|printemps|agneau|paques|pâques/.test(h))return"printemps";
+  if(/peche|pêche|sardine|maquereau|tomate|courgette|aubergine|ete|été|elote|tacos/.test(h))return"ete";
+  return"toute";
 }
 
 /* ---- helpers analyse ---- */
@@ -1577,12 +1629,25 @@ function parseDur(t){let h=t.match(/(\d+)\s*h(?:\s*(\d+))?/i);if(h)return(parseI
 const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
 let favs=new Set(LS.get("kokko_favs",[]));
 let notes=LS.get("kokko_notes",{});
+let viewHistory=LS.get("kokko_history",[]);
 const rid=r=>r.nom;
 function saveFavs(){LS.set("kokko_favs",[...favs]);}
 function toggleFav(r){const k=rid(r);if(favs.has(k))favs.delete(k);else favs.add(k);saveFavs();}
+function pushHistory(r){
+  const id=rid(r);
+  viewHistory=[id,...viewHistory.filter(x=>x!==id)].slice(0,8);
+  LS.set("kokko_history",viewHistory);
+  renderHistory();
+}
+function renderHistory(){
+  const H=$("#historybar"); if(!H)return;
+  const items=viewHistory.map(id=>RECIPES.find(r=>rid(r)===id)).filter(Boolean).filter(r=>r.cat!=="sauces").slice(0,6);
+  H.innerHTML=items.length?`<span class="hitem"><b>Récents</b></span>`+items.map(r=>`<button class="hitem" data-i="${RECIPES.indexOf(r)}">${emojiFor(r.cat)} ${r.nom}</button>`).join(""):"";
+  $$("#historybar [data-i]").forEach(b=>b.onclick=()=>openRecipe(+b.dataset.i));
+}
 
 /* ---- état filtres ---- */
-let curCat="all",curQ="",curHave="",curMode="all",curTime="all",curDiff="all",favOnly=false;
+let curCat="all",curQ="",curHave="",curMode="all",curTime="all",curDiff="all",curSeason="all",favOnly=false;
 
 function renderStats(){
   const total=cookingRecipes().length;
@@ -1627,14 +1692,22 @@ function renderFilterBar(){
      <option value="Intermédiaire">Intermédiaire</option>
      <option value="Avancé">Avancé</option>
    </select>
+   <select id="fSeason" class="fsel">
+     <option value="all">Saison : toutes</option>
+     <option value="printemps">Printemps</option>
+     <option value="ete">Été</option>
+     <option value="automne">Automne</option>
+     <option value="hiver">Hiver / fêtes</option>
+   </select>
    <button id="fFav" class="fbtn ${favOnly?'on':''}">${favOnly?'★':'☆'} Favoris</button>
    <button id="fRand" class="fbtn">🎲 Au hasard</button>`;
-  $("#fMode").value=curMode;$("#fTime").value=curTime;$("#fDiff").value=curDiff;
+  $("#fMode").value=curMode;$("#fTime").value=curTime;$("#fDiff").value=curDiff;$("#fSeason").value=curSeason;
   $("#fMode").onchange=e=>{curMode=e.target.value;renderList();};
   $("#fTime").onchange=e=>{curTime=e.target.value;renderList();};
   $("#fDiff").onchange=e=>{curDiff=e.target.value;renderList();};
+  $("#fSeason").onchange=e=>{curSeason=e.target.value;renderList();};
   $("#fFav").onclick=()=>{favOnly=!favOnly;renderFilterBar();renderStats();renderList();};
-  $("#fRand").onclick=()=>{const l=RECIPES.filter(matches);const pool=l.length?l:RECIPES;openRecipe(RECIPES.indexOf(pool[Math.floor(Math.random()*pool.length)]));};
+  $("#fRand").onclick=()=>{const l=RECIPES.filter(matches);const pool=l.length?l:cookingRecipes();openRecipe(RECIPES.indexOf(pool[Math.floor(Math.random()*pool.length)]));};
 }
 
 /* ---- filtrage ---- */
@@ -1648,6 +1721,7 @@ function matches(r){
     if(curMode==="direct"&&!x.includes("direct"))return false;}
   if(curTime!=="all"&&timeBucket(r)!==curTime)return false;
   if(curDiff!=="all"&&niveau(r)!==curDiff)return false;
+  if(curSeason!=="all"&&seasonFor(r)!==curSeason)return false;
   if(curQ&&!haystack(r).includes(norm(curQ)))return false;
   if(curHave){
     const h=haystack(r);
@@ -1661,6 +1735,7 @@ function matches(r){
 function card(r){
   const i=RECIPES.indexOf(r),fav=favs.has(rid(r)),niv=niveau(r);
   const nc=niv==='Avancé'?'n3':niv==='Intermédiaire'?'n2':'n1';
+  const sauces=sauceText(r), alls=allergens(r);
   return `<div class="rc" data-i="${i}">
     <div class="top">
       <div><h3>${r.nom}</h3><div class="ori">${r.ori}</div></div>
@@ -1675,7 +1750,9 @@ function card(r){
       ${r.coeur?`<span class="badge coeur">à cœur ${r.coeur}</span>`:''}
       <span class="badge">⏱️ ${r.temps}</span>
       <span class="badge niv ${nc}">${niv}</span>
-      <span class="badge sauce">Sauce : ${sauceFor(r)}</span>
+      <span class="badge spice">${spiceLevel(r)}</span>
+      ${alls.length?`<span class="badge allergen">Allergènes : ${alls.join(", ")}</span>`:''}
+      ${sauces?`<span class="badge sauce">Sauce : ${sauces}</span>`:''}
     </div>
   </div>`;
 }
@@ -1695,9 +1772,11 @@ function renderList(){
 let stepMode=false;
 function openRecipe(i){
   const r=RECIPES[i],base=baseServ(r);let curServ=base;stepMode=false;
+  pushHistory(r);
   function render(){
     const f=curServ/base;
     const fav=favs.has(rid(r));
+    const sauces=sauceText(r), alls=allergens(r);
     const ings=r.ings.map(x=>`<li>${scaleIng(x,f)}</li>`).join("");
     let stepsHtml;
     if(stepMode){
@@ -1714,6 +1793,7 @@ function openRecipe(i){
       <div class="ori">${emojiFor(r.cat)} ${r.ori}</div>
       <div class="dactions">
         <button id="dFav" class="actbtn ${fav?'on':''}">${fav?'★ Favori':'☆ Ajouter aux favoris'}</button>
+        <button id="dPrint" class="actbtn">Imprimer / PDF</button>
       </div>
       <div class="specbar">
         <div class="spec"><div class="l">Mode</div><div class="v">${r.mode}</div></div>
@@ -1721,8 +1801,11 @@ function openRecipe(i){
         ${r.coeur?`<div class="spec"><div class="l">À cœur</div><div class="v coeur">${r.coeur}</div></div>`:''}
         <div class="spec"><div class="l">Cuisson</div><div class="v">${r.temps}</div></div>
         <div class="spec"><div class="l">Niveau</div><div class="v">${niveau(r)}</div></div>
+        <div class="spec"><div class="l">Piquant</div><div class="v">${spiceLevel(r)}</div></div>
+        <div class="spec"><div class="l">Saison</div><div class="v">${seasonFor(r)==='ete'?'été':seasonFor(r)}</div></div>
         ${r.bois?`<div class="spec"><div class="l">Bois conseillé</div><div class="v" style="font-size:13px">${r.bois}</div></div>`:''}
-        <div class="spec"><div class="l">Sauce</div><div class="v" style="font-size:13px">${sauceFor(r)}</div></div>
+        ${alls.length?`<div class="spec"><div class="l">Allergènes</div><div class="v" style="font-size:13px">${alls.join(", ")}</div></div>`:''}
+        ${sauces?`<div class="spec"><div class="l">Sauce</div><div class="v" style="font-size:13px">${sauces}</div></div>`:''}
       </div>
 
       <div class="servrow">
@@ -1742,18 +1825,19 @@ function openRecipe(i){
       </div>
       ${stepMode?`<div class="hint">Cochez les étapes au fur et à mesure · ▶ lance un minuteur</div>`:''}
       ${stepsHtml}
-      <div class="tip"><b>🥣 Sauce associée.</b> ${sauceFor(r)}</div>
+      ${sauces?`<div class="tip"><b>🥣 Sauce associée.</b> ${sauces}</div>`:''}
       ${r.astuce?`<div class="tip"><b>💡 Astuce du chef.</b> ${r.astuce}</div>`:''}
 
       <h4>📝 Mes notes</h4>
       <textarea id="dNote" class="note" placeholder="Vos réglages, vos variantes, le temps réel observé…">${(notes[rid(r)]||"").replace(/</g,"&lt;")}</textarea>
     `;
     $("#dFav").onclick=()=>{toggleFav(r);renderStats();render();};
+    $("#dPrint").onclick=()=>window.print();
     $("#sMinus").onclick=()=>{if(curServ>1){curServ--;render();}};
     $("#sPlus").onclick=()=>{if(curServ<60){curServ++;render();}};
     $("#sMode").onclick=()=>{stepMode=!stepMode;render();};
     $("#sCopy").onclick=()=>{
-      const txt=`${r.nom} — ${curServ} portions\n`+r.ings.map(x=>"• "+scaleIng(x,f)).join("\n")+`\n\nSauce associée : ${sauceFor(r)}`;
+      const txt=`${r.nom} — ${curServ} portions\n`+r.ings.map(x=>"• "+scaleIng(x,f)).join("\n")+(sauces?`\n\nSauce associée : ${sauces}`:"");
       const done=()=>{$("#sCopy").textContent="✅ Copié !";setTimeout(()=>$("#sCopy").textContent="📋 Liste de courses",1600);};
       if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(done);}else{done();}
     };
@@ -1854,6 +1938,7 @@ function pickFrom(list, seed){
 }
 function renderMenuBuilder(){
   const M=$("#menus");
+  let currentMenu=[];
   M.innerHTML=`
     <h2>🍱 Composer un menu kamado</h2>
     <div class="callout" style="border-color:var(--accent)">
@@ -1873,6 +1958,7 @@ function renderMenuBuilder(){
         </select>
         <button id="mGo" class="actbtn on">Générer un menu</button>
       </div>
+      <button id="mCopy" class="syncbtn primary" style="margin-bottom:10px">Copier la liste de courses du menu</button>
       <div id="menuOut" class="menu-grid"></div>
     </div>`;
   function renderMenu(){
@@ -1889,6 +1975,7 @@ function renderMenuBuilder(){
       {label:"Accompagnement",r:pickFrom(sides,seed>>3)},
       {label:"Dessert",r:pickFrom(desserts,seed>>5)}
     ];
+    currentMenu=picks.filter(p=>p.r);
     $("#menuOut").innerHTML=picks.map(p=>p.r?`
       <div class="menu-card">
         <h3>${p.label}</h3>
@@ -1898,13 +1985,21 @@ function renderMenuBuilder(){
           <span class="badge mode">${p.r.mode}</span>
           <span class="badge temp">${p.r.tempK}</span>
           <span class="badge">${p.r.temps}</span>
-          <span class="badge sauce">Sauce : ${sauceFor(p.r)}</span>
+          ${sauceText(p.r)?`<span class="badge sauce">Sauce : ${sauceText(p.r)}</span>`:''}
         </div>
         <button class="actbtn" data-open="${RECIPES.indexOf(p.r)}">Ouvrir</button>
       </div>`:`<div class="menu-card"><h3>${p.label}</h3><div class="empty" style="padding:12px">Aucune recette disponible.</div></div>`).join("");
     $$("#menuOut [data-open]").forEach(b=>b.onclick=()=>openRecipe(+b.dataset.open));
   }
   $("#mGo").onclick=renderMenu;
+  $("#mCopy").onclick=()=>{
+    const txt=currentMenu.map(p=>{
+      const r=p.r, sauce=sauceText(r);
+      return `${p.label} — ${r.nom}\n`+r.ings.map(x=>"• "+x).join("\n")+(sauce?`\nSauce : ${sauce}`:"");
+    }).join("\n\n");
+    const done=()=>{$("#mCopy").textContent="Liste copiée";setTimeout(()=>$("#mCopy").textContent="Copier la liste de courses du menu",1400);};
+    if(navigator.clipboard){navigator.clipboard.writeText(txt).then(done).catch(done);}else done();
+  };
   renderMenu();
 }
 
@@ -1943,7 +2038,8 @@ function buildExportPayload(){
     version:1,
     exportedAt:new Date().toISOString(),
     favs:[...favs],
-    notes
+    notes,
+    history:viewHistory
   };
 }
 function encodeTransfer(data){
@@ -1956,9 +2052,12 @@ function mergeImportedData(data){
   if(data.app!=="kamado-kokko"||!Array.isArray(data.favs)||typeof data.notes!=="object"||data.notes===null)throw new Error("format");
   favs=new Set([...favs,...data.favs]);
   notes={...notes,...data.notes};
+  viewHistory=[...(Array.isArray(data.history)?data.history:[]),...viewHistory].filter((x,i,a)=>a.indexOf(x)===i).slice(0,8);
   saveFavs();
   LS.set("kokko_notes",notes);
+  LS.set("kokko_history",viewHistory);
   renderStats();
+  renderHistory();
   renderChips();
   renderFilterBar();
   renderList();
@@ -1974,7 +2073,7 @@ function importHashTransfer(){
   if(!location.hash.startsWith("#sync="))return;
   try{
     mergeImportedData(decodeTransfer(location.hash.slice(6)));
-    history.replaceState(null,"",location.pathname);
+    window.history.replaceState(null,"",location.pathname);
   }catch(e){}
 }
 function importData(file){
@@ -2069,7 +2168,7 @@ renderAssistant();
 renderMenuBuilder();
 renderBases();
 renderDataTools();
-renderStats();renderChips();renderFilterBar();renderList();
+renderStats();renderChips();renderFilterBar();renderHistory();renderList();
 importHashTransfer();
 if("serviceWorker" in navigator && location.protocol!=="file:"){
   navigator.serviceWorker.register("./sw.js").catch(()=>{});

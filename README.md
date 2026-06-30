@@ -26,12 +26,19 @@ L'onglet `Données` permet aussi de générer un code ou un lien de transfert. E
 - `Menus` : génération d'un menu complet autour d'une cuisson kamado.
 - `Bases` : sauces, rubs et marinades utiles, séparés des recettes principales.
 
-Chaque fiche recette affiche une sauce associée. Les nouvelles recettes peuvent définir leur sauce directement ; les anciennes bénéficient d'une suggestion automatique selon la famille de cuisson et les ingrédients.
+Les fiches affichent une ou plusieurs sauces uniquement quand c'est pertinent. Les nouvelles recettes peuvent définir leurs sauces directement ; les anciennes bénéficient d'une suggestion automatique selon la famille de cuisson et les ingrédients, ou n'affichent rien si une sauce n'apporte pas de valeur.
 
 ## Améliorations envisagées
 
-- Mode saison : été, automne, hiver, fêtes.
+- Filtres saisonniers : printemps, été, automne, hiver/fêtes.
 - Liste de courses groupée pour un menu complet.
-- Échelle de piquant et allergènes.
-- Historique des dernières recettes consultées.
-- Impression PDF propre pour cuisiner sans téléphone.
+- Badges piquant et allergènes détectés automatiquement.
+- Historique local des dernières recettes consultées.
+- Impression/PDF propre depuis chaque fiche recette.
+
+## Prochaines améliorations possibles
+
+- Mode garde-manger avec exclusions d'ingrédients.
+- Notation personnelle des recettes.
+- Planification de cuisson multi-plats avec rappels.
+- Export PDF d'un menu complet.
