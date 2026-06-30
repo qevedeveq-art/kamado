@@ -347,6 +347,118 @@ section { padding: 12px 0 40px; }
 }
 .tip b { color: var(--accent2); }
 
+/* ---- Rich schema rendering ---- */
+.rich-section { margin-top: 22px; }
+.rich-section h4 {
+  color: var(--accent2);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 6px;
+  margin: 0 0 12px;
+}
+.rich-row {
+  background: rgba(43,48,35,0.35);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.rich-row b { color: var(--accent2); }
+.phases-list { list-style: none; padding: 0; margin: 0; counter-reset: ph; }
+.phase-card {
+  counter-increment: ph;
+  background: rgba(43,48,35,0.4);
+  border-left: 3px solid var(--green);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 36px;
+}
+.phase-card:before {
+  content: counter(ph);
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #161813;
+  font-weight: 800;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phase-name { font-weight: 700; font-size: 14px; }
+.phase-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.phase-badge {
+  font-size: 10.5px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(96,107,76,0.25);
+  border: 1px solid var(--line);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+.phase-badge.temp { color: var(--accent2); border-color: var(--accent2); }
+.phase-badge.dur { color: var(--green); border-color: var(--green); }
+.phase-action { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-top: 4px; }
+.equipement-list, .subs-list, .erreurs-list { list-style: none; padding: 0; margin: 0; }
+.equipement-list li {
+  padding: 6px 0 6px 26px;
+  font-size: 13px;
+  position: relative;
+  border-bottom: 1px solid rgba(74,81,61,0.2);
+}
+.equipement-list li:before { content: "🛠"; position: absolute; left: 0; top: 5px; font-size: 12px; }
+.equipement-list li:last-child { border-bottom: 0; }
+.subs-list li {
+  padding: 8px 10px;
+  background: rgba(43,48,35,0.3);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.subs-list b { color: var(--accent2); }
+.erreurs-list li {
+  padding: 8px 12px 8px 32px;
+  background: rgba(120,55,40,0.18);
+  border-left: 3px solid #c46545;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  position: relative;
+}
+.erreurs-list li:before { content: "⚠"; position: absolute; left: 10px; top: 8px; color: #c46545; }
+.security-callout {
+  background: rgba(180,60,40,0.15);
+  border: 1px solid #c46545;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+.security-callout h4 { margin: 0 0 6px; color: #c46545; font-size: 13px; border: 0; padding: 0; }
+.rich-source {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 14px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+  font-style: italic;
+}
+.rich-source b { color: var(--accent2); font-style: normal; }
+.spec .v.diff { color: var(--accent); letter-spacing: 1px; }
+
 /* Portions, actions, notes */
 .dactions { display: flex; gap: 8px; margin: 4px 0 8px; }
 .actbtn {
@@ -2525,6 +2637,52 @@ function renderList(){
 
 /* ---- fiche détail ---- */
 let stepMode=false;
+function formatDurationMin(min){
+  if(min==null)return"";
+  if(min<60)return`${min} min`;
+  const h=Math.floor(min/60), m=min%60;
+  if(min>=1440)return`${Math.round(min/1440*10)/10} j`.replace(".",",");
+  return m?`${h} h ${m} min`:`${h} h`;
+}
+function renderRichSchema(r){
+  const out=[];
+  if(Array.isArray(r.phases)&&r.phases.length){
+    const items=r.phases.map(p=>`
+      <li class="phase-card">
+        <div class="phase-name">${p.name}</div>
+        <div class="phase-meta">
+          <span class="phase-badge">${p.mode}</span>
+          <span class="phase-badge temp">${p.temp_C} °C</span>
+          <span class="phase-badge dur">⏱ ${formatDurationMin(p.duration_min)}</span>
+        </div>
+        ${p.action?`<div class="phase-action">${p.action}</div>`:""}
+      </li>`).join("");
+    out.push(`<div class="rich-section"><h4>🕐 Phases de cuisson</h4><ol class="phases-list">${items}</ol></div>`);
+  }
+  const inline=[];
+  if(r.vents)inline.push(`<div class="rich-row"><b>🌬 Évents</b> · Bas : ${r.vents.bottom} · Haut : ${r.vents.top}</div>`);
+  if(r.wrap)inline.push(`<div class="rich-row"><b>📦 Wrap</b> · ${r.wrap.materiau} à ${r.wrap.at_temp_coeur_C} °C cœur${r.wrap.apres?` · ${r.wrap.apres}`:""}</div>`);
+  if(r.brine)inline.push(`<div class="rich-row"><b>🧂 Saumure</b> · ${formatDurationMin(r.brine.hours*60)}${r.brine.recette?` · ${r.brine.recette}`:""}</div>`);
+  if(r.marinade_h)inline.push(`<div class="rich-row"><b>🌿 Marinade</b> · ${formatDurationMin(r.marinade_h*60)}</div>`);
+  if(inline.length)out.push(`<div class="rich-section"><h4>🔧 Réglages kamado</h4>${inline.join("")}</div>`);
+  if(Array.isArray(r.equipement)&&r.equipement.length){
+    out.push(`<div class="rich-section"><h4>🛠 Équipement nécessaire</h4><ul class="equipement-list">${r.equipement.map(e=>`<li>${e}</li>`).join("")}</ul></div>`);
+  }
+  if(Array.isArray(r.substitutions)&&r.substitutions.length){
+    out.push(`<div class="rich-section"><h4>🔄 Substitutions possibles</h4><ul class="subs-list">${r.substitutions.map(s=>`<li><b>${s.ingredient}</b> → ${s.par}</li>`).join("")}</ul></div>`);
+  }
+  if(Array.isArray(r.erreurs)&&r.erreurs.length){
+    out.push(`<div class="rich-section"><h4>⚠️ Erreurs fréquentes à éviter</h4><ul class="erreurs-list">${r.erreurs.map(e=>`<li>${e}</li>`).join("")}</ul></div>`);
+  }
+  if(r.notes_securite){
+    out.push(`<div class="security-callout"><h4>🛡 Sécurité alimentaire</h4>${r.notes_securite}</div>`);
+  }
+  if(r.source){
+    out.push(`<div class="rich-source"><b>📚 Source / inspiration</b> · ${r.source}</div>`);
+  }
+  return out.join("");
+}
+
 function openRecipe(i){
   const r=RECIPES[i],base=baseServ(r);let curServ=base;stepMode=false;
   pushHistory(r);
@@ -2567,6 +2725,9 @@ function openRecipe(i){
         ${r.bois?`<div class="spec"><div class="l">Bois conseillé</div><div class="v" style="font-size:13px">${r.bois}</div></div>`:''}
         ${alls.length?`<div class="spec"><div class="l">Allergènes</div><div class="v" style="font-size:13px">${alls.join(", ")}</div></div>`:''}
         ${sauces?`<div class="spec"><div class="l">Sauce</div><div class="v" style="font-size:13px">${sauces}</div></div>`:''}
+        ${r.difficulty?`<div class="spec"><div class="l">Difficulté</div><div class="v diff">${'★'.repeat(r.difficulty)}${'☆'.repeat(5-r.difficulty)}</div></div>`:''}
+        ${r.charbon_kg?`<div class="spec"><div class="l">Charbon</div><div class="v">${String(r.charbon_kg).replace(".",",")} kg</div></div>`:''}
+        ${r.repos_min?`<div class="spec"><div class="l">Repos</div><div class="v">${r.repos_min} min</div></div>`:''}
       </div>
 
       <div class="servrow">
@@ -2589,6 +2750,7 @@ function openRecipe(i){
       ${stepsHtml}
       ${sauces?`<div class="tip"><b>🥣 Sauce associée.</b> ${sauces}</div>`:''}
       ${r.astuce?`<div class="tip"><b>💡 Astuce du chef.</b> ${r.astuce}</div>`:''}
+      ${renderRichSchema(r)}
 
       <h4>📝 Mes notes</h4>
       <textarea id="dNote" class="note" placeholder="Vos réglages, vos variantes, le temps réel observé…">${(notes[rid(r)]||"").replace(/</g,"&lt;")}</textarea>
