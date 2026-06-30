@@ -2135,7 +2135,21 @@ function parseAllDurs(t){
 }
 
 /* ---- stockage local (favoris + notes) ---- */
-const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+const LS_SCHEMA_VERSION=1;
+function isVersionedPayload(o){return o&&typeof o==="object"&&!Array.isArray(o)&&"v" in o&&"data" in o;}
+const LS={
+  get(k,d){
+    try{
+      const raw=localStorage.getItem(k);
+      if(!raw)return d;
+      const parsed=JSON.parse(raw);
+      return isVersionedPayload(parsed)?parsed.data:parsed;
+    }catch(e){return d;}
+  },
+  set(k,v){
+    try{localStorage.setItem(k,JSON.stringify({v:LS_SCHEMA_VERSION,data:v}));}catch(e){}
+  }
+};
 let favs=new Set(LS.get("kokko_favs",[]));
 let notes=LS.get("kokko_notes",{});
 let ratings=LS.get("kokko_ratings",{});
@@ -3154,10 +3168,18 @@ function buildExportPayload(){
   };
 }
 function encodeTransfer(data){
-  return btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+  const bytes=new TextEncoder().encode(JSON.stringify(data));
+  let bin="";
+  for(let i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
+  return btoa(bin);
 }
 function decodeTransfer(code){
-  return JSON.parse(decodeURIComponent(escape(atob(code.trim()))));
+  const cleaned=code.trim().replace(/\s+/g,"").replace(/-/g,"+").replace(/_/g,"/");
+  const padded=cleaned+"=".repeat((4-cleaned.length%4)%4);
+  const bin=atob(padded);
+  const bytes=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
+  return JSON.parse(new TextDecoder().decode(bytes));
 }
 function mergeImportedData(data){
   if(data.app!=="kamado-kokko"||!Array.isArray(data.favs)||typeof data.notes!=="object"||data.notes===null)throw new Error("format");
@@ -3293,15 +3315,21 @@ if("serviceWorker" in navigator && location.protocol!=="file:"){
 
 /* ---- smart header escamotable ---- */
 let lastScrollY = window.scrollY;
+let scrollTicking = false;
+const headerEl = $("header");
 window.addEventListener("scroll", () => {
-  const header = $("header");
-  const currentScrollY = window.scrollY;
-  if (currentScrollY > lastScrollY && currentScrollY > 120) {
-    header.classList.add("header-hidden");
-  } else if (currentScrollY < lastScrollY || currentScrollY <= 20) {
-    header.classList.remove("header-hidden");
-  }
-  lastScrollY = currentScrollY;
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(() => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY && currentScrollY > 120) {
+      headerEl.classList.add("header-hidden");
+    } else if (currentScrollY < lastScrollY || currentScrollY <= 20) {
+      headerEl.classList.remove("header-hidden");
+    }
+    lastScrollY = currentScrollY;
+    scrollTicking = false;
+  });
 }, { passive: true });
 </script>
 </body>
