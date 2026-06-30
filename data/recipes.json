@@ -26,6 +26,13 @@
       "Arrosez de beurre/thym/ail en fin de saisie. Repos 10 min sous alu avant de trancher contre le grain."
     ],
     "astuce": "Le reverse-sear donne une cuisson rose uniforme de bord à bord, sans anneau gris. Le secret : sortir à 48–50 °C car la saisie + le repos ajoutent 4–6 °C.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -62,6 +69,13 @@
       "Repos 4–5 min, posez une rondelle de beurre maître d'hôtel qui fond sur la viande."
     ],
     "astuce": "Pour le quadrillage : à mi-cuisson de chaque face, tournez la viande d'un quart de tour.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -189,6 +203,13 @@
       "Repos 15 min sous alu (monte à 55–56 °C). Tranchez fin."
     ],
     "astuce": "Posez les légumes racines sous le rôti pour récupérer les jus et obtenir une garniture rôtie.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -225,6 +246,13 @@
       "Nappez d'échalotes fondues, parsemez de persil."
     ],
     "astuce": "La bavette a des fibres très longues : trancher contre le grain est indispensable pour la tendreté.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -263,6 +291,13 @@
       "Toastez les buns sur la grille. Montez : sauce, galette, cornichons, salade."
     ],
     "astuce": "Ne tassez les boules qu'au moment de l'écrasage sur la plaque : c'est ce contact maximal qui crée la croûte caramélisée.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -300,6 +335,13 @@
       "Repos 3 min avant de servir."
     ],
     "astuce": "Si brochettes en bois, faites-les tremper 30 min. Les brochettes plates en métal empêchent la viande de tourner.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "automne",
@@ -338,6 +380,13 @@
       "Repos 10 min, tranchez le long de l'os."
     ],
     "astuce": "Tenez l'os avec un gant pour saisir les tranches de gras sur la tranche — c'est là que se concentre le goût.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -374,6 +423,13 @@
       "Tranchez contre le grain, nappez de sauce au poivre."
     ],
     "astuce": "L'onglet doit rester saignant à bleu : trop cuit, il devient caoutchouteux. C'est la pièce la plus savoureuse du bœuf.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -648,6 +704,13 @@
       "Repos 10 min. Détaillez entre les côtes."
     ],
     "astuce": "Le porc moderne se mange rosé (63 °C) en toute sécurité : il reste juteux là où 75 °C le dessèche.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -683,6 +746,42 @@
       "Tranchez en médaillons épais."
     ],
     "astuce": "Le filet mignon est maigre et cuit vite : la sonde évite à coup sûr de le dessécher.",
+    "difficulty": 2,
+    "charbon_kg": 1.5,
+    "repos_min": 10,
+    "marinade_h": 6,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Fumage à froid relatif",
+        "mode": "fumage",
+        "temp_C": 90,
+        "duration_min": 30,
+        "action": "Cerisier. Pré-fumage pour parfum sans cuisson."
+      },
+      {
+        "name": "Indirect lent",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 30,
+        "action": "Pierre déflectrice. Sonde à 62 °C cœur. Badigeonner miel en fin."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Sonde fine",
+      "Pinceau à miel",
+      "Cerisier"
+    ],
+    "erreurs": [
+      "Sortir à 70 °C : filet sec",
+      "Miel dès le début : brûle",
+      "Pas de marinade : aromatique pauvre"
+    ],
+    "source": "Twist BBQ d'une pièce noble",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -717,6 +816,13 @@
       "Sortez à 75 °C. Repos 10 min, découpez en gros cubes."
     ],
     "astuce": "Couenne sèche = couenne croustillante. Séchez-la au frigo à découvert quelques heures avant cuisson pour un crackling parfait.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -750,6 +856,13 @@
       "Repos 5 min avant de servir."
     ],
     "astuce": "L'échine (collier) est persillée : elle pardonne mieux la cuisson qu'un filet et reste juteuse.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -784,6 +897,13 @@
       "Ne piquez jamais les saucisses : vous perdriez les jus."
     ],
     "astuce": "Démarrez les saucisses sur l'extension de grille (étage haut, plus doux), finissez-les sur la grille basse pour colorer.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -822,6 +942,48 @@
       "Repos 15 min, tranchez en rondelles."
     ],
     "astuce": "Le fenouil (graines + frondes) est la signature de la vraie porchetta italienne.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 20,
+    "marinade_h": 24,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Roulé+ficelé",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 1440,
+        "action": "Frotter intérieur poitrine avec ail+romarin+fenouil+sel. Rouler serré, ficeler tous les 3 cm. Frais 24 h."
+      },
+      {
+        "name": "Rôti lent",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 150,
+        "action": "Pierre déflectrice. Sonde au cœur. Pas d'ouverture les 2 premières h."
+      },
+      {
+        "name": "Croustillant peau",
+        "mode": "direct",
+        "temp_C": 220,
+        "duration_min": 30,
+        "action": "Retirer pierre, monter T°. Tourner la pièce pour dorer uniformément."
+      }
+    ],
+    "equipement": [
+      "Ficelle de boucher",
+      "Pierre déflectrice",
+      "Sonde 2 canaux"
+    ],
+    "erreurs": [
+      "Ficelage lâche : roulé qui s'ouvre",
+      "Croustillage trop fort : couenne carbonise",
+      "Pas de repos : jus partout au tranchage"
+    ],
+    "source": "Tradition italienne d'Ariccia (Latium)",
     "_derived": {
       "spice": "Relevé",
       "season": "hiver",
@@ -856,6 +1018,46 @@
       "Servez avec choucroute ou pommes vapeur."
     ],
     "astuce": "Pour un jambonneau ultra-fondant, emballez-le dans l'alu après 3 h de fumage jusqu'à 90 °C.",
+    "difficulty": 3,
+    "charbon_kg": 3,
+    "repos_min": 15,
+    "marinade_h": 0,
+    "brine": {
+      "hours": 48,
+      "recette": "Saumure 5 % sel + 2 % sucre + laurier, 48 h à 4 °C"
+    },
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Fumage long",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 210,
+        "action": "Hêtre. Pas d'ouverture les 2 premières h. Vaporiser jus de pomme ensuite."
+      },
+      {
+        "name": "Glaçage final",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 60,
+        "action": "Badigeonner miel+moutarde toutes les 15 min jusqu'à brillance ambrée."
+      }
+    ],
+    "equipement": [
+      "Bac saumure",
+      "Pierre déflectrice",
+      "Pinceau à glace",
+      "Hêtre sec"
+    ],
+    "erreurs": [
+      "Saumure trop salée : jambon immangeable",
+      "Glaçage trop tôt : sucre brûle",
+      "Pas de pellicule : la fumée glisse"
+    ],
+    "source": "Tradition allemande (Schinken) adaptée",
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -951,6 +1153,13 @@
       "Sortez à 74 °C. Repos 10 min, découpez."
     ],
     "astuce": "Aplati, le poulet cuit 2× plus vite et de façon homogène : fini les blancs secs / cuisses crues.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -986,6 +1195,13 @@
       "Sortez à 54–57 °C pour rosé. Repos 5 min, tranchez en aiguillettes."
     ],
     "astuce": "Gérez les flambées : le gras de canard s'enflamme. Travaillez sur une zone moins vive et fermez le couvercle si ça s'emballe.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -1019,6 +1235,13 @@
       "Servez avec un filet de citron."
     ],
     "astuce": "Les cuisses tolèrent 80–82 °C : le collagène fond et la chair devient soyeuse, contrairement aux blancs.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -1053,6 +1276,13 @@
       "Servez avec sauce au bleu et bâtonnets de céleri."
     ],
     "astuce": "La levure chimique (½ c.à.c pour 1 kg) modifie le pH de la peau et la rend incroyablement croustillante.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -1089,6 +1319,36 @@
       "Repos 10 min sous alu."
     ],
     "astuce": "Bardez la pintade d'une fine tranche de lard sur les blancs pour compenser sa maigreur.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 15,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Rôti indirect",
+        "mode": "indirect",
+        "temp_C": 170,
+        "duration_min": 75,
+        "action": "Pintade bardée, marrons cuits dans la lèchefrite avec jus."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Lèchefrite",
+      "Sonde 2 canaux",
+      "Bardes lard"
+    ],
+    "notes_securite": "Volaille : cœur ≥ 74 °C en cuisse impératif.",
+    "erreurs": [
+      "Pas de bardes : poitrine sèche",
+      "Pas de sonde : cuisse rosée → risque",
+      "Marrons crus : amers, prendre cuits sous vide"
+    ],
+    "source": "Cuisine festive française",
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -1201,6 +1461,13 @@
       "Repos 5 min, servez avec citron."
     ],
     "astuce": "Une brique enveloppée d'alu posée sur le coquelet (« al mattone ») garantit une peau totalement croustillante.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -1235,6 +1502,34 @@
       "Repos 15 min sous alu, tranchez."
     ],
     "astuce": "Ajoutez quelques branches de romarin sur les braises en fin de cuisson : le gigot s'imprègne d'un parfum méditerranéen.",
+    "difficulty": 2,
+    "charbon_kg": 1.5,
+    "repos_min": 15,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Rôti indirect",
+        "mode": "indirect",
+        "temp_C": 180,
+        "duration_min": 75,
+        "action": "Pierre déflectrice. Sonde au cœur. Ail+romarin piqués."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Sonde fine",
+      "Couteau d'office"
+    ],
+    "erreurs": [
+      "Cuisson trop forte : gigot dur",
+      "Sortir à 65 °C : trop cuit → 55 °C max pour rosé",
+      "Pas de repos : jus perdus"
+    ],
+    "source": "Tradition pascale française",
     "_derived": {
       "spice": "Doux",
       "season": "printemps",
@@ -1269,6 +1564,13 @@
       "Repos 8 min, détaillez en côtelettes."
     ],
     "astuce": "Protégez les os avec de l'alu pour éviter qu'ils ne noircissent et présentez les côtelettes « en couronne ».",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "printemps",
@@ -1398,6 +1700,13 @@
       "Repos 3 min, fleur de sel."
     ],
     "astuce": "Faites tenir les côtelettes debout sur leur tranche de gras 30 s pour le rendre croustillant.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "printemps",
@@ -1433,6 +1742,42 @@
       "Prêtes à 90 °C, la chair se détache de l'os."
     ],
     "astuce": "La sauce épicée-sucrée se marie parfaitement avec une semoule de couscous.",
+    "difficulty": 3,
+    "charbon_kg": 2,
+    "repos_min": 10,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Saisie (15 min)",
+        "mode": "direct",
+        "temp_C": 230,
+        "duration_min": 15,
+        "action": "Dorer les souris sur toutes les faces. Réservez."
+      },
+      {
+        "name": "Braisé miel (3 h 15)",
+        "mode": "braisé",
+        "temp_C": 150,
+        "duration_min": 195,
+        "action": "Cocotte avec miel+jus orange+bouillon+épices. Sonde glisse à 95 °C."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte",
+      "Pierre déflectrice",
+      "Sonde 2 canaux",
+      "Pinces"
+    ],
+    "erreurs": [
+      "Sauter la saisie : viande pâle",
+      "Miel trop tôt : caramélisation amère",
+      "Liquide insuffisant : souris brûlées au fond"
+    ],
+    "source": "Cuisine méditerranéenne",
     "_derived": {
       "spice": "Épicé doux",
       "season": "printemps",
@@ -1468,6 +1813,13 @@
       "Repos 8 min, nappez de sauce grand veneur."
     ],
     "astuce": "Le chevreuil est très maigre : au-delà de 58 °C il devient sec et fort en goût. Restez rosé.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "automne",
@@ -1506,6 +1858,13 @@
       "Servez directement sur la planche avec citron."
     ],
     "astuce": "La planche peut légèrement s'embraser : gardez un vaporisateur d'eau à portée pour calmer les flammes.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -1617,6 +1976,13 @@
       "Arrosez d'huile d'olive et citron au service."
     ],
     "astuce": "Une grille à poisson (panier) facilite énormément le retournement d'un poisson entier sans le casser.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -1651,6 +2017,13 @@
       "Persil, fleur de sel, citron."
     ],
     "astuce": "Gardez les têtes : pressez-les sur les gambas, le jus corsé est un délice.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "printemps",
@@ -1687,6 +2060,13 @@
       "Servez avec sauce soja-gingembre."
     ],
     "astuce": "Le thon doit être extra-frais (qualité sashimi) puisqu'il reste cru à cœur. Trop cuit, il devient sec.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -1725,6 +2105,13 @@
       "Ouvrez à table pour libérer les arômes."
     ],
     "astuce": "La papillote concentre la vapeur aromatique : idéale pour les poissons délicats qui sèchent vite à nu.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -1761,6 +2148,13 @@
       "Service immédiat avec citron."
     ],
     "astuce": "Une Saint-Jacques se cuit 90 s par face maximum : au-delà elle se rétracte et devient ferme.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "printemps",
@@ -1797,6 +2191,13 @@
       "Citron au service."
     ],
     "astuce": "Précuisez 2 min à l'eau bouillante avant de griller : la chair se décolle plus facilement de la carapace.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -1834,6 +2235,13 @@
       "Citron généreux au service."
     ],
     "astuce": "Les poissons gras comme le maquereau ou la sardine sont parfaits au barbecue : leur gras les protège du dessèchement.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -1868,6 +2276,13 @@
       "Tranchez, arrosez d'huile d'olive, gros sel et paprika fumé."
     ],
     "astuce": "La pré-cuisson est indispensable : grillé cru, le poulpe serait caoutchouteux. Le kamado n'apporte que le fumé et le croustillant final.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "ete",
@@ -1901,6 +2316,13 @@
       "Arrosez de balsamique et d'huile d'olive crue au service."
     ],
     "astuce": "Salez les aubergines 15 min avant et épongez : elles absorbent moins d'huile et grillent mieux.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "automne",
@@ -1936,6 +2358,13 @@
       "Servez tiède ou froid, parsemé de persil et grenade."
     ],
     "astuce": "C'est le contact direct des braises qui donne ce goût fumé caractéristique impossible à reproduire au four.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "ete",
@@ -1971,6 +2400,13 @@
       "Vérifiez avec la pointe d'un couteau."
     ],
     "astuce": "Précuites 8 min à l'eau bouillante puis grillées, elles sont croustillantes dehors et fondantes dedans.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -2005,6 +2441,13 @@
       "Coriandre et citron vert au service."
     ],
     "astuce": "Grillez d'abord dans les feuilles 10 min (vapeur) puis à nu pour colorer : maïs tendre et grillé.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -2042,6 +2485,13 @@
       "Persil frais au service."
     ],
     "astuce": "Posez les champignons farce vers le haut pour éviter qu'ils ne rendent leur eau et noient la farce.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "automne",
@@ -2079,6 +2529,13 @@
       "Parmesan et zeste de citron au service."
     ],
     "astuce": "Posez-les perpendiculairement aux barreaux ou utilisez l'extension de grille pour ne pas les perdre dans le foyer.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "printemps",
@@ -2115,6 +2572,13 @@
       "Nappez de sauce tahini, parsemez d'amandes, persil, grenade."
     ],
     "astuce": "Précuit 10 min à la vapeur, il rôtit ensuite plus vite et reste fondant à cœur sous une croûte dorée.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -2152,6 +2616,34 @@
       "Servez à la cuillère avec pain grillé."
     ],
     "astuce": "Le fumage léger transforme un simple fromage chaud : ne mettez qu'un seul petit morceau de bois doux.",
+    "difficulty": 1,
+    "charbon_kg": 0.8,
+    "repos_min": 0,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Fumage doux",
+        "mode": "fumage",
+        "temp_C": 120,
+        "duration_min": 22,
+        "action": "Hêtre. Croûte striée au couteau pour fondant. Ail+vin blanc piqués."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Hêtre",
+      "Plateau bois ou planche"
+    ],
+    "erreurs": [
+      "T° > 140 °C : fromage qui suinte huile",
+      "Trop de fumée : amertume",
+      "Pas striée : croûte casse pas"
+    ],
+    "source": "Inspiration jurassienne (Mont d'Or au four)",
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -2188,6 +2680,13 @@
       "Servez avec une persillade."
     ],
     "astuce": "Presser les pleurotes expulse l'eau et concentre les saveurs : la texture devient charnue, presque carnée.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "automne",
@@ -2224,6 +2723,13 @@
       "Basilic frais au service."
     ],
     "astuce": "Griller les légumes avant de les mijoter apporte une dimension fumée qui sublime la ratatouille traditionnelle.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "automne",
@@ -2337,6 +2843,13 @@
       "Démoulez tiède, arrosez encore d'huile d'olive."
     ],
     "astuce": "L'abondance d'huile d'olive est essentielle : elle « frit » légèrement le dessous et donne le moelleux signature.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -2373,6 +2886,13 @@
       "Pain prêt à 95 °C à cœur, croûte chantante. Refroidissez sur grille."
     ],
     "astuce": "La cocotte fermée recrée la vapeur d'un four de boulanger : croûte fine et croustillante, mie alvéolée.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -2408,6 +2928,13 @@
       "Servez immédiatement, découpée en carrés."
     ],
     "astuce": "La pâte sans levure doit être la plus fine possible — c'est ce qui distingue la vraie flammekueche d'une pizza.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -2443,6 +2970,13 @@
       "Badigeonnez de beurre à l'ail et coriandre à la sortie."
     ],
     "astuce": "Le yaourt rend la mie moelleuse et acidulée. Pour l'effet tandoor, collez le naan sur la pierre brûlante.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -2477,6 +3011,13 @@
       "Arrosez d'huile d'olive tiède."
     ],
     "astuce": "Les entailles doivent être bien ouvertes avant cuisson : elles se referment légèrement en gonflant.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -2510,6 +3051,13 @@
       "Repos 5 min, tranchez fin contre le grain."
     ],
     "astuce": "La calotte de gras est sacrée : c'est elle qui arrose la viande et fait toute la saveur de la picanha.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -2544,6 +3092,13 @@
       "Service avec un peu de tare et du shichimi togarashi."
     ],
     "astuce": "Le glaçage en plusieurs couches (tremper-griller-tremper) crée la laque brillante et caramélisée caractéristique.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -2580,6 +3135,13 @@
       "Sortez à 68 °C. Repos, tranchez. Servez avec riz."
     ],
     "astuce": "Les bords légèrement carbonisés et brillants sont la signature du char siu : n'hésitez pas à pousser la caramélisation.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -2616,6 +3178,13 @@
       "Servez avec la sauce cacahuète, concombre et oignon rouge."
     ],
     "astuce": "La citronnelle et le lait de coco dans la marinade sont les marqueurs du vrai satay d'Asie du Sud-Est.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "ete",
@@ -2654,6 +3223,13 @@
       "Servez en ssam : enveloppé dans une feuille de laitue avec du riz et du ssamjang."
     ],
     "astuce": "La poire asiatique râpée contient une enzyme qui attendrit le bœuf et apporte une douceur fruitée typique.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -2693,6 +3269,13 @@
       "Citron et oignon cru au service."
     ],
     "astuce": "Le yaourt forme une croûte qui emprisonne les épices et garde la chair moelleuse, comme dans un vrai four tandoor.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -2728,6 +3311,13 @@
       "Servez en pita garni de tzatziki, tomate, oignon."
     ],
     "astuce": "L'origan séché et le citron sont l'âme de la cuisine grecque : ne lésinez pas dessus.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -2765,6 +3355,13 @@
       "Servez sur tortillas chaudes avec ananas grillé, coriandre, oignon, citron vert."
     ],
     "astuce": "À défaut de broche verticale, étalez les tranches sur la grille puis hachez-les : le goût achiote-ananas reste authentique.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -2799,6 +3396,54 @@
       "Prêts à ~92 °C (bend test), bien laqués et collants."
     ],
     "astuce": "La sauce Kansas City se distingue par sa base mélasse-tomate épaisse et sucrée : appliquez-la en fin pour qu'elle ne brûle pas.",
+    "difficulty": 3,
+    "charbon_kg": 3,
+    "repos_min": 10,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 80,
+      "materiau": "alu",
+      "apres": "2 h wrap beurre+cassonade, puis 1 h laquage sauce KC"
+    },
+    "phases": [
+      {
+        "name": "Fumage nu (3 h)",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 180,
+        "action": "Hickory + pommier. Rub KC sucré-salé. Membrane retirée."
+      },
+      {
+        "name": "Wrap beurre+cassonade (2 h)",
+        "mode": "indirect",
+        "temp_C": 110,
+        "duration_min": 120,
+        "action": "Alu, côté os vers le haut, beurre+sucre brun+miel+vinaigre."
+      },
+      {
+        "name": "Laquage KC (45 min)",
+        "mode": "indirect",
+        "temp_C": 120,
+        "duration_min": 45,
+        "action": "Sauce KC à la tomate, badigeonner 3 fois à 15 min d'intervalle."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Alu épais",
+      "Pinceau à sauce",
+      "Hickory"
+    ],
+    "erreurs": [
+      "Pas de membrane retirée : ribs dures",
+      "Sauce KC trop tôt : sucre brûle",
+      "Méthode 3-2-1 stricte : varier selon épaisseur"
+    ],
+    "source": "Kansas City BBQ tradition",
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -2834,6 +3479,13 @@
       "Servez avec semoule, menthe et citron."
     ],
     "astuce": "Le cumin et la coriandre torréfiés puis moulus libèrent bien plus d'arômes que les versions toutes prêtes.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "printemps",
@@ -2870,6 +3522,43 @@
       "Servez avec riz aux haricots rouges (rice & peas)."
     ],
     "astuce": "Le piment de la Jamaïque (allspice / « pimento ») est l'épice incontournable du jerk : sans lui, ce n'est pas authentique.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 5,
+    "marinade_h": 24,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Marinade jerk",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 1440,
+        "action": "Scotch bonnet+thym+piment de la Jamaïque+oignon vert+citron vert, 24 h."
+      },
+      {
+        "name": "Fumage indirect",
+        "mode": "fumage",
+        "temp_C": 160,
+        "duration_min": 45,
+        "action": "Bois pimento (ou hêtre+laurier). Cuisses ou poulet en crapaudine."
+      }
+    ],
+    "equipement": [
+      "Mixeur",
+      "Pierre déflectrice",
+      "Sonde",
+      "Gants pour piments"
+    ],
+    "notes_securite": "Volaille : cuisses cœur ≥ 74 °C.",
+    "erreurs": [
+      "Pas de scotch bonnet : pas de jerk authentique",
+      "Marinade trop courte : superficiel",
+      "Carbonisation : trop fort, baisser T°"
+    ],
+    "source": "Tradition jamaïcaine (jerk pit)",
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -2905,6 +3594,13 @@
       "Nappez généreusement de chimichurri."
     ],
     "astuce": "En Argentine, on cuit à feu vif et on sale au gros sel uniquement : la viande de qualité parle d'elle-même, le chimichurri fait le reste.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -2937,6 +3633,13 @@
       "Servez avec pain plat, sumac, oignon, yaourt."
     ],
     "astuce": "Le malaxage prolongé et l'oignon râpé sont indispensables pour que les köfte tiennent sur la brochette sans se fendre.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "printemps",
@@ -2975,6 +3678,13 @@
       "Servez en pita avec toum, crudités, cornichons."
     ],
     "astuce": "Empiler les cuisses en bloc reproduit la broche à shawarma : l'extérieur croustille pendant que l'intérieur reste juteux.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -3014,6 +3724,13 @@
       "Servez chaud avec une boule de glace vanille."
     ],
     "astuce": "Un ananas bien mûr caramélise tout seul : le rhum et le miel ne font qu'amplifier sa douceur naturelle.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -3048,6 +3765,13 @@
       "Parsemez de spéculoos, dégustez à la cuillère."
     ],
     "astuce": "La peau sert de récipient naturel : aucun ustensile, idéal pour finir une soirée barbecue.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -3078,6 +3802,13 @@
       "Servez tièdes avec une quenelle de mascarpone vanillé et amandes."
     ],
     "astuce": "Choisissez des pêches fermes : trop mûres, elles s'effondrent sur la grille. Idem pour abricots ou figues.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -3112,6 +3843,13 @@
       "Servez tiède avec crème ou glace."
     ],
     "astuce": "Une touche très légère de fumée de pommier rappelle subtilement le verger : un seul petit morceau de bois suffit.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -3146,6 +3884,13 @@
       "Garnissez (sucre, chocolat, confiture, caramel)."
     ],
     "astuce": "La plaque en fonte du kamado chauffe uniformément : les crêpes dorent régulièrement, comme sur une vraie crêpière.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -3183,6 +3928,60 @@
       "Tranchez très fin contre le grain, servez sur pain de seigle avec moutarde."
     ],
     "astuce": "Le double secret du pastrami : la croûte coriandre-poivre et la vapeur finale qui le rend fondant. C'est un corned beef fumé.",
+    "difficulty": 5,
+    "charbon_kg": 3.5,
+    "repos_min": 30,
+    "marinade_h": 0,
+    "brine": {
+      "hours": 168,
+      "recette": "Saumure 6 % sel + 3 % cassonade + 0,6 % sel rose #1 + épices, 7 j à 4 °C"
+    },
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 71,
+      "materiau": "papier boucher",
+      "apres": "Continuer jusqu'à 92 °C, puis étuvée vapeur 1 h-2 h jusqu'à 96 °C"
+    },
+    "phases": [
+      {
+        "name": "Fumage croûte épices",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 360,
+        "action": "Chêne+cerisier. Croûte poivre+coriandre concassés. Pas d'ouverture 4 h."
+      },
+      {
+        "name": "Wrap papier",
+        "mode": "indirect",
+        "temp_C": 110,
+        "duration_min": 90,
+        "action": "Emballer au stall (71 °C). Continuer jusqu'à 92 °C."
+      },
+      {
+        "name": "Étuvée vapeur",
+        "mode": "indirect",
+        "temp_C": 95,
+        "duration_min": 120,
+        "action": "Cocotte 2 cm eau bouillante, couvercle. Sonde glisse à 96 °C."
+      }
+    ],
+    "equipement": [
+      "Bac saumure non-réactif",
+      "Sel rose #1 (nitrité)",
+      "Pierre déflectrice",
+      "Papier boucher",
+      "Cocotte fonte"
+    ],
+    "notes_securite": "Sel rose obligatoire pour neutraliser botulisme en saumure longue. Bien doser : 0,25 c.s./kg de viande max.",
+    "erreurs": [
+      "Pas de sel rose : risque botulique réel",
+      "Saumure non lestée : viande non immergée pourrit",
+      "Pas d'étuvée : viande sèche/dure"
+    ],
+    "source": "Tradition juive ashkénaze NYC (Katz's, Langer's)",
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -3303,6 +4102,13 @@
       "Tranchez contre le grain (attention : le grain change de sens au milieu de la pièce). Servez avec la salsa."
     ],
     "astuce": "Le tri-tip a deux directions de fibres : repérez-les avant de trancher, sinon une moitié sera ferme.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -3339,6 +4145,42 @@
       "Réduisez la sauce, servez avec une purée ou des pâtes fraîches."
     ],
     "astuce": "Le fumage léger pendant la coloration apporte une profondeur que le braisé au four n'aura jamais.",
+    "difficulty": 3,
+    "charbon_kg": 2,
+    "repos_min": 15,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Saisie directe (30 min)",
+        "mode": "direct",
+        "temp_C": 250,
+        "duration_min": 30,
+        "action": "Grille directe, dorer toutes les faces. Réservez."
+      },
+      {
+        "name": "Braisé vin rouge (3 h 30)",
+        "mode": "braisé",
+        "temp_C": 150,
+        "duration_min": 210,
+        "action": "Cocotte avec mirepoix+vin+bouillon+bouquet garni. Couvert."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte",
+      "Pinces longues",
+      "Pierre déflectrice",
+      "Chinois"
+    ],
+    "erreurs": [
+      "Saisie négligée : pas de fond aromatique",
+      "Vin médiocre : sauce déséquilibrée",
+      "Couvercle entrouvert : trop de réduction"
+    ],
+    "source": "Cuisine bourgeoise française",
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -3374,6 +4216,47 @@
       "Les cubes sont fondants, laqués et brillants (95 °C)."
     ],
     "astuce": "On les appelle « candy » du BBQ : sucrés, fumés, fondants. Parfaits à l'apéro plantés sur des pics.",
+    "difficulty": 3,
+    "charbon_kg": 3,
+    "repos_min": 0,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 90,
+      "materiau": "alu",
+      "apres": "Cubes 3 cm dans bac avec beurre+cassonade+sauce BBQ, retour 1 h"
+    },
+    "phases": [
+      {
+        "name": "Fumage entier (3 h)",
+        "mode": "fumage",
+        "temp_C": 120,
+        "duration_min": 180,
+        "action": "Pommier + hickory. Poitrine de porc rub doux."
+      },
+      {
+        "name": "Cubes glacés (1 h)",
+        "mode": "indirect",
+        "temp_C": 135,
+        "duration_min": 60,
+        "action": "Découper en cubes 3 cm, bac alu avec beurre+cassonade+BBQ, mélanger à mi-cuisson."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Bac aluminium",
+      "Couteau de boucher",
+      "Sonde"
+    ],
+    "erreurs": [
+      "Cubes trop petits : ils sèchent",
+      "Glaçage trop épais : pâteux",
+      "Pas de gras dans la poitrine : burnt ends secs"
+    ],
+    "source": "Variante porc des burnt ends KC",
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -3592,6 +4475,41 @@
       "Découpez entre les os, servez avec un riz parfumé."
     ],
     "astuce": "Le cinq-épices et le hoisin donnent la laque rouge-acajou des rôtisseries chinoises.",
+    "difficulty": 3,
+    "charbon_kg": 2,
+    "repos_min": 5,
+    "marinade_h": 6,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Cuisson indirecte (2 h)",
+        "mode": "indirect",
+        "temp_C": 120,
+        "duration_min": 120,
+        "action": "Pierre déflectrice. Travers en marinade hoisin+vinaigre+miel."
+      },
+      {
+        "name": "Laquage direct (30 min)",
+        "mode": "direct",
+        "temp_C": 160,
+        "duration_min": 30,
+        "action": "Retirer pierre, badigeonner laque toutes les 10 min."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Pinceau à sauce",
+      "Bac à marinade"
+    ],
+    "erreurs": [
+      "Laque dès indirect : brûle",
+      "Travers non aplatis : cuisson inégale",
+      "Sauce trop liquide : pas de brillance"
+    ],
+    "source": "Cuisine cantonaise (style char siu travers)",
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -3628,6 +4546,13 @@
       "Servez avec le reste de sauce et du citron."
     ],
     "astuce": "Ajustez le nombre de piments oiseau selon votre tolérance : le peri-peri authentique est franchement relevé.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -3660,6 +4585,13 @@
       "Servez avec sauce toum, pita et crudités."
     ],
     "astuce": "Le yaourt attendrit le blanc de poulet et le garde moelleux : indispensable pour qu'il ne sèche pas sur la grille.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "ete",
@@ -3697,6 +4629,13 @@
       "Sésame et cébette, servez sur riz."
     ],
     "astuce": "Les hauts de cuisses (vs blancs) restent juteux et supportent la laque sucrée sans sécher.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -3736,6 +4675,13 @@
       "Repos 5 min sous un torchon, citron au service."
     ],
     "astuce": "Le couvercle du kamado transforme la poêle en four : cuisson homogène du riz et léger goût de braise impossible sur un feu nu. Ne remuez jamais après le bouillon, c'est la règle d'or de la paella.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "ete",
@@ -3772,6 +4718,13 @@
       "Jetez celles restées fermées."
     ],
     "astuce": "Une grande plaque/wok en fonte sur le kamado remplace la marmite : les moules prennent un léger goût grillé délicieux.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -3808,6 +4761,13 @@
       "Filet d'huile d'olive et citron, servez avec du pain grillé."
     ],
     "astuce": "Un panier-grille double facilite le retournement de plusieurs sardines d'un coup sans les casser.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -3843,6 +4803,13 @@
       "Cassez la croûte à table, retirez la peau avec le sel : la chair est parfaitement assaisonnée et moelleuse."
     ],
     "astuce": "La croûte de sel cuit le poisson à l'étouffée dans sa propre vapeur : chair incroyablement juteuse, jamais trop salée si la croûte est bien étanche.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -3879,6 +4846,13 @@
       "Poivre du moulin, servez aussitôt."
     ],
     "astuce": "Calez les coquilles sur un lit de gros sel dans un plat : elles ne se renversent pas et gardent leur jus.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -3915,6 +4889,13 @@
       "Servez chaud, il durcit en refroidissant."
     ],
     "astuce": "Le halloumi doit se manger immédiatement, encore fondant à cœur : froid, il devient caoutchouteux.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -3952,6 +4933,41 @@
       "Laissez reposer 10 min avant de servir (il se tient mieux)."
     ],
     "astuce": "Pas de fromage dans le vrai dauphinois ! C'est la crème et la pomme de terre qui font tout. Le kamado lui donne un léger goût de braise.",
+    "difficulty": 2,
+    "charbon_kg": 1.5,
+    "repos_min": 5,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Cuisson lente couverte",
+        "mode": "indirect",
+        "temp_C": 170,
+        "duration_min": 45,
+        "action": "Cocotte fermée. Pommes de terre en lamelles+crème+ail."
+      },
+      {
+        "name": "Gratiné découvert",
+        "mode": "indirect",
+        "temp_C": 200,
+        "duration_min": 30,
+        "action": "Découvrir, monter T°, dorer la surface."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte",
+      "Mandoline",
+      "Pierre déflectrice"
+    ],
+    "erreurs": [
+      "Pas de couvercle au début : croûte avant cuisson",
+      "Crème entière obligatoire : la légère caille",
+      "Ail haché trop fin : brûle"
+    ],
+    "source": "Cuisine dauphinoise française",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -3989,6 +5005,13 @@
       "Option : crème aigre et cébette pour une version « loaded »."
     ],
     "astuce": "Cuites entières dans leur peau, elles concentrent leurs sucres et caramélisent : bien plus savoureuses que coupées.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -4025,6 +5048,13 @@
       "Servez en ssam : feuille de laitue, riz, galbi, ssamjang."
     ],
     "astuce": "La coupe « LA galbi » (tranchée à travers les os) cuit en quelques minutes. La poire est l'ingrédient secret de l'attendrissage coréen.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -4066,6 +5096,42 @@
       "Servez avec le consommé (bouillon) pour tremper."
     ],
     "astuce": "Le rituel birria : tremper le taco dans le « consommé » gras et rouge. Le passage fumé avant le braisage corse le ragoût.",
+    "difficulty": 4,
+    "charbon_kg": 3,
+    "repos_min": 15,
+    "marinade_h": 6,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Fumage léger (1 h)",
+        "mode": "fumage",
+        "temp_C": 130,
+        "duration_min": 60,
+        "action": "Chêne. Saisie pour profil fumé puis transfert cocotte."
+      },
+      {
+        "name": "Braisé piments (3 h)",
+        "mode": "braisé",
+        "temp_C": 150,
+        "duration_min": 210,
+        "action": "Cocotte avec piments réhydratés (guajillo+ancho+pasilla), oignon, ail, bouillon."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte",
+      "Piments mexicains séchés",
+      "Mixeur à immersion",
+      "Pierre déflectrice"
+    ],
+    "erreurs": [
+      "Pas de réhydratation piments : sauce granuleuse",
+      "Bouillon insuffisant : viande non immergée",
+      "Birria sans consommé pour tremper : faute"
+    ],
+    "source": "Cuisine de Jalisco, Mexique",
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -4103,6 +5169,42 @@
       "Ouvrez la papillote, émiettez la feta, servez."
     ],
     "astuce": "« Kleftiko » = « à la manière des voleurs », cuit scellé pour ne pas laisser échapper la fumée. La papillote sur kamado est parfaite pour ça.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 15,
+    "marinade_h": 6,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Marinade ail-citron",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 360,
+        "action": "Citron+ail+origan+huile olive, frotter et laisser 6 h."
+      },
+      {
+        "name": "Étouffée papillote (3 h)",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 200,
+        "action": "Papier sulfurisé + ficelle, dans cocotte fermée. Pas d'ouverture."
+      }
+    ],
+    "equipement": [
+      "Papier sulfurisé",
+      "Cocotte avec couvercle",
+      "Ficelle alimentaire",
+      "Pierre déflectrice"
+    ],
+    "erreurs": [
+      "Ouvrir la papillote avant 3 h : vapeur perdue",
+      "Pas de citron entier : signature kleftiko manque",
+      "Papier alu seul : moins authentique que sulfurisé"
+    ],
+    "source": "Tradition grecque (cuisson cachée des bergers)",
     "_derived": {
       "spice": "Doux",
       "season": "printemps",
@@ -4137,6 +5239,41 @@
       "Servez avec semoule ou pain."
     ],
     "astuce": "Le kamado maintient la chaleur douce et stable idéale pour un tagine, mieux qu'une plaque qui surchauffe par le fond.",
+    "difficulty": 3,
+    "charbon_kg": 2,
+    "repos_min": 10,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Sué oignons+épices (15 min)",
+        "mode": "direct",
+        "temp_C": 200,
+        "duration_min": 15,
+        "action": "Plat tagine sur grille directe, oignons+ras el hanout+ail."
+      },
+      {
+        "name": "Mijotage tagine (2 h 45)",
+        "mode": "braisé",
+        "temp_C": 140,
+        "duration_min": 165,
+        "action": "Ajouter agneau, abricots, bouillon. Couvercle conique fermé."
+      }
+    ],
+    "equipement": [
+      "Plat tagine (terre cuite ou fonte)",
+      "Pierre déflectrice",
+      "Cuillère en bois"
+    ],
+    "erreurs": [
+      "Ras el hanout brûlé : amer",
+      "Abricots dès le début : se défont",
+      "Couvercle ouvert : tagine sèche"
+    ],
+    "source": "Cuisine marocaine",
     "_derived": {
       "spice": "Épicé doux",
       "season": "printemps",
@@ -4173,6 +5310,13 @@
       "Servez en « boerie roll » (pain + relish) à la sud-africaine."
     ],
     "astuce": "Le braai est une institution en Afrique du Sud. La boerewors se cuit en spirale, à feu modéré, pour cuire à cœur sans éclater.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -4207,6 +5351,13 @@
       "Garnissez de persil, oignon, sumac, citron, roulez et dégustez."
     ],
     "astuce": "La couche de viande doit être très fine, sinon la pâte ne croustille pas. On le mange roulé, garni de salade et citron.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "printemps",
@@ -4241,6 +5392,42 @@
       "Servez avec un coulis de fruits rouges."
     ],
     "astuce": "Une fumée très discrète de cerisier transforme le cheesecake : on ne l'identifie pas, mais il a une profondeur unique. N'en abusez pas.",
+    "difficulty": 3,
+    "charbon_kg": 1,
+    "repos_min": 240,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Cuisson + fumage",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 75,
+        "action": "Bain-marie + bois fumé léger (pommier). Cœur 70 °C jiggle au centre."
+      },
+      {
+        "name": "Repos froid",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 240,
+        "action": "Frigo 4 h minimum, idéalement nuit. Sans cela : texture pas prise."
+      }
+    ],
+    "equipement": [
+      "Moule à charnière",
+      "Bac bain-marie",
+      "Pommier sec",
+      "Sonde fine"
+    ],
+    "erreurs": [
+      "T° > 150 °C : surface craquée",
+      "Sortir trop tôt : centre liquide",
+      "Pas de bain-marie : cuit en couronne"
+    ],
+    "source": "Twist fumé sur classique NY cheesecake",
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -4275,6 +5462,13 @@
       "Servez tiède, sucre glace, avec une boule de glace ou des fruits."
     ],
     "astuce": "La brioche rassise absorbe mieux l'appareil qu'une fraîche : c'est le secret d'un pain perdu fondant à cœur.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -4310,6 +5504,13 @@
       "Servez tiède, saupoudré de sucre."
     ],
     "astuce": "La tradition garde les noyaux (ils parfument l'amande). Le kamado donne une cuisson douce et homogène, sans dessécher les bords.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -4921,6 +6122,49 @@
       "Repos 15 min. Servez avec la sauce poivrade et une purée de céleri ou des airelles."
     ],
     "astuce": "Le gibier ne se mange jamais bien cuit : restez rosé. Une marinade au vin la veille adoucit le goût de venaison si désiré.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 15,
+    "marinade_h": 24,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Marinade vin",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 1440,
+        "action": "Vin rouge+légumes+baies genièvre+thym, 24 h."
+      },
+      {
+        "name": "Rôti rosé",
+        "mode": "indirect",
+        "temp_C": 180,
+        "duration_min": 60,
+        "action": "Pierre déflectrice. Sonde au cœur. Cœur 52-54 °C."
+      },
+      {
+        "name": "Saisie finale",
+        "mode": "direct",
+        "temp_C": 230,
+        "duration_min": 12,
+        "action": "Retirer pierre, dorer toutes les faces."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Sonde fine",
+      "Chinois étamine",
+      "Cocotte sauce"
+    ],
+    "erreurs": [
+      "Trop cuit : chevreuil sec et goût fort",
+      "Pas de marinade : note sauvage trop forte",
+      "Poivrade non réduite : sauce délavée"
+    ],
+    "source": "Gibier français de tradition",
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -4958,6 +6202,49 @@
       "Ajoutez champignons et grelots la dernière heure, liez la sauce, un carré de chocolat l'arrondit."
     ],
     "astuce": "La marinade de 24 h est indispensable pour le sanglier : elle attendrit et adoucit le goût prononcé de la venaison.",
+    "difficulty": 4,
+    "charbon_kg": 3,
+    "repos_min": 20,
+    "marinade_h": 48,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Marinade vin rouge",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 2880,
+        "action": "Vin rouge tannique + carotte+oignon+épices+baies genièvre, 48 h."
+      },
+      {
+        "name": "Fumage nu (1 h)",
+        "mode": "fumage",
+        "temp_C": 140,
+        "duration_min": 60,
+        "action": "Chêne + genévrier. Sécher la viande après marinade."
+      },
+      {
+        "name": "Braisé long (4 h)",
+        "mode": "braisé",
+        "temp_C": 140,
+        "duration_min": 240,
+        "action": "Cocotte avec marinade filtrée + bouillon. Couvert."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte",
+      "Pierre déflectrice",
+      "Chinois étamine",
+      "Sonde 2 canaux"
+    ],
+    "erreurs": [
+      "Sécher marinade : c'est ce qui empêche la fumée d'accrocher",
+      "Vin médiocre : civet imbuvable",
+      "Pas de baies genièvre : signature manque"
+    ],
+    "source": "Cuisine de chasse française",
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -4992,6 +6279,13 @@
       "Nappez et servez avec une poêlée de champignons."
     ],
     "astuce": "Le filet de cerf est la pièce la plus tendre du gibier : cuisson courte et rosée, sauce fruitée acidulée pour contraster.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -5030,6 +6324,13 @@
       "Déglacez les sucs au cognac, nappez les cailles."
     ],
     "astuce": "Le lard protège la chair maigre des cailles et le raisin chaud apporte l'acidité sucrée parfaite pour le gibier à plume.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "automne",
@@ -5067,6 +6368,13 @@
       "Tranchez en médaillons, servez avec une sauce corsée et une purée."
     ],
     "astuce": "Le café et le cacao dans la croûte amplifient les notes profondes du gibier sans le masquer.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "automne",
@@ -5106,6 +6414,13 @@
       "Toastez les buns, montez avec sauce, cheddar fondu et crudités."
     ],
     "astuce": "Le repos au frais et une croûte bien formée avant de retourner sont les clés pour que la galette ne s'effrite pas.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "automne",
@@ -5143,6 +6458,13 @@
       "Arrosez de citron et d'un filet de miel à la sortie."
     ],
     "astuce": "Le halloumi est le seul fromage qui se grille sur brochette sans couler : servez-le immédiatement, encore fondant.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "automne",
@@ -5178,6 +6500,13 @@
       "Parsemez de sésame, cébette et piment."
     ],
     "astuce": "Le miso apporte l'umami qui rapproche l'aubergine d'un vrai steak. Le passage direct sur braises lui donne le goût fumé.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -5217,6 +6546,13 @@
       "Parmesan râpé et citron au service."
     ],
     "astuce": "Les feuilles extérieures noircissent et croustillent pendant que le cœur devient fondant et sucré : c'est tout l'intérêt.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -5254,6 +6590,13 @@
       "Sésame et cébette au service."
     ],
     "astuce": "Le tofu ferme bien pressé prend une texture charnue et absorbe la marinade : la clé est de l'égoutter au maximum.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -5291,6 +6634,13 @@
       "Nappez de sauce tahini-citron, parsemez de grenade, persil et graines."
     ],
     "astuce": "Inutile d'éplucher la butternut : la peau devient tendre à la cuisson et tient les tranches.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "automne",
@@ -5329,6 +6679,13 @@
       "Servez tiède ou à température ambiante."
     ],
     "astuce": "Précuire le riz légèrement al dente : il finit de cuire dans le poivron en absorbant ses sucs.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -5366,6 +6723,13 @@
       "Laissez reposer 10 min avant de servir (il se tient mieux)."
     ],
     "astuce": "Griller les aubergines plutôt que les frire allège le plat et ajoute une note fumée typique du kamado.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -5403,6 +6767,13 @@
       "Laissez tiédir 10 min, retournez sur un plat. Servez avec crème fraîche."
     ],
     "astuce": "Une poêle en fonte va de la flamme au four sans problème : c'est l'ustensile parfait pour la Tatin au kamado.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -5440,6 +6811,13 @@
       "Laissez tiédir avant de découper. Servez avec une glace vanille."
     ],
     "astuce": "Sortez-le quand le centre tremble encore : il finit de prendre en refroidissant et reste coulant à cœur.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -5478,6 +6856,13 @@
       "Dégustez immédiatement."
     ],
     "astuce": "Le secret est la patience : un chamallow doré lentement fond à cœur, alors qu'en pleine flamme il brûle dehors et reste froid dedans.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -5512,6 +6897,13 @@
       "Servez tièdes en dessert ou en entrée."
     ],
     "astuce": "Excellentes aussi en accompagnement d'un magret ou d'un fromage : le sucré-salé fonctionne dans les deux sens.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "automne",
@@ -5547,6 +6939,13 @@
       "Servez tiède dans la poêle avec des boules de glace par-dessus."
     ],
     "astuce": "Pour le côté coulant, sortez-le quand le centre est encore clair et tendre : il fige légèrement hors du feu.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -5584,6 +6983,13 @@
       "Servez tièdes avec le sirop et une glace ou de la crème."
     ],
     "astuce": "Choisissez des poires fermes (type conférence) : trop mûres, elles se déferaient pendant la cuisson.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "hiver",
@@ -5618,6 +7024,13 @@
       "Les bords s'écartent et croustillent, le cœur reste fondant."
     ],
     "astuce": "Plus vous badigeonnez entre les tranches, plus les lamelles s'ouvrent et croustillent : c'est tout le plaisir du Hasselback.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -5655,6 +7068,13 @@
       "Servez en accompagnement d'une viande rôtie."
     ],
     "astuce": "Le miso apporte l'umami qui transforme une simple carotte : le glaçage doit caraméliser sans brûler, finissez à feu modéré.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -5695,6 +7115,41 @@
       "Remuez de temps en temps, rectifiez l'assaisonnement."
     ],
     "astuce": "Cuits à découvert près des braises, les baked beans prennent un vrai goût fumé : l'accompagnement roi du pulled pork et du brisket.",
+    "difficulty": 2,
+    "charbon_kg": 2,
+    "repos_min": 0,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Fumage léger (1 h)",
+        "mode": "fumage",
+        "temp_C": 140,
+        "duration_min": 60,
+        "action": "Bac alu avec haricots pré-cuits + sauce, en zone fumée."
+      },
+      {
+        "name": "Mijotage couvert (1 h 30)",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 90,
+        "action": "Couvrir d'alu pour fin de cuisson, sauce s'épaissit."
+      }
+    ],
+    "equipement": [
+      "Bac aluminium",
+      "Pierre déflectrice",
+      "Cuillère longue"
+    ],
+    "erreurs": [
+      "Haricots crus en début : trop long",
+      "Sauce trop sucrée : caramélise",
+      "Sans fumage : c'est juste des haricots à la sauce"
+    ],
+    "source": "BBQ side dish nord-américain",
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -5729,6 +7184,13 @@
       "Servez chaud, à partager."
     ],
     "astuce": "Laissez le dessus de la papillote ouvert les 4 dernières minutes pour que le pain croustille et que le fromage dore.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -5768,6 +7230,13 @@
       "Servez bien frais avec ribs, pulled pork ou burgers."
     ],
     "astuce": "Le repos est essentiel : il attendrit le chou et lie les saveurs. La fraîcheur et l'acidité équilibrent le gras des viandes fumées.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/8 ouvert",
+      "top": "1/8 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -5805,6 +7274,13 @@
       "Servez avec une sauce fraîche."
     ],
     "astuce": "La Maïzena absorbe l'humidité de surface : c'est l'astuce pour des frites de patate douce croustillantes sans friteuse.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -5842,6 +7318,13 @@
       "Parsemez de feta et coriandre, servez avec du pain."
     ],
     "astuce": "Surveillez les œufs : ils doivent garder le jaune coulant. La chaleur enveloppante du kamado les cuit comme un four, sans dessous brûlé.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -5881,6 +7364,13 @@
       "Parsemez de persil."
     ],
     "astuce": "Précuites puis grillées, les pommes de terre sont croustillantes dehors et fondantes dedans. Les deux sauces (piquante + aïoli) sont la tradition.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -5918,6 +7408,13 @@
       "Servez aussitôt avec une pointe de piment."
     ],
     "astuce": "Pour le calamar, c'est tout ou rien : cuisson très courte à feu vif, ou très longue en braisé. Entre les deux, il durcit.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "printemps",
@@ -5954,6 +7451,13 @@
       "Sésame, cébette, servez sur riz."
     ],
     "astuce": "Le saumon continue de cuire hors du feu : sortez-le nacré à 50–52 °C, il sera parfaitement fondant à l'assiette.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -5991,6 +7495,13 @@
       "Garnissez de gyros, tzatziki, tomate, oignon (et frites à la grecque)."
     ],
     "astuce": "Empiler les tranches en bloc imite la broche à gyros : l'extérieur croustille pendant que le cœur reste juteux.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "ete",
@@ -6024,6 +7535,13 @@
       "Garnissez de carne asada, oignon, coriandre, citron vert et salsa."
     ],
     "astuce": "Les agrumes de la marinade attendrissent et parfument ; la cuisson doit rester rapide et vive pour garder la viande juteuse.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -6060,6 +7578,13 @@
       "Servez avec sésame et, à la japonaise, un jaune d'œuf cru pour tremper."
     ],
     "astuce": "La Maïzena (ou un peu de chapelure) lie la viande hachée et garde les tsukune moelleux et bien accrochés à la brochette.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -6098,6 +7623,13 @@
       "Servez avec du pain et un filet de citron."
     ],
     "astuce": "Le mélange paprika-cumin-coriandre, héritage maure, est la signature des pinchos morunos. Marinez bien pour qu'il imprègne la viande.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -6131,6 +7663,13 @@
       "Accompagnez de sauce nuoc-mâm citronnée."
     ],
     "astuce": "La citronnelle et le nuoc-mâm sont la signature vietnamienne. Le sucre de la marinade donne ces bords caramélisés irrésistibles.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -6165,6 +7704,13 @@
       "Découpez et servez avec la sauce verte et des frites."
     ],
     "astuce": "La sauce verte crémeuse et piquante (ají verde) est indissociable du pollo a la brasa : c'est elle qui fait tout.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -6199,6 +7745,13 @@
       "Servez avec oignon, citron, coriandre, ou dans un naan."
     ],
     "astuce": "Le tikka est la version en brochettes du tandoori : cubes plus petits, cuisson plus vive, bords charrés. Parfait aussi en tikka masala ensuite.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -6236,6 +7789,13 @@
       "Servez en ssam : feuille de laitue, porc, ail, ssamjang, riz."
     ],
     "astuce": "Le samgyeopsal ne se marine pas : on grille la poitrine nature et tout le plaisir est dans le ssam (l'enveloppe de laitue garnie).",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -6276,6 +7836,13 @@
       "Sortez à 52–55 °C, repos 10 min, tranchez contre le grain."
     ],
     "astuce": "La picanha change parfois de sens de fibre selon la pièce : observez-la avant cuisson et tranchez toujours contre le grain.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -6312,6 +7879,54 @@
       "Sortez quand la sonde entre comme dans du beurre, vers 94 °C. Repos 1 h emballé."
     ],
     "astuce": "Sur les short ribs, la sensation de sonde est plus fiable que la température exacte : cherchez une viande souple et gélatineuse.",
+    "difficulty": 5,
+    "charbon_kg": 4,
+    "repos_min": 45,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 74,
+      "materiau": "papier boucher",
+      "apres": "Continuer jusqu'à 96 °C, sonde glisse"
+    },
+    "phases": [
+      {
+        "name": "Fumage nu",
+        "mode": "fumage",
+        "temp_C": 120,
+        "duration_min": 360,
+        "action": "Chêne post oak. Pas d'ouverture avant 4 h. Vaporiser eau toutes les 2 h ensuite."
+      },
+      {
+        "name": "Wrap papier",
+        "mode": "indirect",
+        "temp_C": 120,
+        "duration_min": 120,
+        "action": "Emballer au stall (74 °C). Continuer jusqu'à 96 °C cœur."
+      },
+      {
+        "name": "Repos glacière",
+        "mode": "préparation",
+        "temp_C": 60,
+        "duration_min": 45,
+        "action": "Glacière sèche + serviette. Tremblement de flan = signal."
+      }
+    ],
+    "equipement": [
+      "Pierre céramique",
+      "Papier boucher",
+      "Sonde 2 canaux",
+      "Vaporisateur",
+      "Glacière"
+    ],
+    "erreurs": [
+      "Retirer la membrane des os : ils tombent",
+      "Sortir à 90 °C : collagène pas fondu",
+      "Sauce sucrée : trahison Texas"
+    ],
+    "source": "Texas-style, Aaron Franklin",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -6349,6 +7964,13 @@
       "Sortez à 63–65 °C, repos 6 min."
     ],
     "astuce": "La saumure protège la côte épaisse du dessèchement et assaisonne jusqu'au cœur.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -6386,6 +8008,13 @@
       "Réchauffez les pitas sur la grille et garnissez avec pickles, salade et sauce."
     ],
     "astuce": "Les hauts de cuisse restent plus moelleux que les blancs et supportent mieux les épices et la cuisson vive.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -6424,6 +8053,13 @@
       "Cassez la croûte, retirez peau et sel, servez la chair nacrée."
     ],
     "astuce": "La croûte de sel enferme la vapeur aromatique : le poisson est assaisonné juste ce qu'il faut et reste très juteux.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -6460,6 +8096,49 @@
       "Servez avec sésame, cébette et riz."
     ],
     "astuce": "Le tofu doit être bien pressé et sec : c'est ce qui lui permet de fumer puis de caraméliser au lieu de bouillir.",
+    "difficulty": 2,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "marinade_h": 6,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Pressage + marinade",
+        "mode": "préparation",
+        "temp_C": 20,
+        "duration_min": 360,
+        "action": "Presser tofu ferme 30 min sous poids. Marinade miso+huile sésame+soja 6 h."
+      },
+      {
+        "name": "Fumage",
+        "mode": "fumage",
+        "temp_C": 140,
+        "duration_min": 30,
+        "action": "Cerisier léger. Sur grille huilée."
+      },
+      {
+        "name": "Laquage direct",
+        "mode": "direct",
+        "temp_C": 200,
+        "duration_min": 15,
+        "action": "Badigeonner laque toutes les 5 min jusqu'à brillance."
+      }
+    ],
+    "equipement": [
+      "Tofu ferme bio",
+      "Presse-tofu (ou planche+poids)",
+      "Cerisier sec",
+      "Pinceau"
+    ],
+    "erreurs": [
+      "Tofu non pressé : éponge à eau, pas à fumée",
+      "Marinade salée : tofu immangeable",
+      "Trop direct : carbonisation surface"
+    ],
+    "source": "Cuisine japonaise moderne fusion BBQ",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -6499,6 +8178,13 @@
       "Badigeonnez immédiatement de beurre ail-coriandre."
     ],
     "astuce": "Le kamado très chaud imite le tandoor : pierre brûlante dessous, chaleur enveloppante dessus.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -6536,6 +8222,13 @@
       "Cuisez 45–55 min jusqu'à lame sèche, laissez tiédir avant de trancher."
     ],
     "astuce": "La fumée doit rester très légère sur les desserts : un petit morceau de bois suffit largement.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -6575,6 +8268,13 @@
       "Tranchez très finement contre le grain, avec la salsa verde."
     ],
     "astuce": "Le tri-tip a deux sens de fibres : repérez la ligne centrale et changez l'angle de découpe au milieu.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -6612,6 +8312,13 @@
       "Sésame au service avec un bol de tare chaude."
     ],
     "astuce": "La laque sucrée brûle vite : appliquez-la seulement quand la viande est presque cuite.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -6650,6 +8357,54 @@
       "Découpez, sésame et cébettes."
     ],
     "astuce": "Le cinq-épices aime une fumée douce : le cerisier colore sans dominer.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 10,
+    "marinade_h": 12,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 80,
+      "materiau": "alu",
+      "apres": "2 h wrap avec marinade + miel, puis 1 h laquage final"
+    },
+    "phases": [
+      {
+        "name": "Fumage nu (2 h)",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 120,
+        "action": "Cerisier. Retirer membrane sous les os. Rub 5-épices + sel."
+      },
+      {
+        "name": "Wrap miel+marinade (2 h)",
+        "mode": "indirect",
+        "temp_C": 110,
+        "duration_min": 120,
+        "action": "Alu avec sauce soja, miel, vinaigre de riz. Côté os vers le haut."
+      },
+      {
+        "name": "Laquage final (45 min)",
+        "mode": "indirect",
+        "temp_C": 120,
+        "duration_min": 45,
+        "action": "Badigeonner laque toutes les 15 min jusqu'à brillance laquée."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Alu épais",
+      "Pinceau à sauce",
+      "Cerisier"
+    ],
+    "erreurs": [
+      "Membrane non retirée : ribs caoutchouteuses",
+      "Laque dès le début : elle brûle → fin uniquement",
+      "Wrap sans liquide : ribs sèches"
+    ],
+    "source": "Cuisine cantonaise adaptée BBQ",
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -6688,6 +8443,13 @@
       "Servez aussitôt, pain encore croustillant."
     ],
     "astuce": "Étalez la viande en couche fine sur plaque fonte ou grille serrée : elle caramélise sans bouillir.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -6727,6 +8489,13 @@
       "Servez avec sauce jerk fraîche et citron vert."
     ],
     "astuce": "Le jerk doit être aromatique avant d'être brutalement piquant : ajustez le piment mais gardez thym et quatre-épices.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -6764,6 +8533,13 @@
       "Cacahuètes et citron vert au service."
     ],
     "astuce": "Les lanières fines cuisent vite : ne dépassez pas 74 °C pour garder la dinde moelleuse.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "hiver",
@@ -6803,6 +8579,13 @@
       "Servez avec sauce yaourt-menthe et pains chauds."
     ],
     "astuce": "Les brochettes plates empêchent la kefta de tourner sur elle-même et facilitent la cuisson uniforme.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "printemps",
@@ -6841,6 +8624,13 @@
       "Repos 3 min, sésame et cébettes."
     ],
     "astuce": "Le sucre du gochujang brûle vite : gardez la flamme maîtrisée et couvercle fermé entre les retournements.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "printemps",
@@ -6879,6 +8669,13 @@
       "Nappez de sauce vierge fraîche."
     ],
     "astuce": "L'espadon se comporte comme un steak : cuisson courte, repos bref, sauce fraîche pour éviter toute lourdeur.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -6914,6 +8711,35 @@
       "Servez avec le jus fumé."
     ],
     "astuce": "La fumée doit être légère et courte : les moules prennent le parfum très vite.",
+    "difficulty": 1,
+    "charbon_kg": 0.8,
+    "repos_min": 0,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Fumage direct cocotte",
+        "mode": "direct",
+        "temp_C": 220,
+        "duration_min": 9,
+        "action": "Cocotte sur grille directe avec hêtre dans foyer. Vin blanc+ail+échalote+thym."
+      }
+    ],
+    "equipement": [
+      "Cocotte fonte avec couvercle",
+      "Hêtre",
+      "Pinces"
+    ],
+    "notes_securite": "Toute moule non ouverte après 10 min de cuisson = à jeter (mortes avant cuisson).",
+    "erreurs": [
+      "Moules vivantes non triées : sablonneuses ou mortes",
+      "Couvercle ouvert : fumée perdue",
+      "Cuisson trop longue : moules caoutchouc"
+    ],
+    "source": "Twist fumé sur la classique marinière",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -6952,6 +8778,13 @@
       "Servez avec yaourt tahini et graines grillées."
     ],
     "astuce": "Gardez la peau si elle est fine : elle aide les quartiers à se tenir et devient comestible après cuisson.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "automne",
@@ -6990,6 +8823,13 @@
       "Noix concassées au service."
     ],
     "astuce": "Une tranche trop fine se défait : visez 2,5 à 3 cm et retournez avec une spatule large.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -7027,6 +8867,13 @@
       "Servez tiède avec huile citron-romarin."
     ],
     "astuce": "Le plat huilé donne une base frite-croustillante pendant que le kamado colore le dessus.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7064,6 +8911,13 @@
       "Ajoutez zeste de citron et un filet de miel."
     ],
     "astuce": "Choisissez des pêches fermes : trop mûres, elles se défont sur la grille.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -7103,6 +8957,13 @@
       "Servez tiède avec sauce chocolat café."
     ],
     "astuce": "Le brownie continue de cuire dans la fonte hors du feu : sortez-le un peu tremblotant au centre.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7143,6 +9004,42 @@
       "Repos 12 min, poivre et beurre maître d'hôtel."
     ],
     "astuce": "La méthode caveman ne donne pas un goût de cendre si les braises sont propres et bien rouges. Ne la tentez jamais sur charbon traité ou briquettes.",
+    "difficulty": 4,
+    "charbon_kg": 2,
+    "repos_min": 15,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Cuisson directe sur braises",
+        "mode": "direct",
+        "temp_C": 500,
+        "duration_min": 8,
+        "action": "Côte posée directement sur charbons rouges (caveman). Retourner toutes les 1-2 min."
+      },
+      {
+        "name": "Repos indirect",
+        "mode": "indirect",
+        "temp_C": 120,
+        "duration_min": 25,
+        "action": "Sur grille haute, sonde au cœur jusqu'à 52 °C pour saignant."
+      }
+    ],
+    "equipement": [
+      "Charbon binchotan ou bois dur",
+      "Pinces longues",
+      "Sonde 2 canaux",
+      "Brosse à grille"
+    ],
+    "erreurs": [
+      "Charbon avec cendres : transfert sur viande → souffler avant",
+      "Cuisson directe trop longue : noircit",
+      "Pas de sonde : intérieur cru"
+    ],
+    "source": "Technique des grands chefs (Mallmann, Bittor Arginzoniz)",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7269,6 +9166,47 @@
       "Servez quand chaque cube est brillant, collant et fondant."
     ],
     "astuce": "Le miso sale vite : dosez légèrement au départ et ajustez la laque en fin de cuisson.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 5,
+    "marinade_h": 6,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 88,
+      "materiau": "alu",
+      "apres": "Cubes 3 cm avec miso+érable, retour 45 min pour glacer"
+    },
+    "phases": [
+      {
+        "name": "Fumage entier",
+        "mode": "fumage",
+        "temp_C": 120,
+        "duration_min": 180,
+        "action": "Cerisier. Poitrine entière, gras vers le haut. Sonde au cœur."
+      },
+      {
+        "name": "Cubes glacés",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 45,
+        "action": "Découper en cubes, mélanger miso+érable+vinaigre de riz dans bac alu ouvert."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Bac aluminium",
+      "Sonde 2 canaux",
+      "Cerisier"
+    ],
+    "erreurs": [
+      "Cubes trop petits : sèchent → 3 cm mini",
+      "Glaçage trop tôt : caramélise et brûle",
+      "Miso non délayé : grumeaux amers"
+    ],
+    "source": "Fusion japonaise + burnt ends américains",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7306,6 +9244,13 @@
       "Sortez à 63 °C, repos 8 min, tranchez épais."
     ],
     "astuce": "Le fromage doit être ferme et peu aqueux pour rester dans la farce au lieu de couler.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -7343,6 +9288,49 @@
       "Repos 15 min, servez avec réduction orange-soja."
     ],
     "astuce": "Récupérez le gras dans la lèchefrite : il est parfait pour des pommes de terre au kamado.",
+    "difficulty": 4,
+    "charbon_kg": 2,
+    "repos_min": 15,
+    "marinade_h": 12,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
+    "phases": [
+      {
+        "name": "Séchage + saumure express",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 720,
+        "action": "Frotter sel+5-épices+sucre. Sécher peau au frigo non couvert 12 h."
+      },
+      {
+        "name": "Rôti indirect",
+        "mode": "indirect",
+        "temp_C": 160,
+        "duration_min": 75,
+        "action": "Pierre déflectrice. Lèchefrite sous le canard pour récupérer gras."
+      },
+      {
+        "name": "Laquage final",
+        "mode": "direct",
+        "temp_C": 200,
+        "duration_min": 20,
+        "action": "Retirer pierre. Badigeonner sauce orange+soja+miel toutes les 5 min."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Lèchefrite",
+      "Pinceau à laque",
+      "Crochet à canard"
+    ],
+    "erreurs": [
+      "Peau humide : pas de croustillant",
+      "Laque trop tôt : caramélise et brûle",
+      "Pas de séchage frigo : texture cuir manquée"
+    ],
+    "source": "Inspiration laquage cantonais",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7380,6 +9368,13 @@
       "Sortez à 78 °C, sésame au service."
     ],
     "astuce": "Les hauts de cuisse sont plus adaptés que le blanc : ils restent juteux malgré la cuisson directe.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7417,6 +9412,54 @@
       "Effilochez dans le jus réduit, servez avec chermoula."
     ],
     "astuce": "Le passage à découvert construit le goût fumé, la cocotte garantit ensuite le fondant.",
+    "difficulty": 4,
+    "charbon_kg": 3.5,
+    "repos_min": 30,
+    "marinade_h": 12,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 80,
+      "materiau": "alu",
+      "apres": "Continuer braisé jusqu'à 95 °C, effilochage spontané"
+    },
+    "phases": [
+      {
+        "name": "Fumage nu",
+        "mode": "fumage",
+        "temp_C": 120,
+        "duration_min": 180,
+        "action": "Romarin + thym + harissa. Bois d'olivier ou hêtre."
+      },
+      {
+        "name": "Wrap braisé",
+        "mode": "braisé",
+        "temp_C": 120,
+        "duration_min": 150,
+        "action": "Alu avec bouillon + jus de citron. Continuer jusqu'à 95 °C."
+      },
+      {
+        "name": "Repos + effilochage",
+        "mode": "préparation",
+        "temp_C": 60,
+        "duration_min": 30,
+        "action": "Glacière 30 min. Effilocher à la fourchette."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Alu épais",
+      "Gants effiloché",
+      "Sonde 2 canaux"
+    ],
+    "erreurs": [
+      "Méchoui à la verticale : style traditionnel mais difficile sur kamado",
+      "Stopper à 88 °C : pas d'effilochage",
+      "Pas de marinade : perte d'umami"
+    ],
+    "source": "Maghreb (Maroc, Algérie)",
     "_derived": {
       "spice": "Épicé doux",
       "season": "printemps",
@@ -7452,6 +9495,13 @@
       "Servez avec labneh citronné et sumac."
     ],
     "astuce": "Le zaatar brûle si la flamme lèche les brochettes : couvercle fermé et braises régulières.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "printemps",
@@ -7489,6 +9539,13 @@
       "Garnissez avec chou, poisson et crème citron vert-chipotle."
     ],
     "astuce": "La plaque évite au poisson fragile de casser entre les barreaux et donne une croûte nette.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "ete",
@@ -7526,6 +9583,13 @@
       "Servez dès que le beurre bouillonne et gratine."
     ],
     "astuce": "Stabilisez les coquilles sur gros sel pour ne pas perdre le jus pendant la cuisson.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7564,6 +9628,41 @@
       "Réduisez le jus et nappez."
     ],
     "astuce": "Une légère amertume est normale : l'orange et le beurre l'arrondissent sans la masquer.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Sué beurre",
+        "mode": "direct",
+        "temp_C": 200,
+        "duration_min": 10,
+        "action": "Plat à four, beurre + sucre, faire suer les endives coupées en deux."
+      },
+      {
+        "name": "Braisé indirect",
+        "mode": "braisé",
+        "temp_C": 160,
+        "duration_min": 30,
+        "action": "Ajouter jus orange+bouillon, couvrir d'alu, indirect."
+      }
+    ],
+    "equipement": [
+      "Plat à four",
+      "Pierre déflectrice",
+      "Alu"
+    ],
+    "erreurs": [
+      "Sucre absent : amertume domine",
+      "Liquide insuffisant : endives brûlent",
+      "Sortir trop tôt : croquantes"
+    ],
+    "source": "Cuisine du Nord (twist kamado)",
     "_derived": {
       "spice": "Doux",
       "season": "hiver",
@@ -7601,6 +9700,35 @@
       "Servez en quartiers avec crème raifort ou tahini citron."
     ],
     "astuce": "La croûte de sel concentre le goût terreux-sucré sans rendre la betterave aqueuse.",
+    "difficulty": 2,
+    "charbon_kg": 1.5,
+    "repos_min": 10,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Rôti croûte sel",
+        "mode": "indirect",
+        "temp_C": 200,
+        "duration_min": 75,
+        "action": "Betteraves nettoyées dans croûte gros sel+blanc d'œuf, sur pierre."
+      }
+    ],
+    "equipement": [
+      "Pierre céramique",
+      "Gros sel marin",
+      "Blancs d'œuf",
+      "Couteau pointu"
+    ],
+    "erreurs": [
+      "Croûte trop fine : casse en cuisson",
+      "Sortir trop tôt : betteraves crues au cœur",
+      "Sel iodé : goût métallique"
+    ],
+    "source": "Technique méditerranéenne classique",
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -7639,6 +9767,42 @@
       "Découpez en quartiers, sauce tahini-citron."
     ],
     "astuce": "Le céleri-rave se sert comme une pièce rôtie : tranche épaisse, sauce vive, garniture croquante.",
+    "difficulty": 2,
+    "charbon_kg": 1.5,
+    "repos_min": 5,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Cuisson lente nu",
+        "mode": "indirect",
+        "temp_C": 180,
+        "duration_min": 90,
+        "action": "Céleri entier brossé, badigeonné huile+sel. Pierre déflectrice."
+      },
+      {
+        "name": "Croustillant final",
+        "mode": "direct",
+        "temp_C": 230,
+        "duration_min": 15,
+        "action": "Retirer pierre, dorer toutes les faces."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Pinceau",
+      "Brosse à légumes",
+      "Sonde"
+    ],
+    "erreurs": [
+      "Pas brossé : amertume de terre",
+      "Pas piqué : peut éclater",
+      "Servi cru au cœur : faute"
+    ],
+    "source": "Cuisine végétale moderne (Ottolenghi, Levha)",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7676,6 +9840,13 @@
       "Coupez en triangles, servez avec salsa."
     ],
     "astuce": "Ne surchargez pas : une quesadilla trop épaisse chauffe mal et se retourne difficilement.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7714,6 +9885,13 @@
       "Servez immédiatement."
     ],
     "astuce": "Les lamelles de poire doivent être très fines pour cuire en quelques minutes sans détremper la pâte.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7754,6 +9932,13 @@
       "Servez roulé avec persil, citron et yaourt ail."
     ],
     "astuce": "La couche de viande doit être fine comme une tartinade : sinon elle rend trop d'eau.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "printemps",
@@ -7793,6 +9978,13 @@
       "Servez tiède avec yaourt grec ou glace."
     ],
     "astuce": "Les abricots doivent rester fermes au départ : trop mûrs, ils s'écrasent au retournement.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -7831,6 +10023,13 @@
       "Repos 10 min avant service."
     ],
     "astuce": "Placez une lèchefrite sous la poêle si elle est très remplie : les fruits peuvent déborder en bouillonnant.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 30,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7872,6 +10071,35 @@
       "Sortez le paquet, laissez reposer 10 min, puis cassez la croûte de sel avec le dos d'un couteau et brossez l'excédent de sel avant de trancher."
     ],
     "astuce": "Ne paniquez pas quand le torchon s'enflamme : la croûte de sel humide protège le filet de bœuf du feu direct et préserve tous ses jus, donnant une viande exceptionnellement tendre.",
+    "difficulty": 3,
+    "charbon_kg": 2,
+    "repos_min": 10,
+    "marinade_h": 0,
+    "vents": {
+      "bottom": "1/8 ouvert",
+      "top": "1/8 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Cuisson directe torchon",
+        "mode": "direct",
+        "temp_C": 300,
+        "duration_min": 22,
+        "action": "Filet de bœuf roulé serré dans torchon imbibé de sel+eau, posé directement sur braises."
+      }
+    ],
+    "equipement": [
+      "Torchon de coton (non-traité)",
+      "Gros sel",
+      "Pinces longues",
+      "Sonde fine"
+    ],
+    "erreurs": [
+      "Torchon synthétique : feu et toxique",
+      "Trop peu de sel : pas de croûte protectrice",
+      "Sortir à 65 °C : trop cuit pour caveman style"
+    ],
+    "source": "Tradition colombienne (Antioquia)",
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7911,6 +10139,13 @@
       "Laissez reposer 10 min sous de l'aluminium. Tranchez la viande le long de l'os, arrosez d'huile d'olive de qualité, de gros sel et de poivre concassé."
     ],
     "astuce": "La Fiorentina se mange traditionnellement saignante à bleue. L'os sert de conducteur thermique durant la phase debout, ne le retirez pas avant cuisson.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -7951,6 +10186,13 @@
       "Servez immédiatement bien chaud."
     ],
     "astuce": "Utilisez un morceau d'agneau bien persillé comme l'épaule. Les petits morceaux de gras alternés avec la viande vont fondre et dorer, ce qui est la signature du vrai Chuan'r.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "printemps",
@@ -7991,6 +10233,13 @@
       "Servez saupoudré de sumac acide avec du riz basmati."
     ],
     "astuce": "Les brochettes Koobideh nécessitent des broches en métal très larges. Si vous utilisez des brochettes fines, la viande hachée se détachera et tombera dans les braises.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "printemps",
@@ -8030,6 +10279,13 @@
       "Servez avec le reste de la marinade chauffée en sauce."
     ],
     "astuce": "La confiture d'abricot dans la marinade apporte du sucre qui caramélise très vite. Surveillez bien la cuisson directe pour éviter que les brochettes ne noircissent.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "printemps",
@@ -8069,6 +10325,13 @@
       "Servez avec des tranches d'oignons crus et de tomates."
     ],
     "astuce": "Pour couper la viande en lanières très fines et régulières, placez-la 30 min au congélateur avant de la trancher.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -8108,6 +10371,13 @@
       "Laissez reposer 3 min avant de servir, arrosé d'un filet de beurre fondu au laurier si souhaité."
     ],
     "astuce": "Les branches de laurier frais parfument la viande de l'intérieur pendant la cuisson. Le gros sel est le seul assaisonnement nécessaire pour faire ressortir le goût de la viande.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "toute",
@@ -8147,6 +10417,13 @@
       "Servez bien chaud enveloppé dans des feuilles de salade avec du riz et de la sauce ssamjang."
     ],
     "astuce": "La poitrine de porc est idéale car sa teneur en gras l'empêche de se dessécher avec la marinade pimentée sucrée qui caramélise très rapidement.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -8186,6 +10463,13 @@
       "Le chou est prêt quand les feuilles extérieures sont dorées/charrées et que le cœur est parfaitement tendre. Retirez les premières feuilles brûlées au besoin, puis coupez le chou en quartiers pour servir."
     ],
     "astuce": "La bière s'évapore à l'intérieur du chou durant la cuisson lente, ce qui le rend incroyablement fondant et supprime toute amertume.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -8226,6 +10510,13 @@
       "Laissez griller encore 2–3 min jusqu'à ce que le fromage soit coulant au cœur et croustillant en dessous. Servez chaud avec du pain grillé."
     ],
     "astuce": "Le secret réside dans l'utilisation d'un provolone assez ferme et un passage de 30 min au congélateur avant cuisson pour qu'il garde sa forme le temps de croûter.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "ete",
@@ -8266,6 +10557,13 @@
       "Vérifiez la cuisson en plantant un couteau au cœur du chou-fleur : il doit être fondant. Servez avec une sauce yaourt-menthe."
     ],
     "astuce": "Blanchir le chou-fleur au préalable garantit un cœur parfaitement cuit et tendre sans que l'extérieur et la marinade ne brûlent au kamado.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Relevé",
       "season": "toute",
@@ -8307,6 +10605,13 @@
       "Déposez les brochettes sur la grille. Grillez 3–4 min de chaque côté jusqu'à ce que les feuilles flétrissent et que la viande soit cuite. Servez avec des nouilles de riz et des herbes."
     ],
     "astuce": "Les feuilles de bétel apportent un parfum unique légèrement poivré et herbacé en brûlant doucement sur le gril.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Doux",
       "season": "ete",
@@ -8345,6 +10650,13 @@
       "Vérifiez la température à cœur (48 °C) pour garder le poisson juteux. Servez avec un chutney."
     ],
     "astuce": "La marinade au yaourt crée une croûte épicée parfumée très savoureuse qui protège la chair délicate du saumon du feu direct.",
+    "difficulty": 1,
+    "charbon_kg": 1,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
@@ -8382,6 +10694,48 @@
       "Remettez le porc 15–20 min pour faire gonfler et cloquer la couenne (elle doit devenir ultra croustillante). Sortez à 75 °C, laissez reposer 15 min avant de découper."
     ],
     "astuce": "L'utilisation du jus d'orange amère et de l'ail confère au porc sa saveur cubaine authentique. L'épisode de forte chaleur finale fait toute la différence pour la peau.",
+    "difficulty": 3,
+    "charbon_kg": 3,
+    "repos_min": 20,
+    "marinade_h": 24,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Marinade mojo",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 1440,
+        "action": "Mojo : ail+orange amère+cumin+origan+huile, 24 h injection ou massage."
+      },
+      {
+        "name": "Rôti indirect",
+        "mode": "indirect",
+        "temp_C": 120,
+        "duration_min": 165,
+        "action": "Pierre déflectrice, peau vers le bas pour fondre le gras."
+      },
+      {
+        "name": "Croustillant final",
+        "mode": "direct",
+        "temp_C": 230,
+        "duration_min": 18,
+        "action": "Retourner peau vers haut, retirer pierre, croustiller la couenne."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Seringue à marinade",
+      "Sonde 2 canaux"
+    ],
+    "erreurs": [
+      "Pas d'injection : marinade superficielle uniquement",
+      "Croustillage trop long : peau brûle",
+      "Orange douce au lieu d'amère : profil aromatique faux"
+    ],
+    "source": "Cuisine cubaine traditionnelle",
     "_derived": {
       "spice": "Épicé doux",
       "season": "toute",
