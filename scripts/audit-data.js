@@ -177,6 +177,9 @@ for (const [i, recipe] of RECIPES.entries()) {
 const cooking = RECIPES.filter(recipe => recipe.cat !== "sauces");
 const RICH_FIELDS = ["phases", "vents", "wrap", "brine", "marinade_h", "repos_min", "charbon_kg", "difficulty", "equipement", "substitutions", "erreurs", "notes_securite", "source"];
 const richRecipes = RECIPES.filter(recipe => RICH_FIELDS.some(f => recipe[f] != null));
+const coverage = Object.fromEntries(
+  RICH_FIELDS.map(f => [f, cooking.filter(r => r[f] != null).length])
+);
 const summary = {
   total: RECIPES.length,
   cooking: cooking.length,
@@ -185,6 +188,7 @@ const summary = {
   withoutSauce: cooking.filter(recipe => !(recipe._derived?.sauces || []).length).length,
   categories: Object.fromEntries(CATS.filter(c => c.id !== "all").map(c => [c.id, RECIPES.filter(recipe => recipe.cat === c.id).length])),
   richSchema: richRecipes.length,
+  coverage,
   issues: issues.length
 };
 
