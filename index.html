@@ -2417,6 +2417,130 @@ function startTimer(sec,label){
 }
 
 /* ---- Assistant de cuisson ---- */
+function parseRecipeDuration(recipe) {
+  const t = recipe.temps || "";
+  if (/h/i.test(t)) {
+    const matches = t.match(/(\d+(?:[.,]\d+)?)/g);
+    if (matches) {
+      const floats = matches.map(x => parseFloat(x.replace(",", ".")));
+      const avg = floats.reduce((a, b) => a + b, 0) / floats.length;
+      return avg * 60;
+    }
+  }
+  const matches = t.match(/(\d+)/g);
+  if (matches) {
+    const ints = matches.map(x => parseInt(x));
+    if (t.includes("+")) {
+      return ints.reduce((a, b) => a + b, 0);
+    }
+    return ints.reduce((a, b) => a + b, 0) / ints.length;
+  }
+  return 30;
+}
+
+function drawSimulationChart(duration, type) {
+  const width = 360;
+  const height = 180;
+  const paddingLeft = 35;
+  const paddingBottom = 25;
+  const paddingTop = 15;
+  const paddingRight = 15;
+  const chartW = width - paddingLeft - paddingRight;
+  const chartH = height - paddingTop - paddingBottom;
+  
+  const points = [];
+  const totalSteps = 100;
+  let tStart = 10;
+  let tEnd = type === "pulledporc" ? 95 : (type === "brisket" ? 94 : 90);
+  
+  for (let i = 0; i <= totalSteps; i++) {
+    const pct = i / totalSteps;
+    let temp = tStart;
+    
+    if (type === "ribs") {
+      if (pct < 0.5) {
+        temp = tStart + (65 - tStart) * Math.sin((pct / 0.5) * Math.PI / 2);
+      } else if (pct < 0.83) {
+        const p = (pct - 0.5) / 0.33;
+        temp = 65 + (88 - 65) * p;
+      } else {
+        const p = (pct - 0.83) / 0.17;
+        temp = 88 + (90 - 88) * Math.sin(p * Math.PI / 2);
+      }
+    } else {
+      if (pct < 0.35) {
+        const p = pct / 0.35;
+        temp = tStart + (68 - tStart) * Math.sin(p * Math.PI / 2);
+      } else if (pct < 0.65) {
+        const p = (pct - 0.35) / 0.30;
+        temp = 68 + 3 * Math.sin(p * Math.PI / 2);
+      } else {
+        const p = (pct - 0.65) / 0.35;
+        temp = 71 + (tEnd - 71) * (1 - Math.cos(p * Math.PI / 2));
+      }
+    }
+    
+    const x = paddingLeft + pct * chartW;
+    const y = paddingTop + chartH - ((temp - tStart) / (100 - tStart)) * chartH;
+    points.push({ x, y });
+  }
+  
+  const pathD = `M ${points[0].x} ${points[0].y} ` + points.slice(1).map(p => `L ${p.x} ${p.y}`).join(" ");
+  const gridLines = [];
+  if (type !== "ribs") {
+    const yStall = paddingTop + chartH - ((70 - tStart) / (100 - tStart)) * chartH;
+    gridLines.push(`
+      <line x1="${paddingLeft}" y1="${yStall}" x2="${width - paddingRight}" y2="${yStall}" stroke="rgba(242,169,59,0.3)" stroke-width="1.5" stroke-dasharray="3 3" />
+      <text x="${width - paddingRight}" y="${yStall - 4}" fill="var(--accent2)" font-size="9" font-weight="700" text-anchor="end">Plateau (Stall) ≈ 70°C</text>
+    `);
+  }
+  
+  let keyMarkers = "";
+  if (type === "ribs") {
+    const p3h = points[Math.round(totalSteps * 0.5)];
+    keyMarkers += `<circle cx="${p3h.x}" cy="${p3h.y}" r="4" fill="var(--accent)" />
+                   <text x="${p3h.x}" y="${p3h.y - 8}" fill="#fff" font-size="8" text-anchor="middle" font-weight="700">Emballage (3h)</text>`;
+    const p5h = points[Math.round(totalSteps * 0.83)];
+    keyMarkers += `<circle cx="${p5h.x}" cy="${p5h.y}" r="4" fill="var(--accent)" />
+                   <text x="${p5h.x}" y="${p5h.y - 8}" fill="#fff" font-size="8" text-anchor="middle" font-weight="700">Laquage (5h)</text>`;
+  } else {
+    const pEmb = points[Math.round(totalSteps * 0.5)];
+    keyMarkers += `<circle cx="${pEmb.x}" cy="${pEmb.y}" r="4" fill="var(--accent)" />
+                   <text x="${pEmb.x}" y="${pEmb.y - 8}" fill="#fff" font-size="8" text-anchor="middle" font-weight="700">Emballage</text>`;
+  }
+  
+  return `
+    <svg class="sim-chart" viewBox="0 0 ${width} ${height}" style="background:var(--bg2); border:1px solid var(--line); border-radius:var(--border-radius-md); margin:12px 0 6px; display:block; width:100%; height:auto;">
+      <line x1="${paddingLeft}" y1="${paddingTop}" x2="${paddingLeft}" y2="${height - paddingBottom}" stroke="var(--line)" stroke-width="1.5" />
+      <line x1="${paddingLeft}" y1="${height - paddingBottom}" x2="${width - paddingRight}" y2="${height - paddingBottom}" stroke="var(--line)" stroke-width="1.5" />
+      <line x1="${paddingLeft}" y1="${paddingTop}" x2="${width - paddingRight}" y2="${paddingTop}" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+      <line x1="${paddingLeft}" y1="${paddingTop + chartH/2}" x2="${width - paddingRight}" y2="${paddingTop + chartH/2}" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+      
+      <text x="${paddingLeft - 8}" y="${paddingTop + 4}" fill="var(--muted)" font-size="9" text-anchor="end">100°C</text>
+      <text x="${paddingLeft - 8}" y="${paddingTop + chartH/2 + 4}" fill="var(--muted)" font-size="9" text-anchor="end">55°C</text>
+      <text x="${paddingLeft - 8}" y="${height - paddingBottom + 4}" fill="var(--muted)" font-size="9" text-anchor="end">10°C</text>
+      
+      <text x="${paddingLeft}" y="${height - paddingBottom + 16}" fill="var(--muted)" font-size="9" text-anchor="start">0h</text>
+      <text x="${width - paddingRight}" y="${height - paddingBottom + 16}" fill="var(--muted)" font-size="9" text-anchor="end">${duration.toFixed(1)}h</text>
+      
+      ${gridLines.join("")}
+      <path d="${pathD}" fill="none" stroke="url(#chartGrad)" stroke-width="3" stroke-linecap="round" />
+      
+      <defs>
+        <linearGradient id="chartGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="var(--blue)" />
+          <stop offset="50%" stop-color="var(--accent2)" />
+          <stop offset="100%" stop-color="var(--ember)" />
+        </linearGradient>
+      </defs>
+      ${keyMarkers}
+      <text x="${paddingLeft + 10}" y="${paddingTop + 14}" fill="var(--green)" font-size="9" font-weight="700">📈 Température à cœur</text>
+    </svg>
+  `;
+}
+
+let sessionRecipes = [];
+
 function renderAssistant(){
   const presets=[
     {n:"Brisket (poitrine de bœuf)",mpk:80,kt:"110 °C",ct:"94 °C",mode:"Fumage"},
@@ -2427,70 +2551,79 @@ function renderAssistant(){
     {n:"Poulet entier",mpk:45,kt:"180 °C",ct:"74 °C",mode:"Indirect"},
     {n:"Dinde / chapon",mpk:45,kt:"160 °C",ct:"74 °C",mode:"Indirect"}
   ];
-  const charbon=[
-    {n:"Grillade directe (saisie, < 1 h)",txt:"~1 à 1,5 kg de charbon en gros morceaux, foyer aux 2/3. Évents bien ouverts (75–100 %)."},
-    {n:"Rôtissage indirect (1–2 h, 150–200 °C)",txt:"~1,5 à 2 kg, foyer aux 3/4, pierre-déflecteur en place. Évents 25–50 %."},
-    {n:"Low & slow / fumage (4–14 h)",txt:"Foyer rempli à ras (~3 à 4 kg) + 3–4 morceaux de bois. Tient plus de 10 h sur le L 18\"."}
-  ];
   const A=document.querySelector("#assistant");
   const today=recipeOfDay();
   const todaySauce=sauceText(today);
+  
   A.innerHTML=`
-   <h2>🧮 Assistant de cuisson</h2>
-   <div class="callout" style="border-color:var(--accent2)">
-     <h3>🔥 Cuisson du jour</h3>
-     <p style="margin:0 0 10px;font-size:13px;color:var(--muted)">Suggestion ${seasonLabel(currentSeason())}, choisie dans les recettes kamado adaptées à la saison.</p>
-     <div style="font-weight:900;font-size:17px">${today.nom}</div>
-     <div class="ori">${today.ori}</div>
-     <div class="meta" style="margin-top:8px">
-       <span class="badge mode">${today.mode}</span>
-       <span class="badge temp">${today.tempK}</span>
-       ${today.coeur?`<span class="badge coeur">à cœur ${today.coeur}</span>`:''}
-       <span class="badge">${today.temps}</span>
-       ${todaySauce?`<span class="badge sauce">Sauce : ${todaySauce}</span>`:''}
-     </div>
-     <button id="todayOpen" class="actbtn on" style="width:100%;margin-top:10px">Ouvrir la recette</button>
-   </div>
-   <div class="callout">
-     <h3>🛒 Ma liste de courses globale</h3>
-     <p style="margin:0 0 10px;color:var(--muted);font-size:13px">Gérez vos ingrédients à acheter pour vos différentes sessions de cuisson au Kamado.</p>
-     <div id="shoppingListOut" style="margin-bottom:12px"></div>
-     <div style="display:flex;gap:8px">
-       <button id="shopCopy" class="actbtn" style="flex:1;justify-content:center">📋 Copier la liste</button>
-       <button id="shopClear" class="actbtn" style="flex:1;justify-content:center;color:var(--ember);border-color:rgba(211,55,25,0.2)">🗑️ Tout effacer</button>
-     </div>
-   </div>
-   <div class="callout" style="border-color:var(--accent2)">
-     <h3>🍖 Simulateur de cuisson Low & Slow (Basse temp.)</h3>
-     <p style="margin:0 0 10px;color:var(--muted);font-size:13px">Simulez la cuisson et découvrez la phase critique du plateau (*stall*) pour les viandes de cuisson lente.</p>
-     <div class="menu-controls">
-       <select id="simType" class="fsel">
-         <option value="pulledporc">Pulled Pork (Épaule de porc)</option>
-         <option value="brisket">Brisket (Poitrine de bœuf)</option>
-         <option value="ribs">Travers de porc (Ribs 3-2-1)</option>
-       </select>
-       <div class="arow" style="margin:0"><label class="alab" style="min-width:40px">Poids</label><input id="simWeight" type="number" inputmode="decimal" min="0.5" step="0.1" value="2.5" class="ainput"><span>kg</span></div>
-     </div>
-     <button id="simGo" class="actbtn on" style="width:100%;margin-top:10px">▶ Simuler la cuisson</button>
-     <div id="simOut" class="aout hide" style="margin-top:12px"></div>
-   </div>
-   <div class="callout">
-     <h3>⏲️ Temps de cuisson selon le poids</h3>
-     <p style="margin:0 0 8px;font-size:13px;color:var(--muted)">Estimation indicative pour le Kokko L 18". <b>Fiez-vous toujours à la température à cœur</b> (sonde) plutôt qu'à l'heure.</p>
-     <select id="aDish" class="fsel" style="width:100%;margin-bottom:8px"></select>
-     <div class="arow"><label class="alab">Poids</label><input id="aWeight" type="number" inputmode="decimal" min="0.1" step="0.1" value="2" class="ainput"><span>kg</span></div>
-     <div id="aTimeOut" class="aout"></div>
-   </div>
-   <div class="callout">
-     <h3>🌡️ Convertisseur de température</h3>
-     <div class="arow"><input id="aC" type="number" inputmode="decimal" class="ainput"><span>°C</span><span style="margin:0 4px">⇄</span><input id="aF" type="number" inputmode="decimal" class="ainput"><span>°F</span></div>
-   </div>
-   <div class="callout">
-     <h3>⚖️ Convertisseur de poids</h3>
-     <div class="arow"><input id="aG" type="number" inputmode="decimal" class="ainput"><span>g</span><span style="margin:0 4px">⇄</span><input id="aOz" type="number" inputmode="decimal" class="ainput"><span>oz</span></div>
-     <div id="aLb" class="aout" style="font-size:13px"></div>
-   </div>
-       <div class="callout" style="border-color:var(--accent)">
+    <h2>🧮 Assistant de cuisson</h2>
+    <div class="callout" style="border-color:var(--accent2)">
+      <h3>🔥 Cuisson du jour</h3>
+      <p style="margin:0 0 10px;font-size:13px;color:var(--muted)">Suggestion ${seasonLabel(currentSeason())}, choisie dans les recettes kamado adaptées à la saison.</p>
+      <div style="font-weight:900;font-size:17px">${today.nom}</div>
+      <div class="ori">${today.ori}</div>
+      <div class="meta" style="margin-top:8px">
+        <span class="badge mode">${today.mode}</span>
+        <span class="badge temp">${today.tempK}</span>
+        ${today.coeur?`<span class="badge coeur">à cœur ${today.coeur}</span>`:''}
+        <span class="badge">${today.temps}</span>
+        ${todaySauce?`<span class="badge sauce">Sauce : ${todaySauce}</span>`:''}
+      </div>
+      <button id="todayOpen" class="actbtn on" style="width:100%;margin-top:10px">Ouvrir la recette</button>
+    </div>
+    
+    <div class="callout" style="border-color:var(--blue)">
+      <h3>📅 Planificateur de Session BBQ (Timeline)</h3>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:13px">Planifiez l'allumage et l'enchaînement de vos recettes pour que tout soit prêt pile à l'heure du repas.</p>
+      <div class="menu-controls">
+        <div class="arow" style="margin:0"><label class="alab">Heure de service</label><input id="planTime" type="time" value="13:00" class="ainput" style="width:100px"></div>
+      </div>
+      <div style="margin-top:10px">
+        <label style="font-size:13px; font-weight:700; color:var(--muted)">Ajouter des recettes à la session :</label>
+        <div style="display:flex; gap:8px; margin-top:4px">
+          <select id="planRecipeSelect" class="fsel" style="flex:1"></select>
+          <button id="planAddBtn" class="actbtn on" style="flex-shrink:0">+</button>
+        </div>
+      </div>
+      <div id="planListOut" style="margin-top:12px; display:flex; flex-direction:column; gap:6px"></div>
+      <button id="planCalcBtn" class="actbtn on" style="width:100%;margin-top:12px">⚡ Générer la Timeline de cuisson</button>
+      <div id="planTimelineOut" class="aout hide" style="margin-top:12px"></div>
+    </div>
+
+    <div class="callout">
+      <h3>🛒 Ma liste de courses globale</h3>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:13px">Gérez vos ingrédients à acheter pour vos différentes sessions de cuisson au Kamado.</p>
+      <div id="shoppingListOut" style="margin-bottom:12px"></div>
+      <div style="display:flex;gap:8px">
+        <button id="shopCopy" class="actbtn" style="flex:1;justify-content:center">📋 Copier la liste</button>
+        <button id="shopClear" class="actbtn" style="flex:1;justify-content:center;color:var(--ember);border-color:rgba(211,55,25,0.2)">🗑️ Tout effacer</button>
+      </div>
+    </div>
+
+    <div class="callout" style="border-color:var(--accent2)">
+      <h3>🍖 Simulateur Low &amp; Slow (Basse temp.)</h3>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:13px">Simulez la cuisson et découvrez la courbe de température et la phase critique du plateau (*stall*).</p>
+      <div class="menu-controls">
+        <select id="simType" class="fsel">
+          <option value="pulledporc">Pulled Pork (Épaule de porc)</option>
+          <option value="brisket">Brisket (Poitrine de bœuf)</option>
+          <option value="ribs">Travers de porc (Ribs 3-2-1)</option>
+        </select>
+        <div class="arow" style="margin:0"><label class="alab" style="min-width:40px">Poids</label><input id="simWeight" type="number" inputmode="decimal" min="0.5" step="0.1" value="2.5" class="ainput"><span>kg</span></div>
+      </div>
+      <button id="simGo" class="actbtn on" style="width:100%;margin-top:10px">▶ Simuler la cuisson</button>
+      <div id="simOut" class="aout hide" style="margin-top:12px"></div>
+    </div>
+
+    <div class="callout">
+      <h3>⏲️ Temps de cuisson selon le poids</h3>
+      <p style="margin:0 0 8px;font-size:13px;color:var(--muted)">Estimation indicative pour le Kokko L 18". <b>Fiez-vous toujours à la température à cœur</b> (sonde) plutôt qu'à l'heure.</p>
+      <select id="aDish" class="fsel" style="width:100%;margin-bottom:8px"></select>
+      <div class="arow"><label class="alab">Poids</label><input id="aWeight" type="number" inputmode="decimal" min="0.1" step="0.1" value="2" class="ainput"><span>kg</span></div>
+      <div id="aTimeOut" class="aout"></div>
+    </div>
+    
+    <div class="callout" style="border-color:var(--accent)">
       <h3>🔥 Calculateur de Charbon &amp; Bois</h3>
       <p style="margin:0 0 10px;font-size:13px;color:var(--muted)">Estimez précisément le charbon et les essences de bois pour le Kokko L 18" selon votre cuisson.</p>
       <div class="menu-controls">
@@ -2514,16 +2647,177 @@ function renderAssistant(){
       </div>
       <div id="aCharOut" class="aout" style="margin-top:12px"></div>
     </div>
-   </div>
-   <div class="callout">
-     <h3>⏱️ Minuteurs</h3>
-     <p style="margin:0 0 8px;font-size:13px;color:var(--muted)">Lancez-en autant que nécessaire : ils s'empilent en bas de l'écran et tournent en parallèle.</p>
-     <div class="arow"><input id="aTLabel" type="text" placeholder="Nom (ex : travers)" class="ainput" style="flex:2;width:auto"><input id="aTMin" type="number" inputmode="numeric" min="1" value="30" class="ainput" style="flex:1;width:auto"><span>min</span></div>
-     <button id="aTGo" class="actbtn on" style="width:100%;margin-top:8px">▶ Lancer le minuteur</button>
-   </div>`;
+
+    <div class="callout">
+      <h3>🌡️ Convertisseur de température</h3>
+      <div class="arow"><input id="aC" type="number" inputmode="decimal" class="ainput"><span>°C</span><span style="margin:0 4px">⇄</span><input id="aF" type="number" inputmode="decimal" class="ainput"><span>°F</span></div>
+    </div>
+    <div class="callout">
+      <h3>⚖️ Convertisseur de poids</h3>
+      <div class="arow"><input id="aG" type="number" inputmode="decimal" class="ainput"><span>g</span><span style="margin:0 4px">⇄</span><input id="aOz" type="number" inputmode="decimal" class="ainput"><span>oz</span></div>
+      <div id="aLb" class="aout" style="font-size:13px"></div>
+    </div>
+    <div class="callout">
+      <h3>⏱️ Minuteurs</h3>
+      <p style="margin:0 0 8px;font-size:13px;color:var(--muted)">Lancez-en autant que nécessaire : ils s'empilent en bas de l'écran et tournent en parallèle.</p>
+      <div class="arow"><input id="aTLabel" type="text" placeholder="Nom (ex : travers)" class="ainput" style="flex:2;width:auto"><input id="aTMin" type="number" inputmode="numeric" min="1" value="30" class="ainput" style="flex:1;width:auto"><span>min</span></div>
+      <button id="aTGo" class="actbtn on" style="width:100%;margin-top:8px">▶ Lancer le minuteur</button>
+    </div>`;
+
   document.querySelector("#todayOpen").onclick=()=>openRecipe(RECIPES.indexOf(today));
+  
+  const planSelect = document.querySelector("#planRecipeSelect");
+  const cookingRecs = RECIPES.filter(r => r.cat !== "sauces");
+  cookingRecs.forEach(r => {
+    const o = document.createElement("option");
+    o.value = r.nom;
+    o.textContent = r.nom;
+    planSelect.appendChild(o);
+  });
+
+  const planListOut = document.querySelector("#planListOut");
+  const planTimelineOut = document.querySelector("#planTimelineOut");
+
+  function renderPlanList() {
+    if (sessionRecipes.length === 0) {
+      planListOut.innerHTML = `<div style="font-size:12.5px; color:var(--muted); font-style:italic">Aucune recette ajoutée.</div>`;
+      return;
+    }
+    planListOut.innerHTML = sessionRecipes.map((name, idx) => {
+      const rec = RECIPES.find(r => r.nom === name);
+      return `<div style="display:flex; justify-content:space-between; align-items:center; background:var(--card2); border:1px solid var(--line); padding:6px 10px; border-radius:8px; font-size:13.5px">
+        <span>${name} (${rec ? rec.temps : '—'})</span>
+        <button class="plan-del" data-idx="${idx}" style="background:none; border:none; color:var(--ember); cursor:pointer; font-size:14px">✕</button>
+      </div>`;
+    }).join("");
+
+    planListOut.querySelectorAll(".plan-del").forEach(btn => {
+      btn.onclick = () => {
+        sessionRecipes.splice(+btn.dataset.idx, 1);
+        renderPlanList();
+      };
+    });
+  }
+
+  document.querySelector("#planAddBtn").onclick = () => {
+    const name = planSelect.value;
+    if (name && !sessionRecipes.includes(name)) {
+      sessionRecipes.push(name);
+      renderPlanList();
+    }
+  };
+
+  renderPlanList();
+
+  function formatTime(h, m) {
+    return String(Math.floor((h + 24) % 24)).padStart(2, "0") + "h" + String(Math.floor(m)).padStart(2, "0");
+  }
+
+  document.querySelector("#planCalcBtn").onclick = () => {
+    if (sessionRecipes.length === 0) {
+      alert("Ajoutez au moins une recette pour générer le planning.");
+      return;
+    }
+    const serviceTimeStr = document.querySelector("#planTime").value;
+    const [sH, sM] = serviceTimeStr.split(":").map(Number);
+    
+    const items = sessionRecipes.map(name => {
+      const rec = RECIPES.find(r => r.nom === name);
+      const durMin = parseRecipeDuration(rec);
+      return { name, rec, durMin };
+    });
+    
+    const maxDur = Math.max(...items.map(x => x.durMin));
+    const totalSetupMin = 45;
+    
+    let startH = sH;
+    let startM = sM - maxDur - totalSetupMin;
+    
+    while (startM < 0) {
+      startM += 60;
+      startH -= 1;
+    }
+    
+    let timeline = [];
+    
+    timeline.push({
+      h: startH,
+      m: startM,
+      type: "fire",
+      txt: "<b>Allumage du Kamado</b> : Remplissez le foyer, insérez les allume-feux et ouvrez les évents en grand."
+    });
+    
+    let prepH = startH;
+    let prepM = startM + 30;
+    while (prepM >= 60) { prepM -= 60; prepH += 1; }
+    timeline.push({
+      h: prepH,
+      m: prepM,
+      type: "adjust",
+      txt: "<b>Stabilisation de température</b> : Installez la pierre déflectrice (si cuisson indirecte) et réglez les évents selon la cible."
+    });
+
+    items.forEach(item => {
+      let enfH = sH;
+      let enfM = sM - item.durMin;
+      while (enfM < 0) { enfM += 60; enfH -= 1; }
+      
+      timeline.push({
+        h: enfH,
+        m: enfM,
+        type: "cooking",
+        txt: `<b>Enfournement : ${item.name}</b> (${item.rec.temps}) — Cible à cœur : ${item.rec.coeur || '—'}.`
+      });
+      
+      if (item.rec.nom.includes("Brisket") || item.rec.nom.includes("pulled") || item.rec.nom.includes("rôti") || item.rec.nom.includes("Tomahawk")) {
+        let repH = sH;
+        let repM = sM - 30;
+        while (repM < 0) { repM += 60; repH -= 1; }
+        timeline.push({
+          h: repH,
+          m: repM,
+          type: "rest",
+          txt: `<b>Repos : Sortez ${item.name}</b> de la grille et emballez dans de l'alu ou du papier boucher. Laisser reposer au chaud.`
+        });
+      }
+    });
+    
+    timeline.push({
+      h: sH,
+      m: sM,
+      type: "meal",
+      txt: "<b>🍽️ À table !</b> Toutes les cuissons sont prêtes. Servez chaud."
+    });
+    
+    timeline.sort((a, b) => {
+      const aVal = ((a.h + 24) % 24) * 60 + a.m;
+      const bVal = ((b.h + 24) % 24) * 60 + b.m;
+      return aVal - bVal;
+    });
+    
+    let html = `<div style="font-weight:800;color:var(--accent2);margin-bottom:10px">⏰ Chronologie de votre session :</div>`;
+    html += `<div class="timeline" style="display:flex; flex-direction:column; gap:12px; position:relative; padding-left:24px; border-left:2px solid var(--line)">`;
+    timeline.forEach(step => {
+      let color = "var(--muted)";
+      if (step.type === "fire") color = "var(--accent)";
+      else if (step.type === "adjust") color = "var(--accent2)";
+      else if (step.type === "cooking") color = "var(--blue)";
+      else if (step.type === "rest") color = "var(--green)";
+      else if (step.type === "meal") color = "var(--ember)";
+
+      html += `<div style="position:relative">
+        <span style="position:absolute; left:-30px; top:4px; width:10px; height:10px; border-radius:50%; background:${color}; box-shadow:0 0 8px ${color}"></span>
+        <div style="font-size:11px; font-weight:800; color:${color}">${formatTime(step.h, step.m)}</div>
+        <div style="font-size:13px; line-height:1.4; color:var(--txt); margin-top:2px">${step.txt}</div>
+      </div>`;
+    });
+    html += `</div>`;
+    
+    planTimelineOut.innerHTML = html;
+    planTimelineOut.classList.remove("hide");
+  };
+
   const dish=document.querySelector("#aDish");presets.forEach((p,i)=>{const o=document.createElement("option");o.value=i;o.textContent=p.n;dish.appendChild(o);});
-  // Calculateur de charbon dynamique
   function fmtMin(m){const h=Math.floor(m/60),mn=Math.round(m%60);return (h?h+" h ":"")+(mn?mn+" min":(h?"":"0 min"));}
   function calcTime(){const p=presets[+dish.value];const w=parseFloat(document.querySelector("#aWeight").value)||0;const t=p.mpk*w;document.querySelector("#aTimeOut").innerHTML=`<b>Durée estimée :</b> ${fmtMin(Math.round(t*0.85))} à ${fmtMin(Math.round(t*1.15))}<br><span style="color:var(--accent2)">Kamado ${p.kt} · ${p.mode}</span> · <span style="color:var(--green)">à cœur ${p.ct}</span>`;}
   dish.onchange=calcTime;document.querySelector("#aWeight").oninput=calcTime;calcTime();
@@ -2535,6 +2829,7 @@ function renderAssistant(){
   g.oninput=()=>{const v=parseFloat(g.value);if(isNaN(v)){oz.value="";showLb(0);return;}oz.value=(v/28.3495).toFixed(1);showLb(v);};
   oz.oninput=()=>{const v=parseFloat(oz.value);if(isNaN(v)){g.value="";showLb(0);return;}const gr=v*28.3495;g.value=Math.round(gr);showLb(gr);};
   g.value=500;oz.value=(500/28.3495).toFixed(1);showLb(500);
+
   const meatEl=document.querySelector("#aCharMeat"), modeEl=document.querySelector("#aCharMode"), weightEl=document.querySelector("#aCharWeight"), outEl=document.querySelector("#aCharOut");
   function calcCharcoalAndWood(){
     const meat = meatEl.value;
@@ -2701,7 +2996,7 @@ function renderAssistant(){
       temp = "110–120 °C";
       core = "94–95 °C";
       steps = [
-        `<b>Séchage & Rub</b> : Appliquez de la moutarde jaune puis votre rub sec 12 h à l'avance.`,
+        `<b>Séchage &amp; Rub</b> : Appliquez de la moutarde jaune puis votre rub sec 12 h à l'avance.`,
         `<b>Étape 1 (Fumage)</b> : Allumez le Kamado à 110 °C avec le déflecteur et le bois de fumage. Laissez fumer la viande jusqu'à 68–70 °C à cœur (environ ${Math.round(duration * 0.6)} h).`,
         `<b>Zone de plateau (Stall)</b> : À ce stade, la viande commence à suer. La température va stagner vers 70 °C pendant plusieurs heures.`,
         `<b>Étape 2 (Emballage)</b> : Pour franchir le plateau et conserver le moelleux, emballez serré la viande dans du papier boucher (ou de l'alu) avec 5 cl de jus de pomme ou de cidre.`,
@@ -2714,7 +3009,7 @@ function renderAssistant(){
       temp = "105–115 °C";
       core = "93–94 °C";
       steps = [
-        `<b>Parage & Rub</b> : Parez l'excès de gras (laissez 6 mm), massez de sel casher et poivre noir concassé (50/50).`,
+        `<b>Parage &amp; Rub</b> : Parez l'excès de gras (laissez 6 mm), massez de sel casher et poivre noir concassé (50/50).`,
         `<b>Étape 1 (Fumage)</b> : Allumez le Kamado à 110 °C avec le déflecteur et le bois de fumage. Placez la viande côté gras vers le haut. Laissez fumer jusqu'à ce que la croûte (bark) soit bien noire et que le cœur soit vers 72 °C (environ ${Math.round(duration * 0.6)} h).`,
         `<b>Zone de plateau (Stall)</b> : L'évaporation de l'eau bloque la montée en température. C'est normal.`,
         `<b>Étape 2 (Emballage)</b> : Emballez la poitrine bien serrée dans du papier boucher pour retenir l'humidité sans ramollir la croûte.`,
@@ -2736,6 +3031,7 @@ function renderAssistant(){
     
     out.innerHTML = `
       <div style="font-weight:800;color:var(--accent2);margin-bottom:8px">📊 Résultat de la simulation :</div>
+      ${drawSimulationChart(duration, type)}
       <b>Durée estimée :</b> ${Math.floor(duration)} h ${Math.round((duration%1)*60)} min<br>
       <b>Température Kamado :</b> ${temp}<br>
       <b>Cœur cible :</b> ${core}<br>
