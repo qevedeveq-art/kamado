@@ -319,6 +319,16 @@ header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));
 .tlab{font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tnum{font-size:21px;font-weight:800;color:var(--accent2);font-variant-numeric:tabular-nums}
 .tcard .tbp,.tcard .tbx{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card2);color:var(--txt);font-size:15px;cursor:pointer;flex-shrink:0}
+
+/* — Sauvegarde / transfert iPhone + PC — */
+.syncgrid{display:grid;gap:10px;margin-top:10px}
+.syncbtn{width:100%;background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:11px 13px;font-size:14px;font-weight:800;cursor:pointer;text-align:left}
+.syncbtn.primary{background:var(--accent);border-color:var(--accent);color:#fff;text-align:center}
+.syncbtn:disabled{opacity:.55;cursor:not-allowed}
+.filepick{display:block;background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:12px;color:var(--muted);font-size:13px}
+.filepick input{width:100%;margin-top:8px;color:var(--txt)}
+.syncstatus{min-height:22px;color:var(--accent2);font-size:13px;margin-top:8px}
+.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--card2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12px;color:var(--txt)}
 </style>
 </head>
 <body>
@@ -334,6 +344,7 @@ header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));
     <div class="tab" data-tab="temp">🌡️ Températures</div>
     <div class="tab" data-tab="vins">🍷 Accords vins</div>
     <div class="tab" data-tab="assistant">🧮 Assistant</div>
+    <div class="tab" data-tab="donnees">💾 Données</div>
   </div>
 </header>
 
@@ -363,6 +374,11 @@ header{background:linear-gradient(180deg,rgba(43,29,22,.97),rgba(36,24,17,.96));
 <!-- ASSISTANT -->
 <section id="tab-assistant" class="hide">
   <div class="prose" id="assistant"></div>
+</section>
+
+<!-- DONNEES -->
+<section id="tab-donnees" class="hide">
+  <div class="prose" id="donnees"></div>
 </section>
 
 <!-- DETAIL -->
@@ -1142,6 +1158,40 @@ astuce:"Le tikka est la version en brochettes du tandoori : cubes plus petits, c
 ings:["800 g de poitrine de porc fraîche en tranches épaisses","Laitue, périlla, ail en lamelles","Ssamjang (pâte de soja épicée), huile de sésame + sel","Kimchi, riz"],
 etapes:["Pas de marinade : la poitrine se grille nature, à la coréenne.","Plaque ou grille à 240 °C, saisissez les tranches jusqu'à ce qu'elles soient dorées et croustillantes.","Découpez en bouchées aux ciseaux.","Grillez aussi l'ail et le kimchi à côté.","Servez en ssam : feuille de laitue, porc, ail, ssamjang, riz."],
 astuce:"Le samgyeopsal ne se marine pas : on grille la poitrine nature et tout le plaisir est dans le ssam (l'enveloppe de laitue garnie)."},
+
+/* ===== AJOUTS v6 — RECETTES 100 % KAMADO ===== */
+{cat:"boeuf",nom:"Picanha entière façon churrasco",ori:"Brésil · gras croustillant et cœur rosé",pour:"4–5 pers",mode:"Indirect puis direct",tempK:"150 °C puis 280 °C",coeur:"52–55 °C",temps:"45–60 min",bois:"Chêne léger",tags:"picanha bresil churrasco boeuf gras rosé reverse sear kamado",
+ings:["1 picanha entière de 1,2 kg avec son gras","Gros sel","Poivre noir","Chimichurri ou jus de citron vert pour servir"],
+etapes:["Quadrillez légèrement le gras sans entamer la viande. Salez 45 min avant cuisson.","Indirect (pierre-déflecteur) à 150 °C, gras vers le haut, jusqu'à 46–48 °C à cœur.","Ouvrez les évents et montez le kamado en direct à 280 °C.","Saisissez côté gras 2–3 min pour le rendre croustillant, puis 1 min côté chair.","Sortez à 52–55 °C, repos 10 min, tranchez contre le grain."],
+astuce:"La picanha change parfois de sens de fibre selon la pièce : observez-la avant cuisson et tranchez toujours contre le grain."},
+{cat:"boeuf",nom:"Short ribs de bœuf façon Texas",ori:"USA · côtes de bœuf fumées",pour:"4 pers",mode:"Fumage indirect",tempK:"110–120 °C",coeur:"93–96 °C",temps:"7–9 h",bois:"Chêne",tags:"short ribs boeuf texas fumage low slow cotes kamado",
+ings:["2 plaques de short ribs de bœuf","Rub simple : sel, poivre noir, ail en poudre","Moutarde ou sauce Worcestershire comme liant","Bouillon de bœuf pour vaporiser"],
+etapes:["Retirez l'excès de gras en surface, gardez la membrane côté os. Appliquez liant puis rub.","Stabilisez le kamado à 115 °C avec chêne, en cuisson indirecte.","Fumez côté os en bas jusqu'à belle croûte sombre, 5–6 h.","Emballez dans papier boucher ou alu avec un trait de bouillon si la croûte est assez formée.","Sortez quand la sonde entre comme dans du beurre, vers 94 °C. Repos 1 h emballé."],
+astuce:"Sur les short ribs, la sensation de sonde est plus fiable que la température exacte : cherchez une viande souple et gélatineuse."},
+{cat:"porc",nom:"Côte de porc tomahawk saumurée",ori:"France/USA · côte épaisse ultra juteuse",pour:"2 pers",mode:"Indirect puis direct",tempK:"150 °C puis 260 °C",coeur:"63–65 °C",temps:"45–55 min",bois:"Pommier",tags:"cote porc tomahawk saumure epaisse reverse sear kamado",
+ings:["2 côtes de porc épaisses avec os","Saumure : 1 l d'eau, 60 g sel, 30 g sucre, thym, laurier","Poivre, huile","Beurre ail-sauge pour napper"],
+etapes:["Saumurez les côtes 4 h au frais, rincez rapidement puis séchez très soigneusement.","Indirect à 150 °C avec pommier jusqu'à 56–58 °C à cœur.","Reposez 5 min pendant que le kamado monte à 260 °C.","Saisissez 1–2 min par face, puis nappez au beurre ail-sauge.","Sortez à 63–65 °C, repos 6 min."],
+astuce:"La saumure protège la côte épaisse du dessèchement et assaisonne jusqu'au cœur."},
+{cat:"volaille",nom:"Poulet shawarma au kamado",ori:"Levant · épices chaudes et sauce blanche",pour:"4 pers",mode:"Direct puis indirect",tempK:"220 °C",coeur:"75 °C",temps:"25–30 min",bois:"—",tags:"shawarma poulet levant yaourt epices pita kamado",
+ings:["800 g de hauts de cuisse désossés","Marinade : yaourt, citron, ail, cumin, coriandre, paprika, curcuma, cannelle","Pitas, pickles, salade","Sauce yaourt-ail"],
+etapes:["Marinez le poulet 4 h à une nuit.","Saisissez en direct à 220 °C pour marquer et caraméliser les bords.","Décalez en zone indirecte 10–15 min jusqu'à 75 °C.","Repos 5 min, tranchez finement comme un kebab.","Réchauffez les pitas sur la grille et garnissez avec pickles, salade et sauce."],
+astuce:"Les hauts de cuisse restent plus moelleux que les blancs et supportent mieux les épices et la cuisson vive."},
+{cat:"poisson",nom:"Dorade royale en croûte de sel",ori:"Méditerranée · cuisson douce et spectaculaire",pour:"2 pers",mode:"Indirect",tempK:"200 °C",coeur:"58–60 °C",temps:"25–30 min",bois:"—",tags:"dorade croute sel poisson entier mediterranee kamado",
+ings:["1 dorade royale de 800 g non écaillée, vidée","1,5 kg de gros sel","2 blancs d'œufs","Citron, fenouil, thym pour la cavité"],
+etapes:["Mélangez gros sel et blancs d'œufs pour obtenir un sable humide.","Garnissez la dorade de citron, fenouil et thym. Gardez les écailles : elles protègent la chair.","Posez un lit de sel dans un plat, ajoutez le poisson, recouvrez entièrement.","Indirect à 200 °C pendant 25–30 min.","Cassez la croûte, retirez peau et sel, servez la chair nacrée."],
+astuce:"La croûte de sel enferme la vapeur aromatique : le poisson est assaisonné juste ce qu'il faut et reste très juteux."},
+{cat:"vegetarien",nom:"Tofu fumé laqué miso-sésame",ori:"Japon/fusion · végétarien riche en umami",pour:"4 pers",mode:"Fumage puis direct",tempK:"130 °C puis 220 °C",coeur:"laqué",temps:"45–55 min",bois:"Cerisier léger",tags:"tofu fumé miso sesame vegan vegetarien laqué kamado",
+ings:["600 g de tofu ferme pressé 30 min","Laque : miso, sauce soja, sirop d'érable, gingembre, huile de sésame","Graines de sésame, cébette","Riz ou légumes grillés"],
+etapes:["Coupez le tofu en pavés épais et séchez-les bien.","Fumez en indirect à 130 °C avec un petit morceau de cerisier pendant 25 min.","Badigeonnez de laque miso-sésame.","Passez en direct modéré à 220 °C, 2–3 min par face, en laquant plusieurs fois.","Servez avec sésame, cébette et riz."],
+astuce:"Le tofu doit être bien pressé et sec : c'est ce qui lui permet de fumer puis de caraméliser au lieu de bouillir."},
+{cat:"pizza",nom:"Naan à l'ail sur pierre",ori:"Inde · pain plat moelleux",pour:"6 naans",mode:"Direct sur pierre",tempK:"300 °C",coeur:"gonflé et tacheté",temps:"2–3 min par naan",bois:"—",tags:"naan ail pain indien pierre pizza kamado",
+ings:["500 g de farine","1 yaourt nature","15 cl d'eau tiède","1 sachet de levure boulangère","Beurre fondu, ail, coriandre, sel"],
+etapes:["Pétrissez farine, yaourt, eau, levure et sel. Laissez lever 1 h 30.","Divisez en 6 pâtons, étalez finement.","Chauffez la pierre à 300 °C au moins 20 min.","Cuisez chaque naan 2–3 min jusqu'à ce qu'il gonfle et se tache.","Badigeonnez immédiatement de beurre ail-coriandre."],
+astuce:"Le kamado très chaud imite le tandoor : pierre brûlante dessous, chaleur enveloppante dessus."},
+{cat:"dessert",nom:"Banana bread fumé aux noix",ori:"USA · cake au feu de bois",pour:"8 tranches",mode:"Indirect",tempK:"170 °C",coeur:"lame sèche",temps:"45–55 min",bois:"Pommier très léger",tags:"banana bread banane noix dessert cake fumé kamado",
+ings:["3 bananes très mûres","2 œufs","100 g de sucre brun","80 g de beurre fondu","220 g de farine, levure, sel","Noix ou pépites de chocolat"],
+etapes:["Écrasez les bananes, mélangez avec œufs, sucre et beurre.","Ajoutez farine, levure, sel puis noix.","Versez dans un moule chemisé.","Indirect à 170 °C avec un tout petit morceau de pommier.","Cuisez 45–55 min jusqu'à lame sèche, laissez tiédir avant de trancher."],
+astuce:"La fumée doit rester très légère sur les desserts : un petit morceau de bois suffit largement."},
 ];
 
 /* ================= GUIDE ================= */
@@ -1652,11 +1702,79 @@ function renderAssistant(){
   document.querySelector("#aTGo").onclick=()=>{const min=parseInt(document.querySelector("#aTMin").value)||0;if(min<=0)return;startTimer(min*60,document.querySelector("#aTLabel").value.trim()||"Minuteur");};
 }
 
+/* ---- Sauvegarde / transfert iPhone + PC ---- */
+function exportData(){
+  const payload={
+    app:"kamado-kokko",
+    version:1,
+    exportedAt:new Date().toISOString(),
+    favs:[...favs],
+    notes
+  };
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;
+  a.download="kamado-kokko-sauvegarde.json";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function importData(file){
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const data=JSON.parse(reader.result);
+      if(data.app!=="kamado-kokko"||!Array.isArray(data.favs)||typeof data.notes!=="object"||data.notes===null)throw new Error("format");
+      favs=new Set([...favs,...data.favs]);
+      notes={...notes,...data.notes};
+      saveFavs();
+      LS.set("kokko_notes",notes);
+      renderChips();
+      renderFilterBar();
+      renderList();
+      $("#syncStatus").textContent=`Import terminé : ${favs.size} favori(s), ${Object.keys(notes).length} note(s).`;
+    }catch(e){
+      $("#syncStatus").textContent="Import impossible : fichier de sauvegarde Kamado invalide.";
+    }
+  };
+  reader.readAsText(file);
+}
+function renderDataTools(){
+  const D=$("#donnees");
+  D.innerHTML=`
+    <h2>💾 Données iPhone + PC</h2>
+    <div class="callout" style="border-color:var(--accent)">
+      <h3>Sauvegarder et transférer</h3>
+      <p style="margin:0">Les favoris et notes restent sur l'appareil, dans le navigateur. Pour les retrouver sur iPhone et PC, exportez une sauvegarde puis importez-la sur l'autre appareil.</p>
+      <div class="syncgrid">
+        <button id="dataExport" class="syncbtn primary">Exporter mes favoris et notes</button>
+        <label class="filepick">Importer une sauvegarde JSON
+          <input id="dataImport" type="file" accept="application/json,.json">
+        </label>
+        <div id="syncStatus" class="syncstatus"></div>
+      </div>
+    </div>
+    <div class="callout">
+      <h3>Installation conseillée</h3>
+      <p style="margin:0 0 8px"><b>iPhone :</b> ouvrez le site dans Safari, bouton Partager, puis <span class="kbd">Sur l'écran d'accueil</span>.</p>
+      <p style="margin:0"><b>PC :</b> ouvrez le site dans Chrome/Edge, puis utilisez l'icône d'installation dans la barre d'adresse ou le menu du navigateur.</p>
+    </div>
+    <div class="callout">
+      <h3>Hors ligne</h3>
+      <p style="margin:0">Après une première ouverture depuis un serveur web, l'application met en cache la page principale pour rester disponible hors connexion. Les notes et favoris restent privés sur chaque appareil.</p>
+    </div>`;
+  $("#dataExport").onclick=exportData;
+  $("#dataImport").onchange=e=>importData(e.target.files[0]);
+}
+
 /* ---- recherche + onglets ---- */
 $("#q").addEventListener("input",e=>{curQ=e.target.value.toLowerCase().trim();renderList();});
 $$(".tab").forEach(t=>t.onclick=()=>{
   $$(".tab").forEach(x=>x.classList.remove("active"));t.classList.add("active");
-  ["recettes","guide","temp","vins","assistant"].forEach(n=>$("#tab-"+n).classList.toggle("hide",n!==t.dataset.tab));
+  ["recettes","guide","temp","vins","assistant","donnees"].forEach(n=>$("#tab-"+n).classList.toggle("hide",n!==t.dataset.tab));
   window.scrollTo({top:0,behavior:'smooth'});
 });
 
@@ -1665,7 +1783,11 @@ $("#guide").innerHTML=GUIDE;
 $("#temp").innerHTML=TEMP;
 $("#vins").innerHTML=VINS;
 renderAssistant();
+renderDataTools();
 renderChips();renderFilterBar();renderList();
+if("serviceWorker" in navigator && location.protocol!=="file:"){
+  navigator.serviceWorker.register("./sw.js").catch(()=>{});
+}
 </script>
 </body>
 </html>
