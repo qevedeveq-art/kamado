@@ -3794,6 +3794,26 @@ function shoppingSection(txt){
   if(/sel\b|poivre|huile|vinaigre|sauce|soja|hoisin|sucre|miel|curry|paprika|epice|moutarde|ketchup|beurre|creme|lait|fromage|feta|parmesan|mozzarella|farine|levure|bouillon|riz|semoule|pates|pâte|chapelure/.test(t))return"Épicerie, épices & sauces";
   return"Autres";
 }
+function shoppingKey(txt){
+  return norm(txt)
+    .replace(/^\d+[,.]?\d*\s*(kg|g|cl|ml|l|c\.?\s*a\.?\s*s\.?|c\.?\s*a\.?\s*c\.?|cuilleres?|tranches?|gousses?|bottes?|pincees?)?\s*/,"")
+    .replace(/\([^)]*\)/g,"")
+    .replace(/\b(option|optionnel|pour servir|environ)\b/g,"")
+    .replace(/\s+/g," ")
+    .trim();
+}
+function groupedShoppingItems(){
+  const groups=new Map();
+  shoppingList.forEach(item=>{
+    const key=shoppingSection(item.txt)+"|"+shoppingKey(item.txt);
+    if(!groups.has(key))groups.set(key,{section:shoppingSection(item.txt),txt:item.txt,checked:item.checked,recipes:[],ids:[]});
+    const g=groups.get(key);
+    if(!g.recipes.includes(item.recipe))g.recipes.push(item.recipe);
+    g.ids.push(item.id);
+    g.checked=g.checked&&item.checked;
+  });
+  return [...groups.values()];
+}
 
 /* ---- helpers analyse ---- */
 function parseMinutes(t){if(!t)return null;let max=0,found=false,m;
@@ -3854,6 +3874,7 @@ let ratings=LS.get("kokko_ratings",{});
 let viewHistory=LS.get("kokko_history",[]);
 let shoppingList=LS.get("kokko_shopping",[]);
 let pantryProfile=LS.get("kokko_pantry_profile",{have:"",avoid:"",diet:"all",equipment:"all",available:"all"});
+let savedSession=LS.get("kokko_session",{recipes:[],serviceTime:"13:00"});
 const rid=r=>r.nom;
 function multiValues(value){
   if(Array.isArray(value))return value.filter(v=>v&&v!=="all");
@@ -3895,7 +3916,7 @@ function renderHistory(){
 }
 
 /* ---- état filtres ---- */
-let curCat="all",curQ="",curHave=pantryProfile.have||"",curMode="all",curTime="all",curDiff="all",curSeason="all",curDiet=multiValues(pantryProfile.diet),curEquip=multiValues(pantryProfile.equipment),curAvailable=pantryProfile.available||"all",favOnly=false;
+let curCat="all",curQ="",curHave=pantryProfile.have||"",curMode="all",curTime="all",curDiff="all",curSeason="all",curDiet=multiValues(pantryProfile.diet),curEquip=multiValues(pantryProfile.equipment),curAvailable=pantryProfile.available||"all",curQuality="all",curSort="default",favOnly=false;
 
 function renderStats(){
   const total=cookingRecipes().length;
@@ -3970,9 +3991,24 @@ function renderFilterBar(){
      <option value="90">Ce soir (&lt; 1 h 30)</option>
      <option value="180">Demi-journée (&lt; 3 h)</option>
    </select>
+   <select id="fQuality" class="fsel">
+     <option value="all">Qualité : toutes</option>
+     <option value="source">Avec source</option>
+     <option value="security">Avec sécurité</option>
+     <option value="errors">Avec erreurs</option>
+     <option value="rich">Très détaillées</option>
+   </select>
+   <select id="fSort" class="fsel">
+     <option value="default">Tri : recommandé</option>
+     <option value="time">Durée</option>
+     <option value="difficulty">Difficulté</option>
+     <option value="quality">Qualité</option>
+     <option value="rating">Note perso</option>
+     <option value="recent">Récents</option>
+   </select>
    <button id="fFav" class="fbtn ${favOnly?'on':''}">${favOnly?'★':'☆'} Favoris</button>
    <button id="fRand" class="fbtn">🎲 Au hasard</button>`;
-  $("#fMode").value=curMode;$("#fTime").value=curTime;$("#fDiff").value=curDiff;$("#fSeason").value=curSeason;$("#fAvailable").value=curAvailable;
+  $("#fMode").value=curMode;$("#fTime").value=curTime;$("#fDiff").value=curDiff;$("#fSeason").value=curSeason;$("#fAvailable").value=curAvailable;$("#fQuality").value=curQuality;$("#fSort").value=curSort;
   $("#fMode").onchange=e=>{curMode=e.target.value;renderList();};
   $("#fTime").onchange=e=>{curTime=e.target.value;renderList();};
   $("#fDiff").onchange=e=>{curDiff=e.target.value;renderList();};
@@ -3980,6 +4016,8 @@ function renderFilterBar(){
   $$(".multi-diet").forEach(b=>b.onclick=()=>{curDiet=toggleMulti(curDiet,b.dataset.value);pantryProfile.diet=curDiet;LS.set("kokko_pantry_profile",pantryProfile);renderFilterBar();renderSmartBar();renderList();});
   $$(".multi-equip").forEach(b=>b.onclick=()=>{curEquip=toggleMulti(curEquip,b.dataset.value);pantryProfile.equipment=curEquip;LS.set("kokko_pantry_profile",pantryProfile);renderFilterBar();renderSmartBar();renderList();});
   $("#fAvailable").onchange=e=>{curAvailable=e.target.value;pantryProfile.available=curAvailable;LS.set("kokko_pantry_profile",pantryProfile);renderList();};
+  $("#fQuality").onchange=e=>{curQuality=e.target.value;renderList();};
+  $("#fSort").onchange=e=>{curSort=e.target.value;renderList();};
   $("#fFav").onclick=()=>{favOnly=!favOnly;renderFilterBar();renderStats();renderList();renderBases();};
   $("#fRand").onclick=()=>{const l=RECIPES.filter(matches);const pool=l.length?l:cookingRecipes();openRecipe(RECIPES.indexOf(pool[Math.floor(Math.random()*pool.length)]));};
 }
@@ -4001,7 +4039,7 @@ function renderSmartBar(){
   $("#sSeason").onclick=()=>{curSeason=curSeason===currentSeason()?"all":currentSeason();renderFilterBar();renderSmartBar();renderList();};
   $("#sPantry").onclick=()=>{$("#have").focus();};
   $("#sReset").onclick=()=>{
-    curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet=[];curEquip=[];curAvailable="all";favOnly=false;
+    curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet=[];curEquip=[];curAvailable="all";curQuality="all";curSort="default";favOnly=false;
     pantryProfile={have:"",avoid:"",diet:[],equipment:[],available:"all"};
     LS.set("kokko_pantry_profile",pantryProfile);
     $("#q").value="";$("#have").value="";
@@ -4027,6 +4065,10 @@ function matches(r){
     const max=parseInt(curAvailable,10), m=parseRecipeDuration(r);
     if(m>max)return false;
   }
+  if(curQuality==="source"&&!r.source)return false;
+  if(curQuality==="security"&&!r.notes_securite)return false;
+  if(curQuality==="errors"&&!(Array.isArray(r.erreurs)&&r.erreurs.length))return false;
+  if(curQuality==="rich"&&qualityInfo(r).score<4)return false;
   if(curQ&&!haystack(r).includes(norm(curQ)))return false;
   if(curHave){
     const h=haystack(r);
@@ -4071,6 +4113,14 @@ function card(r){
 }
 function renderList(){
   const list=RECIPES.filter(matches);
+  list.sort((a,b)=>{
+    if(curSort==="time")return parseRecipeDuration(a)-parseRecipeDuration(b);
+    if(curSort==="difficulty")return (a.difficulty||3)-(b.difficulty||3);
+    if(curSort==="quality")return qualityInfo(b).score-qualityInfo(a).score;
+    if(curSort==="rating")return (+ratings[rid(b)]||0)-(+ratings[rid(a)]||0);
+    if(curSort==="recent"){const ia=viewHistory.indexOf(rid(a)), ib=viewHistory.indexOf(rid(b));return (ia<0?999:ia)-(ib<0?999:ib);}
+    return 0;
+  });
   const bits=[];
   if(favOnly)bits.push("favoris");
   if(curHave)bits.push("avec vos ingrédients");
@@ -4365,7 +4415,7 @@ function drawSimulationChart(duration, type) {
   `;
 }
 
-let sessionRecipes = [];
+let sessionRecipes = Array.isArray(savedSession.recipes)?savedSession.recipes:[];
 
 function renderAssistant(){
   const presets=[
@@ -4432,7 +4482,7 @@ function renderAssistant(){
       <h3>📅 Planificateur de Session BBQ (Timeline)</h3>
       <p style="margin:0 0 10px;color:var(--muted);font-size:13px">Planifiez l'allumage et l'enchaînement de vos recettes pour que tout soit prêt pile à l'heure du repas.</p>
       <div class="menu-controls">
-        <div class="arow" style="margin:0"><label class="alab">Heure de service</label><input id="planTime" type="time" value="13:00" class="ainput" style="width:100px"></div>
+        <div class="arow" style="margin:0"><label class="alab">Heure de service</label><input id="planTime" type="time" value="${savedSession.serviceTime||"13:00"}" class="ainput" style="width:100px"></div>
       </div>
       <div style="margin-top:10px">
         <label style="font-size:13px; font-weight:700; color:var(--muted)">Ajouter des recettes à la session :</label>
@@ -4442,7 +4492,10 @@ function renderAssistant(){
         </div>
       </div>
       <div id="planListOut" style="margin-top:12px; display:flex; flex-direction:column; gap:6px"></div>
-      <button id="planCalcBtn" class="actbtn on" style="width:100%;margin-top:12px">⚡ Générer la Timeline de cuisson</button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
+        <button id="planCalcBtn" class="actbtn on">⚡ Générer la timeline</button>
+        <button id="planShopBtn" class="actbtn">🛒 Session → courses</button>
+      </div>
       <div id="planTimelineOut" class="aout hide" style="margin-top:12px"></div>
     </div>
 
@@ -4536,6 +4589,8 @@ function renderAssistant(){
   const planTimelineOut = document.querySelector("#planTimelineOut");
 
   function renderPlanList() {
+    savedSession={recipes:sessionRecipes,serviceTime:document.querySelector("#planTime")?.value||savedSession.serviceTime||"13:00"};
+    LS.set("kokko_session",savedSession);
     if (sessionRecipes.length === 0) {
       planListOut.innerHTML = `<div style="font-size:12.5px; color:var(--muted); font-style:italic">Aucune recette ajoutée.</div>`;
       return;
@@ -4562,6 +4617,15 @@ function renderAssistant(){
       sessionRecipes.push(name);
       renderPlanList();
     }
+  };
+  document.querySelector("#planTime").onchange=e=>{savedSession.serviceTime=e.target.value;LS.set("kokko_session",savedSession);};
+  document.querySelector("#planShopBtn").onclick=()=>{
+    sessionRecipes.map(name=>RECIPES.find(r=>r.nom===name)).filter(Boolean).forEach(r=>addToShoppingList(r,baseServ(r)));
+    savedSession={recipes:sessionRecipes,serviceTime:document.querySelector("#planTime").value};
+    LS.set("kokko_session",savedSession);
+    const btn=document.querySelector("#planShopBtn");
+    btn.textContent="✅ Ajouté";
+    setTimeout(()=>btn.textContent="🛒 Session → courses",1400);
   };
 
   renderPlanList();
@@ -4614,7 +4678,18 @@ function renderAssistant(){
       txt: "<b>Stabilisation de température</b> : Installez la pierre déflectrice (si cuisson indirecte) et réglez les évents selon la cible."
     });
 
-    items.forEach(item => {
+    const bands=[...new Set(items.map(x=>tempBand(x.rec)))];
+    if(bands.length>1){
+      timeline.push({
+        h: prepH,
+        m: Math.min(59,prepM+10),
+        type: "adjust",
+        txt: `<b>Organisation multi-températures</b> : session en ${bands.map(bandLabel).join(" → ")}. Groupez les cuissons par plage et gardez les saisies vives pour la fin.`
+      });
+    }
+
+    items.sort((a,b)=>(firstTempC(a.rec.tempK)||999)-(firstTempC(b.rec.tempK)||999)).forEach(item => {
+      const band=tempBand(item.rec);
       let enfH = sH;
       let enfM = sM - item.durMin;
       while (enfM < 0) { enfM += 60; enfH -= 1; }
@@ -4623,7 +4698,7 @@ function renderAssistant(){
         h: enfH,
         m: enfM,
         type: "cooking",
-        txt: `<b>Enfournement : ${item.name}</b> (${item.rec.temps}) — Cible à cœur : ${item.rec.coeur || '—'}.`
+        txt: `<b>Enfournement : ${item.name}</b> (${item.rec.temps}) — ${bandLabel(band)} · Cible à cœur : ${item.rec.coeur || '—'}.`
       });
       
       if (item.rec.nom.includes("Brisket") || item.rec.nom.includes("pulled") || item.rec.nom.includes("rôti") || item.rec.nom.includes("Tomahawk")) {
@@ -4744,8 +4819,8 @@ function renderAssistant(){
       return;
     }
     const grouped = {};
-    shoppingList.forEach(item => {
-      const section=shoppingSection(item.txt);
+    groupedShoppingItems().forEach(item => {
+      const section=item.section;
       if (!grouped[section]) grouped[section] = [];
       grouped[section].push(item);
     });
@@ -4759,10 +4834,10 @@ function renderAssistant(){
         html += `
           <li class="cstep" style="padding:6px 0;border-bottom:1px solid rgba(74,81,61,0.15)">
             <label class="${item.checked?'done':''}" style="font-size:13.5px">
-              <input type="checkbox" class="shop-ck" data-id="${item.id}" ${item.checked?'checked':''}>
-              <span>${item.txt} <small style="color:var(--muted)">· ${item.recipe}</small></span>
+              <input type="checkbox" class="shop-ck" data-ids="${item.ids.join(",")}" ${item.checked?'checked':''}>
+              <span>${item.txt}${item.ids.length>1?` <b style="color:var(--accent2)">×${item.ids.length}</b>`:""} <small style="color:var(--muted)">· ${item.recipes.join(", ")}</small></span>
             </label>
-            <button class="shop-del" data-id="${item.id}" style="background:none;border:none;color:var(--ember);cursor:pointer;font-size:14px;padding:0 6px">✕</button>
+            <button class="shop-del" data-ids="${item.ids.join(",")}" style="background:none;border:none;color:var(--ember);cursor:pointer;font-size:14px;padding:0 6px">✕</button>
           </li>`;
       });
       html += `</ul>`;
@@ -4771,18 +4846,17 @@ function renderAssistant(){
     
     container.querySelectorAll(".shop-ck").forEach(ck => {
       ck.onchange = e => {
-        const item = shoppingList.find(x => x.id === ck.dataset.id);
-        if (item) {
-          item.checked = ck.checked;
-          LS.set("kokko_shopping", shoppingList);
-          e.target.closest("label").classList.toggle("done", ck.checked);
-        }
+        const ids=ck.dataset.ids.split(",");
+        shoppingList.forEach(item=>{if(ids.includes(item.id))item.checked=ck.checked;});
+        LS.set("kokko_shopping", shoppingList);
+        e.target.closest("label").classList.toggle("done", ck.checked);
       };
     });
     
     container.querySelectorAll(".shop-del").forEach(btn => {
       btn.onclick = () => {
-        shoppingList = shoppingList.filter(x => x.id !== btn.dataset.id);
+        const ids=btn.dataset.ids.split(",");
+        shoppingList = shoppingList.filter(x => !ids.includes(x.id));
         LS.set("kokko_shopping", shoppingList);
         renderShoppingList();
       };
@@ -4807,9 +4881,9 @@ function renderAssistant(){
       "🛒 Autres ingrédients": []
     };
     
-    shoppingList.forEach(item => {
+    groupedShoppingItems().forEach(item => {
       const txt = item.txt.toLowerCase();
-      const entry = `${item.checked ? '☒' : '☐'} ${item.txt} (${item.recipe})`;
+      const entry = `${item.checked ? '☒' : '☐'} ${item.txt}${item.ids.length>1?` ×${item.ids.length}`:""} (${item.recipes.join(", ")})`;
       if (/bœuf|boeuf|porc|poulet|agneau|veau|canard|dinde|cuisse|blanc|échine|travers|viande|bacon|lard|filet|saumon|thon|cabillaud|crevette|gambas|homard|moule|saint-jacques|calamar/i.test(txt)) {
         categories["🥩 Boucherie &amp; Poissonnerie"].push(entry);
       } else if (/ail\b|oignon|carotte|citron|concombre|tomate|aubergine|gingembre|coriandre|herbes|menthe|persil|échalote|courgette|poivron|pomme de terre|patate|asperge|avocat|salade/i.test(txt)) {
@@ -4934,6 +5008,7 @@ function renderMenuBuilder(){
         <button id="mGo" class="actbtn on">Générer un menu</button>
       </div>
       <button id="mCopy" class="syncbtn primary" style="margin-bottom:10px">Copier la liste de courses du menu</button>
+      <button id="mShop" class="syncbtn" style="margin-bottom:10px">Ajouter le menu à la liste de courses</button>
       <div id="menuOut" class="menu-grid"></div>
     </div>`;
   function renderMenu(){
@@ -4987,6 +5062,11 @@ function renderMenuBuilder(){
     const done=()=>{$("#mCopy").textContent="Liste copiée";setTimeout(()=>$("#mCopy").textContent="Copier la liste de courses du menu",1400);};
     if(navigator.clipboard){navigator.clipboard.writeText(txt).then(done).catch(done);}else done();
   };
+  $("#mShop").onclick=()=>{
+    currentMenu.forEach(p=>addToShoppingList(p.r,parseInt($("#mGuests").value,10)||baseServ(p.r)));
+    const done=()=>{$("#mShop").textContent="Menu ajouté";setTimeout(()=>$("#mShop").textContent="Ajouter le menu à la liste de courses",1400);};
+    done();
+  };
   renderMenu();
 }
 
@@ -5031,7 +5111,8 @@ function buildExportPayload(){
     ratings,
     history:viewHistory,
     shopping:shoppingList,
-    pantryProfile
+    pantryProfile,
+    session:savedSession
   };
 }
 function encodeTransfer(data){
@@ -5055,12 +5136,14 @@ function mergeImportedData(data){
   if(data.ratings&&typeof data.ratings==="object")ratings={...ratings,...data.ratings};
   if(Array.isArray(data.shopping))shoppingList=[...shoppingList,...data.shopping].filter((x,i,a)=>a.findIndex(y=>y.txt===x.txt&&y.recipe===x.recipe)===i);
   if(data.pantryProfile&&typeof data.pantryProfile==="object")pantryProfile={...pantryProfile,...data.pantryProfile};
+  if(data.session&&typeof data.session==="object")savedSession={...savedSession,...data.session};
   viewHistory=[...(Array.isArray(data.history)?data.history:[]),...viewHistory].filter((x,i,a)=>a.indexOf(x)===i).slice(0,8);
   saveFavs();
   LS.set("kokko_notes",notes);
   LS.set("kokko_ratings",ratings);
   LS.set("kokko_shopping",shoppingList);
   LS.set("kokko_pantry_profile",pantryProfile);
+  LS.set("kokko_session",savedSession);
   LS.set("kokko_history",viewHistory);
   curHave=pantryProfile.have||"";curDiet=multiValues(pantryProfile.diet);curEquip=multiValues(pantryProfile.equipment);curAvailable=pantryProfile.available||"all";
   if($("#have"))$("#have").value=curHave;

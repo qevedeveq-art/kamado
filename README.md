@@ -23,6 +23,8 @@ L'application a été enrichie d'outils interactifs avancés pour offrir une exp
 *   **🎯 Garde-manger &amp; mode "Ce soir"** : Combinez ingrédients disponibles, exclusions, plusieurs régimes, plusieurs matériels et temps disponible pour trouver une recette réaliste immédiatement.
 *   **✅ Qualité &amp; cuisson guidée** : Chaque fiche affiche son niveau de détail, les signes visuels de bonne cuisson, les erreurs fréquentes et les repères sécurité quand disponibles.
 *   **🌡️ Menus compatibles Kamado** : Le générateur évite les menus incohérents en rapprochant les plats selon leur plage de température (fumage, rôtissage, cuisson vive).
+*   **🧭 Session de cuisson complète** : Le planificateur conserve la session, génère une timeline multi-températures et peut envoyer toute la session vers la liste de courses.
+*   **🔎 Tri avancé** : Triez les recettes par durée, difficulté, qualité, note personnelle ou historique récent.
 
 ---
 
@@ -40,7 +42,7 @@ L'application fonctionne entièrement en mode hors ligne (Offline First) après 
 Toutes vos données personnelles (favoris, notes libres, notations de recettes) sont stockées localement dans votre navigateur.
 L'onglet **Données** vous permet de :
 1.  **Exporter** une sauvegarde JSON complète.
-2.  **Importer** un fichier pour fusionner vos notes, favoris, liste de courses et profil garde-manger entre vos appareils sans écraser l'existant.
+2.  **Importer** un fichier pour fusionner vos notes, favoris, liste de courses, session en cours et profil garde-manger entre vos appareils sans écraser l'existant.
 3.  Générer un **Lien de transfert rapide** (hash) pour synchroniser votre iPhone et votre PC en un clic.
 
 ---
