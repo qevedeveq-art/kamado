@@ -36,6 +36,13 @@ const VALID_SPICE = new Set(["Doux", "Épicé doux", "Relevé"]);
 const VALID_SEASON = new Set(["printemps", "ete", "automne", "hiver", "toute"]);
 const KAMADO_MODE = /(direct|indirect|fumage|brais|cocotte|pierre|plaque|grill|rôti|roti|mijot|préparation|preparation)/i;
 const VALID_WRAP_MATERIAU = new Set(["papier boucher", "alu", "papier sulfurisé"]);
+const CHEF_REFERENCES = [
+  "FoodSafety.gov safe minimum internal temperatures",
+  "USDA FSIS safe temperature chart",
+  "ThermoWorks chef-recommended temperatures",
+  "Big Green Egg indirect cooking",
+  "AmazingRibs wood smoke science"
+];
 
 function isPositiveNumber(value) {
   return typeof value === "number" && Number.isFinite(value) && value > 0;
@@ -138,12 +145,37 @@ function qualityChecks(recipe) {
     { id: "timing", ok: !!recipe.temps && recipe.repos_min != null && recipe.charbon_kg != null },
     { id: "phases", ok: Array.isArray(recipe.phases) && recipe.phases.length > 0 },
     { id: "mistakes", ok: Array.isArray(recipe.erreurs) && recipe.erreurs.length > 0 },
-    { id: "context", ok: !!recipe.source }
+    { id: "context", ok: !!recipe.source },
+    { id: "safety", ok: !needsTargetedSafety(recipe) || !!recipe.notes_securite }
   ];
 }
 
 function qualityScore(recipe) {
   return qualityChecks(recipe).filter(c => c.ok).length;
+}
+
+function recipeHaystack(recipe) {
+  return [
+    recipe.nom,
+    recipe.ori,
+    recipe.mode,
+    recipe.tempK,
+    recipe.coeur,
+    recipe.bois,
+    recipe.astuce,
+    ...(Array.isArray(recipe.ings) ? recipe.ings : []),
+    ...(Array.isArray(recipe.etapes) ? recipe.etapes : [])
+  ].join(" ").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+function needsTargetedSafety(recipe) {
+  const h = recipeHaystack(recipe);
+  const meatCategory = ["boeuf", "porc", "agneau", "monde"].includes(recipe.cat);
+  return recipe.cat === "volaille" ||
+    recipe.cat === "poisson" ||
+    /\b(poulet|dinde|chapon|canard|poisson|saumon|thon|cabillaud|truite|bar|dorade|gambas|crevette|moules|huitres|coquillage|homard|calamar|poulpe)\b/.test(h) ||
+    (meatCategory && /\b(burger|steak hache|viande hachee|chair a saucisse|saucisse|chipolata|merguez|boerewors|tsukune|kofte)\b/.test(h)) ||
+    /\b(gravlax|sechage|salaison)\b|fumage a froid/.test(h);
 }
 
 for (const [i, recipe] of RECIPES.entries()) {
@@ -204,7 +236,7 @@ for (const [i, recipe] of RECIPES.entries()) {
     if (longOrComplex && !(Array.isArray(recipe.phases) && recipe.phases.length)) {
       warnings.push(`${i}: ${label} is long/complex and would benefit from structured phases`);
     }
-    if ((recipe.cat === "volaille" || recipe.cat === "poisson") && !recipe.notes_securite) {
+    if (needsTargetedSafety(recipe) && !recipe.notes_securite) {
       warnings.push(`${i}: ${label} should eventually include a safety note`);
     }
   }
@@ -219,7 +251,7 @@ const coverage = Object.fromEntries(
 const qualityScores = cooking.map(qualityScore);
 const quality = {
   average: Math.round((qualityScores.reduce((sum, score) => sum + score, 0) / Math.max(1, qualityScores.length)) * 10) / 10,
-  complete: qualityScores.filter(score => score >= 7).length,
+  complete: qualityScores.filter(score => score >= 8).length,
   solid: qualityScores.filter(score => score >= 5).length,
   low: qualityScores.filter(score => score < 5).length,
   byCategory: Object.fromEntries(
@@ -228,7 +260,7 @@ const quality = {
       const scores = recipes.map(qualityScore);
       return [c.id, {
         average: Math.round((scores.reduce((sum, score) => sum + score, 0) / Math.max(1, scores.length)) * 10) / 10,
-        complete: scores.filter(score => score >= 7).length,
+        complete: scores.filter(score => score >= 8).length,
         low: scores.filter(score => score < 5).length
       }];
     })
@@ -244,6 +276,7 @@ const summary = {
   richSchema: richRecipes.length,
   coverage,
   quality,
+  chefReviewReferences: CHEF_REFERENCES,
   issues: issues.length,
   warnings: warnings.length
 };

@@ -3781,7 +3781,7 @@ function qualityInfo(r){
   const checks=recipeQualityChecks(r);
   const score=checks.filter(c=>c.ok).length;
   const max=checks.length;
-  const label=score>=7?"très détaillée":score>=5?"solide":"à compléter";
+  const label=score>=8?"très détaillée":score>=5?"solide":"à compléter";
   return {score,max,label,checks,gaps:checks.filter(c=>!c.ok)};
 }
 function donenessSigns(r){
@@ -3806,7 +3806,8 @@ function recipeQualityChecks(r){
     {id:"timing",label:"timing exploitable",ok:!!r.temps&&r.repos_min!=null&&r.charbon_kg!=null},
     {id:"phases",label:"phases structurées",ok:Array.isArray(r.phases)&&r.phases.length>0},
     {id:"mistakes",label:"erreurs fréquentes",ok:Array.isArray(r.erreurs)&&r.erreurs.length>0},
-    {id:"context",label:"source ou inspiration",ok:!!r.source}
+    {id:"context",label:"source ou inspiration",ok:!!r.source},
+    {id:"safety",label:"sécurité ciblée",ok:!needsTargetedSafety(r)||!!r.notes_securite}
   ];
 }
 function recipeQualityAdvice(r){
@@ -3852,6 +3853,14 @@ function safetyGuidance(r){
   if(/fumage a froid|fumage à froid/.test(h))out.push("Fumage à froid : respecter chaîne du froid, salage adapté et durée maîtrisée.");
   return [...new Set(out)].slice(0,3);
 }
+function needsTargetedSafety(r){
+  const h=haystack(r);
+  const meatCategory=["boeuf","porc","agneau","monde"].includes(r.cat);
+  return r.cat==="volaille"||r.cat==="poisson"||
+    /\b(poulet|dinde|chapon|canard|poisson|saumon|thon|cabillaud|truite|bar|dorade|gambas|crevette|moules|huitres|coquillage|homard|calamar|poulpe)\b/.test(h)||
+    (meatCategory&&/\b(burger|steak hache|viande hachee|chair a saucisse|saucisse|chipolata|merguez|boerewors|tsukune|kofte)\b/.test(h))||
+    /\b(gravlax|sechage|salaison)\b|fumage a froid/.test(h);
+}
 function serviceGuidance(r){
   const out=[];
   if(r.repos_min!=null)out.push(r.repos_min>0?`Repos conseillé : ${formatDurationMin(r.repos_min)} avant découpe ou service.`:"Service immédiat recommandé.");
@@ -3863,6 +3872,30 @@ function serviceGuidance(r){
   if(r.cat==="dessert")out.push("Attendre la stabilisation du centre avant découpe nette.");
   const sauces=saucesFor(r);
   if(sauces.length)out.push(`Sauce pertinente : ${sauces.join(" ou ")}.`);
+  return [...new Set(out)].slice(0,4);
+}
+const CHEF_SOURCES={
+  foodsafety:{name:"FoodSafety.gov",url:"https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures",why:"minimums sanitaires de cuisson"},
+  usda:{name:"USDA FSIS",url:"https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart",why:"table officielle température + repos"},
+  thermoworks:{name:"ThermoWorks",url:"https://blog.thermoworks.com/chef-recommended-tw-approved/",why:"températures de dégustation et usage sonde"},
+  bge:{name:"Big Green Egg",url:"https://www.biggreenegg.eu/en/indirect-cooking",why:"logique kamado indirecte au déflecteur"},
+  amazingribs:{name:"AmazingRibs",url:"https://amazingribs.com/more-technique-and-science/grill-and-smoker-setup-and-firing/science-of-wood-and-smoke/",why:"science fumée, feu et low & slow"}
+};
+function chefSourcesFor(r){
+  const h=haystack(r), refs=[CHEF_SOURCES.foodsafety,CHEF_SOURCES.usda,CHEF_SOURCES.thermoworks];
+  if(/indirect|fumage|brais|confit|low|deflect|déflect|pizza|pierre/.test(h))refs.push(CHEF_SOURCES.bge);
+  if(/fumage|low|brisket|ribs|pulled|épaule|epaule|travers|bois|smoke/.test(h))refs.push(CHEF_SOURCES.amazingribs);
+  return [...new Map(refs.map(ref=>[ref.name,ref])).values()];
+}
+function chefControlPoints(r){
+  const h=haystack(r), out=[];
+  if(r.cat==="volaille"||/poulet|dinde|chapon|canard/.test(h))out.push("Référence sécurité : volaille à 74 °C au point le plus épais, sonde nettoyée avant/après contrôle.");
+  else if(/haché|hache|burger|saucisse|chair/.test(h))out.push("Référence sécurité : viandes hachées et saucisses à 71 °C minimum.");
+  else if(r.cat==="poisson"||/poisson|saumon|thon|cabillaud|truite|bar|dorade/.test(h))out.push("Référence sécurité : poisson à 63 °C ou chair opaque qui se détache; cuisson plus basse possible seulement avec produit très frais et choix assumé.");
+  else if(r.cat==="boeuf"||r.cat==="agneau"||r.cat==="porc"||/veau|gibier/.test(h))out.push("Référence sécurité : pièces entières bœuf/porc/agneau/veau à 63 °C minimum avec 3 min de repos; les cuissons rosées restent un choix de dégustation.");
+  if(/indirect|fumage|brais|confit|low/.test(h))out.push("Contrôle kamado : déflecteur en place, fumée propre avant cuisson, température stabilisée avant de poser l'aliment.");
+  if(/direct|grill|saisie|plancha/.test(h))out.push("Contrôle feu vif : grille ou plancha préchauffée, zone de repli moins chaude, couvercle ouvert seulement le temps nécessaire.");
+  if(/pizza|pierre|pain|naan|focaccia/.test(h))out.push("Contrôle pierre : préchauffage complet, dessous surveillé entre deux fournées et rotation si un côté colore plus vite.");
   return [...new Set(out)].slice(0,4);
 }
 function dietTags(r){
@@ -4175,7 +4208,7 @@ function matches(r){
   if(curQuality==="source"&&!r.source)return false;
   if(curQuality==="security"&&!r.notes_securite)return false;
   if(curQuality==="errors"&&!(Array.isArray(r.erreurs)&&r.erreurs.length))return false;
-  if(curQuality==="rich"&&qualityInfo(r).score<7)return false;
+  if(curQuality==="rich"&&qualityInfo(r).score<8)return false;
   if(curQ&&!haystack(r).includes(norm(curQ)))return false;
   if(curHave){
     const h=haystack(r);
@@ -4291,6 +4324,8 @@ function renderRecipeDetailGuidance(r){
   const prep=prepChecklist(r).map(x=>`<li>${x}</li>`).join("");
   const safety=safetyGuidance(r).map(x=>`<li>${x}</li>`).join("");
   const service=serviceGuidance(r).map(x=>`<li>${x}</li>`).join("");
+  const chef=chefControlPoints(r).map(x=>`<li>${x}</li>`).join("");
+  const refs=chefSourcesFor(r).map(ref=>`<li><a href="${ref.url}" target="_blank" rel="noopener">${ref.name}</a> · ${ref.why}</li>`).join("");
   const advice=recipeQualityAdvice(r).map(x=>`<li>${x}</li>`).join("");
   return `
     <div class="rich-section">
@@ -4305,6 +4340,10 @@ function renderRecipeDetailGuidance(r){
     <div class="detail-grid">
       ${safety?`<div class="rich-section"><h4>🛡 Contrôles sécurité</h4><ul class="detail-list">${safety}</ul></div>`:""}
       ${service?`<div class="rich-section"><h4>🍽 Service & découpe</h4><ul class="detail-list">${service}</ul></div>`:""}
+    </div>
+    <div class="detail-grid">
+      ${chef?`<div class="rich-section"><h4>👨‍🍳 Contrôle chef</h4><ul class="detail-list">${chef}</ul></div>`:""}
+      <div class="rich-section"><h4>📚 Références fiables</h4><ul class="detail-list">${refs}</ul></div>
     </div>`;
 }
 
@@ -4432,6 +4471,12 @@ function startTimer(sec,label){
 
 /* ---- Assistant de cuisson ---- */
 function parseRecipeDuration(recipe) {
+  if(Array.isArray(recipe.phases)&&recipe.phases.length){
+    const cooking=recipe.phases
+      .filter(p=>!/préparation|preparation/i.test(p.mode||""))
+      .reduce((sum,p)=>sum+(Number(p.duration_min)||0),0);
+    if(cooking>0)return cooking;
+  }
   const t = recipe.temps || "";
   if (/h/i.test(t)) {
     const matches = t.match(/(\d+(?:[.,]\d+)?)/g);
@@ -4569,7 +4614,7 @@ function renderAssistant(){
     phases:cookingRecipes().filter(r=>Array.isArray(r.phases)&&r.phases.length).length
   };
   const qualityScores=cookingRecipes().map(r=>qualityInfo(r));
-  qualityStats.complete=qualityScores.filter(q=>q.score>=7).length;
+  qualityStats.complete=qualityScores.filter(q=>q.score>=8).length;
   qualityStats.avg=Math.round(qualityScores.reduce((sum,q)=>sum+q.score,0)/Math.max(1,qualityScores.length)*10)/10;
   
   A.innerHTML=`

@@ -7,6 +7,7 @@ const path = require("node:path");
 
 const RECIPES = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "recipes.json"), "utf8"));
 const CATS = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "categories.json"), "utf8"));
+const INDEX_HTML = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
 
 test("dataset has expected scale", () => {
   assert.ok(RECIPES.length >= 200, `expected >=200 recipes, got ${RECIPES.length}`);
@@ -48,8 +49,29 @@ function operationalQualityScore(r) {
     !!r.temps && r.repos_min != null && r.charbon_kg != null,
     Array.isArray(r.phases) && r.phases.length > 0,
     Array.isArray(r.erreurs) && r.erreurs.length > 0,
-    !!r.source
+    !!r.source,
+    !needsTargetedSafety(r) || !!r.notes_securite
   ].filter(Boolean).length;
+}
+
+function needsTargetedSafety(r) {
+  const h = [
+    r.nom,
+    r.ori,
+    r.mode,
+    r.tempK,
+    r.coeur,
+    r.bois,
+    r.astuce,
+    ...(Array.isArray(r.ings) ? r.ings : []),
+    ...(Array.isArray(r.etapes) ? r.etapes : [])
+  ].join(" ").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const meatCategory = ["boeuf", "porc", "agneau", "monde"].includes(r.cat);
+  return r.cat === "volaille" ||
+    r.cat === "poisson" ||
+    /\b(poulet|dinde|chapon|canard|poisson|saumon|thon|cabillaud|truite|bar|dorade|gambas|crevette|moules|huitres|coquillage|homard|calamar|poulpe)\b/.test(h) ||
+    (meatCategory && /\b(burger|steak hache|viande hachee|chair a saucisse|saucisse|chipolata|merguez|boerewors|tsukune|kofte)\b/.test(h)) ||
+    /\b(gravlax|sechage|salaison)\b|fumage a froid/.test(h);
 }
 
 test("all cooking recipes have enough operational detail to cook from", () => {
@@ -58,6 +80,16 @@ test("all cooking recipes have enough operational detail to cook from", () => {
     .map(r => ({ name: r.nom, score: operationalQualityScore(r) }))
     .filter(r => r.score < 5);
   assert.deepEqual(weak, []);
+});
+
+test("app keeps trusted chef references for food safety and kamado control", () => {
+  [
+    "foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures",
+    "fsis.usda.gov/food-safety/safe-food-handling-and-preparation",
+    "blog.thermoworks.com/chef-recommended-tw-approved",
+    "biggreenegg.eu/en/indirect-cooking",
+    "amazingribs.com/more-technique-and-science"
+  ].forEach(fragment => assert.ok(INDEX_HTML.includes(fragment), `missing trusted reference: ${fragment}`));
 });
 
 test("phases timeline is well-formed when present", () => {
