@@ -645,6 +645,15 @@ td b { color: #fff; }
   .print-signature { font-weight: 700!important; font-family: var(--font-title)!important; text-transform: uppercase!important; letter-spacing: 0.5px!important; }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -655,20 +664,20 @@ td b { color: #fff; }
   </div>
   <div class="quickstats" id="quickstats"></div>
   <div class="search"><input id="q" type="search" placeholder="Rechercher une recette, un ingrédient…" autocomplete="off"></div>
-  <div class="tabs">
-    <div class="tab active" data-tab="recettes">🍽️ Recettes</div>
-    <div class="tab" data-tab="menus">🍱 Menus</div>
-    <div class="tab" data-tab="bases">🧂 Bases</div>
-    <div class="tab" data-tab="guide">📖 Maîtriser le Kokko</div>
-    <div class="tab" data-tab="temp">🌡️ Températures</div>
-    <div class="tab" data-tab="vins">🍷 Accords vins</div>
-    <div class="tab" data-tab="assistant">🧮 Assistant</div>
-    <div class="tab" data-tab="donnees">💾 Données</div>
+  <div class="tabs" role="tablist" aria-label="Sections principales">
+    <div class="tab active" data-tab="recettes" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-recettes">🍽️ Recettes</div>
+    <div class="tab" data-tab="menus" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-menus">🍱 Menus</div>
+    <div class="tab" data-tab="bases" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-bases">🧂 Bases</div>
+    <div class="tab" data-tab="guide" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-guide">📖 Maîtriser le Kokko</div>
+    <div class="tab" data-tab="temp" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-temp">🌡️ Températures</div>
+    <div class="tab" data-tab="vins" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-vins">🍷 Accords vins</div>
+    <div class="tab" data-tab="assistant" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-assistant">🧮 Assistant</div>
+    <div class="tab" data-tab="donnees" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-donnees">💾 Données</div>
   </div>
 </header>
 
 <!-- RECETTES -->
-<section id="tab-recettes">
+<section id="tab-recettes" role="tabpanel" aria-label="Recettes">
   <div class="chips" id="chips"></div>
   <div id="filterbar"></div>
   <div class="ingredientbar"><input id="have" type="search" placeholder="J'ai : poulet citron thym · exclure : -porc -gluten" autocomplete="off"></div>
@@ -678,37 +687,37 @@ td b { color: #fff; }
 </section>
 
 <!-- MENUS -->
-<section id="tab-menus" class="hide">
+<section id="tab-menus" class="hide" role="tabpanel" aria-label="Menus">
   <div class="prose" id="menus"></div>
 </section>
 
 <!-- BASES -->
-<section id="tab-bases" class="hide">
+<section id="tab-bases" class="hide" role="tabpanel" aria-label="Bases">
   <div class="prose" id="bases"></div>
 </section>
 
 <!-- GUIDE -->
-<section id="tab-guide" class="hide">
+<section id="tab-guide" class="hide" role="tabpanel" aria-label="Maîtriser le Kokko">
   <div class="prose" id="guide"></div>
 </section>
 
 <!-- TEMPERATURES -->
-<section id="tab-temp" class="hide">
+<section id="tab-temp" class="hide" role="tabpanel" aria-label="Températures">
   <div class="prose" id="temp"></div>
 </section>
 
 <!-- VINS -->
-<section id="tab-vins" class="hide">
+<section id="tab-vins" class="hide" role="tabpanel" aria-label="Accords vins">
   <div class="prose" id="vins"></div>
 </section>
 
 <!-- ASSISTANT -->
-<section id="tab-assistant" class="hide">
+<section id="tab-assistant" class="hide" role="tabpanel" aria-label="Assistant">
   <div class="prose" id="assistant"></div>
 </section>
 
 <!-- DONNEES -->
-<section id="tab-donnees" class="hide">
+<section id="tab-donnees" class="hide" role="tabpanel" aria-label="Données">
   <div class="prose" id="donnees"></div>
 </section>
 
@@ -3289,14 +3298,37 @@ function renderDataTools(){
 /* ---- recherche + onglets ---- */
 $("#q").addEventListener("input",e=>{curQ=e.target.value.toLowerCase().trim();renderList();});
 $("#have").addEventListener("input",e=>{curHave=e.target.value.trim();renderList();});
-$$(".tab").forEach(t=>t.onclick=()=>{
-  $$(".tab").forEach(x=>x.classList.remove("active"));t.classList.add("active");
-  ["recettes","menus","bases","guide","temp","vins","assistant","donnees"].forEach(n=>$("#tab-"+n).classList.toggle("hide",n!==t.dataset.tab));
-  if (t.dataset.tab === "assistant") {
-    shoppingList = LS.get("kokko_shopping", []);
+const TAB_NAMES=["recettes","menus","bases","guide","temp","vins","assistant","donnees"];
+function activateTab(target){
+  $$(".tab").forEach(x=>{
+    const isActive=x===target;
+    x.classList.toggle("active",isActive);
+    x.setAttribute("aria-selected",isActive?"true":"false");
+    x.setAttribute("tabindex",isActive?"0":"-1");
+  });
+  TAB_NAMES.forEach(n=>$("#tab-"+n).classList.toggle("hide",n!==target.dataset.tab));
+  if(target.dataset.tab==="assistant"){
+    shoppingList=LS.get("kokko_shopping",[]);
     renderAssistant();
   }
-  window.scrollTo({top:0,behavior:'smooth'});
+  const prefersReduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({top:0,behavior:prefersReduced?"auto":"smooth"});
+}
+$$(".tab").forEach((t,i,arr)=>{
+  t.onclick=()=>activateTab(t);
+  t.addEventListener("keydown",e=>{
+    let nextIdx=null;
+    if(e.key==="ArrowRight"||e.key==="ArrowDown")nextIdx=(i+1)%arr.length;
+    else if(e.key==="ArrowLeft"||e.key==="ArrowUp")nextIdx=(i-1+arr.length)%arr.length;
+    else if(e.key==="Home")nextIdx=0;
+    else if(e.key==="End")nextIdx=arr.length-1;
+    else if(e.key==="Enter"||e.key===" "){e.preventDefault();activateTab(t);return;}
+    if(nextIdx!=null){
+      e.preventDefault();
+      arr[nextIdx].focus();
+      activateTab(arr[nextIdx]);
+    }
+  });
 });
 
 /* ---- init ---- */
