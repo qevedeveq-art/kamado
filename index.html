@@ -2180,6 +2180,210 @@ select,
   cursor: pointer;
 }
 
+/* Stabilisation finale des fiches recettes: modale isolée + contraste garanti */
+.modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 5000 !important;
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  background: rgba(4, 5, 3, 0.92) !important;
+  backdrop-filter: blur(10px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
+  overflow: hidden !important;
+}
+
+.modal:not(.open) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.modal.open {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.modal.open .sheet {
+  transform: none !important;
+}
+
+.sheet {
+  position: relative !important;
+  z-index: 1 !important;
+  width: min(100%, 780px) !important;
+  max-width: 780px !important;
+  height: 100dvh !important;
+  min-height: 0 !important;
+  max-height: 100dvh !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 242, 0.98) 0%, rgba(239, 224, 189, 0.98) 100%) !important;
+  color: #16110a !important;
+  border: 1px solid rgba(125, 51, 12, 0.36) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.88) !important;
+}
+
+.sheet-head {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 20 !important;
+  background: rgba(255, 248, 230, 0.98) !important;
+  color: #16110a !important;
+  border-bottom: 2px solid rgba(91, 40, 10, 0.62) !important;
+  box-shadow: 0 8px 18px rgba(91, 40, 10, 0.12) !important;
+}
+
+.sheet-head h2 {
+  color: #261608 !important;
+  text-shadow: none !important;
+}
+
+.sheet-body {
+  position: relative !important;
+  z-index: 1 !important;
+  padding-bottom: calc(80px + env(safe-area-inset-bottom)) !important;
+  color: #16110a !important;
+}
+
+.sheet-body,
+.sheet .steps li,
+.sheet .cstep label span,
+.sheet .ings li,
+.sheet .detail-list,
+.sheet .detail-list li,
+.sheet .rich-row,
+.sheet .phase-action,
+.sheet .rich-source,
+.sheet .security-callout {
+  color: #16110a !important;
+}
+
+.sheet .ori,
+.sheet-body h4,
+.sheet .rich-section h4,
+.sheet .stepswitch h4,
+.sheet .tip b,
+.sheet .rich-row b,
+.sheet .rich-source b,
+.sheet .quality-tile b {
+  color: #743007 !important;
+}
+
+.sheet .spec,
+.sheet .tip,
+.sheet .rich-row,
+.sheet .phase-card,
+.sheet .quality-tile,
+.sheet .qcheck,
+.sheet .security-callout,
+.sheet .erreurs-list li,
+.sheet .subs-list li,
+.sheet .rich-source,
+.sheet .note {
+  background: rgba(255, 255, 255, 0.48) !important;
+  border-color: rgba(91, 40, 10, 0.28) !important;
+  color: #16110a !important;
+  box-shadow: none !important;
+}
+
+.sheet .tip {
+  border-left-color: #743007 !important;
+}
+
+.sheet .spec .l,
+.sheet h4 span,
+.sheet .hint,
+.sheet .ratingrow span {
+  color: #4f4636 !important;
+}
+
+.sheet .spec .v,
+.sheet .phase-name,
+.sheet .detail-list b {
+  color: #16110a !important;
+}
+
+.sheet .spec .v.temp {
+  color: #8a2f06 !important;
+}
+.sheet .spec .v.coeur,
+.sheet .qcheck.ok {
+  color: #284400 !important;
+}
+.sheet .spec .v.diff,
+.sheet .qcheck.miss,
+.sheet .tbx {
+  color: #8f2107 !important;
+}
+
+.sheet .qcheck.ok {
+  background: rgba(94, 130, 37, 0.14) !important;
+  border-color: rgba(58, 94, 13, 0.42) !important;
+}
+
+.sheet .qcheck.miss {
+  background: rgba(190, 55, 20, 0.1) !important;
+  border-color: rgba(143, 33, 7, 0.34) !important;
+}
+
+.sheet .actbtn,
+.sheet .modebtn,
+.sheet .stp,
+.sheet .ratebtn,
+.sheet .tbp,
+.sheet .tbx {
+  background: rgba(255,255,255,0.58) !important;
+  color: #16110a !important;
+  border-color: rgba(91, 40, 10, 0.28) !important;
+}
+
+.sheet .actbtn.on,
+.sheet .copybtn,
+.sheet .modebtn.on {
+  background: linear-gradient(135deg, #8d3608 0%, #b24a12 100%) !important;
+  color: #fff8e7 !important;
+  border-color: rgba(91, 40, 10, 0.5) !important;
+}
+
+.sheet a {
+  color: #8d2a07 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+}
+
+@media (max-width: 520px) {
+  .sheet {
+    width: 100% !important;
+    max-width: none !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+  .sheet-body {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  .sheet .specbar {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+  .sheet .spec,
+  .sheet .spec.wide-spec {
+    width: 100% !important;
+    min-width: 0 !important;
+    grid-column: 1 / -1 !important;
+  }
+  .sheet .spec .v {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+}
+
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 </style>
@@ -7687,7 +7891,9 @@ function openRecipe(i){
   }
   render();
   $("#modal").classList.add("open");document.body.style.overflow="hidden";
-  $(".sheet-head").scrollIntoView();$("#d-body").scrollTop=0;
+  const sheet=$(".sheet");
+  if(sheet)sheet.scrollTop=0;
+  $("#d-body").scrollTop=0;
 }
 function closeModal(){$("#modal").classList.remove("open");document.body.style.overflow="";}
 $("#back").onclick=closeModal;
