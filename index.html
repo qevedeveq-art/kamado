@@ -1953,6 +1953,71 @@ select,
   color: #554d3d !important;
 }
 
+/* Améliorations de proportions pour la ligne de portions sur mobile */
+@media (max-width: 480px) {
+  .sheet .servrow {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+  .sheet .servlbl {
+    grid-column: span 4 !important;
+    text-align: center !important;
+    margin-bottom: 2px !important;
+  }
+  .sheet #sMinus {
+    grid-column: 1 / 2 !important;
+    justify-self: center !important;
+  }
+  .sheet #sVal {
+    grid-column: 2 / 4 !important;
+    text-align: center !important;
+    font-size: 18px !important;
+  }
+  .sheet #sPlus {
+    grid-column: 4 / 5 !important;
+    justify-self: center !important;
+  }
+  .sheet .copybtn {
+    grid-column: span 2 !important;
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+  
+  .sheet .ratingrow {
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+}
+
+/* Titre principal majestueux */
+.sheet-head h2 {
+  font-family: var(--font-display) !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+}
+@media (min-width: 768px) {
+  .sheet-head h2 {
+    font-size: 24px !important;
+  }
+}
+
+/* Annulation du néon glow sur fond parchemin pour les titres de fiches */
+.sheet-body h4::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #7d330c 0%, rgba(125, 51, 12, 0.3) 70%, transparent 100%) !important;
+  box-shadow: none !important;
+}
+
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 </style>
