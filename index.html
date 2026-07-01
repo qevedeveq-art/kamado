@@ -2384,6 +2384,414 @@ select,
   }
 }
 
+/* ===== KAMADO GRILLADE VISUAL SYSTEM ===== */
+:root {
+  --coal-0: #080906;
+  --coal-1: #11130d;
+  --coal-2: #1b2015;
+  --coal-3: #28301f;
+  --iron: #626b55;
+  --paper: #fff7e6;
+  --paper-deep: #ead9b0;
+  --ink: #171109;
+  --ink-soft: #453827;
+  --flame: #ff8a32;
+  --flame-2: #ffc15a;
+  --smoke-blue: #9dcced;
+  --leaf: #a9d86f;
+  --danger-ink: #8f2107;
+}
+
+body {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 42px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 42px),
+    radial-gradient(720px 380px at 8% 96%, rgba(255, 96, 24, 0.18), transparent 64%),
+    radial-gradient(680px 420px at 92% 0%, rgba(80, 100, 120, 0.08), transparent 58%),
+    linear-gradient(178deg, var(--coal-1) 0%, var(--coal-0) 100%) !important;
+}
+
+header {
+  background: rgba(8, 9, 6, 0.88) !important;
+  border-bottom-color: rgba(255, 138, 50, 0.28) !important;
+}
+
+.search input,
+.ingredientbar input,
+.fsel {
+  min-height: 40px;
+  border-radius: 14px !important;
+}
+
+.tabs,
+.chips,
+#filterbar,
+.smartbar,
+.ingredientbar,
+.historybar,
+.count,
+.smartnote,
+.grid,
+.brand,
+.search {
+  max-width: 1180px !important;
+}
+
+#filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 14px 16px 6px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.multifilter {
+  background: linear-gradient(180deg, rgba(38,48,30,.92), rgba(25,31,20,.94)) !important;
+  border-color: rgba(169,216,111,.32) !important;
+  border-radius: 14px !important;
+  padding: 7px 8px !important;
+}
+
+.multifilter-label {
+  color: #f0e7d0 !important;
+}
+
+.fbtn,
+.fsel,
+.tab,
+.chip,
+.hitem {
+  border-color: rgba(210, 201, 179, 0.34) !important;
+  color: #fff6df !important;
+}
+
+.fbtn:focus-visible,
+.fsel:focus-visible,
+.tab:focus-visible,
+.chip:focus-visible,
+.rc:focus-visible,
+.actbtn:focus-visible,
+.copybtn:focus-visible,
+.modebtn:focus-visible {
+  outline: 3px solid rgba(255, 193, 90, .72) !important;
+  outline-offset: 2px !important;
+}
+
+.grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)) !important;
+  gap: 18px !important;
+}
+
+.rc {
+  min-height: 245px;
+  isolation: isolate;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.025), transparent 32%),
+    radial-gradient(130px 80px at 88% 20%, rgba(255, 138, 50, .11), transparent 68%),
+    linear-gradient(155deg, rgba(38, 48, 30, .98), rgba(16, 19, 13, 1)) !important;
+  border: 1px solid rgba(211, 201, 179, .30) !important;
+  border-left: 4px solid var(--flame) !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.58),
+    inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+.rc::before {
+  left: 0 !important;
+  right: auto !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 38px !important;
+  height: auto !important;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,193,90,.13) 0 2px, transparent 2px 10px),
+    linear-gradient(180deg, rgba(255,138,50,.24), transparent 70%) !important;
+  opacity: .68;
+  border-radius: 0 !important;
+}
+
+.rc::after {
+  height: 2px !important;
+  background: linear-gradient(90deg, rgba(255,138,50,.75), rgba(255,193,90,.42), transparent 72%) !important;
+}
+
+.rc h3 {
+  color: #fff7e8 !important;
+  font-size: 18px !important;
+  line-height: 1.22 !important;
+  text-shadow: 0 1px 0 rgba(0,0,0,.38);
+}
+
+.rc .ori {
+  color: var(--flame-2) !important;
+  font-size: 11px !important;
+  letter-spacing: .55px !important;
+  max-width: min(260px, 68vw) !important;
+}
+
+.emoji {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.rc .meta {
+  align-content: flex-end;
+}
+
+.rc .badge {
+  color: #fff8e8 !important;
+  background: rgba(9, 11, 7, .52) !important;
+  border-color: rgba(255, 255, 255, .20) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+  max-width: 100% !important;
+}
+
+.rc .badge.mode,
+.rc .badge.temp,
+.rc .badge.coeur {
+  flex-basis: auto;
+  font-size: 11px !important;
+}
+
+.rc .badge.mode {
+  color: var(--flame-2) !important;
+  background: rgba(120, 54, 8, .34) !important;
+}
+
+.rc .badge.temp {
+  color: #ffb07a !important;
+  background: rgba(120, 42, 8, .30) !important;
+}
+
+.rc .badge.coeur {
+  color: var(--leaf) !important;
+  background: rgba(54, 86, 25, .30) !important;
+}
+
+.rc .badge.sauce {
+  color: var(--smoke-blue) !important;
+  background: rgba(25, 58, 76, .32) !important;
+}
+
+.rc .badge.allergen {
+  color: #ffb199 !important;
+  background: rgba(98, 32, 18, .32) !important;
+}
+
+.rc:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(255,193,90,.64) !important;
+  box-shadow:
+    0 18px 38px rgba(0,0,0,.66),
+    0 0 0 1px rgba(255,138,50,.22),
+    0 0 22px rgba(255, 110, 34, .12) !important;
+}
+
+.sheet {
+  background:
+    linear-gradient(180deg, rgba(255, 251, 239, .99), rgba(238, 222, 185, .99)),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(125, 51, 12, .045) 31px 32px) !important;
+}
+
+.sheet-head {
+  min-height: 64px;
+}
+
+.sheet-head h2 {
+  font-size: clamp(19px, 5vw, 25px) !important;
+  line-height: 1.15 !important;
+}
+
+.sheet .ori {
+  display: inline-block;
+  padding: 5px 9px;
+  background: rgba(141, 54, 8, .08);
+  border: 1px solid rgba(141, 54, 8, .18);
+  border-radius: 10px;
+  color: #7a2d05 !important;
+}
+
+.sheet .specbar {
+  gap: 10px !important;
+}
+
+.sheet .spec {
+  border-radius: 12px !important;
+  background: rgba(255,255,255,.62) !important;
+}
+
+.sheet .spec .l {
+  letter-spacing: 1px !important;
+}
+
+.sheet .spec .v {
+  font-family: var(--font-title) !important;
+  line-height: 1.32 !important;
+}
+
+.sheet .servrow {
+  background: rgba(255,255,255,.42);
+  border: 1px solid rgba(91,40,10,.18);
+  border-radius: 14px;
+  padding: 10px !important;
+}
+
+.sheet .tip,
+.sheet .rich-section,
+.sheet .detail-grid {
+  scroll-margin-top: 84px;
+}
+
+.sheet .tip {
+  background: rgba(255,255,255,.54) !important;
+  border-left-width: 4px !important;
+  border-radius: 12px !important;
+}
+
+.sheet .steps li,
+.sheet .cstep {
+  background: rgba(255,255,255,.32);
+  border: 1px solid rgba(91,40,10,.12) !important;
+  border-radius: 12px;
+  margin-bottom: 9px;
+}
+
+.sheet .steps li {
+  padding: 14px 14px 14px 48px !important;
+}
+
+.sheet .steps li::before {
+  left: 12px !important;
+  top: 14px !important;
+}
+
+.sheet .csteps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sheet .cstep {
+  padding: 12px !important;
+}
+
+.sheet .cstep label {
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.sheet .cstep.done {
+  background: rgba(94,130,37,.12) !important;
+  border-color: rgba(58,94,13,.28) !important;
+}
+
+.sheet .cstep.done span {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  color: #4f4636 !important;
+}
+
+.sheet .tbtn {
+  background: #8d3608 !important;
+  color: #fff8e7 !important;
+  border: 0 !important;
+  margin-top: 10px;
+}
+
+.sheet .phase-card {
+  border-radius: 12px !important;
+  background: rgba(255,255,255,.48) !important;
+}
+
+.sheet .phase-card::before {
+  box-shadow: none !important;
+}
+
+.sheet .phase-badge {
+  color: #16110a !important;
+  background: rgba(255,255,255,.58) !important;
+  border-color: rgba(91,40,10,.22) !important;
+}
+
+.sheet .phase-badge.temp {
+  color: #8a2f06 !important;
+}
+
+.sheet .phase-badge.dur {
+  color: #284400 !important;
+}
+
+.sheet .quality-checks {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)) !important;
+}
+
+@media (max-width: 720px) {
+  header {
+    padding-bottom: 4px !important;
+  }
+  .tabs,
+  .chips {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  #filterbar {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  #filterbar .multifilter,
+  #filterbar .ingredientbar,
+  #filterbar #fRand,
+  #filterbar #fFav {
+    grid-column: 1 / -1;
+  }
+  .fsel {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .grid {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    gap: 14px !important;
+  }
+  .rc {
+    min-height: 215px;
+    padding: 17px 18px !important;
+  }
+  .rc h3 {
+    font-size: 17px !important;
+  }
+  .rc .badge {
+    font-size: 10.5px !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+  }
+  .sheet .servrow {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rc,
+  .tab,
+  .chip,
+  .fbtn,
+  .actbtn,
+  .copybtn,
+  .modebtn {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 </style>
