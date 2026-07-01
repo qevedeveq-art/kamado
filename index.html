@@ -1880,6 +1880,79 @@ select,
   border-color: rgba(211,201,179,0.32) !important;
 }
 
+/* Specs larges pour éviter les débordements sur textes longs */
+.spec.wide-spec {
+  flex: 1 1 100%;
+}
+@media (min-width: 480px) {
+  .spec.wide-spec {
+    flex: 1 1 calc(50% - 8px);
+  }
+}
+
+/* Correctifs de contrastes sur fond parchemin clair (.sheet) */
+.sheet .detail-list,
+.sheet .cstep span,
+.sheet .steps li,
+.sheet .ings li {
+  color: #2b2518 !important;
+}
+
+.sheet .qcheck {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #4c4435 !important;
+  border-color: rgba(197, 180, 147, 0.6) !important;
+}
+
+.sheet .qcheck.ok {
+  color: #2e4412 !important;
+  border-color: rgba(110, 148, 69, 0.4) !important;
+  background: rgba(110, 148, 69, 0.08) !important;
+}
+
+.sheet .qcheck.miss {
+  color: #7d2010 !important;
+  border-color: rgba(211, 55, 25, 0.25) !important;
+  background: rgba(211, 55, 25, 0.04) !important;
+}
+
+.sheet .rich-row {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #2b2518 !important;
+  border: 1px solid rgba(197, 180, 147, 0.4) !important;
+}
+
+.sheet .rich-row b {
+  color: #7d330c !important;
+}
+
+.sheet .phase-card {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #2b2518 !important;
+  border-left-color: #6e9445 !important;
+  border: 1px solid rgba(197, 180, 147, 0.4) !important;
+  border-left-width: 4px !important;
+}
+
+.sheet .phase-card:before {
+  background: #6e9445 !important;
+  color: #fff !important;
+}
+
+.sheet .quality-tile {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid rgba(197, 180, 147, 0.4) !important;
+  color: #2b2518 !important;
+}
+
+.sheet .quality-tile b {
+  color: #7d330c !important;
+}
+
+.sheet h4 span {
+  color: #554d3d !important;
+}
+
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 </style>
@@ -7326,12 +7399,12 @@ function openRecipe(i){
         <div class="spec"><div class="l">Niveau</div><div class="v">${niveau(r)}</div></div>
         <div class="spec"><div class="l">Piquant</div><div class="v">${spiceLevel(r)}</div></div>
         <div class="spec"><div class="l">Saison</div><div class="v">${seasonLabel(seasonFor(r))}</div></div>
-        ${r.bois?`<div class="spec"><div class="l">Bois conseillé</div><div class="v" style="font-size:13px">${r.bois}</div></div>`:''}
-        ${alls.length?`<div class="spec"><div class="l">Allergènes</div><div class="v" style="font-size:13px">${alls.join(", ")}</div></div>`:''}
-        ${diets.length?`<div class="spec"><div class="l">Régimes</div><div class="v" style="font-size:13px">${diets.join(", ")}</div></div>`:''}
-        ${sauces?`<div class="spec"><div class="l">Sauce</div><div class="v" style="font-size:13px">${sauces}</div></div>`:''}
-        <div class="spec"><div class="l">Qualité fiche</div><div class="v" style="font-size:13px">${q.label} (${q.score}/${q.max})</div></div>
-        ${equip.length?`<div class="spec"><div class="l">Matériel</div><div class="v" style="font-size:13px">${equip.join(", ")}</div></div>`:''}
+        ${r.bois?`<div class="spec wide-spec"><div class="l">Bois conseillé</div><div class="v" style="font-size:13px">${r.bois}</div></div>`:''}
+        ${alls.length?`<div class="spec wide-spec"><div class="l">Allergènes</div><div class="v" style="font-size:13px">${alls.join(", ")}</div></div>`:''}
+        ${diets.length?`<div class="spec wide-spec"><div class="l">Régimes</div><div class="v" style="font-size:13px">${diets.join(", ")}</div></div>`:''}
+        ${sauces?`<div class="spec wide-spec"><div class="l">Sauce</div><div class="v" style="font-size:13px">${sauces}</div></div>`:''}
+        <div class="spec wide-spec"><div class="l">Qualité fiche</div><div class="v" style="font-size:13px">${q.label} (${q.score}/${q.max})</div></div>
+        ${equip.length?`<div class="spec wide-spec"><div class="l">Matériel</div><div class="v" style="font-size:13px">${equip.join(", ")}</div></div>`:''}
         ${r.difficulty?`<div class="spec"><div class="l">Difficulté</div><div class="v diff">${'★'.repeat(r.difficulty)}${'☆'.repeat(5-r.difficulty)}</div></div>`:''}
         ${r.charbon_kg?`<div class="spec"><div class="l">Charbon</div><div class="v">${String(r.charbon_kg).replace(".",",")} kg</div></div>`:''}
         ${r.repos_min?`<div class="spec"><div class="l">Repos</div><div class="v">${r.repos_min} min</div></div>`:''}
