@@ -1106,6 +1106,12 @@ header {
   color: #f0e5cc;
   font-family: var(--font-display);
   letter-spacing: -0.1px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 2.5em;
 }
 
 /* Origin label — flame gold, uppercase small */
@@ -1115,7 +1121,69 @@ header {
   font-weight: 700;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  opacity: 0.85;
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 210px;
+}
+
+/* Upgraded high-contrast badges inside recipes list cards */
+.rc .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.rc .badge {
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  padding: 4px 8px !important;
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #f2ead8 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  letter-spacing: 0.2px !important;
+  max-width: 175px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* High contrast specific recipe badges */
+.rc .badge.mode {
+  color: var(--flame-gold) !important;
+  border-color: rgba(217, 144, 58, 0.28) !important;
+  background: rgba(217, 144, 58, 0.04) !important;
+}
+.rc .badge.temp {
+  color: var(--ember-glow) !important;
+  border-color: rgba(232, 94, 32, 0.28) !important;
+  background: rgba(232, 94, 32, 0.04) !important;
+}
+.rc .badge.coeur {
+  color: var(--green) !important;
+  border-color: rgba(110, 148, 69, 0.28) !important;
+  background: rgba(110, 148, 69, 0.04) !important;
+}
+.rc .badge.niv.n1 { color: #82a852 !important; }
+.rc .badge.niv.n2 { color: #f2a93b !important; }
+.rc .badge.niv.n3 { color: #e85e20 !important; }
+
+.rc .badge.allergen {
+  color: #ff8a8a !important;
+  border-color: rgba(255, 138, 138, 0.25) !important;
+  background: rgba(255, 138, 138, 0.04) !important;
+}
+.rc .badge.sauce {
+  color: #8ac0e2 !important;
+  border-color: rgba(138, 192, 226, 0.25) !important;
+  background: rgba(138, 192, 226, 0.04) !important;
 }
 
 /* ===== TABS ===== */

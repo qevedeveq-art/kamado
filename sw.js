@@ -1,4 +1,4 @@
-const VERSION = "v9";
+const VERSION = "v10";
 const APP_CACHE = `kamado-app-${VERSION}`;
 const RUNTIME_CACHE = `kamado-runtime-${VERSION}`;
 
