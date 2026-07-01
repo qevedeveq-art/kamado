@@ -2086,6 +2086,47 @@ select,
   box-shadow: none !important;
 }
 
+/* Optimisation de la lisibilité des étapes de recettes */
+.sheet .steps li, 
+.sheet .cstep label span {
+  font-size: 15.5px !important;
+  line-height: 1.75 !important;
+  color: #1a160d !important;
+  font-weight: 500 !important;
+}
+
+.sheet .steps li {
+  padding: 12px 0 12px 42px !important;
+  border-bottom: 1px dashed rgba(125, 51, 12, 0.15) !important;
+}
+
+.sheet .cstep {
+  padding: 14px 0 !important;
+  border-bottom: 1px dashed rgba(125, 51, 12, 0.15) !important;
+}
+
+/* Le numéro d'étape : plus grand et contrasté */
+.sheet .steps li::before {
+  width: 28px !important;
+  height: 28px !important;
+  top: 9px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, #7d330c 0%, #5b280a 100%) !important;
+  color: #fdf4e7 !important;
+  box-shadow: 0 2px 6px rgba(91, 40, 10, 0.25) !important;
+}
+
+/* Checkbox plus visible et agréable en cuisine */
+.sheet .cstep input.ck {
+  width: 24px !important;
+  height: 24px !important;
+  accent-color: #7d330c !important;
+  border: 2px solid #5b280a !important;
+  border-radius: 6px !important;
+  cursor: pointer;
+}
+
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 </style>
@@ -7520,7 +7561,7 @@ function openRecipe(i){
       </div>
       <div class="specbar">
         <div class="spec"><div class="l">Mode</div><div class="v">${r.mode}</div></div>
-        <div class="spec" style="display:flex; align-items:center; gap:8px">
+        <div class="spec wide-spec" style="display:flex; align-items:center; gap:10px">
           ${drawThermometerSVG(r.tempK)}
           <div>
             <div class="l">Temp. Kamado</div>
