@@ -35,7 +35,7 @@ const warnings = [];
 const VALID_SPICE = new Set(["Doux", "Épicé doux", "Relevé"]);
 const VALID_SEASON = new Set(["printemps", "ete", "automne", "hiver", "toute"]);
 const KAMADO_MODE = /(direct|indirect|fumage|brais|cocotte|pierre|plaque|grill|rôti|roti|mijot|préparation|preparation)/i;
-const VALID_WRAP_MATERIAU = new Set(["papier boucher", "alu", "papier sulfurisé"]);
+const VALID_WRAP_MATERIAU_PREFIXES = ["papier boucher", "alu", "papier sulfurisé"];
 const CHEF_REFERENCES = [
   "FoodSafety.gov safe minimum internal temperatures",
   "USDA FSIS safe temperature chart",
@@ -79,8 +79,10 @@ function validateRichSchema(recipe, label, i, issues) {
       if (!isNonNegativeNumber(recipe.wrap.at_temp_coeur_C)) {
         issues.push(`${i}: ${label} wrap.at_temp_coeur_C must be a number`);
       }
-      if (!VALID_WRAP_MATERIAU.has(recipe.wrap.materiau)) {
-        issues.push(`${i}: ${label} wrap.materiau must be one of: ${[...VALID_WRAP_MATERIAU].join(", ")}`);
+      const mat = String(recipe.wrap.materiau || "").toLowerCase();
+      const okMat = VALID_WRAP_MATERIAU_PREFIXES.some(p => mat.startsWith(p));
+      if (!okMat) {
+        issues.push(`${i}: ${label} wrap.materiau must start with one of: ${VALID_WRAP_MATERIAU_PREFIXES.join(", ")}`);
       }
     }
   }
@@ -124,8 +126,13 @@ function validateRichSchema(recipe, label, i, issues) {
       issues.push(`${i}: ${label} erreurs must be array of non-empty strings`);
     }
   }
-  if (recipe.notes_securite != null && !isNonEmptyString(recipe.notes_securite)) {
-    issues.push(`${i}: ${label} notes_securite must be a non-empty string`);
+  if (recipe.notes_securite != null) {
+    const ns = recipe.notes_securite;
+    const okStr = isNonEmptyString(ns);
+    const okArr = Array.isArray(ns) && ns.length > 0 && ns.every(isNonEmptyString);
+    if (!okStr && !okArr) {
+      issues.push(`${i}: ${label} notes_securite must be a non-empty string or array of non-empty strings`);
+    }
   }
   if (recipe.source != null && !isNonEmptyString(recipe.source)) {
     issues.push(`${i}: ${label} source must be a non-empty string`);

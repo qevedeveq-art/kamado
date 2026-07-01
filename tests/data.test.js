@@ -113,10 +113,15 @@ test("difficulty is always between 1 and 5", () => {
   }
 });
 
-test("wrap material is from the allowed list", () => {
-  const ALLOWED = new Set(["papier boucher", "alu", "papier sulfurisé"]);
+test("wrap material starts with an allowed family", () => {
+  // Chefs may add precision (e.g. "papier boucher rose non ciré",
+  // "papier boucher ou double alu + jus de pomme"). We only guarantee the
+  // material FAMILY, so the runtime UI can categorize consistently.
+  const ALLOWED_PREFIXES = ["papier boucher", "alu", "papier sulfurisé"];
   for (const r of RECIPES) {
     if (!r.wrap) continue;
-    assert.ok(ALLOWED.has(r.wrap.materiau), `${r.nom}: wrap.materiau="${r.wrap.materiau}"`);
+    const mat = String(r.wrap.materiau || "").toLowerCase();
+    const ok = ALLOWED_PREFIXES.some(p => mat.startsWith(p));
+    assert.ok(ok, `${r.nom}: wrap.materiau="${r.wrap.materiau}"`);
   }
 });
