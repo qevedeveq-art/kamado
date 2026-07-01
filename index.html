@@ -2792,6 +2792,88 @@ header {
   }
 }
 
+body.outdoor-mode {
+  --txt: #fffdf2;
+  --muted: #f1e6ca;
+  --flame: #ff9a3f;
+  --flame-2: #ffd06c;
+  background-image:
+    linear-gradient(180deg, #050604 0%, #090a06 100%) !important;
+}
+
+body.outdoor-mode .rc,
+body.outdoor-mode .tab,
+body.outdoor-mode .chip,
+body.outdoor-mode .fbtn,
+body.outdoor-mode .fsel,
+body.outdoor-mode .multifilter,
+body.outdoor-mode .search input,
+body.outdoor-mode .ingredientbar input {
+  background: #090b07 !important;
+  border-color: rgba(255,255,255,.54) !important;
+  color: #fffdf2 !important;
+  box-shadow: none !important;
+}
+
+body.outdoor-mode .rc {
+  border-left-width: 6px !important;
+}
+
+body.outdoor-mode .rc h3,
+body.outdoor-mode .rc .badge,
+body.outdoor-mode .smartnote,
+body.outdoor-mode .count {
+  color: #fffdf2 !important;
+}
+
+body.outdoor-mode .sheet {
+  background: #fff8e8 !important;
+}
+
+.modal.open {
+  background: rgba(2, 3, 2, .88) !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+.modal.open .sheet {
+  background:
+    linear-gradient(180deg, #fffaf0 0%, #efe0bd 100%) !important;
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.72),
+    0 0 0 1px rgba(255,255,255,.28) !important;
+}
+
+body.outdoor-mode .modal.open {
+  background: rgba(0, 0, 0, .94) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+body.outdoor-mode .modal.open .sheet {
+  background: #fff8e8 !important;
+}
+
+.rc.band-low {
+  border-left-color: #8fc4e8 !important;
+}
+.rc.band-roti {
+  border-left-color: var(--flame) !important;
+}
+.rc.band-vif {
+  border-left-color: #ffd06c !important;
+}
+.rc.band-mixte {
+  border-left-color: #a9d86f !important;
+}
+
+.rc.band-low::after {
+  background: linear-gradient(90deg, rgba(143,196,232,.72), rgba(255,255,255,.18), transparent 72%) !important;
+}
+.rc.band-vif::after {
+  background: linear-gradient(90deg, rgba(255,208,108,.86), rgba(255,138,50,.42), transparent 72%) !important;
+}
+
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 </style>
@@ -7826,7 +7908,12 @@ let viewHistory=LS.get("kokko_history",[]);
 let shoppingList=LS.get("kokko_shopping",[]);
 let pantryProfile=LS.get("kokko_pantry_profile",{have:"",avoid:"",diet:"all",equipment:"all",available:"all"});
 let savedSession=LS.get("kokko_session",{recipes:[],serviceTime:"13:00"});
+let outdoorMode=!!LS.get("kokko_outdoor_mode",false);
 const rid=r=>r.nom;
+function applyOutdoorMode(){
+  document.body.classList.toggle("outdoor-mode", outdoorMode);
+}
+applyOutdoorMode();
 function multiValues(value){
   if(Array.isArray(value))return value.filter(v=>v&&v!=="all");
   if(!value||value==="all")return[];
@@ -7979,6 +8066,7 @@ function renderSmartBar(){
     <button id="sTonight" class="fbtn ${curAvailable!=="all"?'on':''}">Ce soir</button>
     <button id="sSeason" class="fbtn ${curSeason===currentSeason()?'on':''}">Saison</button>
     <button id="sPantry" class="fbtn ${curHave?'on':''}">Garde-manger</button>
+    <button id="sOutdoor" class="fbtn ${outdoorMode?'on':''}">Mode extérieur</button>
     <button id="sReset" class="fbtn">Réinitialiser</button>`;
   const active=[];
   if(curHave)active.push(`ingrédients : ${curHave}`);
@@ -7989,6 +8077,7 @@ function renderSmartBar(){
   $("#sTonight").onclick=()=>{curAvailable=curAvailable==="all"?"90":"all";pantryProfile.available=curAvailable;LS.set("kokko_pantry_profile",pantryProfile);renderFilterBar();renderSmartBar();renderList();};
   $("#sSeason").onclick=()=>{curSeason=curSeason===currentSeason()?"all":currentSeason();renderFilterBar();renderSmartBar();renderList();};
   $("#sPantry").onclick=()=>{$("#have").focus();};
+  $("#sOutdoor").onclick=()=>{outdoorMode=!outdoorMode;LS.set("kokko_outdoor_mode",outdoorMode);applyOutdoorMode();renderSmartBar();};
   $("#sReset").onclick=()=>{
     curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet=[];curEquip=[];curAvailable="all";curQuality="all";curSort="default";favOnly=false;
     pantryProfile={have:"",avoid:"",diet:[],equipment:[],available:"all"};
@@ -8039,7 +8128,8 @@ function card(r){
   const sauces=sauceText(r), alls=allergens(r);
   const rating=ratings[rid(r)];
   const q=qualityInfo(r), diets=dietTags(r);
-  return `<div class="rc" data-i="${i}">
+  const band=tempBand(r);
+  return `<div class="rc band-${band}" data-i="${i}">
     <div class="top">
       <div><h3>${r.nom}</h3><div class="ori">${r.ori}</div></div>
       <div class="rstack">
