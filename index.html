@@ -1635,6 +1635,251 @@ hr, .grid-divider {
   color: var(--flame-gold) !important;
 }
 
+/* ===== ACCESSIBILITY CONTRAST PASS — coherent charcoal kamado UI ===== */
+:root {
+  --bg: #0b0c09;
+  --bg2: #12140f;
+  --card: #20241a;
+  --card2: #2d3325;
+  --line: #596149;
+  --txt: #fff6df;
+  --muted: #d3c9b3;
+  --flame-gold: #f6b24c;
+  --ember-glow: #ff7432;
+  --braise-rouge: #ef4e24;
+  --green: #a7d66b;
+  --blue: #8fc4e8;
+  --accent: var(--ember-glow);
+  --accent2: var(--flame-gold);
+  --ember: var(--braise-rouge);
+}
+
+body {
+  color: var(--txt);
+  background-color: var(--bg);
+}
+
+.count,
+.smartnote,
+.legend,
+.empty,
+.foot,
+.hint,
+.tlab,
+.phase-action,
+.quality-tile span,
+.brand small,
+.multifilter-label,
+.ratingrow span {
+  color: var(--muted) !important;
+}
+
+.tab,
+.chip,
+.fbtn,
+.hitem,
+.badge,
+.phase-badge,
+.pill {
+  color: var(--txt) !important;
+  background: rgba(32, 36, 26, 0.96) !important;
+  border-color: rgba(211, 201, 179, 0.34) !important;
+}
+
+.tab:hover,
+.chip:hover,
+.fbtn:hover,
+.hitem:hover {
+  color: #fffdf4 !important;
+  border-color: rgba(246, 178, 76, 0.72) !important;
+  background: rgba(47, 53, 38, 0.98) !important;
+}
+
+.tab.active,
+.chip.active,
+.fbtn.on,
+.actbtn.on,
+.copybtn,
+.modebtn.on {
+  color: #1a1007 !important;
+  background: linear-gradient(135deg, #ff8a35 0%, #f6b24c 100%) !important;
+  border-color: rgba(255, 218, 140, 0.9) !important;
+  box-shadow: 0 5px 18px rgba(255, 116, 50, 0.28), inset 0 1px 0 rgba(255,255,255,0.28) !important;
+}
+
+.rc {
+  background:
+    linear-gradient(160deg, rgba(47,53,38,0.98) 0%, rgba(27,31,22,0.99) 58%, rgba(15,17,12,1) 100%) !important;
+  border-color: rgba(211, 201, 179, 0.26) !important;
+  border-left-color: var(--ember-glow) !important;
+}
+
+.rc h3,
+.prose h3,
+td b {
+  color: #fff7e8 !important;
+}
+
+.rc .ori,
+.sheet-body .ori,
+.quality-tile b,
+.hitem b,
+.servval,
+.tnum,
+.t-temp,
+.rich-row b,
+.subs-list b,
+.rich-source b,
+.prose h2,
+.prose .callout h3,
+.sheet-body h4,
+.rich-section h4,
+.stepswitch h4,
+.tip b,
+#fRand {
+  color: var(--flame-gold) !important;
+}
+
+.badge.mode,
+.badge.niv.n2 {
+  color: var(--flame-gold) !important;
+  border-color: rgba(246,178,76,0.56) !important;
+}
+.badge.temp,
+.badge.spice,
+.spec .v.temp,
+.t-temp {
+  color: var(--ember-glow) !important;
+  border-color: rgba(255,116,50,0.56) !important;
+}
+.badge.coeur,
+.badge.niv.n1,
+.spec .v.coeur,
+.t-coeur {
+  color: var(--green) !important;
+  border-color: rgba(167,214,107,0.56) !important;
+}
+.badge.niv.n3,
+.badge.allergen,
+.tbx {
+  color: #ff9a78 !important;
+}
+.badge.sauce {
+  color: var(--blue) !important;
+  border-color: rgba(143,196,232,0.56) !important;
+}
+
+.sheet {
+  background:
+    radial-gradient(900px 420px at 16% 0%, rgba(255,116,50,0.12), transparent 62%),
+    linear-gradient(180deg, #171a12 0%, #10120d 100%) !important;
+  color: var(--txt) !important;
+  border: 1px solid rgba(246,178,76,0.34) !important;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.86), inset 0 1px 0 rgba(255,255,255,0.055) !important;
+}
+
+.sheet-head {
+  background: rgba(13, 14, 10, 0.97) !important;
+  border-bottom: 1px solid rgba(246,178,76,0.36) !important;
+}
+
+.sheet-head h2,
+.sheet-body,
+.sheet-body .steps li,
+.sheet-body .ings li,
+.detail-list,
+.prose p,
+.toc a,
+.aout,
+.phase-action,
+.rich-row,
+.security-callout,
+.rich-source {
+  color: var(--txt) !important;
+}
+
+.spec,
+.tip,
+.rich-row,
+.phase-card,
+.quality-tile,
+.qcheck,
+.security-callout,
+.erreurs-list li,
+.subs-list li,
+.rich-source,
+.note,
+.callout,
+.prose .callout,
+.prose blockquote {
+  background: rgba(32, 36, 26, 0.9) !important;
+  border-color: rgba(211, 201, 179, 0.28) !important;
+  color: var(--txt) !important;
+}
+
+.spec .l {
+  color: var(--muted) !important;
+}
+
+.spec .v,
+.phase-name,
+.prose p b,
+.detail-list b {
+  color: #fff7e8 !important;
+}
+
+.qcheck {
+  color: var(--txt) !important;
+}
+.qcheck.ok {
+  border-color: rgba(167,214,107,0.72) !important;
+  background: rgba(56, 76, 38, 0.82) !important;
+}
+.qcheck.miss {
+  border-color: rgba(255,154,120,0.72) !important;
+  background: rgba(75, 35, 24, 0.82) !important;
+}
+
+.ings li {
+  color: var(--txt) !important;
+  border-bottom-color: rgba(211, 201, 179, 0.2) !important;
+}
+.ings li::before,
+.steps li::before {
+  color: #1a1007 !important;
+}
+
+.note,
+.search input,
+select,
+.ainput,
+.ingredientbar input {
+  color: var(--txt) !important;
+  background: rgba(11,12,9,0.96) !important;
+  border-color: rgba(211, 201, 179, 0.36) !important;
+}
+.note::placeholder,
+.search input::placeholder,
+.ingredientbar input::placeholder {
+  color: #bbb09b !important;
+}
+
+.back,
+.ratebtn.on,
+.favstar.on {
+  color: var(--flame-gold) !important;
+}
+.ratebtn,
+.stp,
+.tbp,
+.tbx,
+.modebtn,
+.actbtn {
+  color: var(--txt) !important;
+  background: rgba(32,36,26,0.96) !important;
+  border-color: rgba(211,201,179,0.32) !important;
+}
+
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 </style>
