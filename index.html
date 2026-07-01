@@ -1606,6 +1606,35 @@ hr, .grid-divider {
   box-shadow: 0 2px 6px rgba(125, 51, 12, 0.3) !important;
 }
 
+/* Éléments de formulaires style fer forgé brut */
+.search input, select, .ainput {
+  border: 1px solid rgba(185, 70, 18, 0.35) !important;
+  background: rgba(13, 14, 11, 0.95) !important;
+  color: var(--txt) !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.85) !important;
+  transition: all 0.25s ease;
+}
+.search input:focus, select:focus, .ainput:focus {
+  border-color: var(--flame-gold) !important;
+  box-shadow: 
+    inset 0 2px 4px rgba(0,0,0,0.85),
+    0 0 10px rgba(217, 144, 58, 0.22) !important;
+}
+
+/* Blocs d'astuces du guide (Guide / Températures) style papier kraft brûlé */
+.prose .callout, .prose blockquote {
+  background: rgba(122, 92, 58, 0.07) !important;
+  border-left: 3px solid var(--flame-gold) !important;
+  border-radius: 8px;
+  padding: 14px;
+  margin: 18px 0;
+  color: #ecdcb5 !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+.prose .callout h3 {
+  color: var(--flame-gold) !important;
+}
+
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 </style>
