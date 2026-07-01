@@ -1959,17 +1959,70 @@ select,
 }
 
 /* Correctifs de contrastes sur fond parchemin clair (.sheet) */
+.sheet {
+  background: radial-gradient(circle at 50% 50%, #fcf8ee 0%, #ecdcb5 100%) !important;
+  color: #1a160d !important;
+  border: 1px solid #c5b493 !important;
+  box-shadow: 
+    0 15px 40px rgba(0,0,0,0.85),
+    inset 0 0 60px rgba(100,75,40,0.15) !important;
+}
+
+.sheet-body {
+  color: #1a160d !important;
+  font-size: 15.5px !important;
+  line-height: 1.7 !important;
+}
+
+.sheet-body h4 {
+  color: #7d330c !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  margin-top: 26px !important;
+  margin-bottom: 12px !important;
+  border-bottom: 1px dashed rgba(125, 51, 12, 0.25) !important;
+}
+
 .sheet .detail-list,
 .sheet .cstep span,
 .sheet .steps li,
+.sheet .ings li,
+.sheet .detail-list li,
+.sheet .rich-row {
+  color: #1a160d !important;
+  font-size: 15.5px !important;
+  line-height: 1.7 !important;
+}
+
 .sheet .ings li {
-  color: #2b2518 !important;
+  padding: 10px 0 10px 26px !important;
+  border-bottom: 1px solid rgba(125, 51, 12, 0.08) !important;
+}
+
+.sheet a {
+  color: #b83012 !important;
+  text-decoration: underline !important;
+  font-weight: 600 !important;
+}
+.sheet a:hover {
+  color: #e85e20 !important;
+}
+
+.sheet .spec .l {
+  color: #5c5443 !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+}
+.sheet .spec .v {
+  color: #1a160d !important;
+  font-size: 14.5px !important;
+  font-weight: 800 !important;
 }
 
 .sheet .qcheck {
-  background: rgba(0, 0, 0, 0.04) !important;
+  background: rgba(0, 0, 0, 0.045) !important;
   color: #4c4435 !important;
-  border-color: rgba(197, 180, 147, 0.6) !important;
+  border-color: rgba(197, 180, 147, 0.7) !important;
 }
 
 .sheet .qcheck.ok {
@@ -1986,7 +2039,7 @@ select,
 
 .sheet .rich-row {
   background: rgba(0, 0, 0, 0.04) !important;
-  color: #2b2518 !important;
+  color: #1a160d !important;
   border: 1px solid rgba(197, 180, 147, 0.4) !important;
 }
 
@@ -1996,7 +2049,7 @@ select,
 
 .sheet .phase-card {
   background: rgba(0, 0, 0, 0.04) !important;
-  color: #2b2518 !important;
+  color: #1a160d !important;
   border-left-color: #6e9445 !important;
   border: 1px solid rgba(197, 180, 147, 0.4) !important;
   border-left-width: 4px !important;
@@ -2010,7 +2063,7 @@ select,
 .sheet .quality-tile {
   background: rgba(0, 0, 0, 0.04) !important;
   border: 1px solid rgba(197, 180, 147, 0.4) !important;
-  color: #2b2518 !important;
+  color: #1a160d !important;
 }
 
 .sheet .quality-tile b {
