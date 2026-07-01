@@ -1434,6 +1434,178 @@ th {
   }
 }
 
+/* ===== IMMERSIVE BARBECUE THEME REFINEMENTS ===== */
+
+/* Séparateur horizontal style barre de grille en fonte */
+hr, .grid-divider {
+  border: none;
+  height: 6px;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(51, 54, 41, 0.4) 15%, rgba(51, 54, 41, 0.8) 50%, rgba(51, 54, 41, 0.4) 85%, transparent 100%),
+    repeating-linear-gradient(90deg, #131510 0px, #131510 4px, #333629 4px, #333629 8px);
+  margin: 22px 0;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Bordures de titres avec effet de braise incandescente */
+.prose h2, .sheet-body h4 {
+  position: relative;
+  padding-bottom: 8px;
+}
+.prose h2::after, .sheet-body h4::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ember-glow) 0%, var(--flame-gold) 70%, transparent 100%);
+  box-shadow: 0 1px 4px rgba(232, 94, 32, 0.4);
+}
+
+/* Lueur ardente active (Glow Pulse) sur les boutons et cartes au survol */
+.actbtn:hover, .copybtn:hover, .modebtn:hover, .tbtn:hover {
+  animation: ember-glow-pulse 1.5s infinite alternate;
+  border-color: var(--ember-glow) !important;
+  transform: translateY(-1px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rc:hover {
+  border-color: var(--flame-gold) !important;
+  box-shadow: 
+    0 12px 24px rgba(0,0,0,0.6),
+    0 0 14px rgba(217, 144, 58, 0.15);
+  transform: translateY(-2px);
+  transition: all 0.22s ease-in-out;
+}
+
+/* Volutes de fumée de bois animées */
+.smoke-wrap {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 60px;
+  opacity: 0.22;
+  pointer-events: none;
+}
+.smoke-puff {
+  fill: #8c9180;
+  transform-origin: 50% 100%;
+  animation: smoke-rise 6s infinite ease-in-out;
+}
+@keyframes smoke-rise {
+  0% {
+    transform: translateY(30px) scale(0.3) rotate(0deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-30px) scale(1.4) rotate(15deg);
+    opacity: 0;
+  }
+}
+
+/* Style de 'cahier de notes de chef' parchemin pour les fiches recettes */
+.sheet {
+  background: radial-gradient(circle at 50% 50%, #f7f1df 0%, #ecdcb5 100%) !important;
+  color: #1a160d !important;
+  border: 1px solid #c5b493 !important;
+  box-shadow: 
+    0 15px 40px rgba(0,0,0,0.8),
+    inset 0 0 60px rgba(100,75,40,0.18) !important;
+}
+
+.sheet-head {
+  background: rgba(237, 220, 181, 0.96) !important;
+  border-bottom: 2px solid #5b280a !important;
+}
+
+.sheet-head h2 {
+  color: #5b280a !important;
+}
+
+.sheet-body {
+  color: #2b2518 !important;
+}
+
+.sheet-body h4 {
+  color: #7d330c !important;
+  border-bottom: 1px dashed rgba(125, 51, 12, 0.25);
+  font-family: var(--font-display);
+}
+
+/* Puces de listes d'ingrédients en forme de charbons polyédriques */
+.ings li {
+  position: relative;
+  padding-left: 16px;
+  color: #2b2518 !important;
+  border-bottom: 1px solid rgba(197, 180, 147, 0.4) !important;
+}
+.ings li::before {
+  content: "⬢";
+  color: #3e3220;
+  font-size: 8px;
+  position: absolute;
+  left: 0;
+  top: 9px;
+  opacity: 0.7;
+}
+
+/* Astuces et conseils sur le parchemin */
+.tip {
+  background: rgba(125, 51, 12, 0.05) !important;
+  border-left: 3px solid #7d330c !important;
+  color: #403220 !important;
+}
+.tip b {
+  color: #7d330c !important;
+}
+
+/* Blocs de spécifications style carnets */
+.spec {
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: 1px solid rgba(197, 180, 147, 0.8) !important;
+  color: #1a160d !important;
+}
+.spec .l {
+  color: #736b5e !important;
+}
+.spec .v {
+  color: #1a160d !important;
+}
+.spec .v.temp {
+  color: #9e2810 !important;
+}
+.spec .v.coeur {
+  color: #446622 !important;
+}
+.spec .v.diff {
+  color: #8e2008 !important;
+}
+
+.note {
+  background: rgba(255, 255, 255, 0.4) !important;
+  border: 1px solid #c5b493 !important;
+  color: #1a160d !important;
+}
+.note::placeholder {
+  color: #9c917c !important;
+}
+
+/* Puces d'étapes de préparation */
+.steps li::before {
+  background: linear-gradient(145deg, #7d330c, #9e3d10) !important;
+  box-shadow: 0 2px 6px rgba(125, 51, 12, 0.3) !important;
+}
+
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 </style>
@@ -6803,6 +6975,28 @@ function renderRecipeDetailGuidance(r){
     </div>`;
 }
 
+function drawThermometerSVG(tempStr) {
+  const matches = String(tempStr).match(/(\d+)/);
+  let temp = 110;
+  if (matches) temp = parseInt(matches[1]);
+  const t = Math.max(50, Math.min(380, temp));
+  const pct = (t - 50) / (380 - 50);
+  const angle = -120 + pct * 240;
+  
+  return `
+    <svg width="34" height="34" viewBox="0 0 46 46" style="flex-shrink:0; transform:translateY(1px);">
+      <circle cx="23" cy="23" r="21" fill="#1e2018" stroke="#7a5c3a" stroke-width="2" />
+      <path d="M 9.5 29.5 A 16 16 0 0 1 23 7" fill="none" stroke="#4a7d9e" stroke-width="2.5" />
+      <path d="M 23 7 A 16 16 0 0 1 36.5 29.5" fill="none" stroke="#d9903a" stroke-width="2.5" />
+      <circle cx="23" cy="23" r="16" fill="none" stroke="#b83012" stroke-dasharray="8 100" stroke-dashoffset="-72" stroke-width="2.5" />
+      <g transform="translate(23, 23) rotate(${angle})">
+        <line x1="0" y1="0" x2="0" y2="-17" stroke="#e85e20" stroke-width="3" stroke-linecap="round" />
+        <circle cx="0" cy="0" r="3" fill="#f2ead8" />
+      </g>
+    </svg>
+  `;
+}
+
 function openRecipe(i){
   const r=RECIPES[i],base=baseServ(r);let curServ=base;stepMode=false;
   pushHistory(r);
@@ -6824,7 +7018,16 @@ function openRecipe(i){
       stepsHtml=`<ol class="steps">`+r.etapes.map(x=>`<li>${x}</li>`).join("")+`</ol>`;
     }
     $("#d-title").textContent=r.nom;
+    const isSmoked = String(r.mode).toLowerCase().includes("fumage") || String(r.mode).toLowerCase().includes("slow") || String(r.mode).toLowerCase().includes("basse");
     $("#d-body").innerHTML=`
+      ${isSmoked ? `
+        <div class="smoke-wrap">
+          <svg viewBox="0 0 30 50" width="100%" height="100%" style="color:#7a6c58">
+            <path class="smoke-puff" d="M15 45 C12 40, 10 35, 12 30 C14 25, 18 25, 16 20 C14 15, 10 15, 15 10 C20 15, 18 20, 16 25" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path class="smoke-puff" d="M15 45 C18 40, 20 35, 18 30 C16 25, 12 25, 14 20 C16 15, 20 15, 15 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="animation-delay: 2.2s;" />
+          </svg>
+        </div>
+      ` : ''}
       <div class="ori">${emojiFor(r.cat)} ${r.ori}</div>
       <div class="dactions">
         <button id="dFav" class="actbtn ${fav?'on':''}">${fav?'★ Favori':'☆ Ajouter aux favoris'}</button>
@@ -6837,7 +7040,13 @@ function openRecipe(i){
       </div>
       <div class="specbar">
         <div class="spec"><div class="l">Mode</div><div class="v">${r.mode}</div></div>
-        <div class="spec"><div class="l">Temp. Kamado</div><div class="v temp">${r.tempK}</div></div>
+        <div class="spec" style="display:flex; align-items:center; gap:8px">
+          ${drawThermometerSVG(r.tempK)}
+          <div>
+            <div class="l">Temp. Kamado</div>
+            <div class="v temp">${r.tempK}</div>
+          </div>
+        </div>
         ${r.coeur?`<div class="spec"><div class="l">À cœur</div><div class="v coeur">${r.coeur}</div></div>`:''}
         <div class="spec"><div class="l">Cuisson</div><div class="v">${r.temps}</div></div>
         <div class="spec"><div class="l">Niveau</div><div class="v">${niveau(r)}</div></div>
