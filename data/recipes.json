@@ -3790,6 +3790,8 @@
     ],
     "astuce": "Le salage à sec sous gros sel est l'étape critique : 24 h pour un magret de 350 g, pas une heure de plus (sinon trop salé), pas une heure de moins (sinon pas assez 'cuit' et risque sanitaire). Pesez vos magrets avant et notez la date sur un post-it.",
     "difficulty": 4,
+    "charbon_kg": 0.5,
+    "repos_min": 0,
     "vents": {
       "bottom": "ouvert grand (extraction fumée seule)",
       "top": "ouvert grand"
@@ -5867,6 +5869,8 @@
     ],
     "astuce": "La pellicle (pellicule brillante après séchage à l'air) est ce qui retient la fumée — sans elle, la fumée glisse et n'imprègne pas. 2 h de séchage frigo à découvert sont essentielles. Le repos final de 24 h adoucit la fumée trop âcre et donne le profil aromatique élégant 'norvégien'.",
     "difficulty": 3,
+    "charbon_kg": 0.5,
+    "repos_min": 0,
     "vents": {
       "bottom": "ouvert grand (extraction fumée seule)",
       "top": "ouvert grand"
@@ -7075,6 +7079,8 @@
     ],
     "astuce": "La règle d'or : pierre brûlante + pizza fine + garniture légère + cuisson courte. Trop de garniture = pâte molle.",
     "difficulty": 3,
+    "charbon_kg": 3,
+    "repos_min": 2,
     "marinade_h": 24,
     "vents": {
       "bottom": "ouvert grand (pour 380–400 °C)",
@@ -7560,6 +7566,8 @@
     ],
     "astuce": "La pâte 72 h développe maltose et acidité lactique qui donnent à la pizza al taglio son goût caractéristique 'noisette' et sa croûte alvéolée. La cuisson en 2 temps (blanc puis garni) est typique des friggitorie romaines : le fond cuit complètement et reste croustillant, la mozza ne se vitrifie pas.",
     "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 3,
     "vents": {
       "bottom": "ouvert grand pour atteindre 280 °C",
       "top": "ouvert grand"
@@ -10946,6 +10954,8 @@
     ],
     "astuce": "Le char siu authentique se reconnaît à sa surface brillante brun-rouge avec des bords noircis caramélisés. Pour ça, le glaçage au miel doit être appliqué SUR la fin de cuisson, jamais au début (le sucre brûlerait). Le rouge profond vient du nam yu (soja rouge fermenté) — sans, ajoutez 1 goutte de colorant rouge ou de la sauce sriracha.",
     "difficulty": 2,
+    "charbon_kg": 1.5,
+    "repos_min": 5,
     "marinade_h": 12,
     "vents": {
       "bottom": "1/4 ouvert",
