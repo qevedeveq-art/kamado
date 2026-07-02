@@ -1666,6 +1666,417 @@
     }
   },
   {
+    "cat": "boeuf",
+    "nom": "Bœuf bourguignon au kamado",
+    "ori": "France · Bourgogne, braisé vin rouge",
+    "pour": "6 pers",
+    "mode": "Braisé indirect (cocotte)",
+    "tempK": "140–150 °C",
+    "coeur": "92–94 °C (fondant à la fourchette)",
+    "temps": "3 h 30–4 h",
+    "bois": "Chêne (1 morceau, léger)",
+    "tags": "boeuf bourguignon braisé vin rouge cocotte fonte lardons champignons",
+    "ings": [
+      "1,5 kg de paleron ou macreuse en cubes de 5 cm",
+      "200 g de lardons fumés",
+      "24 petits oignons grelot, 300 g de champignons de Paris",
+      "3 carottes, 2 oignons, 3 gousses d'ail, bouquet garni",
+      "75 cl de vin rouge de Bourgogne (Pinot noir)",
+      "50 cl de fond de veau, 2 c.à.s. concentré de tomate, 40 g de beurre, 40 g de farine",
+      "Sel, poivre, huile d'olive"
+    ],
+    "etapes": [
+      "La veille : marinez les cubes de bœuf 12 h dans le vin rouge avec oignons, carottes, ail, bouquet garni. Séchez soigneusement la viande au papier absorbant avant cuisson (indispensable pour la coloration).",
+      "Stabilisez le kamado en direct à 240 °C, pierre déflectrice en attente. Dans la cocotte en fonte ouverte, faites suer les lardons puis colorez les cubes de bœuf en 2 fournées jusqu'à croûte brune franche.",
+      "Retirez la viande, faites revenir la garniture aromatique (mirepoix). Singez avec la farine, torréfiez 2 min, ajoutez le concentré de tomate.",
+      "Déglacez avec la marinade filtrée, ajoutez le fond de veau, la viande, le bouquet garni. Portez à petit frémissement.",
+      "Installez la pierre déflectrice, réduisez les évents pour stabiliser à 145 °C indirect. Couvercle de la cocotte fermé, braisez 3 h en vérifiant à 2 h que la sonde glisse vers 90 °C.",
+      "Pendant ce temps, glacez à brun les oignons grelot au beurre/sucre et sautez les champignons. Ajoutez-les dans la cocotte la dernière 30 min de cuisson.",
+      "Le bœuf est prêt quand la sonde traverse comme du beurre (92–94 °C). Rectifiez l'assaisonnement, dégraissez la sauce, repos 15 min couvercle fermé. Servez sur pommes vapeur ou tagliatelles fraîches."
+    ],
+    "astuce": "Sur kamado : la vraie plus-value vs cocotte au four est le caractère du bois de chêne pendant la coloration (avant de fermer la cocotte). Ne saturez pas — 1 morceau de chêne suffit. Vin de qualité obligatoire : la sauce concentre 4× ses arômes.",
+    "difficulty": 4,
+    "charbon_kg": 2.5,
+    "repos_min": 15,
+    "marinade_h": 12,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Saisie mirepoix",
+        "mode": "direct",
+        "temp_C": 240,
+        "duration_min": 25,
+        "action": "Cocotte ouverte, lardons puis viande en 2 fournées. Garniture, singer, tomater."
+      },
+      {
+        "name": "Braisé cocotte fermée",
+        "mode": "braisé",
+        "temp_C": 145,
+        "duration_min": 180,
+        "action": "Pierre déflectrice en place, couvercle fermé. Vin+fond à mi-hauteur. Sonde vise 92–94 °C."
+      },
+      {
+        "name": "Finition oignons/champignons",
+        "mode": "braisé",
+        "temp_C": 145,
+        "duration_min": 30,
+        "action": "Ajouter oignons grelot glacés et champignons sautés. Dégraisser la sauce."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte 5 L avec couvercle",
+      "Pierre déflectrice",
+      "Sonde 2 canaux",
+      "Chinois pour filtrer la marinade",
+      "Passoire fine"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Paleron",
+        "par": "Macreuse, gîte à la noix ou joue de bœuf — jamais de morceaux nobles (filet, entrecôte) qui deviennent secs en braisé"
+      },
+      {
+        "ingredient": "Pinot noir de Bourgogne",
+        "par": "Vin rouge tannique de garde (Côtes-du-Rhône, Madiran) — JAMAIS de vin de cuisine sucré"
+      }
+    ],
+    "erreurs": [
+      "Viande mal séchée avant saisie : elle bout au lieu de brunir, sauce fade → papier absorbant obligatoire",
+      "Cocotte laissée ouverte pendant le braisage : trop de réduction, viande sèche → couvercle fermé sur toute la phase 2",
+      "Ajout des oignons/champignons trop tôt : ils s'écrasent → dernière 30 min uniquement",
+      "Sonde qui montre 85 °C : le collagène n'est pas fondu → patientez jusqu'à 92 °C minimum"
+    ],
+    "chef_ref": {
+      "chef": "Paul Bocuse",
+      "work": "La Cuisine du marché (Flammarion, 1976)",
+      "note": "Bœuf bourguignon avec marinade au vin rouge, glaçage des oignons grelot à brun et champignons sautés séparément : codification bocusienne du plat bourguignon, respectée ici sur kamado."
+    },
+    "source": "Paul Bocuse — 'La Cuisine du marché' (Flammarion, 1976), chap. bœuf bourguignon",
+    "_derived": {
+      "spice": "Doux",
+      "season": "hiver",
+      "sauces": [
+        "Chimichurri argentin"
+      ],
+      "allergens": [
+        "lait",
+        "gluten",
+        "œuf"
+      ]
+    }
+  },
+  {
+    "cat": "boeuf",
+    "nom": "Pot-au-feu bourgeois au kamado",
+    "ori": "France · plat national mijoté",
+    "pour": "6 pers",
+    "mode": "Braisé indirect (cocotte)",
+    "tempK": "130–140 °C",
+    "coeur": "92–94 °C (viande à la fourchette)",
+    "temps": "4 h",
+    "bois": "—",
+    "tags": "pot au feu bourgeois plat national bouillon os moelle mijoté légumes racines",
+    "ings": [
+      "800 g de plat de côtes",
+      "800 g de macreuse ou gîte",
+      "500 g de jarret de bœuf",
+      "4 os à moelle",
+      "4 poireaux, 6 carottes, 4 navets, 1 céleri-rave, 1 chou vert",
+      "2 oignons cloutés au clou de girofle, 4 gousses d'ail",
+      "Bouquet garni (thym, laurier, persil, poireau vert)",
+      "Gros sel, poivre en grains, gros sel de service"
+    ],
+    "etapes": [
+      "Blanchissez toutes les viandes ensemble à l'eau bouillante 5 min, jetez cette première eau (élimine impuretés et écume — clef d'un bouillon clair).",
+      "Placez la pierre déflectrice, stabilisez le kamado à 135 °C indirect. Dans une grande cocotte en fonte, mettez les viandes rincées, couvrez de 4 L d'eau froide, ajoutez oignons cloutés, ail, bouquet garni et poivre.",
+      "Portez à petit frémissement sur la grille kamado. Écumez toutes les 15 min pendant la première heure jusqu'à un bouillon limpide. Ne salez qu'après cette clarification (gros sel).",
+      "Fermez la cocotte, laissez mijoter 3 h à 135 °C indirect. Le frémissement doit être imperceptible (sinon la viande devient filandreuse).",
+      "Ajoutez les carottes, navets, céleri-rave et poireaux (blanchis 2 min pour le chou) la dernière heure de cuisson.",
+      "Les os à moelle enveloppés d'une gaze rejoignent la cocotte les 20 dernières minutes uniquement (sinon la moelle fond).",
+      "Servez à part : bouillon en tasse (avec vermicelle et gros sel de Guérande), viandes tranchées, légumes, os à moelle sur toast, cornichons et moutarde forte."
+    ],
+    "astuce": "Le secret Bocuse : blanchir/rincer toutes les viandes avant la vraie cuisson pour un bouillon parfaitement clair. Le pot-au-feu doit frémir, JAMAIS bouillir — sinon la viande devient sèche et le bouillon trouble. Kamado à 135 °C indirect couvercle fermé = mode 'four à mijoter' idéal.",
+    "difficulty": 3,
+    "charbon_kg": 3,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Blanchiment/clarification",
+        "mode": "indirect",
+        "temp_C": 135,
+        "duration_min": 60,
+        "action": "Blanchir, rincer, écumer sans arrêt. Bouillon clair obligatoire avant de saler."
+      },
+      {
+        "name": "Mijotage lent",
+        "mode": "indirect",
+        "temp_C": 135,
+        "duration_min": 180,
+        "action": "Cocotte fermée, frémissement imperceptible. Sonde viande vise 92–94 °C."
+      },
+      {
+        "name": "Cuisson légumes",
+        "mode": "indirect",
+        "temp_C": 135,
+        "duration_min": 60,
+        "action": "Ajouter racines et poireaux. Chou blanchi à part. Os à moelle les 20 dernières minutes."
+      }
+    ],
+    "equipement": [
+      "Grande cocotte en fonte 8 L",
+      "Pierre déflectrice",
+      "Écumoire",
+      "Gaze culinaire pour os à moelle",
+      "Louche",
+      "Sonde 2 canaux"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Plat de côtes + macreuse + jarret",
+        "par": "Trio classique = maigre + gras + gélatineux ; ne remplacez pas par une seule pièce — la richesse vient du mélange"
+      },
+      {
+        "ingredient": "Os à moelle",
+        "par": "Facultatif si indisponible ; ne pas remplacer par de la moelle épinière"
+      }
+    ],
+    "erreurs": [
+      "Faire bouillir au lieu de frémir : viande sèche, bouillon trouble → 135 °C indirect maxi",
+      "Saler avant clarification : impuretés fixées → sel uniquement après écumage complet",
+      "Cuire tous les légumes dès le début : purée dans l'assiette → racines la dernière heure, chou blanchi à part",
+      "Os à moelle 1 h : la moelle a fondu → 20 min max, enveloppés de gaze"
+    ],
+    "chef_ref": {
+      "chef": "Paul Bocuse",
+      "work": "La Cuisine du marché (Flammarion, 1976)",
+      "note": "Pot-au-feu bourgeois avec blanchiment préalable des viandes, bouillon clarifié et os à moelle en gaze : version codifiée par Bocuse et référence pédagogique française."
+    },
+    "source": "Paul Bocuse — 'La Cuisine du marché' (Flammarion, 1976), chap. pot-au-feu bourgeois",
+    "_derived": {
+      "spice": "Doux",
+      "season": "ete",
+      "sauces": [
+        "Chimichurri argentin"
+      ],
+      "allergens": [
+        "œuf"
+      ]
+    }
+  },
+  {
+    "cat": "boeuf",
+    "nom": "Daube provençale au kamado",
+    "ori": "France · Provence, mijoté au vin rouge & orange",
+    "pour": "6 pers",
+    "mode": "Braisé indirect (cocotte)",
+    "tempK": "140–150 °C",
+    "coeur": "92–94 °C (viande à la cuillère)",
+    "temps": "4 h",
+    "bois": "Sarments de vigne ou olivier (1 morceau)",
+    "tags": "daube provençale provence boeuf vin rouge orange olive noire romarin cocotte",
+    "ings": [
+      "1,5 kg de paleron ou joue de bœuf en gros cubes",
+      "150 g de lard fumé en dés",
+      "3 oignons, 3 carottes, 4 gousses d'ail, 3 tomates concassées",
+      "1 zeste d'orange non traitée + 1 bâton de cannelle",
+      "75 cl de vin rouge de Provence tannique (Bandol, Côtes-du-Rhône)",
+      "150 g d'olives noires de Nyons dénoyautées",
+      "Bouquet garni (thym, laurier, romarin, persil), 4 clous de girofle",
+      "2 c.à.s. huile d'olive, sel, poivre, farine (pour singer)"
+    ],
+    "etapes": [
+      "La veille : marinez les cubes de bœuf 24 h dans le vin rouge avec oignons émincés, ail, zeste d'orange, cannelle, clous de girofle, bouquet garni. Séchez la viande avant cuisson.",
+      "Stabilisez le kamado en direct à 230 °C. Dans la cocotte en fonte ouverte, faites fondre le lard, colorez les cubes de bœuf en 2 fournées.",
+      "Retirez la viande, faites revenir carottes et oignons. Singez d'une c.à.s. de farine, ajoutez les tomates concassées.",
+      "Déglacez avec la marinade filtrée, remettez la viande, complétez d'eau chaude à mi-hauteur. Ajoutez le zeste d'orange, la cannelle, le bouquet garni.",
+      "Installez la pierre déflectrice, stabilisez à 145 °C indirect. Ajoutez un morceau de sarment ou d'olivier pour la fumée typiquement provençale.",
+      "Couvercle de la cocotte fermé, braisez 3 h. La sonde doit glisser à 92 °C. Ajoutez les olives noires les 30 dernières minutes (sinon amères).",
+      "Repos 15 min couvercle fermé. Retirez la cannelle et le zeste avant service. Servez sur macaronis à l'huile d'olive ou polenta crémeuse."
+    ],
+    "astuce": "La signature de la daube : le zeste d'orange amère (jamais la partie blanche) et la pointe de cannelle qui marient le vin rouge tannique. Le sarment de vigne posé sur les braises donne un fumage discret parfaitement provençal — 1 morceau suffit.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 15,
+    "marinade_h": 24,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Saisie viande + garniture",
+        "mode": "direct",
+        "temp_C": 230,
+        "duration_min": 25,
+        "action": "Lard, coloration viande en 2 fournées, garniture, singer, tomater."
+      },
+      {
+        "name": "Braisé long",
+        "mode": "braisé",
+        "temp_C": 145,
+        "duration_min": 180,
+        "action": "Pierre déflectrice, cocotte fermée. Marinade+eau à mi-hauteur. Sonde 92 °C."
+      },
+      {
+        "name": "Finition olives",
+        "mode": "braisé",
+        "temp_C": 145,
+        "duration_min": 30,
+        "action": "Ajout olives noires, retrait zeste et cannelle en fin. Rectifier assaisonnement."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte 5 L (ou daubière traditionnelle)",
+      "Pierre déflectrice",
+      "Sonde 2 canaux",
+      "Économe pour zeste sans partie blanche"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Paleron",
+        "par": "Joue de bœuf, jarret désossé ou macreuse — pas de morceaux nobles"
+      },
+      {
+        "ingredient": "Olives noires de Nyons",
+        "par": "Olives de Kalamata dénoyautées — jamais d'olives en boîte industrielles"
+      },
+      {
+        "ingredient": "Vin de Bandol",
+        "par": "Côtes-du-Rhône Village, Cairanne, Rasteau tannique de garde"
+      }
+    ],
+    "erreurs": [
+      "Marinade trop courte (<12 h) : goût plat, chair peu parfumée → 24 h obligatoires",
+      "Zeste avec la partie blanche : amertume désagréable → économe rasant seulement l'écorce orange",
+      "Olives ajoutées dès le début : elles deviennent amères et poussiéreuses → dernière 30 min",
+      "Ébullition franche : viande sèche → 145 °C indirect couvercle fermé"
+    ],
+    "source": "Larousse Gastronomique 2023, entrée « daube provençale » ; adaptation kamado inspirée de Reine Sammut (chef provençal)",
+    "_derived": {
+      "spice": "Doux",
+      "season": "hiver",
+      "sauces": [
+        "Chimichurri argentin"
+      ],
+      "allergens": [
+        "lait",
+        "gluten",
+        "œuf"
+      ]
+    }
+  },
+  {
+    "cat": "boeuf",
+    "nom": "Blanquette de veau au kamado",
+    "ori": "France · plat bourgeois classique",
+    "pour": "6 pers",
+    "mode": "Indirect (cocotte)",
+    "tempK": "120–130 °C",
+    "coeur": "90 °C (viande fondante)",
+    "temps": "2 h 30",
+    "bois": "—",
+    "tags": "blanquette veau bourgeois sauce blanche champignons oignons grelot creme jaune oeuf",
+    "ings": [
+      "1,5 kg d'épaule de veau + 500 g de tendron en cubes de 5 cm",
+      "2 carottes, 1 oignon clouté (2 clous de girofle), 1 poireau, bouquet garni",
+      "1 gousse d'ail, 1 branche de céleri",
+      "250 g de champignons de Paris, 24 petits oignons grelot",
+      "Roux blanc : 40 g de beurre + 40 g de farine",
+      "20 cl de crème fraîche épaisse + 2 jaunes d'œuf",
+      "1 jus de citron, sel, poivre blanc, muscade",
+      "1,5 L de bouillon de volaille (ou fond blanc)"
+    ],
+    "etapes": [
+      "Blanchissez les cubes de veau 5 min à l'eau bouillante, rincez sous l'eau froide (les impuretés se figent — indispensable pour la sauce blanche).",
+      "Placez la pierre déflectrice, stabilisez le kamado à 125 °C indirect. Dans la cocotte : veau rincé, garniture aromatique (carottes, oignon clouté, poireau, ail, céleri, bouquet garni), couvrez de fond blanc.",
+      "Portez au frémissement sur la grille kamado. Écumez régulièrement pendant 15 min. Salez modérément.",
+      "Couvercle fermé, cuisez 2 h à 125 °C indirect. La viande doit se laisser transpercer (sonde 88–90 °C) sans se déliter.",
+      "Pendant ce temps : glacez à blanc les oignons grelot au beurre + eau + sucre. Sautez les champignons au beurre citronné.",
+      "Filtrez le bouillon (garniture jetée). Retirez la viande. Réduisez le bouillon si trop léger. Préparez le roux blanc : beurre fondu + farine, cuire 2 min sans coloration, versez le bouillon chaud en fouettant. Cuisez la velouté 10 min.",
+      "Hors feu, incorporez la liaison crème + jaunes d'œuf + jus de citron (jamais à ébullition sinon les jaunes cuisent). Rectifiez sel, poivre blanc, muscade.",
+      "Remettez la viande, oignons et champignons dans la sauce. Servez avec riz pilaf."
+    ],
+    "astuce": "La signature blanquette : cuisson SANS coloration (pas de saisie initiale). La sauce doit rester ivoire immaculée. Le blanchiment initial est non-négociable. La liaison crème+jaunes se fait HORS feu (85 °C max) sinon les jaunes cuisent en grumeaux.",
+    "difficulty": 3,
+    "charbon_kg": 2,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/8 ouvert",
+      "top": "1/8 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Blanchiment",
+        "mode": "préparation",
+        "temp_C": 100,
+        "duration_min": 15,
+        "action": "Cubes veau à l'eau bouillante 5 min, rinçage à l'eau froide. Bouillon clair obligatoire."
+      },
+      {
+        "name": "Mijotage doux",
+        "mode": "indirect",
+        "temp_C": 125,
+        "duration_min": 120,
+        "action": "Cocotte fermée, frémissement doux. Sonde vise 88–90 °C. Écumage régulier."
+      },
+      {
+        "name": "Velouté + liaison",
+        "mode": "indirect",
+        "temp_C": 85,
+        "duration_min": 15,
+        "action": "Roux blanc + bouillon = velouté 10 min. Liaison crème+jaunes HORS feu (85 °C max)."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte 5 L",
+      "Pierre déflectrice",
+      "Fouet",
+      "Chinois fin",
+      "Sonde 2 canaux"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Épaule + tendron",
+        "par": "Collier ou flanchet de veau — chair gélatineuse indispensable ; jamais de noix qui devient sèche"
+      },
+      {
+        "ingredient": "Crème fraîche épaisse",
+        "par": "Crème double 45% MG — jamais de crème allégée qui tranche à la liaison"
+      }
+    ],
+    "erreurs": [
+      "Saisie initiale de la viande : sauce grise → cuisson sans coloration, veau blanchi/rincé uniquement",
+      "Ébullition avec la liaison : jaunes coagulés en grumeaux → HORS feu, 85 °C max",
+      "Sel avant écumage : impuretés fixées → salage après clarification",
+      "Bouillon trouble à la fin : mauvais écumage → écumer toutes les 5 min pendant 15 min"
+    ],
+    "chef_ref": {
+      "chef": "Auguste Escoffier",
+      "work": "Le Guide culinaire (Flammarion, 1903)",
+      "note": "Blanquette de veau à l'ancienne : liaison crème + jaunes d'œuf + jus de citron hors feu, garniture d'oignons glacés à blanc et champignons cuits séparément — méthode codifiée dans Le Guide culinaire, référence française."
+    },
+    "source": "Auguste Escoffier — 'Le Guide culinaire' (Flammarion, 1903), chap. blanquette de veau à l'ancienne",
+    "_derived": {
+      "spice": "Doux",
+      "season": "automne",
+      "sauces": [
+        "Chimichurri argentin"
+      ],
+      "allergens": [
+        "lait",
+        "gluten",
+        "œuf"
+      ]
+    }
+  },
+  {
     "cat": "porc",
     "nom": "Pulled pork (échine effilochée)",
     "ori": "USA · le roi du low & slow",
@@ -3109,6 +3520,215 @@
     }
   },
   {
+    "cat": "porc",
+    "nom": "Cassoulet toulousain au kamado",
+    "ori": "France · Toulouse, haricots blancs, canard confit et croûte gratinée",
+    "pour": "8 pers",
+    "mode": "Indirect (cocotte) puis direct croûte",
+    "tempK": "140 °C puis 200 °C",
+    "coeur": "70 °C saucisse + croûte dorée 3 fois",
+    "temps": "3 h (+ trempage haricots 12 h)",
+    "bois": "Hêtre (1 morceau, léger)",
+    "tags": "cassoulet toulouse haricots tarbais canard confit saucisse toulouse porc croute",
+    "ings": [
+      "600 g de haricots tarbais (trempés 12 h)",
+      "4 cuisses de canard confites",
+      "400 g d'échine de porc en cubes",
+      "300 g de couenne de porc",
+      "4 saucisses de Toulouse pur porc",
+      "200 g de poitrine fraîche + 200 g de lard",
+      "2 oignons, 4 gousses d'ail, 4 tomates concassées",
+      "Bouquet garni (thym, laurier, persil), 6 baies de genièvre",
+      "1 L de bouillon de volaille",
+      "Sel, poivre, chapelure fine"
+    ],
+    "etapes": [
+      "La veille : trempez les haricots tarbais 12 h à l'eau froide, jetez cette eau. Blanchissez les haricots 5 min à l'eau bouillante, rincez.",
+      "Placez la pierre déflectrice, stabilisez le kamado à 140 °C indirect. Dans une cocotte en fonte : couenne de porc étalée au fond (côté gras), haricots égouttés, oignons, ail, tomates, bouquet garni, baies de genièvre, poitrine et lard. Couvrez de bouillon.",
+      "Couvercle fermé, cuisez 1 h 30 à 140 °C indirect (haricots à peine tendres, sonde ne se plante pas encore facilement).",
+      "Pendant ce temps, colorez rapidement l'échine et les saucisses de Toulouse en direct sur une deuxième grille (10 min à 220 °C). Réchauffez les cuisses confites 15 min sur la même zone pour rendre le gras. Réservez.",
+      "Enfoncez les viandes dorées dans les haricots (échine, saucisses, cuisses de canard confit peau vers le haut). Complétez de bouillon si besoin (haricots à peine couverts).",
+      "Poursuivez 45 min à 140 °C couvercle fermé, jusqu'à saucisses à 70 °C à cœur et haricots fondants.",
+      "Retirez le couvercle, ouvrez les évents et montez le kamado à 200 °C indirect. Parsemez de chapelure fine, formez la première croûte 15 min. Selon la tradition toulousaine, cassez et enfoncez cette croûte à la cuillère 3 fois au total (toutes les 10 min).",
+      "Repos 10 min hors kamado. Servez brûlant dans la cassole, croûte gratinée sur le dessus."
+    ],
+    "astuce": "Le tour de main toulousain : casser et enfoncer la croûte de haricots gratinés jusqu'à 7 fois selon la tradition (3 fois est un minimum honorable). Cela crée plusieurs strates de croûte fondues dans le plat. Kamado idéal pour la phase 200 °C indirect : chaleur enveloppante, gratinage homogène.",
+    "difficulty": 4,
+    "charbon_kg": 3,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/4 ouvert puis 1/2 ouvert",
+      "top": "1/4 ouvert puis 1/2 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Précuisson haricots + garniture",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 90,
+        "action": "Cocotte fermée : haricots+couenne+aromates+bouillon. Haricots à peine tendres."
+      },
+      {
+        "name": "Ajout viandes dorées",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 45,
+        "action": "Enfoncer échine, saucisses (dorées en direct), cuisses de canard. Sonde saucisse 70 °C."
+      },
+      {
+        "name": "Croûte gratinée (3 fois)",
+        "mode": "indirect",
+        "temp_C": 200,
+        "duration_min": 35,
+        "action": "Couvercle retiré, chapelure fine, casser+enfoncer la croûte 3 fois toutes les 10 min."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte 6 L ou cassole en terre cuite",
+      "Pierre déflectrice",
+      "Cuillère en bois pour casser la croûte",
+      "Sonde 2 canaux"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Haricots tarbais",
+        "par": "Coco de Pamiers ou lingots du Nord ; jamais de haricots blancs industriels qui éclatent"
+      },
+      {
+        "ingredient": "Saucisse de Toulouse pur porc",
+        "par": "Vraie saucisse charcutière chair grossière ; jamais de saucisse industrielle fine"
+      },
+      {
+        "ingredient": "Cuisses de canard confites",
+        "par": "Confites maison ou en bocal artisanal ; jamais de canard industriel"
+      }
+    ],
+    "erreurs": [
+      "Haricots pas blanchis : goût terreux et flatulence → trempage 12 h + blanchiment 5 min obligatoires",
+      "Haricots trop cuits en phase 1 : purée dans le cassoulet → sortir 'al dente' (sonde ne se plante pas encore)",
+      "Saucisses crues enfoncées d'emblée : gras non fondu, chair pâle → coloration directe préalable",
+      "Croûte cassée une seule fois : gratin trop mince → 3 croûtes minimum, tradition toulousaine"
+    ],
+    "notes_securite": "USDA/FSIS : saucisse de porc fraîche (haché sous boyau) = 70 °C à cœur obligatoire — sondez la saucisse la plus épaisse. Porc pièce (échine cubes) = 63 °C + 3 min de repos suffisent, mais la longue cuisson en cocotte les dépasse largement. Cuisses de canard : le confit préalable a déjà passé 2 h à 85 °C, largement au-dessus des 74 °C de sécurité volaille FSIS — sondez tout de même la cuisse la plus grosse à 74 °C minimum au moment du service. Refroidissement des restes : <4 °C en 2 h max, réchauffage à ≥ 72 °C, jamais plus de 2 réchauffages successifs.",
+    "chef_ref": {
+      "chef": "Auguste Escoffier",
+      "work": "Le Guide culinaire (Flammarion, 1903)",
+      "note": "Cassoulet toulousain codifié par Escoffier dans Le Guide culinaire : haricots blancs + confit de canard + saucisse de Toulouse + croûte cassée et enfoncée plusieurs fois — respect strict de la tradition sur kamado."
+    },
+    "source": "Auguste Escoffier — 'Le Guide culinaire' (Flammarion, 1903), chap. cassoulet toulousain ; adaptation kamado inspirée de Prosper Montagné (Larousse Gastronomique)",
+    "_derived": {
+      "spice": "Doux",
+      "season": "ete",
+      "sauces": [
+        "Sauce moutarde-miel",
+        "BBQ maison"
+      ],
+      "allergens": [
+        "gluten"
+      ]
+    }
+  },
+  {
+    "cat": "porc",
+    "nom": "Choucroute garnie alsacienne au kamado",
+    "ori": "France · Alsace, chou fermenté et charcuteries",
+    "pour": "6 pers",
+    "mode": "Indirect (cocotte)",
+    "tempK": "140 °C",
+    "coeur": "70 °C saucisse + 63 °C jarret",
+    "temps": "2 h 30",
+    "bois": "Hêtre (1 morceau, léger)",
+    "tags": "choucroute alsace chou fermenté porc saucisse strasbourg riesling lard fumé jarret",
+    "ings": [
+      "1,5 kg de choucroute crue alsacienne (Krautergersheim)",
+      "1 jarret de porc demi-sel",
+      "400 g de poitrine de porc fumée",
+      "400 g de palette fumée",
+      "6 saucisses de Strasbourg + 4 saucisses de Montbéliard",
+      "2 oignons, 3 gousses d'ail",
+      "50 cl de Riesling ou Pinot blanc d'Alsace",
+      "30 cl de bouillon de porc, 15 baies de genièvre, 6 grains de poivre, 3 clous de girofle, 2 feuilles de laurier",
+      "150 g de saindoux (ou graisse d'oie)",
+      "1 kg de pommes de terre chair ferme (Charlotte)",
+      "Sel, poivre"
+    ],
+    "etapes": [
+      "Dessalez le jarret 2 h à l'eau froide (changez l'eau 2 fois). Rincez soigneusement la choucroute crue à l'eau froide, essorez fortement à la main.",
+      "Placez la pierre déflectrice, stabilisez le kamado à 140 °C indirect. Dans une grande cocotte en fonte, faites fondre le saindoux, blondissez les oignons émincés.",
+      "Ajoutez la moitié de la choucroute, posez la palette, la poitrine, le jarret, les épices (baies de genièvre, clous de girofle, poivre en grains, laurier) dans un nouet.",
+      "Couvrez du reste de choucroute, arrosez de Riesling + bouillon (à mi-hauteur, pas plus). Ajoutez l'ail écrasé.",
+      "Couvercle fermé, cuisez 2 h à 140 °C indirect. Le chou doit devenir tendre et translucide, les viandes fondantes.",
+      "Ajoutez les saucisses de Montbéliard (fumées, cuisson lente) 30 min avant la fin, et les saucisses de Strasbourg (déjà pré-cuites) 15 min avant la fin — elles doivent pocher sans éclater.",
+      "Pendant ce temps, cuisez les pommes de terre à la vapeur ou à l'anglaise.",
+      "Retirez le nouet d'épices. Dressez : lit de choucroute, charcuteries tranchées, saucisses entières, pommes de terre autour. Servez brûlant avec moutarde forte de Dijon."
+    ],
+    "astuce": "Sur kamado : la vraie plus-value est le morceau de hêtre discret qui rappelle la choucroute fumée traditionnelle des cuisines alsaciennes au feu de bois. Le liquide doit rester à MI-HAUTEUR — sinon on braise du chou, on ne le confit pas. Les saucisses de Strasbourg s'ajoutent en toute fin : elles éclatent si trop cuites.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Base + viandes salées",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 120,
+        "action": "Saindoux+oignons, choucroute+charcuteries salées/fumées+nouet épices+Riesling à mi-hauteur. Cocotte fermée."
+      },
+      {
+        "name": "Ajout saucisses fumées",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 30,
+        "action": "Saucisses de Montbéliard (fumées) enfoncées dans la choucroute. Sonde 70 °C au cœur."
+      },
+      {
+        "name": "Saucisses de Strasbourg",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 15,
+        "action": "Saucisses fines pré-cuites, cuisson douce pour ne pas éclater. Servir immédiatement."
+      }
+    ],
+    "equipement": [
+      "Grande cocotte en fonte 8 L",
+      "Pierre déflectrice",
+      "Nouet à épices (mousseline)",
+      "Sonde 2 canaux",
+      "Cuit-vapeur pour pommes de terre"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Choucroute de Krautergersheim",
+        "par": "Toute choucroute IGP Alsace fermentée artisanalement ; jamais de choucroute en boîte industrielle acidulée"
+      },
+      {
+        "ingredient": "Riesling",
+        "par": "Pinot blanc, Sylvaner d'Alsace ; jamais de vin sucré (Gewurztraminer moelleux)"
+      }
+    ],
+    "erreurs": [
+      "Choucroute non rincée : sel excessif, plat immangeable → rinçage à l'eau froide + essorage main obligatoire",
+      "Liquide au-dessus de la choucroute : le chou bout au lieu de confire → mi-hauteur strict",
+      "Saucisses de Strasbourg cuites dès le début : elles éclatent → 15 min avant la fin uniquement",
+      "Bouillir la choucroute : elle devient acide et grise → 140 °C indirect couvercle fermé"
+    ],
+    "notes_securite": "USDA/FSIS : jarret de porc (pièce entière) = 63 °C + 3 min repos ; saucisses fraîches ou fumées (Strasbourg, Montbéliard) = 70 °C à cœur pour toute chair hachée. La choucroute est un aliment fermenté sûr, mais restes à refroidir <4 °C en moins de 2 h. Réchauffage à ≥ 72 °C. Ne jamais dépasser 2 réchauffages successifs (risque de développement de spores Bacillus cereus). Choucroute réchauffée = meilleure au 2ᵉ jour, mais consommer sous 72 h maximum.",
+    "source": "Larousse Gastronomique 2023, entrée « choucroute garnie alsacienne » ; méthode traditionnelle Winstub de Strasbourg",
+    "_derived": {
+      "spice": "Épicé doux",
+      "season": "toute",
+      "sauces": [
+        "Sauce moutarde-miel",
+        "BBQ maison"
+      ],
+      "allergens": []
+    }
+  },
+  {
     "cat": "volaille",
     "nom": "Poulet entier à la cannette (beer can)",
     "ori": "USA · poulet vapeur-rôti spectaculaire",
@@ -4184,6 +4804,317 @@
     }
   },
   {
+    "cat": "volaille",
+    "nom": "Coq au vin au kamado",
+    "ori": "France · Bourgogne, volaille braisée au vin rouge",
+    "pour": "6 pers",
+    "mode": "Braisé indirect (cocotte)",
+    "tempK": "140–150 °C",
+    "coeur": "85 °C à la cuisse (viande à la fourchette)",
+    "temps": "2 h 30 (+ marinade 12 h)",
+    "bois": "Chêne (1 morceau, léger)",
+    "tags": "coq au vin bourgogne volaille braisé vin rouge cocotte lardons oignons grelot champignons",
+    "ings": [
+      "1 coq fermier de 2,5 kg (ou poulet fermier vieilli) coupé en 8 morceaux",
+      "200 g de lardons fumés",
+      "24 petits oignons grelot, 300 g de champignons de Paris",
+      "3 gousses d'ail, bouquet garni",
+      "75 cl de vin rouge de Bourgogne",
+      "30 cl de fond de veau, 1 c.à.s. concentré de tomate",
+      "40 g de beurre + 40 g de farine (roux blond)",
+      "3 c.à.s. cognac (flambage), 2 c.à.s. huile d'olive",
+      "Sel, poivre, croûtons pour service"
+    ],
+    "etapes": [
+      "La veille : marinez les morceaux de coq 12 h dans le vin rouge avec oignon émincé, ail écrasé, bouquet garni. Séchez soigneusement au papier absorbant avant cuisson.",
+      "Stabilisez le kamado en direct à 220 °C, pierre déflectrice en attente. Dans la cocotte en fonte ouverte, faites suer les lardons puis colorez les morceaux de coq côté peau en 2 fournées jusqu'à croûte brune franche.",
+      "Flambez au cognac (retirez la cocotte du kamado, versez le cognac chaud, allumez avec un briquet long, laissez les flammes s'éteindre).",
+      "Singez avec la farine, torréfiez 2 min. Ajoutez le concentré de tomate. Déglacez avec la marinade filtrée + fond de veau, ajoutez ail écrasé et bouquet garni.",
+      "Installez la pierre déflectrice, stabilisez à 145 °C indirect. Ajoutez un morceau de chêne. Couvercle fermé, braisez 1 h 45.",
+      "Pendant ce temps, glacez à brun les oignons grelot au beurre/sucre. Sautez les champignons au beurre citronné. Réservez.",
+      "Ajoutez oignons et champignons dans la cocotte les 30 dernières minutes. La cuisse doit atteindre 85 °C (sonde qui glisse). Repos 10 min couvercle fermé.",
+      "Servez avec croûtons dorés et pommes vapeur ou tagliatelles. Retirez le bouquet garni avant de servir."
+    ],
+    "astuce": "Vrai coq (mâle vieilli) OU poulet fermier vieilli obligatoire — un poulet standard s'effondre. La marinade 12 h + le flambage au cognac sont les 2 gestes qui signent le vrai coq au vin. Le morceau de chêne pendant la coloration apporte la profondeur signature kamado.",
+    "difficulty": 4,
+    "charbon_kg": 2.5,
+    "repos_min": 10,
+    "marinade_h": 12,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Saisie + flambage",
+        "mode": "direct",
+        "temp_C": 220,
+        "duration_min": 25,
+        "action": "Lardons, coloration coq en 2 fournées, flambage cognac hors kamado, singer, tomater."
+      },
+      {
+        "name": "Braisé vin rouge",
+        "mode": "braisé",
+        "temp_C": 145,
+        "duration_min": 105,
+        "action": "Pierre déflectrice, cocotte fermée. Marinade+fond de veau à mi-hauteur. Cuisse vise 85 °C."
+      },
+      {
+        "name": "Finition garniture",
+        "mode": "braisé",
+        "temp_C": 145,
+        "duration_min": 30,
+        "action": "Ajout oignons grelot glacés et champignons sautés. Sauce rectifiée."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte 5 L",
+      "Pierre déflectrice",
+      "Briquet long pour flambage",
+      "Sonde 2 canaux",
+      "Chinois"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Coq fermier 2,5 kg",
+        "par": "Poulet fermier Label Rouge de 2,5–3 kg (vieilli 100 j) ; jamais de poulet standard qui s'effondre en 45 min"
+      },
+      {
+        "ingredient": "Vin rouge de Bourgogne",
+        "par": "Pinot noir de qualité, Mercurey, Rully ; jamais de vin cuit sucré"
+      }
+    ],
+    "erreurs": [
+      "Poulet standard au lieu de coq/fermier : viande écrasée, filandreuse → volaille adulte obligatoire",
+      "Flambage sur le kamado ouvert : risque de flashback et brûlures → retirer la cocotte du kamado pour flamber",
+      "Marinade pas filtrée : viande grumeleuse dans la sauce → chinois obligatoire",
+      "Cuire au-delà de 85 °C : viande sèche au lieu de fondante → sonde à cuisse impérative"
+    ],
+    "notes_securite": "USDA/FSIS : volaille = 74 °C à la cuisse (partie la plus épaisse) sécurité minimale. Pour le coq au vin, la cuisson longue en cocotte fermée dépasse largement ce seuil et vise 85 °C pour l'effet 'à la fourchette'. Sondez à la cuisse (pas au blanc). Jus qui perle : entièrement CLAIR, jamais rosé. Restes : refroidir <4 °C en 2 h, réchauffer à ≥ 72 °C, ne pas dépasser 2 réchauffages.",
+    "chef_ref": {
+      "chef": "Paul Bocuse",
+      "work": "La Cuisine du marché (Flammarion, 1976)",
+      "note": "Coq au vin avec marinade 12 h, flambage au cognac, roux blond, garniture d'oignons grelot glacés et champignons sautés séparément : version codifiée par Bocuse, référence pédagogique française."
+    },
+    "source": "Paul Bocuse — 'La Cuisine du marché' (Flammarion, 1976), chap. coq au vin de Bourgogne",
+    "_derived": {
+      "spice": "Doux",
+      "season": "hiver",
+      "sauces": [
+        "Sauce yaourt-ail aux herbes"
+      ],
+      "allergens": [
+        "lait",
+        "gluten"
+      ]
+    }
+  },
+  {
+    "cat": "volaille",
+    "nom": "Confit de canard au kamado",
+    "ori": "France · Sud-Ouest, cuisses cuites dans la graisse de canard",
+    "pour": "4 pers",
+    "mode": "Indirect basse température",
+    "tempK": "90 °C",
+    "coeur": "85 °C (chair qui se détache de l'os)",
+    "temps": "2 h 30 (+ salage 24 h)",
+    "bois": "—",
+    "tags": "confit canard sud ouest graisse cuisse basse temperature landes gascogne",
+    "ings": [
+      "4 cuisses de canard gras (Barbarie ou Mulard, environ 300 g chacune)",
+      "2 kg de graisse de canard (ou saindoux de porc de qualité)",
+      "2 c.à.s. de gros sel de Guérande",
+      "1 c.à.c. de poivre en grains concassé",
+      "4 gousses d'ail écrasées, 4 branches de thym, 2 feuilles de laurier",
+      "1 pincée de baies de genièvre concassées (option)"
+    ],
+    "etapes": [
+      "J-1 : Frottez les cuisses au gros sel, poivre, thym, laurier, ail. Disposez à plat dans un plat, couvrez de film et réfrigérez 24 h (salage à sec, pas de saumure).",
+      "JOUR J : Rincez soigneusement les cuisses à l'eau froide pour éliminer le sel de surface, séchez au papier absorbant.",
+      "Placez la pierre déflectrice, stabilisez le kamado à 90 °C indirect (évents quasi fermés — c'est la précision cruciale de la recette). Dans une cocotte en fonte, faites fondre la graisse de canard.",
+      "Immergez complètement les cuisses dans la graisse fondue (elles doivent être totalement recouvertes). Ajoutez ail écrasé et thym.",
+      "Couvercle fermé (ou papier sulfurisé + alu), cuisez 2 h 30 à 90 °C ambiant. La graisse ne doit JAMAIS bouillir — juste frémir imperceptiblement (petites bulles autour des cuisses).",
+      "Testez : un cure-dent doit s'enfoncer sans résistance dans la partie la plus épaisse (chair à 85 °C). Retirez du kamado.",
+      "POUR SERVIR (jour J ou J+1) : sortez les cuisses de la graisse tièdes. Placez-les côté peau vers le bas dans une poêle chaude à sec (ou dans le kamado en direct à 250 °C, 4 min côté peau) pour croustiller la peau.",
+      "Servez avec pommes sarladaises (sautées dans un peu de graisse de canard + ail persillé)."
+    ],
+    "astuce": "Le maître mot : 90 °C AMBIANT MAXIMUM. À 100 °C ou plus, les fibres se rétractent et la chair devient filandreuse. À 90 °C stables sur kamado, on obtient une chair confite qui se détache seule de l'os. Conservation en pot dans la graisse : jusqu'à 3 mois au frigo — le vrai confit se bonifie 1 mois avant consommation.",
+    "difficulty": 3,
+    "charbon_kg": 2,
+    "repos_min": 5,
+    "marinade_h": 24,
+    "vents": {
+      "bottom": "1/8 ouvert",
+      "top": "1/8 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Salage à sec",
+        "mode": "préparation",
+        "temp_C": 4,
+        "duration_min": 1440,
+        "action": "Frottage sel/poivre/aromates 24 h au réfrigérateur. Rinçage à l'eau froide obligatoire avant cuisson."
+      },
+      {
+        "name": "Confit basse T°",
+        "mode": "indirect",
+        "temp_C": 90,
+        "duration_min": 150,
+        "action": "Cuisses immergées dans graisse fondue. Pas d'ébullition, frémissement imperceptible. Sonde 85 °C."
+      },
+      {
+        "name": "Peau croustillante",
+        "mode": "direct",
+        "temp_C": 250,
+        "duration_min": 4,
+        "action": "Peau côté feu (ou poêle chaude à sec). Retourner une fois pour la teinte, service immédiat."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte profonde 4 L",
+      "Pierre déflectrice",
+      "Thermomètre kamado précis (fiabilité au °C près)",
+      "Sonde à viande",
+      "Papier sulfurisé + alu si couvercle absent"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Graisse de canard",
+        "par": "Saindoux de porc de qualité (moins typé mais valide) ; jamais d'huile végétale qui ne remplace pas la graisse animale"
+      },
+      {
+        "ingredient": "Canard gras (Barbarie/Mulard)",
+        "par": "Canard fermier gras du Sud-Ouest IGP ; jamais de canard maigre qui devient sec"
+      }
+    ],
+    "erreurs": [
+      "T° > 100 °C : chair filandreuse, sèche → thermomètre kamado vérifié, 90 °C strict",
+      "Cuisses non immergées : oxydation en surface, texture inégale → graisse en excès obligatoire",
+      "Sel non rincé après 24 h : plat immangeable de salinité → rinçage soigneux + séchage papier",
+      "Peau croustillée dans la graisse : elle reste molle → poêle à sec ou direct kamado pour la finition"
+    ],
+    "notes_securite": "USDA/FSIS : volaille = 74 °C à cœur pour la sécurité microbiologique. Le confit vise 85 °C pour la texture fondante — largement au-dessus du seuil de sécurité. La cuisson à 90 °C ambiant est SÛRE car maintenue 2 h 30 minimum (pasteurisation cumulative). Conservation dans la graisse au frigo (recouverte, jamais exposée à l'air) : jusqu'à 3 mois. Si conservation prolongée : stériliser en bocaux à 100 °C. Réchauffage : à ≥ 72 °C à cœur avant service.",
+    "chef_ref": {
+      "chef": "Alain Ducasse",
+      "work": "Grand Livre de Cuisine d'Alain Ducasse : Bistrots, brasseries et restaurants de tradition (Alain Ducasse Édition, 2004)",
+      "note": "Confit de canard basse température maîtrisée (85–90 °C dans la graisse), salage à sec 24 h, finition peau croustillante : méthode codifiée par Ducasse dans son Grand Livre de Cuisine."
+    },
+    "source": "Alain Ducasse — 'Grand Livre de Cuisine: Bistrots, brasseries et restaurants de tradition' (Alain Ducasse Édition, 2004), chap. confit de canard",
+    "_derived": {
+      "spice": "Doux",
+      "season": "ete",
+      "sauces": [
+        "Sauce yaourt-ail aux herbes"
+      ],
+      "allergens": []
+    }
+  },
+  {
+    "cat": "volaille",
+    "nom": "Poulet basquaise au kamado",
+    "ori": "France · Pays basque, poivrons et piment d'Espelette",
+    "pour": "4 pers",
+    "mode": "Direct puis indirect (cocotte)",
+    "tempK": "220 °C puis 160 °C",
+    "coeur": "74 °C à la cuisse",
+    "temps": "1 h 15",
+    "bois": "Chêne (1 morceau, léger)",
+    "tags": "poulet basquaise piperade piment espelette poivrons rouge vert tomate bayonne pays basque",
+    "ings": [
+      "1 poulet fermier de 1,6 kg coupé en 8 morceaux",
+      "4 poivrons rouges + 2 poivrons verts en lanières",
+      "500 g de tomates concassées mûres (ou boîte de San Marzano)",
+      "3 oignons rouges émincés, 4 gousses d'ail",
+      "150 g de jambon de Bayonne en dés",
+      "2 c.à.c. de piment d'Espelette AOP",
+      "1 bouquet garni (thym, laurier)",
+      "15 cl de vin blanc sec d'Irouléguy",
+      "3 c.à.s. huile d'olive, sel",
+      "Persil plat pour service"
+    ],
+    "etapes": [
+      "Salez les morceaux de poulet, laissez tempérer 30 min. Stabilisez le kamado en direct à 220 °C, pierre déflectrice en attente.",
+      "Dans la cocotte en fonte ouverte, chauffez l'huile d'olive. Colorez les morceaux de poulet côté peau 5 min sur 2 fournées jusqu'à doré. Réservez.",
+      "Dans la même cocotte, faites suer les oignons rouges et l'ail 5 min. Ajoutez les poivrons en lanières, sautez 8 min pour compotée.",
+      "Ajoutez le jambon de Bayonne en dés, les tomates concassées, le vin blanc, le bouquet garni et le piment d'Espelette. Portez à frémissement.",
+      "Installez la pierre déflectrice, réduisez à 160 °C indirect. Ajoutez un morceau de chêne. Remettez les morceaux de poulet côté peau vers le haut (au-dessus du liquide, pour préserver la peau croustillante).",
+      "Cuisez 45 min couvercle légèrement entrouvert. La sonde plantée dans la cuisse doit atteindre 74 °C (jus clair, obligatoire). La sauce doit être onctueuse, la piperade fondue.",
+      "Rectifiez sel, poivre, piment d'Espelette. Parsemez de persil plat. Servez avec riz basque ou pommes de terre écrasées à l'huile d'olive."
+    ],
+    "astuce": "Le tour de main basquaise : cuire la piperade AVEC le poulet mais la peau du poulet AU-DESSUS du liquide (pas immergée). Cela combine chair moelleuse infusée à la piperade + peau croustillante. Le piment d'Espelette AOP (pas paprika, pas piment fort générique) est non-négociable pour l'authenticité.",
+    "difficulty": 3,
+    "charbon_kg": 2,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/2 ouvert puis 1/3 ouvert",
+      "top": "1/2 ouvert puis 1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Saisie poulet",
+        "mode": "direct",
+        "temp_C": 220,
+        "duration_min": 15,
+        "action": "Cocotte ouverte, coloration peau en 2 fournées. Réservez."
+      },
+      {
+        "name": "Piperade base",
+        "mode": "direct",
+        "temp_C": 200,
+        "duration_min": 15,
+        "action": "Oignons+ail+poivrons+jambon+tomates+vin+piment d'Espelette. Frémissement."
+      },
+      {
+        "name": "Mijotage poulet",
+        "mode": "indirect",
+        "temp_C": 160,
+        "duration_min": 45,
+        "action": "Pierre déflectrice, poulet peau au-dessus du liquide. Cuisse vise 74 °C. Sauce onctueuse."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte 5 L (ou grand sautoir avec couvercle)",
+      "Pierre déflectrice",
+      "Sonde 2 canaux",
+      "Économe pour poivrons (option, retirer la peau si sensibilité)"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Piment d'Espelette AOP",
+        "par": "Impossible à substituer authentiquement ; en dépannage : mélange paprika doux + pincée de piment de Cayenne"
+      },
+      {
+        "ingredient": "Jambon de Bayonne",
+        "par": "Prosciutto di Parma ou Serrano ; jamais de jambon blanc industriel"
+      },
+      {
+        "ingredient": "Vin d'Irouléguy",
+        "par": "Autre vin blanc sec basque ou Jurançon sec"
+      }
+    ],
+    "erreurs": [
+      "Poulet immergé dans la piperade : peau détrempée, molle → poser au-dessus du liquide",
+      "Poivrons trop peu cuits : texture ferme, sauce liquide → compotée fondue avant d'ajouter le poulet",
+      "Piment ajouté en fin de cuisson : brûle, amertume → à ajouter avec les tomates (cuisson longue)",
+      "Vérifier la cuisson au blanc : blanc trop cuit, cuisse crue → sonde à la cuisse impérative"
+    ],
+    "notes_securite": "USDA/FSIS : volaille = 74 °C à la cuisse OBLIGATOIRE (partie la plus épaisse). Sondez la cuisse, pas le blanc. Jus qui perle : entièrement CLAIR, jamais rosé. Lavage du poulet cru INTERDIT (asperge Salmonella). Planche à découper dédiée volaille. Restes : refroidir <4 °C en 2 h, réchauffage à ≥ 72 °C, pas plus de 2 réchauffages successifs.",
+    "chef_ref": {
+      "chef": "Philippe Etchebest",
+      "work": "Mes 100 recettes tout simplement (Albin Michel, 2019)",
+      "note": "Poulet basquaise avec piperade fondue au piment d'Espelette AOP et jambon de Bayonne : version bordelaise/basque codifiée par Etchebest, respect strict des AOP du Sud-Ouest."
+    },
+    "source": "Philippe Etchebest — 'Mes 100 recettes tout simplement' (Albin Michel, 2019), chap. poulet basquaise",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "ete",
+      "sauces": [
+        "Sauce yaourt-ail aux herbes"
+      ],
+      "allergens": []
+    }
+  },
+  {
     "cat": "agneau",
     "nom": "Gigot d'agneau rôti rosé",
     "ori": "France · le grand classique de Pâques",
@@ -5156,6 +6087,120 @@
       ],
       "allergens": [
         "lait"
+      ]
+    }
+  },
+  {
+    "cat": "agneau",
+    "nom": "Navarin d'agneau printanier au kamado",
+    "ori": "France · ragoût de printemps aux légumes nouveaux",
+    "pour": "6 pers",
+    "mode": "Braisé indirect (cocotte)",
+    "tempK": "140–150 °C",
+    "coeur": "85 °C (viande à la fourchette)",
+    "temps": "2 h",
+    "bois": "—",
+    "tags": "navarin agneau printemps legumes nouveaux carottes navets pommes petits pois",
+    "ings": [
+      "1,4 kg d'épaule d'agneau désossée en cubes de 5 cm",
+      "2 c.à.s. huile d'olive, 1 c.à.s. concentré de tomate, 30 g de farine",
+      "1 oignon, 3 gousses d'ail, bouquet garni (thym, laurier, persil)",
+      "75 cl de bouillon de veau (ou d'agneau)",
+      "15 cl de vin blanc sec",
+      "400 g de carottes nouvelles avec fanes",
+      "400 g de navets nouveaux",
+      "400 g de pommes de terre nouvelles (Grenaille ou Amandine)",
+      "24 petits oignons grelot, 200 g de petits pois frais (option : 12 fèves écossées)",
+      "Sel, poivre, sucre (pour glacer les grelots)"
+    ],
+    "etapes": [
+      "Stabilisez le kamado en direct à 230 °C, pierre déflectrice en attente. Séchez soigneusement les cubes d'agneau au papier absorbant.",
+      "Dans la cocotte en fonte ouverte, chauffez l'huile, colorez les cubes d'agneau en 2 fournées jusqu'à croûte brune franche. Réservez.",
+      "Faites suer l'oignon émincé et l'ail écrasé 3 min. Singez avec la farine, torréfiez 2 min. Ajoutez le concentré de tomate, remuez 1 min.",
+      "Déglacez avec le vin blanc, ajoutez le bouillon, la viande, le bouquet garni. Portez à petit frémissement.",
+      "Installez la pierre déflectrice, stabilisez à 145 °C indirect. Couvercle fermé, braisez 1 h.",
+      "Pendant ce temps, tournez carottes et navets en biseau, glacez les oignons grelot au beurre+eau+sucre à brun. Faites blanchir les petits pois 2 min à l'eau salée, rafraîchissez.",
+      "Après 1 h de braisage, ajoutez pommes de terre nouvelles, carottes et navets. Poursuivez 30 min couvercle fermé.",
+      "Ajoutez oignons grelot glacés les 15 dernières minutes. Ajoutez les petits pois (et fèves) 5 min avant service (garder croquant et vert).",
+      "Rectifiez sel, poivre. La sauce doit être nappante, l'agneau à 85 °C fondant. Servez immédiatement dans la cocotte."
+    ],
+    "astuce": "La signature du navarin printanier : LÉGUMES NOUVEAUX de saison (mars-juin) avec fanes visibles, taille homogène. Cuisson étagée essentielle : viande d'abord, racines mi-cuisson, garniture verte à la fin — sinon on obtient du 'navarin bouillie'. Sur kamado, 145 °C indirect couvercle fermé = cocotte-minute végétale idéale.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Saisie viande",
+        "mode": "direct",
+        "temp_C": 230,
+        "duration_min": 20,
+        "action": "Cocotte ouverte, coloration cubes en 2 fournées, singer, tomater, déglacer."
+      },
+      {
+        "name": "Braisé viande seule",
+        "mode": "braisé",
+        "temp_C": 145,
+        "duration_min": 60,
+        "action": "Cocotte fermée. Vin blanc+bouillon+bouquet garni à mi-hauteur. Viande à 80 °C."
+      },
+      {
+        "name": "Légumes racines",
+        "mode": "braisé",
+        "temp_C": 145,
+        "duration_min": 30,
+        "action": "Ajout pommes de terre, carottes, navets. Cocotte fermée. Sonde viande 85 °C."
+      },
+      {
+        "name": "Finition garniture verte",
+        "mode": "braisé",
+        "temp_C": 145,
+        "duration_min": 15,
+        "action": "Ajout oignons grelot glacés puis petits pois/fèves 5 min avant service. Sauce nappante."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte 5 L",
+      "Pierre déflectrice",
+      "Couteau économe pour tourner les légumes",
+      "Sonde 2 canaux"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Épaule d'agneau",
+        "par": "Collier d'agneau, poitrine d'agneau désossée ; jamais de gigot ou côtelettes qui deviennent secs"
+      },
+      {
+        "ingredient": "Légumes nouveaux",
+        "par": "Hors saison : carottes/navets normaux tournés, pommes de terre Ratte ; adapter les temps de cuisson"
+      }
+    ],
+    "erreurs": [
+      "Cubes mal séchés avant saisie : ils bouillent → papier absorbant obligatoire",
+      "Tous les légumes ajoutés en même temps : purée dans l'assiette → cuisson étagée impérative",
+      "Petits pois cuits 30 min : gris et écrasés → 5 min max, verts croquants",
+      "Viande sortie à 75 °C : chair sèche et fibreuse → 85 °C sonde qui glisse"
+    ],
+    "notes_securite": "USDA/FSIS : agneau pièce entière = 63 °C + 3 min repos minimum. La cuisson en cocotte fermée à 145 °C dépasse largement ce seuil (85 °C visé pour effet 'à la fourchette'). Restes : refroidir <4 °C en 2 h, réchauffage à ≥ 72 °C, pas plus de 2 réchauffages successifs.",
+    "chef_ref": {
+      "chef": "Auguste Escoffier",
+      "work": "Le Guide culinaire (Flammarion, 1903)",
+      "note": "Navarin d'agneau printanier avec légumes nouveaux tournés et petits pois : recette codifiée par Escoffier dans Le Guide culinaire, référence pédagogique française pour les ragoûts de printemps."
+    },
+    "source": "Auguste Escoffier — 'Le Guide culinaire' (Flammarion, 1903), chap. navarin printanier",
+    "_derived": {
+      "spice": "Doux",
+      "season": "printemps",
+      "sauces": [
+        "Jus réduit romarin-ail",
+        "Yaourt menthe"
+      ],
+      "allergens": [
+        "lait",
+        "gluten"
       ]
     }
   },
@@ -7615,6 +8660,103 @@
     }
   },
   {
+    "cat": "legumes",
+    "nom": "Tartiflette savoyarde au kamado",
+    "ori": "France · Savoie, pommes de terre au Reblochon AOP",
+    "pour": "6 pers",
+    "mode": "Indirect (cocotte)",
+    "tempK": "180–200 °C",
+    "coeur": "pommes de terre fondantes, Reblochon coulant doré",
+    "temps": "1 h",
+    "bois": "—",
+    "tags": "tartiflette savoie reblochon pomme terre lardons oignons vin blanc alpes",
+    "ings": [
+      "1,5 kg de pommes de terre à chair ferme (Amandine ou Charlotte)",
+      "1 Reblochon fermier AOP entier de 500 g",
+      "250 g de lardons fumés",
+      "2 gros oignons émincés",
+      "2 gousses d'ail écrasées",
+      "15 cl de vin blanc sec de Savoie (Apremont ou Roussette)",
+      "20 cl de crème fraîche épaisse (option, discrète)",
+      "30 g de beurre",
+      "Sel, poivre, muscade fraîchement râpée"
+    ],
+    "etapes": [
+      "Épluchez les pommes de terre, coupez en rondelles épaisses de 5 mm. Précuisez à l'eau salée 8 min (encore fermes, sonde résistante), égouttez.",
+      "Placez la pierre déflectrice, stabilisez le kamado à 190 °C indirect. Dans une cocotte en fonte (ou plat à gratin), faites suer les lardons puis retirez. Dans la même graisse, faites fondre les oignons émincés 8 min avec l'ail écrasé.",
+      "Déglacez au vin blanc, laissez réduire 3 min. Salez modérément (attention aux lardons), poivrez, ajoutez une pointe de muscade.",
+      "Étalez au fond de la cocotte : 1/3 des pommes de terre, 1/3 lardons/oignons. Répétez 2 fois. Arrosez de crème fraîche facultative (juste un fil).",
+      "Coupez le Reblochon en 2 dans l'épaisseur (à l'horizontale), grattez légèrement la croûte lavée. Posez les 2 moitiés côté croûte vers le haut sur le dessus des pommes de terre.",
+      "Couvercle fermé, cuisez 30 min à 190 °C indirect. Le Reblochon doit fondre et couler, la croûte doit dorer.",
+      "Retirez le couvercle les 10 dernières minutes pour brunir la croûte du fromage. Sortez la cocotte, servez immédiatement avec une salade verte et une charcuterie savoyarde (jambon cru, viande des Grisons)."
+    ],
+    "astuce": "Le Reblochon fermier AOP (pastille verte) est non-négociable : sa croûte lavée et sa texture spécifique fondent en coulant sans se dénaturer. Sur kamado, l'atout est la chaleur enveloppante à 190 °C indirect : le fromage colore uniformément là où le four classique fait des zones brûlées/pâles. Ne dessalez PAS les lardons — leur salinité équilibre le Reblochon.",
+    "difficulty": 2,
+    "charbon_kg": 1.5,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Précuisson pommes de terre",
+        "mode": "préparation",
+        "temp_C": 100,
+        "duration_min": 10,
+        "action": "Eau salée, rondelles 5 mm, sonde résistante (encore fermes)."
+      },
+      {
+        "name": "Base lardons/oignons",
+        "mode": "indirect",
+        "temp_C": 180,
+        "duration_min": 15,
+        "action": "Cocotte ouverte, lardons puis oignons fondus, déglaçage vin blanc."
+      },
+      {
+        "name": "Gratinage",
+        "mode": "indirect",
+        "temp_C": 190,
+        "duration_min": 35,
+        "action": "Montage en couches, Reblochon coupé sur le dessus. Couvercle fermé 25 min puis ouvert 10 min pour dorer."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte 4 L ou plat à gratin",
+      "Pierre déflectrice",
+      "Râpe à muscade",
+      "Passoire pour égoutter pommes de terre"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Reblochon fermier AOP",
+        "par": "Ne remplacer QUE par un Reblochon fermier au lait cru AOP ; jamais de fromage à raclette ou industriel imitation"
+      },
+      {
+        "ingredient": "Vin blanc de Savoie",
+        "par": "Autre vin blanc sec minéral (Riesling d'Alsace, Chablis) ; jamais de vin cuit sucré"
+      }
+    ],
+    "erreurs": [
+      "Pommes de terre crues au montage : cuisson inégale, cœur ferme → précuisson obligatoire 8 min",
+      "Reblochon posé croûte vers le bas : il colle au fond, ne dore pas → croûte vers le haut",
+      "Trop de crème fraîche : plat écœurant, sauce liquide → un fil au maximum, tradition savoyarde sans crème",
+      "Cuisson trop longue : Reblochon se sépare (huile en surface) → 30-35 min max, service immédiat"
+    ],
+    "source": "Larousse Gastronomique 2023, entrée « tartiflette » ; recette de la Confrérie du Reblochon fermier (Thônes, Haute-Savoie)",
+    "sauce": "Salade verte au vinaigre de Xérès",
+    "_derived": {
+      "spice": "Doux",
+      "season": "ete",
+      "sauces": [
+        "Salade verte au vinaigre de Xérès"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
     "cat": "pizza",
     "nom": "Pizza napolitaine",
     "ori": "Italie · le four à bois à la maison",
@@ -8227,6 +9369,108 @@
       "allergens": [
         "lait",
         "gluten"
+      ]
+    }
+  },
+  {
+    "cat": "pizza",
+    "nom": "Flammekueche alsacienne traditionnelle",
+    "ori": "France · Alsace, pâte sans levure sur pierre brûlante",
+    "pour": "6 pers (3 tartes)",
+    "mode": "Direct sur pierre",
+    "tempK": "300–320 °C pierre (mesuré au thermomètre IR)",
+    "coeur": "pâte cloquée et brune, garniture dorée",
+    "temps": "3–5 min par pièce (+ pousse 30 min)",
+    "bois": "—",
+    "tags": "flammekueche alsace tarte flambée pate fine sans levure creme fraiche lardons oignons",
+    "ings": [
+      "Pâte (pour 3 tartes 30×20 cm) : 500 g farine T55, 260 g eau tiède, 40 g huile de tournesol, 10 g sel",
+      "Garniture : 400 g de crème fraîche épaisse (Isigny AOP) + 200 g de fromage blanc battu",
+      "2 gros oignons blancs émincés très finement",
+      "300 g de lardons fumés (petits dés, blanchis 1 min pour dégorger)",
+      "Muscade fraîchement râpée, poivre du moulin (JAMAIS de sel — les lardons suffisent)",
+      "Semoule fine pour enfourner"
+    ],
+    "etapes": [
+      "Préparez la pâte : mélangez farine + sel dans un saladier, faites un puits, ajoutez eau et huile. Pétrissez 8 min à la main jusqu'à pâte lisse mais pas collante (typique : pâte à pain sans levure, plus dense qu'une pâte à pizza).",
+      "Boulez, filmez, laissez reposer 30 min à T° ambiante (pas de levure = pas de pousse, juste détente du gluten).",
+      "Blanchissez les lardons 1 min à l'eau bouillante (retire l'excès de sel et le goût industriel), égouttez sur papier absorbant.",
+      "Mélangez crème fraîche + fromage blanc + muscade + poivre. La texture doit être onctueuse mais pas liquide.",
+      "Placez la pierre à pizza À FROID en position haute (au-dessus du niveau de la grille standard). Ouvrez les évents en grand. Montée progressive 45 min minimum jusqu'à 320 °C sur la pierre (vérifiez au thermomètre infrarouge, pas seulement la T° ambiante).",
+      "Divisez la pâte en 3 pâtons de 270 g. Étalez chaque pâton au rouleau très finement (2 mm max, presque translucide) sur un plan fariné à la semoule. Forme rectangulaire de 30×20 cm.",
+      "Enfournez le fond de pâte nu sur la pierre 30 s pour le raidir (facultatif mais aide au maniement). Sortez sur la pelle.",
+      "Étalez une couche fine de mélange crème/fromage blanc (2 mm, ne pas noyer). Parsemez d'oignons émincés puis de lardons blanchis.",
+      "Enfournez sur la pierre brûlante, fermez le couvercle. Cuisez 3–5 min : les bords doivent brunir profondément (presque brûlés en périphérie — c'est le 'flambée' de flammekueche), les oignons doivent grésiller, les lardons rendre leur graisse et dorer.",
+      "Sortez à la pelle, coupez immédiatement en carrés de 10×5 cm. Servez BRÛLANT, à la main, avec un verre de Riesling ou d'Edelzwicker. Enchainez les tartes une par une, jamais en avance."
+    ],
+    "astuce": "Le secret ancestral : PAS de levure dans la pâte (contrairement à la pizza). La pâte doit être translucide fine, et les bords doivent partir en train de brûler — c'est cette carbonisation superficielle qui donne le nom 'flammée'. Pierre à 300 °C+ obligatoire (thermomètre IR), placée à froid et montée progressivement. Sur kamado, la chaleur enveloppante du dôme donne un dessus doré simultanément au dessous croustillant — mieux qu'un four à sole classique.",
+    "difficulty": 2,
+    "charbon_kg": 2,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
+    "phases": [
+      {
+        "name": "Pétrissage + détente",
+        "mode": "préparation",
+        "temp_C": 22,
+        "duration_min": 30,
+        "action": "Pétrissage 8 min, boulage, filmage, détente du gluten 30 min à T° ambiante."
+      },
+      {
+        "name": "Préchauffage pierre",
+        "mode": "indirect",
+        "temp_C": 320,
+        "duration_min": 45,
+        "action": "Pierre placée à froid en position haute, montée progressive. Vérifier au thermomètre IR : 300 °C surface pierre minimum."
+      },
+      {
+        "name": "Cuisson",
+        "mode": "direct",
+        "temp_C": 320,
+        "duration_min": 5,
+        "action": "3–5 min par tarte, bords bruns/carbonisés, oignons grésillant, lardons dorés. Enchainer une par une."
+      }
+    ],
+    "equipement": [
+      "Pierre à pizza épaisse (position haute)",
+      "Pelle à pizza en bois (enfourner) + métal fine (défourner)",
+      "Rouleau à pâtisserie",
+      "Thermomètre infrarouge",
+      "Grattoir pour la pierre entre cuissons"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Crème fraîche d'Isigny AOP",
+        "par": "Crème fraîche épaisse à 30% MG minimum ; jamais de crème allégée ou fluide"
+      },
+      {
+        "ingredient": "Lardons fumés artisanaux",
+        "par": "Poitrine de porc fumée en dés (bloc, coupée maison) ; jamais de lardons industriels très salés déjà cuits"
+      },
+      {
+        "ingredient": "Farine T55",
+        "par": "Farine T45 ou T65 courante ; JAMAIS de farine à pain forte qui rend la pâte élastique"
+      }
+    ],
+    "erreurs": [
+      "Ajout de levure : ce n'est plus une flammekueche mais une pizza → PAS de levure, la pâte reste dense et fine",
+      "Pâte trop épaisse (>3 mm) : mie molle, plat pesant → étaler jusqu'à translucide",
+      "Bords pas brûlés : tarte pâle, pas authentique → 300 °C+ pierre obligatoire, laisser noircir les bords",
+      "Salage du mélange crème : trop salé avec les lardons → jamais de sel, seulement poivre + muscade",
+      "Lardons pas blanchis : goût de fumée industrielle → 1 min à l'eau bouillante systématique"
+    ],
+    "source": "Larousse Gastronomique 2023, entrée « flammekueche (tarte flambée alsacienne) » ; méthode traditionnelle boulangers Alsace bas-rhinois",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "ete",
+      "sauces": [],
+      "allergens": [
+        "lait",
+        "gluten",
+        "fruits de mer"
       ]
     }
   },

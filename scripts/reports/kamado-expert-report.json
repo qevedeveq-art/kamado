@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-07-02T11:03:02.578Z",
+  "reviewedAt": "2026-07-02T11:19:33.223Z",
   "agent": "kamado-expert",
   "references": [
     {
@@ -24,25 +24,25 @@
     }
   ],
   "totals": {
-    "recipesReviewed": 206,
+    "recipesReviewed": 218,
     "issues": 0,
     "warnings": 0,
     "improvements": 252
   },
   "byCategory": {
     "agneau": {
-      "count": 15,
-      "withPhases": 11,
-      "withSafety": 4,
-      "withErrors": 6,
-      "withCredibleSource": 13
+      "count": 16,
+      "withPhases": 12,
+      "withSafety": 5,
+      "withErrors": 7,
+      "withCredibleSource": 14
     },
     "boeuf": {
-      "count": 24,
-      "withPhases": 18,
+      "count": 28,
+      "withPhases": 22,
       "withSafety": 9,
-      "withErrors": 11,
-      "withCredibleSource": 24
+      "withErrors": 15,
+      "withCredibleSource": 28
     },
     "dessert": {
       "count": 19,
@@ -52,11 +52,11 @@
       "withCredibleSource": 19
     },
     "legumes": {
-      "count": 22,
-      "withPhases": 9,
+      "count": 23,
+      "withPhases": 10,
       "withSafety": 1,
-      "withErrors": 6,
-      "withCredibleSource": 22
+      "withErrors": 7,
+      "withCredibleSource": 23
     },
     "monde": {
       "count": 37,
@@ -66,11 +66,11 @@
       "withCredibleSource": 33
     },
     "pizza": {
-      "count": 11,
-      "withPhases": 3,
+      "count": 12,
+      "withPhases": 4,
       "withSafety": 2,
-      "withErrors": 2,
-      "withCredibleSource": 9
+      "withErrors": 3,
+      "withCredibleSource": 10
     },
     "poisson": {
       "count": 24,
@@ -80,11 +80,11 @@
       "withCredibleSource": 24
     },
     "porc": {
-      "count": 20,
-      "withPhases": 17,
-      "withSafety": 6,
-      "withErrors": 13,
-      "withCredibleSource": 20
+      "count": 22,
+      "withPhases": 19,
+      "withSafety": 8,
+      "withErrors": 15,
+      "withCredibleSource": 22
     },
     "vegetarien": {
       "count": 17,
@@ -94,31 +94,31 @@
       "withCredibleSource": 16
     },
     "volaille": {
-      "count": 17,
-      "withPhases": 12,
-      "withSafety": 17,
-      "withErrors": 5,
-      "withCredibleSource": 17
+      "count": 20,
+      "withPhases": 15,
+      "withSafety": 20,
+      "withErrors": 8,
+      "withCredibleSource": 20
     }
   },
   "sauceCoverage": {
-    "proposed": 240,
-    "matched": 81,
+    "proposed": 254,
+    "matched": 85,
     "unmatchedByName": {
       "Salsa verde persil-coriandre, ail, citron et huile d'olive": 1,
       "Tare yakitori réduite : soja, mirin, saké, sucre et gingembre": 1,
       "Sauce BBQ épaisse": 1,
       "jus de cuisson réduit": 1,
       "Moutarde brune piquante (style Katz's)": 1,
-      "Sauce moutarde-miel": 6,
-      "BBQ maison": 6,
+      "Sauce moutarde-miel": 8,
+      "BBQ maison": 8,
       "Laque hoisin-miel-soja": 3,
       "Laque hoisin-miel-soja avec vinaigre de riz": 1,
       "Mayonnaise sriracha-citron vert": 1,
       "Laque miso-érable, soja et vinaigre de riz": 1,
       "Crème poivron grillé-paprika": 1,
       "Sauce verte italienne (salsa verde)": 1,
-      "Sauce yaourt-ail aux herbes": 7,
+      "Sauce yaourt-ail aux herbes": 10,
       "Raïta yaourt-menthe-citron": 4,
       "Yaourt ail-menthe": 10,
       "Laque soja-mirin-gingembre": 9,
@@ -127,8 +127,8 @@
       "Réduction orange-soja-miel au jus de canard": 1,
       "Tare yakitori soja-mirin-saké": 1,
       "À déguster nature ou avec confit d'oignon": 1,
-      "Jus réduit romarin-ail": 8,
-      "Yaourt menthe": 8,
+      "Jus réduit romarin-ail": 9,
+      "Yaourt menthe": 9,
       "Yaourt grec, menthe, citron, ail et cumin": 1,
       "Gochujang, miel, soja, ail et huile de sésame": 1,
       "Labneh citronné, menthe et sumac": 1,
@@ -144,6 +144,7 @@
       "Yaourt citronné au tahini et piment doux": 1,
       "Jus beurre-orange-moutarde": 1,
       "Crème raifort-yaourt ou tahini citron": 1,
+      "Salade verte au vinaigre de Xérès": 1,
       "Huile d'olive citron-romarin pour tremper": 1,
       "Base crème légère au poivre": 1,
       "Yaourt citron-ail et persil": 1,
@@ -158,7 +159,7 @@
       "Sauce tahini-citron, câpres et herbes": 1,
       "Salsa roja ou crème citron vert-coriandre": 1
     },
-    "unmatchedUnique": 52
+    "unmatchedUnique": 53
   },
   "issues": [],
   "warnings": [],
