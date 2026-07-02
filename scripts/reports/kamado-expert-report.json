@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-07-02T10:31:32.561Z",
+  "reviewedAt": "2026-07-02T10:39:36.562Z",
   "agent": "kamado-expert",
   "references": [
     {
@@ -26,76 +26,76 @@
   "totals": {
     "recipesReviewed": 206,
     "issues": 0,
-    "warnings": 64,
+    "warnings": 0,
     "improvements": 254
   },
   "byCategory": {
     "agneau": {
       "count": 15,
-      "withPhases": 6,
+      "withPhases": 11,
       "withSafety": 4,
       "withErrors": 6,
       "withCredibleSource": 13
     },
     "boeuf": {
       "count": 24,
-      "withPhases": 11,
+      "withPhases": 18,
       "withSafety": 9,
       "withErrors": 11,
       "withCredibleSource": 24
     },
     "dessert": {
       "count": 19,
-      "withPhases": 1,
+      "withPhases": 5,
       "withSafety": 0,
       "withErrors": 1,
       "withCredibleSource": 19
     },
     "legumes": {
       "count": 22,
-      "withPhases": 6,
+      "withPhases": 9,
       "withSafety": 1,
       "withErrors": 6,
       "withCredibleSource": 20
     },
     "monde": {
       "count": 37,
-      "withPhases": 7,
+      "withPhases": 13,
       "withSafety": 21,
       "withErrors": 7,
       "withCredibleSource": 33
     },
     "pizza": {
       "count": 11,
-      "withPhases": 2,
+      "withPhases": 3,
       "withSafety": 2,
       "withErrors": 2,
       "withCredibleSource": 9
     },
     "poisson": {
       "count": 24,
-      "withPhases": 3,
+      "withPhases": 5,
       "withSafety": 24,
       "withErrors": 3,
       "withCredibleSource": 24
     },
     "porc": {
       "count": 20,
-      "withPhases": 13,
+      "withPhases": 17,
       "withSafety": 6,
       "withErrors": 13,
       "withCredibleSource": 20
     },
     "vegetarien": {
       "count": 17,
-      "withPhases": 2,
+      "withPhases": 6,
       "withSafety": 3,
       "withErrors": 2,
       "withCredibleSource": 16
     },
     "volaille": {
       "count": 17,
-      "withPhases": 5,
+      "withPhases": 12,
       "withSafety": 17,
       "withErrors": 5,
       "withCredibleSource": 17
@@ -161,72 +161,7 @@
     "unmatchedUnique": 52
   },
   "issues": [],
-  "warnings": [
-    "Côte de bœuf reverse-sear: cuisson multi-température sans phases structurées",
-    "Burgers smash maison: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Tomahawk au beurre noisette: cuisson multi-température sans phases structurées",
-    "Tri-tip sauce Santa Maria: cuisson multi-température sans phases structurées",
-    "Picanha entière façon churrasco: cuisson multi-température sans phases structurées",
-    "Tri-tip californien reverse sear: cuisson multi-température sans phases structurées",
-    "Bistecca alla Fiorentina (T-bone): cuisson multi-température sans phases structurées",
-    "Poitrine de porc croustillante: cuisson multi-température sans phases structurées",
-    "Échine marinée à la bière: cuisson multi-température sans phases structurées",
-    "Côte de porc tomahawk saumurée: cuisson multi-température sans phases structurées",
-    "Banh mi de porc grillé: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Filet mignon farci chorizo-manchego: cuisson multi-température sans phases structurées",
-    "Poulet crapaudine (spatchcock): cuisson multi-température sans phases structurées",
-    "Magret de canard, peau croustillante: volaille/canard: expliciter la référence sécurité 74 °C ou la dérogation culinaire assumée",
-    "Cuisses de poulet marinées citron-thym: cuisson multi-température sans phases structurées",
-    "Ailes de poulet Buffalo: cuisson multi-température sans phases structurées",
-    "Poulet peri-peri: cuisson multi-température sans phases structurées",
-    "Cuisses de poulet teriyaki: cuisson multi-température sans phases structurées",
-    "Poulet shawarma au kamado: cuisson multi-température sans phases structurées",
-    "Poulet jerk jamaïcain: cuisson multi-température sans phases structurées",
-    "Magret de canard fumé-séché (charcuterie): volaille/canard: expliciter la référence sécurité 74 °C ou la dérogation culinaire assumée",
-    "Carré d'agneau en croûte d'herbes: cuisson multi-température sans phases structurées",
-    "Filet de chevreuil rôti, sauce grand veneur: cuisson multi-température sans phases structurées",
-    "Pavé de cerf, sauce aux airelles: cuisson multi-température sans phases structurées",
-    "Cailles rôties au raisin & lard: cuisson multi-température sans phases structurées",
-    "Filet de biche en croûte d'épices: cuisson multi-température sans phases structurées",
-    "Gambas grillées ail & piment: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Saint-Jacques grillées au beurre noisette: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Moules à la plancha, ail & persil: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Calamars grillés en persillade: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Saumon laqué teriyaki: cuisson multi-température sans phases structurées",
-    "Tacos de poisson croustillant sur plancha: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Salmon Tikka (pavé de saumon tandoori): cuisson multi-température sans phases structurées",
-    "Aubergines fumées façon baba ganoush: cuisson multi-température sans phases structurées",
-    "Pleurotes façon steak, balsamique: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Ratatouille fumée au kamado: cuisson multi-température sans phases structurées",
-    "Halloumi grillé au miel & origan: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Carottes glacées miso-miel: cuisson multi-température sans phases structurées",
-    "Pain de campagne en cocotte: cuisson multi-température sans phases structurées",
-    "Naan à l'ail au beurre: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Pizza blanche poire-gorgonzola-noix: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Pizza al taglio romaine 72h: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Ananas rôti au rhum et miel: cuisson multi-température sans phases structurées",
-    "Tarte Tatin au kamado: cuisson multi-température sans phases structurées",
-    "Pêches rôties mascarpone: cuisson multi-température sans phases structurées",
-    "Abricots rôtis romarin-amande: cuisson multi-température sans phases structurées",
-    "Yakitori (brochettes japonaises): sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Char siu (porc laqué chinois): cuisson multi-température sans phases structurées",
-    "Satay de poulet, sauce cacahuète: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Poulet tandoori: cuisson multi-température sans phases structurées",
-    "Tacos al pastor: cuisson multi-température sans phases structurées",
-    "Shawarma de poulet: cuisson multi-température sans phases structurées",
-    "Gyros de porc grec: cuisson multi-température sans phases structurées",
-    "Thịt nướng (porc citronnelle vietnamien): sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Samgyeopsal (poitrine de porc coréenne): sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Sosaties d'agneau au curry & abricot: cuisson multi-température sans phases structurées",
-    "Burger végétarien haricots-champignons: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Brochettes halloumi & légumes: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Aubergine entière fumée façon steak: cuisson multi-température sans phases structurées",
-    "Chou pointu rôti au beurre noisette: cuisson multi-température sans phases structurées",
-    "Tofu mariné grillé teriyaki: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Patatas bravas grillées: cuisson multi-température sans phases structurées",
-    "Steaks de chou rouge fumés: cuisson multi-température sans phases structurées",
-    "Provoleta grillé (fromage argentin): sucre/laque à feu vif sans consigne claire d'application en fin de cuisson"
-  ],
+  "warnings": [],
   "improvements": [
     "Chimichurri argentin: base sauce sans source ou inspiration",
     "Sauce barbecue maison (Kansas City): base sauce sans source ou inspiration",
