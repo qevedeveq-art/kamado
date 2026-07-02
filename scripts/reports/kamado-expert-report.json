@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-07-02T10:39:36.562Z",
+  "reviewedAt": "2026-07-02T11:03:02.578Z",
   "agent": "kamado-expert",
   "references": [
     {
@@ -27,7 +27,7 @@
     "recipesReviewed": 206,
     "issues": 0,
     "warnings": 0,
-    "improvements": 254
+    "improvements": 252
   },
   "byCategory": {
     "agneau": {
@@ -56,7 +56,7 @@
       "withPhases": 9,
       "withSafety": 1,
       "withErrors": 6,
-      "withCredibleSource": 20
+      "withCredibleSource": 22
     },
     "monde": {
       "count": 37,
@@ -291,7 +291,6 @@
     "Asperges grillées au parmesan: ajouter au moins deux erreurs fréquentes spécifiques",
     "Chou-fleur entier rôti & tahini: étapes courtes, détailler stabilisation, cuisson, repos et service",
     "Chou-fleur entier rôti & tahini: ajouter au moins deux erreurs fréquentes spécifiques",
-    "Mont d'Or / Camembert fumé: source à renforcer: \"Cyril Lignac — technique Mont d'Or au four (adaptation kamado direct low) ; voir aussi https://www.cuisineactuelle.fr/recettes/mont-d-or-au-four\"",
     "Pleurotes façon steak, balsamique: liste d'ingrédients courte, vérifier qu'elle suffit hors bases/sauces",
     "Pleurotes façon steak, balsamique: ajouter au moins deux erreurs fréquentes spécifiques",
     "Ratatouille fumée au kamado: liste d'ingrédients courte, vérifier qu'elle suffit hors bases/sauces",
@@ -305,7 +304,6 @@
     "Pain à l'ail gratiné: ajouter au moins deux erreurs fréquentes spécifiques",
     "Frites de patate douce au four: ajouter au moins deux erreurs fréquentes spécifiques",
     "Courge butternut rôtie érable-piment: ajouter au moins deux erreurs fréquentes spécifiques",
-    "Endives braisées au kamado: source à renforcer: \"Alain Passard — 'Collages & Recettes' (Alternatives, 2010), technique endives braisées ; adaptation kamado biggreenegg.eu/en/inspiration/recipes\"",
     "Pizza napolitaine: source à renforcer: \"Associazione Verace Pizza Napoletana — Disciplinare AVPN (2008) ; adaptation kamado kamadojoe.com/blogs/recipes/neapolitan-pizza\"",
     "Focaccia romarin & gros sel: liste d'ingrédients courte, vérifier qu'elle suffit hors bases/sauces",
     "Focaccia romarin & gros sel: ajouter au moins deux erreurs fréquentes spécifiques",

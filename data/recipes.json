@@ -93,6 +93,11 @@
       "bottom": "grand ouvert",
       "top": "grand ouvert"
     },
+    "chef_ref": {
+      "chef": "Philippe Etchebest",
+      "work": "Mes 100 recettes tout simplement (Albin Michel, 2019)",
+      "note": "Entrecôte saisie beurre composé : geste bistrot codifié dont Philippe Etchebest (MOF 2000) est la voix médiatique française contemporaine la plus lisible."
+    },
     "source": "Escoffier — Le Guide Culinaire (1903), chap. Grillades, entrée « Entrecôte grillée, beurre maître d'hôtel »",
     "_derived": {
       "spice": "Doux",
@@ -229,6 +234,11 @@
       "bottom": "1/3 ouvert",
       "top": "1/3 ouvert"
     },
+    "chef_ref": {
+      "chef": "Auguste Escoffier",
+      "work": "Le Guide culinaire (Flammarion, 1903)",
+      "note": "Rôti de bœuf saignant tranché fin, jus de rôtissage : Escoffier codifie la méthode dans Le Guide culinaire (1903), toujours la base des rôtis français."
+    },
     "source": "Larousse Gastronomique 2023, entrée « rosbif »",
     "_derived": {
       "spice": "Doux",
@@ -272,6 +282,11 @@
     "vents": {
       "bottom": "grand ouvert",
       "top": "grand ouvert"
+    },
+    "chef_ref": {
+      "chef": "Philippe Etchebest",
+      "work": "Mes 100 recettes tout simplement (Albin Michel, 2019)",
+      "note": "Bavette à l'échalote façon bistrot : plat emblématique du répertoire bistrot que Philippe Etchebest (MOF 2000) défend comme fondamental du bistrot français."
     },
     "source": "Larousse Gastronomique 2023, entrée « bavette à l'échalote »",
     "_derived": {
@@ -872,6 +887,11 @@
       "Vin médiocre : sauce déséquilibrée",
       "Couvercle entrouvert : trop de réduction"
     ],
+    "chef_ref": {
+      "chef": "Paul Bocuse",
+      "work": "La Cuisine du marché (Flammarion, 1976)",
+      "note": "Pot-au-feu bourgeois avec plat de côtes : technique de blanchiment + bouillon clarifié qui reste la référence Bocuse pour cette pièce mijotée."
+    },
     "source": "Cuisine bourgeoise française (Pellaprat, Larousse gastronomique)",
     "_derived": {
       "spice": "Doux",
@@ -3244,6 +3264,11 @@
       "top": "1/2 ouvert"
     },
     "notes_securite": "Standard USDA 74 °C pour la volaille cuite. Dérogation culinaire française assumée sur le magret entier saisi (muscle sain non haché) — servir 55–58 °C rosé. Ne PAS appliquer cette dérogation aux préparations hachées, farces ou brochettes de canard. Canard = seule volaille pouvant se déguster rosée à condition d'être issu d'élevage sain sans Salmonella. Enfants, femmes enceintes, immunodéprimés : cuisson ≥ 74 °C impérative. Quadriller le gras côté peau avant cuisson pour fonte homogène.",
+    "chef_ref": {
+      "chef": "Hélène Darroze",
+      "work": "Personne ne me suivra jamais dans ma cuisine (Cherche Midi, 2018)",
+      "note": "Magret rosé peau croustillante quadrillée, technique landaise : Hélène Darroze (4 générations landaises) reste la voix française la plus reconnue pour cette cuisson."
+    },
     "source": "https://www.seriouseats.com/pan-seared-duck-breast-recipe",
     "_derived": {
       "spice": "Doux",
@@ -3427,6 +3452,11 @@
       "Marrons crus : amers, prendre cuits sous vide"
     ],
     "notes_securite": "USDA/FSIS : gibier à plumes d'élevage (pintade, faisan) = 74 °C à cœur cuisse. La pintade sauvage doit être vidée et vérifiée pour plombs éventuels (chasse). Chair très maigre : baste régulièrement pour éviter le dessèchement.",
+    "chef_ref": {
+      "chef": "Georges Blanc",
+      "work": "Le Grand Livre de Cuisine Bressane et Lyonnaise (Éditions Robert Laffont, 1988)",
+      "note": "Volaille rôtie sur peau (démarche bressane) : Georges Blanc (3 étoiles ininterrompues depuis 1981 à Vonnas) est la référence française sur la volaille de Bresse rôtie."
+    },
     "source": "Joël Robuchon — 'Le Grand Livre de Cuisine' (Alain Ducasse Ed., 2001), recette pintade aux marrons",
     "_derived": {
       "spice": "Doux",
@@ -3504,6 +3534,11 @@
       "Pas de repos : jus partout dans l'assiette → 20 min sous alu sans serrer"
     ],
     "notes_securite": "USDA/FSIS : volaille farcie = 74 °C à cœur DE LA FARCE (pas seulement de la chair) — sonde plantée directement dans la farce au centre du chapon. La farce est le point le plus lent à cuire et le plus à risque (contact volaille crue + œuf + pain). Ne farcir qu'au dernier moment avant enfournement, jamais la veille (prolifération). Repos 20 min obligatoire à couvert lâche pour redistribution.",
+    "chef_ref": {
+      "chef": "Georges Blanc",
+      "work": "Le Grand Livre de Cuisine Bressane et Lyonnaise (Éditions Robert Laffont, 1988)",
+      "note": "Grande volaille de fête rôtie : Georges Blanc reste la référence française pour la cuisson longue peau tendue d'une volaille de Bresse festive."
+    },
     "source": "Kenji López-Alt — seriouseats.com/food-lab-complete-guide-to-buying-prepping-brining-seasoning-roasting-thanksgiving-turkey",
     "_derived": {
       "spice": "Doux",
@@ -4132,6 +4167,11 @@
       "Trancher trop tôt (<10 j séchage) : texture spongieuse → respecter les 14 j, la patience est la moitié de la recette"
     ],
     "notes_securite": "Standard USDA 74 °C pour la volaille cuite: NON APPLICABLE ici (charcuterie crue). La salubrité repose sur trois paramètres non négociables — salage 24 h précis, fumage à froid ≤ 25 °C, perte de poids ≥ 30% en 14 j à 12–14 °C. DANGER CRITIQUE : si la T° de fumage dépasse 30 °C, vous entrez dans la zone danger (bactéries actives sans cuisson) — JETER. Congélation préalable −20 °C ≥ 24 h recommandée contre les parasites. Faire cette recette uniquement par temps frais (automne/hiver/printemps) ou avec fumoir réfrigéré. Moisissures blanches/grises = normales (frotter au vinaigre) ; moisissures noires = JETER. Éviter cette préparation pour femmes enceintes, immunodéprimés, jeunes enfants.",
+    "chef_ref": {
+      "chef": "Yves Camdeborde",
+      "work": "Le Bistrot d'à côté (Éditions de La Martinière, 2011)",
+      "note": "Magret séché maison, fumage à froid, salaison précise : geste bistronomique typique du Sud-Ouest transmis par Camdeborde (formé chez Constant et Robuchon)."
+    },
     "source": "Michael Ruhlman & Brian Polcyn — 'Charcuterie: The Craft of Salting, Smoking, and Curing' (W.W. Norton, 2005), chap. duck breast prosciutto",
     "sauce": "À déguster nature ou avec confit d'oignon",
     "_derived": {
@@ -4196,6 +4236,11 @@
       "Pas de repos : jus perdus"
     ],
     "notes_securite": "USDA/FSIS : agneau pièce entière (whole muscle) = 63 °C minimum + 3 min repos. Le gigot rosé (57 °C) est acceptable si viande fraîche d'origine tracée. Repos 20 min obligatoire (carryover porte à ~60 °C), tranche perpendiculaire au grain 5 mm. La ficelle permet cuisson homogène en 'suspension' — attention à équilibrer.",
+    "chef_ref": {
+      "chef": "Auguste Escoffier",
+      "work": "Le Guide culinaire (Flammarion, 1903)",
+      "note": "Gigot d'agneau rôti rosé, ail-romarin, jus de rôtissage : méthode codifiée par Escoffier dans Le Guide culinaire (1903), toujours la base pédagogique française."
+    },
     "source": "Anne Willan — 'La Varenne Pratique' (Crown, 1989), recette gigot d'agneau pascal ; voir aussi cooking.nytimes.com/recipes/1015819-classic-rack-of-lamb",
     "_derived": {
       "spice": "Doux",
@@ -4349,6 +4394,11 @@
       "Pas de wrap : le bark devient amer après 5 h",
       "Trop de fumée : l'agneau prend vite, 2 morceaux de bois suffisent"
     ],
+    "chef_ref": {
+      "chef": "Alain Ducasse",
+      "work": "Grand Livre de Cuisine d'Alain Ducasse : Bistrots, brasseries et restaurants de tradition (Alain Ducasse Édition, 2004)",
+      "note": "Épaule d'agneau confite douze heures : la cuisson lente à couvert popularisée par Ducasse (Grand Livre de Cuisine, cuisson longue basse température)."
+    },
     "source": "Alain Ducasse — 'Grand Livre de Cuisine: Méditerranée' (Alain Ducasse Ed., 2005), recette épaule d'agneau de 7 heures",
     "_derived": {
       "spice": "Épicé doux",
@@ -4682,6 +4732,11 @@
       "Vin médiocre : civet imbuvable",
       "Pas de baies genièvre : signature manque"
     ],
+    "chef_ref": {
+      "chef": "Régis Marcon",
+      "work": "Champignons, les recettes de saison (Éditions de La Martinière, 2013)",
+      "note": "Civet de sanglier au vin : plat de gibier auvergnat que Régis Marcon (3 étoiles à Saint-Bonnet-le-Froid) revendique dans sa cuisine forestière du Velay."
+    },
     "source": "Larousse Gastronomique (Ed. Larousse, 1938/2007), entrée 'civet de sanglier' ; adaptation fumage kamado via biggreenegg.eu/en/inspiration/recipes",
     "_derived": {
       "spice": "Doux",
@@ -4802,6 +4857,11 @@
         "action": "Retirer la pierre. Colorer le lard, ajouter les raisins pour éclater dans le jus jusqu'à 70 °C."
       }
     ],
+    "chef_ref": {
+      "chef": "Régis Marcon",
+      "work": "Champignons, les recettes de saison (Éditions de La Martinière, 2013)",
+      "note": "Gibier à plume en cocotte, lard fumé au hêtre : technique forestière signature des Marcon (Saint-Bonnet-le-Froid)."
+    },
     "source": "Escoffier — Le Guide Culinaire (1903), chap. Gibier à plumes, « Cailles aux raisins »",
     "_derived": {
       "spice": "Doux",
@@ -5745,6 +5805,11 @@
       "top": "1/2 ouvert"
     },
     "notes_securite": "USDA/FSIS : poisson entier = 63 °C. La croûte de sel scelle la chair : pas de perte d'humidité. Ratio sel/blancs d'œuf : 1 kg gros sel + 3 blancs battus mousseux pour dorade 800 g. Casser la croûte au marteau ou dos de couteau AU SERVICE (spectacle) — retirer les fragments avant de trancher. Ne pas réutiliser le sel.",
+    "chef_ref": {
+      "chef": "Michel Guérard",
+      "work": "La Grande Cuisine minceur (Robert Laffont, 1976)",
+      "note": "Poisson entier en croûte de sel : technique que Michel Guérard (3 étoiles à Eugénie-les-Bains) a portée au haut niveau dans sa Cuisine gourmande."
+    },
     "source": "Larousse Gastronomique 2023, entrée « dorade en croûte de sel »",
     "_derived": {
       "spice": "Doux",
@@ -5957,6 +6022,11 @@
       "Vérifier la fraîcheur : chair ferme, œil bombé et brillant, odeur marine (pas d’ammoniac)",
       "Chaîne du froid stricte : garder à ≤4 °C jusqu’à la cuisson"
     ],
+    "chef_ref": {
+      "chef": "Michel Guérard",
+      "work": "La Grande Cuisine minceur (Robert Laffont, 1976)",
+      "note": "Dorade en croûte de sel : cuisson étouffée sous croûte que Michel Guérard a installée dans le répertoire haute cuisine française (Cuisine gourmande, 1978)."
+    },
     "source": "https://www.seriouseats.com/salt-baked-whole-fish-recipe",
     "_derived": {
       "spice": "Doux",
@@ -6570,6 +6640,11 @@
       "bottom": "1/2 ouvert",
       "top": "1/2 ouvert"
     },
+    "chef_ref": {
+      "chef": "Régis Marcon",
+      "work": "Champignons, les recettes de saison (Éditions de La Martinière, 2013)",
+      "note": "Gros champignons rôtis farcis : filiation directe du travail de Régis Marcon sur les champignons, Bocuse d'Or 1995 et référence mondiale sur le cèpe."
+    },
     "source": "https://www.seriouseats.com/stuffed-portobello-mushrooms-recipe",
     "_derived": {
       "spice": "Doux",
@@ -7093,6 +7168,11 @@
         "action": "Retirer la pierre. Ajouter miso-miel, laisser réduire en laque brillante sur les carottes."
       }
     ],
+    "chef_ref": {
+      "chef": "Alain Passard",
+      "work": "Collages & Recettes (Alain Ducasse Édition, 2010)",
+      "note": "Carotte glacée arrosée à sa réduction : héritière de la ligne 'légumes rôtis rendus complexes' que Passard a codifiée à l'Arpège."
+    },
     "source": "https://www.seriouseats.com/miso-glazed-carrots-recipe",
     "_derived": {
       "spice": "Doux",
@@ -7515,6 +7595,11 @@
       "Sortir trop tôt : betteraves crues au cœur",
       "Sel iodé : goût métallique"
     ],
+    "chef_ref": {
+      "chef": "Alain Passard",
+      "work": "Collages & Recettes (Alain Ducasse Édition, 2010)",
+      "note": "Betterave en croûte de sel de mer sous cendres : plat signature d'Alain Passard à l'Arpège depuis le virage légumier de 2001."
+    },
     "source": "Yotam Ottolenghi — 'Plenty' (Ebury Press, 2010), chap. betteraves en croûte de sel",
     "sauce": "Crème raifort-yaourt ou tahini citron",
     "_derived": {
@@ -8513,6 +8598,11 @@
       "bottom": "1/3 ouvert",
       "top": "1/3 ouvert"
     },
+    "chef_ref": {
+      "chef": "Henri-Paul Pellaprat",
+      "work": "L'Art culinaire moderne (Comptoir Français du Livre, 1935)",
+      "note": "Clafoutis limousin aux cerises entières : méthode codifiée par Pellaprat dans L'Art culinaire moderne (1935), référence pédagogique française."
+    },
     "source": "Larousse Gastronomique 2023, entrée « clafoutis »",
     "_derived": {
       "spice": "Doux",
@@ -8574,6 +8664,11 @@
         "action": "Recouvrir de pâte, décaler indirect couvercle fermé jusqu'à pâte dorée et pommes fondantes."
       }
     ],
+    "chef_ref": {
+      "chef": "Henri-Paul Pellaprat",
+      "work": "L'Art culinaire moderne (Comptoir Français du Livre, 1935)",
+      "note": "Tarte Tatin : Pellaprat codifie la méthode caramel-pâte inversée dans L'Art culinaire moderne (1935), version enseignée depuis au Cordon Bleu."
+    },
     "source": "Larousse Gastronomique 2023, entrée « tarte Tatin »",
     "_derived": {
       "spice": "Doux",
@@ -8618,6 +8713,11 @@
     "vents": {
       "bottom": "1/3 ouvert",
       "top": "1/3 ouvert"
+    },
+    "chef_ref": {
+      "chef": "Michel Bras",
+      "work": "Bras, Laguiole, Aubrac, France (Éditions du Rouergue, 2002)",
+      "note": "Cœur coulant en fonte : filiation directe du 'coulant au chocolat' créé par Michel Bras en 1981 — cœur cru surprise dans une pâte cuite."
     },
     "source": "https://www.kingarthurbaking.com/recipes/fudge-brownies-recipe",
     "_derived": {
@@ -8749,6 +8849,11 @@
     "vents": {
       "bottom": "1/3 ouvert",
       "top": "1/3 ouvert"
+    },
+    "chef_ref": {
+      "chef": "Cyril Lignac",
+      "work": "La Pâtisserie (La Martinière, 2017)",
+      "note": "Cookie géant fondant en poêle fonte : registre 'pâtisserie de bistrot familiale' que Cyril Lignac a popularisé auprès du grand public français."
     },
     "source": "https://www.seriouseats.com/skillet-chocolate-chip-cookie-recipe",
     "_derived": {
@@ -8947,6 +9052,11 @@
     "vents": {
       "bottom": "1/3 ouvert",
       "top": "1/3 ouvert"
+    },
+    "chef_ref": {
+      "chef": "Michel Bras",
+      "work": "Bras, Laguiole, Aubrac, France (Éditions du Rouergue, 2002)",
+      "note": "Cœur coulant en skillet : structure inspirée du 'coulant au chocolat' de Michel Bras (1981), pâte extérieure cuite / cœur fondant."
     },
     "source": "https://www.seriouseats.com/the-best-chewy-fudgy-brownies-recipe",
     "sauce": "Sauce chocolat café ou crème anglaise vanillée",

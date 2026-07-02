@@ -1,0 +1,341 @@
+{
+  "generated_note": "Catalogue curé des chefs français dont les techniques sont pertinentes pour au moins une recette du repo (kamado / grillade / cuisson lente / rôtis / gibier / desserts sur braises).  Les keywords_match sont volontairement restrictifs : uniquement les plats dont ce chef est vraiment une référence technique française reconnue.  Aucun name-dropping.",
+  "chefs": [
+    {
+      "id": "bocuse",
+      "name": "Paul Bocuse",
+      "biography_short": "Chef 3 étoiles Michelin sans interruption 1965-2020, Auberge du Pont de Collonges (Collonges-au-Mont-d'Or). Meilleur Ouvrier de France 1961. Figure fondatrice de la nouvelle cuisine française et ambassadeur de la cuisine lyonnaise dans le monde.",
+      "signature_techniques": [
+        "volaille de Bresse en vessie",
+        "soupe VGE aux truffes en croûte",
+        "loup en croûte sauce Choron",
+        "pot-au-feu bourgeois avec os à moelle",
+        "rouget en écailles de pommes de terre"
+      ],
+      "keywords_match": [
+        "pot-au-feu",
+        "pot au feu",
+        "loup en croute",
+        "volaille de bresse en vessie"
+      ],
+      "reference_works": [
+        { "title": "La Cuisine du marché", "year": 1976, "publisher": "Flammarion" },
+        { "title": "Bocuse dans votre cuisine", "year": 1982, "publisher": "Flammarion" }
+      ]
+    },
+    {
+      "id": "ducasse",
+      "name": "Alain Ducasse",
+      "biography_short": "Seul chef ayant détenu simultanément trois fois 3 étoiles Michelin (Monaco, Paris, Londres). Défenseur d'une cuisine du produit et de la 'naturalité' (légumes, céréales, poisson) et référence sur la cuisson longue basse température.",
+      "signature_techniques": [
+        "cookpot de légumes de Provence",
+        "cuisson longue basse température (rôtis)",
+        "riz de veau croustillant",
+        "épaule d'agneau confite douze heures",
+        "gigot d'agneau de sept heures"
+      ],
+      "keywords_match": [
+        "epaule d'agneau confite",
+        "epaule agneau confite 7 heures"
+      ],
+      "reference_works": [
+        { "title": "Grand Livre de Cuisine d'Alain Ducasse : Bistrots, brasseries et restaurants de tradition", "year": 2004, "publisher": "Alain Ducasse Édition" },
+        { "title": "Nature : Simple, sain et bon", "year": 2009, "publisher": "Alain Ducasse Édition" }
+      ]
+    },
+    {
+      "id": "robuchon",
+      "name": "Joël Robuchon",
+      "biography_short": "Chef le plus étoilé du monde (32 étoiles Michelin cumulées), Meilleur Ouvrier de France 1976, Chef du siècle Gault & Millau 1989. Perfectionniste de la technique, connu mondialement pour sa purée de pommes de terre au beurre et pour l'atelier de la haute cuisine transformée en comptoir.",
+      "signature_techniques": [
+        "purée de pommes de terre au beurre (ratio 250 g beurre / 1 kg)",
+        "gelée de caviar à la crème de chou-fleur",
+        "spaghettis à la carbonara revisités",
+        "poulet fermier rôti au four à basse température",
+        "langoustines en ravioli aux truffes"
+      ],
+      "keywords_match": [],
+      "reference_works": [
+        { "title": "Ma cuisine pour vous", "year": 1986, "publisher": "Robert Laffont" },
+        { "title": "Le Meilleur & le plus simple de la pomme de terre", "year": 1994, "publisher": "Robert Laffont" }
+      ]
+    },
+    {
+      "id": "pic",
+      "name": "Anne-Sophie Pic",
+      "biography_short": "Seule femme chef 3 étoiles Michelin en France en 2007 (Maison Pic, Valence), troisième génération d'une dynastie 3 étoiles. Cheffe reconnue pour son travail sur les infusions, les baies, les épices boréales et le rapport aux desserts salés/sucrés.",
+      "signature_techniques": [
+        "berlingots aux fromages affinés",
+        "poire williams pochée à la verveine",
+        "sarrasin infusé et lait mousseux",
+        "millefeuille berlingot"
+      ],
+      "keywords_match": [],
+      "reference_works": [
+        { "title": "Anne-Sophie Pic : au nom du père", "year": 2010, "publisher": "Hachette Pratique" }
+      ]
+    },
+    {
+      "id": "bras",
+      "name": "Michel Bras",
+      "biography_short": "Chef 3 étoiles Michelin (Le Suquet, Laguiole), légende de la cuisine du végétal et du terroir de l'Aubrac. Inventeur du gargouillou de jeunes légumes (1978) et du coulant au chocolat (1981). Pionnier mondial de la cuisine végétale narrative.",
+      "signature_techniques": [
+        "gargouillou de jeunes légumes",
+        "coulant au chocolat (moelleux à cœur coulant)",
+        "aligot revisité",
+        "biscuit de pomme de terre au foie gras"
+      ],
+      "keywords_match": [
+        "brownie fondant",
+        "coulant chocolat",
+        "brownie skillet"
+      ],
+      "reference_works": [
+        { "title": "Bras, Laguiole, Aubrac, France", "year": 2002, "publisher": "Éditions du Rouergue" }
+      ]
+    },
+    {
+      "id": "passard",
+      "name": "Alain Passard",
+      "biography_short": "Chef 3 étoiles Michelin (L'Arpège, Paris), pionnier de la cuisine légumière haut de gamme depuis 2001. Défenseur du travail sur braises et cendres, du rôti à la broche et des cuissons au feu de bois. Références historiques : couronne de céleri-rave, tartelette légumière.",
+      "signature_techniques": [
+        "rôtisserie sur feu de bois",
+        "légumes cuits sous la braise (betterave en croûte de sel)",
+        "couronne de céleri-rave rôti",
+        "poulet rôti à la broche au feu de bois",
+        "tomate à la moutarde de tomate"
+      ],
+      "keywords_match": [
+        "betteraves rôties en croute de sel",
+        "betterave en croute de sel",
+        "carottes glacées"
+      ],
+      "reference_works": [
+        { "title": "Collages & Recettes", "year": 2010, "publisher": "Alain Ducasse Édition" },
+        { "title": "L'Arpège : cent recettes salées, cent recettes sucrées", "year": 2003, "publisher": "Grand livre du mois" }
+      ]
+    },
+    {
+      "id": "alleno",
+      "name": "Yannick Alléno",
+      "biography_short": "Chef 3 étoiles Michelin (Alléno Paris au Pavillon Ledoyen et 1947 à Courchevel), inventeur des 'extractions à froid' pour concentrer les sauces sans les cuire. Auteur d'une doctrine complète sur la sauce moderne française.",
+      "signature_techniques": [
+        "sauces par extraction à froid",
+        "cristallisation de sauces",
+        "cuisine terroir parisienne",
+        "kouign-amann salé au caviar"
+      ],
+      "keywords_match": [],
+      "reference_works": [
+        { "title": "Sauces, réflexions d'un cuisinier", "year": 2014, "publisher": "Hachette Pratique" }
+      ]
+    },
+    {
+      "id": "gagnaire",
+      "name": "Pierre Gagnaire",
+      "biography_short": "Chef 3 étoiles Michelin (Pierre Gagnaire, Paris), figure de la cuisine 'improvisée' et fusion, précurseur de la cuisine moléculaire par sa collaboration historique avec Hervé This. Reconnu pour son travail sur les associations d'ingrédients inattendues.",
+      "signature_techniques": [
+        "assiettes composées 'grand dessert' multi-plats",
+        "cuisine 'note à note' avec Hervé This",
+        "chartreuse de langoustines",
+        "canard sauvage aux quatre parfums"
+      ],
+      "keywords_match": [],
+      "reference_works": [
+        { "title": "Pierre Gagnaire, réflexions d'un cuisinier", "year": 2010, "publisher": "Flammarion" }
+      ]
+    },
+    {
+      "id": "savoy",
+      "name": "Guy Savoy",
+      "biography_short": "Chef 3 étoiles Michelin (Guy Savoy, Monnaie de Paris), formé chez les frères Troisgros. Référence mondiale sur la soupe d'artichaut à la truffe noire et sur le rapport de la haute cuisine française au produit terrien.",
+      "signature_techniques": [
+        "soupe d'artichaut à la truffe noire, brioche feuilletée aux champignons",
+        "huîtres en nage glacée",
+        "colvert grillé sauce au sang"
+      ],
+      "keywords_match": [],
+      "reference_works": [
+        { "title": "Recettes d'un chef", "year": 2006, "publisher": "Éditions du Chêne" }
+      ]
+    },
+    {
+      "id": "camdeborde",
+      "name": "Yves Camdeborde",
+      "biography_short": "Chef basque, fondateur du Comptoir du Relais (Paris), figure historique de la 'bistronomie' apparue au milieu des années 1990. Formé chez Christian Constant et Robuchon. Défenseur des abats, du canard fumé du Sud-Ouest et de la charcuterie maison.",
+      "signature_techniques": [
+        "boudin noir à la plancha",
+        "magret de canard fumé maison",
+        "cochon fermier basque façon bistronomie",
+        "tête de veau sauce ravigote"
+      ],
+      "keywords_match": [
+        "magret canard fumage froid",
+        "magret de canard fume-seche"
+      ],
+      "reference_works": [
+        { "title": "Le Bistrot d'à côté", "year": 2011, "publisher": "Éditions de La Martinière" }
+      ]
+    },
+    {
+      "id": "darroze",
+      "name": "Hélène Darroze",
+      "biography_short": "Cheffe 3 étoiles Michelin (Hélène Darroze at The Connaught, Londres) et 2 étoiles à Paris. Héritière de quatre générations de cuisine landaise, référence sur le canard, le foie gras, le pigeon du Sud-Ouest et la cuisine basco-landaise contemporaine.",
+      "signature_techniques": [
+        "foie gras poêlé au verjus",
+        "pigeonneau du Racan au chorizo ibérique",
+        "cassoulet landais revisité",
+        "magret de canard des Landes rosé"
+      ],
+      "keywords_match": [
+        "magret canard rose",
+        "magret de canard peau croustillante"
+      ],
+      "reference_works": [
+        { "title": "Personne ne me suivra jamais dans ma cuisine", "year": 2018, "publisher": "Cherche Midi" }
+      ]
+    },
+    {
+      "id": "blanc",
+      "name": "Georges Blanc",
+      "biography_short": "Chef 3 étoiles Michelin depuis 1981 (Georges Blanc, Vonnas), plus long détenteur 3 étoiles vivant. Référence absolue sur la volaille de Bresse (crêpe vonnasienne, poularde de Bresse à la crème, poulet de Bresse au vinaigre).",
+      "signature_techniques": [
+        "crêpe vonnasienne à la pomme de terre",
+        "poularde de Bresse à la crème",
+        "poulet de Bresse au vinaigre de vin vieux",
+        "grenouilles poêlées à la crème d'ail"
+      ],
+      "keywords_match": [
+        "pintade rotie",
+        "pintade roti",
+        "chapon roti",
+        "chapon/dinde roti"
+      ],
+      "reference_works": [
+        { "title": "Le Grand Livre de Cuisine Bressane et Lyonnaise", "year": 1988, "publisher": "Éditions Robert Laffont" },
+        { "title": "Georges Blanc, cuisinier de Vonnas", "year": 2011, "publisher": "Glénat" }
+      ]
+    },
+    {
+      "id": "marcon",
+      "name": "Régis Marcon",
+      "biography_short": "Chef 3 étoiles Michelin (Régis et Jacques Marcon, Saint-Bonnet-le-Froid), Bocuse d'Or 1995. Référence mondiale sur le travail des champignons (cèpes, morilles, girolles), du lard fumé au bois de hêtre et de la cuisine forestière du Velay/Auvergne.",
+      "signature_techniques": [
+        "cèpes en cocotte au lard",
+        "morilles à la crème de vin jaune",
+        "civet de sanglier au vin de Chanturgue",
+        "cochon fumé au bois de hêtre",
+        "gibier à plume en cocotte"
+      ],
+      "keywords_match": [
+        "civet de sanglier",
+        "sanglier civet",
+        "cailles roties",
+        "champignons portobello"
+      ],
+      "reference_works": [
+        { "title": "Champignons, les recettes de saison", "year": 2013, "publisher": "Éditions de La Martinière" },
+        { "title": "Régis Marcon, Cuisine", "year": 2015, "publisher": "Hachette Pratique" }
+      ]
+    },
+    {
+      "id": "lignac",
+      "name": "Cyril Lignac",
+      "biography_short": "Chef médiatique français, plusieurs restaurants à Paris (Le Chardenoux, Aux Prés, Bar des Prés). Formé chez Alain Passard et les Pourcel. Popularisé la pâtisserie de bistro moderne et les desserts fruits/rôtis pour tous.",
+      "signature_techniques": [
+        "tarte aux pommes chausson revisité",
+        "flan pâtissier ultra crémeux",
+        "poulet rôti au beurre pommes de terre nouvelles",
+        "cookies aux trois chocolats"
+      ],
+      "keywords_match": [
+        "cookie geant en skillet",
+        "cookie skillet"
+      ],
+      "reference_works": [
+        { "title": "La Pâtisserie", "year": 2017, "publisher": "La Martinière" },
+        { "title": "Fait maison", "year": 2020, "publisher": "La Martinière" }
+      ]
+    },
+    {
+      "id": "etchebest",
+      "name": "Philippe Etchebest",
+      "biography_short": "Chef bordelais, Meilleur Ouvrier de France 2000. Ex-2 étoiles Michelin à l'Hostellerie de Plaisance (Saint-Émilion). Référence médiatique sur les fondamentaux du bistrot français, l'entrecôte marchand de vin et la cuisine gasconne populaire.",
+      "signature_techniques": [
+        "entrecôte grillée sauce marchand de vin",
+        "bavette à l'échalote façon bistrot",
+        "cassoulet gascon",
+        "tournedos rossini revisité"
+      ],
+      "keywords_match": [
+        "bavette a l'echalote",
+        "bavette echalote",
+        "entrecote grillee maitre d'hotel",
+        "entrecote grillee"
+      ],
+      "reference_works": [
+        { "title": "Mes 100 recettes tout simplement", "year": 2019, "publisher": "Albin Michel" }
+      ]
+    },
+    {
+      "id": "guerard",
+      "name": "Michel Guérard",
+      "biography_short": "Chef 3 étoiles Michelin (Les Prés d'Eugénie, Eugénie-les-Bains), Meilleur Ouvrier de France 1958. Créateur historique de la 'cuisine minceur' (1976), figure fondatrice de la nouvelle cuisine, référence sur les poissons rôtis peau croustillante et la salaison en cuisine haut de gamme.",
+      "signature_techniques": [
+        "salade gourmande aux foies de volaille",
+        "oreiller de mousserons",
+        "pot-au-feu de la mer",
+        "gigot en croûte de sel",
+        "canard rosé peau craquante"
+      ],
+      "keywords_match": [
+        "dorade en croute de sel",
+        "dorade royale en croute de sel"
+      ],
+      "reference_works": [
+        { "title": "La Grande Cuisine minceur", "year": 1976, "publisher": "Robert Laffont" },
+        { "title": "La Cuisine gourmande", "year": 1978, "publisher": "Robert Laffont" }
+      ]
+    },
+    {
+      "id": "escoffier",
+      "name": "Auguste Escoffier",
+      "biography_short": "Chef français (1846-1935), codificateur de la cuisine française moderne. Auteur du Guide culinaire (1903), pilier absolu des sauces mères, des fonds et des rôtis. Père de la brigade de cuisine.",
+      "signature_techniques": [
+        "sauces mères (espagnole, béchamel, velouté, hollandaise, tomate)",
+        "gigot de sept heures à la cuillère",
+        "tournedos Rossini",
+        "pêche Melba"
+      ],
+      "keywords_match": [
+        "gigot d'agneau roti rose",
+        "gigot agneau paques",
+        "rosbif roti a l'anglaise"
+      ],
+      "reference_works": [
+        { "title": "Le Guide culinaire", "year": 1903, "publisher": "Flammarion" },
+        { "title": "Ma cuisine", "year": 1934, "publisher": "Flammarion" }
+      ]
+    },
+    {
+      "id": "pellaprat",
+      "name": "Henri-Paul Pellaprat",
+      "biography_short": "Chef français (1869-1952), formateur légendaire du Cordon Bleu à Paris. Auteur de L'Art culinaire moderne (1935), l'ouvrage de référence pour des générations de professionnels français. Codificateur des rôtis, poissons entiers et pâtisseries classiques.",
+      "signature_techniques": [
+        "rôtis pièces entières au four",
+        "poissons entiers rôtis",
+        "codification des sauces classiques",
+        "tarte Tatin (méthode classique)"
+      ],
+      "keywords_match": [
+        "tarte tatin",
+        "clafoutis aux cerises",
+        "clafoutis cerises"
+      ],
+      "reference_works": [
+        { "title": "L'Art culinaire moderne", "year": 1935, "publisher": "Comptoir Français du Livre" },
+        { "title": "La Cuisine familiale et pratique", "year": 1955, "publisher": "Flammarion" }
+      ]
+    }
+  ]
+}

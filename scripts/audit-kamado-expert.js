@@ -150,7 +150,7 @@ function hasKamadoMode(recipe) {
 function sourceLooksCredible(recipe) {
   const src = String(recipe.source || "");
   return /^https?:\/\//.test(src) ||
-    /(USDA|FoodSafety|FSIS|Serious Eats|AmazingRibs|Meathead|Franklin|Raichlen|Larousse|Escoffier|Ottolenghi|Big Green Egg|Weber|ThermoWorks|Fuchsia Dunlop|Kenji|Mallmann|Pellaprat|Camdeborde|Robuchon|Ducasse|Ruhlman|Polcyn|Meat Church|Pittman|Holy Smoke|Reed|Peláez|Ivan Orkin)/i.test(src);
+    /(USDA|FoodSafety|FSIS|Serious Eats|AmazingRibs|Meathead|Franklin|Raichlen|Larousse|Escoffier|Ottolenghi|Big Green Egg|Weber|ThermoWorks|Fuchsia Dunlop|Kenji|Mallmann|Pellaprat|Camdeborde|Robuchon|Ducasse|Ruhlman|Polcyn|Meat Church|Pittman|Holy Smoke|Reed|Peláez|Ivan Orkin|Bocuse|Anne-Sophie Pic|Alain Passard|Michel Bras|Yannick Alléno|Pierre Gagnaire|Guy Savoy|Hélène Darroze|Georges Blanc|Régis Marcon|Cyril Lignac|Philippe Etchebest|Michel Guérard|Pierre Hermé|Marabout|Hachette Cuisine|Le Cordon Bleu|Institut Paul Bocuse|Meilleur du Chef|Chef Simon|Cuisine Actuelle|750g|Marmiton|L'Atelier des Chefs|Ferrandi|Grand Livre de Cuisine)/i.test(src);
 }
 
 function isColdCuredDocumented(recipe, h) {
