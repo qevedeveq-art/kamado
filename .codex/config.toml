@@ -1,0 +1,5 @@
+[features]
+multi_agent = true
+
+[agents.kamado-expert]
+instructions = ".codex/agents/kamado-expert.toml"

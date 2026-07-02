@@ -54,10 +54,12 @@ Avant de publier des modifications sur les recettes ou le code, exécutez le scr
 ```bash
 node scripts/extract-data.js   # rafraîchit data/recipes.json depuis index.html
 node scripts/audit-data.js     # contrôle conformité, doublons, modes, allergènes
+node scripts/audit-kamado-expert.js # revue experte kamado: sécurité, températures, phases, sauces
 node --test 'tests/*.test.js'  # exécute la suite de tests (Node natif)
 ```
 
 Ce script contrôle la conformité des schémas de données, l'absence de doublons de noms, la compatibilité des modes de cuisson Kamado, la détection des allergènes, piquant et saisons.
+L'audit expert s'appuie sur l'agent local `.codex/agents/kamado-expert.toml` et produit `scripts/reports/kamado-expert-report.json`.
 
 ---
 
