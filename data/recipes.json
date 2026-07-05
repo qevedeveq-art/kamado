@@ -6205,6 +6205,665 @@
     }
   },
   {
+    "cat": "agneau",
+    "nom": "Selle d'agneau à la broche, fumée de sarments",
+    "ori": "France · rôtissoire kamado, fumée courte",
+    "pour": "6 pers",
+    "mode": "Direct sur rotisserie",
+    "tempK": "200 °C",
+    "coeur": "55–58 °C (rosé, USDA 63 °C + 3 min repos)",
+    "temps": "1 h 15",
+    "bois": "Sarments de vigne (fumée courte)",
+    "tags": "selle agneau rotisserie broche vigne fumee courte roti",
+    "ings": [
+      "1 selle d'agneau désossée ficelée (1,6 kg)",
+      "3 gousses d'ail, romarin, thym, huile d'olive",
+      "Fleur de sel, poivre concassé",
+      "1 poignée de sarments de vigne (fumée d'appoint)"
+    ],
+    "etapes": [
+      "Sortez la selle 1 h avant, séchez, frottez d'huile, ail écrasé et herbes hachées.",
+      "Stabilisez kamado en direct à 200 °C, montez la broche, ajoutez sarments sur les braises.",
+      "Rotisserie 45–55 min : la broche assure une croûte homogène et un jus autobasté.",
+      "Sondez au centre : sortez à 55 °C pour rosé, 58 °C pour à point.",
+      "Reposez 15 min tente alu, tranchez perpendiculairement aux fibres."
+    ],
+    "astuce": "Les sarments donnent une fumée douce et courte : quelques poignées suffisent, sinon amertume. La rotisserie est la technique reine pour une selle homogène.",
+    "difficulty": 3,
+    "charbon_kg": 1.8,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Mise en broche",
+        "mode": "préparation",
+        "temp_C": 20,
+        "duration_min": 60,
+        "action": "Sortie du froid, huile+ail+herbes, ficelage vérifié."
+      },
+      {
+        "name": "Rotisserie fumée",
+        "mode": "direct",
+        "temp_C": 200,
+        "duration_min": 50,
+        "action": "Broche + sarments. Autobastage naturel par rotation."
+      },
+      {
+        "name": "Repos",
+        "mode": "préparation",
+        "temp_C": 60,
+        "duration_min": 15,
+        "action": "Tente alu, tranchage perpendiculaire fibres."
+      }
+    ],
+    "equipement": [
+      "Broche rotisserie kamado",
+      "Contrepoids/blocage",
+      "Sonde à cœur",
+      "Ficelle bouchère"
+    ],
+    "erreurs": [
+      "Selle non ficelée : cuisson inégale",
+      "Trop de sarments : amertume",
+      "Pas de repos : jus qui fuit à la découpe",
+      "Sonde trop près de l'os : lecture faussée"
+    ],
+    "notes_securite": "USDA/FSIS agneau pièce entière : 63 °C à cœur + 3 min repos = seuil de sécurité. Rosé (55 °C) accepté si repos long (>10 min) et pièce entière sans surface entamée. Ne convient pas aux immunodéprimés, femmes enceintes ou enfants < 5 ans.",
+    "source": "https://www.biggreenegg.eu/en/indirect-cooking",
+    "sauce": "Jus de rôti à la fleur de thym et zeste de citron",
+    "_derived": {
+      "spice": "Doux",
+      "season": "printemps",
+      "sauces": [
+        "Jus de rôti à la fleur de thym et zeste de citron"
+      ],
+      "allergens": []
+    }
+  },
+  {
+    "cat": "agneau",
+    "nom": "Travers d'agneau fumés 3-2-1",
+    "ori": "BBQ américain · lamb ribs low & slow",
+    "pour": "4 pers",
+    "mode": "Fumage indirect",
+    "tempK": "110 °C",
+    "coeur": "92 °C (côte fondante, bend test)",
+    "temps": "6 h",
+    "bois": "Cerisier + hêtre",
+    "tags": "travers agneau ribs fumage 321 bbq low slow lamb",
+    "ings": [
+      "2 racks de travers d'agneau (env. 1,6 kg total)",
+      "Rub : cassonade, paprika fumé, cumin, ail, poivre, sel",
+      "Beurre + miel + cassonade + sirop d'érable (wrap)",
+      "BBQ sauce moutardée aux herbes de Provence (glazing)"
+    ],
+    "etapes": [
+      "Retirez la membrane arrière du rack, frottez au rub 2 h avant.",
+      "Fumage nu à 110 °C pendant 3 h pour construire le bark.",
+      "Wrap papier boucher avec beurre-miel-cassonade, 2 h à 115 °C jusqu'à 92 °C à cœur.",
+      "Déballage, glazing BBQ moutarde toutes les 15 min pendant 1 h à 120 °C.",
+      "Bend test : la rack ploie sans casser. Repos 10 min avant la découpe côte à côte."
+    ],
+    "astuce": "3-2-1 optimisé pour l'agneau (plus maigre que le porc) : phase glazing plus courte si la coloration devient trop soutenue.",
+    "difficulty": 3,
+    "charbon_kg": 3,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 80,
+      "materiau": "papier boucher rose non ciré",
+      "apres": "Continuer jusqu'à 92 °C puis déballer pour glazing"
+    },
+    "phases": [
+      {
+        "name": "Fumage nu",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 180,
+        "action": "Rub sec. Bark. Cerisier + hêtre 2 pincées/h."
+      },
+      {
+        "name": "Wrap gras",
+        "mode": "fumage",
+        "temp_C": 115,
+        "duration_min": 120,
+        "action": "Papier boucher + beurre-miel-cassonade-érable. Cible 92 °C."
+      },
+      {
+        "name": "Glazing",
+        "mode": "fumage",
+        "temp_C": 120,
+        "duration_min": 60,
+        "action": "BBQ moutarde badigeonnée toutes les 15 min. Couleur laquée."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Papier boucher rose",
+      "Pinceau silicone",
+      "Sonde 2 canaux"
+    ],
+    "erreurs": [
+      "Membrane laissée : dur en bouche",
+      "Wrap trop tôt : bark molle",
+      "Glazing à froid : sauce fige",
+      "Sortie à 88 °C : ribs pas fondantes"
+    ],
+    "notes_securite": "USDA/FSIS : agneau whole muscle 63 °C + 3 min. La cuisson 6 h à 110 °C dépasse largement (pasteurisation totale). Membrane retirée = pénétration fumée + tendreté.",
+    "source": "https://amazingribs.com/more-technique-and-science/",
+    "sauce": "BBQ moutardée aux herbes de Provence",
+    "_derived": {
+      "spice": "Épicé doux",
+      "season": "printemps",
+      "sauces": [
+        "BBQ moutardée aux herbes de Provence"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
+    "cat": "agneau",
+    "nom": "Épaule d'agneau pulled fumée méditerranéenne",
+    "ori": "BBQ américain revisité Méditerranée",
+    "pour": "8 pers",
+    "mode": "Fumage indirect puis braisé",
+    "tempK": "110 °C puis 150 °C",
+    "coeur": "96 °C (effilochage à la fourchette)",
+    "temps": "9–10 h",
+    "bois": "Olivier + chêne vert",
+    "tags": "pulled agneau epaule fumage mediterranneen origan citron sumac",
+    "ings": [
+      "1 épaule d'agneau avec os (2,2–2,5 kg)",
+      "Rub : origan, thym, ail, cumin, sumac, sel, poivre",
+      "Huile d'olive, 2 citrons confits",
+      "Bouillon d'agneau + vin blanc sec (pour wrap)"
+    ],
+    "etapes": [
+      "Frottez au rub méditerranéen la veille, laissez 12 h au frais.",
+      "Sortez 1 h avant, fumage indirect à 110 °C jusqu'à 75 °C à cœur (5–6 h).",
+      "Wrap alu double avec bouillon-vin-citron confit, remontez à 150 °C.",
+      "Braisez jusqu'à 96 °C (2–3 h supplémentaires).",
+      "Repos 30 min en glacière fermée, effilochez à la fourchette et mélangez au jus."
+    ],
+    "astuce": "Le sumac apporte l'acidité qui remplace le vinaigre BBQ américain. L'olivier est la signature aromatique méditerranéenne.",
+    "difficulty": 4,
+    "charbon_kg": 4,
+    "repos_min": 30,
+    "marinade_h": 12,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 75,
+      "materiau": "alu double + bouillon d'agneau",
+      "apres": "Braisé jusqu'à 96 °C, effilochage spontané"
+    },
+    "phases": [
+      {
+        "name": "Fumage nu",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 330,
+        "action": "Rub méditerranéen. Olivier + chêne vert."
+      },
+      {
+        "name": "Wrap braisé",
+        "mode": "braisé",
+        "temp_C": 150,
+        "duration_min": 180,
+        "action": "Alu double + bouillon + citron confit. Vise 96 °C."
+      },
+      {
+        "name": "Repos effilochage",
+        "mode": "préparation",
+        "temp_C": 60,
+        "duration_min": 30,
+        "action": "Glacière puis effilochage à la fourchette dans le jus."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Alu double épaisseur",
+      "Gants effilochage",
+      "Sonde 2 canaux",
+      "Glacière (repos)"
+    ],
+    "erreurs": [
+      "Stopper à 90 °C : effilochage incomplet",
+      "Pas de repos : fibres tendues et sèches",
+      "Rub trop salé : croûte amère",
+      "Ouvertures fréquentes : temps de cuisson qui explose"
+    ],
+    "notes_securite": "USDA/FSIS : agneau long cook 9+ h à 110 °C = pasteurisation totale. Cible 96 °C à cœur pour effilochage spontané. Refroidissement rapide en <2 h si non consommé (portions plates + frigo direct).",
+    "source": "https://amazingribs.com/more-technique-and-science/",
+    "sauce": "Yaourt grec, menthe, citron confit, ail écrasé",
+    "_derived": {
+      "spice": "Épicé doux",
+      "season": "printemps",
+      "sauces": [
+        "Yaourt grec, menthe, citron confit, ail écrasé"
+      ],
+      "allergens": []
+    }
+  },
+  {
+    "cat": "agneau",
+    "nom": "Merguez maison fumées au bois d'olivier",
+    "ori": "Maghreb · saucisse d'agneau piquante fumée puis grillée",
+    "pour": "6 pers",
+    "mode": "Fumage indirect puis Direct",
+    "tempK": "90 °C puis 220 °C",
+    "coeur": "71 °C (saucisse USDA)",
+    "temps": "1 h 30",
+    "bois": "Olivier (fumée courte)",
+    "tags": "merguez agneau saucisse fumage direct maghreb harissa cumin",
+    "ings": [
+      "1 kg d'épaule d'agneau + 200 g de gras de mouton, hachés grossièrement",
+      "Harissa, cumin, paprika, ail, coriandre, sel",
+      "Boyaux naturels de mouton (24 mm)",
+      "Huile d'olive, poivron rouge grillé (option)"
+    ],
+    "etapes": [
+      "Hachez viande et gras à froid, mélangez aux épices et à la harissa, reposez 2 h au frais.",
+      "Embossez en boyaux fins, formez chapelets de 12 cm.",
+      "Fumage doux à 90 °C pendant 45 min (fixation fumée + coagulation).",
+      "Passage direct à 220 °C, marquez 4–5 min en tournant.",
+      "Sortez à 71 °C à cœur, laissez reposer 5 min avant service."
+    ],
+    "astuce": "Le double étage (fumage doux + saisie directe) évite l'éclatement des boyaux et donne un cœur juteux.",
+    "difficulty": 4,
+    "charbon_kg": 1.5,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/3 ouvert puis grand ouvert",
+      "top": "1/3 ouvert puis grand ouvert"
+    },
+    "phases": [
+      {
+        "name": "Farce épicée",
+        "mode": "préparation",
+        "temp_C": 5,
+        "duration_min": 120,
+        "action": "Repos maturation au frais après embossage."
+      },
+      {
+        "name": "Fumage doux",
+        "mode": "fumage",
+        "temp_C": 90,
+        "duration_min": 45,
+        "action": "Olivier. Coagulation + fixation fumée. Boyaux stables."
+      },
+      {
+        "name": "Saisie directe",
+        "mode": "direct",
+        "temp_C": 220,
+        "duration_min": 8,
+        "action": "Marquage. Sonde 71 °C. Repos 5 min avant service."
+      }
+    ],
+    "equipement": [
+      "Hachoir + poussoir",
+      "Boyaux naturels",
+      "Pierre déflectrice",
+      "Sonde à cœur fine"
+    ],
+    "erreurs": [
+      "Farce trop chaude : gras pommade, texture savonneuse",
+      "Fumage trop chaud : boyaux qui éclatent",
+      "Piquer à la fourchette : jus perdu",
+      "Sauter le repos : jus qui gicle à la coupe"
+    ],
+    "notes_securite": "USDA/FSIS : saucisse d'agneau (haché) = 71 °C à cœur obligatoire (pas de rosé possible sur haché). Chaîne du froid stricte pendant hachage et embossage : viande <4 °C, matériel refroidi. Restes : 3 jours max à 4 °C.",
+    "source": "https://blog.thermoworks.com/chef-recommended-tw-approved/",
+    "sauce": "Chermoula citronnée ou harissa maison",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "printemps",
+      "sauces": [
+        "Chermoula citronnée ou harissa maison"
+      ],
+      "allergens": []
+    }
+  },
+  {
+    "cat": "agneau",
+    "nom": "Kleftiko d'agneau en papillote au kamado",
+    "ori": "Grèce · agneau bandit cuit en papillote scellée",
+    "pour": "6 pers",
+    "mode": "Braisé indirect (cocotte)",
+    "tempK": "150 °C",
+    "coeur": "92 °C (chair qui se détache spontanément)",
+    "temps": "4 h",
+    "bois": "—",
+    "tags": "kleftiko grec agneau papillote citron origan feta pommes de terre",
+    "ings": [
+      "1,8 kg d'épaule ou gigot d'agneau en morceaux",
+      "4 gousses d'ail, 2 citrons, origan sec",
+      "600 g de pommes de terre nouvelles, 200 g de feta",
+      "Huile d'olive, vin blanc sec, laurier",
+      "Papier sulfurisé + ficelle bouchère"
+    ],
+    "etapes": [
+      "Faites mariner l'agneau 4 h avec ail écrasé, jus de citron, origan et huile d'olive.",
+      "Disposez agneau, pommes de terre, tranches de citron, feta émiettée sur papier sulfurisé.",
+      "Arrosez de vin blanc, refermez en papillote scellée avec ficelle bouchère.",
+      "Placez en cocotte fermée à 150 °C indirect, braisez 3 h 30 sans ouvrir.",
+      "Ouvrez la papillote à table : la chair se détache, servez avec le jus concentré."
+    ],
+    "astuce": "La papillote scellée est la clef : elle emprisonne la vapeur aromatique. Ne pas ouvrir en cours de cuisson.",
+    "difficulty": 2,
+    "charbon_kg": 2.5,
+    "repos_min": 10,
+    "marinade_h": 4,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Marinade",
+        "mode": "préparation",
+        "temp_C": 5,
+        "duration_min": 240,
+        "action": "Citron + ail + origan + huile. Réfrigéré, sac fermé."
+      },
+      {
+        "name": "Braisé papillote",
+        "mode": "braisé",
+        "temp_C": 150,
+        "duration_min": 210,
+        "action": "Papier sulfurisé scellé en cocotte fermée. Ne pas ouvrir."
+      },
+      {
+        "name": "Repos ouvert",
+        "mode": "préparation",
+        "temp_C": 60,
+        "duration_min": 10,
+        "action": "Ouvrir à table, jus concentré autobasté."
+      }
+    ],
+    "equipement": [
+      "Papier sulfurisé épais",
+      "Ficelle bouchère",
+      "Cocotte en fonte",
+      "Pierre déflectrice"
+    ],
+    "erreurs": [
+      "Ouvrir la papillote en cours : vapeur perdue, chair sèche",
+      "Papier trop fin : perce et jus s'échappe",
+      "Feta ajoutée trop tôt : dissoute complètement",
+      "Trop de citron : amertume dominante"
+    ],
+    "notes_securite": "USDA/FSIS agneau : 63 °C + 3 min pour pièce entière ; ici cuisson longue à 150 °C dépasse largement le seuil (92 °C visé). Feta au lait cru : vérifier l'étiquetage si personnes à risque (femmes enceintes, immunodéprimés).",
+    "source": "https://www.biggreenegg.eu/en/indirect-cooking",
+    "sauce": "Jus concentré au citron et vin blanc",
+    "_derived": {
+      "spice": "Doux",
+      "season": "printemps",
+      "sauces": [
+        "Jus concentré au citron et vin blanc"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
+    "cat": "agneau",
+    "nom": "Rogan josh d'agneau au Dutch oven",
+    "ori": "Cachemire (Inde) · curry d'agneau au safran et cardamome",
+    "pour": "6 pers",
+    "mode": "Braisé indirect (cocotte)",
+    "tempK": "160 °C",
+    "coeur": "85 °C (fondant à la fourchette)",
+    "temps": "2 h 30",
+    "bois": "—",
+    "tags": "rogan josh agneau curry cachemire yaourt cardamome safran",
+    "ings": [
+      "1,4 kg d'épaule d'agneau désossée en cubes de 4 cm",
+      "3 c.à.s. ghee, 2 gros oignons émincés",
+      "4 gousses d'ail + gingembre râpé (2 c.à.s. chacun)",
+      "6 gousses cardamome verte, 2 noires, 1 bâton cannelle, 4 clous girofle",
+      "2 c.à.s. paprika de Cachemire, 1 c.à.c. curcuma, 1 c.à.c. piment doux",
+      "300 g de yaourt entier fouetté, 400 g de tomates concassées",
+      "Pincée de safran infusée dans lait chaud, coriandre fraîche"
+    ],
+    "etapes": [
+      "Séchez les cubes, saisissez au ghee dans la cocotte à 220 °C direct jusqu'à croûte brune.",
+      "Réservez la viande, faites suer oignons 10 min, ajoutez ail+gingembre+épices entières 2 min.",
+      "Ajoutez paprika, curcuma, piment doux, puis fouettez le yaourt tempéré (évite qu'il ne tranche).",
+      "Remettez la viande, ajoutez tomates, portez à frémissement.",
+      "Installez pierre déflectrice, 160 °C indirect, cocotte fermée, 2 h. Ajoutez safran-lait 15 min avant.",
+      "Rectifiez sel, parsemez coriandre, servez avec riz basmati."
+    ],
+    "astuce": "Le yaourt doit être tempéré et incorporé hors feu vif pour éviter qu'il ne tranche. Le paprika de Cachemire donne la couleur rouge signature sans piquant.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Saisie viande",
+        "mode": "direct",
+        "temp_C": 220,
+        "duration_min": 15,
+        "action": "Cocotte ouverte, ghee, croûte brune en 2 fournées."
+      },
+      {
+        "name": "Base masala",
+        "mode": "direct",
+        "temp_C": 180,
+        "duration_min": 15,
+        "action": "Oignons + épices + yaourt tempéré + tomates."
+      },
+      {
+        "name": "Braisé long",
+        "mode": "braisé",
+        "temp_C": 160,
+        "duration_min": 120,
+        "action": "Cocotte fermée + pierre déflectrice. Sonde 85 °C. Safran 15 min avant."
+      }
+    ],
+    "equipement": [
+      "Cocotte en fonte 5 L",
+      "Pierre déflectrice",
+      "Mortier pilon (épices)",
+      "Sonde à cœur"
+    ],
+    "erreurs": [
+      "Yaourt froid ajouté au feu vif : caillé",
+      "Épices entières brûlées : amertume",
+      "Braiser à découvert : sauce trop réduite",
+      "Pas de repos : goût moins intégré"
+    ],
+    "notes_securite": "USDA/FSIS agneau : la cuisson longue à 160 °C > 85 °C pasteurise entièrement. Yaourt cru bien fouetté avant ajout. Restes : réchauffage ≥ 72 °C, deux réchauffages max.",
+    "source": "https://blog.thermoworks.com/chef-recommended-tw-approved/",
+    "sauce": "Yaourt à la coriandre et concombre (raïta)",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "printemps",
+      "sauces": [
+        "Yaourt à la coriandre et concombre (raïta)"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
+    "cat": "agneau",
+    "nom": "Adana kebab (agneau haché épicé au maras)",
+    "ori": "Turquie · brochette plate d'agneau haché au piment maras",
+    "pour": "4 pers",
+    "mode": "Direct",
+    "tempK": "260 °C",
+    "coeur": "71 °C (haché USDA)",
+    "temps": "12 min",
+    "bois": "—",
+    "tags": "adana kebab turquie agneau hache brochette plate piment maras",
+    "ings": [
+      "800 g d'épaule d'agneau + 200 g de gras de mouton, hachés grossièrement au couteau",
+      "1 poivron rouge grillé et pelé, haché fin",
+      "2 c.à.s. de piment d'Alep (biber salçası) ou pul biber",
+      "Persil plat, cumin, sel, poivre",
+      "Pain lavash ou pide, oignon rouge au sumac"
+    ],
+    "etapes": [
+      "Hachez viande et gras au couteau (jamais au robot : texture cassée).",
+      "Mélangez à la main avec poivron rouge, piment maras, persil, cumin, sel. Repos 1 h au frais.",
+      "Formez des rubans autour de brochettes plates en métal, serrez bien.",
+      "Grille directe à 260 °C, 3 min par face en tournant. Sonde 71 °C.",
+      "Servez sur pain lavash chaud, oignon rouge au sumac, salade de tomates."
+    ],
+    "astuce": "Le haché doit être grossier au couteau pour tenir sur la brochette plate — au robot il se compacte et devient élastique. La brochette large empêche la chute.",
+    "difficulty": 3,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
+    "phases": [
+      {
+        "name": "Farce",
+        "mode": "préparation",
+        "temp_C": 5,
+        "duration_min": 60,
+        "action": "Haché couteau + gras + poivron + piment. Repos froid pour cohésion."
+      },
+      {
+        "name": "Grill direct",
+        "mode": "direct",
+        "temp_C": 260,
+        "duration_min": 12,
+        "action": "Brochettes plates. 3 min par face. Sonde 71 °C."
+      },
+      {
+        "name": "Repos service",
+        "mode": "préparation",
+        "temp_C": 60,
+        "duration_min": 5,
+        "action": "Sur lavash chaud, oignon sumac."
+      }
+    ],
+    "equipement": [
+      "Brochettes plates métal (28 cm)",
+      "Hachoir couteau",
+      "Grille directe",
+      "Sonde fine"
+    ],
+    "erreurs": [
+      "Haché au robot : texture élastique",
+      "Moins de 20 % de gras : brochettes qui se déchirent",
+      "Feu trop doux : extérieur cru, intérieur sec",
+      "Retourner trop tôt : haché qui colle et se casse"
+    ],
+    "notes_securite": "USDA/FSIS haché d'agneau : 71 °C à cœur strict (pas de rosé possible). Chaîne du froid maintenue pendant le hachage. Contact viande crue : nettoyage planche + couteau immédiatement. Restes : 2 jours max à 4 °C.",
+    "source": "https://blog.thermoworks.com/chef-recommended-tw-approved/",
+    "sauce": "Yaourt à l'ail et menthe, sumac citronné",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "printemps",
+      "sauces": [
+        "Yaourt à l'ail et menthe, sumac citronné"
+      ],
+      "allergens": [
+        "gluten"
+      ]
+    }
+  },
+  {
+    "cat": "agneau",
+    "nom": "Râble de lapin fumé au thym et pommier",
+    "ori": "France · gibier fin, fumage court",
+    "pour": "4 pers",
+    "mode": "Fumage indirect puis Direct",
+    "tempK": "100 °C puis 200 °C",
+    "coeur": "63 °C (lapin whole muscle FSIS 63 °C)",
+    "temps": "45 min",
+    "bois": "Pommier + thym frais",
+    "tags": "lapin rable gibier fumage court thym pommier fin",
+    "ings": [
+      "2 râbles de lapin (env. 700 g total)",
+      "Lard fumé fin (4 tranches), thym frais, ail",
+      "Huile d'olive, moutarde de Dijon, sel, poivre",
+      "Bardes ou crépine (garde le râble juteux)"
+    ],
+    "etapes": [
+      "Enrobez les râbles de moutarde, ail écrasé, thym haché. Bardez de lard fumé.",
+      "Stabilisez kamado en fumage indirect à 100 °C avec pommier + thym frais sur les braises.",
+      "Fumage doux 25 min jusqu'à 55 °C à cœur (viande maigre : ne surtout pas dessécher).",
+      "Retirez pierre déflectrice, passez direct à 200 °C, saisie 3–4 min pour croûte.",
+      "Sortez à 63 °C à cœur, reposez 8 min tente alu, tranchez en médaillons."
+    ],
+    "astuce": "Le lapin est très maigre : bardage + fumage court + saisie tardive = seule combinaison qui garde la chair moelleuse. Sonde obligatoire.",
+    "difficulty": 3,
+    "charbon_kg": 1.2,
+    "repos_min": 8,
+    "vents": {
+      "bottom": "1/4 ouvert puis grand ouvert",
+      "top": "1/4 ouvert puis grand ouvert"
+    },
+    "phases": [
+      {
+        "name": "Fumage doux",
+        "mode": "fumage",
+        "temp_C": 100,
+        "duration_min": 25,
+        "action": "Pommier + brindilles de thym frais. Sonde 55 °C."
+      },
+      {
+        "name": "Saisie directe",
+        "mode": "direct",
+        "temp_C": 200,
+        "duration_min": 6,
+        "action": "Pierre retirée. Croûte + jus scellé. Sonde 63 °C."
+      },
+      {
+        "name": "Repos tente",
+        "mode": "préparation",
+        "temp_C": 60,
+        "duration_min": 8,
+        "action": "Alu, jus redistribué, tranchage en médaillons."
+      }
+    ],
+    "equipement": [
+      "Pierre déflectrice",
+      "Sonde à cœur fine",
+      "Bardes de lard fumé",
+      "Gants de service"
+    ],
+    "erreurs": [
+      "Fumage à 130 °C : chair sèche en 10 min",
+      "Pas de bardage : perte d'humidité",
+      "Repos oublié : jus qui coule à la découpe",
+      "Sonde plantée dans la barde : lecture faussée"
+    ],
+    "notes_securite": "USDA/FSIS lapin whole muscle : 63 °C à cœur + 3 min de repos. Viande très maigre : dessèchement rapide au-delà de 68 °C. Le lapin cru peut porter la tularémie : gants + désinfection planche/couteau après manipulation.",
+    "source": "https://www.biggreenegg.eu/en/indirect-cooking",
+    "sauce": "Réduction de moutarde ancienne au thym et jus de rôti",
+    "_derived": {
+      "spice": "Doux",
+      "season": "automne",
+      "sauces": [
+        "Réduction de moutarde ancienne au thym et jus de rôti"
+      ],
+      "allergens": []
+    }
+  },
+  {
     "cat": "poisson",
     "nom": "Saumon sur planche de cèdre",
     "ori": "USA/Canada · fumage délicat sur bois",
