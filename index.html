@@ -285,12 +285,12 @@ section { padding: 12px 0 40px; }
   border: 1px solid var(--line);
   border-radius: var(--border-radius-md);
   padding: 10px 14px;
-  min-width: 80px;
-  flex: 1;
+  min-width: 120px;
+  flex: 1 1 140px;
   box-shadow: var(--shadow-inset);
 }
 .spec .l { font-size: 9.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; }
-.spec .v { font-size: 14px; font-weight: 700; margin-top: 4px; font-family: var(--font-title); word-break: break-word; overflow-wrap: break-word; }
+.spec .v { font-size: 14px; font-weight: 700; margin-top: 4px; font-family: var(--font-title); overflow-wrap: anywhere; word-break: normal; hyphens: none; line-height: 1.25; }
 .spec .v.temp { color: var(--accent2); }
 .spec .v.coeur { color: var(--green); }
 
@@ -1256,8 +1256,8 @@ header {
   border: 1px solid rgba(65, 62, 48, 0.65);
   border-radius: var(--border-radius-md);
   padding: 10px 14px;
-  min-width: 80px;
-  flex: 1;
+  min-width: 120px;
+  flex: 1 1 140px;
   box-shadow: var(--shadow-inset), inset 0 1px 0 rgba(255,255,255,0.03);
 }
 .spec .l {
@@ -1272,8 +1272,10 @@ header {
   font-weight: 700;
   margin-top: 4px;
   font-family: var(--font-display);
-  word-break: break-word;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: none;
+  line-height: 1.25;
 }
 .spec .v.temp  { color: var(--flame-gold); }
 .spec .v.coeur { color: var(--green); }
