@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-07-02T11:19:33.223Z",
+  "reviewedAt": "2026-07-05T22:05:30.504Z",
   "agent": "kamado-expert",
   "references": [
     {
@@ -24,18 +24,18 @@
     }
   ],
   "totals": {
-    "recipesReviewed": 218,
+    "recipesReviewed": 226,
     "issues": 0,
     "warnings": 0,
     "improvements": 252
   },
   "byCategory": {
     "agneau": {
-      "count": 16,
-      "withPhases": 12,
-      "withSafety": 5,
-      "withErrors": 7,
-      "withCredibleSource": 14
+      "count": 24,
+      "withPhases": 20,
+      "withSafety": 13,
+      "withErrors": 15,
+      "withCredibleSource": 22
     },
     "boeuf": {
       "count": 28,
@@ -102,8 +102,8 @@
     }
   },
   "sauceCoverage": {
-    "proposed": 254,
-    "matched": 85,
+    "proposed": 262,
+    "matched": 86,
     "unmatchedByName": {
       "Salsa verde persil-coriandre, ail, citron et huile d'olive": 1,
       "Tare yakitori réduite : soja, mirin, saké, sucre et gingembre": 1,
@@ -132,6 +132,13 @@
       "Yaourt grec, menthe, citron, ail et cumin": 1,
       "Gochujang, miel, soja, ail et huile de sésame": 1,
       "Labneh citronné, menthe et sumac": 1,
+      "Jus de rôti à la fleur de thym et zeste de citron": 1,
+      "BBQ moutardée aux herbes de Provence": 1,
+      "Yaourt grec, menthe, citron confit, ail écrasé": 1,
+      "Jus concentré au citron et vin blanc": 1,
+      "Yaourt à la coriandre et concombre (raïta)": 1,
+      "Yaourt à l'ail et menthe, sumac citronné": 1,
+      "Réduction de moutarde ancienne au thym et jus de rôti": 1,
       "Sauce vierge citron-herbes": 14,
       "Sauce vierge tomate, câpres, basilic, citron et huile d'olive": 1,
       "Crème ail-persil au jus fumé des moules": 1,
@@ -159,7 +166,7 @@
       "Sauce tahini-citron, câpres et herbes": 1,
       "Salsa roja ou crème citron vert-coriandre": 1
     },
-    "unmatchedUnique": 53
+    "unmatchedUnique": 60
   },
   "issues": [],
   "warnings": [],

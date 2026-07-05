@@ -31,5 +31,8 @@ jobs:
       - name: Run recipe audit
         run: node scripts/audit-data.js
 
+      - name: Run kamado expert audit
+        run: node scripts/audit-kamado-expert.js
+
       - name: Run unit tests
-        run: node --test tests/data.test.js tests/derive.test.js
+        run: node --test 'tests/*.test.js'

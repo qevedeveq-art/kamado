@@ -3,3 +3,18 @@ multi_agent = true
 
 [agents.kamado-expert]
 instructions = ".codex/agents/kamado-expert.toml"
+
+[agents.kamado-recipe-curator]
+instructions = ".codex/agents/kamado-recipe-curator.toml"
+
+[agents.kamado-temperature-reviewer]
+instructions = ".codex/agents/kamado-temperature-reviewer.toml"
+
+[agents.marinade-reviewer]
+instructions = ".codex/agents/marinade-reviewer.toml"
+
+[agents.french-chef-reviewer]
+instructions = ".codex/agents/french-chef-reviewer.toml"
+
+[agents.recipe-declutter]
+instructions = ".codex/agents/recipe-declutter.toml"

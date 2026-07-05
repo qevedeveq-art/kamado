@@ -3735,7 +3735,7 @@
     "pour": "4 pers",
     "mode": "Indirect",
     "tempK": "180 °C",
-    "coeur": "74 °C à la cuisse (partie la plus épaisse, éviter l'os) — 68 °C au blanc",
+    "coeur": "74 °C à la cuisse (USDA/FSIS, partie la plus épaisse, éviter l'os)",
     "temps": "1 h 15–1 h 30",
     "bois": "Pommier",
     "tags": "poulet entier beer can canette rôti",
@@ -7792,7 +7792,7 @@
     "nom": "Moules fumées en cocotte",
     "ori": "Atlantique · apéro iodé",
     "pour": "4 pers",
-    "mode": "Fumage direct en cocotte",
+    "mode": "Direct en cocotte, fumée légère",
     "tempK": "200 °C",
     "coeur": "63 °C ou coquilles toutes ouvertes",
     "temps": "8–10 min",
@@ -7822,9 +7822,9 @@
     },
     "phases": [
       {
-        "name": "Fumage direct cocotte",
+        "name": "Cuisson cocotte fumée",
         "mode": "direct",
-        "temp_C": 220,
+        "temp_C": 200,
         "duration_min": 9,
         "action": "Cocotte sur grille directe avec hêtre dans foyer. Vin blanc+ail+échalote+thym."
       }
@@ -8486,11 +8486,11 @@
     },
     "phases": [
       {
-        "name": "Fumage doux",
-        "mode": "fumage",
-        "temp_C": 120,
+        "name": "Cuisson indirecte fumée",
+        "mode": "indirect",
+        "temp_C": 180,
         "duration_min": 22,
-        "action": "Hêtre. Croûte striée au couteau pour fondant. Ail+vin blanc piqués."
+        "action": "Pierre déflectrice + hêtre pour fumée légère. Croûte striée au couteau, ail+vin blanc piqués."
       }
     ],
     "equipement": [
@@ -12204,7 +12204,7 @@
     "nom": "Jerk chicken jamaïcain",
     "ori": "Jamaïque · épicé et fumé",
     "pour": "4 pers",
-    "mode": "Fumage indirect",
+    "mode": "Indirect fumé",
     "tempK": "160 °C",
     "coeur": "74 °C à la cuisse",
     "temps": "45–60 min",
@@ -12240,11 +12240,11 @@
         "action": "Scotch bonnet+thym+piment de la Jamaïque+oignon vert+citron vert, 24 h."
       },
       {
-        "name": "Fumage indirect",
-        "mode": "fumage",
+        "name": "Cuisson indirecte fumée",
+        "mode": "indirect",
         "temp_C": 160,
         "duration_min": 45,
-        "action": "Bois pimento (ou hêtre+laurier). Cuisses ou poulet en crapaudine."
+        "action": "Bois pimento (ou hêtre+laurier). Cuisses ou poulet en crapaudine, sonde cuisse jusqu'à 74 °C."
       }
     ],
     "equipement": [
