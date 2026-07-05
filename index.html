@@ -8165,6 +8165,74 @@ function spiceLevel(r){
   if(/paprika|cumin|curry|tandoori|ras-el-hanout|epices|épic/.test(h))return"Épicé doux";
   return"Doux";
 }
+/* Accord vin – aligné sur la table VINS et audité par un oenologue. */
+function wineFor(r){
+  if(!r)return null;
+  const h=haystack(r), cat=r.cat, spice=spiceLevel(r);
+  const pick=(label,alt,detail)=>({label,alt,detail});
+  /* Spécifiques d'abord (mode/style/tags) */
+  if(cat==="boeuf"&&/daube|provençal/.test(h))return pick("Bandol rouge (mourvèdre)","Gigondas","Mourvèdre épicé, l'accord provençal de la daube.");
+  if(/brisket|beef ribs|short ribs|plat de côtes|poitrine de bœuf|paleron.*brisket/.test(h))return pick("Zinfandel de Californie","Primitivo des Pouilles","Fruité épicé, taillé pour les fumés longs (hickory, chêne).");
+  if(/bavette|onglet|hampe|flanchet/.test(h))return pick("Chinon (cabernet franc)","Beaujolais cru (Morgon, Fleurie)","Fraîcheur et fine amertume qui contrastent le saignant.");
+  if(/picanha|asado|churrasco|argentin|entrana|entraña/.test(h))return pick("Malbec de Mendoza","Tannat d'Uruguay","L'accord classique du grill sud-américain.");
+  if(/burger|smash/.test(h))return pick("Côtes-du-Rhône","Zinfandel","Rouge fruité mais charpenté, tient face au fromage fondu.");
+  if(cat==="boeuf"&&/côte|entrec|steak|tomahawk|faux-filet|ribeye|filet/.test(h))return pick("Pauillac ou Saint-Estèphe","Madiran ou Cahors","Cabernet-sauvignon tannique : le mariage historique de la côte.");
+  if(cat==="boeuf"&&/bourguignon|braisé|joue/.test(h))return pick("Bourgogne rouge (Gevrey-Chambertin)","Côtes-du-Rhône Village","On boit le vin qui a servi à cuire — pinot noir sur bourguignon.");
+  if(cat==="boeuf")return pick("Côtes-du-Rhône Village","Bordeaux supérieur","Grenache-syrah polyvalent sur le bœuf grillé.");
+  if(/ribs|travers|carolina|kansas|memphis/.test(h)&&cat==="porc")return pick("Zinfandel ou Primitivo","Bière ambrée ou cidre brut","Cépages épicés et confits sur les sauces sucrées-fumées.");
+  if(/pulled pork|effiloch/.test(h)&&cat==="porc")return pick("Côtes-du-Rhône rosé corsé","Lambrusco secco","Rosé structuré ou pétillant sec sur le sandwich effiloché.");
+  if(/teriyaki|yakitori|japon|miso|tsukune/.test(h))return pick("Champagne brut","Riesling sec Grand Cru","Bulles à dosage brut et acidité tranchante sur le laqué sucré-salé.");
+  if(/char siu|hoisin|chinois|porc laqué/.test(h))return pick("Gewurztraminer d'Alsace","Riesling sec Vendanges Tardives","Le sucre résiduel équilibre les glaçages caramélisés.");
+  if(/porchetta|carré de porc|filet mignon|rôti de porc/.test(h))return pick("Bourgogne rouge (Beaune, Mercurey)","Chenin demi-sec (Vouvray)","Pinot noir fruité sur porc rôti clair.");
+  if(/andouillette|choucroute|saucisse.*fum|boudin blanc/.test(h))return pick("Riesling sec d'Alsace","Sylvaner","Blanc alsacien tranchant sur la charcuterie fumée.");
+  if(/cassoulet|confit de canard|confit d.oie/.test(h))return pick("Madiran","Fronton (négrette)","Tannat rustique du Sud-Ouest, taillé pour le confit.");
+  if(/boudin noir/.test(h))return pick("Chinon rouge frais","Vouvray sec","Cabernet franc léger sur le boudin poêlé.");
+  if(cat==="porc")return pick("Beaujolais Villages ou Fleurie","Cidre brut fermier","Gamay souple et fruité, l'ami de la charcuterie fumée.");
+  if(/tandoori|tikka|inde|masala/.test(h))return pick("Riesling sec (Alsace ou Mosel)","Gewurztraminer","L'acidité rafraîchit les épices sans les écraser.");
+  if(/peri|peri-peri|jerk|piri|fumée piquant/.test(h))return pick("Riesling demi-sec","Rosé de Provence sec","Un demi-sec calme le piquant sans casser le fruité.");
+  if(/coq au vin|poulet.*vin jaune/.test(h))return pick("Bourgogne rouge (Mercurey)","Côtes-du-Jura (Trousseau)","On boit le vin de la cuisson.");
+  if(/canard|magret/.test(h))return pick("Madiran (Château Montus)","Cahors ou Saint-Émilion","Tannat et malbec sudistes pour le gras du canard.");
+  if(/caille|pigeon|pintade|perdreau/.test(h))return pick("Bourgogne rouge (Volnay, Mercurey)","Saint-Émilion souple","Pinot noir élégant sur petits gibiers à plume.");
+  if(/dinde|chapon|volaille des fêtes/.test(h))return pick("Bourgogne blanc (Meursault, Chassagne)","Champagne blanc de blancs","Chardonnay riche pour les volailles de fête.");
+  if(cat==="volaille"&&/rôti|crapaudine|entier|spatchcock/.test(h))return pick("Bourgogne blanc (Mâcon-Villages)","Beaujolais cru (Fleurie)","Chardonnay sec sur le poulet rôti, l'accord de bistrot.");
+  if(cat==="volaille")return pick("Chardonnay de Bourgogne","Chenin sec (Savennières)","Blanc gras et minéral, polyvalent volaille grillée.");
+  if(/mechoui|tagine|maghreb|marocain|ras el hanout|zaatar|chermoula/.test(h))return pick("Syrah du Languedoc (Faugères)","Côtes-du-Rhône Village","Notes poivrées et garrigue en écho aux épices marocaines.");
+  if(/chevreuil|cerf|biche|gibier à poil/.test(h))return pick("Châteauneuf-du-Pape rouge","Hermitage","Rouges sudistes puissants et épicés sur les gros gibiers.");
+  if(/sanglier|civet/.test(h))return pick("Cahors (Clos Triguedina)","Madiran ou Gigondas","Vins tanniques du Sud-Ouest, taillés pour le sanglier braisé.");
+  if(/kleftiko|souvlaki|grec/.test(h))return pick("Agiorgitiko de Némée","Côtes-du-Rhône Village","Rouge grec fruité ou syrah française sur l'agneau méditerranéen.");
+  if(/rogan josh|curry.*agneau/.test(h))return pick("Côtes-du-Rhône Village","Riesling demi-sec d'Alsace","Grenache épicé ou riesling off-dry pour les currys d'agneau riches.");
+  if(cat==="agneau")return pick("Pauillac ou Saint-Julien","Côtes-du-Rhône Village","Cabernet-sauvignon tannique : l'accord canonique avec l'agneau rosé.");
+  if(/ris de veau|abats/.test(h))return pick("Meursault","Jurançon sec","Blanc gras et vif sur les abats nobles.");
+  if(/saumon/.test(h))return pick("Bourgogne blanc (Chablis Premier Cru)","Pinot gris d'Alsace","Blanc gras et minéral pour tenir le saumon fumé.");
+  if(/thon/.test(h))return pick("Tavel rosé","Bandol rosé","Rosé corsé taillé pour le thon mi-cuit.");
+  if(/homard|langouste/.test(h))return pick("Meursault","Champagne blanc de blancs","Chardonnay gras sur crustacés nobles grillés.");
+  if(/huître|plateau.*fruits de mer/.test(h))return pick("Muscadet sur lie","Chablis (Chardonnay)","Minéralité iodée sur les coquillages crus.");
+  if(/bouillabaisse|soupe de poisson/.test(h))return pick("Cassis blanc","Bandol blanc","Blanc marseillais iodé sur les soupes safranées.");
+  if(/gambas|crevette|langoustine|coquillage|paella/.test(h))return pick("Albariño (Rias Baixas)","Muscadet sur lie","Blanc sec vif et iodé pour les fruits de mer.");
+  if(/sardine|maquereau|hareng|anchois/.test(h))return pick("Muscadet sur lie","Vinho Verde","Fraîcheur minérale sur poissons bleus grillés.");
+  if(/bar|dorade|loup|daurade|turbot|cabillaud|poisson entier/.test(h))return pick("Sancerre blanc","Picpoul de Pinet","Sauvignon minéral sur poissons blancs entiers.");
+  if(cat==="poisson")return pick("Sancerre ou Muscadet","Blanc de Provence","Blanc sec vif, minéral, l'accord poisson grillé.");
+  if(/pizza|focaccia|calzone/.test(h))return pick("Chianti Classico","Barbera d'Alba","Sangiovese fruité, l'accord toscan intemporel.");
+  if(/comté|beaufort|gruyère|pâte pressée/.test(h))return pick("Vin jaune du Jura","Chardonnay du Jura","Savagnin oxydatif sur les pâtes pressées cuites.");
+  if(cat==="dessert"&&/ananas|pêche|figue|fruits rôtis|abricot/.test(h))return pick("Vouvray demi-sec","Champagne demi-sec","Chenin blanc doux sur les fruits rôtis.");
+  if(cat==="dessert"&&/chocolat|brownie|fondant/.test(h))return pick("Banyuls Rimage","Maury Grenat","Vins doux naturels grenache, l'ami du chocolat.");
+  if(cat==="dessert")return pick("Sauternes","Muscat de Beaumes-de-Venise","Vin liquoreux sur les desserts crémeux.");
+  if(cat==="vegetarien"||cat==="legumes"){
+    if(/aubergine|champignon|umami|portobello|fumée/.test(h))return pick("Pinot noir léger (Sancerre rouge)","Beaujolais Villages","Rouge léger frais sur l'umami fumé des légumes.");
+    if(/halloumi|feta|chèvre|fromage/.test(h))return pick("Rosé de Provence sec","Sauvignon blanc","Rosé sec et vin blanc vif sur les fromages grillés.");
+    return pick("Rosé de Provence sec","Vermentino de Corse","Frais et souple sur les légumes grillés.");
+  }
+  /* Filet de sécurité selon le piquant */
+  if(spice==="Relevé")return pick("Riesling demi-sec d'Alsace","Gewurztraminer","Le sucre résiduel dompte le piquant.");
+  return pick("Côtes-du-Rhône Village","Beaujolais Villages","Rouge polyvalent, souple et fruité.");
+}
+/* Températures de service : sec-frais 8–10, VDN/liquoreux/oxydatif 10–14, rouge 16–18. */
+function wineServiceTemp(label){
+  const s=(label||"").toLowerCase();
+  if(/sauternes|banyuls|maury|muscat|rivesaltes|jurançon moelleux|vin jaune|vendanges tardives|liquoreux/.test(s))return"10–14 °C";
+  if(/blanc|rosé|champagne|riesling|gewurz|sauvignon|chardonnay|chenin|albariño|muscadet|sancerre|vouvray|chablis|meursault|picpoul|vinho verde|cassis|savennières|jurançon sec|sylvaner|crémant|lambrusco/.test(s))return"8–10 °C";
+  return"16–18 °C";
+}
 function allergens(r){
   const h=haystack(r), a=[];
   if(/fromage|beurre|creme|crème|yaourt|lait|mozzarella|feta|cheddar|mascarpone|parmesan|halloumi/.test(h))a.push("lait");
@@ -9739,6 +9807,14 @@ function renderMenuBuilder(){
     currentMenu=picks.filter(p=>p.r);
     const bands=[...new Set(currentMenu.map(p=>tempBand(p.r)))];
     const compatibility=bands.length<=1||bands.includes("mixte")?"Menu compatible en température":"Menu à séquencer en deux températures";
+    const wine=main?wineFor(main):null;
+    const wineCard=wine?`<div class="menu-card" style="grid-column:1/-1;border-color:#9b3b6a;background:linear-gradient(180deg,rgba(155,59,106,0.10),transparent)">
+        <h3>🍷 Vin conseillé — accord sur ${main.nom}</h3>
+        <div style="font-weight:800;font-size:15px;margin-top:4px">${wine.label}</div>
+        <div class="ori" style="margin-top:4px">${wine.detail}</div>
+        <div class="meta" style="margin-top:8px"><span class="badge">Alternative : ${wine.alt}</span><span class="badge">Service : ${wineServiceTemp(wine.label)}</span></div>
+        <p style="margin:8px 0 0;font-size:11.5px;color:var(--muted)">⚠️ L'abus d'alcool est dangereux pour la santé.</p>
+      </div>`:"";
     $("#menuOut").innerHTML=`<div class="menu-card" style="grid-column:1/-1">
         <h3>Compatibilité cuisson</h3>
         <div class="meta">
@@ -9746,7 +9822,7 @@ function renderMenuBuilder(){
           <span class="badge">${compatibility}</span>
           <span class="badge">${guests} personnes</span>
         </div>
-      </div>`+picks.map(p=>p.r?`
+      </div>`+wineCard+picks.map(p=>p.r?`
       <div class="menu-card">
         <h3>${p.label}</h3>
         <div style="font-weight:800">${p.r.nom}</div>
@@ -9764,10 +9840,12 @@ function renderMenuBuilder(){
   }
   $("#mGo").onclick=renderMenu;
   $("#mCopy").onclick=()=>{
+    const main=currentMenu[0]&&currentMenu[0].r, wine=main?wineFor(main):null;
+    const winePart=wine?`\n\n🍷 Vin conseillé : ${wine.label} (alt. : ${wine.alt})\n${wine.detail}`:"";
     const txt=currentMenu.map(p=>{
       const r=p.r, sauce=sauceText(r);
       return `${p.label} — ${r.nom}\n`+r.ings.map(x=>"• "+x).join("\n")+(sauce?`\nSauce : ${sauce}`:"");
-    }).join("\n\n");
+    }).join("\n\n")+winePart;
     const done=()=>{$("#mCopy").textContent="Liste copiée";setTimeout(()=>$("#mCopy").textContent="Copier la liste de courses du menu",1400);};
     if(navigator.clipboard){navigator.clipboard.writeText(txt).then(done).catch(done);}else done();
   };
