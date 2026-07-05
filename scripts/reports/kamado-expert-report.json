@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-07-05T22:05:30.504Z",
+  "reviewedAt": "2026-07-05T22:37:59.950Z",
   "agent": "kamado-expert",
   "references": [
     {
@@ -27,19 +27,19 @@
     "recipesReviewed": 226,
     "issues": 0,
     "warnings": 0,
-    "improvements": 252
+    "improvements": 251
   },
   "byCategory": {
     "agneau": {
-      "count": 24,
-      "withPhases": 20,
+      "count": 23,
+      "withPhases": 19,
       "withSafety": 13,
       "withErrors": 15,
-      "withCredibleSource": 22
+      "withCredibleSource": 21
     },
     "boeuf": {
       "count": 28,
-      "withPhases": 22,
+      "withPhases": 23,
       "withSafety": 9,
       "withErrors": 15,
       "withCredibleSource": 28
@@ -94,15 +94,15 @@
       "withCredibleSource": 16
     },
     "volaille": {
-      "count": 20,
-      "withPhases": 15,
-      "withSafety": 20,
+      "count": 21,
+      "withPhases": 16,
+      "withSafety": 21,
       "withErrors": 8,
-      "withCredibleSource": 20
+      "withCredibleSource": 21
     }
   },
   "sauceCoverage": {
-    "proposed": 262,
+    "proposed": 261,
     "matched": 86,
     "unmatchedByName": {
       "Salsa verde persil-coriandre, ail, citron et huile d'olive": 1,
@@ -118,7 +118,7 @@
       "Laque miso-érable, soja et vinaigre de riz": 1,
       "Crème poivron grillé-paprika": 1,
       "Sauce verte italienne (salsa verde)": 1,
-      "Sauce yaourt-ail aux herbes": 10,
+      "Sauce yaourt-ail aux herbes": 11,
       "Raïta yaourt-menthe-citron": 4,
       "Yaourt ail-menthe": 10,
       "Laque soja-mirin-gingembre": 9,
@@ -127,8 +127,8 @@
       "Réduction orange-soja-miel au jus de canard": 1,
       "Tare yakitori soja-mirin-saké": 1,
       "À déguster nature ou avec confit d'oignon": 1,
-      "Jus réduit romarin-ail": 9,
-      "Yaourt menthe": 9,
+      "Jus réduit romarin-ail": 8,
+      "Yaourt menthe": 8,
       "Yaourt grec, menthe, citron, ail et cumin": 1,
       "Gochujang, miel, soja, ail et huile de sésame": 1,
       "Labneh citronné, menthe et sumac": 1,
@@ -213,7 +213,6 @@
     "Carré de porc rôti aux herbes: ajouter au moins deux erreurs fréquentes spécifiques",
     "Poitrine de porc croustillante: ajouter au moins deux erreurs fréquentes spécifiques",
     "Échine marinée à la bière: liste d'ingrédients courte, vérifier qu'elle suffit hors bases/sauces",
-    "Échine marinée à la bière: étapes courtes, détailler stabilisation, cuisson, repos et service",
     "Échine marinée à la bière: ajouter au moins deux erreurs fréquentes spécifiques",
     "Saucisses & chipolatas grillées: étapes courtes, détailler stabilisation, cuisson, repos et service",
     "Saucisses & chipolatas grillées: ajouter au moins deux erreurs fréquentes spécifiques",

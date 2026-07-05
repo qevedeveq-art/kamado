@@ -12,6 +12,7 @@
 | Refresh derived data | `node scripts/extract-data.js` |
 | Data audit | `node scripts/audit-data.js` |
 | Expert audit | `node scripts/audit-kamado-expert.js` |
+| Cross-agent quality audit | `node scripts/audit-recipe-quality.js` |
 | All tests | `node --test 'tests/*.test.js'` |
 | Single test file | `node --test tests/data.test.js` |
 | Single test name | `node --test --test-name-pattern="phases timeline is well-formed" tests/data.test.js` |

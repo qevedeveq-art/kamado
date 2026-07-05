@@ -7,6 +7,9 @@
 - Project quality pass run on 2026-07-06.
 - CI now runs the expert audit and every native Node test file.
 - README counts now match the extracted dataset: 226 cooking recipes and 21 bases.
+- Full recipe review run with five sub-agents on 2026-07-06.
+- Added `scripts/audit-recipe-quality.js` as a cross-agent quality gate.
+- Current quality gate: 247 recipes reviewed, 226 cooking, 0 issues, 102 warnings, 226 improvements.
 
 ## Last Commands
 - `sed -n '1,240p' /Users/quentin/.agents/skills.library/agents-md/SKILL.md`
@@ -23,6 +26,7 @@
 - `node scripts/audit-data.js`
 - `node scripts/audit-kamado-expert.js`
 - `node --test 'tests/*.test.js'`
+- `node scripts/audit-recipe-quality.js`
 
 ## Files Changed By Agent Baseline Work
 - `AGENTS.md`
@@ -39,6 +43,18 @@
 - `scripts/reports/kamado-expert-report.json`
 - `.agents/handoff.md`
 
+## Files Changed By Full Recipe Review
+- `index.html`
+- `data/recipes.json`
+- `data/categories.json`
+- `scripts/audit-recipe-quality.js`
+- `scripts/reports/recipe-quality-audit.json`
+- `scripts/reports/recipe-quality-audit.md`
+- `scripts/reports/kamado-expert-report.json`
+- `.github/workflows/audit.yml`
+- `AGENTS.md`
+- `.agents/handoff.md`
+
 ## Existing Dirty Files Before This Work
 - `data/recipes.json`
 - `index.html`
@@ -48,3 +64,5 @@
 - Before a future recipe/UI task, read `AGENTS.md`, `.agents/memory.md`, and this handoff.
 - Do not overwrite user edits in existing dirty application files.
 - Expert audit currently reports 0 issues, 0 warnings, and 252 non-blocking improvements.
+- Expert audit now reports 0 issues and 0 warnings after recipe fixes.
+- Remaining quality backlog is non-blocking: editorial concision, sauce normalization, semantic duplicates, richer phases/errors for some recipes.

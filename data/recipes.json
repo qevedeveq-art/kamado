@@ -207,7 +207,7 @@
     "ori": "France/UK · rôti du dimanche",
     "pour": "5–6 pers",
     "mode": "Indirect",
-    "tempK": "160 °C",
+    "tempK": "160 °C indirect puis 230 °C direct",
     "coeur": "54–56 °C (rosé)",
     "temps": "50–70 min",
     "bois": "Hêtre (léger)",
@@ -234,6 +234,29 @@
       "bottom": "1/3 ouvert",
       "top": "1/3 ouvert"
     },
+    "phases": [
+      {
+        "name": "Saisie directe",
+        "mode": "direct",
+        "temp_C": 230,
+        "duration_min": 5,
+        "action": "Dorer rapidement toutes les faces pour développer les sucs."
+      },
+      {
+        "name": "Rôtissage indirect",
+        "mode": "indirect",
+        "temp_C": 160,
+        "duration_min": 60,
+        "action": "Pierre déflectrice, sonde au cœur jusqu'à 52 °C pour rosé."
+      },
+      {
+        "name": "Repos",
+        "mode": "préparation",
+        "temp_C": 55,
+        "duration_min": 15,
+        "action": "Repos sous alu lâche, carryover jusqu'à 55–56 °C avant tranchage fin."
+      }
+    ],
     "chef_ref": {
       "chef": "Auguste Escoffier",
       "work": "Le Guide culinaire (Flammarion, 1903)",
@@ -2436,7 +2459,8 @@
     "etapes": [
       "Marinez l'échine 3–4 h (ou la veille).",
       "Égouttez, saisie directe à 220 °C 3 min par face pour marquer.",
-      "Décalez en indirect, badigeonnez de marinade réduite, finissez jusqu'à 68 °C.",
+      "Portez la marinade à ébullition 2 min, puis réduisez-la avant tout badigeonnage.",
+      "Décalez en indirect, badigeonnez de marinade bouillie et réduite, finissez jusqu'à 68 °C.",
       "Repos 5 min avant de servir."
     ],
     "astuce": "L'échine (collier) est persillée : elle pardonne mieux la cuisson qu'un filet et reste juteuse.",
@@ -2456,11 +2480,18 @@
         "action": "Grille directe, marquer chaque face 90 s pour la croûte Maillard."
       },
       {
+        "name": "Réduction marinade",
+        "mode": "préparation",
+        "temp_C": 100,
+        "duration_min": 2,
+        "action": "Porter la marinade à ébullition 2 min avant de l'utiliser en laque."
+      },
+      {
         "name": "Finition indirecte",
         "mode": "indirect",
         "temp_C": 220,
         "duration_min": 13,
-        "action": "Décaler côté indirect. Sonde à 68 °C, la marinade continue à laquer sans brûler."
+        "action": "Décaler côté indirect. Sonde à 68 °C, la marinade bouillie continue à laquer sans brûler."
       }
     ],
     "source": "https://www.biggreenegg.eu/en/inspiration/recipes/pork-neck-in-beer-marinade",
@@ -2546,7 +2577,7 @@
     "astuce": "Le fenouil (graines + frondes) est la signature de la vraie porchetta italienne.",
     "difficulty": 3,
     "charbon_kg": 2.5,
-    "repos_min": 20,
+    "repos_min": 15,
     "marinade_h": 24,
     "vents": {
       "bottom": "1/3 ouvert",
@@ -2753,7 +2784,7 @@
     "mode": "Fumage indirect",
     "tempK": "120 °C",
     "coeur": "test cure-dent (91–93 °C, mais visuel prime)",
-    "temps": "5–6 h à 110 °C fumée pure (pas de wrap style Memphis)",
+    "temps": "5–6 h à 110–120 °C fumée pure (pas de wrap style Memphis)",
     "bois": "Hickory",
     "tags": "baby back ribs memphis rub sec dry rub travers echine",
     "ings": [
@@ -2777,39 +2808,27 @@
       "bottom": "1/8 ouvert",
       "top": "1/8 ouvert"
     },
-    "wrap": {
-      "at_temp_coeur_C": 80,
-      "materiau": "alu",
-      "apres": "2 h wrap avec beurre + cassonade + miel, puis 1 h nu avec rub sec"
-    },
     "phases": [
       {
-        "name": "Fumage nu (3 h)",
+        "name": "Fumage nu long",
         "mode": "fumage",
-        "temp_C": 110,
-        "duration_min": 180,
-        "action": "Pommier + hickory. Retirer la membrane sous les os avant. Rub Memphis sec (paprika+sel+ail+poivre)."
+        "temp_C": 115,
+        "duration_min": 300,
+        "action": "Hickory. Retirer la membrane sous les os avant. Rub Memphis sec, vaporiser vinaigre de cidre toutes les heures."
       },
       {
-        "name": "Wrap beurre+cassonade (2 h)",
-        "mode": "indirect",
-        "temp_C": 110,
-        "duration_min": 120,
-        "action": "Alu avec beurre, cassonade, miel, vinaigre. Côté os vers le haut."
-      },
-      {
-        "name": "Dry rub final (1 h)",
-        "mode": "indirect",
-        "temp_C": 110,
-        "duration_min": 60,
-        "action": "Dépapilloter, repoudrer de rub sec. Memphis = pas de sauce, juste le rub."
+        "name": "Dry rub final",
+        "mode": "fumage",
+        "temp_C": 115,
+        "duration_min": 45,
+        "action": "Repoudrer légèrement de rub sec. Memphis = pas de sauce, pas de wrap, juste le rub et le bend test."
       }
     ],
     "equipement": [
       "Pierre déflectrice",
-      "Alu épais",
       "Couteau ou cuillère pour membrane",
-      "Sonde ambiance"
+      "Sonde ambiance",
+      "Vaporisateur"
     ],
     "substitutions": [
       {
@@ -2948,7 +2967,8 @@
     ],
     "etapes": [
       "Marinez les travers 4 h dans le mélange hoisin.",
-      "Indirect à 150 °C avec cerisier, 2 h, en badigeonnant de marinade.",
+      "Égouttez les travers, puis portez la marinade à ébullition 2 min avant tout badigeonnage.",
+      "Indirect à 150 °C avec cerisier, 2 h, en badigeonnant avec la marinade bouillie.",
       "Laquez au miel et passez sur la grille directe pour caraméliser les bords.",
       "Parsemez de sésame.",
       "Découpez entre les os, servez avec un riz parfumé."
@@ -2966,16 +2986,16 @@
       {
         "name": "Cuisson indirecte (2 h)",
         "mode": "indirect",
-        "temp_C": 120,
+        "temp_C": 150,
         "duration_min": 120,
-        "action": "Pierre déflectrice. Travers en marinade hoisin+vinaigre+miel."
+        "action": "Pierre déflectrice. Travers égouttés, laque hoisin bouillie à part."
       },
       {
         "name": "Laquage direct (30 min)",
         "mode": "direct",
-        "temp_C": 160,
+        "temp_C": 220,
         "duration_min": 30,
-        "action": "Retirer pierre, badigeonner laque toutes les 10 min."
+        "action": "Retirer pierre, badigeonner de laque bouillie puis miel toutes les 10 min."
       }
     ],
     "equipement": [
@@ -3030,8 +3050,8 @@
     "charbon_kg": 1.2,
     "repos_min": 5,
     "vents": {
-      "bottom": "grand ouvert",
-      "top": "grand ouvert"
+      "bottom": "1/3 ouvert puis grand ouvert",
+      "top": "1/3 ouvert puis grand ouvert"
     },
     "phases": [
       {
@@ -3353,7 +3373,7 @@
       "Gros sel"
     ],
     "etapes": [
-      "Piquez la chair du porc avec un couteau. Badigeonnez de marinade mojo la chair uniquement (gardez la couenne sèche). Laissez mariner au frais une nuit.",
+      "Piquez la chair du porc avec un couteau. Massez le mojo sur la chair uniquement (gardez la couenne sèche). Laissez mariner au frais une nuit.",
       "Le lendemain, séchez parfaitement la couenne, frottez-la de gros sel et de vinaigre blanc.",
       "Chauffez le kamado en indirect à 150 °C avec du bois d'oranger ou cerisier.",
       "Déposez le porc couenne vers le haut sur la grille. Cuisez 2 h 30 à 3 h jusqu'à 70 °C à cœur.",
@@ -3363,7 +3383,7 @@
     "astuce": "L'utilisation du jus d'orange amère et de l'ail confère au porc sa saveur cubaine authentique. L'épisode de forte chaleur finale fait toute la différence pour la peau.",
     "difficulty": 3,
     "charbon_kg": 3,
-    "repos_min": 20,
+    "repos_min": 15,
     "marinade_h": 24,
     "vents": {
       "bottom": "1/2 ouvert",
@@ -3380,16 +3400,16 @@
       {
         "name": "Rôti indirect",
         "mode": "indirect",
-        "temp_C": 120,
+        "temp_C": 150,
         "duration_min": 165,
-        "action": "Pierre déflectrice, peau vers le bas pour fondre le gras."
+        "action": "Pierre déflectrice, couenne vers le haut pour fondre le gras sans détremper la peau."
       },
       {
         "name": "Croustillant final",
         "mode": "direct",
         "temp_C": 230,
         "duration_min": 18,
-        "action": "Retourner peau vers haut, retirer pierre, croustiller la couenne."
+        "action": "Retirer pierre, croustiller la couenne jusqu'à cloques nettes."
       }
     ],
     "equipement": [
@@ -4230,11 +4250,11 @@
       "Sel"
     ],
     "etapes": [
-      "Mixez la marinade peri-peri. Réservez-en un peu pour servir. Marinez le poulet aplati 4 h.",
+      "Mixez la marinade peri-peri. Réservez une portion propre avant contact avec le poulet pour servir. Marinez le poulet aplati 4 h.",
       "Indirect à 190 °C, peau vers le haut, 30 min.",
       "Passez côté peau sur la grille directe pour charrer et croustiller.",
-      "Badigeonnez de marinade fraîche, visez 80 °C dans la cuisse.",
-      "Servez avec le reste de sauce et du citron."
+      "Badigeonnez uniquement avec la portion propre réservée, visez 80 °C dans la cuisse.",
+      "Servez avec le reste de sauce propre et du citron."
     ],
     "astuce": "Ajustez le nombre de piments oiseau selon votre tolérance : le peri-peri authentique est franchement relevé.",
     "difficulty": 2,
@@ -4244,7 +4264,7 @@
       "bottom": "1/2 ouvert",
       "top": "1/2 ouvert"
     },
-    "notes_securite": "USDA/FSIS : volaille = 74 °C cuisse. Piment peri-peri (Capsicum frutescens 'African Bird's Eye') = SHU 100 000–225 000 : gants recommandés. Marinade traditionnelle : 4 h min citron + ail + peri-peri + paprika fumé + huile d'olive. Cuisson en crapaudine idéale pour homogénéité.",
+    "notes_securite": "USDA/FSIS : volaille = 74 °C cuisse. Réserver la sauce de service AVANT contact avec le poulet cru ; sinon ébullition 2 min obligatoire.",
     "phases": [
       {
         "name": "Cuisson indirecte",
@@ -4256,9 +4276,9 @@
       {
         "name": "Croustillance directe",
         "mode": "direct",
-        "temp_C": 190,
+        "temp_C": 230,
         "duration_min": 15,
-        "action": "Retirer la pierre, peau côté feu. Badigeonner sauce peri-peri par couches jusqu'à 74 °C."
+        "action": "Retirer la pierre, peau côté feu. Badigeonner avec sauce peri-peri propre jusqu'à 74 °C."
       }
     ],
     "source": "https://www.seriouseats.com/grilled-peri-peri-chicken-recipe",
@@ -4601,8 +4621,8 @@
     "repos_min": 15,
     "marinade_h": 12,
     "vents": {
-      "bottom": "grand ouvert",
-      "top": "grand ouvert"
+      "bottom": "1/3 ouvert puis grand ouvert",
+      "top": "1/3 ouvert puis grand ouvert"
     },
     "phases": [
       {
@@ -4615,16 +4635,16 @@
       {
         "name": "Rôti indirect",
         "mode": "indirect",
-        "temp_C": 160,
+        "temp_C": 170,
         "duration_min": 75,
         "action": "Pierre déflectrice. Lèchefrite sous le canard pour récupérer gras."
       },
       {
         "name": "Laquage final",
         "mode": "direct",
-        "temp_C": 200,
-        "duration_min": 20,
-        "action": "Retirer pierre. Badigeonner sauce orange+soja+miel toutes les 5 min."
+        "temp_C": 240,
+        "duration_min": 10,
+        "action": "Retirer pierre. Badigeonner sauce orange+soja+miel toutes les 3 min en fin de cuisson."
       }
     ],
     "equipement": [
@@ -4681,8 +4701,8 @@
     "charbon_kg": 1,
     "repos_min": 15,
     "vents": {
-      "bottom": "grand ouvert",
-      "top": "grand ouvert"
+      "bottom": "1/3 ouvert puis grand ouvert",
+      "top": "1/3 ouvert puis grand ouvert"
     },
     "notes_securite": [
       "Cœur à 74 °C minimum, mesuré au plus épais de la cuisse (USDA FSIS)",
@@ -5740,13 +5760,13 @@
     }
   },
   {
-    "cat": "agneau",
+    "cat": "volaille",
     "nom": "Cailles rôties au raisin & lard",
     "ori": "France · gibier à plume",
     "pour": "4 pers",
     "mode": "Indirect puis direct",
     "tempK": "190 °C",
-    "coeur": "70 °C",
+    "coeur": "74 °C à la cuisse",
     "temps": "25–30 min",
     "bois": "Pommier",
     "tags": "cailles gibier plume raisin lard barde rôti automne",
@@ -5761,7 +5781,7 @@
       "Bardez chaque caille d'une tranche de lard, salez, poivrez, thym dans la cavité.",
       "Indirect (pierre-déflecteur) à 190 °C, 18–20 min.",
       "Ajoutez les grains de raisin autour, passez en direct 3–4 min pour dorer.",
-      "Visez 70 °C, la cuisse se détache facilement.",
+      "Visez 74 °C à la cuisse, la chair reste juteuse grâce au lard.",
       "Déglacez les sucs au cognac, nappez les cailles."
     ],
     "astuce": "Le lard protège la chair maigre des cailles et le raisin chaud apporte l'acidité sucrée parfaite pour le gibier à plume.",
@@ -5778,16 +5798,17 @@
         "mode": "indirect",
         "temp_C": 190,
         "duration_min": 22,
-        "action": "Pierre déflectrice. Cailles bardées de lard, poitrine vers le haut jusqu'à 65 °C à cœur."
+        "action": "Pierre déflectrice. Cailles bardées de lard, poitrine vers le haut jusqu'à 70 °C à cœur."
       },
       {
         "name": "Saisie directe",
         "mode": "direct",
         "temp_C": 240,
         "duration_min": 6,
-        "action": "Retirer la pierre. Colorer le lard, ajouter les raisins pour éclater dans le jus jusqu'à 70 °C."
+        "action": "Retirer la pierre. Colorer le lard, ajouter les raisins pour éclater dans le jus jusqu'à 74 °C cuisse."
       }
     ],
+    "notes_securite": "Petite volaille/gibier à plume : viser 74 °C à la cuisse (USDA/FSIS), sonde sans toucher l'os.",
     "chef_ref": {
       "chef": "Régis Marcon",
       "work": "Champignons, les recettes de saison (Éditions de La Martinière, 2013)",
@@ -5798,8 +5819,7 @@
       "spice": "Doux",
       "season": "automne",
       "sauces": [
-        "Jus réduit romarin-ail",
-        "Yaourt menthe"
+        "Sauce yaourt-ail aux herbes"
       ],
       "allergens": [
         "lait"
@@ -6928,7 +6948,7 @@
       "Recouvrez le saumon de saumure sucre/sel 1 h au frais, rincez, séchez.",
       "Laissez sécher à l'air 30 min : une pellicule brillante (pellicule) se forme, elle fixe la fumée.",
       "Kamado indirect à 100–110 °C avec hêtre. Posez le saumon peau en bas.",
-      "Fumez 1 h–1 h 30 jusqu'à 55–60 °C à cœur selon la texture voulue.",
+      "Fumez 1 h–1 h 30 jusqu'à 63 °C à cœur.",
       "Refroidissez, servez avec la sauce à l'aneth."
     ],
     "astuce": "La « pellicule » (surface séchée et collante) est le secret d'un fumage réussi : sans elle, la fumée adhère mal.",
@@ -6955,9 +6975,9 @@
       {
         "name": "Fumage à chaud",
         "mode": "fumage",
-        "temp_C": 80,
+        "temp_C": 100,
         "duration_min": 75,
-        "action": "Hêtre ou aulne, planche cèdre humidifiée. Cœur 60–62 °C : la chair se feuillette."
+        "action": "Hêtre ou aulne, planche cèdre humidifiée. Cœur 63 °C : la chair se feuillette."
       }
     ],
     "equipement": [
@@ -6969,7 +6989,7 @@
     "erreurs": [
       "Pas de pellicule : la fumée ne tient pas → 1 h de séchage non négociable",
       "Fumée trop épaisse : amertume rapide sur le poisson → bois sec, foyer propre",
-      "Sortir à 65 °C cœur : chair sèche → arrêt strict à 62 °C"
+      "Dépasser 65 °C cœur : chair sèche → viser 63 °C et retirer aussitôt"
     ],
     "notes_securite": "USDA/FSIS : poisson en fumage chaud = 63 °C à cœur MINIMUM. Ne PAS confondre avec le fumage à froid (recette distincte, T° <25 °C, exige sashimi-grade + protocoles spécifiques). Fumage chaud sécurise le poisson même non sashimi-grade. Consommation dans les 4 j au frigo, ou congélation sous vide 3 mois.",
     "source": "Meathead Goldwyn — amazingribs.com/tested-recipes/fish-and-seafood-recipes/hot-smoked-salmon-recipe",
@@ -7696,7 +7716,7 @@
     "pour": "2 pers",
     "mode": "Indirect",
     "tempK": "200 °C",
-    "coeur": "58–60 °C",
+    "coeur": "63 °C (poisson entier, chair nacrée qui se détache)",
     "temps": "25–30 min",
     "bois": "—",
     "tags": "dorade croute sel poisson entier mediterranee kamado",
@@ -7710,7 +7730,7 @@
       "Mélangez gros sel et blancs d'œufs pour obtenir un sable humide.",
       "Garnissez la dorade de citron, fenouil et thym. Gardez les écailles : elles protègent la chair.",
       "Posez un lit de sel dans un plat, ajoutez le poisson, recouvrez entièrement.",
-      "Indirect à 200 °C pendant 25–30 min.",
+      "Indirect à 200 °C pendant 25–30 min, jusqu'à 63 °C à cœur.",
       "Cassez la croûte, retirez peau et sel, servez la chair nacrée."
     ],
     "astuce": "La croûte de sel enferme la vapeur aromatique : le poisson est assaisonné juste ce qu'il faut et reste très juteux.",
@@ -7839,7 +7859,7 @@
       "Couvercle ouvert : fumée perdue",
       "Cuisson trop longue : moules caoutchouc"
     ],
-    "notes_securite": "PRODUIT DÉLICAT : moules à consommer déjà cuites vapeur AVANT fumage à froid (technique cold smoke = flavoring, pas cuisson). Fumée <25 °C, 30 min max. Conservation : 3 jours frigo emballées sous vide ou dans huile d'olive. Ne jamais fumer à froid des moules crues (Vibrio + norovirus).",
+    "notes_securite": "Moules crues à cuire en cocotte chaude jusqu'à ouverture complète et 63 °C dans le jus/coquillage. Jeter toute moule restée fermée ; ne pas convertir cette recette en fumage à froid.",
     "source": "Steven Raichlen — 'Project Smoke' (Workman, 2016), chap. smoked shellfish ; voir aussi barbecuebible.com/recipe/smoked-mussels",
     "sauce": "Crème ail-persil au jus fumé des moules",
     "_derived": {
@@ -9421,9 +9441,9 @@
     "ori": "Italie · le four à bois à la maison",
     "pour": "4 pizzas",
     "mode": "Direct sur pierre",
-    "tempK": "400–450 °C pierre (mesuré au thermomètre IR)",
+    "tempK": "380–400 °C pierre (mesuré au thermomètre IR)",
     "coeur": "pâte gonflée",
-    "temps": "8 h pousse froid + 3 h pousse T° ambiante + 90 s cuisson",
+    "temps": "24 h pousse froid + 2 h pousse T° ambiante + 4–6 min cuisson",
     "bois": "—",
     "tags": "pizza napolitaine margherita pierre pate",
     "ings": [
@@ -9485,7 +9505,7 @@
       "Étaler au rouleau : dégaze les bulles → étalage main du centre vers l'extérieur exclusivement",
       "Mozzarella basique humide : détrempe → fior di latte égouttée 12 h au chinois"
     ],
-    "notes_securite": "Pierre à pizza : placer à FROID dans le kamado, monter en T° progressivement (min. 45 min à 400 °C). Choc thermique = pierre fend. Vérifier T° pierre au thermomètre infrarouge (pas seulement T° ambiante), viser 400 °C surface. Pâte à cuire en 60–90 sec : bulles noircies (leoparding) = signature napolitaine authentique. Farine Caputo Cuoco/Pizzeria (W280–320) obligatoire.",
+    "notes_securite": "Pierre à pizza : placer à FROID dans le kamado, monter en T° progressivement. Choc thermique = pierre fend. Vérifier T° pierre au thermomètre infrarouge, viser 380–400 °C surface. En kamado domestique, compter 4–6 min par pizza.",
     "source": "Associazione Verace Pizza Napoletana — Disciplinare AVPN (2008) ; adaptation kamado kamadojoe.com/blogs/recipes/neapolitan-pizza",
     "_derived": {
       "spice": "Doux",
@@ -11248,9 +11268,9 @@
     "etapes": [
       "Mixez ou mélangez tous les ingrédients en une marinade lisse.",
       "Incisez la volaille (cuisses, blancs) pour que la marinade pénètre.",
-      "Enrobez et laissez mariner 4 h à toute une nuit au frais.",
-      "Le yaourt attendrit la chair et forme une croûte épicée à la cuisson.",
-      "Idéale aussi pour l'agneau et le poisson ferme."
+      "Enrobez la volaille et laissez mariner 4 h à toute une nuit au frais.",
+      "Pour l'agneau, restez sur 4–12 h ; pour le poisson ferme, limitez à 30–60 min.",
+      "Le yaourt attendrit la chair et forme une croûte épicée à la cuisson."
     ],
     "astuce": "L'acidité du yaourt + le citron attendrissent réellement la viande : c'est le secret des grillades tandoor moelleuses.",
     "_derived": null
@@ -11278,7 +11298,7 @@
       "Hachez finement les herbes et l'ail (ou mixez grossièrement).",
       "Mélangez avec les épices, le citron et l'huile d'olive.",
       "Enrobez poisson, crevettes ou poulet, laissez mariner 1–2 h.",
-      "S'utilise aussi en sauce d'accompagnement, à cru."
+      "Pour servir à cru en sauce d'accompagnement, réservez une portion propre avant tout contact avec poisson, crevettes ou poulet crus."
     ],
     "astuce": "La chermoula est l'âme du poisson grillé maghrébin (dorade, sardines, bar) mais relève aussi les légumes.",
     "_derived": null
@@ -11764,8 +11784,9 @@
     ],
     "etapes": [
       "Marinez le porc 4 h à toute une nuit dans le mélange hoisin.",
+      "Égouttez le porc et portez la marinade à ébullition 2 min avant tout badigeonnage.",
       "Indirect (pierre-déflecteur) à 160 °C avec cerisier. Posez le porc, sonde au cœur.",
-      "Cuisez 40 min en badigeonnant de marinade toutes les 15 min.",
+      "Cuisez 40 min en badigeonnant de marinade bouillie toutes les 15 min.",
       "Badigeonnez de miel et passez 5 min sur la grille directe pour caraméliser les bords.",
       "Sortez à 68 °C. Repos, tranchez. Servez avec riz."
     ],
@@ -11783,12 +11804,12 @@
         "mode": "indirect",
         "temp_C": 160,
         "duration_min": 45,
-        "action": "Pierre déflectrice. Sonde à cœur jusqu'à 65 °C, laquer à mi-cuisson."
+        "action": "Pierre déflectrice. Sonde à cœur jusqu'à 65 °C, laquer avec marinade bouillie à mi-cuisson."
       },
       {
         "name": "Caramélisation directe",
         "mode": "direct",
-        "temp_C": 160,
+        "temp_C": 230,
         "duration_min": 5,
         "action": "Retirer la pierre. Bords laqués côté feu pour croûte laquée brillante jusqu'à 68 °C."
       }
@@ -11823,9 +11844,9 @@
       "Brochettes trempées"
     ],
     "etapes": [
-      "Marinez les lanières de poulet 2 h. Montez-les en accordéon sur les brochettes.",
+      "Marinez les lanières de poulet 2 h. Réservez une portion propre de marinade si vous voulez badigeonner.",
       "Préparez la sauce cacahuète en faisant chauffer tous ses ingrédients.",
-      "Grille directe à 250 °C, 3–4 min par face en badigeonnant de marinade.",
+      "Grille directe à 250 °C, 3–4 min par face en badigeonnant uniquement avec la portion propre réservée.",
       "Visez 75 °C, légèrement caramélisé.",
       "Servez avec la sauce cacahuète, concombre et oignon rouge."
     ],
@@ -12398,18 +12419,18 @@
     ],
     "phases": [
       {
-        "name": "Saisie directe",
-        "mode": "direct",
-        "temp_C": 220,
-        "duration_min": 5,
-        "action": "Bloc de cuisses empilées sur pique. Colorer toutes faces pour la croûte épicée."
-      },
-      {
         "name": "Cuisson indirecte",
         "mode": "indirect",
-        "temp_C": 220,
-        "duration_min": 30,
-        "action": "Décaler indirect. Sonde au cœur du bloc jusqu'à 78 °C, trancher les couches externes au couteau."
+        "temp_C": 180,
+        "duration_min": 35,
+        "action": "Bloc de cuisses empilées sur pique, pierre déflectrice. Sonde au cœur du bloc jusqu'à 74 °C."
+      },
+      {
+        "name": "Charring direct",
+        "mode": "direct",
+        "temp_C": 240,
+        "duration_min": 5,
+        "action": "Retirer la pierre, colorer les faces externes puis trancher les bords dorés."
       }
     ],
     "source": "https://www.seriouseats.com/chicken-shawarma-recipe",
@@ -13032,8 +13053,9 @@
     ],
     "etapes": [
       "Marinez le poulet 4 h à toute une nuit dans le mélange soja-épices.",
+      "Prélevez une portion propre avant contact avec le poulet, ou faites bouillir la marinade 2 min avant arrosage.",
       "Indirect (pierre-déflecteur) à 190 °C, 1 h 10 jusqu'à 74 °C dans la cuisse.",
-      "Arrosez de marinade à mi-cuisson, la peau laque et brunit.",
+      "Arrosez à mi-cuisson avec la portion propre ou la marinade bouillie, la peau laque et brunit.",
       "Préparez la sauce verte (ají) au mixeur.",
       "Découpez et servez avec la sauce verte et des frites."
     ],
@@ -13347,12 +13369,12 @@
       "Marinade : 1 c. à s. de curry en poudre, 2 c. à s. de confiture d'abricots, 3 c. à s. de vinaigre de vin, 2 c. à s. de l'huile, 2 gousses d'ail hachées, sel"
     ],
     "etapes": [
-      "Mélangez tous les ingrédients de la marinade. Ajoutez les cubes d'agneau et laissez mariner au frais pendant au moins 6 h (idéalement 24 h).",
+      "Mélangez tous les ingrédients de la marinade. Ajoutez les cubes d'agneau et laissez mariner au frais pendant au moins 6 h (idéalement 12–24 h).",
       "Faites tremper les abricots secs dans de l'eau tiède 30 min avant le montage.",
       "Montez les brochettes en alternant viande, abricots secs et quartiers d'oignons rouges.",
       "Cuisez sur la grille directe à 220 °C pendant 2 min de chaque côté pour bien dorer les morceaux.",
       "Passez les brochettes en cuisson indirecte (ou décalées sur la grille) pendant 4–6 min supplémentaires pour terminer la cuisson sans brûler les abricots.",
-      "Servez avec le reste de la marinade chauffée en sauce."
+      "Portez le reste de marinade à ébullition 2 min, puis servez-le en sauce."
     ],
     "astuce": "La confiture d'abricot dans la marinade apporte du sucre qui caramélise très vite. Surveillez bien la cuisson directe pour éviter que les brochettes ne noircissent.",
     "difficulty": 1,
@@ -13362,7 +13384,7 @@
       "bottom": "1/2 ouvert",
       "top": "1/2 ouvert"
     },
-    "notes_securite": "USDA/FSIS : agneau whole muscle = 63 °C + 3 min repos. Marinade curry cape (curry, abricot, vinaigre) 24 h min. Cubes 3 cm max alternés avec oignon et abricot sec. Cuisson directe 260 °C, 10 min en retournant. Traditional braai sud-africaine.",
+    "notes_securite": "USDA/FSIS : agneau whole muscle = 63 °C + 3 min repos. Si la marinade sert en sauce, ébullition 2 min obligatoire après contact avec la viande crue.",
     "phases": [
       {
         "name": "Saisie directe",
@@ -13611,12 +13633,12 @@
       "GLAÇAGE : 3 c. à s. de miel chaud + 2 c. à s. de marinade réservée"
     ],
     "etapes": [
-      "Mélangez tous les ingrédients de la marinade dans un grand sac de congélation. Réservez 4 c. à s. pour le glaçage final.",
+      "Mélangez tous les ingrédients de la marinade dans un grand sac de congélation. Réservez 4 c. à s. propres pour le glaçage final avant d'ajouter le porc.",
       "Ajoutez les bandes de porc, massez et chassez l'air. 12 h au réfrigérateur (idéalement 24 h).",
       "Préparez le kamado en indirect 160 °C avec pierre déflectrice et bois fruitier.",
-      "Égouttez le porc, gardez la marinade dans un bol. Posez les bandes sur la grille espacées.",
-      "Cuisez 25 min, retournez à mi-cuisson, badigeonnez de marinade tous les 10 min.",
-      "Préparez le glaçage : faites tiédir 3 c. à s. de miel + 2 c. à s. de marinade réservée jusqu'à fluide.",
+      "Égouttez le porc et jetez la marinade contaminée, ou portez-la à ébullition 2 min si vous voulez l'utiliser.",
+      "Cuisez 25 min, retournez à mi-cuisson, badigeonnez avec la portion propre réservée ou la marinade bouillie.",
+      "Préparez le glaçage : faites tiédir 3 c. à s. de miel + 2 c. à s. de marinade propre réservée jusqu'à fluide.",
       "À 60 °C à cœur, badigeonnez 2 fois de glaçage à 5 min d'intervalle. La surface doit devenir brillante et collante.",
       "Sortez à 68 °C cœur. Repos 5 min, tranchez perpendiculairement au grain en tranches fines de 5 mm."
     ],
@@ -13635,14 +13657,14 @@
         "mode": "préparation",
         "temp_C": 4,
         "duration_min": 720,
-        "action": "Sac hermétique, 12 h minimum, idéalement 24 h."
+        "action": "Sac hermétique, 12 h minimum, idéalement 24 h. Réserver la portion de glaçage avant contact avec le porc."
       },
       {
         "name": "Cuisson indirecte",
         "mode": "indirect",
         "temp_C": 160,
         "duration_min": 35,
-        "action": "Pierre déflectrice. Retourner à mi-cuisson, badigeonner toutes les 10 min."
+        "action": "Pierre déflectrice. Retourner à mi-cuisson, badigeonner avec portion propre ou marinade bouillie."
       },
       {
         "name": "Glaçage miel",
@@ -13675,7 +13697,7 @@
     "sauce": "Laque hoisin-miel-soja",
     "_derived": {
       "spice": "Épicé doux",
-      "season": "toute",
+      "season": "ete",
       "sauces": [
         "Laque hoisin-miel-soja"
       ],
@@ -14456,7 +14478,7 @@
     "mode": "Indirect",
     "tempK": "160 °C",
     "coeur": "chou ultra fondant",
-    "temps": "1 h 30 à 180 °C indirect",
+    "temps": "1 h 30 à 160 °C indirect",
     "bois": "Cerisier",
     "tags": "cabbage chou biere vegetarien indirect vapeur",
     "ings": [

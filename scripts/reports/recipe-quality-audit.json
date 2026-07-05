@@ -1,0 +1,2982 @@
+{
+  "reviewedAt": "2026-07-05T22:37:59.964Z",
+  "recipesReviewed": 247,
+  "cookingReviewed": 226,
+  "references": [
+    {
+      "name": "FoodSafety.gov safe minimum internal temperatures",
+      "url": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"
+    },
+    {
+      "name": "USDA FSIS safe temperature chart",
+      "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/safe-temperature-chart"
+    }
+  ],
+  "totals": {
+    "issue": 0,
+    "warning": 102,
+    "improvement": 226,
+    "cleanCookingRecipes": 146
+  },
+  "byRole": {
+    "french-chef-reviewer": 6,
+    "kamado-expert": 95,
+    "marinade-reviewer": 1,
+    "recipe-declutter": 110,
+    "temperature": 116
+  },
+  "findings": [
+    {
+      "recipe": "Baked beans BBQ",
+      "category": "legumes",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Mijotage couvert (1 h 30)\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Banana bread fumé aux noix",
+      "category": "dessert",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "170 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Beef short ribs « dino ribs »",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Wrap papier boucher\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Beer can cabbage (chou à la bière)",
+      "category": "vegetarien",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "160 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Bistecca alla Fiorentina (T-bone)",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Finition indirecte\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Blanquette de veau au kamado",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Mijotage doux\" à 125 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Blanquette de veau au kamado",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Velouté + liaison\" à 85 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Brisket fumé (poitrine de bœuf)",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Wrap papier boucher\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Brownie fondant en cocotte",
+      "category": "dessert",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Brownie skillet noix de pécan",
+      "category": "dessert",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "175 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Burnt ends de poitrine de bœuf",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Wrap papier boucher\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Burnt ends de poitrine de bœuf",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Cubes glacés\" à 135 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Canard entier laqué orange-soja",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Rôti indirect\" à 170 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Carolina pulled pork (sauce vinaigrée)",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Wrap alu + jus\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Carré d'agneau en croûte d'herbes",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Carré de porc rôti aux herbes",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "160 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Cassoulet toulousain au kamado",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Précuisson haricots + garniture\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Cassoulet toulousain au kamado",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Ajout viandes dorées\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Céleri-rave entier rôti comme une pièce",
+      "category": "vegetarien",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson lente nu\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Chapon/dinde rôti des fêtes",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Rôti indirect\" à 160 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Char siu (porc laqué chinois)",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 160 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Char Siu cantonais laqué",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 160 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Char Siu cantonais laqué",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Glaçage miel\" à 160 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Cheesecake fumé",
+      "category": "dessert",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson + fumage\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Choucroute garnie alsacienne au kamado",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Base + viandes salées\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Choucroute garnie alsacienne au kamado",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Ajout saucisses fumées\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Choucroute garnie alsacienne au kamado",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Saucisses de Strasbourg\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Clafoutis aux cerises",
+      "category": "dessert",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Cobbler fruits rouges en fonte",
+      "category": "dessert",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Coleslaw maison",
+      "category": "legumes",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Fumage chou\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Confit de canard au kamado",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Confit basse T°\" à 90 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Cookie géant en skillet",
+      "category": "dessert",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Côte de bœuf caveman sur braises",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson directe sur braises\" à 500 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Côte de bœuf caveman sur braises",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Repos indirect\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Côte de bœuf reverse-sear",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Chauffe indirecte\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Côte de porc tomahawk saumurée",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Chauffe indirecte\" à 150 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Cuissot de chevreuil rôti, sauce poivrade",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Rôti rosé\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Filet de biche en croûte d'épices",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 150 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Filet de chevreuil rôti, sauce grand veneur",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 160 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Filet mignon farci chorizo-manchego",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 160 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Filet mignon fumé au miel",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Indirect lent\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Focaccia fumée romarin-olives",
+      "category": "pizza",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "220 °C sort de la bande pierre / pizza (280-420 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Focaccia romarin & gros sel",
+      "category": "pizza",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "220 °C sort de la bande pierre / pizza (280-420 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Fougasse aux olives",
+      "category": "pizza",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "230 °C sort de la bande pierre / pizza (280-420 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Gigot d'agneau rôti rosé",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "170 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Gigot d'agneau rôti rosé",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Rôti indirect\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Gratin dauphinois en cocotte",
+      "category": "legumes",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson lente couverte\" à 170 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Gyros de porc grec",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Jambonneau fumé glacé",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Glaçage final\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Jerk chicken jamaïcain",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Cuisson indirecte fumée\" à 160 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Kleftiko (agneau grec à l'étouffée)",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Étouffée papillote (3 h)\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Lechón asado (porc rôti cubain)",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Rôti indirect\" à 150 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Magret de canard fumé-séché (charcuterie)",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Fumage à froid\" à 25 C hors bande fumage / low and slow.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Mont d'Or / Camembert fumé",
+      "category": "legumes",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande fumage / low and slow (95-135 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Mont d'Or / Camembert fumé",
+      "category": "legumes",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte fumée\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pastrami fumé maison",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Wrap papier\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pastrami fumé maison",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Étuvée vapeur\" à 95 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pastrami fumé maison (saumure 7 jours)",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Fumage low&slow\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pastrami fumé maison (saumure 7 jours)",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Wrap papier boucher\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pastrami fumé maison (saumure 7 jours)",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[3].temp_C",
+      "message": "Phase \"Vapeur en cocotte\" à 95 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pavé de cerf, sauce aux airelles",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 150 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Picanha entière façon churrasco",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Chauffe indirecte\" à 150 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pintade rôtie aux marrons",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Pintade rôtie aux marrons",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Rôti indirect\" à 170 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pizza napolitaine",
+      "category": "pizza",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Préchauffage pierre\" à 400 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pizza napolitaine",
+      "category": "pizza",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Cuisson\" à 400 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Poires rôties au vin épicé",
+      "category": "dessert",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Poitrine de porc croustillante",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Rendu du gras indirect\" à 150 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Poitrine de porc miso-érable en cubes",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Cubes glacés\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Porchetta italienne (poitrine roulée 24h)",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 130 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Porchetta roulée aux herbes",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Rôti lent\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pork belly burnt ends",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Cubes glacés (1 h)\" à 135 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pot-au-feu bourgeois au kamado",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Blanchiment/clarification\" à 135 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pot-au-feu bourgeois au kamado",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Mijotage lent\" à 135 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pot-au-feu bourgeois au kamado",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Cuisson légumes\" à 135 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Poulet basquaise au kamado",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Mijotage poulet\" à 160 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Poulet entier à la cannette (beer can)",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Poulet entier à la cannette (beer can)",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte vapeur\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Poulet jerk jamaïcain",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pulled pork (échine effilochée)",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Wrap alu + jus de pomme\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Ribs asiatiques au cinq-épices",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Wrap miel+marinade (2 h)\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Ribs asiatiques au cinq-épices",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Laquage final (45 min)\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Rogan josh d'agneau au Dutch oven",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Base masala\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Rosbif rôti à l'anglaise",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Rôtissage indirect\" à 160 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Saumon gravlax fumé à froid",
+      "category": "poisson",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Fumage à froid\" à 25 C hors bande fumage / low and slow.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Saumon sur planche de cèdre",
+      "category": "poisson",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Shawarma de poulet",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Short ribs de bœuf façon Texas",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Wrap papier\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Steaks de chou rouge fumés",
+      "category": "vegetarien",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Tacos al pastor",
+      "category": "monde",
+      "role": "marinade-reviewer",
+      "severity": "warning",
+      "field": "etapes",
+      "message": "Enzyme crue potentiellement laissée plusieurs heures.",
+      "suggestion": "Limiter ananas/kiwi/papaye crus à 30 min ou cuire l'enzyme."
+    },
+    {
+      "recipe": "Tacos al pastor",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Tacos al pastor",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Saisie directe\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Tartiflette savoyarde au kamado",
+      "category": "legumes",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Base lardons/oignons\" à 180 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Tomahawk au beurre noisette",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Chauffe indirecte\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Tomahawk reverse-sear",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Travers BBQ Kansas City",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Wrap beurre+cassonade (2 h)\" à 110 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Travers BBQ Kansas City",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Laquage KC (45 min)\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Travers de porc glacés (ribs)",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"2 h emballées\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Travers de porc glacés (ribs)",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"1 h glaçage\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Travers de porc laqués aigre-doux",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte (2 h)\" à 150 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Tri-tip californien reverse sear",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Chauffe indirecte\" à 135 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Tri-tip sauce Santa Maria",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Chauffe indirecte\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Adana kebab (agneau haché épicé au maras)",
+      "category": "agneau",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Hachoir couteau.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Ailes de poulet Buffalo",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Asado d'entraña & chimichurri",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Asperges grillées au parmesan",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Asperges grillées au parmesan",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Aubergine entière fumée façon steak",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Laque soja-mirin-gingembre.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Aubergines fumées façon baba ganoush",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Baby back ribs façon Memphis",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Baby back ribs façon Memphis",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Couteau ou cuillère pour membrane.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Baked beans BBQ",
+      "category": "legumes",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Cuillère longue.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Bar entier grillé au fenouil",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Beef short ribs « dino ribs »",
+      "category": "boeuf",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Beer can cabbage (chou à la bière)",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Beer can cabbage (chou à la bière)",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Beer can cabbage (chou à la bière)",
+      "category": "vegetarien",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Betteraves rôties en croûte de sel",
+      "category": "legumes",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Couteau pointu.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Birria de bœuf (tacos)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Bistecca alla Fiorentina (T-bone)",
+      "category": "boeuf",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Blanquette de veau au kamado",
+      "category": "boeuf",
+      "role": "french-chef-reviewer",
+      "severity": "improvement",
+      "field": "chef_ref.note",
+      "message": "Référence chef trop bavarde.",
+      "suggestion": "Réduire à une phrase centrée sur la technique."
+    },
+    {
+      "recipe": "Bò Lá Lốt (bœuf en feuilles de betel)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Boerewors façon braai",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Bœuf bourguignon au kamado",
+      "category": "boeuf",
+      "role": "french-chef-reviewer",
+      "severity": "improvement",
+      "field": "chef_ref.note",
+      "message": "Référence chef trop bavarde.",
+      "suggestion": "Réduire à une phrase centrée sur la technique."
+    },
+    {
+      "recipe": "Brisket fumé (poitrine de bœuf)",
+      "category": "boeuf",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Brochettes halloumi & légumes",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Brochettes halloumi & légumes",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Bulgogi (bœuf mariné coréen)",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Ssamjang.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Bulgogi (bœuf mariné coréen)",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce gochujang-sésame.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Bulgogi (bœuf mariné coréen)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Burgers smash maison",
+      "category": "boeuf",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Burnt ends de poitrine de bœuf",
+      "category": "boeuf",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce BBQ épaisse.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Burnt ends de poitrine de bœuf",
+      "category": "boeuf",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: jus de cuisson réduit.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Burnt ends de poitrine de bœuf",
+      "category": "boeuf",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Butternut rôtie, sauce tahini",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Butternut rôtie, sauce tahini",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Calamars grillés en persillade",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Canard entier laqué orange-soja",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Canard entier laqué orange-soja",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 805 min éloignée du temps affiché 1 h 30–1 h 45.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Carne asada (tacos mexicains)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Carolina pulled pork (sauce vinaigrée)",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Carottes glacées miso-miel",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Laque soja-mirin-gingembre.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Carré d'agneau en croûte d'herbes",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Jus réduit romarin-ail.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Carré d'agneau en croûte d'herbes",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Carré de porc rôti aux herbes",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce moutarde-miel.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Carré de porc rôti aux herbes",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: BBQ maison.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Cassoulet toulousain au kamado",
+      "category": "porc",
+      "role": "french-chef-reviewer",
+      "severity": "improvement",
+      "field": "chef_ref.note",
+      "message": "Référence chef trop bavarde.",
+      "suggestion": "Réduire à une phrase centrée sur la technique."
+    },
+    {
+      "recipe": "Cassoulet toulousain au kamado",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce moutarde-miel.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Cassoulet toulousain au kamado",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: BBQ maison.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Cassoulet toulousain au kamado",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Cassoulet toulousain au kamado",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Cassoulet toulousain au kamado",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Cuillère en bois pour casser la croûte.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Cassoulet toulousain au kamado",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 170 min éloignée du temps affiché 3 h (+ trempage haricots 12 h).",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Champignons portobello farcis",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Champignons portobello farcis",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Chapon/dinde rôti des fêtes",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Chapon/dinde rôti des fêtes",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Lèchefrite/plat.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Char Siu cantonais laqué",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Cheesecake fumé",
+      "category": "dessert",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 315 min éloignée du temps affiché 1 h–1 h 15.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Chicken tikka (Inde)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Chou pointu rôti au beurre noisette",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Chou pointu rôti au beurre noisette",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Chou-fleur entier rôti & tahini",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Chou-fleur entier rôti & tahini",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Choucroute garnie alsacienne au kamado",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce moutarde-miel.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Choucroute garnie alsacienne au kamado",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: BBQ maison.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Choucroute garnie alsacienne au kamado",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Choucroute garnie alsacienne au kamado",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Civet de sanglier fumé puis braisé",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 3180 min éloignée du temps affiché 4–5 h (+ marinade).",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Confit de canard au kamado",
+      "category": "volaille",
+      "role": "french-chef-reviewer",
+      "severity": "improvement",
+      "field": "chef_ref.note",
+      "message": "Référence chef trop bavarde.",
+      "suggestion": "Réduire à une phrase centrée sur la technique."
+    },
+    {
+      "recipe": "Confit de canard au kamado",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Confit de canard au kamado",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Coq au vin au kamado",
+      "category": "volaille",
+      "role": "french-chef-reviewer",
+      "severity": "improvement",
+      "field": "chef_ref.note",
+      "message": "Référence chef trop bavarde.",
+      "suggestion": "Réduire à une phrase centrée sur la technique."
+    },
+    {
+      "recipe": "Coq au vin au kamado",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Coq au vin au kamado",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Coq au vin au kamado",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 160 min éloignée du temps affiché 2 h 30 (+ marinade 12 h).",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Côte de bœuf caveman sur braises",
+      "category": "boeuf",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Côte de porc tomahawk saumurée",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce moutarde-miel.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Côte de porc tomahawk saumurée",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: BBQ maison.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Côtelettes d'agneau grillées",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Jus réduit romarin-ail.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Côtelettes d'agneau grillées",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Cuisses de poulet marinées citron-thym",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Cuisses de poulet teriyaki",
+      "category": "volaille",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Laque soja-mirin-gingembre.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Cuisses de poulet teriyaki",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Cuissot de chevreuil rôti, sauce poivrade",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Jus réduit romarin-ail.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Cuissot de chevreuil rôti, sauce poivrade",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Cuissot de chevreuil rôti, sauce poivrade",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 1512 min éloignée du temps affiché 1 h–1 h 20.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Dorade en croûte de sel",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Dorade royale en croûte de sel",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Échine marinée à la bière",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce moutarde-miel.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Échine marinée à la bière",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: BBQ maison.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Endives braisées au kamado",
+      "category": "legumes",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Plat à four.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Espadon grillé vierge de tomates",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Filet de biche en croûte d'épices",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Jus réduit romarin-ail.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Filet de biche en croûte d'épices",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Filet de chevreuil rôti, sauce grand veneur",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Jus réduit romarin-ail.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Filet de chevreuil rôti, sauce grand veneur",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Filet mignon farci chorizo-manchego",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Flammekueche alsacienne traditionnelle",
+      "category": "pizza",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Flammekueche alsacienne traditionnelle",
+      "category": "pizza",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "erreurs",
+      "message": "Trop d'erreurs listées.",
+      "suggestion": "Garder les 3-4 erreurs vraiment spécifiques."
+    },
+    {
+      "recipe": "Frites de patate douce au four",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Frites de patate douce au four",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Galbi (côtes de bœuf coréennes)",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Ssamjang.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Galbi (côtes de bœuf coréennes)",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce gochujang-sésame.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Gambas grillées ail & piment",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Gigot d'agneau rôti rosé",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Jus réduit romarin-ail.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Gigot d'agneau rôti rosé",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Gigot d'agneau rôti rosé",
+      "category": "agneau",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Gigot d'agneau rôti rosé",
+      "category": "agneau",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Couteau d'office.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Gratin dauphinois en cocotte",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Gratin dauphinois en cocotte",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Halloumi grillé au miel & origan",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Halloumi grillé au miel & origan",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Homard grillé au beurre d'estragon",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Huîtres chaudes gratinées",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Huîtres gratinées au kamado",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Jerk chicken jamaïcain",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Jerk chicken jamaïcain",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 1485 min éloignée du temps affiché 45–60 min.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Kabab Koobideh (brochettes d'agneau perses)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Kleftiko (agneau grec à l'étouffée)",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 560 min éloignée du temps affiché 3–4 h.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Kleftiko d'agneau en papillote au kamado",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 460 min éloignée du temps affiché 4 h.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Köfte épicées (boulettes turques)",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Köfte épicées (boulettes turques)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Lechón asado (porc rôti cubain)",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 1623 min éloignée du temps affiché 2 h 45–3 h 10 indirect + 15–20 min direct.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Légumes grillés méditerranéens",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Lomo al trapo (bœuf au torchon)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Magret de canard fumé-séché (charcuterie)",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Magret de canard fumé-séché (charcuterie)",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Trancheuse ou couteau japonais sashimi.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Magret de canard fumé-séché (charcuterie)",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 21900 min éloignée du temps affiché 24 h salage + 4–6 h fumage à froid + 14 j séchage.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Magret de canard, peau croustillante",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Maquereaux grillés à la moutarde",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Méchoui d'épaule d'agneau effilochée",
+      "category": "agneau",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Merguez & méchoui d'agneau",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Merguez & méchoui d'agneau",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Merguez maison fumées au bois d'olivier",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 173 min éloignée du temps affiché 1 h 30.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Mont d'Or / Camembert fumé",
+      "category": "legumes",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Plateau bois ou planche.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Moules à la plancha, ail & persil",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Navarin d'agneau printanier au kamado",
+      "category": "agneau",
+      "role": "french-chef-reviewer",
+      "severity": "improvement",
+      "field": "chef_ref.note",
+      "message": "Référence chef trop bavarde.",
+      "suggestion": "Réduire à une phrase centrée sur la technique."
+    },
+    {
+      "recipe": "Navarin d'agneau printanier au kamado",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Jus réduit romarin-ail.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Navarin d'agneau printanier au kamado",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Navarin d'agneau printanier au kamado",
+      "category": "agneau",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Navarin d'agneau printanier au kamado",
+      "category": "agneau",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Navarin d'agneau printanier au kamado",
+      "category": "agneau",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Couteau économe pour tourner les légumes.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Paella au kamado",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Pain à l'ail gratiné",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pain à l'ail gratiné",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Parmigiana d'aubergines en cocotte",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pastrami fumé maison (saumure 7 jours)",
+      "category": "boeuf",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Pastrami fumé maison (saumure 7 jours)",
+      "category": "boeuf",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Pastrami fumé maison (saumure 7 jours)",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 10620 min éloignée du temps affiché 7 j saumure + 6–8 h fumage + 2 h vapeur + 1 h repos.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Patatas bravas grillées",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Patatas bravas grillées",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Patate douce braisée, beurre épicé",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Patate douce braisée, beurre épicé",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pavé de cerf, sauce aux airelles",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Jus réduit romarin-ail.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pavé de cerf, sauce aux airelles",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pavé de thon mi-cuit, croûte de sésame",
+      "category": "poisson",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Laque soja-mirin-gingembre.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pavé de thon mi-cuit, croûte de sésame",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Picanha au sel de gros (churrasco)",
+      "category": "boeuf",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Pince longue (jamais de fourchette).",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Pizza al taglio romaine 72h",
+      "category": "pizza",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Pleurotes façon steak, balsamique",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pleurotes façon steak, balsamique",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Poitrine de porc croustillante",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce moutarde-miel.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Poitrine de porc croustillante",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: BBQ maison.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Poivrons farcis riz-feta",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Poivrons farcis riz-feta",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pollo a la brasa (poulet péruvien)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Pommes de terre braisées au romarin",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pommes de terre braisées au romarin",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pommes de terre Hasselback",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Tahini-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Pommes de terre Hasselback",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Porchetta italienne (poitrine roulée 24h)",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Porchetta roulée aux herbes",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce moutarde-miel.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Porchetta roulée aux herbes",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: BBQ maison.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Porchetta roulée aux herbes",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 1620 min éloignée du temps affiché 2 h 30–3 h.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Pork belly burnt ends",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Couteau de boucher.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Pot-au-feu bourgeois au kamado",
+      "category": "boeuf",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Poulet basquaise au kamado",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Poulet basquaise au kamado",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Poulet crapaudine (spatchcock)",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Poulet entier à la cannette (beer can)",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Poulet jerk jamaïcain",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Poulet shawarma au kamado",
+      "category": "volaille",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Poulet shawarma au kamado",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Poulet tandoori",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Poulpe grillé à la galicienne",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Provoleta grillé (fromage argentin)",
+      "category": "vegetarien",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Provoleta grillé (fromage argentin)",
+      "category": "vegetarien",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Pulled pork (échine effilochée)",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Ratatouille fumée au kamado",
+      "category": "legumes",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Saint-Jacques grillées au beurre noisette",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Salmon Tikka (pavé de saumon tandoori)",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Samgyeopsal (poitrine de porc coréenne)",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Ssamjang.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Samgyeopsal (poitrine de porc coréenne)",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce gochujang-sésame.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Sardines grillées en direct",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Satay de poulet, sauce cacahuète",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Saucisses & chipolatas grillées",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce moutarde-miel.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Saucisses & chipolatas grillées",
+      "category": "porc",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: BBQ maison.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Saumon fumé à chaud, sauce aneth",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Saumon fumé à chaud, sauce aneth",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Planche cèdre.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Saumon gravlax fumé à froid",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Saumon gravlax fumé à froid",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Saumon gravlax fumé à froid",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Couteau japonais sashimi tranchant.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Saumon laqué teriyaki",
+      "category": "poisson",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Laque soja-mirin-gingembre.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Saumon laqué teriyaki",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Saumon sur planche de cèdre",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Selle d'agneau à la broche, fumée de sarments",
+      "category": "agneau",
+      "role": "temperature",
+      "severity": "improvement",
+      "field": "phases",
+      "message": "Somme phases 125 min éloignée du temps affiché 1 h 15.",
+      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Shakshuka en cocotte",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Shawarma de poulet",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Shawarma de poulet",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Shish taouk (brochettes libanaises)",
+      "category": "volaille",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Shish taouk (brochettes libanaises)",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Souris d'agneau braisées au miel",
+      "category": "agneau",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-menthe.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Souvlaki & pita (porc grec)",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Yaourt ail-citron.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Tacos de poisson croustillant sur plancha",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Tagine d'agneau aux abricots",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Plat tagine (terre cuite ou fonte), Cuillère en bois.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Tartiflette savoyarde au kamado",
+      "category": "legumes",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "astuce",
+      "message": "Astuce longue pour un usage personnel.",
+      "suggestion": "Réduire à deux phrases utiles en cuisine."
+    },
+    {
+      "recipe": "Tartiflette savoyarde au kamado",
+      "category": "legumes",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Cocotte en fonte 4 L ou plat à gratin.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Tofu fumé laqué miso-sésame",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Laque soja-mirin-gingembre.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Tofu fumé laqué miso-sésame",
+      "category": "vegetarien",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Presse-tofu (ou planche+poids).",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Tofu mariné grillé teriyaki",
+      "category": "vegetarien",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Laque soja-mirin-gingembre.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Travers de porc glacés (ribs)",
+      "category": "porc",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Truite en papillote citron-amande",
+      "category": "poisson",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Tsukune (boulettes de poulet japonaises)",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Laque soja-mirin-gingembre.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Tsukune (boulettes de poulet japonaises)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Yakitori (brochettes japonaises)",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Laque soja-mirin-gingembre.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Yakitori (brochettes japonaises)",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Yakitori de cuisses de poulet",
+      "category": "volaille",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "notes_securite",
+      "message": "Notes sécurité longues ou nombreuses.",
+      "suggestion": "Garder 1-2 points non redondants avec coeur."
+    }
+  ]
+}
