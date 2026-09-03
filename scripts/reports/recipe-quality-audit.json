@@ -1,7 +1,7 @@
 {
-  "reviewedAt": "2026-09-03T09:19:44.609Z",
-  "recipesReviewed": 249,
-  "cookingReviewed": 228,
+  "reviewedAt": "2026-09-03T10:16:44.030Z",
+  "recipesReviewed": 269,
+  "cookingReviewed": 246,
   "references": [
     {
       "name": "FoodSafety.gov safe minimum internal temperatures",
@@ -14,15 +14,15 @@
   ],
   "totals": {
     "issue": 0,
-    "warning": 105,
-    "improvement": 227,
-    "cleanCookingRecipes": 146
+    "warning": 106,
+    "improvement": 236,
+    "cleanCookingRecipes": 161
   },
   "byRole": {
     "french-chef-reviewer": 6,
-    "kamado-expert": 95,
+    "kamado-expert": 108,
     "marinade-reviewer": 1,
-    "recipe-declutter": 111,
+    "recipe-declutter": 108,
     "temperature": 119
   },
   "findings": [
@@ -141,6 +141,15 @@
       "severity": "warning",
       "field": "phases[1].temp_C",
       "message": "Phase \"Rôti indirect\" à 170 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Canard laqué croustillant au kamado façon Pékin",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Rôtissage indirect doux\" à 160 C hors bande direct / saisie.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
@@ -351,6 +360,15 @@
       "suggestion": "Corriger mode de phase ou température."
     },
     {
+      "recipe": "Côte de veau épaisse aux morilles et vin jaune",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Montée indirecte\" à 150 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
       "recipe": "Cuissot de chevreuil rôti, sauce poivrade",
       "category": "agneau",
       "role": "temperature",
@@ -396,15 +414,6 @@
       "suggestion": "Corriger mode de phase ou température."
     },
     {
-      "recipe": "Focaccia fumée romarin-olives",
-      "category": "pizza",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "220 °C sort de la bande pierre / pizza (280-420 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
       "recipe": "Focaccia romarin & gros sel",
       "category": "pizza",
       "role": "temperature",
@@ -420,6 +429,15 @@
       "severity": "warning",
       "field": "tempK",
       "message": "230 °C sort de la bande pierre / pizza (280-420 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
+    },
+    {
+      "recipe": "Giant Skillet Cookie aux pépites de chocolat en poêle fonte",
+      "category": "dessert",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande plancha / cuisson vive (210-300 C).",
       "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
     },
     {
@@ -522,6 +540,15 @@
       "suggestion": "Corriger mode de phase ou température."
     },
     {
+      "recipe": "Paleron de bœuf fumé façon Brisket (Smoked Chuck Roast)",
+      "category": "boeuf",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Braisage sous papier\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
       "recipe": "Pastrami fumé maison",
       "category": "boeuf",
       "role": "temperature",
@@ -537,33 +564,6 @@
       "severity": "warning",
       "field": "phases[2].temp_C",
       "message": "Phase \"Étuvée vapeur\" à 95 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pastrami fumé maison (saumure 7 jours)",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Fumage low&slow\" à 110 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pastrami fumé maison (saumure 7 jours)",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Wrap papier boucher\" à 110 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pastrami fumé maison (saumure 7 jours)",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[3].temp_C",
-      "message": "Phase \"Vapeur en cocotte\" à 95 C hors bande direct / saisie.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
@@ -738,6 +738,15 @@
       "suggestion": "Corriger mode de phase ou température."
     },
     {
+      "recipe": "Presa ibérique marinée au pimentón de la Vera & ail doux",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Cuisson indirecte fumée\" à 140 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
       "recipe": "Pulled pork (échine effilochée)",
       "category": "porc",
       "role": "temperature",
@@ -835,6 +844,15 @@
       "field": "phases[0].temp_C",
       "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
       "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Suprêmes de pintade fermière rôtis sous peau aux morilles",
+      "category": "volaille",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "tempK",
+      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
+      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
     },
     {
       "recipe": "Tacos al pastor",
@@ -951,15 +969,6 @@
       "severity": "warning",
       "field": "phases[0].temp_C",
       "message": "Phase \"Cuisson indirecte (2 h)\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Tri-tip californien reverse sear",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Chauffe indirecte\" à 135 C hors bande direct / saisie.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
@@ -1303,6 +1312,15 @@
       "field": "phases",
       "message": "Somme phases 805 min éloignée du temps affiché 1 h 30–1 h 45.",
       "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
+    },
+    {
+      "recipe": "Canard laqué croustillant au kamado façon Pékin",
+      "category": "volaille",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce Hoisin.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
     },
     {
       "recipe": "Carne asada (tacos mexicains)",
@@ -1746,15 +1764,6 @@
       "suggestion": "Garder 1-2 points non redondants avec coeur."
     },
     {
-      "recipe": "Dorade royale en croûte de sel",
-      "category": "poisson",
-      "role": "recipe-declutter",
-      "severity": "improvement",
-      "field": "notes_securite",
-      "message": "Notes sécurité longues ou nombreuses.",
-      "suggestion": "Garder 1-2 points non redondants avec coeur."
-    },
-    {
       "recipe": "Échine marinée à la bière",
       "category": "porc",
       "role": "kamado-expert",
@@ -1897,6 +1906,24 @@
       "field": "notes_securite",
       "message": "Notes sécurité longues ou nombreuses.",
       "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Giant Skillet Cookie aux pépites de chocolat en poêle fonte",
+      "category": "dessert",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Glace vanille artisanale.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Giant Skillet Cookie aux pépites de chocolat en poêle fonte",
+      "category": "dessert",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Coulis de caramel au beurre salé.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
     },
     {
       "recipe": "Gigot d'agneau rôti rosé",
@@ -2088,6 +2115,24 @@
       "suggestion": "Garder 1-2 points non redondants avec coeur."
     },
     {
+      "recipe": "Loup de mer (bar) entier en croûte de sel et herbes de Provence",
+      "category": "poisson",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce vierge aux herbes et tomates.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Loup de mer (bar) entier en croûte de sel et herbes de Provence",
+      "category": "poisson",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Beurre blanc.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
       "recipe": "Magret de canard fumé-séché (charcuterie)",
       "category": "volaille",
       "role": "recipe-declutter",
@@ -2277,33 +2322,6 @@
       "suggestion": "Créer la base sauce ou simplifier les suggestions."
     },
     {
-      "recipe": "Pastrami fumé maison (saumure 7 jours)",
-      "category": "boeuf",
-      "role": "recipe-declutter",
-      "severity": "improvement",
-      "field": "astuce",
-      "message": "Astuce longue pour un usage personnel.",
-      "suggestion": "Réduire à deux phrases utiles en cuisine."
-    },
-    {
-      "recipe": "Pastrami fumé maison (saumure 7 jours)",
-      "category": "boeuf",
-      "role": "recipe-declutter",
-      "severity": "improvement",
-      "field": "notes_securite",
-      "message": "Notes sécurité longues ou nombreuses.",
-      "suggestion": "Garder 1-2 points non redondants avec coeur."
-    },
-    {
-      "recipe": "Pastrami fumé maison (saumure 7 jours)",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "improvement",
-      "field": "phases",
-      "message": "Somme phases 10620 min éloignée du temps affiché 7 j saumure + 6–8 h fumage + 2 h vapeur + 1 h repos.",
-      "suggestion": "Aligner phases et temps affiché, ou expliquer repos/variabilité."
-    },
-    {
       "recipe": "Patatas bravas grillées",
       "category": "vegetarien",
       "role": "kamado-expert",
@@ -2409,6 +2427,24 @@
       "severity": "improvement",
       "field": "_derived.sauces",
       "message": "Sauce suggérée absente du catalogue: Yaourt aux herbes.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Poires pochées fumées au vin chaud et épices douces",
+      "category": "dessert",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Réduction de vin aux épices.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Poires pochées fumées au vin chaud et épices douces",
+      "category": "dessert",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Crème mascarpone vanillée.",
       "suggestion": "Créer la base sauce ou simplifier les suggestions."
     },
     {
@@ -2664,6 +2700,15 @@
       "suggestion": "Créer la base sauce ou simplifier les suggestions."
     },
     {
+      "recipe": "Ris de veau braisés au foin puis dorés sur fonte",
+      "category": "boeuf",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Jus de veau réduit aux morilles.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
       "recipe": "Saint-Jacques grillées au beurre noisette",
       "category": "poisson",
       "role": "recipe-declutter",
@@ -2707,6 +2752,24 @@
       "field": "notes_securite",
       "message": "Notes sécurité longues ou nombreuses.",
       "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Satay de bœuf balinais à la citronnelle & sauce cacahuète",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce cacahuète épicée (Satay).",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Satay de bœuf balinais à la citronnelle & sauce cacahuète",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce soja sucrée au piment.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
     },
     {
       "recipe": "Satay de poulet, sauce cacahuète",
@@ -2889,6 +2952,24 @@
       "suggestion": "Créer la base sauce ou simplifier les suggestions."
     },
     {
+      "recipe": "Tacos de Birria de bœuf fumé au kamado & consommé mijoté",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Consommé de Birria épicé.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
+      "recipe": "Tacos de Birria de bœuf fumé au kamado & consommé mijoté",
+      "category": "monde",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Salsa roja.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
+    },
+    {
       "recipe": "Tacos de poisson croustillant sur plancha",
       "category": "poisson",
       "role": "recipe-declutter",
@@ -2923,6 +3004,15 @@
       "field": "equipement",
       "message": "Équipement trivial: Cocotte en fonte 4 L ou plat à gratin.",
       "suggestion": "Garder seulement outils kamado ou non évidents."
+    },
+    {
+      "recipe": "Tataki de thon rouge mariné au yuzu & croûte de sésame noir",
+      "category": "poisson",
+      "role": "kamado-expert",
+      "severity": "improvement",
+      "field": "_derived.sauces",
+      "message": "Sauce suggérée absente du catalogue: Sauce ponzu au yuzu.",
+      "suggestion": "Créer la base sauce ou simplifier les suggestions."
     },
     {
       "recipe": "Tofu fumé laqué miso-sésame",

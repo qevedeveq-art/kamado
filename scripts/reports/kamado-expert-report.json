@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-03T10:10:05.986Z",
+  "reviewedAt": "2026-09-03T10:17:47.169Z",
   "agent": "kamado-expert",
   "references": [
     {
@@ -26,7 +26,7 @@
   "totals": {
     "recipesReviewed": 246,
     "issues": 0,
-    "warnings": 9,
+    "warnings": 3,
     "improvements": 287
   },
   "byCategory": {
@@ -39,7 +39,7 @@
     },
     "boeuf": {
       "count": 30,
-      "withPhases": 23,
+      "withPhases": 25,
       "withSafety": 12,
       "withErrors": 14,
       "withCredibleSource": 29
@@ -81,21 +81,21 @@
     },
     "porc": {
       "count": 25,
-      "withPhases": 20,
+      "withPhases": 21,
       "withSafety": 11,
       "withErrors": 16,
       "withCredibleSource": 23
     },
     "vegetarien": {
       "count": 18,
-      "withPhases": 6,
+      "withPhases": 7,
       "withSafety": 4,
       "withErrors": 2,
       "withCredibleSource": 17
     },
     "volaille": {
       "count": 23,
-      "withPhases": 16,
+      "withPhases": 17,
       "withSafety": 23,
       "withErrors": 8,
       "withCredibleSource": 22
@@ -187,14 +187,8 @@
   "issues": [],
   "warnings": [
     "Pains Pitas gonflés à la flamme sur pierre réfractaire: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Presa ibérique marinée au pimentón de la Vera & ail doux: cuisson multi-température sans phases structurées",
-    "Ris de veau braisés au foin puis dorés sur fonte: cuisson multi-température sans phases structurées",
-    "Côte de veau épaisse aux morilles et vin jaune: cuisson multi-température sans phases structurées",
-    "Canard laqué croustillant au kamado façon Pékin: cuisson multi-température sans phases structurées",
     "Éclade de moules aux aiguilles de pin façon kamado: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Barigoule d'artichauts poivrade au lard et vin blanc en cocotte: volaille/canard: expliciter la référence sécurité 74 °C ou la dérogation culinaire assumée",
-    "Satay de bœuf balinais à la citronnelle & sauce cacahuète: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
-    "Steak de chou-fleur rôti au kamado & chimichurri frais: cuisson multi-température sans phases structurées"
+    "Satay de bœuf balinais à la citronnelle & sauce cacahuète: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson"
   ],
   "improvements": [
     "Chimichurri argentin: base sauce sans source ou inspiration",
@@ -481,7 +475,7 @@
     "Tacos de Birria de bœuf fumé au kamado & consommé mijoté: liste d'ingrédients courte, vérifier qu'elle suffit hors bases/sauces",
     "Tacos de Birria de bœuf fumé au kamado & consommé mijoté: ajouter au moins deux erreurs fréquentes spécifiques",
     "Giant Skillet Cookie aux pépites de chocolat en poêle fonte: ajouter au moins deux erreurs fréquentes spécifiques",
-    "Poires pochées fumées au vin chaud et épices douces: source à renforcer: \"Recette bourguignonne traditionnelle / Le Guide Culinaire\"",
+    "Poires pochées fumées au vin chaud et épices douces: source à renforcer: \"Tradition des poires au vin rouge et épices / Le Guide Culinaire\"",
     "Poires pochées fumées au vin chaud et épices douces: ajouter au moins deux erreurs fréquentes spécifiques",
     "Steak de chou-fleur rôti au kamado & chimichurri frais: ajouter au moins deux erreurs fréquentes spécifiques"
   ]

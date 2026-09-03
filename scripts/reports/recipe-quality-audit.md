@@ -1,22 +1,22 @@
 # Recipe Quality Audit
 
-Generated: 2026-09-03T09:19:44.609Z
+Generated: 2026-09-03T10:16:44.030Z
 
 ## Summary
 
-- Recipes reviewed: 249
-- Cooking recipes reviewed: 228
-- Clean cooking recipes (no issue/warning): 146
+- Recipes reviewed: 269
+- Cooking recipes reviewed: 246
+- Clean cooking recipes (no issue/warning): 161
 - Issues: 0
-- Warnings: 105
-- Improvements: 227
+- Warnings: 106
+- Improvements: 236
 
 ## Role Counts
 
 - french-chef-reviewer: 6
-- kamado-expert: 95
+- kamado-expert: 108
 - marinade-reviewer: 1
-- recipe-declutter: 111
+- recipe-declutter: 108
 - temperature: 119
 
 ## Top Findings
@@ -34,6 +34,7 @@ Generated: 2026-09-03T09:19:44.609Z
 - **WARNING** [temperature] Burnt ends de poitrine de bœuf `phases[1].temp_C`: Phase "Wrap papier boucher" à 110 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Burnt ends de poitrine de bœuf `phases[2].temp_C`: Phase "Cubes glacés" à 135 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Canard entier laqué orange-soja `phases[1].temp_C`: Phase "Rôti indirect" à 170 C hors bande direct / saisie. Corriger mode de phase ou température.
+- **WARNING** [temperature] Canard laqué croustillant au kamado façon Pékin `phases[0].temp_C`: Phase "Rôtissage indirect doux" à 160 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Carolina pulled pork (sauce vinaigrée) `phases[1].temp_C`: Phase "Wrap alu + jus" à 110 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Carré d'agneau en croûte d'herbes `phases[0].temp_C`: Phase "Cuisson indirecte" à 180 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Carré de porc rôti aux herbes `tempK`: 160 °C sort de la bande direct / saisie (210-340 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
@@ -57,14 +58,15 @@ Generated: 2026-09-03T09:19:44.609Z
 - **WARNING** [temperature] Côte de bœuf caveman sur braises `phases[1].temp_C`: Phase "Repos indirect" à 120 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Côte de bœuf reverse-sear `phases[0].temp_C`: Phase "Chauffe indirecte" à 120 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Côte de porc tomahawk saumurée `phases[0].temp_C`: Phase "Chauffe indirecte" à 150 C hors bande direct / saisie. Corriger mode de phase ou température.
+- **WARNING** [temperature] Côte de veau épaisse aux morilles et vin jaune `phases[0].temp_C`: Phase "Montée indirecte" à 150 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Cuissot de chevreuil rôti, sauce poivrade `phases[1].temp_C`: Phase "Rôti rosé" à 180 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Filet de biche en croûte d'épices `phases[0].temp_C`: Phase "Cuisson indirecte" à 150 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Filet de chevreuil rôti, sauce grand veneur `phases[0].temp_C`: Phase "Cuisson indirecte" à 160 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Filet mignon farci chorizo-manchego `phases[0].temp_C`: Phase "Cuisson indirecte" à 160 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Filet mignon fumé au miel `phases[1].temp_C`: Phase "Indirect lent" à 140 C hors bande direct / saisie. Corriger mode de phase ou température.
-- **WARNING** [temperature] Focaccia fumée romarin-olives `tempK`: 220 °C sort de la bande pierre / pizza (280-420 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
 - **WARNING** [temperature] Focaccia romarin & gros sel `tempK`: 220 °C sort de la bande pierre / pizza (280-420 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
 - **WARNING** [temperature] Fougasse aux olives `tempK`: 230 °C sort de la bande pierre / pizza (280-420 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
+- **WARNING** [temperature] Giant Skillet Cookie aux pépites de chocolat en poêle fonte `tempK`: 180 °C sort de la bande plancha / cuisson vive (210-300 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
 - **WARNING** [temperature] Gigot d'agneau rôti rosé `tempK`: 170 °C sort de la bande direct / saisie (210-340 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
 - **WARNING** [temperature] Gigot d'agneau rôti rosé `phases[0].temp_C`: Phase "Rôti indirect" à 180 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Gratin dauphinois en cocotte `phases[0].temp_C`: Phase "Cuisson lente couverte" à 170 C hors bande direct / saisie. Corriger mode de phase ou température.
@@ -76,11 +78,9 @@ Generated: 2026-09-03T09:19:44.609Z
 - **WARNING** [temperature] Magret de canard fumé-séché (charcuterie) `phases[1].temp_C`: Phase "Fumage à froid" à 25 C hors bande fumage / low and slow. Corriger mode de phase ou température.
 - **WARNING** [temperature] Mont d'Or / Camembert fumé `tempK`: 180 °C sort de la bande fumage / low and slow (95-135 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
 - **WARNING** [temperature] Mont d'Or / Camembert fumé `phases[0].temp_C`: Phase "Cuisson indirecte fumée" à 180 C hors bande direct / saisie. Corriger mode de phase ou température.
+- **WARNING** [temperature] Paleron de bœuf fumé façon Brisket (Smoked Chuck Roast) `phases[1].temp_C`: Phase "Braisage sous papier" à 120 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Pastrami fumé maison `phases[1].temp_C`: Phase "Wrap papier" à 110 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Pastrami fumé maison `phases[2].temp_C`: Phase "Étuvée vapeur" à 95 C hors bande direct / saisie. Corriger mode de phase ou température.
-- **WARNING** [temperature] Pastrami fumé maison (saumure 7 jours) `phases[1].temp_C`: Phase "Fumage low&slow" à 110 C hors bande direct / saisie. Corriger mode de phase ou température.
-- **WARNING** [temperature] Pastrami fumé maison (saumure 7 jours) `phases[2].temp_C`: Phase "Wrap papier boucher" à 110 C hors bande direct / saisie. Corriger mode de phase ou température.
-- **WARNING** [temperature] Pastrami fumé maison (saumure 7 jours) `phases[3].temp_C`: Phase "Vapeur en cocotte" à 95 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Pavé de cerf, sauce aux airelles `phases[0].temp_C`: Phase "Cuisson indirecte" à 150 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Picanha entière façon churrasco `phases[0].temp_C`: Phase "Chauffe indirecte" à 150 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Pintade rôtie aux marrons `tempK`: 180 °C sort de la bande direct / saisie (210-340 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
@@ -100,6 +100,6 @@ Generated: 2026-09-03T09:19:44.609Z
 - **WARNING** [temperature] Poulet entier à la cannette (beer can) `tempK`: 180 °C sort de la bande direct / saisie (210-340 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
 - **WARNING** [temperature] Poulet entier à la cannette (beer can) `phases[0].temp_C`: Phase "Cuisson indirecte vapeur" à 180 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Poulet jerk jamaïcain `phases[0].temp_C`: Phase "Cuisson indirecte" à 180 C hors bande direct / saisie. Corriger mode de phase ou température.
-- **WARNING** [temperature] Pulled pork (échine effilochée) `phases[1].temp_C`: Phase "Wrap alu + jus de pomme" à 110 C hors bande direct / saisie. Corriger mode de phase ou température.
+- **WARNING** [temperature] Presa ibérique marinée au pimentón de la Vera & ail doux `phases[0].temp_C`: Phase "Cuisson indirecte fumée" à 140 C hors bande direct / saisie. Corriger mode de phase ou température.
 
-_252 more findings in scripts/reports/recipe-quality-audit.json._
+_262 more findings in scripts/reports/recipe-quality-audit.json._

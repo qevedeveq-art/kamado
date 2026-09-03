@@ -14880,6 +14880,22 @@
       "top": "1/3 ouvert puis grand ouvert"
     },
     "notes_securite": "Norme de sécurité standard porc : 63 °C à cœur + 3 min de repos (USDA/FSIS). Pour la presa ibérique marbrée de grand cru, dégustation rosée idéale à 60 °C avec 8 min de repos.",
+    "phases": [
+      {
+        "name": "Cuisson indirecte fumée",
+        "mode": "indirect",
+        "temp_C": 140,
+        "duration_min": 25,
+        "action": "Déflecteur céramique et bois de chêne. Cuire doucement jusqu'à 52 °C à cœur."
+      },
+      {
+        "name": "Saisie directe",
+        "mode": "direct",
+        "temp_C": 260,
+        "duration_min": 4,
+        "action": "Retirer le déflecteur. Saisir 2 min par face jusqu'à 60 °C à cœur."
+      }
+    ],
     "source": "Gastronomie d'Estrémadure, Espagne",
     "sauce": "Sauce barbecue maison (Kansas City) | Chimichurri argentin",
     "_derived": {
@@ -14926,6 +14942,22 @@
       "top": "1/2 ouvert"
     },
     "notes_securite": "Abats de veau : fraîcheur irréprochable impérative. Blanchiment initial obligatoire pour assainir et raffermir la chair avant cuisson kamado.",
+    "phases": [
+      {
+        "name": "Braisage au foin",
+        "mode": "braisage",
+        "temp_C": 160,
+        "duration_min": 25,
+        "action": "En cocotte fonte ouverte sur lit de foin humidifié, couvercle kamado fermé."
+      },
+      {
+        "name": "Croustillant sur fonte",
+        "mode": "direct",
+        "temp_C": 220,
+        "duration_min": 5,
+        "action": "Plancha fonte au beurre mousseux, arroser en continu jusqu'à croûte dorée."
+      }
+    ],
     "source": "Auguste Escoffier — Le Guide Culinaire (adaptation braisage kamado)",
     "sauce": "Jus de veau réduit aux morilles | Beurre maître d'hôtel",
     "_derived": {
@@ -14977,6 +15009,22 @@
       "top": "1/2 ouvert puis grand ouvert"
     },
     "notes_securite": "Veau de boucherie épais : viser 60 °C à cœur pour une viande rosée et juteuse, suivi de 10 min de repos sous aluminium lâche.",
+    "phases": [
+      {
+        "name": "Montée indirecte",
+        "mode": "indirect",
+        "temp_C": 150,
+        "duration_min": 25,
+        "action": "Déflecteur et sarments de vigne jusqu'à 50 °C à cœur."
+      },
+      {
+        "name": "Saisie directe",
+        "mode": "direct",
+        "temp_C": 250,
+        "duration_min": 4,
+        "action": "Retirer le déflecteur. Saisir 2 min par face pour marquer et atteindre 60 °C."
+      }
+    ],
     "source": "Cuisine traditionnelle franc-comtoise",
     "sauce": "Sauce aux morilles et vin jaune",
     "_derived": {
@@ -15024,6 +15072,22 @@
       "top": "1/2 ouvert puis grand ouvert"
     },
     "notes_securite": "Volaille entière : vérifier impérativement 74 °C à cœur à la jonction cuisse-corps sans toucher l'os avant défournement.",
+    "phases": [
+      {
+        "name": "Rôtissage indirect doux",
+        "mode": "indirect",
+        "temp_C": 160,
+        "duration_min": 75,
+        "action": "Déflecteur avec bac d'eau et bois de pommier. Cuire 1 h 15."
+      },
+      {
+        "name": "Vitrification de la peau",
+        "mode": "indirect",
+        "temp_C": 220,
+        "duration_min": 15,
+        "action": "Ouvrir les évents à 220 °C pendant 15 min pour faire souffler la peau laquée."
+      }
+    ],
     "source": "Tradition impériale de Pékin / Da Dong Roast Duck",
     "sauce": "Sauce Hoisin | Sauce teriyaki maison",
     "_derived": {
@@ -15204,7 +15268,7 @@
       "Préchauffez le kamado avec une plancha fonte en direct à 300 °C jusqu'à ce qu'une goutte d'eau s'y vaporise instantanément.",
       "Posez le pavé sur la plancha brûlante : saisissez exactement 30 à 45 secondes par face. Le pourtour doit être cuit sur 2 mm et le cœur parfaitement cru.",
       "Plongez immédiatement le pavé 30 secondes dans un saladier d'eau glacée pour stopper net la cuisson, puis séchez au papier absorbant.",
-      "Tranchez délicatement en lamelles de 5 mm d'épaisseur avec un couteau à lame fine bien aiguisée. Servez avec le reste de marinade."
+      "Tranchez délicatement en lamelles de 5 mm d'épaisseur avec un couteau à lame fine bien aiguisée. Portez le reste de marinade 2 min à ébullition franche pour la concentrer et la sécuriser, puis servez-la en saucière."
     ],
     "astuce": "Le bain d'eau glacée après saisie est le geste technique clé pour figer la ligne de démarcation entre la croûte dorée et le cœur cru rubis.",
     "difficulty": 3,
@@ -15352,7 +15416,7 @@
       "2 carottes coupées en rondelles",
       "1 oignon blanc ciselé et 2 gousses d'ail",
       "15 cl de vin blanc sec de Provence",
-      "20 cl de bouillon de légumes ou volaille",
+      "20 cl de bouillon de légumes doux",
       "1 branche de thym, 1 feuille de laurier, huile d'olive et jus d'un demi-citron"
     ],
     "etapes": [
@@ -15648,7 +15712,7 @@
       "top": "1/3 ouvert"
     },
     "notes_securite": "Dessert à base de fruits pochés dans une réduction alcoolisée portée à ébullition : alcool résiduel minime, totale sécurité alimentaire.",
-    "source": "Recette bourguignonne traditionnelle / Le Guide Culinaire",
+    "source": "Tradition des poires au vin rouge et épices / Le Guide Culinaire",
     "sauce": "Réduction de vin aux épices | Crème mascarpone vanillée",
     "_derived": {
       "spice": "Épicé doux",
@@ -15697,6 +15761,22 @@
       "top": "1/2 ouvert puis grand ouvert"
     },
     "notes_securite": "Préparation 100 % végétale : pas de risque bactériologique lié aux viandes. Assurez-vous d'une cuisson suffisante à cœur pour rendre le chou-fleur parfaitement digeste.",
+    "phases": [
+      {
+        "name": "Cuisson indirecte",
+        "mode": "indirect",
+        "temp_C": 190,
+        "duration_min": 25,
+        "action": "Déflecteur et bois de pommier jusqu'à tendreté à la pointe du couteau."
+      },
+      {
+        "name": "Marquage direct",
+        "mode": "direct",
+        "temp_C": 240,
+        "duration_min": 4,
+        "action": "Retirer le déflecteur. Griller 2 min par face pour caraméliser."
+      }
+    ],
     "source": "Yotam Ottolenghi — Flavour",
     "sauce": "Chimichurri argentin | Sauce yaourt-ail express (façon toum)",
     "_derived": {

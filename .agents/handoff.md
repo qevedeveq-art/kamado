@@ -1,30 +1,29 @@
 # Agent Handoff
 
 ## Current Status
-- Zero-build PWA & native mobile app Kamado upgraded to v28.
-- Massive Recipe Catalog Expansion & Deduplication (Chef Reviewer & Kamado Expert validated):
-  - Total catalog increased from 249 to 269 recipes (246 cooking recipes, 23 sauces/bases).
-  - Eliminated 5 redundant duplicates/triplicates in place with distinct gastronomic creations:
-    - *Dorade royale* -> *Loup de mer (bar) entier en croûte de sel et herbes de Provence*
-    - *Tri-tip doublon* -> *Dino Beef Ribs (Plate Short Ribs géantes texanes fumées 8 h au chêne)*
-    - *Naan doublon* -> *Pains Pitas gonflés à la flamme sur pierre réfractaire*
-    - *Pastrami doublon* -> *Paleron de bœuf fumé façon Brisket (Smoked Chuck Roast)*
-    - *Focaccia doublon* -> *Calzone napolitain soufflé à la ricotta, fior di latte & spianata*
-  - Added 20 elite new recipes adapted to Kamado: Pluma ibérique bellota, Presa ibérique marinée, Ris de veau braisés au foin puis croustillants, Côte de veau aux morilles, Canard laqué croustillant façon Pékin, Suprêmes de pintade morilles sous peau, Turbot entier grillé façon Getaria (Elkano), Saint-Pierre rôti au fenouil sauvage, Tataki de thon yuzu-sésame noir, Éclade de moules aux aiguilles de pin, Baingan Bharta (aubergines brûlées fumées indiennes), Barigoule d'artichauts poivrade en cocotte, Kofte d'agneau au sumac, Satay de bœuf balinais, Tacos de Birria de bœuf au kamado, Giant Skillet Cookie fonte, Poires pochées au vin chaud fumées, Steak de chou-fleur chimichurri, Sauce Alabama White BBQ, Sauce Carolina Gold.
-  - 100% of cooking recipes enriched with vents, charbon_kg, repos_min, difficulty, core temperatures, and chef security notes.
+- Zero-build PWA & native mobile app Kamado upgraded to v29.
+- Recipe Quality & UX Overhaul:
+  - Fixed all remaining recipe quality audit findings: added structured phases for multi-temperature recipes (Canard laqué, Côte de veau, Presa ibérique, Ris de veau, Steak de chou-fleur).
+  - Clarified marinade boiling safety on Tataki de thon and vegetable broth on Barigoule.
+  - Replaced internal technical "Qualité" sort with intuitive "Nom (A ➔ Z)" French alphabetical sort and duration sort.
+  - Eradicated remaining "Qualité fiche" mention from recipe detail specs bar.
+  - Added native haptic vibration feedback (`navigator.vibrate`) upon timer completion.
+  - Total catalog: 269 recipes (246 cooking, 23 sauces/bases).
+  - Clean cooking recipes increased to 161 with 0 issues across all roles.
 - 46 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings on Data & Chef audits.
-- Service worker bumped to `v28`.
+- Service worker bumped to `v29`.
 
 ## Last Commands
 - `node scripts/extract-data.js`
 - `npm test`
 - `npm run audit`
+- `node scripts/audit-recipe-quality.js`
 - `node scripts/prepare-mobile.js`
 - `node scripts/bump-sw-version.js --force`
 
 ## Files Changed
-- `index.html` (5 duplicates replaced, 20 curated recipes injected with full schema)
-- `data/recipes.json` (regenerated, 269 recipes)
-- `sw.js` (bumped to `v28`)
+- `index.html` (recipe phases, alpha sort, haptic vibration, cleaned filterbar & specs)
+- `data/recipes.json` (regenerated)
+- `sw.js` (bumped to `v29`)
 - `.agents/handoff.md` (updated handoff)
 
