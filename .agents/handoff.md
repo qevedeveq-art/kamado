@@ -1,15 +1,14 @@
 # Agent Handoff
 
 ## Current Status
-- Zero-build PWA & native mobile app Kamado upgraded to v32.
-- Created and deployed the dedicated Sommelier & Oenologue Agent (`sommelier`):
-  - Agent spec: `.agents/roles/sommelier.md`, config: `.codex/agents/sommelier.toml`, registered in `AGENTS.md`.
-  - Automated Sommelier Audit Script: `scripts/audit-sommelier.js` auditing all 246 cooking recipes across temperatures, chemical harmony, absence of clashes (fish/tannins, chili/tannins, sweet dessert/dry wine), and elite dish coverage.
-  - Eliminated all 6 oenological clashes detected by the audit (fixed regex collisions on fish/barbecue, resolved Adana kebab and Fiorentina pairings with Sangiovese and spicy Rhône, paired crêpes and skillet desserts with natural sweet wines and cider).
-  - Sommelier audit specificity rate: 87%, with **0 issues**.
-- 47 tests passing natively via `node --test 'tests/*.test.js'` including `tests/sommelier.test.js`.
+- Zero-build PWA & native mobile app Kamado upgraded to v33.
+- Enhanced Visibility & Contrast for "Équipement nécessaire":
+  - Overhauled `.equipement-box` with high-contrast amber/gold borders (`#ff9d42`, border-left: 6px solid `#ff7b00`), deep charcoal gradient background and luminous title (`#ffb86b`, 15px bold uppercase).
+  - Transformed equipment items into crisp, high-visibility badges (`.equipement-chips li`) with pure white text (`#ffffff`), glowing amber border, subtle elevation, and hover effects.
+  - Added dedicated high-contrast `🛠️ Équipement` characteristic directly into `.specbar` header for immediate at-a-glance visibility upon opening any recipe.
+- 47 tests passing natively via `node --test 'tests/*.test.js'`.
 - All 4 audits passing (Data, Kamado Expert, Chef Reviewer, Sommelier).
-- Service worker bumped to `v32`.
+- Service worker bumped to `v33`.
 
 ## Last Commands
 - `node scripts/extract-data.js`
@@ -19,13 +18,7 @@
 - `node scripts/bump-sw-version.js --force`
 
 ## Files Changed
-- `.agents/roles/sommelier.md` (new role spec)
-- `.codex/agents/sommelier.toml` (new codex agent config)
-- `scripts/audit-sommelier.js` (new automated sommelier audit)
-- `tests/sommelier.test.js` (new unit test)
-- `AGENTS.md` (registered Sommelier role)
-- `package.json` (added audit:sommelier and updated audit chain)
-- `index.html` (refined wineFor pairings without clashes)
-- `sw.js` (bumped to `v32`)
+- `index.html` (high-contrast equipement-box, equipement-chips badges, specbar equipment row, CSS)
+- `sw.js` (bumped to `v33`)
 - `.agents/handoff.md` (updated handoff)
 

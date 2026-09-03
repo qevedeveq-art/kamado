@@ -3642,6 +3642,92 @@ table td.t-temp, table td.t-coeur {
 
 
 
+
+/* ===== ÉQUIPEMENT NÉCESSAIRE HAUT CONTRASTE ===== */
+.equipement-box {
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.14), rgba(28, 30, 24, 0.96)) !important;
+  border: 1.5px solid #ff9d42 !important;
+  border-left: 6px solid #ff7b00 !important;
+  border-radius: 14px !important;
+  padding: 16px 18px !important;
+  margin: 22px 0 16px !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 123, 0, 0.08) !important;
+}
+.equip-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 14px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid rgba(255, 184, 107, 0.3) !important;
+}
+.equip-icon {
+  font-size: 28px !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+.equip-title {
+  margin: 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  color: #ffb86b !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.6px !important;
+  text-transform: uppercase !important;
+}
+.equip-subtitle {
+  display: block !important;
+  font-size: 12px !important;
+  color: #e5e9df !important;
+  font-weight: 500 !important;
+  margin-top: 2px !important;
+}
+.equipement-chips,
+.equipement-list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.equipement-chips li,
+.equipement-list li {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1.5px solid rgba(255, 193, 90, 0.55) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  border-radius: 10px !important;
+  padding: 8px 16px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  letter-spacing: 0.2px !important;
+  transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease !important;
+}
+.equipement-chips li:hover,
+.equipement-list li:hover {
+  transform: translateY(-2px) !important;
+  border-color: #ff9d42 !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+.equipement-chips li:before,
+.equipement-list li:before {
+  display: none !important;
+}
+.chip-icon {
+  color: #ffb86b !important;
+  font-weight: 900 !important;
+  font-size: 13px !important;
+}
+.equip-spec {
+  background: rgba(255, 140, 0, 0.12) !important;
+  border-color: rgba(255, 184, 107, 0.45) !important;
+}
+
 /* ===== SOMMELIER & ACCORDS VINS STYLES ===== */
 .wine-rules-grid {
   display: grid;
@@ -11984,7 +12070,20 @@ function renderRichSchema(r){
   if(r.marinade_h)inline.push(`<div class="rich-row"><b>🌿 Marinade</b> · ${formatDurationMin(r.marinade_h*60)}</div>`);
   if(inline.length)out.push(`<div class="rich-section"><h4>🔧 Réglages kamado</h4>${inline.join("")}</div>`);
   if(Array.isArray(r.equipement)&&r.equipement.length){
-    out.push(`<div class="rich-section"><h4>🛠 Équipement nécessaire</h4><ul class="equipement-list">${r.equipement.map(e=>`<li>${e}</li>`).join("")}</ul></div>`);
+    out.push(`
+      <div class="rich-section equipement-box">
+        <div class="equip-head">
+          <span class="equip-icon">🛠️</span>
+          <div>
+            <h4 class="equip-title">Équipement nécessaire</h4>
+            <span class="equip-subtitle">Accessoires et matériel indispensables pour cette cuisson au kamado</span>
+          </div>
+        </div>
+        <ul class="equipement-list equipement-chips">
+          ${r.equipement.map(e=>`<li><span class="chip-icon">✔</span> ${e}</li>`).join("")}
+        </ul>
+      </div>
+    `);
   }
   if(Array.isArray(r.substitutions)&&r.substitutions.length){
     out.push(`<div class="rich-section"><h4>🔄 Substitutions possibles</h4><ul class="subs-list">${r.substitutions.map(s=>`<li><b>${s.ingredient}</b> → ${s.par}</li>`).join("")}</ul></div>`);
@@ -12404,6 +12503,7 @@ function openRecipe(i){
         <div class="spec"><div class="l">Niveau</div><div class="v">${niveau(r)}</div></div>
         <div class="spec"><div class="l">Piquant</div><div class="v">${spiceLevel(r)}</div></div>
         <div class="spec"><div class="l">Saison</div><div class="v">${seasonLabel(seasonFor(r))}</div></div>
+        ${Array.isArray(r.equipement)&&r.equipement.length?`<div class="spec wide-spec equip-spec"><div class="l" style="color:#ffb86b;font-weight:800">🛠️ Équipement</div><div class="v equip-val" style="font-size:13px;color:#ffffff;font-weight:700">${r.equipement.join(" · ")}</div></div>`:''}
         ${r.bois?`<div class="spec wide-spec"><div class="l">Bois conseillé</div><div class="v" style="font-size:13px">${r.bois}</div></div>`:''}
         ${alls.length?`<div class="spec wide-spec"><div class="l">Allergènes</div><div class="v" style="font-size:13px">${alls.join(", ")}</div></div>`:''}
         ${diets.length?`<div class="spec wide-spec"><div class="l">Régimes</div><div class="v" style="font-size:13px">${diets.join(", ")}</div></div>`:''}
