@@ -3643,6 +3643,158 @@ table td.t-temp, table td.t-coeur {
 
 
 
+
+/* ===== SOS KAMADO, QR CODE, RUB CALCULATOR & COOK JOURNAL ===== */
+.sos-btn {
+  background: linear-gradient(135deg, #d32f2f, #ff5252);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 10px rgba(211,47,47,0.4);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  margin-left: 8px;
+}
+.sos-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(211,47,47,0.6);
+}
+
+.sos-sheet {
+  max-width: 680px;
+  background: #141512;
+  border: 2px solid #ff5252;
+}
+.sos-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255,82,82,0.25);
+  padding-bottom: 12px;
+}
+.sos-icon { font-size: 32px; }
+.sos-title { font-size: 20px; font-weight: 800; color: #ff5252; margin: 0; }
+.sos-desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+.sos-symptoms-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sos-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+.sos-item:hover { border-color: #ff9d42; }
+.sos-item-head {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: rgba(255,255,255,0.02);
+}
+.sos-item-title { font-size: 14.5px; font-weight: 700; color: #fff; }
+.sos-item-arrow { font-size: 14px; color: #ff9d42; transition: transform 0.2s ease; }
+.sos-item-body {
+  padding: 0 16px 16px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #ddd;
+}
+.sos-item-body.hide { display: none; }
+.sos-plan {
+  background: rgba(211,47,47,0.12);
+  border-left: 3px solid #ff5252;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 10px;
+}
+.sos-plan-title { font-weight: 800; color: #ff8a80; margin-bottom: 4px; }
+.sos-plan ol { margin: 0; padding-left: 20px; }
+.sos-plan li { margin-bottom: 4px; }
+
+/* QR Code Modal */
+.qr-sheet {
+  max-width: 420px;
+  text-align: center;
+  background: #141512;
+  border: 1.5px solid var(--accent);
+  padding: 24px 20px;
+}
+.qr-title { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+.qr-sub { font-size: 12.5px; color: var(--muted); margin-bottom: 18px; line-height: 1.4; }
+.qr-container { display: flex; justify-content: center; margin-bottom: 16px; }
+.qr-close-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Rub Calculator */
+.rub-calc-box {
+  background: rgba(255,255,255,0.03);
+  border: 1.5px solid rgba(255,157,66,0.3);
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 12px;
+}
+.rub-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 13px;
+}
+.rub-table th, .rub-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.rub-table th { color: var(--flame-gold, #ffb86b); font-weight: 800; }
+.rub-table td.qty { font-weight: 800; color: #fff; }
+
+/* Consolidated Cook Journal */
+.journal-item-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+.jic-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.jic-title { font-weight: 800; font-size: 15px; color: #fff; }
+.jic-date { font-size: 11.5px; color: var(--muted); }
+.jic-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.jic-badge {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: #ddd;
+}
+.jic-notes { font-size: 12.5px; color: #ccc; line-height: 1.4; font-style: italic; }
+
 /* ===== ÉQUIPEMENT NÉCESSAIRE HAUT CONTRASTE ===== */
 .equipement-box {
   background: linear-gradient(135deg, rgba(255, 140, 0, 0.14), rgba(28, 30, 24, 0.96)) !important;
@@ -4336,6 +4488,32 @@ table td.t-temp, table td.t-coeur {
       <button class="cockpit-nav-btn prev" id="cpPrevStep">◀ Précédente</button>
       <button class="cockpit-nav-btn next" id="cpNextStep">Étape suivante ▶</button>
     </div>
+  </div>
+</div>
+
+
+<!-- SOS KAMADO MODAL -->
+<div class="modal" id="sosModal" role="dialog" aria-modal="true" aria-labelledby="sosTitle">
+  <div class="sheet sos-sheet">
+    <div class="sos-header">
+      <span class="sos-icon">🚨</span>
+      <div style="flex:1">
+        <h3 class="sos-title" id="sosTitle">SOS &amp; Dépannage Express Kamado</h3>
+        <div class="sos-desc">Solutions immédiates pour sauver votre cuisson en direct</div>
+      </div>
+      <button class="back" id="sosClose" title="Fermer">✕</button>
+    </div>
+    <div class="sos-symptoms-list" id="sosSymptomsList"></div>
+  </div>
+</div>
+
+<!-- QR CODE MODAL -->
+<div class="modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
+  <div class="sheet qr-sheet">
+    <div class="qr-title" id="qrModalTitle">Titre de la recette</div>
+    <div class="qr-sub">Faites scanner ce code pour ouvrir instantanément cette recette sur le smartphone de vos invités</div>
+    <div class="qr-container" id="qrContainer"></div>
+    <button class="qr-close-btn" id="qrCloseBtn">Fermer</button>
   </div>
 </div>
 
@@ -10962,6 +11140,452 @@ function initVinsExplorer(){
   renderWineCards();
 }
 
+
+/* ===== QR CODE GENERATOR (ZERO DEPENDENCY PURE JS) ===== */
+function generateQRCodeSVG(text, size = 220) {
+  const QRCode = (function() {
+    const EXP_TABLE = new Array(256), LOG_TABLE = new Array(256);
+    for (let i = 0, x = 1; i < 256; i++) {
+      EXP_TABLE[i] = x; LOG_TABLE[x] = i;
+      x = (x << 1) ^ ((x >> 7) * 0x11d);
+    }
+    function glog(n) { if (n < 1) throw new Error("glog"); return LOG_TABLE[n]; }
+    function gexp(n) { while (n < 0) n += 255; while (n >= 256) n -= 255; return EXP_TABLE[n]; }
+
+    function Polynomial(num, shift) {
+      let offset = 0;
+      while (offset < num.length && num[offset] === 0) offset++;
+      this.num = new Array(num.length - offset + shift);
+      for (let i = 0; i < num.length - offset; i++) this.num[i] = num[offset + i];
+    }
+    Polynomial.prototype = {
+      get: function(i) { return this.num[i]; },
+      getLength: function() { return this.num.length; },
+      multiply: function(e) {
+        const num = new Array(this.getLength() + e.getLength() - 1).fill(0);
+        for (let i = 0; i < this.getLength(); i++) {
+          for (let j = 0; j < e.getLength(); j++) {
+            num[i + j] ^= gexp(glog(this.get(i)) + glog(e.get(j)));
+          }
+        }
+        return new Polynomial(num, 0);
+      },
+      mod: function(e) {
+        if (this.getLength() - e.getLength() < 0) return this;
+        const ratio = glog(this.get(0)) - glog(e.get(0));
+        const num = new Array(this.getLength());
+        for (let i = 0; i < this.getLength(); i++) num[i] = this.get(i);
+        for (let i = 0; i < e.getLength(); i++) num[i] ^= gexp(glog(e.get(i)) + ratio);
+        return new Polynomial(num, 0).mod(e);
+      }
+    };
+
+    function getRSGeneratorPoly(len) {
+      let e = new Polynomial([1], 0);
+      for (let i = 0; i < len; i++) e = e.multiply(new Polynomial([1, gexp(i)], 0));
+      return e;
+    }
+
+    const VERSIONS = [
+      null,
+      { v: 1, total: 26, data: 19, ec: 7, align: [] },
+      { v: 2, total: 44, data: 34, ec: 10, align: [6, 18] },
+      { v: 3, total: 70, data: 55, ec: 15, align: [6, 22] },
+      { v: 4, total: 100, data: 80, ec: 20, align: [6, 26] },
+      { v: 5, total: 134, data: 108, ec: 26, align: [6, 30] },
+      { v: 6, total: 172, data: 136, ec: 18, align: [6, 34] }
+    ];
+
+    function createData(version, text) {
+      const vInfo = VERSIONS[version];
+      const buffer = [];
+      function put(bits, len) { for (let i = len - 1; i >= 0; i--) buffer.push((bits >> i) & 1); }
+      put(4, 4); // Byte mode
+      put(text.length, 8);
+      for (let i = 0; i < text.length; i++) put(text.charCodeAt(i) & 0xff, 8);
+      const maxBits = vInfo.data * 8;
+      put(0, Math.min(4, maxBits - buffer.length));
+      while (buffer.length % 8 !== 0) buffer.push(0);
+      const pad = [0xec, 0x11];
+      let p = 0;
+      while (buffer.length < maxBits) put(pad[p++ % 2], 8);
+
+      const bytes = [];
+      for (let i = 0; i < buffer.length; i += 8) {
+        let b = 0;
+        for (let j = 0; j < 8; j++) b = (b << 1) | buffer[i + j];
+        bytes.push(b);
+      }
+      const rsPoly = getRSGeneratorPoly(vInfo.ec);
+      const rawPoly = new Polynomial(bytes, vInfo.ec);
+      const modPoly = rawPoly.mod(rsPoly);
+      const ecBytes = [];
+      for (let i = 0; i < vInfo.ec; i++) {
+        const idx = i + modPoly.getLength() - vInfo.ec;
+        ecBytes.push(idx >= 0 ? modPoly.get(idx) : 0);
+      }
+      return bytes.concat(ecBytes);
+    }
+
+    return {
+      generateMatrix: function(text) {
+        let version = 1;
+        while (version < VERSIONS.length && VERSIONS[version].data - 3 < text.length) version++;
+        if (version >= VERSIONS.length) version = VERSIONS.length - 1;
+
+        const vInfo = VERSIONS[version];
+        const sz = version * 4 + 17;
+        const matrix = Array.from({ length: sz }, () => new Array(sz).fill(null));
+        function set(r, c, v) { if (r >= 0 && r < sz && c >= 0 && c < sz) matrix[r][c] = v ? 1 : 0; }
+
+        for (let i = 8; i < sz - 8; i++) { set(6, i, i % 2 === 0); set(i, 6, i % 2 === 0); }
+
+        function addFinder(r, c) {
+          for (let row = -1; row <= 7; row++) {
+            for (let col = -1; col <= 7; col++) {
+              if (r + row < 0 || r + row >= sz || c + col < 0 || c + col >= sz) continue;
+              if (row >= 0 && row <= 6 && (col === 0 || col === 6) ||
+                  col >= 0 && col <= 6 && (row === 0 || row === 6) ||
+                  row >= 2 && row <= 4 && col >= 2 && col <= 4) set(r + row, c + col, 1);
+              else set(r + row, c + col, 0);
+            }
+          }
+        }
+        addFinder(0, 0); addFinder(sz - 7, 0); addFinder(0, sz - 7);
+
+        if (vInfo.align.length > 0) {
+          const coords = vInfo.align;
+          for (let i = 0; i < coords.length; i++) {
+            for (let j = 0; j < coords.length; j++) {
+              const r = coords[i], c = coords[j];
+              if (matrix[r][c] !== null) continue;
+              for (let dr = -2; dr <= 2; dr++) {
+                for (let dc = -2; dc <= 2; dc++) {
+                  if (Math.abs(dr) === 2 || Math.abs(dc) === 2 || (dr === 0 && dc === 0)) set(r + dr, c + dc, 1);
+                  else set(r + dr, c + dc, 0);
+                }
+              }
+            }
+          }
+        }
+
+        for (let i = 0; i < 9; i++) { if (matrix[8][i] === null) matrix[8][i] = 0; if (matrix[i][8] === null) matrix[i][8] = 0; }
+        for (let i = sz - 8; i < sz; i++) { if (matrix[8][i] === null) matrix[8][i] = 0; if (matrix[i][8] === null) matrix[i][8] = 0; }
+
+        const data = createData(version, text);
+        let bitIdx = 0, dir = -1, col = sz - 1;
+        const totalBits = data.length * 8;
+
+        while (col > 0) {
+          if (col === 6) col--;
+          const rowStart = dir === -1 ? sz - 1 : 0;
+          const rowEnd = dir === -1 ? -1 : sz;
+          const step = dir === -1 ? -1 : 1;
+          for (let row = rowStart; row !== rowEnd; row += step) {
+            for (let c = 0; c < 2; c++) {
+              const curCol = col - c;
+              if (matrix[row][curCol] === null) {
+                let bit = 0;
+                if (bitIdx < totalBits) {
+                  bit = (data[bitIdx >> 3] >> (7 - (bitIdx & 7))) & 1;
+                  bitIdx++;
+                }
+                if ((row + curCol) % 2 === 0) bit ^= 1;
+                matrix[row][curCol] = bit;
+              }
+            }
+          }
+          dir = -dir; col -= 2;
+        }
+
+        const formatBits = [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0];
+        for (let i = 0; i < 6; i++) matrix[8][i] = formatBits[i];
+        matrix[8][7] = formatBits[6]; matrix[8][8] = formatBits[7]; matrix[7][8] = formatBits[8];
+        for (let i = 0; i < 6; i++) matrix[5 - i][8] = formatBits[9 + i];
+        for (let i = 0; i < 7; i++) matrix[sz - 1 - i][8] = formatBits[i];
+        for (let i = 0; i < 8; i++) matrix[8][sz - 8 + i] = formatBits[7 + i];
+        matrix[sz - 8][8] = 1;
+
+        return matrix;
+      }
+    };
+  })();
+
+  const matrix = QRCode.generateMatrix(text);
+  const mSize = matrix.length;
+  const padding = 2;
+  const totalCells = mSize + padding * 2;
+  const cellSize = (size / totalCells).toFixed(2);
+  let paths = "";
+  for (let r = 0; r < mSize; r++) {
+    for (let c = 0; c < mSize; c++) {
+      if (matrix[r][c] === 1) {
+        const x = ((c + padding) * cellSize).toFixed(2);
+        const y = ((r + padding) * cellSize).toFixed(2);
+        paths += `<rect x="${x}" y="${y}" width="${cellSize}" height="${cellSize}" fill="#0d0e0b" />`;
+      }
+    }
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" style="background:#ffffff;border-radius:12px;padding:8px;box-shadow:0 4px 18px rgba(0,0,0,0.5)">${paths}</svg>`;
+}
+
+/* ===== SOS KAMADO TROUBLESHOOTER ===== */
+const SOS_SYMPTOMS = [
+  {
+    title: "🔥 La température s'emballe (> 200 °C / hors contrôle)",
+    cause: "Trop d'oxygène admis dans le foyer ou masse de charbon allumée trop largement d'un coup.",
+    actions: [
+      "Fermez l'évent bas à 100 % immédiatement.",
+      "Réduisez l'évent haut à une fente millimétrique (1–2 mm). Ne fermez JAMAIS le haut à 100 % pour laisser s'échapper les gaz et éviter tout reflux explosif.",
+      "Ne soulevez surtout pas le couvercle (l'appel d'air transformerait le foyer en forge).",
+      "Si vous devez intervenir, faites 2 « Burps » de 5 secondes. Patientez 20 à 30 minutes : la céramique stocke la chaleur et met du temps à redescendre."
+    ]
+  },
+  {
+    title: "❄️ La température chute et refuse de monter (< 90 °C)",
+    cause: "Flux d'air primaire étouffé par les cendres ou charbon éteint par manque de tirage.",
+    actions: [
+      "Ouvrez l'évent bas à 100 % pendant 5 minutes.",
+      "Insérez le tisonnier par la trappe basse dans la grille foyer pour faire tomber les cendres dans le cendrier sans ouvrir le dôme.",
+      "Vérifiez si l'évent haut n'est pas obturé par de la suie grasse.",
+      "Si le foyer est éteint : ouvrez avec précaution (Burp !), allumez un allume-feu naturel au milieu des braises restantes et laissez ouvert 5 min jusqu'à reprise."
+    ]
+  },
+  {
+    title: "💨 Fumée blanche, épaisse et âcre persistante",
+    cause: "Mauvaise combustion (bois vert/humide), charbon de mauvaise qualité ou graisse tombant directement sur les braises sans lèchefrite.",
+    actions: [
+      "Retirez immédiatement la viande et placez-la sur un plat en attente.",
+      "Ouvrez l'évent haut et bas à 50 % pour oxygéner et relancer une flamme vive qui va brûler les dépôts de créosote.",
+      "Placez un lèchefrite (drip pan) sous la grille avec un fond d'eau pour recueillir les graisses de cuisson.",
+      "N'enfournez à nouveau QUE lorsque la fumée est bleu pâle translucide (Thin Blue Smoke)."
+    ]
+  },
+  {
+    title: "🍕 Pizzas : La pâte brûle dessous avant de cuire dessus",
+    cause: "Pierre à pizza surchauffée par contact direct ou manque de chaleur radiante descendante.",
+    actions: [
+      "Montage obligatoire : Déflecteur céramique en bas + Rehausseur/Grille + Pierre à pizza surélevée au plus près de la voûte du dôme.",
+      "Refroidissez la pierre entre deux pizzas en passant un linge propre très légèrement humide sur la surface.",
+      "Fermez le dôme dès l'enfournement pour forcer l'air chaud à lécher le dessus de la garniture."
+    ]
+  },
+  {
+    title: "⏳ Le « Stall » : La viande est bloquée à 65–70 °C depuis des heures",
+    cause: "Évaporation massive de l'humidité de surface de la viande qui refroidit la pièce (effet de transpiration).",
+    actions: [
+      "Ne paniquez pas : c'est un phénomène normal sur le brisket et le pulled pork qui peut durer 2 à 4 heures.",
+      "Pour abréger le stall : appliquez la technique du Wrap (emballez serré dans 2 couches de papier de boucher épais ou papier aluminium) et remettez au kamado à 110–120 °C.",
+      "Le wrap emprisonne l'humidité, bloque l'évaporation et franchit le stall en 45 minutes."
+    ]
+  },
+  {
+    title: "💥 Flammes soudaines à l'ouverture (Risque d'embrasement)",
+    cause: "Accumulation de monoxyde de carbone sous le dôme hermétique qui s'enflamme violemment au contact de l'oxygène.",
+    actions: [
+      "Toujours pratiquer le réflexe du BURP : entrouvrir de 3 à 5 cm pendant 3 secondes, puis ouvrir lentement.",
+      "Ne jamais projeter d'eau froide sur la céramique chaude (risque immédiat de choc thermique et fissure du kamado)."
+    ]
+  }
+];
+
+function initSOSModal(){
+  const btn = $("#btnSOS");
+  const modal = $("#sosModal");
+  const close = $("#sosClose");
+  const list = $("#sosSymptomsList");
+  if(!btn || !modal || !list) return;
+
+  list.innerHTML = SOS_SYMPTOMS.map((s, idx) => `
+    <div class="sos-item" data-idx="${idx}">
+      <div class="sos-item-head">
+        <span class="sos-item-title">${s.title}</span>
+        <span class="sos-item-arrow">▾</span>
+      </div>
+      <div class="sos-item-body hide">
+        <div style="margin-bottom:8px"><b>Diagnostic :</b> ${s.cause}</div>
+        <div class="sos-plan">
+          <div class="sos-plan-title">Plan d'action immédiat :</div>
+          <ol>${s.actions.map(a => `<li>${a}</li>`).join("")}</ol>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  $$("#sosSymptomsList .sos-item-head").forEach(head => {
+    head.onclick = () => {
+      const body = head.parentElement.querySelector(".sos-item-body");
+      const arrow = head.querySelector(".sos-item-arrow");
+      const isHidden = body.classList.contains("hide");
+      body.classList.toggle("hide", !isHidden);
+      arrow.textContent = isHidden ? "▴" : "▾";
+    };
+  });
+
+  btn.onclick = () => { modal.classList.add("open"); document.body.style.overflow = "hidden"; };
+  close.onclick = () => { modal.classList.remove("open"); document.body.style.overflow = ""; };
+}
+
+/* ===== QR CODE MODAL FOR RECIPES ===== */
+function openRecipeQR(r){
+  const modal = $("#qrModal");
+  const container = $("#qrContainer");
+  const title = $("#qrModalTitle");
+  if(!modal || !container || !title) return;
+
+  const url = location.origin + location.pathname + "#recipe-" + encodeURIComponent(r.nom);
+  title.textContent = r.nom;
+  container.innerHTML = generateQRCodeSVG(url, 220);
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+
+  $("#qrCloseBtn").onclick = () => {
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+  };
+}
+
+/* ===== RUB BUILDER & SALT CALCULATOR ===== */
+const RUB_PRESETS = [
+  {
+    id: "dalmatian",
+    name: "Texas Dalmatian Rub (Bœuf, Brisket, Dino Ribs)",
+    desc: "L'accord puriste texan : 50/50 sel casher et poivre noir concassé 16 mesh.",
+    saltRatio: 0.011,
+    spices: [
+      { name: "Sel casher ou gros sel de Guérande", ratio: 0.5 },
+      { name: "Poivre noir concassé calibre 16 mesh", ratio: 0.5 }
+    ]
+  },
+  {
+    id: "memphis",
+    name: "Memphis Sweet & Smoky Rub (Porc, Travers, Échine)",
+    desc: "Équilibre classique doux-fumé pour créer un bark caramélisé acajou.",
+    saltRatio: 0.010,
+    spices: [
+      { name: "Sel fin ou casher", ratio: 0.28 },
+      { name: "Cassonade brune ou sucre muscovado", ratio: 0.25 },
+      { name: "Paprika doux ou fumé", ratio: 0.20 },
+      { name: "Ail semoule", ratio: 0.12 },
+      { name: "Oignon déshydraté", ratio: 0.08 },
+      { name: "Moutarde en poudre", ratio: 0.04 },
+      { name: "Piment de Cayenne", ratio: 0.03 }
+    ]
+  },
+  {
+    id: "poultry",
+    name: "Herbes & Ail de Provence (Volaille, Canard, Agneau)",
+    desc: "Arômes de garrigue et fraîcheur d'agrumes pour volailles rôties au kamado.",
+    saltRatio: 0.010,
+    spices: [
+      { name: "Sel de mer fin", ratio: 0.35 },
+      { name: "Ail semoule", ratio: 0.20 },
+      { name: "Thym & Sarriette effeuillés", ratio: 0.18 },
+      { name: "Romarin concassé", ratio: 0.12 },
+      { name: "Poivre noir moulu", ratio: 0.10 },
+      { name: "Zeste de citron séché", ratio: 0.05 }
+    ]
+  }
+];
+
+function renderRubCalculatorUI(){
+  return `
+    <div class="callout" style="border-color:var(--accent)">
+      <h3>⚖️ Calculateur de Rubs &amp; Assaisonnement Précis</h3>
+      <p style="margin:0 0 10px;font-size:13px;color:var(--muted)">Dosage parfait au gramme près selon le poids de votre pièce crue (règle des 1,0–1,1 % de sel pour éviter toute viande sursalée).</p>
+      
+      <div class="menu-controls">
+        <div class="arow" style="margin:0">
+          <label class="alab">Poids de viande crue</label>
+          <input id="rubWeight" type="number" inputmode="decimal" step="0.1" min="0.2" value="2.0" class="ainput" style="width:100px">
+          <span>kg</span>
+        </div>
+        <div class="arow" style="margin:0">
+          <label class="alab">Profil de Rub</label>
+          <select id="rubSelect" class="fsel" style="flex:1">
+            ${RUB_PRESETS.map(p => `<option value="${p.id}">${p.name}</option>`).join("")}
+          </select>
+        </div>
+      </div>
+      <div id="rubResultBox" class="rub-calc-box"></div>
+    </div>
+  `;
+}
+
+function initRubCalculator(){
+  const wInput = $("#rubWeight");
+  const sSelect = $("#rubSelect");
+  const resBox = $("#rubResultBox");
+  if(!wInput || !sSelect || !resBox) return;
+
+  function update(){
+    const kg = parseFloat(wInput.value) || 2.0;
+    const preset = RUB_PRESETS.find(p => p.id === sSelect.value) || RUB_PRESETS[0];
+    const totalSaltGram = Math.round(kg * 1000 * preset.saltRatio);
+    const saltShare = preset.spices[0].ratio;
+    const totalRubGram = Math.round(totalSaltGram / saltShare);
+
+    let rows = preset.spices.map(s => {
+      const g = Math.round(totalRubGram * s.ratio);
+      return `<tr><td>${s.name}</td><td class="qty">${g} g</td></tr>`;
+    }).join("");
+
+    resBox.innerHTML = `
+      <div style="font-weight:800;color:#ff9d42;margin-bottom:4px">${preset.name}</div>
+      <div style="font-size:12.5px;color:var(--muted);margin-bottom:8px">${preset.desc}</div>
+      <div style="font-size:13px;margin-bottom:8px"><b>Poids total de rub recommandé :</b> ${totalRubGram} g (dont ${totalSaltGram} g de sel)</div>
+      <table class="rub-table">
+        <thead><tr><th>Épice / Ingrédient</th><th>Quantité exacte</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `;
+  }
+
+  wInput.oninput = update;
+  sSelect.onchange = update;
+  update();
+}
+
+/* ===== MON JOURNAL DE BRAISES (CONSOLIDATED LOGS) ===== */
+function renderCookJournalUI(){
+  const allLogs = [];
+  Object.keys(cookLogs).forEach(key => {
+    const list = cookLogs[key] || [];
+    list.forEach(entry => {
+      allLogs.push({ ...entry, recipeName: key });
+    });
+  });
+  allLogs.sort((a,b) => (b.date || "").localeCompare(a.date || ""));
+
+  return `
+    <div class="callout" style="border-color:#ff9d42">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h3 style="margin:0">📖 Mon Journal de Braises</h3>
+        <span style="font-size:12px;color:var(--flame-gold);font-weight:700">${allLogs.length} session${allLogs.length > 1 ? 's' : ''} enregistrée${allLogs.length > 1 ? 's' : ''}</span>
+      </div>
+      <p style="margin:0 0 12px;font-size:13px;color:var(--muted)">Historique consolidé de toutes vos sessions de cuisson au kamado (essences de bois, durées réelles, notes personnelles).</p>
+      
+      <div id="journalListOut">
+        ${allLogs.length ? allLogs.map(log => `
+          <div class="journal-item-card">
+            <div class="jic-head">
+              <div class="jic-title">${escHtml(log.recipeName)}</div>
+              <div class="jic-date">${escHtml(log.date || "")}</div>
+            </div>
+            <div class="jic-meta">
+              ${log.duration ? `<span class="jic-badge">⏱ ${escHtml(log.duration)}</span>` : ''}
+              ${log.temp ? `<span class="jic-badge">🌡️ ${escHtml(log.temp)}</span>` : ''}
+              ${log.wood ? `<span class="jic-badge">🪵 ${escHtml(log.wood)}</span>` : ''}
+              ${log.rating ? `<span class="jic-badge">★ ${escHtml(log.rating)}/5</span>` : ''}
+            </div>
+            ${log.notes ? `<div class="jic-notes">« ${escHtml(log.notes)} »</div>` : ''}
+          </div>
+        `).join("") : '<div class="empty" style="padding:16px">Aucune session enregistrée pour le moment. Ajoutez des comptes-rendus depuis les fiches recettes !</div>'}
+      </div>
+    </div>
+  `;
+}
+
 /* Accord vin – aligné sur la table VINS et audité par un oenologue. */
 function wineFor(r){
   if(!r)return null;
@@ -12520,6 +13144,7 @@ function openRecipe(i){
         <span class="servval" id="sVal">${curServ}</span>
         <button class="stp" id="sPlus">+</button>
         <button class="copybtn" id="sCopy" style="padding: 8px 10px; font-size:11.5px">📋 Copier</button>
+        <button class="copybtn" id="sQR" style="padding: 8px 10px; font-size:11.5px">📲 QR Code</button>
         <button class="copybtn" id="sAddList" style="margin-left:5px; background:var(--accent2); color:#161813; padding: 8px 10px; font-size:11.5px">🛒 + Liste</button>
       </div>
 
@@ -12647,6 +13272,7 @@ function openRecipe(i){
       const done=()=>{$("#sCopy").textContent="✅ Copié !";setTimeout(()=>$("#sCopy").textContent="📋 Copier",1600);};
       if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(done);}else{done();}
     };
+    $("#sQR").onclick=()=>openRecipeQR(r);
     $("#sAddList").onclick=()=>{
       addToShoppingList(r, curServ);
       const done=()=>{$("#sAddList").textContent="✅ Ajouté !";setTimeout(()=>$("#sAddList").textContent="🛒 + Liste",1600);};
@@ -13475,6 +14101,8 @@ function renderAssistant(){
       <div id="aTimeOut" class="aout"></div>
     </div>
     
+    ${renderRubCalculatorUI()}
+    ${renderCookJournalUI()}
     <div class="callout" style="border-color:var(--accent)">
       <h3>🔥 Calculateur de Charbon &amp; Bois</h3>
       <p style="margin:0 0 10px;font-size:13px;color:var(--muted)">Estimez précisément le charbon et les essences de bois pour votre kamado selon votre cuisson.</p>
@@ -13750,6 +14378,7 @@ function renderAssistant(){
     modeEl.onchange = calcCharcoalAndWood;
     weightEl.oninput = calcCharcoalAndWood;
     calcCharcoalAndWood();
+    initRubCalculator();
   }
   document.querySelector("#aTGo").onclick=()=>{const min=parseInt(document.querySelector("#aTMin").value)||0;if(min<=0)return;startTimer(min*60,document.querySelector("#aTLabel").value.trim()||"Minuteur");};
 
@@ -14591,6 +15220,7 @@ initKamadoCalculator();
 $("#temp").innerHTML = renderMeatTempVisualizer() + TEMP;
 initMeatTempVisualizer();
 applySunMode();
+initSOSModal();
 $("#vins").innerHTML=VINS;
 initVinsExplorer();
 renderAssistant();
