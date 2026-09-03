@@ -1,0 +1,22 @@
+{
+  "agent": "sommelier-oenologue",
+  "recipesAudited": 246,
+  "specificityRate": "87 %",
+  "specificPairingsCount": 215,
+  "missingPairings": 0,
+  "invalidTemperatures": 0,
+  "oenologicalClashes": 0,
+  "issues": 0,
+  "details": {
+    "missingPairingsList": [],
+    "invalidTempList": [],
+    "oenologicalClashesList": []
+  },
+  "sommelierReferences": [
+    "Philippe Faure-Brac (Meilleur Sommelier du Monde 1992, UDSF)",
+    "Olivier Poussier (Meilleur Sommelier du Monde 2000)",
+    "Revue du Vin de France (RVF) Guide des Meilleurs Vins de France",
+    "Meathead Goldwyn & Dr. Greg Blonder (AmazingRibs.com Wine & BBQ Chemistry)",
+    "Court of Master Sommeliers (CMS) Pairing Standards"
+  ]
+}

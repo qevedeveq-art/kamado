@@ -46,6 +46,7 @@
 | Marinade reviewer | `.codex/agents/marinade-reviewer.toml` | `.agents/roles/marinade-reviewer.md` |
 | French chef reviewer | `.codex/agents/french-chef-reviewer.toml` | `.agents/roles/french-chef-reviewer.md` |
 | Recipe declutter | `.codex/agents/recipe-declutter.toml` | `.agents/roles/recipe-declutter.md` |
+| Sommelier & oenologue | `.codex/agents/sommelier.toml` | `.agents/roles/sommelier.md` |
 
 ## Commit Attribution
 AI commits MUST include:

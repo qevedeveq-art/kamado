@@ -1,14 +1,15 @@
 # Agent Handoff
 
 ## Current Status
-- Zero-build PWA & native mobile app Kamado upgraded to v31.
-- Complete Wine & Sommelier Overhaul (Accords Vins):
-  - Enriched with authoritative sommellerie standards: Philippe Faure-Brac (Meilleur Sommelier du Monde 1992, UDSF), Olivier Poussier (Meilleur Sommelier du Monde 2000), Revue du Vin de France (RVF), and Meathead Goldwyn (AmazingRibs wine & BBQ science).
-  - Integrated the 5 Golden Laws of BBQ Sommellerie (Maillard vs tannins, oak smoke vs fruit, collagen melting vs acidity, glazes/heat vs residual sugar, and summer outdoor serving temperatures).
-  - Created interactive Wine Explorer in "Accords vins" tab with real-time text search and category pills (Bœuf, Porc, Volaille, Agneau, Mer, Pizza, Fromages, Desserts, Bières Craft).
-  - Embedded dedicated Sommelier Cards inside each Recipe Modal (`openRecipe`), displaying optimal AOC/cépage, accessible alternative, sommelier notes, and precise serving temperature.
-- 46 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings on Data & Chef audits.
-- Service worker bumped to `v31`.
+- Zero-build PWA & native mobile app Kamado upgraded to v32.
+- Created and deployed the dedicated Sommelier & Oenologue Agent (`sommelier`):
+  - Agent spec: `.agents/roles/sommelier.md`, config: `.codex/agents/sommelier.toml`, registered in `AGENTS.md`.
+  - Automated Sommelier Audit Script: `scripts/audit-sommelier.js` auditing all 246 cooking recipes across temperatures, chemical harmony, absence of clashes (fish/tannins, chili/tannins, sweet dessert/dry wine), and elite dish coverage.
+  - Eliminated all 6 oenological clashes detected by the audit (fixed regex collisions on fish/barbecue, resolved Adana kebab and Fiorentina pairings with Sangiovese and spicy Rhône, paired crêpes and skillet desserts with natural sweet wines and cider).
+  - Sommelier audit specificity rate: 87%, with **0 issues**.
+- 47 tests passing natively via `node --test 'tests/*.test.js'` including `tests/sommelier.test.js`.
+- All 4 audits passing (Data, Kamado Expert, Chef Reviewer, Sommelier).
+- Service worker bumped to `v32`.
 
 ## Last Commands
 - `node scripts/extract-data.js`
@@ -18,8 +19,13 @@
 - `node scripts/bump-sw-version.js --force`
 
 ## Files Changed
-- `index.html` (comprehensive wine guide, interactive sommelier explorer, recipe modal sommelier cards)
-- `data/vins.html` (regenerated)
-- `sw.js` (bumped to `v31`)
+- `.agents/roles/sommelier.md` (new role spec)
+- `.codex/agents/sommelier.toml` (new codex agent config)
+- `scripts/audit-sommelier.js` (new automated sommelier audit)
+- `tests/sommelier.test.js` (new unit test)
+- `AGENTS.md` (registered Sommelier role)
+- `package.json` (added audit:sommelier and updated audit chain)
+- `index.html` (refined wineFor pairings without clashes)
+- `sw.js` (bumped to `v32`)
 - `.agents/handoff.md` (updated handoff)
 

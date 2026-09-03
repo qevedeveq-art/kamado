@@ -10881,58 +10881,211 @@ function wineFor(r){
   if(!r)return null;
   const h=haystack(r), cat=r.cat, spice=spiceLevel(r);
   const pick=(label,alt,detail)=>({label,alt,detail});
-  /* Spécifiques d'abord (mode/style/tags) */
+
+  /* ---- Accords Spécifiques de Haute Gastronomie & Terroir ---- */
+
+  // Bistecca alla Fiorentina (T-bone toscan)
+  if(/fiorentina|bistecca/.test(h))return pick("Chianti Classico Riserva (Sangiovese)","Brunello di Montalcino ou Vino Nobile","L'accord toscan canonique : l'acidité tranchante et les tannins nobles du Sangiovese tranchent la richesse du T-bone grillé au feu de bois.");
+
+  // Adana kebab & kebabs épicés
+  if(/adana|kebab.*epice|kebab.*épicé/.test(h))return pick("Côtes-du-Rhône Village (Cairanne)","Syrah rhodanienne ou Öküzgözü turc","Rouge solaire aux tannins soyeux et notes de poivre noir, parfait sur le piment sans durcir les papilles.");
+
+  // Pluma & Presa ibérique de Bellota
+  if(/pluma|presa/.test(h))return pick("Ribera del Duero Reserva (Tempranillo)","Priorat ou Bandol rouge","Le gras de noisette du porc de gland s'entrelace aux tannins soyeux et patinés du grand Tempranillo espagnol.");
+
+  // Turbot entier grillé façon Getaria (Elkano)
+  if(/turbot/.test(h))return pick("Txakoli de Getaria (blanc basque)","Albariño de Rías Baixas ou Chablis Premier Cru","L'émulsion de collagène marin et d'ail au vinaigre réclame la minéralité iodée et perlant basque.");
+
+  // Canard laqué croustillant façon Pékin
+  if(/canard laqu|laque croustillant/.test(h))return pick("Gewurztraminer Grand Cru d'Alsace","Pinot Gris Vendanges Tardives ou Champagne Rosé","Le laquage miel et cinq-épices fusionne avec les notes de rose, de litchi et la fraîcheur du grand cépage alsacien.");
+
+  // Bar / Loup de mer en croûte de sel
+  if(/croute de sel|croûte de sel/.test(h))return pick("Cassis blanc (Clos Sainte-Magdeleine)","Bandol blanc ou Vermentino de Corse","Chair cuite à l'étouffée iodée : les cépages provençaux apportent fenouil et fleurs blanches.");
+
+  // Tataki de thon rouge mariné yuzu & sésame
+  if(/thon.*tataki|tataki.*thon/.test(h))return pick("Tavel rosé (Domaine de la Mordorée)","Bandol rosé de garde ou Pinot Noir d'Alsace","Rosé de macération puissant et vineux, idéal pour souligner le cœur rouge fondant du thon sans l'écraser.");
+
+  // Éclade de moules aux aiguilles de pin
+  if(/eclade|moules.*aiguilles/.test(h))return pick("Muscadet Sèvre-et-Maine sur lie","Gros-Plant du Pays Nantais ou Manzanilla","Iode vif et fumée résineuse : un blanc tranchant, salin et minéral indispensable pour désaltérer.");
+
+  // Tacos de Birria de bœuf au kamado
+  if(/birria|tacos.*birria/.test(h))return pick("Zinfandel de Californie","Syrah de Faugères ou Bière Negra Modelo","Bouillon aux piments doux guajillo et bœuf effiloché : vin solaire, épicé et généreux en fruit noir.");
+
+  // Skillet Cookie chocolat noir fondant
+  if(/cookie|skillet cookie/.test(h))return pick("Banyuls Rimage (Grenache doux naturel)","Maury Grenat ou Porto Vintage","L'amertume et la chaleur du chocolat noir fondu trouvent leur écho absolu dans les arômes de cerise noire et cacao du Banyuls.");
+
+  // Poires pochées fumées au vin rouge
+  if(/poire.*vin|vin chaud/.test(h))return pick("Maury rouge ou Porto Tawny 10 ans","Banyuls Grand Cru","Les épices douces et le sirop de vin résonnent avec la figue sèche et les notes de rancio du Tawny vieilli en fûts.");
+
+  // Steak de chou-fleur rôti chimichurri
+  if(/chou-fleur|choufleur/.test(h))return pick("Sauvignon blanc de Touraine","Vermentino de Corse ou Rosé de Provence","La vivacité herbacée du chimichurri et la douceur rôtie du chou-fleur réclament un blanc aromatique tonique.");
+
+  // Suprêmes de pintade fermière aux morilles
+  if(/morille|pintade.*morille|supr[eê]me.*pintade/.test(h))return pick("Côtes-du-Jura (Chardonnay / Savagnin)","Meursault Premier Cru ou Volnay","Le parfum de sous-bois des morilles résonne avec la noisette et la pierre à fusil des grands blancs jurassiens.");
+
+  // Côte de veau aux morilles
+  if(/cote de veau.*morille|côte de veau.*morille/.test(h))return pick("Côtes-du-Jura (Savagnin ou Vin Jaune)","Meursault Premier Cru ou Pinot Noir fin","Accord d'école : on résonne avec le vin de la sauce aux morilles, où le goût de noix sublime la viande tendre.");
+
+  // Ris de veau braisés au foin & dorés
+  if(/ris de veau|abats/.test(h))return pick("Meursault ou Chassagne-Montrachet","Jurançon sec ou Arbois Savagnin","Texture soyeuse et beurre moussant : le gras noble et la tension minérale d'un grand Chardonnay de la Côte de Beaune.");
+
+  // Barigoule d'artichauts en cocotte
+  if(/barigoule|artichaut/.test(h))return pick("Côtes-de-Provence blanc","Vermentino de Corse ou Bandol blanc","L'amertume noble de l'artichaut et le vin blanc de braisage appellent un blanc sudiste aux notes d'agrumes et d'herbes aromatiques.");
+
+  // Baingan Bharta (aubergines brûlées indiennes)
+  if(/baingan|bharta/.test(h))return pick("Côtes-du-Rhône Village (Cairanne)","Syrah fraîche de Saint-Joseph ou Gewurztraminer sec","La chair fumée d'aubergine et les épices indiennes s'associent aux notes de poivre et violette d'une belle Syrah rhodanienne.");
+
+  // Kofte d'agneau au sumac
+  if(/kofte|boulette.*agneau/.test(h))return pick("Syrah du Languedoc (Pic Saint-Loup)","Côtes-du-Rhône Village ou Agiorgitiko grec","Le sumac acidulé et l'agneau grillé appellent un rouge méditerranéen aux senteurs de garrigue et fruits noirs.");
+
+  // Satay de bœuf balinais
+  if(/satay/.test(h))return pick("Riesling sec d'Alsace","Bière blonde artisanale ou Gewurztraminer sec","La sauce cacahuète onctueuse et les épices balinaises réclament un blanc aromatique avec du répondant et de la fraîcheur.");
+
+  // Bœuf mijoté / Daube
   if(cat==="boeuf"&&/daube|provençal/.test(h))return pick("Bandol rouge (mourvèdre)","Gigondas","Mourvèdre épicé, l'accord provençal de la daube.");
-  if(/brisket|beef ribs|short ribs|plat de côtes|poitrine de bœuf|paleron.*brisket/.test(h))return pick("Zinfandel de Californie","Primitivo des Pouilles","Fruité épicé, taillé pour les fumés longs (hickory, chêne).");
-  if(/bavette|onglet|hampe|flanchet/.test(h))return pick("Chinon (cabernet franc)","Beaujolais cru (Morgon, Fleurie)","Fraîcheur et fine amertume qui contrastent le saignant.");
-  if(/picanha|asado|churrasco|argentin|entrana|entraña/.test(h))return pick("Malbec de Mendoza","Tannat d'Uruguay","L'accord classique du grill sud-américain.");
-  if(/burger|smash/.test(h))return pick("Côtes-du-Rhône","Zinfandel","Rouge fruité mais charpenté, tient face au fromage fondu.");
-  if(cat==="boeuf"&&/côte|entrec|steak|tomahawk|faux-filet|ribeye|filet/.test(h))return pick("Pauillac ou Saint-Estèphe","Madiran ou Cahors","Cabernet-sauvignon tannique : le mariage historique de la côte.");
-  if(cat==="boeuf"&&/bourguignon|braisé|joue/.test(h))return pick("Bourgogne rouge (Gevrey-Chambertin)","Côtes-du-Rhône Village","On boit le vin qui a servi à cuire — pinot noir sur bourguignon.");
+
+  // Brisket, dino ribs, beef ribs fumés
+  if(/brisket|beef ribs|short ribs|plat de côtes|poitrine de bœuf|paleron.*brisket|chuck roast/.test(h))return pick("Zinfandel de Californie (Lodi)","Primitivo des Pouilles ou Gigondas","Fruité confituré et épicé, taillé pour les fumés longs au chêne.");
+
+  // Bavette, onglet, hampe (viandes saignantes)
+  if(/bavette|onglet|hampe|flanchet/.test(h))return pick("Chinon (cabernet franc)","Beaujolais cru (Morgon, Fleurie)","Fraîcheur et fine amertume qui contrastent le goût sanguin et ferreux du saignant.");
+
+  // Picanha, asado, churrasco
+  if(/picanha|asado|churrasco|argentin|entrana|entraña/.test(h))return pick("Malbec de Mendoza","Tannat d'Uruguay ou de Madiran","Tannins fermes et fruit noir puissant pour dompter l'épaisse couche de gras fondant.");
+
+  // Burger, smash burger
+  if(/burger|smash/.test(h))return pick("Côtes-du-Rhône Village","Zinfandel de Californie","Rouge fruité mais charpenté, tient face au fromage fondu.");
+
+  // Côte de bœuf, entrecôte, tomahawk, faux-filet
+  if(cat==="boeuf"&&/côte|entrec|steak|tomahawk|faux-filet|ribeye|filet/.test(h))return pick("Pauillac ou Saint-Estèphe","Madiran ou Cahors (Clos Triguedina)","Cabernet-sauvignon tannique : la réaction de Maillard désarme les tannins puissants.");
+
+  // Bourguignon, joue de bœuf braisée
+  if(cat==="boeuf"&&/bourguignon|braisé|joue/.test(h))return pick("Bourgogne rouge (Gevrey-Chambertin)","Côtes-du-Rhône Village","On boit le vin qui a servi à cuire — grand pinot noir sur bourguignon.");
+
+  // Bœuf général
   if(cat==="boeuf")return pick("Côtes-du-Rhône Village","Bordeaux supérieur","Grenache-syrah polyvalent sur le bœuf grillé.");
-  if(/ribs|travers|carolina|kansas|memphis/.test(h)&&cat==="porc")return pick("Zinfandel ou Primitivo","Bière ambrée ou cidre brut","Cépages épicés et confits sur les sauces sucrées-fumées.");
-  if(/pulled pork|effiloch/.test(h)&&cat==="porc")return pick("Côtes-du-Rhône rosé corsé","Lambrusco secco","Rosé structuré ou pétillant sec sur le sandwich effiloché.");
+
+  // Travers de porc BBQ (Ribs Kansas / Memphis / Carolina)
+  if(/ribs|travers|carolina|kansas|memphis/.test(h)&&cat==="porc")return pick("Zinfandel de Californie","Primitivo ou Bière ambrée","Cépages généreux et confits capables de tenir face aux sauces sucrées-fumées.");
+
+  // Pulled pork (effiloché)
+  if(/pulled pork|effiloch/.test(h)&&cat==="porc")return pick("Côtes-du-Rhône rosé corsé","Tavel rosé ou Lambrusco secco","Rosé vineux ou rouge pétillant sec pour trancher la richesse du porc effiloché.");
+
+  // Teriyaki, yakitori, tsukune
   if(/teriyaki|yakitori|japon|miso|tsukune/.test(h))return pick("Champagne brut","Riesling sec Grand Cru","Bulles à dosage brut et acidité tranchante sur le laqué sucré-salé.");
-  if(/char siu|hoisin|chinois|porc laqué/.test(h))return pick("Gewurztraminer d'Alsace","Riesling sec Vendanges Tardives","Le sucre résiduel équilibre les glaçages caramélisés.");
-  if(/porchetta|carré de porc|filet mignon|rôti de porc/.test(h))return pick("Bourgogne rouge (Beaune, Mercurey)","Chenin demi-sec (Vouvray)","Pinot noir fruité sur porc rôti clair.");
-  if(/andouillette|choucroute|saucisse.*fum|boudin blanc/.test(h))return pick("Riesling sec d'Alsace","Sylvaner","Blanc alsacien tranchant sur la charcuterie fumée.");
+
+  // Char siu / porc laqué cantonais
+  if(/char siu|hoisin|chinois|porc laqué/.test(h))return pick("Gewurztraminer d'Alsace","Riesling sec Vendanges Tardives","Le sucre résiduel équilibre les glaçages caramélisés au miel.");
+
+  // Porchetta, carré de porc, filet mignon rôti
+  if(/porchetta|carré de porc|filet mignon|rôti de porc/.test(h))return pick("Bourgogne rouge (Beaune, Mercurey)","Chenin demi-sec (Vouvray)","Pinot noir fruité sur porc rôti clair aux herbes.");
+
+  // Andouillette, choucroute, saucisses fumées
+  if(/andouillette|choucroute|saucisse.*fum|boudin blanc/.test(h))return pick("Riesling sec d'Alsace","Sylvaner de vieilles vignes","Blanc alsacien tranchant sur la charcuterie fumée.");
+
+  // Cassoulet, confit de canard
   if(/cassoulet|confit de canard|confit d.oie/.test(h))return pick("Madiran","Fronton (négrette)","Tannat rustique du Sud-Ouest, taillé pour le confit.");
+
+  // Boudin noir
   if(/boudin noir/.test(h))return pick("Chinon rouge frais","Vouvray sec","Cabernet franc léger sur le boudin poêlé.");
+
+  // Porc général
   if(cat==="porc")return pick("Beaujolais Villages ou Fleurie","Cidre brut fermier","Gamay souple et fruité, l'ami de la charcuterie fumée.");
+
+  // Tandoori, tikka, masala
   if(/tandoori|tikka|inde|masala/.test(h))return pick("Riesling sec (Alsace ou Mosel)","Gewurztraminer","L'acidité rafraîchit les épices sans les écraser.");
-  if(/peri|peri-peri|jerk|piri|fumée piquant/.test(h))return pick("Riesling demi-sec","Rosé de Provence sec","Un demi-sec calme le piquant sans casser le fruité.");
+
+  // Jerk, peri-peri, piquant
+  if(/peri|peri-peri|jerk|piri|fumée piquant/.test(h))return pick("Riesling demi-sec de Moselle","Rosé de Provence sec","Un demi-sec calme le feu de la capsaïcine sans altérer le fruité.");
+
+  // Coq au vin
   if(/coq au vin|poulet.*vin jaune/.test(h))return pick("Bourgogne rouge (Mercurey)","Côtes-du-Jura (Trousseau)","On boit le vin de la cuisson.");
-  if(/canard|magret/.test(h))return pick("Madiran (Château Montus)","Cahors ou Saint-Émilion","Tannat et malbec sudistes pour le gras du canard.");
+
+  // Magret de canard
+  if(/canard|magret/.test(h))return pick("Madiran (Château Montus)","Cahors ou Saint-Émilion","Tannat et malbec sudistes pour dompter le gras du canard.");
+
+  // Petits gibiers à plume
   if(/caille|pigeon|pintade|perdreau/.test(h))return pick("Bourgogne rouge (Volnay, Mercurey)","Saint-Émilion souple","Pinot noir élégant sur petits gibiers à plume.");
+
+  // Dinde, chapon
   if(/dinde|chapon|volaille des fêtes/.test(h))return pick("Bourgogne blanc (Meursault, Chassagne)","Champagne blanc de blancs","Chardonnay riche pour les volailles de fête.");
-  if(cat==="volaille"&&/rôti|crapaudine|entier|spatchcock/.test(h))return pick("Bourgogne blanc (Mâcon-Villages)","Beaujolais cru (Fleurie)","Chardonnay sec sur le poulet rôti, l'accord de bistrot.");
+
+  // Poulet rôti entier
+  if(cat==="volaille"&&/rôti|crapaudine|entier|spatchcock/.test(h))return pick("Bourgogne blanc (Mâcon-Villages)","Beaujolais cru (Fleurie)","Chardonnay sec sur le poulet rôti, l'accord bistronomique.");
+
+  // Volaille générale
   if(cat==="volaille")return pick("Chardonnay de Bourgogne","Chenin sec (Savennières)","Blanc gras et minéral, polyvalent volaille grillée.");
+
+  // Méchoui, tajine, épices marocaines
   if(/mechoui|tagine|maghreb|marocain|ras el hanout|zaatar|chermoula/.test(h))return pick("Syrah du Languedoc (Faugères)","Côtes-du-Rhône Village","Notes poivrées et garrigue en écho aux épices marocaines.");
+
+  // Gros gibier
   if(/chevreuil|cerf|biche|gibier à poil/.test(h))return pick("Châteauneuf-du-Pape rouge","Hermitage","Rouges sudistes puissants et épicés sur les gros gibiers.");
+
+  // Sanglier
   if(/sanglier|civet/.test(h))return pick("Cahors (Clos Triguedina)","Madiran ou Gigondas","Vins tanniques du Sud-Ouest, taillés pour le sanglier braisé.");
+
+  // Grec / Méditerranée
   if(/kleftiko|souvlaki|grec/.test(h))return pick("Agiorgitiko de Némée","Côtes-du-Rhône Village","Rouge grec fruité ou syrah française sur l'agneau méditerranéen.");
+
+  // Rogan josh / currys riches
   if(/rogan josh|curry.*agneau/.test(h))return pick("Côtes-du-Rhône Village","Riesling demi-sec d'Alsace","Grenache épicé ou riesling off-dry pour les currys d'agneau riches.");
+
+  // Agneau général
   if(cat==="agneau")return pick("Pauillac ou Saint-Julien","Côtes-du-Rhône Village","Cabernet-sauvignon tannique : l'accord canonique avec l'agneau rosé.");
-  if(/ris de veau|abats/.test(h))return pick("Meursault","Jurançon sec","Blanc gras et vif sur les abats nobles.");
+
+  // Saumon grillé ou fumé
   if(/saumon/.test(h))return pick("Bourgogne blanc (Chablis Premier Cru)","Pinot gris d'Alsace","Blanc gras et minéral pour tenir le saumon fumé.");
+
+  // Thon mi-cuit
   if(/thon/.test(h))return pick("Tavel rosé","Bandol rosé","Rosé corsé taillé pour le thon mi-cuit.");
+
+  // Homard, langouste
   if(/homard|langouste/.test(h))return pick("Meursault","Champagne blanc de blancs","Chardonnay gras sur crustacés nobles grillés.");
+
+  // Huîtres, coquillages crus
   if(/huître|plateau.*fruits de mer/.test(h))return pick("Muscadet sur lie","Chablis (Chardonnay)","Minéralité iodée sur les coquillages crus.");
+
+  // Soupe de poisson, bouillabaisse
   if(/bouillabaisse|soupe de poisson/.test(h))return pick("Cassis blanc","Bandol blanc","Blanc marseillais iodé sur les soupes safranées.");
+
+  // Gambas, crevettes, paella
   if(/gambas|crevette|langoustine|coquillage|paella/.test(h))return pick("Albariño (Rias Baixas)","Muscadet sur lie","Blanc sec vif et iodé pour les fruits de mer.");
+
+  // Sardines, maquereaux grillés
   if(/sardine|maquereau|hareng|anchois/.test(h))return pick("Muscadet sur lie","Vinho Verde","Fraîcheur minérale sur poissons bleus grillés.");
-  if(/bar|dorade|loup|daurade|turbot|cabillaud|poisson entier/.test(h))return pick("Sancerre blanc","Picpoul de Pinet","Sauvignon minéral sur poissons blancs entiers.");
+
+  // Poissons blancs entiers (bar, dorade, lieu, cabillaud)
+  if(cat==="poisson"&&/\bbar\b|loup de mer|\bloup\b|dorade|daurade|turbot|cabillaud|poisson entier/.test(h))return pick("Sancerre blanc","Picpoul de Pinet","Sauvignon minéral sur poissons blancs entiers.");
+
+  // Poisson général
   if(cat==="poisson")return pick("Sancerre ou Muscadet","Blanc de Provence","Blanc sec vif, minéral, l'accord poisson grillé.");
+
+  // Pizza, focaccia, calzone
   if(/pizza|focaccia|calzone/.test(h))return pick("Chianti Classico","Barbera d'Alba","Sangiovese fruité, l'accord toscan intemporel.");
-  if(/comté|beaufort|gruyère|pâte pressée/.test(h))return pick("Vin jaune du Jura","Chardonnay du Jura","Savagnin oxydatif sur les pâtes pressées cuites.");
-  if(cat==="dessert"&&/ananas|pêche|figue|fruits rôtis|abricot/.test(h))return pick("Vouvray demi-sec","Champagne demi-sec","Chenin blanc doux sur les fruits rôtis.");
-  if(cat==="dessert"&&/chocolat|brownie|fondant/.test(h))return pick("Banyuls Rimage","Maury Grenat","Vins doux naturels grenache, l'ami du chocolat.");
+
+  // Fromages chauds (Mont d'or, Camembert fumé)
+  if(/mont d.or|camembert.*fum|fromage.*fum|comté|beaufort|gruyère/.test(h))return pick("Vin jaune du Jura","Chardonnay du Jura ou Savagnin","Savagnin oxydatif sur les fromages chauds coulants.");
+
+  // Desserts aux fruits
+  if((cat==="dessert"||/dessert/.test(h))&&/ananas|pêche|figue|fruits rôtis|abricot|tarte/.test(h))return pick("Vouvray demi-sec","Jurançon moelleux ou Sauternes","Chenin blanc doux sur les fruits rôtis.");
+
+  // Desserts au chocolat & gourmands
+  if(/chocolat|brownie|fondant|s.mores|banane.*chocolat/.test(h))return pick("Banyuls Rimage","Maury Grenat ou Porto Vintage","Vins doux naturels grenache, l'ami intemporel du chocolat noir chaud.");
+
+  // Crêpes au kamado
+  if(/crêpe|crepe/.test(h))return pick("Cidre brut fermier ou Poiré de Normandie","Champagne demi-sec","Bulles fraîches et acidulées, l'accord traditionnel de la crêpe au beurre.");
+
+  // Dessert général
   if(cat==="dessert")return pick("Sauternes","Muscat de Beaumes-de-Venise","Vin liquoreux sur les desserts crémeux.");
+
+  // Végétarien & légumes
   if(cat==="vegetarien"||cat==="legumes"){
     if(/aubergine|champignon|umami|portobello|fumée/.test(h))return pick("Pinot noir léger (Sancerre rouge)","Beaujolais Villages","Rouge léger frais sur l'umami fumé des légumes.");
     if(/halloumi|feta|chèvre|fromage/.test(h))return pick("Rosé de Provence sec","Sauvignon blanc","Rosé sec et vin blanc vif sur les fromages grillés.");
     return pick("Rosé de Provence sec","Vermentino de Corse","Frais et souple sur les légumes grillés.");
   }
+
   /* Filet de sécurité selon le piquant */
   if(spice==="Relevé")return pick("Riesling demi-sec d'Alsace","Gewurztraminer","Le sucre résiduel dompte le piquant.");
   return pick("Côtes-du-Rhône Village","Beaujolais Villages","Rouge polyvalent, souple et fruité.");
@@ -10940,8 +11093,9 @@ function wineFor(r){
 /* Températures de service : sec-frais 8–10, VDN/liquoreux/oxydatif 10–14, rouge 16–18. */
 function wineServiceTemp(label){
   const s=(label||"").toLowerCase();
-  if(/sauternes|banyuls|maury|muscat|rivesaltes|jurançon moelleux|vin jaune|vendanges tardives|liquoreux/.test(s))return"10–14 °C";
-  if(/blanc|rosé|champagne|riesling|gewurz|sauvignon|chardonnay|chenin|albariño|muscadet|sancerre|vouvray|chablis|meursault|picpoul|vinho verde|cassis|savennières|jurançon sec|sylvaner|crémant|lambrusco/.test(s))return"8–10 °C";
+  if(/sauternes|banyuls|maury|muscat|rivesaltes|jurançon moelleux|vin jaune|vendanges tardives|liquoreux|porto|tokaji/.test(s))return"10–14 °C";
+  if(/blanc|rosé|champagne|riesling|gewurz|sauvignon|chardonnay|chenin|albariño|muscadet|sancerre|vouvray|chablis|meursault|picpoul|vinho verde|cassis|savennières|jurançon sec|sylvaner|crémant|lambrusco|txakoli/.test(s))return"8–10 °C";
+  if(/pinot noir|beaujolais|gamay|chinon|saumur/.test(s))return"13–15 °C";
   return"16–18 °C";
 }
 function allergenHaystack(r){
