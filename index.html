@@ -709,10 +709,10 @@ td b { color: #fff; }
 .ingredientbar input::placeholder { color: var(--muted); }
 .smartbar { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 8px; padding: 8px 16px 0; max-width: 1120px; margin: 0 auto; }
 .smartnote { font-size: 12.5px; color: var(--muted); padding: 6px 16px 0; max-width: 1120px; margin: 0 auto; }
-.quality-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; margin-top:10px; }
-.quality-tile { background:rgba(31,34,26,.55); border:1px solid var(--line); border-radius:8px; padding:10px; }
-.quality-tile b { display:block; color:var(--accent2); font-size:18px; line-height:1; }
-.quality-tile span { color:var(--muted); font-size:12px; }
+.quality-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:12px; }
+.quality-tile { background:rgba(30,36,25,0.88) !important; border:1px solid rgba(255,255,255,0.16) !important; border-radius:12px !important; padding:12px 14px !important; box-shadow:0 4px 12px rgba(0,0,0,0.3) !important; }
+.quality-tile b { display:block; color:#ffca70 !important; font-size:22px !important; font-weight:800 !important; line-height:1.2 !important; margin-bottom:4px !important; }
+.quality-tile span { color:#e0e6d6 !important; font-size:12.5px !important; font-weight:500 !important; }
 
 .historybar { display: flex; gap: 8px; padding: 8px 16px 0; overflow-x: auto; scrollbar-width: none; max-width: 1120px; margin: 0 auto; }
 .historybar:empty { display: none; }
@@ -1600,98 +1600,7 @@ hr, .grid-divider {
   }
 }
 
-/* Style de 'cahier de notes de chef' parchemin pour les fiches recettes */
-.sheet {
-  background: radial-gradient(circle at 50% 50%, #f7f1df 0%, #ecdcb5 100%) !important;
-  color: #1a160d !important;
-  border: 1px solid #c5b493 !important;
-  box-shadow: 
-    0 15px 40px rgba(0,0,0,0.8),
-    inset 0 0 60px rgba(100,75,40,0.18) !important;
-}
-
-.sheet-head {
-  background: rgba(237, 220, 181, 0.96) !important;
-  border-bottom: 2px solid #5b280a !important;
-}
-
-.sheet-head h2 {
-  color: #5b280a !important;
-}
-
-.sheet-body {
-  color: #2b2518 !important;
-}
-
-.sheet-body h4 {
-  color: #7d330c !important;
-  border-bottom: 1px dashed rgba(125, 51, 12, 0.25);
-  font-family: var(--font-display);
-}
-
-/* Puces de listes d'ingrédients en forme de charbons polyédriques */
-.ings li {
-  position: relative;
-  padding-left: 16px;
-  color: #2b2518 !important;
-  border-bottom: 1px solid rgba(197, 180, 147, 0.4) !important;
-}
-.ings li::before {
-  content: "⬢";
-  color: #3e3220;
-  font-size: 8px;
-  position: absolute;
-  left: 0;
-  top: 9px;
-  opacity: 0.7;
-}
-
-/* Astuces et conseils sur le parchemin */
-.tip {
-  background: rgba(125, 51, 12, 0.05) !important;
-  border-left: 3px solid #7d330c !important;
-  color: #403220 !important;
-}
-.tip b {
-  color: #7d330c !important;
-}
-
-/* Blocs de spécifications style carnets */
-.spec {
-  background: rgba(255, 255, 255, 0.45) !important;
-  border: 1px solid rgba(197, 180, 147, 0.8) !important;
-  color: #1a160d !important;
-}
-.spec .l {
-  color: #736b5e !important;
-}
-.spec .v {
-  color: #1a160d !important;
-}
-.spec .v.temp {
-  color: #9e2810 !important;
-}
-.spec .v.coeur {
-  color: #446622 !important;
-}
-.spec .v.diff {
-  color: #8e2008 !important;
-}
-
-.note {
-  background: rgba(255, 255, 255, 0.4) !important;
-  border: 1px solid #c5b493 !important;
-  color: #1a160d !important;
-}
-.note::placeholder {
-  color: #9c917c !important;
-}
-
-/* Puces d'étapes de préparation */
-.steps li::before {
-  background: linear-gradient(145deg, #7d330c, #9e3d10) !important;
-  box-shadow: 0 2px 6px rgba(125, 51, 12, 0.3) !important;
-}
+/* Formulaires & Contrôles */
 
 /* Éléments de formulaires style fer forgé brut */
 .search input, select, .ainput {
@@ -1927,13 +1836,8 @@ td b {
   background: rgba(75, 35, 24, 0.82) !important;
 }
 
-.ings li {
-  color: var(--txt) !important;
-  border-bottom-color: rgba(211, 201, 179, 0.2) !important;
-}
-.ings li::before,
 .steps li::before {
-  color: #1a1007 !important;
+  color: #ffffff !important;
 }
 
 .note,
@@ -1977,123 +1881,213 @@ select,
   }
 }
 
-/* Correctifs de contrastes sur fond parchemin clair (.sheet) */
+/* ===== MODAL & SHEET — High Contrast Dark Charcoal & Flame System ===== */
+.modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 5000 !important;
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  background: rgba(5, 7, 4, 0.94) !important;
+  backdrop-filter: blur(12px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.2) !important;
+  overflow: hidden !important;
+}
+
+.modal:not(.open) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.modal.open {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
 .sheet {
-  background: radial-gradient(circle at 50% 50%, #fcf8ee 0%, #ecdcb5 100%) !important;
-  color: #1a160d !important;
-  border: 1px solid #c5b493 !important;
-  box-shadow: 
-    0 15px 40px rgba(0,0,0,0.85),
-    inset 0 0 60px rgba(100,75,40,0.15) !important;
+  position: relative !important;
+  z-index: 1 !important;
+  width: min(100%, 780px) !important;
+  max-width: 780px !important;
+  height: 100dvh !important;
+  min-height: 0 !important;
+  max-height: 100dvh !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  background: linear-gradient(180deg, #1c2016 0%, #13160f 100%) !important;
+  color: #fffaf0 !important;
+  border: 1px solid rgba(255, 193, 90, 0.28) !important;
+  border-top: 3px solid var(--flame) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.92) !important;
+}
+
+.sheet-head {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 20 !important;
+  background: rgba(19, 22, 15, 0.98) !important;
+  color: #fffaf0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
+}
+
+.sheet-head h2 {
+  font-family: var(--font-display) !important;
+  font-size: clamp(20px, 5vw, 25px) !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  line-height: 1.2 !important;
 }
 
 .sheet-body {
-  color: #1a160d !important;
-  font-size: 15.5px !important;
-  line-height: 1.7 !important;
+  color: #fffaf0 !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
 }
 
 .sheet-body h4 {
-  color: #7d330c !important;
-  font-size: 16px !important;
+  color: var(--flame-gold) !important;
+  font-family: var(--font-title) !important;
+  font-size: 16.5px !important;
   font-weight: 800 !important;
-  margin-top: 26px !important;
+  margin-top: 24px !important;
   margin-bottom: 12px !important;
-  border-bottom: 1px dashed rgba(125, 51, 12, 0.25) !important;
+  border-bottom: 1px solid rgba(255, 193, 90, 0.25) !important;
+  padding-bottom: 6px !important;
 }
 
-.sheet .detail-list,
-.sheet .cstep span,
-.sheet .steps li,
-.sheet .ings li,
-.sheet .detail-list li,
-.sheet .rich-row {
-  color: #1a160d !important;
-  font-size: 15.5px !important;
-  line-height: 1.7 !important;
+/* Contrôles Qualité — Haute Visibilité */
+.quality-checks {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)) !important;
+  gap: 8px !important;
+  margin: 10px 0 14px !important;
 }
 
-.sheet .ings li {
-  padding: 10px 0 10px 26px !important;
-  border-bottom: 1px solid rgba(125, 51, 12, 0.08) !important;
+.qcheck {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border-radius: 10px !important;
+  padding: 9px 12px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
 }
 
+.qcheck.ok {
+  background: rgba(35, 68, 20, 0.90) !important;
+  border: 1.5px solid #8fe040 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(143, 224, 64, 0.25) !important;
+}
+
+.qcheck.miss {
+  background: rgba(75, 25, 18, 0.90) !important;
+  border: 1.5px solid #ff5a36 !important;
+  color: #ffd8d0 !important;
+  box-shadow: 0 2px 8px rgba(255, 90, 54, 0.25) !important;
+}
+
+/* Listes de détail (Conseils chef, préparation, service) */
+.sheet .detail-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 8px 0 !important;
+}
+
+.sheet .detail-list li {
+  color: #f2ede0 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  padding: 7px 12px 7px 30px !important;
+  background: rgba(30, 36, 25, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 8px !important;
+  margin-bottom: 6px !important;
+  position: relative !important;
+}
+
+.sheet .detail-list li::before {
+  content: "→" !important;
+  color: var(--flame-gold) !important;
+  position: absolute !important;
+  left: 10px !important;
+  font-weight: 800 !important;
+}
+
+.sheet .detail-list b {
+  color: #ffca70 !important;
+  font-weight: 700 !important;
+}
+
+/* Liens dans la fiche */
 .sheet a {
-  color: #b83012 !important;
+  color: var(--flame-gold) !important;
   text-decoration: underline !important;
+  text-underline-offset: 3px !important;
   font-weight: 600 !important;
 }
 .sheet a:hover {
-  color: #e85e20 !important;
+  color: #ffffff !important;
 }
 
-.sheet .spec .l {
-  color: #5c5443 !important;
-  font-size: 10px !important;
-  font-weight: 700 !important;
+/* Étapes de recettes */
+.sheet .steps li,
+.sheet .cstep label span {
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
 }
-.sheet .spec .v {
-  color: #1a160d !important;
-  font-size: 14.5px !important;
+
+.sheet .steps li {
+  padding: 12px 14px 12px 48px !important;
+  background: rgba(30, 36, 25, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 12px !important;
+  margin-bottom: 9px !important;
+}
+
+.sheet .cstep {
+  padding: 12px 14px !important;
+  background: rgba(30, 36, 25, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 12px !important;
+  margin-bottom: 9px !important;
+}
+
+/* Numéro d'étape */
+.sheet .steps li::before {
+  width: 28px !important;
+  height: 28px !important;
+  left: 10px !important;
+  top: 10px !important;
+  font-size: 13px !important;
   font-weight: 800 !important;
+  background: var(--flame) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(232, 94, 32, 0.35) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.sheet .qcheck {
-  background: rgba(0, 0, 0, 0.045) !important;
-  color: #4c4435 !important;
-  border-color: rgba(197, 180, 147, 0.7) !important;
+/* Checkbox étape */
+.sheet .cstep input.ck {
+  width: 22px !important;
+  height: 22px !important;
+  accent-color: var(--flame) !important;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
-.sheet .qcheck.ok {
-  color: #2e4412 !important;
-  border-color: rgba(110, 148, 69, 0.4) !important;
-  background: rgba(110, 148, 69, 0.08) !important;
-}
-
-.sheet .qcheck.miss {
-  color: #7d2010 !important;
-  border-color: rgba(211, 55, 25, 0.25) !important;
-  background: rgba(211, 55, 25, 0.04) !important;
-}
-
-.sheet .rich-row {
-  background: rgba(0, 0, 0, 0.04) !important;
-  color: #1a160d !important;
-  border: 1px solid rgba(197, 180, 147, 0.4) !important;
-}
-
-.sheet .rich-row b {
-  color: #7d330c !important;
-}
-
-.sheet .phase-card {
-  background: rgba(0, 0, 0, 0.04) !important;
-  color: #1a160d !important;
-  border-left-color: #6e9445 !important;
-  border: 1px solid rgba(197, 180, 147, 0.4) !important;
-  border-left-width: 4px !important;
-}
-
-.sheet .phase-card:before {
-  background: #6e9445 !important;
-  color: #fff !important;
-}
-
-.sheet .quality-tile {
-  background: rgba(0, 0, 0, 0.04) !important;
-  border: 1px solid rgba(197, 180, 147, 0.4) !important;
-  color: #1a160d !important;
-}
-
-.sheet .quality-tile b {
-  color: #7d330c !important;
-}
-
-.sheet h4 span {
-  color: #554d3d !important;
-}
-
-/* Améliorations de proportions pour la ligne de portions sur mobile */
+/* Ligne de portions */
 @media (max-width: 480px) {
   .sheet .servrow {
     display: grid !important;
@@ -2126,139 +2120,6 @@ select,
     justify-content: center !important;
     margin: 0 !important;
   }
-  
-  .sheet .ratingrow {
-    justify-content: center !important;
-    width: 100% !important;
-    gap: 10px !important;
-  }
-}
-
-/* Titre principal majestueux */
-.sheet-head h2 {
-  font-family: var(--font-display) !important;
-  font-size: 20px !important;
-  font-weight: 800 !important;
-}
-@media (min-width: 768px) {
-  .sheet-head h2 {
-    font-size: 24px !important;
-  }
-}
-
-/* Annulation du néon glow sur fond parchemin pour les titres de fiches */
-.sheet-body h4::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, #7d330c 0%, rgba(125, 51, 12, 0.3) 70%, transparent 100%) !important;
-  box-shadow: none !important;
-}
-
-/* Optimisation de la lisibilité des étapes de recettes */
-.sheet .steps li, 
-.sheet .cstep label span {
-  font-size: 15.5px !important;
-  line-height: 1.75 !important;
-  color: #1a160d !important;
-  font-weight: 500 !important;
-}
-
-.sheet .steps li {
-  padding: 12px 0 12px 42px !important;
-  border-bottom: 1px dashed rgba(125, 51, 12, 0.15) !important;
-}
-
-.sheet .cstep {
-  padding: 14px 0 !important;
-  border-bottom: 1px dashed rgba(125, 51, 12, 0.15) !important;
-}
-
-/* Le numéro d'étape : plus grand et contrasté */
-.sheet .steps li::before {
-  width: 28px !important;
-  height: 28px !important;
-  top: 9px !important;
-  font-size: 13px !important;
-  font-weight: 800 !important;
-  background: linear-gradient(135deg, #7d330c 0%, #5b280a 100%) !important;
-  color: #fdf4e7 !important;
-  box-shadow: 0 2px 6px rgba(91, 40, 10, 0.25) !important;
-}
-
-/* Checkbox plus visible et agréable en cuisine */
-.sheet .cstep input.ck {
-  width: 24px !important;
-  height: 24px !important;
-  accent-color: #7d330c !important;
-  border: 2px solid #5b280a !important;
-  border-radius: 6px !important;
-  cursor: pointer;
-}
-
-/* Stabilisation finale des fiches recettes: modale isolée + contraste garanti */
-.modal {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 5000 !important;
-  display: flex !important;
-  align-items: stretch !important;
-  justify-content: center !important;
-  background: rgba(4, 5, 3, 0.92) !important;
-  backdrop-filter: blur(10px) saturate(1.1) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
-  overflow: hidden !important;
-}
-
-.modal:not(.open) {
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-.modal.open {
-  opacity: 1 !important;
-  pointer-events: auto !important;
-}
-
-.modal.open .sheet {
-  transform: none !important;
-}
-
-.sheet {
-  position: relative !important;
-  z-index: 1 !important;
-  width: min(100%, 780px) !important;
-  max-width: 780px !important;
-  height: 100dvh !important;
-  min-height: 0 !important;
-  max-height: 100dvh !important;
-  margin: 0 auto !important;
-  padding: 0 !important;
-  overflow-y: auto !important;
-  overscroll-behavior: contain !important;
-  background:
-    linear-gradient(180deg, rgba(255, 252, 242, 0.98) 0%, rgba(239, 224, 189, 0.98) 100%) !important;
-  color: #16110a !important;
-  border: 1px solid rgba(125, 51, 12, 0.36) !important;
-  box-shadow: 0 24px 70px rgba(0,0,0,0.88) !important;
-}
-
-.sheet-head {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 20 !important;
-  background: rgba(255, 248, 230, 0.98) !important;
-  color: #16110a !important;
-  border-bottom: 2px solid rgba(91, 40, 10, 0.62) !important;
-  box-shadow: 0 8px 18px rgba(91, 40, 10, 0.12) !important;
-}
-
-.sheet-head h2 {
-  color: #261608 !important;
-  text-shadow: none !important;
 }
 
 .sheet-body {
@@ -2276,32 +2137,37 @@ select,
 .sheet .ings {
   list-style: none !important;
   padding: 0 !important;
-  margin: 10px 0 16px !important;
+  margin: 12px 0 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
 }
 
 .sheet .ings li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
   color: #ffffff !important;
   background: rgba(32, 38, 27, 0.92) !important;
   border: 1px solid rgba(255, 255, 255, 0.16) !important;
-  border-left: 3px solid var(--flame-gold) !important;
+  border-left: 4px solid var(--flame-gold) !important;
   border-radius: 10px !important;
-  padding: 10px 14px 10px 36px !important;
-  margin-bottom: 7px !important;
-  font-size: 14.5px !important;
+  padding: 10px 14px !important;
+  margin: 0 !important;
+  font-size: 15px !important;
   font-weight: 600 !important;
   line-height: 1.5 !important;
-  position: relative !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35) !important;
 }
 
 .sheet .ings li::before {
   content: "•" !important;
+  position: static !important;
   color: var(--flame-gold) !important;
-  position: absolute !important;
-  left: 14px !important;
-  top: 7px !important;
-  font-weight: 900 !important;
-  font-size: 18px !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+  margin-top: 1px !important;
 }
 
 /* Réflexe sécurité : Le Burp */
@@ -2925,15 +2791,40 @@ header {
   padding-bottom: 4px !important;
 }
 
-.sheet ul.ings li {
-  color: #f5f0e4 !important;
-  font-size: 14.5px !important;
-  line-height: 1.55 !important;
-  padding: 4px 0 !important;
+.sheet .ings {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 12px 0 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
 }
 
-.sheet .quality-checks {
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)) !important;
+.sheet .ings li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  color: #ffffff !important;
+  background: rgba(32, 38, 27, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-left: 4px solid var(--flame-gold) !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  margin: 0 !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+}
+
+.sheet .ings li::before {
+  content: "•" !important;
+  position: static !important;
+  color: var(--flame-gold) !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+  margin-top: 1px !important;
 }
 
 @media (max-width: 720px) {
@@ -10169,7 +10060,7 @@ function renderRichSchema(r){
 }
 function renderRecipeDetailGuidance(r){
   const q=qualityInfo(r);
-  const checks=q.checks.map(c=>`<div class="qcheck ${c.ok?'ok':'miss'}">${c.ok?'✓':'•'} ${c.label}</div>`).join("");
+  const checks=q.checks.map(c=>`<div class="qcheck ${c.ok?'ok':'miss'}">${c.ok?'<span style="font-size:14px">✅</span>':'<span style="font-size:14px">⚠️</span>'} <span>${c.label}</span></div>`).join("");
   const prep=prepChecklist(r).map(x=>`<li>${x}</li>`).join("");
   const safety=safetyGuidance(r).map(x=>`<li>${x}</li>`).join("");
   const service=serviceGuidance(r).map(x=>`<li>${x}</li>`).join("");
@@ -10178,11 +10069,14 @@ function renderRecipeDetailGuidance(r){
   const advice=recipeQualityAdvice(r).map(x=>`<li>${x}</li>`).join("");
   return `
     <div class="rich-section">
-      <h4>🧭 Avant de commencer</h4>
+      <h4>🧭 Avant de commencer (Mise en place)</h4>
       <ul class="detail-list">${prep}</ul>
     </div>
     <div class="rich-section">
-      <h4>✅ Contrôle qualité de la fiche</h4>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px">
+        <h4 style="margin:0; border:none; padding:0">✅ Contrôle qualité de la fiche</h4>
+        <span style="font-size:12.5px; font-weight:800; color:#ffca70; background:rgba(255,193,90,0.18); padding:3px 10px; border-radius:999px; border:1px solid rgba(255,193,90,0.4)">Score : ${q.score}/${q.max} · ${q.label}</span>
+      </div>
       <div class="quality-checks">${checks}</div>
       ${q.gaps.length?`<ul class="detail-list" style="margin-top:10px">${advice}</ul>`:""}
     </div>
