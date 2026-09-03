@@ -1054,61 +1054,79 @@
   },
   {
     "cat": "boeuf",
-    "nom": "Tri-tip californien reverse sear",
-    "ori": "USA · Santa Maria style",
-    "pour": "4 pers",
-    "mode": "Indirect puis direct",
-    "tempK": "135 °C puis 300 °C",
-    "coeur": "54 °C",
-    "temps": "35–45 min indirect + 5–10 min direct",
-    "bois": "Chêne",
-    "tags": "tri tip californie boeuf reverse sear santa maria",
+    "nom": "Dino Beef Ribs (travers de bœuf géants fumés au chêne)",
+    "ori": "Texas · les mythiques beef plate short ribs de 8 heures",
+    "pour": "6–8 pers",
+    "mode": "Fumage indirect",
+    "tempK": "110–115 °C",
+    "coeur": "94–96 °C (beurre à la sonde)",
+    "temps": "7–9 h",
+    "bois": "Chêne rouvre ou Hickory",
+    "tags": "beef ribs dino ribs boeuf texas smoker low and slow franklin ecorce bark",
     "ings": [
-      "1 tri-tip de 1 kg",
-      "Rub : sel, poivre, ail en poudre, paprika",
-      "Huile d'olive",
-      "Salsa verde pour servir"
+      "1 train de beef plate short ribs de 3 os (environ 2,5 à 3 kg)",
+      "Rub texan : 3 c. à s. de poivre noir concassé 16-mesh, 3 c. à s. de sel kasher ou sel moyen",
+      "1 c. à s. d'ail semoule",
+      "Vaporisateur : 50 % vinaigre de cidre, 50 % eau"
     ],
     "etapes": [
-      "Assaisonnez le tri-tip 1 h avant cuisson.",
-      "Cuisez en indirect à 135 °C jusqu'à 48 °C à cœur.",
-      "Ouvrez les évents, montez à 300 °C et saisissez 1–2 min par face.",
-      "Sortez à 54 °C, repos 10 min.",
-      "Tranchez très finement contre le grain, avec la salsa verde."
+      "Retirez le gras dur superficiel et l'épaisse peau argentée du dessus de la viande. Ne retirez PAS la membrane sous les os (elle maintient les côtes pendant la longue cuisson).",
+      "Enduisez très légèrement la viande d'eau ou de moutarde pour faire adhérer, puis appliquez le rub poivre-sel uniformément sur toutes les faces.",
+      "Allumez le kamado pour une cuisson indirecte basse température stable à 110 °C avec déflecteur et bac récupérateur d'eau. Ajoutez 2 gros chunks de bois de chêne sur les braises.",
+      "Posez les côtes côté os vers le bas sur la grille. Fumez sans ouvrir pendant 3 h pour fixer le bark (croûte noire parfumée).",
+      "À partir de la 4e heure, vaporisez toutes les 45 min avec le mélange eau-vinaigre pour entretenir l'humidité et la réaction de Maillard.",
+      "Quand la température interne atteint 94–96 °C et qu'une sonde métallique s'enfonce sans aucune résistance (texture de beurre tiède), retirez la viande.",
+      "Enveloppez dans du papier de boucherie (butcher paper) non blanchi, placez dans une glacière isotherme fermée (sans glace) et laissez reposer au moins 1 h à 1 h 30 avant de découper entre les os."
     ],
-    "astuce": "Le tri-tip a deux sens de fibres : repérez la ligne centrale et changez l'angle de découpe au milieu.",
-    "difficulty": 2,
-    "charbon_kg": 1.2,
-    "repos_min": 5,
+    "astuce": "Le retrait de la viande sur l'os (pullback) de 2 à 3 cm est le signe infaillible d'un collagène totalement liquéfié.",
+    "difficulty": 4,
+    "charbon_kg": 3.5,
+    "repos_min": 60,
     "vents": {
-      "bottom": "grand ouvert",
-      "top": "grand ouvert"
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
     },
     "phases": [
       {
-        "name": "Chauffe indirecte",
-        "mode": "indirect",
-        "temp_C": 135,
-        "duration_min": 40,
-        "action": "Pierre déflectrice + copeaux chêne. Sonde à cœur jusqu'à 48–50 °C."
+        "name": "Fumage & Bark",
+        "mode": "fumage",
+        "temp_C": 110,
+        "duration_min": 240,
+        "action": "Grille indirecte avec déflecteur et chêne. Laisser fumer sans ouvrir."
       },
       {
-        "name": "Saisie directe",
-        "mode": "direct",
-        "temp_C": 300,
-        "duration_min": 8,
-        "action": "Braises vives. Toutes faces jusqu'à 54 °C, croûte marquée."
+        "name": "Spritz & Fondant",
+        "mode": "fumage",
+        "temp_C": 115,
+        "duration_min": 240,
+        "action": "Vaporiser toutes les 45 min jusqu'à 94–96 °C à cœur."
+      },
+      {
+        "name": "Repos isotherme",
+        "mode": "repos",
+        "temp_C": 60,
+        "duration_min": 60,
+        "action": "Emballer dans du papier boucher et reposer 1 h en glacière."
       }
     ],
-    "source": "https://amazingribs.com/tested-recipes/beef-and-bison-recipes/santa-maria-tri-tip-recipe/",
-    "sauce": "Salsa verde persil-coriandre, ail, citron et huile d'olive",
+    "wrap": {
+      "materiau": "papier boucher",
+      "at_temp_coeur_C": 88,
+      "apres": "repos glacière 1 h"
+    },
+    "notes_securite": "Grosses pièces riches en tissu conjonctif : longue exposition (>6 h à >65 °C) assurant une pasteurisation intégrale. Repos prolongé de 60 min en boîte isotherme indispensable pour réintégrer les sucs dans les fibres musculaires.",
+    "source": "Aaron Franklin — Franklin Barbecue: A Meat-Smoking Manifesto",
+    "sauce": "Sauce barbecue maison (Kansas City) | Chimichurri argentin",
     "_derived": {
-      "spice": "Épicé doux",
-      "season": "toute",
+      "spice": "Doux",
+      "season": "ete",
       "sauces": [
-        "Salsa verde persil-coriandre, ail, citron et huile d'olive"
+        "Sauce barbecue maison (Kansas City)",
+        "Chimichurri argentin"
       ],
-      "allergens": []
+      "allergens": [
+        "mollusques"
+      ]
     }
   },
   {
@@ -1547,112 +1565,74 @@
   },
   {
     "cat": "boeuf",
-    "nom": "Pastrami fumé maison (saumure 7 jours)",
-    "ori": "USA / NYC · poitrine saumurée fumée et étuvée",
-    "pour": "8–10 pers",
-    "mode": "Fumage indirect + vapeur",
-    "tempK": "110 °C fumage puis 95 °C vapeur",
-    "coeur": "96 °C (collagène fondu)",
-    "temps": "7 j saumure + 6–8 h fumage + 2 h vapeur + 1 h repos",
-    "bois": "Chêne + cerisier (mélange équilibré)",
-    "tags": "pastrami fumage saumure poitrine bœuf nyc",
+    "nom": "Paleron de bœuf fumé façon Brisket (Smoked Chuck Roast)",
+    "ori": "USA / BBQ contemporain · le substitut parfait de la poitrine pour 4 à 6 personnes",
+    "pour": "5–6 pers",
+    "mode": "Fumage indirect",
+    "tempK": "120 °C",
+    "coeur": "93–95 °C (fondant absolu)",
+    "temps": "5–6 h",
+    "bois": "Pommier et Chêne",
+    "tags": "paleron chuck roast boeuf brisket texan ecorce bark braise fondant",
     "ings": [
-      "1 poitrine de bœuf (brisket flat) de 2,5 kg parée, gras laissé sur 5 mm",
-      "SAUMURE (pour 4 L d'eau) : 320 g de sel fin non iodé, 15 g de sel rose #1 (nitrité 0,6%), 180 g de cassonade, 6 feuilles de laurier, 2 c. à s. de baies de coriandre concassées",
-      "CROÛTE D'ÉPICES : 4 c. à s. de poivre noir concassé grossier, 4 c. à s. de coriandre concassée, 2 c. à s. d'ail granulé, 1 c. à s. de paprika fumé",
-      "Glace pour refroidir la saumure"
+      "1 paleron de bœuf entier épais de 1,5 à 1,8 kg bien persillé",
+      "Rub : 2 c. à s. de poivre noir moulu gros, 1,5 c. à s. de sel kasher, 1 c. à c. d'ail en poudre, 1 c. à c. d'oignon en poudre",
+      "2 c. à s. de moutarde douce (comme liant)",
+      "150 ml de bouillon de bœuf corsé (pour l'étape de wrap)"
     ],
     "etapes": [
-      "JOUR 1 : Faites bouillir 1 L d'eau avec sel fin, sel rose, cassonade et épices. Hors feu, ajoutez 3 L d'eau glacée. Vérifiez T° saumure < 4 °C avant immersion.",
-      "Immergez la poitrine dans la saumure dans un récipient non-réactif (verre/inox). Lestez si elle flotte. Réfrigérateur 4 °C, 7 jours pleins. Retournez tous les 2 jours.",
-      "JOUR 7 : Sortez la viande, rincez 5 min sous eau froide pour retirer l'excès de sel. Test : tranchez 5 mm, faites cuire à la poêle, goûtez — si trop salé, dessalez 1 h supplémentaire dans eau froide.",
-      "Séchez parfaitement, saupoudrez la croûte d'épices uniformément en pressant. Laissez 1 h au frais (pellicle).",
-      "Préparez le kamado : indirect 110 °C, pierre déflectrice, bac d'eau bouillante en dessous. Bois en gros morceaux pour fumage long.",
-      "Posez la poitrine côté gras vers le haut, sonde au cœur du muscle le plus épais. Fumage stable 110 °C, vérifiez bois + braises toutes les 90 min.",
-      "À 71 °C à cœur (~5–6 h), wrappez la viande dans 2 couches de papier boucher. Remettez sur le kamado.",
-      "Continuez jusqu'à 92 °C à cœur (1–2 h). Sortez, transférez dans une cocotte avec 2 cm d'eau bouillante.",
-      "Étuvez à la vapeur (couvercle hermétique) sur le kamado à 95 °C pendant 1 h 30–2 h, jusqu'à ce que la sonde glisse comme dans du beurre à 96 °C.",
-      "Repos 30 min hors cocotte, papier boucher ouvert. Tranchez très finement (2–3 mm) contre le grain, servez sur pain de seigle avec moutarde et cornichons."
+      "Badigeonnez le paleron d'une fine couche de moutarde, puis assaisonnez généreusement de rub sur toutes les faces.",
+      "Préparez le kamado en configuration indirecte à 120 °C avec déflecteur et 2 morceaux de bois de chêne ou pommier.",
+      "Posez le paleron sur la grille. Laissez fumer pendant environ 3 h jusqu'à ce que la croûte extérieure soit sombre et bien fixée (température interne vers 72–75 °C).",
+      "Déposez la viande dans un double papier de boucherie ou une barquette aluminium, arrosez du bouillon de bœuf chaud, puis refermez hermétiquement.",
+      "Remettez sur le kamado à 120 °C pendant 2 h à 2 h 30, jusqu'à ce que la sonde indique 93–95 °C et pénètre comme dans du beurre.",
+      "Laissez reposer 45 min emballé dans une glacière isotherme avant de trancher ou d'effilocher."
     ],
-    "astuce": "La séquence saumure → fumage → vapeur est ce qui distingue le vrai pastrami du brisket fumé. La vapeur finale fond le collagène restant et hydrate, donnant la texture fondante caractéristique de Katz's. Le sel rose #1 (nitrité) est OBLIGATOIRE pour la couleur rose et la sécurité botulique lors du fumage long < 60 °C.",
-    "difficulty": 5,
-    "charbon_kg": 3.5,
-    "repos_min": 30,
+    "astuce": "Le paleron est beaucoup plus rapide à cuire qu'une poitrine entière de 6 kg, pour un résultat tout aussi fondant et intensément fumé.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 45,
     "vents": {
-      "bottom": "1/8 ouvert (110 °C steady)",
-      "top": "1/8 ouvert"
-    },
-    "brine": {
-      "hours": 168,
-      "recette": "4 L eau, 320 g sel fin, 15 g sel rose #1, 180 g cassonade, épices entières"
-    },
-    "wrap": {
-      "at_temp_coeur_C": 71,
-      "materiau": "papier boucher",
-      "apres": "Continuer jusqu'à 92 °C puis vapeur en cocotte"
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
     },
     "phases": [
       {
-        "name": "Saumure",
-        "mode": "préparation",
-        "temp_C": 4,
-        "duration_min": 10080,
-        "action": "Saumure complète immersion 7 jours en réfrigérateur. Retourner tous les 2 jours."
+        "name": "Fumage initial",
+        "mode": "fumage",
+        "temp_C": 120,
+        "duration_min": 180,
+        "action": "Grille indirecte 120 °C avec bois de chêne jusqu'à croûte bien fixée (74 °C)."
       },
       {
-        "name": "Fumage low&slow",
+        "name": "Braisage sous papier",
         "mode": "indirect",
-        "temp_C": 110,
-        "duration_min": 360,
-        "action": "Pierre déflectrice + bac d'eau. Fumage stable jusqu'à 71 °C à cœur."
+        "temp_C": 120,
+        "duration_min": 150,
+        "action": "Emballer dans du papier boucher avec bouillon de bœuf chaud jusqu'à 94 °C à cœur."
       },
       {
-        "name": "Wrap papier boucher",
-        "mode": "indirect",
-        "temp_C": 110,
-        "duration_min": 90,
-        "action": "Wrapper en 2 couches de papier boucher. Continuer jusqu'à 92 °C."
-      },
-      {
-        "name": "Vapeur en cocotte",
-        "mode": "indirect",
-        "temp_C": 95,
-        "duration_min": 90,
-        "action": "Cocotte avec 2 cm d'eau bouillante. Cuire jusqu'à 96 °C, sonde glisse comme dans du beurre."
+        "name": "Repos en glacière",
+        "mode": "repos",
+        "temp_C": 60,
+        "duration_min": 45,
+        "action": "Repos sous papier dans une glacière pour redistribuer les sucs."
       }
     ],
-    "equipement": [
-      "Récipient saumure verre/inox 6 L",
-      "Sonde 2 canaux (ambiance + cœur)",
-      "Pierre céramique",
-      "Bac d'eau inox",
-      "Papier boucher (non ciré)",
-      "Cocotte fonte avec couvercle hermétique"
-    ],
-    "substitutions": [
-      {
-        "ingredient": "Brisket flat 2,5 kg",
-        "par": "Pointe de poitrine ou plat de côtes — réduire saumure à 5 j si pièce plus fine"
-      },
-      {
-        "ingredient": "Papier boucher",
-        "par": "Papier sulfurisé épais OU papier kraft non blanchi — JAMAIS d'aluminium qui retient trop de vapeur et bouillit la croûte"
-      }
-    ],
-    "erreurs": [
-      "Sel rose #1 mal dosé (>3 g/kg) : toxicité nitrite → balance de précision au 0.1 g obligatoire",
-      "Saumure >4 °C : prolifération bactérienne → thermomètre frigo permanent",
-      "Étuvée vapeur sautée : viande caoutchouteuse → 2–3 h vapeur 96 °C indispensable",
-      "Trancher chaud : jus perdus → repos 15 min puis trancher perpendiculairement au grain 3 mm"
-    ],
-    "notes_securite": "PRODUIT SAUMURÉ — SEL ROSE #1 OBLIGATOIRE : dosage strict 2.5 g par kg de viande (0.25%), JAMAIS improviser. Le nitrite prévient Clostridium botulinum en saumure longue >4 °C. Saumure obligatoirement <4 °C pendant TOUTE la durée (7–10 j) — vérifier au thermomètre plongé. Retourner la pièce quotidiennement pour homogénéiser. Après fumage, cuisson vapeur à 96 °C jusqu'à 96 °C interne : cette étape achève la pasteurisation ET attendrit le collagène. Le pastrami frais se conserve 5 j au frigo, 3 mois congelé tranché sous vide.",
-    "source": "Inspiré de la méthode Katz's Delicatessen (New York), adaptée pour kamado par Aaron Franklin (Franklin Barbecue)",
-    "sauce": "Moutarde brune piquante (style Katz's)",
+    "wrap": {
+      "materiau": "papier boucher",
+      "at_temp_coeur_C": 74,
+      "apres": "bouillon de boeuf"
+    },
+    "notes_securite": "Morceau gélatineux riche en collagène : nécessite une cuisson lente au-delà de 74 °C pour transformer les tissus en gélatine fondante. Repos obligatoire de 45 min pour une redistribution harmonieuse des jus.",
+    "source": "AmazingRibs.com — Smoked Chuck Roast 'Poor Man’s Brisket'",
+    "sauce": "Sauce barbecue maison (Kansas City) | Sauce au poivre vert",
     "_derived": {
-      "spice": "Épicé doux",
+      "spice": "Doux",
       "season": "toute",
       "sauces": [
-        "Moutarde brune piquante (style Katz's)"
+        "Sauce barbecue maison (Kansas City)",
+        "Sauce au poivre vert"
       ],
       "allergens": [
         "moutarde"
@@ -7824,55 +7804,51 @@
   },
   {
     "cat": "poisson",
-    "nom": "Dorade royale en croûte de sel",
-    "ori": "Méditerranée · cuisson douce et spectaculaire",
-    "pour": "2 pers",
+    "nom": "Loup de mer (bar) entier en croûte de sel et herbes de Provence",
+    "ori": "Méditerranée · chair ultra juteuse sous coque minérale",
+    "pour": "4 pers",
     "mode": "Indirect",
     "tempK": "200 °C",
-    "coeur": "63 °C (poisson entier, chair nacrée qui se détache)",
-    "temps": "25–30 min",
+    "coeur": "54–56 °C (chair nacrée et juteuse)",
+    "temps": "35–40 min",
     "bois": "—",
-    "tags": "dorade croute sel poisson entier mediterranee kamado",
+    "tags": "bar loup de mer poisson croute de sel mediterranee herbes sain",
     "ings": [
-      "1 dorade royale de 800 g non écaillée, vidée",
-      "1,5 kg de gros sel",
+      "1 bar ou loup de mer entier de 1,2 kg vidé par les ouïes (écailles conservées)",
+      "1,5 kg de gros sel gris de mer",
       "2 blancs d'œufs",
-      "Citron, fenouil, thym pour la cavité"
+      "1 bouquet d'herbes fraîches (thym, romarin, fenouil sauvage)",
+      "1 citron bio en rondelles",
+      "2 gousses d'ail écrasées"
     ],
     "etapes": [
-      "Mélangez gros sel et blancs d'œufs pour obtenir un sable humide.",
-      "Garnissez la dorade de citron, fenouil et thym. Gardez les écailles : elles protègent la chair.",
-      "Posez un lit de sel dans un plat, ajoutez le poisson, recouvrez entièrement.",
-      "Indirect à 200 °C pendant 25–30 min, jusqu'à 63 °C à cœur.",
-      "Cassez la croûte, retirez peau et sel, servez la chair nacrée."
+      "Ne faites pas écailler le poisson : les écailles protègent la chair du sel. Rincez et épongez l'intérieur. Garnissez la cavité abdominale de rondelles de citron, fenouil, thym et ail écrasé.",
+      "Dans un saladier, mélangez le gros sel avec les blancs d'œufs et 3 c. à s. d'eau pour obtenir une texture de sable mouillé.",
+      "Chauffez le kamado en indirect à 200 °C avec les déflecteurs céramiques en place.",
+      "Sur un plat en fonte ou une plaque inox, étalez un lit de sel de 1,5 cm. Posez le bar, puis recouvrez-le entièrement du reste de sel en tassant bien pour sceller hermétiquement (laissez la tête visible pour piquer la sonde).",
+      "Enfournez à 200 °C indirect pendant 35 à 40 min jusqu'à 54–56 °C à cœur dans la partie la plus épaisse du dos.",
+      "Laissez reposer 8 min hors du kamado. Cassez la coque de sel à table avec le dos d'un couteau lourd, retirez la peau en un geste et levez les filets bien chauds."
     ],
-    "astuce": "La croûte de sel enferme la vapeur aromatique : le poisson est assaisonné juste ce qu'il faut et reste très juteux.",
+    "astuce": "Les écailles créent une armure naturelle : la chair cuit à l'étouffée dans sa propre vapeur aromatique sans jamais être trop salée.",
     "difficulty": 2,
-    "charbon_kg": 1.2,
-    "repos_min": 5,
+    "charbon_kg": 1.5,
+    "repos_min": 8,
     "vents": {
       "bottom": "1/2 ouvert",
       "top": "1/2 ouvert"
     },
-    "notes_securite": [
-      "Cœur à 63 °C minimum pour un poisson entier ou pavé (FoodSafety.gov)",
-      "Vérifier la fraîcheur : chair ferme, œil bombé et brillant, odeur marine (pas d’ammoniac)",
-      "Chaîne du froid stricte : garder à ≤4 °C jusqu’à la cuisson"
-    ],
-    "chef_ref": {
-      "chef": "Michel Guérard",
-      "work": "La Grande Cuisine minceur (Robert Laffont, 1976)",
-      "note": "Dorade en croûte de sel : cuisson étouffée sous croûte que Michel Guérard a installée dans le répertoire haute cuisine française (Cuisine gourmande, 1978)."
-    },
-    "source": "https://www.seriouseats.com/salt-baked-whole-fish-recipe",
+    "notes_securite": "Poisson entier non écaillé : la sonde thermique doit être insérée dans le dos le long de l'arête centrale sans toucher l'os. Contrôler 54–56 °C à cœur. Éviter tout contact entre la coque de sel extérieure et la chair servie aux convives.",
+    "source": "Alain Ducasse — Le Grand Livre de la Méditerranée",
+    "sauce": "Sauce vierge aux herbes et tomates | Beurre blanc",
     "_derived": {
       "spice": "Doux",
-      "season": "toute",
+      "season": "ete",
       "sauces": [
-        "Sauce vierge citron-herbes"
+        "Sauce vierge aux herbes et tomates",
+        "Beurre blanc"
       ],
       "allergens": [
-        "gluten",
+        "lait",
         "poisson"
       ]
     }
@@ -9877,42 +9853,50 @@
   },
   {
     "cat": "pizza",
-    "nom": "Naan à l'ail sur pierre",
-    "ori": "Inde · pain plat moelleux",
-    "pour": "6 naans",
+    "nom": "Pains Pitas gonflés à la flamme sur pierre réfractaire",
+    "ori": "Levant / Grèce · le pain de poche soufflé en 2 minutes",
+    "pour": "8 pitas",
     "mode": "Direct sur pierre",
-    "tempK": "300 °C",
-    "coeur": "gonflé et tacheté",
-    "temps": "2–3 min par naan",
+    "tempK": "300–320 °C",
+    "coeur": "pain totalement soufflé en ballon",
+    "temps": "2 min par pita",
     "bois": "—",
-    "tags": "naan ail pain indien pierre pizza kamado",
+    "tags": "pita pain levant grec pierre feu de bois poche soufflee mezze",
     "ings": [
-      "500 g de farine",
-      "1 yaourt nature",
-      "15 cl d'eau tiède",
-      "1 sachet de levure boulangère",
-      "Beurre fondu, ail, coriandre, sel"
+      "500 g de farine de blé T55 ou T65",
+      "300 ml d'eau tiède (environ 35 °C)",
+      "7 g de levure boulangère déshydratée (ou 15 g de fraîche)",
+      "1 c. à c. de sucre",
+      "10 g de sel fin",
+      "2 c. à s. d'huile d'olive vierge"
     ],
     "etapes": [
-      "Pétrissez farine, yaourt, eau, levure et sel. Laissez lever 1 h 30.",
-      "Divisez en 6 pâtons, étalez finement.",
-      "Chauffez la pierre à 300 °C au moins 20 min.",
-      "Cuisez chaque naan 2–3 min jusqu'à ce qu'il gonfle et se tache.",
-      "Badigeonnez immédiatement de beurre ail-coriandre."
+      "Diluez la levure et le sucre dans l'eau tiède, laissez mousser 10 min. Pétrissez avec la farine, le sel et l'huile pendant 8 min jusqu'à obtenir une pâte souple et élastique.",
+      "Laissez lever 1 h 30 sous un torchon humide dans un endroit tiède jusqu'à doublement de volume.",
+      "Divisez la pâte en 8 pâtons égaux, boulez et laissez détendre 15 min. Étalez chaque pâton au rouleau en disques de 5 mm d'épaisseur (environ 18 cm de diamètre).",
+      "Préchauffez le kamado avec déflecteur et pierre à pizza réfractaire à 300–320 °C pendant au moins 30 min.",
+      "Déposez 1 ou 2 disques de pâte directement sur la pierre très chaude à l'aide d'une pelle à pizza enfarinée. Fermez aussitôt le dôme.",
+      "Sous l'effet de la chaleur intense, la vapeur d'eau interne fait gonfler la pita comme un ballon en 60 à 90 secondes. Retournez 30 secondes pour dorer la seconde face.",
+      "Empilez les pitas cuites dans un torchon propre : la vapeur résiduelle les garde ultra-moelleuses."
     ],
-    "astuce": "Le kamado très chaud imite le tandoor : pierre brûlante dessous, chaleur enveloppante dessus.",
-    "difficulty": 1,
-    "charbon_kg": 1,
+    "astuce": "Si la pita ne gonfle pas, c'est que la pierre n'est pas assez chaude ou que la pâte a été percée lors de l'abaisse.",
+    "difficulty": 2,
+    "charbon_kg": 1.5,
     "repos_min": 0,
     "vents": {
       "bottom": "grand ouvert",
       "top": "grand ouvert"
     },
-    "source": "https://www.seriouseats.com/naan-indian-flatbread-recipe",
+    "notes_securite": "Chaleur extrême (300 °C) : port de gants ignifugés haute température obligatoire. Utiliser une pelle à pizza en bois ou en aluminium pour enfourner et défourner sans approcher les mains de la braise.",
+    "source": "Yotam Ottolenghi — Jerusalem (Ebury Press)",
+    "sauce": "Sauce Tzatziki authentique | Sauce yaourt-ail express (façon toum)",
     "_derived": {
       "spice": "Doux",
       "season": "ete",
-      "sauces": [],
+      "sauces": [
+        "Sauce Tzatziki authentique",
+        "Sauce yaourt-ail express (façon toum)"
+      ],
       "allergens": [
         "lait",
         "gluten"
@@ -9921,45 +9905,51 @@
   },
   {
     "cat": "pizza",
-    "nom": "Focaccia fumée romarin-olives",
-    "ori": "Italie · pain à partager",
-    "pour": "6 pers",
-    "mode": "Indirect sur pierre",
-    "tempK": "220 °C",
-    "coeur": "dorée",
-    "temps": "20–25 min",
-    "bois": "Olivier léger",
-    "tags": "focaccia pain romarin olives pierre kamado",
+    "nom": "Calzone napolitain soufflé à la ricotta, fior di latte & spianata",
+    "ori": "Italie / Naples · le chausson croustillant au feu de bois",
+    "pour": "4 calzones",
+    "mode": "Direct sur pierre",
+    "tempK": "320–350 °C",
+    "coeur": "fromage coulant et pâte alvéolée",
+    "temps": "4–5 min par calzone",
+    "bois": "—",
+    "tags": "calzone pizza chausson naples ricotta spianata mozzarella pierre",
     "ings": [
-      "500 g de pâte à focaccia hydratée",
-      "Olives, romarin, fleur de sel",
-      "Huile d'olive",
-      "Zeste de citron"
+      "4 pâtons à pizza napolitaine de 220 g (fermentation 24 h)",
+      "200 g de ricotta fraîche égouttée",
+      "200 g de fior di latte ou mozzarella bien essorée et tranchée",
+      "120 g de spianata piccante ou saucisson piquant italien en fines tranches",
+      "8 c. à s. de sauce tomate San Marzano",
+      "Basilic frais, filet d'huile d'olive vierge, pecorino râpé"
     ],
     "etapes": [
-      "Étalez la pâte dans un plat huilé et laissez lever 45 min.",
-      "Creusez les alvéoles avec les doigts, ajoutez huile, olives, romarin et sel.",
-      "Cuisez en indirect sur pierre à 220 °C, fumée d'olivier très légère.",
-      "Sortez quand le dessus est doré et le dessous croustillant.",
-      "Servez tiède avec huile citron-romarin."
+      "Chauffez le kamado avec déflecteur et pierre à pizza à 330–350 °C pendant 35 min minimum.",
+      "Étalez un pâton au disque en laissant les bords légèrement plus fins qu'une pizza classique.",
+      "Garnissez une demi-lune de pâte avec une cuillère de ricotta, de la mozzarella, de la spianata et du basilic. Laissez 2 cm de bord libre.",
+      "Repliez l'autre moitié de pâte pour former un demi-disque. Pincez et roulez fermement les bords en torsade (cornicione) pour sceller hermétiquement.",
+      "Badigeonnez le dessus d'une fine cuillère de sauce tomate et d'un filet d'huile pour éviter que le dessus ne sèche.",
+      "Enfournez à la pelle sur la pierre à 330 °C pendant 4 à 5 min. Le calzone doit gonfler spectaculairement et dorer avec quelques points léopard caractéristiques.",
+      "Servez immédiatement saupoudré d'un voile de pecorino râpé."
     ],
-    "astuce": "Le plat huilé donne une base frite-croustillante pendant que le kamado colore le dessus.",
-    "difficulty": 1,
-    "charbon_kg": 1,
+    "astuce": "Ne surchargez pas en garniture humide : une ricotta bien égouttée évite que le fond du calzone ne devienne détrempé à la cuisson.",
+    "difficulty": 3,
+    "charbon_kg": 1.8,
     "repos_min": 0,
     "vents": {
-      "bottom": "1/2 ouvert",
-      "top": "1/2 ouvert"
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
     },
-    "source": "https://www.seriouseats.com/foolproof-focaccia-recipe",
-    "sauce": "Huile d'olive citron-romarin pour tremper",
+    "notes_securite": "Chaleur extrême (330–350 °C) : maintenir le dôme fermé pendant la cuisson. Le calzone emprisonne de la vapeur très brûlante : prévenir les convives de percer délicatement la croûte avant dégustation.",
+    "source": "Associazione Verace Pizza Napoletana (AVPN) — Calzone tradizionale",
+    "sauce": "Sauce tomate San Marzano à l'ail et origan",
     "_derived": {
-      "spice": "Doux",
-      "season": "toute",
+      "spice": "Relevé",
+      "season": "ete",
       "sauces": [
-        "Huile d'olive citron-romarin pour tremper"
+        "Sauce tomate San Marzano à l'ail et origan"
       ],
       "allergens": [
+        "lait",
         "gluten"
       ]
     }
@@ -14811,5 +14801,999 @@
         "lait"
       ]
     }
+  },
+  {
+    "cat": "porc",
+    "nom": "Pluma ibérique à la plancha, fleur de sel & romarin",
+    "ori": "Espagne · la découpe noble du porc bellota",
+    "pour": "4 pers",
+    "mode": "Direct sur plancha",
+    "tempK": "240 °C",
+    "coeur": "58–60 °C (rosé à point)",
+    "temps": "4–6 min",
+    "bois": "—",
+    "tags": "pluma iberique porc bellota plancha espagne grillade gourmet",
+    "ings": [
+      "2 pièces de pluma ibérique (environ 650 g)",
+      "2 c. à s. d'huile d'olive extra-vierge",
+      "2 branches de romarin frais",
+      "Fleur de sel de Guérande",
+      "Poivre noir concassé"
+    ],
+    "etapes": [
+      "Sortez la viande 45 min avant cuisson. Épongez-la et massez-la d'un filet d'huile d'olive avec le romarin.",
+      "Préchauffez le kamado avec plancha fonte au-dessus des braises à 240 °C (évents aux 3/4 ouverts).",
+      "Saisissez la pluma 2 min 30 sur la première face sans la bouger pour caraméliser les sucs.",
+      "Retournez et saisissez 2 min sur la seconde face. La pluma ibérique se sert rosée (58–60 °C à cœur).",
+      "Débarrassez, salez à la fleur de sel et laissez reposer 5 min sous aluminium lâche avant de trancher en biseau."
+    ],
+    "astuce": "Le gras de bellota fond dès 35 °C : la viande est d'une tendreté incomparable si vous ne dépassez pas 60 °C à cœur.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "3/4 ouvert",
+      "top": "3/4 ouvert"
+    },
+    "notes_securite": "Norme de sécurité standard porc : 63 °C à cœur + 3 min de repos (USDA/FSIS). Pour la pluma ibérique bellota persillée, les chefs recommandent 58–60 °C avec 5 min de repos pour préserver le fondant.",
+    "source": "Asador Etxebarri — Atxondo, Espagne",
+    "sauce": "Chimichurri argentin",
+    "_derived": {
+      "spice": "Doux",
+      "season": "toute",
+      "sauces": [
+        "Chimichurri argentin"
+      ],
+      "allergens": []
+    }
+  },
+  {
+    "cat": "porc",
+    "nom": "Presa ibérique marinée au pimentón de la Vera & ail doux",
+    "ori": "Espagne · pièce d'exception persillée",
+    "pour": "4 pers",
+    "mode": "Indirect puis direct",
+    "tempK": "140 °C puis 260 °C",
+    "coeur": "60 °C (rosé juteux)",
+    "temps": "25 min indirect + 4 min direct",
+    "bois": "Chêne vert",
+    "tags": "presa iberique porc pimenton marinade espagne reverse sear",
+    "ings": [
+      "1 belle presa de porc ibérique de 700–800 g",
+      "Marinade : 3 c. à s. d'huile d'olive, 1 c. à s. de pimentón de la Vera doux, 3 gousses d'ail écrasées, 1 c. à c. d'origan séché, 1 c. à s. de vinaigre de Xérès",
+      "Fleur de sel et poivre noir"
+    ],
+    "etapes": [
+      "Mélangez les ingrédients de la marinade et enrobez la presa. Laissez mariner 2 à 4 h au frais.",
+      "Chauffez le kamado à 140 °C en indirect avec déflecteur et un morceau de bois de chêne.",
+      "Déposez la presa sur la grille et cuisez doucement environ 25 min jusqu'à 52 °C à cœur.",
+      "Retirez la viande, enlevez le déflecteur et ouvrez les évents pour monter à 260 °C en direct.",
+      "Saisissez 2 min par face pour croûter la marinade et atteindre 60 °C à cœur. Laissez reposer 8 min avant de trancher."
+    ],
+    "astuce": "La presa est le muscle situé à l'avant de l'échine : sa texture marbrée rappelle celle d'une entrecôte de bœuf de grand cru.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "marinade_h": 3,
+    "repos_min": 8,
+    "vents": {
+      "bottom": "1/3 ouvert puis grand ouvert",
+      "top": "1/3 ouvert puis grand ouvert"
+    },
+    "notes_securite": "Norme de sécurité standard porc : 63 °C à cœur + 3 min de repos (USDA/FSIS). Pour la presa ibérique marbrée de grand cru, dégustation rosée idéale à 60 °C avec 8 min de repos.",
+    "source": "Gastronomie d'Estrémadure, Espagne",
+    "sauce": "Sauce barbecue maison (Kansas City) | Chimichurri argentin",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "toute",
+      "sauces": [
+        "Sauce barbecue maison (Kansas City)",
+        "Chimichurri argentin"
+      ],
+      "allergens": []
+    }
+  },
+  {
+    "cat": "boeuf",
+    "nom": "Ris de veau braisés au foin puis dorés sur fonte",
+    "ori": "France · haute gastronomie de bistrot",
+    "pour": "4 pers",
+    "mode": "Indirect puis direct sur plancha",
+    "tempK": "160 °C puis 220 °C",
+    "coeur": "fondant à cœur (68 °C)",
+    "temps": "25 min braisé + 5 min croustillant",
+    "bois": "Foin de Crau (fumage léger)",
+    "tags": "ris de veau abats tradition française gastronomie beurre croustillant",
+    "ings": [
+      "600 g de ris de veau de cœur parés et blanchis",
+      "40 g de beurre doux",
+      "1 poignée de foin bio (ou sarments de vigne)",
+      "1 filet de jus de veau réduit",
+      "Fleur de sel, poivre blanc du moulin"
+    ],
+    "etapes": [
+      "Faites dégorger les ris de veau 2 h dans l'eau glacée, blanchissez-les 3 min à frémissement, puis égouttez et retirez délicatement les membranes extérieures. Pressez-les 1 h sous un poids léger au frais.",
+      "Préparez le kamado à 160 °C en indirect avec déflecteur. Placez les ris dans une cocotte en fonte ouverte sur un lit de foin légèrement humidifié.",
+      "Laissez braiser et fumer doucement 20 à 25 min, couvercle du kamado fermé.",
+      "Transférez sur une plancha ou poêle fonte à 220 °C avec le beurre moussant. Arrosez en continu pendant 4 à 5 min jusqu'à ce que l'extérieur soit doré et croustillant comme une croûte de noisette.",
+      "Tranchez épais, nappez d'un filet de jus de veau réduit et servez aussitôt."
+    ],
+    "astuce": "L'étape de pressage préalable est le secret des grands chefs : elle donne aux ris de veau une texture ferme et homogène avant la cuisson.",
+    "difficulty": 4,
+    "charbon_kg": 1.4,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "notes_securite": "Abats de veau : fraîcheur irréprochable impérative. Blanchiment initial obligatoire pour assainir et raffermir la chair avant cuisson kamado.",
+    "source": "Auguste Escoffier — Le Guide Culinaire (adaptation braisage kamado)",
+    "sauce": "Jus de veau réduit aux morilles | Beurre maître d'hôtel",
+    "_derived": {
+      "spice": "Doux",
+      "season": "toute",
+      "sauces": [
+        "Jus de veau réduit aux morilles",
+        "Beurre maître d'hôtel"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
+    "cat": "boeuf",
+    "nom": "Côte de veau épaisse aux morilles et vin jaune",
+    "ori": "France / Franche-Comté · découpe généreuse de terroir",
+    "pour": "2–4 pers",
+    "mode": "Indirect puis direct",
+    "tempK": "150 °C puis 250 °C",
+    "coeur": "60 °C (rosé nacré)",
+    "temps": "25 min indirect + 4 min direct",
+    "bois": "Sarments de vigne",
+    "tags": "cote de veau morilles vin jaune jura gastronomie francaise reverse sear",
+    "ings": [
+      "1 côte de veau première épaisse de 800 g à 1 kg (3–4 cm)",
+      "40 g de morilles séchées réhydratées",
+      "1 échalote ciselée",
+      "10 cl de vin jaune ou vin blanc sec du Jura",
+      "15 cl de crème fraîche épaisse entière",
+      "20 g de beurre, sel et poivre"
+    ],
+    "etapes": [
+      "Sortez la côte de veau 1 h à l'avance, assaisonnez-la de sel fin.",
+      "Chauffez le kamado en indirect à 150 °C avec déflecteur et sarments de vigne.",
+      "Déposez la côte sur la grille et laissez monter en température jusqu'à 50 °C à cœur (environ 25 min).",
+      "Retirez le déflecteur et faites monter le kamado à 250 °C en direct. Saisissez la côte 2 min par face pour obtenir un marquage grillé.",
+      "Laissez reposer la viande 10 min sur une assiette chaude.",
+      "Pendant ce temps, faites suer l'échalote et les morilles au beurre dans une poêle fonte, déglacez au vin jaune, réduisez de moitié, ajoutez la crème et liez la sauce 3 min.",
+      "Découpez la côte en tranches épaisses le long de l'os et nappez de sauce aux morilles."
+    ],
+    "astuce": "La cuisson en deux temps préserve l'humidité naturelle du veau, qui a tendance à sécher lors d'une saisie directe prolongée.",
+    "difficulty": 3,
+    "charbon_kg": 1.8,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/2 ouvert puis grand ouvert",
+      "top": "1/2 ouvert puis grand ouvert"
+    },
+    "notes_securite": "Veau de boucherie épais : viser 60 °C à cœur pour une viande rosée et juteuse, suivi de 10 min de repos sous aluminium lâche.",
+    "source": "Cuisine traditionnelle franc-comtoise",
+    "sauce": "Sauce aux morilles et vin jaune",
+    "_derived": {
+      "spice": "Doux",
+      "season": "toute",
+      "sauces": [
+        "Sauce aux morilles et vin jaune"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
+    "cat": "volaille",
+    "nom": "Canard laqué croustillant au kamado façon Pékin",
+    "ori": "Chine / Pékin · peau vitrifiée ultra-croustillante",
+    "pour": "4–6 pers",
+    "mode": "Indirect",
+    "tempK": "160 °C puis 220 °C",
+    "coeur": "74 °C à cœur (cuisses fondantes)",
+    "temps": "1 h 15 à 160 °C + 15 min à 220 °C",
+    "bois": "Pommier ou Cerisier",
+    "tags": "canard laque pekin croustillant chine asiatique epices miel",
+    "ings": [
+      "1 canard entier prêt à cuire de 2 kg",
+      "Laquage : 3 c. à s. de miel liquide, 2 c. à s. de sauce soja foncée, 1 c. à s. de vinaigre de riz, 1 c. à c. de cinq-épices, 1 c. à s. de vin Shaoxing",
+      "Cavité : 2 étoiles de badiane, 3 tranches de gingembre, 2 oignons nouveaux, 1 c. à c. de sel",
+      "Pour le service : crêpes fines vapeur, concombre et ciboule en julienne, sauce hoisin"
+    ],
+    "etapes": [
+      "La veille : ébouillantez le canard entier avec 2 L d'eau bouillante pour resserrer les pores de la peau. Séchez méticuleusement au torchon puis laissez sécher 12 h à découvert au réfrigérateur.",
+      "Farcissez la cavité avec la badiane, le gingembre et les oignons verts, puis cousez ou fermez avec une pique en bois. Badigeonnez tout l'extérieur de laquage au miel tiède.",
+      "Préchauffez le kamado en indirect à 160 °C avec déflecteur et bac récupérateur de graisse rempli d'eau. Ajoutez un chunk de bois de pommier.",
+      "Posez le canard sur une grille haute. Laissez rôtir 1 h 15.",
+      "Ouvrez les évents pour monter la température à 220 °C pendant les 15 dernières minutes : la peau doit souffler, devenir d'un acajou profond et vitrifiée.",
+      "Laissez reposer 10 min. Découpez la peau croustillante en morceaux et la chair en fines lamelles. Servez avec les crêpes vapeur et la sauce hoisin."
+    ],
+    "astuce": "Le séchage préalable de la peau à l'air froid du réfrigérateur pendant 12 h est le secret absolu du croustillant pékinois.",
+    "difficulty": 4,
+    "charbon_kg": 2.2,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/2 ouvert puis grand ouvert",
+      "top": "1/2 ouvert puis grand ouvert"
+    },
+    "notes_securite": "Volaille entière : vérifier impérativement 74 °C à cœur à la jonction cuisse-corps sans toucher l'os avant défournement.",
+    "source": "Tradition impériale de Pékin / Da Dong Roast Duck",
+    "sauce": "Sauce Hoisin | Sauce teriyaki maison",
+    "_derived": {
+      "spice": "Épicé doux",
+      "season": "toute",
+      "sauces": [
+        "Sauce Hoisin",
+        "Sauce teriyaki maison"
+      ],
+      "allergens": [
+        "soja"
+      ]
+    }
+  },
+  {
+    "cat": "volaille",
+    "nom": "Suprêmes de pintade fermière rôtis sous peau aux morilles",
+    "ori": "France · volaille noble rôtie en douceur",
+    "pour": "4 pers",
+    "mode": "Indirect",
+    "tempK": "180 °C",
+    "coeur": "74 °C à cœur",
+    "temps": "25–30 min",
+    "bois": "Aulne (fumée très discrète)",
+    "tags": "pintade supreme volaille morilles sous peau gastronomie francaise",
+    "ings": [
+      "4 suprêmes de pintade fermière avec peau",
+      "Beurre de morilles : 50 g de beurre mou, 20 g de morilles hachées réhydratées, 1 échalote hachée, sel et poivre blanc",
+      "1 filet d'huile d'olive",
+      "Fleur de sel"
+    ],
+    "etapes": [
+      "Décollez délicatement la peau des suprêmes avec le doigt sans la percer. Glissez une cuillère de beurre de morilles sous la peau et lissez pour répartir.",
+      "Préchauffez le kamado en indirect à 180 °C avec déflecteur céramique.",
+      "Déposez les suprêmes côté peau vers le haut sur la grille. Ajoutez un éclat de bois d'aulne pour une touche boisée très subtile.",
+      "Laissez rôtir 25 à 30 min sans retourner jusqu'à ce que la peau soit dorée et croustillante et que la sonde indique 74 °C à cœur.",
+      "Laissez reposer 5 min sous une feuille d'aluminium avant de trancher chaque suprême en deux sur la diagonale."
+    ],
+    "astuce": "Le beurre sous la peau fond pendant la cuisson et nourrit la chair de la pintade, évitant ainsi le dessèchement classique des filets.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "notes_securite": "Volaille : cuisson impérative à 74 °C à cœur pour éliminer tout risque de salmonelle. Laver soigneusement la planche et les couteaux après manipulation de la volaille crue.",
+    "source": "Paul Bocuse — La Cuisine du Marché",
+    "sauce": "Jus de volaille aux morilles",
+    "_derived": {
+      "spice": "Doux",
+      "season": "ete",
+      "sauces": [
+        "Jus de volaille aux morilles"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
+    "cat": "poisson",
+    "nom": "Turbot entier grillé en panier sur braises vives façon Getaria",
+    "ori": "Pays Basque espagnol · le maître du feu marin",
+    "pour": "4 pers",
+    "mode": "Direct",
+    "tempK": "200–220 °C",
+    "coeur": "52–54 °C (gélatineux et nacré le long de l'arête)",
+    "temps": "18–22 min",
+    "bois": "Chêne doux",
+    "tags": "turbot getaria pays basque poisson entier braise vinaigre ail elkano",
+    "ings": [
+      "1 turbot sauvage entier vidé de 1,5 kg (peau conservée)",
+      "3 c. à s. d'huile d'olive extra-vierge",
+      "3 gousses d'ail taillées en fines lamelles",
+      "1 piment oiseau sec émietté",
+      "2 c. à s. de vinaigre de cidre ou de txakoli",
+      "Gros sel de mer"
+    ],
+    "etapes": [
+      "Badigeonnez le turbot d'huile d'olive et massez-le généreusement de gros sel. Placez-le dans un panier à poisson métallique réglable.",
+      "Allumez un foyer de braises régulières sans flamme vive à 200–220 °C. Placez la grille en position haute (à au moins 15 cm des braises).",
+      "Grillez le turbot en le retournant toutes les 3 à 4 min. La gélatine sous la peau va caraméliser et protéger la chair.",
+      "Le turbot est cuit en 18 à 20 min quand la peau commence à boursoufler et que la chair le long de l'arête dorsale devient opaque (52–54 °C à cœur).",
+      "Faites dorer l'ail et le piment dans une petite casserole avec 3 c. à s. d'huile d'olive. Dès que l'ail dore, déglacez hors du feu avec le vinaigre.",
+      "Levez les filets à la cuillère et arrosez immédiatement du jus aillé bouillonnant (le fameux 'refrito' basque)."
+    ],
+    "astuce": "La peau gélatineuse du turbot est riche en collagène marin : émulsionnée avec l'huile et le vinaigre à chaud, elle crée une sauce naturelle onctueuse.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "notes_securite": "Poisson entier de prestige : chair nacrée à 52–54 °C au niveau de l'arête centrale. Consommer le turbot ultra-frais le jour même de l'achat.",
+    "source": "Restaurant Elkano — Getaria (3 étoiles Michelin, légende mondiale du turbot au feu de bois)",
+    "sauce": "Refrito à l'ail, piment et vinaigre de cidre",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "ete",
+      "sauces": [
+        "Refrito à l'ail, piment et vinaigre de cidre"
+      ],
+      "allergens": [
+        "poisson"
+      ]
+    }
+  },
+  {
+    "cat": "poisson",
+    "nom": "Saint-Pierre rôti entier au thym citron et fenouil sauvage",
+    "ori": "Méditerranée · chair fine et feuilletée",
+    "pour": "2–4 pers",
+    "mode": "Indirect",
+    "tempK": "190 °C",
+    "coeur": "52–54 °C à cœur",
+    "temps": "25–30 min",
+    "bois": "Olivier (léger fumage)",
+    "tags": "saint pierre poisson entier fenouil mediterranee raffiné",
+    "ings": [
+      "1 Saint-Pierre entier vidé d'environ 1,2 kg",
+      "1 bulbe de fenouil émincé très fin + branches de fenouil sauvage",
+      "4 c. à s. d'huile d'olive extra-vierge",
+      "1 citron non traité en rondelles",
+      "Fleur de sel et poivre blanc"
+    ],
+    "etapes": [
+      "Rincez et épongez le Saint-Pierre. Faites 3 incisions légères en biais sur chaque flanc.",
+      "Garnissez un plat en fonte ou une lèchefrite du fenouil émincé, arrosez d'huile d'olive et assaisonnez. Posez le poisson sur ce lit aromatique, glissez des rondelles de citron et des brins de fenouil sauvage sur le dessus.",
+      "Préchauffez le kamado en indirect à 190 °C avec déflecteur céramique.",
+      "Enfournez le plat au centre de la grille. Laissez rôtir 25 à 30 min sans manipulation.",
+      "Le Saint-Pierre est prêt quand la chair se détache nettement de l'arête centrale et que le thermomètre affiche 52–54 °C.",
+      "Levez les 4 filets à la spatule, servez avec le fenouil confit et un filet d'huile d'olive crue."
+    ],
+    "astuce": "La chair du Saint-Pierre est particulièrement délicate : la cuire sur un lit de fenouil évite toute accroche et apporte une humidité parfumée constante.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "notes_securite": "Poisson blanc noble : ne jamais surcuire au-delà de 55 °C au risque de rendre la chair sèche et floconneuse.",
+    "source": "Gérald Passédat — Le Petit Nice, Marseille",
+    "sauce": "Sauce vierge aux herbes et tomates",
+    "_derived": {
+      "spice": "Doux",
+      "season": "ete",
+      "sauces": [
+        "Sauce vierge aux herbes et tomates"
+      ],
+      "allergens": [
+        "poisson"
+      ]
+    }
+  },
+  {
+    "cat": "poisson",
+    "nom": "Tataki de thon rouge mariné au yuzu & croûte de sésame noir",
+    "ori": "Japon · saisie éclair à 300 °C et cœur fondant cru",
+    "pour": "4 pers",
+    "mode": "Direct sur plancha",
+    "tempK": "300 °C",
+    "coeur": "cœur frais 20–25 °C (extérieur saisi 2 mm)",
+    "temps": "30 secondes par face",
+    "bois": "—",
+    "tags": "tataki thon rouge yuzu sesame japon cru cuit plancha flash",
+    "ings": [
+      "500 g de pavé de thon rouge épais taillé en pavé rectangulaire (sushi-grade)",
+      "Marinade : 3 c. à s. de sauce soja, 1 c. à s. de jus de yuzu (ou citron vert), 1 c. à c. d'huile de sésame grillé, 1 c. à c. de gingembre frais râpé",
+      "4 c. à s. de graines de sésame noir et blanc torréfiées",
+      "Fleur de sel et ciboule ciselée"
+    ],
+    "etapes": [
+      "Mélangez la sauce soja, le yuzu, le gingembre et l'huile de sésame. Faites mariner le thon 20 min au réfrigérateur.",
+      "Sortez le pavé, épongez-le légèrement, puis roulez-le dans les graines de sésame pour former une croûte dense sur les 4 côtés.",
+      "Préchauffez le kamado avec une plancha fonte en direct à 300 °C jusqu'à ce qu'une goutte d'eau s'y vaporise instantanément.",
+      "Posez le pavé sur la plancha brûlante : saisissez exactement 30 à 45 secondes par face. Le pourtour doit être cuit sur 2 mm et le cœur parfaitement cru.",
+      "Plongez immédiatement le pavé 30 secondes dans un saladier d'eau glacée pour stopper net la cuisson, puis séchez au papier absorbant.",
+      "Tranchez délicatement en lamelles de 5 mm d'épaisseur avec un couteau à lame fine bien aiguisée. Servez avec le reste de marinade."
+    ],
+    "astuce": "Le bain d'eau glacée après saisie est le geste technique clé pour figer la ligne de démarcation entre la croûte dorée et le cœur cru rubis.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "marinade_h": 0.3,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
+    "notes_securite": "Thon consommé quasi-cru à cœur : utiliser impérativement un thon de qualité sashimi préalablement surgelé à -20 °C pendant 24 h pour éliminer tout risque parasitaire (normes CE n° 853/2004).",
+    "source": "Technique traditionnelle japonaise Tataki / Nobu Matsuhisa",
+    "sauce": "Sauce ponzu au yuzu | Sauce teriyaki maison",
+    "_derived": {
+      "spice": "Doux",
+      "season": "toute",
+      "sauces": [
+        "Sauce ponzu au yuzu",
+        "Sauce teriyaki maison"
+      ],
+      "allergens": [
+        "poisson",
+        "sésame",
+        "soja"
+      ]
+    }
+  },
+  {
+    "cat": "poisson",
+    "nom": "Éclade de moules aux aiguilles de pin façon kamado",
+    "ori": "France / Charente-Maritime · cuisson spectaculaire aux aiguilles sèches",
+    "pour": "4 pers",
+    "mode": "Direct",
+    "tempK": "260–280 °C",
+    "coeur": "80 °C (moules ouvertes, jus bouillonnant)",
+    "temps": "6–8 min",
+    "bois": "Aiguilles de pin maritimes séchées",
+    "tags": "moules eclade charente aiguilles de pin braise terroir iode",
+    "ings": [
+      "2 kg de grosses moules de bouchot nettoyées",
+      "1 grand sac d'aiguilles de pin maritimes très sèches et propres",
+      "Pain de campagne grillé au kamado",
+      "Beurre des Charentes demi-sel"
+    ],
+    "etapes": [
+      "Placez un plat en fonte épais ou une plaque de cuisson sur la grille du kamado.",
+      "Disposez les moules verticalement, charnière vers le haut, serrées en spirale concentrique pour qu'elles restent fermées au début de la chauffe.",
+      "Recouvrez les moules d'une couche dense de 15 cm d'aiguilles de pin séchées.",
+      "Dans le kamado préchauffé à 260 °C sur braises vives, enflammez les aiguilles de pin avec un allume-feu naturel et fermez le couvercle avec les évents grands ouverts.",
+      "Les aiguilles brûlent en dégageant une fumée de résine très vive qui cuit les moules en 6 à 8 min dans leur coquille hermétique.",
+      "Ouvrez le kamado, chassez la cendre avec un carton rigide en éventant énergiquement.",
+      "Dégustez immédiatement avec les doigts, accompagné de tartines de pain au levain tartinées de beurre salé."
+    ],
+    "astuce": "Les moules disposées pointe vers le bas et charnière en l'air emprisonnent leur eau de mer : elles cuisent dans leur propre jus sans se dessécher.",
+    "difficulty": 3,
+    "charbon_kg": 1.5,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "grand ouvert",
+      "top": "grand ouvert"
+    },
+    "notes_securite": "Pasteurisation à 80 °C à cœur. Moules fraîches vivantes et hermétiquement fermées avant cuisson. Jeter impérativement toute moule qui ne s'ouvre pas après cuisson.",
+    "source": "Recette patrimoniale de l'Île d'Oléron et du bassin de Marennes",
+    "sauce": "Beurre salé aux herbes",
+    "_derived": {
+      "spice": "Doux",
+      "season": "toute",
+      "sauces": [
+        "Beurre salé aux herbes"
+      ],
+      "allergens": [
+        "lait",
+        "gluten",
+        "poisson",
+        "mollusques"
+      ]
+    }
+  },
+  {
+    "cat": "legumes",
+    "nom": "Baingan Bharta (caviar d'aubergines brûlées fumées à l'indienne)",
+    "ori": "Inde / Pendjab · chair confite au goût de braise intense",
+    "pour": "4 pers",
+    "mode": "Direct",
+    "tempK": "240–260 °C",
+    "coeur": "aubergine totalement effondrée et fondante",
+    "temps": "20–25 min",
+    "bois": "—",
+    "tags": "aubergine baingan bharta indien epices caveman vegetarien fumee",
+    "ings": [
+      "2 grosses aubergines bien fermes (environ 800 g)",
+      "4 gousses d'ail taillées en éclats",
+      "1 gros oignon rouge émincé",
+      "2 tomates mûres coupées en dés",
+      "1 piment vert émincé",
+      "1 c. à c. de cumin en grains, 1 c. à c. de garam masala, 1/2 c. à c. de curcuma",
+      "Coriandre fraîche et 2 c. à s. d'huile végétale"
+    ],
+    "etapes": [
+      "Faites 4 incisions profondes dans chaque aubergine et enfoncez-y les éclats d'ail crus.",
+      "Déposez les aubergines directement sur la grille au-dessus des braises ardentes à 250 °C.",
+      "Faites griller 20 à 25 min en tournant d'un quart de tour toutes les 5 min. La peau doit devenir entièrement noire, calcinée et fripée, et la chair ultra-molle.",
+      "Enfermez les aubergines chaudes 10 min dans un récipient couvert pour détendre la peau, puis pelez la peau brûlée. La chair est infusée d'un arôme de feu de bois extraordinaire.",
+      "Hachez la chair grossièrement au couteau.",
+      "Dans une poêle fonte sur le kamado, faites revenir les grains de cumin, l'oignon et le piment dans l'huile, ajoutez les tomates et les épices pendant 5 min, puis incorporez la purée d'aubergines fumée.",
+      "Mijotez 5 min, parsemez de coriandre fraîche et servez tiède avec des pitas ou naans chauds."
+    ],
+    "astuce": "La calcination complète de la peau extérieure est primordiale : c'est elle qui transfère l'arôme de fumée unique au cœur de l'aubergine.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "3/4 ouvert",
+      "top": "3/4 ouvert"
+    },
+    "notes_securite": "Légume végétarien sans risque bactérien. Attention lors de la manipulation des braises directes : utiliser de longues pinces métalliques.",
+    "source": "Madhur Jaffrey — A Taste of India",
+    "sauce": "Sauce yaourt-ail express (façon toum)",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "ete",
+      "sauces": [
+        "Sauce yaourt-ail express (façon toum)"
+      ],
+      "allergens": [
+        "lait",
+        "gluten"
+      ]
+    }
+  },
+  {
+    "cat": "legumes",
+    "nom": "Barigoule d'artichauts poivrade au lard et vin blanc en cocotte",
+    "ori": "France / Provence · mijoté printanier parfumé aux herbes",
+    "pour": "4 pers",
+    "mode": "Indirect en cocotte",
+    "tempK": "180 °C",
+    "coeur": "cœurs d'artichauts tendres à la pointe du couteau",
+    "temps": "45 min",
+    "bois": "Olivier",
+    "tags": "artichauts barigoule provence cocotte fonte tradition legumes mijote",
+    "ings": [
+      "8 petits artichauts poivrade violets",
+      "100 g de lardons fumés ou poitrine fumée en dés",
+      "2 carottes coupées en rondelles",
+      "1 oignon blanc ciselé et 2 gousses d'ail",
+      "15 cl de vin blanc sec de Provence",
+      "20 cl de bouillon de légumes ou volaille",
+      "1 branche de thym, 1 feuille de laurier, huile d'olive et jus d'un demi-citron"
+    ],
+    "etapes": [
+      "Tournez les artichauts : coupez la tige à 3 cm, retirez les premières feuilles dures, étêtez les pointes aux 2/3 et coupez-les en deux. Frottez immédiatement au citron pour éviter l'oxydation.",
+      "Allumez le kamado en indirect à 180 °C avec déflecteur céramique. Posez la cocotte en fonte sur la grille.",
+      "Faites suer les lardons, l'oignon et les carottes dans 2 c. à s. d'huile d'olive pendant 8 min.",
+      "Ajoutez les artichauts, faites dorer 5 min côté tranche.",
+      "Déglacez au vin blanc, laissez réduire 3 min, puis mouillez avec le bouillon, ajoutez le thym, le laurier et l'ail écrasé.",
+      "Fermez la cocotte avec son couvercle, fermez le dôme du kamado et laissez braiser à 180 °C pendant 35 à 40 min.",
+      "Les artichauts doivent être fondants. Servez tiède arrosé du jus de cuisson réduit."
+    ],
+    "astuce": "La chaleur douce et enveloppante de la céramique cuit les artichauts à cœur sans évaporation excessive du bouillon parfumé.",
+    "difficulty": 2,
+    "charbon_kg": 1.4,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "notes_securite": "Préparation en cocotte fonte couverte : hygiène parfaite, conservation optimale des arômes et des sucs sans carbonisation.",
+    "source": "Jean-André Charial — L'Oustau de Baumanière, Les Baux-de-Provence",
+    "sauce": "Vinaigrette tiède aux herbes",
+    "_derived": {
+      "spice": "Doux",
+      "season": "ete",
+      "sauces": [
+        "Vinaigrette tiède aux herbes"
+      ],
+      "allergens": []
+    }
+  },
+  {
+    "cat": "monde",
+    "nom": "Kofte d'agneau et bœuf au sumac & menthe sur brochettes",
+    "ori": "Turquie / Moyen-Orient · brochettes juteuses au goût de braise",
+    "pour": "4 pers (8 brochettes)",
+    "mode": "Direct",
+    "tempK": "240 °C",
+    "coeur": "71 °C à cœur (juteux, viande hachée sécurisée)",
+    "temps": "8–10 min",
+    "bois": "—",
+    "tags": "kofte agneau boeuf brochettes sumac turquie levant barbecue direct",
+    "ings": [
+      "400 g d'épaule d'agneau hachée",
+      "300 g de paleron de bœuf haché",
+      "1 oignon râpé et pressé dans un linge (pour éliminer l'eau amère)",
+      "2 gousses d'ail écrasées",
+      "1 c. à s. de sumac moulu",
+      "1 c. à c. de cumin, 1 c. à c. de coriandre, 1 c. à c. de piment d'Alep (pul biber)",
+      "1 bouquet de menthe fraîche et persil plat hachés",
+      "1 c. à c. bombée de sel fin"
+    ],
+    "etapes": [
+      "Mélangez les viandes hachées, l'oignon pressé, l'ail, les épices, les herbes et le sel. Pétrissez énergiquement la farce à la main pendant 5 min jusqu'à ce qu'elle devienne collante et homogène (développement de la myosine).",
+      "Réservez 1 h au frais pour raffermir la préparation.",
+      "Façonnez des boudins aplatis autour de 8 brochettes métalliques larges.",
+      "Chauffez le kamado en direct à 240 °C sans déflecteur.",
+      "Grillez les brochettes 8 à 10 min en les retournant toutes les 2 min pour obtenir une belle caramélisation sans brûler.",
+      "Vérifiez 71 °C à cœur. Servez immédiatement saupoudré d'une pincée de sumac, avec des quartiers d'oignon rouge et du pain pita chaud."
+    ],
+    "astuce": "Le pétrissage prolongé de la viande hachée libère les protéines qui lient la viande et l'empêchent de se détacher de la brochette lors de la cuisson.",
+    "difficulty": 2,
+    "charbon_kg": 1.3,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "3/4 ouvert",
+      "top": "3/4 ouvert"
+    },
+    "notes_securite": "Préparations de viandes hachées : cuire obligatoirement à 71 °C à cœur minimum (normes USDA/FSIS) pour éliminer les bactéries de surface incorporées au hachage.",
+    "source": "Cuisine de rue d'Istanbul / Chef Musa Dağdeviren (Çiya Sofrası)",
+    "sauce": "Sauce yaourt-ail express (façon toum) | Sauce Tzatziki authentique",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "printemps",
+      "sauces": [
+        "Sauce yaourt-ail express (façon toum)",
+        "Sauce Tzatziki authentique"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
+    "cat": "monde",
+    "nom": "Satay de bœuf balinais à la citronnelle & sauce cacahuète",
+    "ori": "Indonésie / Bali · brochettes parfumées mariné minute",
+    "pour": "4 pers",
+    "mode": "Direct",
+    "tempK": "240 °C",
+    "coeur": "56–58 °C (rosé et tendre)",
+    "temps": "4–6 min",
+    "bois": "—",
+    "tags": "satay boeuf bali indonesie citronnelle cacahuete brochettes",
+    "ings": [
+      "600 g de bavette ou rumsteck de bœuf coupé en fines lanières de 2 cm",
+      "Marinade : 2 bâtons de citronnelle hachés très fin, 3 échalotes, 2 gousses d'ail, 2 c. à s. de sauce soja sucrée (kecap manis), 1 c. à s. de coriandre moulue, 1 c. à s. d'huile",
+      "Brochettes de bambou trempées dans l'eau 30 min",
+      "Pour servir : sauce cacahuète épicée, concombre et échalotes frites"
+    ],
+    "etapes": [
+      "Mixez les ingrédients de la marinade en pâte fine. Enrobez les lanières de bœuf et laissez mariner 1 h au frais.",
+      "Enfilez la viande en accordéon serré sur les brochettes de bambou.",
+      "Préparez le kamado à 240 °C en saisie directe.",
+      "Grillez les brochettes 2 à 3 min par face au-dessus des braises ardentes. Le sucre du kecap manis caramélise rapidement en dégageant un parfum toasté.",
+      "Servez brûlant nappé de sauce cacahuète maison tiède."
+    ],
+    "astuce": "Tremper les brochettes de bois dans l'eau 30 min évite qu'elles ne s'enflamment au contact des braises vives.",
+    "difficulty": 2,
+    "charbon_kg": 1.2,
+    "marinade_h": 1,
+    "repos_min": 3,
+    "vents": {
+      "bottom": "3/4 ouvert",
+      "top": "3/4 ouvert"
+    },
+    "notes_securite": "Bœuf émincé mariné : cuisson vive directe, respecter 56–58 °C à cœur pour garder la bavette juteuse sans la durcir.",
+    "source": "Street food de Bali / Sanur Night Market",
+    "sauce": "Sauce cacahuète épicée (Satay) | Sauce soja sucrée au piment",
+    "_derived": {
+      "spice": "Doux",
+      "season": "ete",
+      "sauces": [
+        "Sauce cacahuète épicée (Satay)",
+        "Sauce soja sucrée au piment"
+      ],
+      "allergens": [
+        "arachides",
+        "soja"
+      ]
+    }
+  },
+  {
+    "cat": "monde",
+    "nom": "Tacos de Birria de bœuf fumé au kamado & consommé mijoté",
+    "ori": "Mexique / Jalisco · bœuf fondant effiloché et tortillas trempées",
+    "pour": "6 pers",
+    "mode": "Fumage puis cocotte",
+    "tempK": "120 °C puis 150 °C",
+    "coeur": "96 °C (effilochage parfait à la fourchette)",
+    "temps": "5 h au total",
+    "bois": "Chêne",
+    "tags": "birria tacos boeuf mexique consomme piments fumage cocotte",
+    "ings": [
+      "1,5 kg de macreuse ou gîte de bœuf coupé en gros morceaux",
+      "Sauce piments : 4 piments Guajillo séchés, 2 piments Ancho séchés, 4 tomates rôties, 1 oignon, 4 gousses d'ail, 1 bâton de cannelle, 1 c. à s. d'origan mexicain, 2 c. à s. de vinaigre de cidre, 600 ml de bouillon de bœuf",
+      "Pour le dressage : 16 petites tortillas de maïs, 200 g de fromage Oaxaca ou mozzarella râpée, coriandre fraîche, oignon blanc haché et quartiers de lime"
+    ],
+    "etapes": [
+      "Réhydratez les piments séchés dans l'eau chaude 15 min, puis mixez-les avec les tomates, l'oignon, l'ail, les épices, le vinaigre et le bouillon pour obtenir un adobo lisse.",
+      "Allumez le kamado à 120 °C en indirect avec déflecteur et un morceau de bois de chêne. Déposez les morceaux de bœuf sur la grille pendant 2 h pour leur donner une belle robe fumée.",
+      "Transférez la viande fumée dans une cocotte en fonte, versez l'adobo filtré par-dessus.",
+      "Couvrez la cocotte, remontez le kamado à 150 °C en indirect et laissez braiser 3 h jusqu'à ce que la viande s'effondre à la moindre pression (96 °C à cœur).",
+      "Effilochez la viande et réservez le consommé rouge parfumé dans des bols.",
+      "Trempez chaque tortilla dans la graisse du consommé, posez-la sur la plancha chaude du kamado, garnissez de fromage fondu et de bœuf effiloché, pliez en deux et dorez 2 min par face.",
+      "Dégustez les tacos croustillants en les trempant directement dans le consommé chaud."
+    ],
+    "astuce": "La double texture — le bœuf d'abord fumé sur grille puis mijoté dans l'adobo — confère une complexité impossible à reproduire sur une simple gazinière.",
+    "difficulty": 3,
+    "charbon_kg": 2.5,
+    "repos_min": 15,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Fumage sur grille",
+        "mode": "fumage",
+        "temp_C": 120,
+        "duration_min": 120,
+        "action": "Grille indirecte 120 °C avec bois de chêne pour imprégner la viande."
+      },
+      {
+        "name": "Braisage en cocotte",
+        "mode": "braisage",
+        "temp_C": 150,
+        "duration_min": 180,
+        "action": "Dans la cocotte en fonte fermée avec l'adobo de piments jusqu'à 96 °C à cœur."
+      },
+      {
+        "name": "Finition Tacos",
+        "mode": "plancha",
+        "temp_C": 220,
+        "duration_min": 15,
+        "action": "Tremper les tortillas dans le jus et dorer sur la plancha avec fromage et bœuf."
+      }
+    ],
+    "notes_securite": "Long braisage en milieu acide (tomates + vinaigre) au-delà de 90 °C : attendrissement total du collagène et stérilité absolue de la préparation.",
+    "source": "Recette emblématique de Jalisco, Mexique",
+    "sauce": "Consommé de Birria épicé | Salsa roja",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "ete",
+      "sauces": [
+        "Consommé de Birria épicé",
+        "Salsa roja"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
+    "cat": "dessert",
+    "nom": "Giant Skillet Cookie aux pépites de chocolat en poêle fonte",
+    "ori": "USA · le cookie familial fondant au centre et croustillant aux bords",
+    "pour": "6–8 pers",
+    "mode": "Indirect en poêle fonte",
+    "tempK": "180 °C",
+    "coeur": "cœur pâteux cuit, bords croustillants dorés",
+    "temps": "22–25 min",
+    "bois": "Pommier (très léger)",
+    "tags": "cookie skillet chocolat fonte dessert usa gourmand vanille",
+    "ings": [
+      "120 g de beurre demi-sel fondu tiédi",
+      "100 g de cassonade ou sucre vergeoise brune",
+      "60 g de sucre blanc",
+      "1 gros œuf entier + 1 jaune d'œuf",
+      "1 c. à c. d'extrait de vanille naturelle",
+      "180 g de farine de blé T55",
+      "1/2 c. à c. de bicarbonate de soude",
+      "150 g de chocolat noir 70 % concassé en grosses pépites",
+      "Fleur de sel et glace à la vanille pour servir"
+    ],
+    "etapes": [
+      "Dans un saladier, fouettez le beurre fondu avec la cassonade et le sucre blanc jusqu'à consistance crémeuse. Ajoutez l'œuf, le jaune et la vanille, fouettez 1 min.",
+      "Incorporez la farine et le bicarbonate tamisés, puis les 3/4 des pépites de chocolat sans trop travailler la pâte.",
+      "Beurrez une poêle en fonte de 22 à 25 cm de diamètre. Étalez la pâte uniformément et parsemez du reste de chocolat sur le dessus.",
+      "Préchauffez le kamado en indirect à 180 °C avec déflecteur céramique.",
+      "Posez la poêle directement sur la grille. Laissez cuire 22 à 25 min : les bords doivent être fermes et dorés, mais le centre encore souple et tremblotant.",
+      "Sortez la poêle, parsemez d'une pincée de fleur de sel. Laissez tiédir 10 min.",
+      "Servez à même la poêle au centre de la table, surmonté de 2 ou 3 boules de glace vanille qui fondent sur le cookie chaud."
+    ],
+    "astuce": "La fonte emmagasine la chaleur douce du kamado et continue de cuire le fond du cookie hors du feu, garantissant une croûte biscuitée sous un cœur encore coulant.",
+    "difficulty": 1,
+    "charbon_kg": 1.2,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/2 ouvert",
+      "top": "1/2 ouvert"
+    },
+    "notes_securite": "Présence d'œufs : la pâte atteint plus de 75 °C au centre à mi-cuisson, assurant la pasteurisation sans durcir l'appareil.",
+    "source": "Serious Eats / J. Kenji López-Alt — Skillet Chocolate Chip Cookie",
+    "sauce": "Glace vanille artisanale | Coulis de caramel au beurre salé",
+    "_derived": {
+      "spice": "Doux",
+      "season": "toute",
+      "sauces": [
+        "Glace vanille artisanale",
+        "Coulis de caramel au beurre salé"
+      ],
+      "allergens": [
+        "lait",
+        "gluten"
+      ]
+    }
+  },
+  {
+    "cat": "dessert",
+    "nom": "Poires pochées fumées au vin chaud et épices douces",
+    "ori": "France / Terroir · dessert d'hiver infusé aux braises",
+    "pour": "4 pers",
+    "mode": "Indirect en cocotte ouverte",
+    "tempK": "150 °C",
+    "coeur": "poires tendres et translucides",
+    "temps": "45 min à 1 h",
+    "bois": "Cerisier ou Sarments de vigne",
+    "tags": "poires vin chaud epices dessert tradition cannelle agrumes",
+    "ings": [
+      "4 belles poires fermes (Conférence ou Bosc) épluchées entières (tige conservée)",
+      "75 cl de vin rouge fruité (Côtes du Rhône ou Pinot Noir)",
+      "100 g de cassonade",
+      "1 bâton de cannelle, 2 étoiles de badiane, 3 clous de girofle",
+      "Le zeste prélevé d'une orange bio et d'un demi-citron"
+    ],
+    "etapes": [
+      "Épluchez les poires en gardant la queue, évidez délicatement le cœur par le dessous avec un vide-pomme, puis coupez la base à plat pour qu'elles tiennent debout.",
+      "Dans une petite cocotte en fonte, mélangez le vin, la cassonade, les épices et les zestes d'agrumes. Portez à frémissement.",
+      "Déposez les poires debout dans le vin chaud.",
+      "Placez la cocotte sans couvercle dans le kamado préchauffé à 150 °C en indirect avec un chunk de bois de cerisier.",
+      "Laissez pocher et fumer doucement pendant 45 à 60 min en arrosant les poires du sirop de vin toutes les 15 min.",
+      "Les poires sont prêtes lorsqu'elles sont rubis sombre et qu'une lame y pénètre sans résistance.",
+      "Sortez les poires. Faites réduire le jus de vin de moitié sur le feu pour obtenir un sirop nappant.",
+      "Servez chaque poire debout dans une assiette creuse, nappée de sirop chaud et accompagnée d'une quenelle de mascarpone ou de glace vanille."
+    ],
+    "astuce": "Laisser la cocotte découverte permet au vin de s'imprégner de la fumée fruitée du cerisier tout en réduisant naturellement en sirop brillant.",
+    "difficulty": 2,
+    "charbon_kg": 1.3,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "notes_securite": "Dessert à base de fruits pochés dans une réduction alcoolisée portée à ébullition : alcool résiduel minime, totale sécurité alimentaire.",
+    "source": "Recette bourguignonne traditionnelle / Le Guide Culinaire",
+    "sauce": "Réduction de vin aux épices | Crème mascarpone vanillée",
+    "_derived": {
+      "spice": "Épicé doux",
+      "season": "hiver",
+      "sauces": [
+        "Réduction de vin aux épices",
+        "Crème mascarpone vanillée"
+      ],
+      "allergens": [
+        "lait"
+      ]
+    }
+  },
+  {
+    "cat": "vegetarien",
+    "nom": "Steak de chou-fleur rôti au kamado & chimichurri frais",
+    "ori": "Argentine / Végétal contemporain · la tranche rôtie aux braises",
+    "pour": "4 pers",
+    "mode": "Indirect puis direct",
+    "tempK": "190 °C puis 240 °C",
+    "coeur": "cœur tendre et bords caramélisés",
+    "temps": "25 min indirect + 4 min direct",
+    "bois": "Pommier",
+    "tags": "chou-fleur steak vegetarien vegan chimichurri legumes braise",
+    "ings": [
+      "1 gros chou-fleur frais et dense",
+      "3 c. à s. d'huile d'olive",
+      "1 c. à c. de paprika fumé, 1 c. à c. d'ail semoule, sel et poivre",
+      "Sauce : 1 bol de Chimichurri argentin frais (persil, ail, origan, piment, vinaigre, huile)",
+      "Graines de grenade et amandes effilées toastées"
+    ],
+    "etapes": [
+      "Retirez les feuilles extérieures du chou-fleur. Coupez le chou-fleur en deux par le milieu du trognon, puis taillez 2 grandes tranches épaisses de 2,5 cm de chaque côté du trognon.",
+      "Badigeonnez les steaks d'huile d'olive, saupoudrez de paprika fumé, ail, sel et poivre.",
+      "Chauffez le kamado en indirect à 190 °C avec déflecteur et un morceau de pommier.",
+      "Posez les steaks de chou-fleur sur la grille. Cuisez 20 à 25 min jusqu'à ce que la pointe d'un couteau traverse le cœur sans effort.",
+      "Retirez le déflecteur et faites monter le foyer à 240 °C en direct. Grillez les steaks 2 min par face pour obtenir un marquage croustillant bien marqué.",
+      "Dressez sur plat chaud, nappez généreusement de sauce chimichurri fraîche et parsemez d'amandes effilées."
+    ],
+    "astuce": "Le trognon central est indispensable : c'est lui qui maintient les fleurettes ensemble pour former un véritable 'steak' solide qui ne s'émiette pas à la grille.",
+    "difficulty": 2,
+    "charbon_kg": 1.3,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "1/2 ouvert puis grand ouvert",
+      "top": "1/2 ouvert puis grand ouvert"
+    },
+    "notes_securite": "Préparation 100 % végétale : pas de risque bactériologique lié aux viandes. Assurez-vous d'une cuisson suffisante à cœur pour rendre le chou-fleur parfaitement digeste.",
+    "source": "Yotam Ottolenghi — Flavour",
+    "sauce": "Chimichurri argentin | Sauce yaourt-ail express (façon toum)",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "toute",
+      "sauces": [
+        "Chimichurri argentin",
+        "Sauce yaourt-ail express (façon toum)"
+      ],
+      "allergens": [
+        "lait",
+        "gluten",
+        "mollusques",
+        "fruits à coque"
+      ]
+    }
+  },
+  {
+    "cat": "sauces",
+    "nom": "Sauce Alabama White BBQ (sauce blanche mayo-vinaigre)",
+    "ori": "USA / Alabama · l'iconique sauce de Big Bob Gibson",
+    "pour": "8–10 pers (environ 400 ml)",
+    "mode": "Préparation",
+    "tempK": "—",
+    "coeur": "",
+    "temps": "5 min de préparation + 1 h au frais",
+    "bois": "—",
+    "tags": "alabama white sauce mayonnaise vinaigre poulet bbq sud usa",
+    "ings": [
+      "250 g de mayonnaise de bonne qualité",
+      "80 ml de vinaigre de cidre de pomme",
+      "1 c. à s. de moutarde de Dijon",
+      "1 c. à s. de cassonade ou sucre blanc",
+      "1 c. à c. de poivre noir fraîchement moulu fin",
+      "1 c. à c. d'ail en poudre",
+      "1/2 c. à c. de raifort râpé",
+      "1 trait de sauce Worcestershire et 1 pincée de piment de Cayenne"
+    ],
+    "etapes": [
+      "Dans un bol ou un bocal en verre, réunissez la mayonnaise, le vinaigre de cidre et la moutarde.",
+      "Fouettez vigoureusement jusqu'à obtenir une émulsion fluide, plus liquide qu'une mayonnaise classique mais suffisamment nappante pour adhérer à la viande.",
+      "Ajoutez le sucre, le poivre noir, l'ail en poudre, le raifort, la Worcestershire et le piment de Cayenne.",
+      "Mélangez intimement, goûtez et ajustez l'acidité selon votre goût avec un trait de vinaigre supplémentaire.",
+      "Couvrez et placez au réfrigérateur au moins 1 h avant le service pour laisser les saveurs fusionner.",
+      "Servez en trempette pour les volailles fumées (poulet crapaudine, ailes buffalo) ou arrosez directement le poulet à la sortie du kamado."
+    ],
+    "astuce": "Inventée en 1925 par Big Bob Gibson à Decatur (Alabama), cette sauce acidulée coupe admirablement le gras de la volaille et neutralise l'amertume de la fumée de bois dur.",
+    "difficulty": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "—",
+      "top": "—"
+    },
+    "notes_securite": "Contient des œufs (mayonnaise) et du poisson/gluten (sauce Worcestershire). Conserver impérativement au réfrigérateur à ≤4 °C et consommer sous 5 jours maximum.",
+    "source": "Big Bob Gibson BBQ — Decatur, Alabama (1925)",
+    "sauce": "Idéale pour : Poulet crapaudine, Ailes de poulet, Porc effiloché",
+    "_derived": null
+  },
+  {
+    "cat": "sauces",
+    "nom": "Sauce Carolina Gold (moutarde BBQ de Caroline du Sud)",
+    "ori": "USA / South Carolina · la sauce acidulée et dorée des colons allemands",
+    "pour": "8–10 pers (environ 350 ml)",
+    "mode": "Mijoté doux",
+    "tempK": "120 °C",
+    "coeur": "",
+    "temps": "10 min",
+    "bois": "—",
+    "tags": "carolina gold sauce moutarde miel vinaigre cidre porc bbq",
+    "ings": [
+      "200 g de moutarde jaune douce (type American yellow) ou mélange 50/50 jaune et Dijon",
+      "60 ml de vinaigre de cidre de pomme",
+      "60 g de miel liquide",
+      "2 c. à s. de cassonade brune",
+      "1 c. à s. de sauce Worcestershire",
+      "1 c. à c. de sauce pimentée (Tabasco ou cayenne)",
+      "1/2 c. à c. d'ail en poudre, 1/2 c. à c. de poivre noir"
+    ],
+    "etapes": [
+      "Dans une petite casserole en fonte posée sur la grille du kamado (ou sur une plaque), réunissez la moutarde, le vinaigre de cidre, le miel et la cassonade.",
+      "Fouettez à feu doux pour dissoudre entièrement le sucre et le miel.",
+      "Incorporez la sauce Worcestershire, l'ail en poudre, le poivre et le piment.",
+      "Laissez frémir doucement à feu très doux pendant 5 à 8 min sans cesser de remuer pour éviter les éclaboussures.",
+      "La sauce prend une couleur jaune d'or chatoyante et une texture brillante et sirupeuse.",
+      "Laissez refroidir à température ambiante avant de mettre en bouteille.",
+      "Badigeonnez généreusement sur les travers de porc ou le pulled pork 10 min avant la fin de cuisson, ou servez en saucière à table."
+    ],
+    "astuce": "Héritée des immigrants allemands arrivés en Caroline du Sud au XVIIIe siècle, cette sauce remplace la tomate par la moutarde pour un accord parfait avec le gras du porc.",
+    "difficulty": 1,
+    "repos_min": 0,
+    "vents": {
+      "bottom": "—",
+      "top": "—"
+    },
+    "notes_securite": "Contient de la moutarde (allergène majeur) et des traces de poisson dans la sauce Worcestershire. Se conserve 3 semaines au réfrigérateur dans un bocal stérilisé.",
+    "source": "Traditional South Carolina BBQ / Maurice's Piggie Park",
+    "sauce": "Idéale pour : Pulled pork, Travers de porc glacés, Saucisses grillées",
+    "_derived": null
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-03T09:59:39.687Z",
+  "reviewedAt": "2026-09-03T10:10:05.986Z",
   "agent": "kamado-expert",
   "references": [
     {
@@ -24,10 +24,10 @@
     }
   ],
   "totals": {
-    "recipesReviewed": 228,
+    "recipesReviewed": 246,
     "issues": 0,
-    "warnings": 0,
-    "improvements": 251
+    "warnings": 9,
+    "improvements": 287
   },
   "byCategory": {
     "agneau": {
@@ -38,78 +38,76 @@
       "withCredibleSource": 21
     },
     "boeuf": {
-      "count": 28,
+      "count": 30,
       "withPhases": 23,
-      "withSafety": 9,
-      "withErrors": 15,
-      "withCredibleSource": 28
+      "withSafety": 12,
+      "withErrors": 14,
+      "withCredibleSource": 29
     },
     "dessert": {
-      "count": 19,
+      "count": 21,
       "withPhases": 5,
-      "withSafety": 0,
+      "withSafety": 2,
       "withErrors": 1,
-      "withCredibleSource": 19
+      "withCredibleSource": 20
     },
     "legumes": {
-      "count": 23,
+      "count": 25,
       "withPhases": 10,
-      "withSafety": 1,
+      "withSafety": 3,
       "withErrors": 7,
       "withCredibleSource": 23
     },
     "monde": {
-      "count": 38,
-      "withPhases": 14,
-      "withSafety": 22,
+      "count": 41,
+      "withPhases": 15,
+      "withSafety": 25,
       "withErrors": 8,
       "withCredibleSource": 34
     },
     "pizza": {
       "count": 12,
       "withPhases": 4,
-      "withSafety": 2,
+      "withSafety": 4,
       "withErrors": 3,
-      "withCredibleSource": 10
+      "withCredibleSource": 9
     },
     "poisson": {
-      "count": 24,
+      "count": 28,
       "withPhases": 5,
-      "withSafety": 24,
+      "withSafety": 28,
       "withErrors": 3,
       "withCredibleSource": 24
     },
     "porc": {
-      "count": 23,
+      "count": 25,
       "withPhases": 20,
-      "withSafety": 9,
+      "withSafety": 11,
       "withErrors": 16,
       "withCredibleSource": 23
     },
     "vegetarien": {
-      "count": 17,
+      "count": 18,
       "withPhases": 6,
-      "withSafety": 3,
+      "withSafety": 4,
       "withErrors": 2,
-      "withCredibleSource": 16
+      "withCredibleSource": 17
     },
     "volaille": {
-      "count": 21,
+      "count": 23,
       "withPhases": 16,
-      "withSafety": 21,
+      "withSafety": 23,
       "withErrors": 8,
-      "withCredibleSource": 21
+      "withCredibleSource": 22
     }
   },
   "sauceCoverage": {
-    "proposed": 263,
-    "matched": 88,
+    "proposed": 296,
+    "matched": 105,
     "unmatchedByName": {
-      "Salsa verde persil-coriandre, ail, citron et huile d'olive": 1,
       "Tare yakitori réduite : soja, mirin, saké, sucre et gingembre": 1,
       "Sauce BBQ épaisse": 1,
       "jus de cuisson réduit": 1,
-      "Moutarde brune piquante (style Katz's)": 1,
       "Sauce moutarde-miel": 8,
       "BBQ maison": 8,
       "Laque hoisin-miel-soja": 3,
@@ -139,7 +137,9 @@
       "Yaourt à la coriandre et concombre (raïta)": 1,
       "Yaourt à l'ail et menthe, sumac citronné": 1,
       "Réduction de moutarde ancienne au thym et jus de rôti": 1,
-      "Sauce vierge citron-herbes": 14,
+      "Sauce vierge citron-herbes": 13,
+      "Sauce vierge aux herbes et tomates": 2,
+      "Beurre blanc": 1,
       "Sauce vierge tomate, câpres, basilic, citron et huile d'olive": 1,
       "Crème ail-persil au jus fumé des moules": 1,
       "Crème citron vert-chipotle": 1,
@@ -152,7 +152,7 @@
       "Jus beurre-orange-moutarde": 1,
       "Crème raifort-yaourt ou tahini citron": 1,
       "Salade verte au vinaigre de Xérès": 1,
-      "Huile d'olive citron-romarin pour tremper": 1,
+      "Sauce tomate San Marzano à l'ail et origan": 1,
       "Base crème légère au poivre": 1,
       "Yaourt citron-ail et persil": 1,
       "Sauce tomate San Marzano simple": 1,
@@ -164,12 +164,38 @@
       "Yaourt ail-citron": 2,
       "Sauce moutarde-miel, vinaigre de cidre et huile de noix": 1,
       "Sauce tahini-citron, câpres et herbes": 1,
-      "Salsa roja ou crème citron vert-coriandre": 1
+      "Salsa roja ou crème citron vert-coriandre": 1,
+      "Jus de veau réduit aux morilles": 1,
+      "Sauce aux morilles et vin jaune": 1,
+      "Sauce Hoisin": 1,
+      "Jus de volaille aux morilles": 1,
+      "Refrito à l'ail, piment et vinaigre de cidre": 1,
+      "Sauce ponzu au yuzu": 1,
+      "Beurre salé aux herbes": 1,
+      "Vinaigrette tiède aux herbes": 1,
+      "Sauce cacahuète épicée (Satay)": 1,
+      "Sauce soja sucrée au piment": 1,
+      "Consommé de Birria épicé": 1,
+      "Salsa roja": 1,
+      "Glace vanille artisanale": 1,
+      "Coulis de caramel au beurre salé": 1,
+      "Réduction de vin aux épices": 1,
+      "Crème mascarpone vanillée": 1
     },
-    "unmatchedUnique": 60
+    "unmatchedUnique": 76
   },
   "issues": [],
-  "warnings": [],
+  "warnings": [
+    "Pains Pitas gonflés à la flamme sur pierre réfractaire: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
+    "Presa ibérique marinée au pimentón de la Vera & ail doux: cuisson multi-température sans phases structurées",
+    "Ris de veau braisés au foin puis dorés sur fonte: cuisson multi-température sans phases structurées",
+    "Côte de veau épaisse aux morilles et vin jaune: cuisson multi-température sans phases structurées",
+    "Canard laqué croustillant au kamado façon Pékin: cuisson multi-température sans phases structurées",
+    "Éclade de moules aux aiguilles de pin façon kamado: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
+    "Barigoule d'artichauts poivrade au lard et vin blanc en cocotte: volaille/canard: expliciter la référence sécurité 74 °C ou la dérogation culinaire assumée",
+    "Satay de bœuf balinais à la citronnelle & sauce cacahuète: sucre/laque à feu vif sans consigne claire d'application en fin de cuisson",
+    "Steak de chou-fleur rôti au kamado & chimichurri frais: cuisson multi-température sans phases structurées"
+  ],
   "improvements": [
     "Chimichurri argentin: base sauce sans source ou inspiration",
     "Sauce barbecue maison (Kansas City): base sauce sans source ou inspiration",
@@ -207,9 +233,10 @@
     "Tri-tip sauce Santa Maria: liste d'ingrédients courte, vérifier qu'elle suffit hors bases/sauces",
     "Tri-tip sauce Santa Maria: ajouter au moins deux erreurs fréquentes spécifiques",
     "Picanha entière façon churrasco: ajouter au moins deux erreurs fréquentes spécifiques",
-    "Tri-tip californien reverse sear: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Dino Beef Ribs (travers de bœuf géants fumés au chêne): ajouter au moins deux erreurs fréquentes spécifiques",
     "Onglet yakitori au binchotan maison: ajouter au moins deux erreurs fréquentes spécifiques",
     "Bistecca alla Fiorentina (T-bone): ajouter au moins deux erreurs fréquentes spécifiques",
+    "Paleron de bœuf fumé façon Brisket (Smoked Chuck Roast): ajouter au moins deux erreurs fréquentes spécifiques",
     "Carré de porc rôti aux herbes: ajouter au moins deux erreurs fréquentes spécifiques",
     "Poitrine de porc croustillante: ajouter au moins deux erreurs fréquentes spécifiques",
     "Échine marinée à la bière: liste d'ingrédients courte, vérifier qu'elle suffit hors bases/sauces",
@@ -280,7 +307,7 @@
     "Huîtres chaudes gratinées: ajouter au moins deux erreurs fréquentes spécifiques",
     "Calamars grillés en persillade: ajouter au moins deux erreurs fréquentes spécifiques",
     "Saumon laqué teriyaki: ajouter au moins deux erreurs fréquentes spécifiques",
-    "Dorade royale en croûte de sel: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Loup de mer (bar) entier en croûte de sel et herbes de Provence: ajouter au moins deux erreurs fréquentes spécifiques",
     "Espadon grillé vierge de tomates: ajouter au moins deux erreurs fréquentes spécifiques",
     "Tacos de poisson croustillant sur plancha: ajouter au moins deux erreurs fréquentes spécifiques",
     "Huîtres gratinées au kamado: ajouter au moins deux erreurs fréquentes spécifiques",
@@ -319,8 +346,9 @@
     "Naan à l'ail au beurre: ajouter au moins deux erreurs fréquentes spécifiques",
     "Fougasse aux olives: liste d'ingrédients courte, vérifier qu'elle suffit hors bases/sauces",
     "Fougasse aux olives: ajouter au moins deux erreurs fréquentes spécifiques",
-    "Naan à l'ail sur pierre: ajouter au moins deux erreurs fréquentes spécifiques",
-    "Focaccia fumée romarin-olives: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Pains Pitas gonflés à la flamme sur pierre réfractaire: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Calzone napolitain soufflé à la ricotta, fior di latte & spianata: source à renforcer: \"Associazione Verace Pizza Napoletana (AVPN) — Calzone tradizionale\"",
+    "Calzone napolitain soufflé à la ricotta, fior di latte & spianata: ajouter au moins deux erreurs fréquentes spécifiques",
     "Pizza blanche poire-gorgonzola-noix: ajouter au moins deux erreurs fréquentes spécifiques",
     "Lahmacun agneau épicé: ajouter au moins deux erreurs fréquentes spécifiques",
     "Pizza al taglio romaine 72h: source à renforcer: \"Gabriele Bonci — 'Il gioco della pizza' (Rizzoli, 2009), pâte hydratée 72h style Pizzarium\"",
@@ -421,6 +449,40 @@
     "Quesadillas légumes fumés: ajouter au moins deux erreurs fréquentes spécifiques",
     "Beer can cabbage (chou à la bière): ajouter au moins deux erreurs fréquentes spécifiques",
     "Provoleta grillé (fromage argentin): ajouter au moins deux erreurs fréquentes spécifiques",
-    "Tandoori Gobi (chou-fleur tandoori): ajouter au moins deux erreurs fréquentes spécifiques"
+    "Tandoori Gobi (chou-fleur tandoori): ajouter au moins deux erreurs fréquentes spécifiques",
+    "Pluma ibérique à la plancha, fleur de sel & romarin: source à renforcer: \"Asador Etxebarri — Atxondo, Espagne\"",
+    "Pluma ibérique à la plancha, fleur de sel & romarin: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Presa ibérique marinée au pimentón de la Vera & ail doux: source à renforcer: \"Gastronomie d'Estrémadure, Espagne\"",
+    "Presa ibérique marinée au pimentón de la Vera & ail doux: liste d'ingrédients courte, vérifier qu'elle suffit hors bases/sauces",
+    "Presa ibérique marinée au pimentón de la Vera & ail doux: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Ris de veau braisés au foin puis dorés sur fonte: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Côte de veau épaisse aux morilles et vin jaune: source à renforcer: \"Cuisine traditionnelle franc-comtoise\"",
+    "Côte de veau épaisse aux morilles et vin jaune: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Canard laqué croustillant au kamado façon Pékin: source à renforcer: \"Tradition impériale de Pékin / Da Dong Roast Duck\"",
+    "Canard laqué croustillant au kamado façon Pékin: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Suprêmes de pintade fermière rôtis sous peau aux morilles: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Turbot entier grillé en panier sur braises vives façon Getaria: source à renforcer: \"Restaurant Elkano — Getaria (3 étoiles Michelin, légende mondiale du turbot au feu de bois)\"",
+    "Turbot entier grillé en panier sur braises vives façon Getaria: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Saint-Pierre rôti entier au thym citron et fenouil sauvage: source à renforcer: \"Gérald Passédat — Le Petit Nice, Marseille\"",
+    "Saint-Pierre rôti entier au thym citron et fenouil sauvage: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Tataki de thon rouge mariné au yuzu & croûte de sésame noir: source à renforcer: \"Technique traditionnelle japonaise Tataki / Nobu Matsuhisa\"",
+    "Tataki de thon rouge mariné au yuzu & croûte de sésame noir: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Éclade de moules aux aiguilles de pin façon kamado: source à renforcer: \"Recette patrimoniale de l'Île d'Oléron et du bassin de Marennes\"",
+    "Éclade de moules aux aiguilles de pin façon kamado: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Baingan Bharta (caviar d'aubergines brûlées fumées à l'indienne): source à renforcer: \"Madhur Jaffrey — A Taste of India\"",
+    "Baingan Bharta (caviar d'aubergines brûlées fumées à l'indienne): ajouter au moins deux erreurs fréquentes spécifiques",
+    "Barigoule d'artichauts poivrade au lard et vin blanc en cocotte: source à renforcer: \"Jean-André Charial — L'Oustau de Baumanière, Les Baux-de-Provence\"",
+    "Barigoule d'artichauts poivrade au lard et vin blanc en cocotte: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Kofte d'agneau et bœuf au sumac & menthe sur brochettes: source à renforcer: \"Cuisine de rue d'Istanbul / Chef Musa Dağdeviren (Çiya Sofrası)\"",
+    "Kofte d'agneau et bœuf au sumac & menthe sur brochettes: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Satay de bœuf balinais à la citronnelle & sauce cacahuète: source à renforcer: \"Street food de Bali / Sanur Night Market\"",
+    "Satay de bœuf balinais à la citronnelle & sauce cacahuète: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Tacos de Birria de bœuf fumé au kamado & consommé mijoté: source à renforcer: \"Recette emblématique de Jalisco, Mexique\"",
+    "Tacos de Birria de bœuf fumé au kamado & consommé mijoté: liste d'ingrédients courte, vérifier qu'elle suffit hors bases/sauces",
+    "Tacos de Birria de bœuf fumé au kamado & consommé mijoté: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Giant Skillet Cookie aux pépites de chocolat en poêle fonte: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Poires pochées fumées au vin chaud et épices douces: source à renforcer: \"Recette bourguignonne traditionnelle / Le Guide Culinaire\"",
+    "Poires pochées fumées au vin chaud et épices douces: ajouter au moins deux erreurs fréquentes spécifiques",
+    "Steak de chou-fleur rôti au kamado & chimichurri frais: ajouter au moins deux erreurs fréquentes spécifiques"
   ]
 }

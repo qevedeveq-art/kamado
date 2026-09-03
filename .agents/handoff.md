@@ -1,15 +1,19 @@
 # Agent Handoff
 
 ## Current Status
-- Zero-build PWA & native mobile app Kamado fully universalized and upgraded to v27.
-- Simplified and cleaned culinary recipe view:
-  - Removed internal technical sections "Contrôle qualité de la fiche" and "Références fiables" from the recipe detail modal.
-  - Removed "Qualité : X/8" badge from main recipe cards.
-  - The recipe sheet now focuses exclusively on culinary execution: Mise en place, Sécurité alimentaire, Service & découpe, Conseils du Chef, Réglages Kamado, Phases et Ingrédients.
-  - All 249 recipes verified 100% complete and up to date (0 audit issues, 0 warnings).
-  - Documented web recipe import strategy and automated CLI workflow (`scripts/import-url.js`).
-- 46 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings across all audit scripts.
-- Service worker bumped to `v27`.
+- Zero-build PWA & native mobile app Kamado upgraded to v28.
+- Massive Recipe Catalog Expansion & Deduplication (Chef Reviewer & Kamado Expert validated):
+  - Total catalog increased from 249 to 269 recipes (246 cooking recipes, 23 sauces/bases).
+  - Eliminated 5 redundant duplicates/triplicates in place with distinct gastronomic creations:
+    - *Dorade royale* -> *Loup de mer (bar) entier en croûte de sel et herbes de Provence*
+    - *Tri-tip doublon* -> *Dino Beef Ribs (Plate Short Ribs géantes texanes fumées 8 h au chêne)*
+    - *Naan doublon* -> *Pains Pitas gonflés à la flamme sur pierre réfractaire*
+    - *Pastrami doublon* -> *Paleron de bœuf fumé façon Brisket (Smoked Chuck Roast)*
+    - *Focaccia doublon* -> *Calzone napolitain soufflé à la ricotta, fior di latte & spianata*
+  - Added 20 elite new recipes adapted to Kamado: Pluma ibérique bellota, Presa ibérique marinée, Ris de veau braisés au foin puis croustillants, Côte de veau aux morilles, Canard laqué croustillant façon Pékin, Suprêmes de pintade morilles sous peau, Turbot entier grillé façon Getaria (Elkano), Saint-Pierre rôti au fenouil sauvage, Tataki de thon yuzu-sésame noir, Éclade de moules aux aiguilles de pin, Baingan Bharta (aubergines brûlées fumées indiennes), Barigoule d'artichauts poivrade en cocotte, Kofte d'agneau au sumac, Satay de bœuf balinais, Tacos de Birria de bœuf au kamado, Giant Skillet Cookie fonte, Poires pochées au vin chaud fumées, Steak de chou-fleur chimichurri, Sauce Alabama White BBQ, Sauce Carolina Gold.
+  - 100% of cooking recipes enriched with vents, charbon_kg, repos_min, difficulty, core temperatures, and chef security notes.
+- 46 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings on Data & Chef audits.
+- Service worker bumped to `v28`.
 
 ## Last Commands
 - `node scripts/extract-data.js`
@@ -19,7 +23,8 @@
 - `node scripts/bump-sw-version.js --force`
 
 ## Files Changed
-- `index.html` (removed quality checks and references from recipe guidance, removed quality badge from cards)
-- `sw.js` (bumped to `v27`)
+- `index.html` (5 duplicates replaced, 20 curated recipes injected with full schema)
+- `data/recipes.json` (regenerated, 269 recipes)
+- `sw.js` (bumped to `v28`)
 - `.agents/handoff.md` (updated handoff)
 
