@@ -3782,6 +3782,105 @@
     }
   },
   {
+    "cat": "porc",
+    "nom": "Travers de porc « Turbo Ribs »",
+    "ori": "USA · méthode rapide de compétition",
+    "pour": "4 pers",
+    "mode": "Fumage indirect",
+    "tempK": "150 °C",
+    "coeur": "92–94 °C (bend test souple)",
+    "temps": "2 h 30",
+    "bois": "Cerisier ou pommier",
+    "tags": "ribs travers turbo rapide compétition barbecue",
+    "ings": [
+      "2 racks de travers de porc (baby back ou saint-louis)",
+      "Rub BBQ (paprika, cassonade, ail, sel, poivre noir)",
+      "50 g de beurre doux",
+      "3 c. à s. de miel ou sirop d'érable",
+      "4 c. à s. de jus de pomme",
+      "Sauce BBQ pour le laquage"
+    ],
+    "etapes": [
+      "Retirez la membrane blanche côté os avec un papier absorbant pour une bonne prise. Appliquez le rub uniformément 30 min avant.",
+      "Stabilisez le kamado en indirect à 150 °C avec déflecteur et 2 morceaux de bois de cerisier. Attendez la fumée bleu pâle.",
+      "Phase 1 (1 h 15) : Posez les ribs côté os en bas. Fumez sans ouvrir jusqu'à belle coloration acajou.",
+      "Phase 2 (45 min) : Emballez hermétiquement dans du papier boucher ou double aluminium avec beurre, miel et jus de pomme.",
+      "Phase 3 (15–20 min) : Déballez, reposez sur la grille et laquez au pinceau avec la sauce BBQ pour caraméliser.",
+      "Sortez, laissez reposer 10 min puis tranchez entre les os."
+    ],
+    "astuce": "La méthode Turbo à 150 °C divise le temps de cuisson par deux par rapport au 3-2-1 sans perdre en tendreté, grâce à l'étanchéité naturelle de la céramique du kamado.",
+    "difficulty": 2,
+    "charbon_kg": 1.8,
+    "repos_min": 10,
+    "vents": {
+      "bottom": "1/3 ouvert",
+      "top": "1/3 ouvert"
+    },
+    "wrap": {
+      "at_temp_coeur_C": 85,
+      "materiau": "papier boucher ou double alu épais",
+      "apres": "Après 1 h 15 de coloration initiale"
+    },
+    "phases": [
+      {
+        "name": "Fumage à 150 °C",
+        "mode": "fumage",
+        "temp_C": 150,
+        "duration_min": 75,
+        "action": "Coloration acajou du rub, pose sur grille indirecte."
+      },
+      {
+        "name": "Wrap étanche",
+        "mode": "indirect",
+        "temp_C": 150,
+        "duration_min": 45,
+        "action": "Emballage avec beurre, miel et jus de pomme pour attendrir vite."
+      },
+      {
+        "name": "Glaçage final",
+        "mode": "indirect",
+        "temp_C": 150,
+        "duration_min": 15,
+        "action": "Laquage sauce BBQ pour faire perler le vernis."
+      }
+    ],
+    "equipement": [
+      "Déflecteur céramique",
+      "Papier boucher ou alu épais",
+      "Pinceau de cuisson",
+      "Pince longue"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Travers de porc (baby back)",
+        "par": "Travers de porc Saint-Louis ou poitrine de porc découpe ribs"
+      },
+      {
+        "ingredient": "Sirop d'érable",
+        "par": "Miel de fleurs ou cassonade fondu dans du jus de pomme"
+      }
+    ],
+    "erreurs": [
+      "Enfourner dans la fumée blanche âcre → attendre la fumée bleu pâle",
+      "Oublier de retirer la plèvre côté os → rend la mastication désagréable",
+      "Trop de sauce en début de cuisson → le sucre brûle au lieu de caraméliser"
+    ],
+    "notes_securite": "Travers de porc : la cuisson à 150 °C assure une pasteurisation rapide et constante. Test du cure-dent entre deux os sans forcer. Servir bien chaud.",
+    "source": "https://amazingribs.com/tested-recipes/pork-recipes/sweet-baby-rays-barbecue-ribs-recipe/",
+    "_derived": {
+      "spice": "Épicé doux",
+      "season": "toute",
+      "sauces": [
+        "Sauce barbecue maison Kansas City"
+      ],
+      "allergens": [
+        "lait",
+        "gluten",
+        "fruits à coque"
+      ]
+    }
+  },
+  {
     "cat": "volaille",
     "nom": "Poulet entier à la cannette (beer can)",
     "ori": "USA · poulet vapeur-rôti spectaculaire",
@@ -13819,6 +13918,98 @@
         "gluten",
         "mollusques",
         "soja"
+      ]
+    }
+  },
+  {
+    "cat": "monde",
+    "nom": "Smoked Queso Dip au kamado",
+    "ori": "USA / Tex-Mex · apéritif culte des forums kamado",
+    "pour": "6–8 pers",
+    "mode": "Fumage indirect",
+    "tempK": "130–140 °C",
+    "coeur": "75–80 °C (fromage fondu onctueux)",
+    "temps": "45–50 min",
+    "bois": "Pommier ou chêne (subtil)",
+    "tags": "fromage apéritif dip tex-mex convivial queso cheddar fonte",
+    "ings": [
+      "350 g de cheddar fort râpé",
+      "250 g de gouda ou monterey jack en dés",
+      "200 g de fromage frais à tartiner (type cream cheese)",
+      "250 g de chair à saucisse fumée ou chorizo émietté",
+      "1 boîte (400 g) de tomates concassées ou concassée pimentée",
+      "2 piments jalapeños frais épépinés et émincés",
+      "1 oignon rouge finement ciselé",
+      "2 gousses d'ail râpées",
+      "1 c. à c. de cumin moulu",
+      "1 bouquet de coriandre fraîche",
+      "1 paquet de tortilla chips maïs pour servir"
+    ],
+    "etapes": [
+      "Dans une poêle ou cocotte en fonte, faites dorer la chair à saucisse / chorizo émietté 5 min puis égouttez l'excès de gras.",
+      "Dans la cocotte en fonte non couverte, disposez côte à côte les fromages, les tomates égouttées, l'oignon, l'ail, les jalapeños et le cumin.",
+      "Stabilisez le kamado en indirect à 130 °C avec déflecteur et 1 chunk de bois léger (pommier ou chêne). Attendez la fumée bleu pâle.",
+      "Placez la cocotte ouverte sur la grille du kamado. Fumez pendant 30 min sans ouvrir.",
+      "Mélangez délicatement l'ensemble à la spatule en bois pour lier les fromages fondus et la garniture.",
+      "Poursuivez la cuisson 15 min jusqu'à obtenir une texture veloutée et bouillonnante sur les bords.",
+      "Parsemez de coriandre fraîche ciselée et servez immédiatement au centre de la table avec les chips."
+    ],
+    "astuce": "Recette star virale des forums Egghead et Kamado Joe : le secret réside dans le récipient en fonte non couvert pour que la fumée imprègne généreusement le fromage fondu.",
+    "difficulty": 1,
+    "charbon_kg": 1.2,
+    "repos_min": 5,
+    "vents": {
+      "bottom": "1/4 ouvert",
+      "top": "1/4 ouvert"
+    },
+    "phases": [
+      {
+        "name": "Fumage statique",
+        "mode": "fumage",
+        "temp_C": 130,
+        "duration_min": 30,
+        "action": "Cocotte en fonte ouverte, absorption de la fumée douce."
+      },
+      {
+        "name": "Liaison & émulsion",
+        "mode": "indirect",
+        "temp_C": 130,
+        "duration_min": 15,
+        "action": "Remuer à la spatule pour créer l'émulsion onctueuse."
+      }
+    ],
+    "equipement": [
+      "Plat ou poêle en fonte émaillée ou brute",
+      "Déflecteur céramique",
+      "Gants haute température",
+      "Spatule en bois"
+    ],
+    "substitutions": [
+      {
+        "ingredient": "Cheddar fort",
+        "par": "Gouda vieux, Comté râpé ou Cantal entre-deux"
+      },
+      {
+        "ingredient": "Piments jalapeños",
+        "par": "Poivron vert doux émincé avec une pincée de piment d'Espelette"
+      }
+    ],
+    "erreurs": [
+      "Couvrir la cocotte → empêche la fumée d'aromatiser le dip",
+      "Température trop forte (>160 °C) → le fromage tranche et l'huile se sépare",
+      "Fromage pré-râpé industriel bas de gamme → les anti-agglomérants empêchent une texture lisse"
+    ],
+    "notes_securite": "Contient de la viande porc/bœuf : la chair doit être dorée au préalable à >71 °C avant d'être mélangée aux fromages. Servir chaud dès sortie du kamado.",
+    "source": "https://amazingribs.com/tested-recipes/cheese-recipes/smoked-mac-and-cheese-recipe/",
+    "_derived": {
+      "spice": "Relevé",
+      "season": "ete",
+      "sauces": [
+        "Sauce barbecue maison Kansas City"
+      ],
+      "allergens": [
+        "lait",
+        "gluten"
       ]
     }
   },

@@ -1,23 +1,23 @@
 # Recipe Quality Audit
 
-Generated: 2026-09-03T08:43:22.116Z
+Generated: 2026-09-03T09:19:44.609Z
 
 ## Summary
 
-- Recipes reviewed: 247
-- Cooking recipes reviewed: 226
+- Recipes reviewed: 249
+- Cooking recipes reviewed: 228
 - Clean cooking recipes (no issue/warning): 146
 - Issues: 0
-- Warnings: 102
-- Improvements: 226
+- Warnings: 105
+- Improvements: 227
 
 ## Role Counts
 
 - french-chef-reviewer: 6
 - kamado-expert: 95
 - marinade-reviewer: 1
-- recipe-declutter: 110
-- temperature: 116
+- recipe-declutter: 111
+- temperature: 119
 
 ## Top Findings
 
@@ -102,4 +102,4 @@ Generated: 2026-09-03T08:43:22.116Z
 - **WARNING** [temperature] Poulet jerk jamaïcain `phases[0].temp_C`: Phase "Cuisson indirecte" à 180 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **WARNING** [temperature] Pulled pork (échine effilochée) `phases[1].temp_C`: Phase "Wrap alu + jus de pomme" à 110 C hors bande direct / saisie. Corriger mode de phase ou température.
 
-_248 more findings in scripts/reports/recipe-quality-audit.json._
+_252 more findings in scripts/reports/recipe-quality-audit.json._

@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-03T08:48:25.699Z",
+  "reviewedAt": "2026-09-03T09:19:44.470Z",
   "agent": "kamado-expert",
   "references": [
     {
@@ -24,7 +24,7 @@
     }
   ],
   "totals": {
-    "recipesReviewed": 226,
+    "recipesReviewed": 228,
     "issues": 0,
     "warnings": 0,
     "improvements": 251
@@ -59,11 +59,11 @@
       "withCredibleSource": 23
     },
     "monde": {
-      "count": 37,
-      "withPhases": 13,
-      "withSafety": 21,
-      "withErrors": 7,
-      "withCredibleSource": 33
+      "count": 38,
+      "withPhases": 14,
+      "withSafety": 22,
+      "withErrors": 8,
+      "withCredibleSource": 34
     },
     "pizza": {
       "count": 12,
@@ -80,11 +80,11 @@
       "withCredibleSource": 24
     },
     "porc": {
-      "count": 22,
-      "withPhases": 19,
-      "withSafety": 8,
-      "withErrors": 15,
-      "withCredibleSource": 22
+      "count": 23,
+      "withPhases": 20,
+      "withSafety": 9,
+      "withErrors": 16,
+      "withCredibleSource": 23
     },
     "vegetarien": {
       "count": 17,
@@ -102,8 +102,8 @@
     }
   },
   "sauceCoverage": {
-    "proposed": 261,
-    "matched": 86,
+    "proposed": 263,
+    "matched": 88,
     "unmatchedByName": {
       "Salsa verde persil-coriandre, ail, citron et huile d'olive": 1,
       "Tare yakitori réduite : soja, mirin, saké, sucre et gingembre": 1,

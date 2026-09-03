@@ -1,7 +1,7 @@
 {
-  "reviewedAt": "2026-09-03T08:43:22.116Z",
-  "recipesReviewed": 247,
-  "cookingReviewed": 226,
+  "reviewedAt": "2026-09-03T09:19:44.609Z",
+  "recipesReviewed": 249,
+  "cookingReviewed": 228,
   "references": [
     {
       "name": "FoodSafety.gov safe minimum internal temperatures",
@@ -14,16 +14,16 @@
   ],
   "totals": {
     "issue": 0,
-    "warning": 102,
-    "improvement": 226,
+    "warning": 105,
+    "improvement": 227,
     "cleanCookingRecipes": 146
   },
   "byRole": {
     "french-chef-reviewer": 6,
     "kamado-expert": 95,
     "marinade-reviewer": 1,
-    "recipe-declutter": 110,
-    "temperature": 116
+    "recipe-declutter": 111,
+    "temperature": 119
   },
   "findings": [
     {
@@ -819,6 +819,15 @@
       "suggestion": "Corriger mode de phase ou température."
     },
     {
+      "recipe": "Smoked Queso Dip au kamado",
+      "category": "monde",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Liaison & émulsion\" à 130 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
       "recipe": "Steaks de chou rouge fumés",
       "category": "vegetarien",
       "role": "temperature",
@@ -897,6 +906,24 @@
       "severity": "warning",
       "field": "phases[2].temp_C",
       "message": "Phase \"Laquage KC (45 min)\" à 120 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Travers de porc « Turbo Ribs »",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[1].temp_C",
+      "message": "Phase \"Wrap étanche\" à 150 C hors bande direct / saisie.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Travers de porc « Turbo Ribs »",
+      "category": "porc",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[2].temp_C",
+      "message": "Phase \"Glaçage final\" à 150 C hors bande direct / saisie.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
@@ -2833,6 +2860,15 @@
       "field": "notes_securite",
       "message": "Notes sécurité longues ou nombreuses.",
       "suggestion": "Garder 1-2 points non redondants avec coeur."
+    },
+    {
+      "recipe": "Smoked Queso Dip au kamado",
+      "category": "monde",
+      "role": "recipe-declutter",
+      "severity": "improvement",
+      "field": "equipement",
+      "message": "Équipement trivial: Plat ou poêle en fonte émaillée ou brute, Spatule en bois.",
+      "suggestion": "Garder seulement outils kamado ou non évidents."
     },
     {
       "recipe": "Souris d'agneau braisées au miel",
