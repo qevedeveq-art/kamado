@@ -2,87 +2,116 @@
 
 ![Kamado Cover](kamado_cover.jpg)
 
-Application web progressive (PWA) et mobile native de recettes, d'assistance et de planification universelle pour tous les amateurs de cuisine au barbecue céramique Kamado (Big Green Egg, Kamado Joe, Monolith, Primo, The Bastard, etc.).
+Application web progressive (PWA) et mobile native (Capacitor) de recettes, d'assistance thermique et de sommellerie pour tous les passionnés de cuisine au barbecue céramique Kamado (Big Green Egg, Kamado Joe, Monolith, Primo, The Bastard, etc.).
 
-**URL publique** : [https://qevedeveq-art.github.io/kamado/](https://qevedeveq-art.github.io/kamado/)
+**Application en ligne** : [https://qevedeveq-art.github.io/kamado/](https://qevedeveq-art.github.io/kamado/)
 
 ---
 
 ## 🔥 Fonctionnalités Majeures
 
-L'application a été enrichie d'outils interactifs avancés pour offrir une expérience culinaire de premier ordre :
+L'application est conçue pour être **ultra-rapide, 100 % utilisable hors-ligne (Offline-First)** et spécifiquement adaptée aux conditions réelles de cuisson en extérieur :
 
-*   **📖 Livre de Recettes Premium &amp; Bases** : 226 recettes de cuisson et 21 bases classées par familles (Bœuf, Porc, Volaille, Agneau, Poissons, Légumes, Pizzas, Desserts, Sauces &amp; Rubs). Moteur de recherche avancé avec inclusions et exclusions (ex: `poulet citron -gluten`).
-*   **📅 Planificateur de Session BBQ (Timeline)** : Indiquez simplement votre heure de repas cible (ex: 13h00) et ajoutez vos recettes. L'application calcule à rebours et planifie chaque étape de votre journée (allumage, stabilisation, enfournement de chaque plat selon sa durée, repos des viandes).
-*   **📈 Simulateur de Cuisson Low &amp; Slow** : Visualisez graphiquement l'évolution de la température à cœur de votre viande (Pulled Pork, Brisket, Ribs 3-2-1) sur un graphique SVG interactif modélisant la phase de plateau (*stall*).
-*   **🔥 Calculateur de Charbon &amp; Bois** : Obtenez des estimations précises sur la quantité de charbon requise, l'essence et le nombre de morceaux de bois de fumage (*chunks*) ainsi que le réglage de départ des évents selon votre type de viande et le mode de cuisson.
-*   **⏱️ Minuteurs multiples avec son de qualité** : Lancez autant de minuteurs que nécessaire. Ils s'affichent sous forme de cercles SVG animés décomptant le temps restant et préviennent par une double alerte sonore professionnelle (Web Audio API) et vibrations à l'échéance.
-*   **🍷 Accords Vins &amp; Régimes (Diets)** : Les badges d'allergènes et de régimes (*Sans Gluten, Végétarien, Keto*) ainsi que des suggestions d'accords vins précises et gastronomiques sont automatiquement calculés et affichés pour chaque plat.
-*   **🛒 Liste de courses triée par rayons** : Ajoutez des ingrédients depuis n'importe quelle recette pour générer une liste globale. La copie presse-papiers classe automatiquement vos achats par rayons (Boucherie, Fruits &amp; Légumes, Épicerie) au format Markdown compatible avec Obsidian et Apple Notes.
-*   **🖨️ Fiche d'Impression Premium avec QR Code** : Imprimez vos recettes ou générez des PDF parfaits, nettoyés de l'interface numérique et équipés d'un QR code dynamique permettant de revenir en un flash à la fiche interactive en ligne.
-*   **🎯 Garde-manger &amp; mode "Ce soir"** : Combinez ingrédients disponibles, exclusions, plusieurs régimes, plusieurs matériels et temps disponible pour trouver une recette réaliste immédiatement.
-*   **✅ Qualité &amp; cuisson guidée** : Chaque fiche affiche son niveau de détail, les signes visuels de bonne cuisson, les erreurs fréquentes et les repères sécurité quand disponibles.
-*   **🌡️ Menus compatibles Kamado** : Le générateur évite les menus incohérents en rapprochant les plats selon leur plage de température (fumage, rôtissage, cuisson vive).
-*   **🧭 Session de cuisson complète** : Le planificateur conserve la session, génère une timeline multi-températures et peut envoyer toute la session vers la liste de courses.
-*   **🔎 Tri avancé** : Triez les recettes par durée, difficulté, qualité, note personnelle ou historique récent.
+### 🍽️ Livre de Recettes Gastronomiques (269 recettes)
+* **246 recettes de cuisson et 23 sauces & bases** couvrant l'ensemble des techniques du kamado : saisie directe à haute température, rôtissage indirect, fumage *Low & Slow*, cuisson sur pierre à pizza, cocotte en fonte et plancha.
+* **100 % enrichies** : chaque fiche comporte les réglages d'évents (haut/bas), les besoins en charbon (kg), les phases de cuisson structurées, la température à cœur exacte, l'équipement requis, les allergènes certifiés (norme UE) et les accords mets-vins.
+* **Navigation fluide & tactile** : feuilletage des recettes via des flèches `‹` / `›`, touches fléchées du clavier et geste de balayage tactile (*swipe*) sur smartphone.
+* **Recherche intelligente & synonymes BBQ** : moteur multi-mots avec tolérance aux synonymes courants (ex: *ribs* trouve les travers, *brisket* trouve la poitrine, *effiloché* trouve le pulled pork).
+* **Pilules de filtres rapides** : accès direct en 1 tap aux cuissons `⚡ < 30 min`, `🔥 Saisie vive`, `🛡️ Four indirect`, `💨 Low & Slow`, `🍕 Pizza & Pains`, `🌿 Végétarien` et `⭐ Favoris`.
+
+### 🚀 Mode « Cockpit Outdoor » (Plein Écran Plein Soleil)
+* Conçu pour cuisiner les mains occupées à 2 mètres du kamado :
+  * **Typographie géante et contraste maximal** (noir profond et orange braise éclatant).
+  * Rappel permanent de la **température dôme cible**, de la **température à cœur** et du **montage déflecteur**.
+  * Déroulé pas-à-pas avec détection automatique des durées et **minuteur tactile géant**.
+  * **Maintien de l'écran allumé automatique** (Screen Wake Lock API) pour éviter toute mise en veille.
+  * **Alertes sonores et retour haptique** (vibrations smartphone à l'échéance).
+
+### 🚨 Module « SOS Kamado & Dépannage Express »
+* Accès d'urgence immédiat en cas d'aléa thermique :
+  * *Température qui s'emballe (> 200 °C)* ➔ Procédure de fermeture étagée sans étouffement explosif.
+  * *Chute de température / braises éteintes* ➔ Débouchage du panier à charbon par la trappe basse.
+  * *Fumée blanche âcre persistante* ➔ Relance de la combustion et évacuation de la créosote.
+  * *Pizzas brûlées dessous* ➔ Montage 3 étages (déflecteur + rehausseur + pierre sous la voûte).
+  * *Le « Stall » (plateau d'évaporation à 65–70 °C)* ➔ Méthode de béquillage serré (*Texas Wrap*).
+  * *Flammes soudaines à l'ouverture* ➔ Réflexe impératif du « Burp » (anti-flashback).
+
+### 🍷 Guide & Accords Vins de Haute Sommellerie
+* Élaboré selon les principes de **Philippe Faure-Brac** (Meilleur Sommelier du Monde 1992, UDSF), d'**Olivier Poussier** et de la **Revue du Vin de France (RVF)** :
+  * **Les 5 Lois d'Or des accords au feu de bois** (Réaction de Maillard vs tannins, fumée vs cépages fruités, gras vs tension acide, sauces douces vs sucres résiduels, températures de service en extérieur).
+  * **Explorateur interactif d'accords** par familles et recherche de cépages/appellations.
+  * **Carte Sommelier intégrée dans chaque recette** : accord d'élite (AOC/cépage), alternative accessible, explication gustative et température de service précise.
+  * Accords bières artisanales (Craft Beer) et cidres fermiers.
+
+### ⚖️ Calculateur de Rubs & Dosage du Sel au Gramme Près
+* Calculateur d'assaisonnement basé sur le poids exact de la pièce crue :
+  * Application stricte de la **règle des 1,0 à 1,1 % de sel** pour sublimer la viande sans jamais la sursaler.
+  * Profils préenregistrés : *Texas Dalmatian Rub* (sel casher / poivre 16 mesh), *Memphis Sweet & Smoky*, *Herbes & Ail de Provence*.
+
+### 📲 Partage Instantané par QR Code Hors-Ligne
+* Générateur de QR Code SVG 100 % autonome en JavaScript pur (sans dépendance externe ni connexion réseau).
+* Vos convives flashent directement l'écran de votre smartphone pour ouvrir la recette complète sur leur propre appareil.
+
+### 📖 Mon Journal de Braises (Historique Consolidé)
+* Centralisation de toutes vos sessions de cuisson passées : découpes, essences de bois de fumage testées, durées réelles, températures finales, notes personnelles et retours d'expérience.
+
+### 🛠️ Équipement Nécessaire Haute Visibilité
+* Encadré en dégradé contrasté à liseré doré ambré avec badges distincts blancs sur fond surélevé, et rappel direct dans la barre de caractéristiques d'en-tête.
+
+### 📅 Rétroplanning & Gestion de Session
+* **Timeline inversée** : indiquez votre heure de repas cible (ex: 13h00) pour obtenir l'horaire précis d'allumage, de mise en place du déflecteur, d'enfournement et de repos sous alu.
+* **Liste de courses consolidée par rayons** : Boucherie & Poissonnerie, Primeur, Épicerie & Épices, cochable et persistée localement.
 
 ---
 
-## 📲 Utilisation sur iPhone et PC (PWA)
+## 📲 Installation Mobile (PWA & Hors-Ligne)
 
-L'application fonctionne entièrement en mode hors ligne (Offline First) après le premier chargement grâce aux Service Workers.
+L'application fonctionne à 100 % hors connexion grâce aux Service Workers :
 
-*   **Sur iPhone** : Ouvrez le site dans Safari, appuyez sur le bouton *Partager*, puis choisissez `Sur l'écran d'accueil`.
-*   **Sur PC / Android** : Ouvrez le site dans Chrome ou Edge, puis cliquez sur l'icône d'installation dans la barre d'adresse ou le menu du navigateur.
-
----
-
-## 💾 Sauvegarde &amp; Synchronisation des Données
-
-Toutes vos données personnelles (favoris, notes libres, notations de recettes) sont stockées localement dans votre navigateur.
-L'onglet **Données** vous permet de :
-1.  **Exporter** une sauvegarde JSON complète.
-2.  **Importer** un fichier pour fusionner vos notes, favoris, liste de courses, session en cours et profil garde-manger entre vos appareils sans écraser l'existant.
-3.  Générer un **Lien de transfert rapide** (hash) pour synchroniser votre iPhone et votre PC en un clic.
+* **Sur iPhone / iPad** : Ouvrez le site dans Safari, touchez le bouton *Partager*, puis sélectionnez **Sur l'écran d'accueil**.
+* **Sur Android** : Ouvrez dans Chrome, touchez le menu ⋮ puis **Installer l'application**.
+* **Sur Ordinateur (Mac / Windows / Linux)** : Ouvrez dans Chrome ou Edge, puis cliquez sur l'icône d'installation dans la barre d'adresse.
 
 ---
 
-## 🛠️ Vérification Qualité &amp; Développement
+## 🔬 Suite d'Audit Multi-Agents & Qualité du Code
 
-Avant de publier des modifications sur les recettes ou le code, exécutez le script d'audit des données :
+Le projet intègre une batterie de 4 audits spécialisés automatisés assurant l'intégrité absolue des données :
 
 ```bash
-node scripts/extract-data.js   # rafraîchit data/recipes.json depuis index.html
-node scripts/audit-data.js     # contrôle conformité, doublons, modes, allergènes
-node scripts/audit-kamado-expert.js # revue experte kamado: sécurité, températures, phases, sauces
-node --test 'tests/*.test.js'  # exécute la suite de tests (Node natif)
+npm test              # 47 tests unitaires natifs (node --test)
+npm run audit         # Lance les 4 audits spécialisés :
+                      # 1. audit-data.js      (schéma, doublons, cohérence globale)
+                      # 2. audit-expert.js    (expertise kamado, sécurité, phases, évents)
+                      # 3. audit-chef.js      (14 allergènes officiels UE, températures USDA)
+                      # 4. audit-sommelier.js (accords vins, zéro clash, températures de service)
 ```
-
-Ce script contrôle la conformité des schémas de données, l'absence de doublons de noms, la compatibilité des modes de cuisson Kamado, la détection des allergènes, piquant et saisons.
-L'audit expert s'appuie sur l'agent local `.codex/agents/kamado-expert.toml` et produit `scripts/reports/kamado-expert-report.json`.
 
 ---
 
-## 📦 Schéma des recettes
+## 📦 Schéma d'une Fiche Recette
 
-Chaque recette respecte un schéma de base (`nom`, `categorie`, `ingredients`, `etapes`, `cuisson`, `temps`, `tempK`, `astuce`) et peut, depuis la **v1.1.0**, s'enrichir de champs optionnels pour les cuissons longues ou techniques :
+Chaque recette s'appuie sur le schéma enrichi du Kamado :
 
-| Champ | Type | Usage |
-|-------|------|-------|
-| `phases` | `[{name, mode, temp_C, duration_min, action}]` | Timeline structurée (fumage → wrap → repos) |
-| `wrap` | `{at_temp_coeur_C, materiau, apres}` | Texas crutch : papier boucher / alu |
-| `brine` | `{hours, recette}` | Saumure sèche ou humide |
-| `marinade_h` | `number` | Durée de marinade en heures |
-| `repos_min` | `number` | Repos avant tranche (carryover) |
-| `charbon_kg` | `number` | Charge charbon estimée |
-| `difficulty` | `1..5` | Niveau (1 = facile, 5 = expert) |
-| `vents` | `{bottom, top}` | Réglage évents kamado |
-| `equipement` | `string[]` | Matériel spécifique (sonde, papier, glacière) |
-| `substitutions` | `string[]` | Alternatives d'ingrédients |
-| `erreurs` | `string[]` | Pièges classiques à éviter |
-| `notes_securite` | `string[]` | Hygiène, températures cibles, allergènes critiques |
-| `source` | `string` | Référence (Aaron Franklin, Meathead, etc.) |
+| Champ | Type | Description |
+|-------|------|-------------|
+| `nom` | `string` | Titre unique et gastronomique |
+| `cat` | `string` | Catégorie (`boeuf`, `porc`, `volaille`, `agneau`, `poisson`, `legumes`, `pizza`, `monde`, `dessert`, `sauces`) |
+| `mode` | `string` | Configuration (`Direct`, `Indirect`, `Fumage lent`, `Plancha`, `Four à pizza`, `Braisage cocotte`) |
+| `tempK` | `string` | Plage de température dôme kamado (ex: `110–120 °C`) |
+| `coeur` | `string` | Température à cœur cible de sortie (ex: `54 °C saignant`) |
+| `phases` | `array` | Découpage multi-températures (`name`, `mode`, `temp_C`, `duration_min`, `action`) |
+| `vents` | `object` | Réglage indicatif des évents (`bottom`, `top`) |
+| `charbon_kg` | `number` | Consommation de charbon estimée |
+| `repos_min` | `number` | Temps de repos sous papier d'aluminium pour redistribution des sucs |
+| `equipement` | `string[]` | Accessoires requis (`déflecteur`, `sonde`, `pierre`, `plancha`, etc.) |
+| `notes_securite` | `string[]` | Règles d'hygiène et seuils thermiques critiques |
+| `substitutions` | `array` | Alternatives d'ingrédients (`ingredient`, `par`) |
+| `erreurs` | `string[]` | Pièges fréquents à éviter |
+| `source` | `string` | Références d'inspiration (Aaron Franklin, Meathead Goldwyn, Elkano, etc.) |
 
-Tous ces champs sont **optionnels** et rétrocompatibles. Le rendu côté UI (`renderRichSchema` dans `index.html`) ne génère un bloc que si le champ est présent.
+---
 
-**Couverture actuelle** : 226 / 226 recettes de cuisson enrichies.
+## 📜 Licence
+
+Projet open-source partagé pour la communauté des passionnés de cuisine au feu de bois et barbecue céramique.

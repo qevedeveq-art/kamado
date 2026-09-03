@@ -19,6 +19,7 @@
 - `node scripts/bump-sw-version.js --force`
 
 ## Files Changed
+- `README.md` (comprehensive documentation overhaul: 269 recipes, Cockpit mode, Sommelier guide, SOS troubleshooter, 4-agent audit suite)
 - `index.html` (SOS troubleshooter modal, QR code generator & modal, Rub calculator, consolidated cook journal, CSS)
 - `sw.js` (bumped to `v34`)
 - `.agents/handoff.md` (updated handoff)
