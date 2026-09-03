@@ -3640,6 +3640,288 @@ table td.t-temp, table td.t-coeur {
 
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
+
+/* ===== FRONT-END MODERNIZATION SUITE ===== */
+.modal-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  margin-right: 8px;
+}
+.nav-arrow {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line, rgba(255,255,255,0.15));
+  color: var(--fg, #f5f4f0);
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.nav-arrow:hover {
+  background: var(--accent, #e65100);
+  color: #fff;
+  border-color: rgba(255,255,255,0.3);
+}
+
+.quick-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0 12px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.quick-chips::-webkit-scrollbar { display: none; }
+.quick-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--fg, #e7e5e0);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.quick-pill:hover {
+  border-color: var(--accent, #e65100);
+  background: rgba(230, 81, 0, 0.12);
+}
+.quick-pill.active {
+  background: linear-gradient(135deg, var(--accent, #e65100), var(--ember, #ff9d42));
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 10px rgba(230, 81, 0, 0.35);
+}
+
+.cockpit-launch-btn {
+  background: linear-gradient(135deg, #e65100, #ff8f00);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 12px rgba(230,81,0,0.35);
+}
+.cockpit-launch-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(230,81,0,0.5);
+}
+
+/* Cockpit Overlay */
+.cockpit-overlay {
+  position: fixed;
+  inset: 0;
+  background: #090a08;
+  color: #f5f4f0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 16px;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+.cockpit-overlay.hide { display: none !important; }
+.cockpit-content {
+  max-width: 780px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 16px;
+}
+.cockpit-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  padding-bottom: 12px;
+}
+.cockpit-rec-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ff9d42;
+  letter-spacing: -0.3px;
+}
+.cockpit-close {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.cockpit-close:hover { background: rgba(255,255,255,0.18); }
+.cockpit-dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cp-stat-box {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 10px 8px;
+  text-align: center;
+}
+.cp-stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #a8a29e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.cp-stat-val {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+}
+.cockpit-main-card {
+  flex: 1;
+  background: rgba(22,24,20,0.95);
+  border: 2px solid #ff7b00;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6), inset 0 0 24px rgba(255,123,0,0.08);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.cockpit-step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cp-step-counter {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ff9d42;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.cockpit-step-text {
+  font-size: 22px;
+  line-height: 1.55;
+  font-weight: 600;
+  color: #ffffff;
+  min-height: 110px;
+}
+@media (max-width: 600px) {
+  .cockpit-step-text { font-size: 18px; }
+  .cockpit-dashboard { grid-template-columns: 1fr; }
+}
+.cockpit-timer-box {
+  background: rgba(0,0,0,0.5);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.cockpit-timer-box.hide { display: none !important; }
+.cp-timer-clock {
+  font-size: 46px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  color: #ffb86b;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.cp-timer-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.cp-timer-btn {
+  background: #ff7b00;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255,123,0,0.3);
+}
+.cp-timer-btn.sec {
+  background: rgba(255,255,255,0.1);
+  color: #eee;
+  box-shadow: none;
+}
+.cockpit-bottom-nav {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 12px;
+  padding-top: 6px;
+}
+.cockpit-nav-btn {
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 14px;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.cockpit-nav-btn.prev {
+  background: rgba(255,255,255,0.08);
+  color: #ddd;
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.cockpit-nav-btn.next {
+  background: linear-gradient(135deg, #ff7b00, #e65100);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(255,123,0,0.4);
+}
+
+.load-more-wrap {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 24px 0 16px;
+}
+.btn-load-more {
+  background: linear-gradient(135deg, var(--accent, #e65100), var(--ember, #ff9d42));
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(230,81,0,0.35);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-load-more:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(230,81,0,0.5);
+}
+
 </style>
 </head>
 <body>
@@ -3671,6 +3953,7 @@ table td.t-temp, table td.t-coeur {
 <!-- RECETTES -->
 <section id="tab-recettes" role="tabpanel" aria-label="Recettes">
   <div class="chips" id="chips"></div>
+  <div class="quick-chips" id="quickChips"></div>
   <div id="filterbar"></div>
   <div class="ingredientbar"><input id="have" type="search" placeholder="J'ai : poulet citron thym · exclure : -porc -gluten" autocomplete="off"></div>
   <div class="smartbar" id="smartbar"></div>
@@ -3720,10 +4003,52 @@ table td.t-temp, table td.t-coeur {
   <div class="sheet-head">
     <button class="back" id="back">‹</button>
     <h2 id="d-title"></h2>
+    <div class="modal-nav"><button class="nav-arrow" id="dPrev" title="Recette précédente (◀)">‹</button><button class="nav-arrow" id="dNext" title="Recette suivante (▶)">›</button></div>
     <span id="wakeLockStatus" class="wakelock-pill" title="Écran maintenu allumé pour la cuisson">☀️ Écran allumé</span>
   </div>
   <div class="sheet-body" id="d-body"></div>
 </div></div>
+
+<!-- COCKPIT PLEIN ÉCRAN OUTDOOR -->
+<div id="cockpitOverlay" class="cockpit-overlay hide">
+  <div class="cockpit-content">
+    <div class="cockpit-top">
+      <div class="cockpit-rec-title" id="cpRecipeTitle">Titre</div>
+      <button class="cockpit-close" id="cpClose" title="Quitter le mode cockpit">✕ Quitter</button>
+    </div>
+    <div class="cockpit-dashboard">
+      <div class="cp-stat-box">
+        <div class="cp-stat-label">🌡️ Dôme Kamado</div>
+        <div class="cp-stat-val" id="cpDomeTemp">—</div>
+      </div>
+      <div class="cp-stat-box">
+        <div class="cp-stat-label">🎯 Cœur visé</div>
+        <div class="cp-stat-val" id="cpCoreTemp">—</div>
+      </div>
+      <div class="cp-stat-box">
+        <div class="cp-stat-label">💨 Montage</div>
+        <div class="cp-stat-val" id="cpSetup">—</div>
+      </div>
+    </div>
+    <div class="cockpit-main-card">
+      <div class="cockpit-step-header">
+        <span class="cp-step-counter" id="cpStepCounter">Étape 1 / 1</span>
+      </div>
+      <div class="cockpit-step-text" id="cpStepText">Préparation...</div>
+      <div class="cockpit-timer-box hide" id="cpTimerBox">
+        <div class="cp-timer-clock" id="cpTimerClock">00:00</div>
+        <div class="cp-timer-controls">
+          <button class="cp-timer-btn" id="cpTimerToggle">▶ Démarrer</button>
+          <button class="cp-timer-btn sec" id="cpTimerReset">↺ Reset</button>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-bottom-nav">
+      <button class="cockpit-nav-btn prev" id="cpPrevStep">◀ Précédente</button>
+      <button class="cockpit-nav-btn next" id="cpNextStep">Étape suivante ▶</button>
+    </div>
+  </div>
+</div>
 
 <!-- RECIPE EDITOR MODAL -->
 <div class="modal" id="editorModal" role="dialog" aria-modal="true" aria-labelledby="edModalTitle">
@@ -10547,6 +10872,31 @@ function renderStats(){
     <div class="qstat"><b>${bases}</b><span>bases utiles</span></div>`;
 }
 
+
+function renderQuickChips(){
+  const qc = $("#quickChips");
+  if(!qc) return;
+  const pills = [
+    { label: "⚡ < 30 min", active: curTime === "express", action: () => { curTime = curTime === "express" ? "all" : "express"; } },
+    { label: "🔥 Saisie vive", active: curMode === "direct", action: () => { curMode = curMode === "direct" ? "all" : "direct"; } },
+    { label: "🛡️ Four indirect", active: curMode === "indirect", action: () => { curMode = curMode === "indirect" ? "all" : "indirect"; } },
+    { label: "💨 Low & Slow", active: curMode === "fumage", action: () => { curMode = curMode === "fumage" ? "all" : "fumage"; } },
+    { label: "⭐ Favoris", active: favOnly, action: () => { favOnly = !favOnly; } },
+    { label: "🍕 Pizza & Pains", active: curCat === "pizza", action: () => { curCat = curCat === "pizza" ? "all" : "pizza"; } },
+    { label: "🌿 Végétarien", active: curCat === "vegetarien", action: () => { curCat = curCat === "vegetarien" ? "all" : "vegetarien"; } }
+  ];
+  qc.innerHTML = pills.map((p, idx) => `<button class="quick-pill ${p.active ? 'active' : ''}" data-idx="${idx}">${p.label}</button>`).join("");
+  qc.querySelectorAll(".quick-pill").forEach(btn => {
+    btn.onclick = () => {
+      pills[+btn.dataset.idx].action();
+      renderQuickChips();
+      renderFilterBar();
+      renderChips();
+      renderList();
+    };
+  });
+}
+
 /* ---- chips catégories ---- */
 function renderChips(){
   const myCount = RECIPES.filter(r=>r._custom||r._modified).length;
@@ -10562,7 +10912,7 @@ function renderChips(){
       myOnly=false;
       curCat=ch.dataset.cat;
     }
-    renderChips();renderList();window.scrollTo({top:0,behavior:'smooth'});
+    renderChips();renderQuickChips();renderList();window.scrollTo({top:0,behavior:'smooth'});
   });
 }
 
@@ -10690,11 +11040,44 @@ function renderSmartBar(){
     pantryProfile={have:"",avoid:"",diet:[],equipment:[],available:"all"};
     LS.set("kamado_pantry_profile",pantryProfile);
     $("#q").value="";$("#have").value="";
-    renderFilterBar();renderSmartBar();renderStats();renderChips();renderList();renderBases();
+    renderFilterBar();renderSmartBar();renderStats();renderChips();renderQuickChips();renderList();renderBases();
   };
 }
 
 /* ---- filtrage ---- */
+
+const BBQ_SYNONYMS = {
+  "ribs": ["travers", "cotes", "short ribs", "dino"],
+  "travers": ["ribs", "spareribs"],
+  "brisket": ["poitrine", "paleron", "chuck"],
+  "poitrine": ["brisket", "bacon", "lard"],
+  "effiloche": ["pulled", "pork", "effiloche"],
+  "pulled": ["effiloche", "pork"],
+  "steak": ["bavette", "onglet", "entrecote", "faux filet", "tomahawk"],
+  "cote": ["tomahawk", "cotelette"],
+  "burger": ["smash", "hamburger"],
+  "pain": ["pita", "naan", "focaccia", "campagne", "levain", "pizza"],
+  "pains": ["pitas", "naans", "focaccias", "pizzas"],
+  "volaille": ["poulet", "canard", "pintade", "dinde", "caille"],
+  "poisson": ["saumon", "thon", "bar", "loup", "turbot", "dorade", "cabillaud", "truite"],
+  "sauce blanche": ["alabama", "mayonnaise", "toum"]
+};
+
+function matchesQuery(r, q) {
+  if (!q) return true;
+  const h = haystack(r);
+  const nq = norm(q).trim();
+  if (h.includes(nq)) return true;
+  const tokens = nq.split(/\s+/).filter(Boolean);
+  if (!tokens.length) return true;
+  return tokens.every(tok => {
+    if (h.includes(tok)) return true;
+    const syns = BBQ_SYNONYMS[tok];
+    if (syns && syns.some(s => h.includes(norm(s)))) return true;
+    return false;
+  });
+}
+
 function matches(r){
   if(r.cat==="sauces")return false;
   if(myOnly&&!r._custom&&!r._modified)return false;
@@ -10717,7 +11100,7 @@ function matches(r){
   if(curQuality==="security"&&!r.notes_securite)return false;
   if(curQuality==="errors"&&!(Array.isArray(r.erreurs)&&r.erreurs.length))return false;
   if(curQuality==="rich"&&qualityInfo(r).score<8)return false;
-  if(curQ&&!haystack(r).includes(norm(curQ)))return false;
+  if(curQ&&!matchesQuery(r,curQ))return false;
   if(curHave){
     const h=haystack(r);
     const terms=norm(curHave).split(/[,\s]+/).filter(Boolean);
@@ -10765,9 +11148,13 @@ function card(r){
     </div>
   </div>`;
 }
-function renderList(){
-  const list=RECIPES.filter(matches);
-  list.sort((a,b)=>{
+let currentFilteredList = [];
+let visibleRecipeCount = 24;
+
+function renderList(resetPaging = true){
+  if (resetPaging) visibleRecipeCount = 24;
+  currentFilteredList = RECIPES.filter(matches);
+  currentFilteredList.sort((a,b)=>{
     if(curSort==="alpha")return (a.nom||"").localeCompare(b.nom||"","fr");
     if(curSort==="time")return parseRecipeDuration(a)-parseRecipeDuration(b);
     if(curSort==="difficulty")return (a.difficulty||3)-(b.difficulty||3);
@@ -10779,11 +11166,40 @@ function renderList(){
   if(favOnly)bits.push("favoris");
   if(myOnly)bits.push("mes créations");
   if(curHave)bits.push("avec vos ingrédients");
-  $("#count").textContent=`${list.length} recette${list.length>1?'s':''}`+(bits.length?` · ${bits.join(" · ")}`:"");
-  if(!list.length){$("#grid").innerHTML=`<div class="empty">Aucune recette ne correspond.<br>Élargissez les filtres, retirez un ingrédient ou changez de mot-clé.</div>`;return;}
-  $("#grid").innerHTML=list.map(card).join("");
+  $("#count").textContent=`${currentFilteredList.length} recette${currentFilteredList.length>1?'s':''}`+(bits.length?` · ${bits.join(" · ")}`:"");
+  if(!currentFilteredList.length){$("#grid").innerHTML=`<div class="empty">Aucune recette ne correspond.<br>Élargissez les filtres, retirez un ingrédient ou changez de mot-clé.</div>`;return;}
+  
+  const toShow = currentFilteredList.slice(0, visibleRecipeCount);
+  let gridHtml = toShow.map(card).join("");
+  if (visibleRecipeCount < currentFilteredList.length) {
+    const remaining = currentFilteredList.length - visibleRecipeCount;
+    const nextBatch = Math.min(24, remaining);
+    gridHtml += `<div class="load-more-wrap">
+      <button id="btnLoadMore" class="btn-load-more">Afficher les ${nextBatch} recettes suivantes (${remaining} restantes)...</button>
+    </div>`;
+  }
+  $("#grid").innerHTML = gridHtml;
+  
   $$("#grid .rc").forEach(c=>c.onclick=e=>{if(e.target.classList.contains('favstar'))return;openRecipe(+c.dataset.i);});
-  $$("#grid .favstar").forEach(b=>b.onclick=e=>{e.stopPropagation();toggleFav(RECIPES[+b.dataset.fav]);renderStats();renderList();});
+  $$("#grid .favstar").forEach(b=>b.onclick=e=>{e.stopPropagation();toggleFav(RECIPES[+b.dataset.fav]);renderStats();renderList(false);});
+  
+  const moreBtn = $("#btnLoadMore");
+  if (moreBtn) {
+    moreBtn.onclick = () => {
+      visibleRecipeCount += 24;
+      renderList(false);
+    };
+    if (typeof IntersectionObserver !== "undefined") {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          observer.disconnect();
+          visibleRecipeCount += 24;
+          renderList(false);
+        }
+      }, { rootMargin: "300px" });
+      observer.observe(moreBtn);
+    }
+  }
 }
 
 /* ---- fiche détail ---- */
@@ -11013,7 +11429,123 @@ function renderInteractiveSubstitutions(r) {
   `;
 }
 
+
+let currentRecipeIndex = 0;
+let cockpitStep = 0;
+let cockpitTimerInterval = null;
+let cockpitRemainingSec = 0;
+
+function navigateRecipe(delta) {
+  const activeList = currentFilteredList.length ? currentFilteredList : RECIPES;
+  const curR = RECIPES[currentRecipeIndex];
+  let curPos = activeList.indexOf(curR);
+  if (curPos === -1) curPos = 0;
+  let nextPos = (curPos + delta + activeList.length) % activeList.length;
+  openRecipe(RECIPES.indexOf(activeList[nextPos]));
+}
+
+function openCockpit(r) {
+  cockpitStep = 0;
+  requestWakeLock();
+  const overlay = $("#cockpitOverlay");
+  if (!overlay) return;
+  overlay.classList.remove("hide");
+  document.body.style.overflow = "hidden";
+  
+  $("#cpRecipeTitle").textContent = r.nom;
+  $("#cpDomeTemp").textContent = r.tempK || "—";
+  $("#cpCoreTemp").textContent = r.coeur || "—";
+  $("#cpSetup").textContent = kamadoSetup(r).label;
+  
+  renderCockpitStep(r);
+  
+  $("#cpClose").onclick = closeCockpit;
+  $("#cpPrevStep").onclick = () => {
+    if (cockpitStep > 0) {
+      cockpitStep--;
+      renderCockpitStep(r);
+    }
+  };
+  $("#cpNextStep").onclick = () => {
+    if (cockpitStep < r.etapes.length - 1) {
+      cockpitStep++;
+      renderCockpitStep(r);
+    } else {
+      closeCockpit();
+    }
+  };
+}
+
+function renderCockpitStep(r) {
+  const total = r.etapes.length;
+  $("#cpStepCounter").textContent = `Étape ${cockpitStep + 1} / ${total}`;
+  const isLast = cockpitStep === total - 1;
+  $("#cpNextStep").textContent = isLast ? "🏁 Terminer la cuisson" : "Étape suivante ▶";
+  $("#cpPrevStep").style.visibility = cockpitStep === 0 ? "hidden" : "visible";
+  
+  const stepText = r.etapes[cockpitStep];
+  $("#cpStepText").textContent = stepText;
+  
+  const durs = parseAllDurs(stepText);
+  const timerBox = $("#cpTimerBox");
+  clearInterval(cockpitTimerInterval);
+  cockpitTimerInterval = null;
+  if (durs.length > 0) {
+    timerBox.classList.remove("hide");
+    cockpitRemainingSec = durs[0].sec;
+    updateCockpitClock();
+    $("#cpTimerToggle").textContent = `▶ Lancer ${durs[0].text}`;
+    $("#cpTimerToggle").onclick = () => toggleCockpitTimer(r.nom, durs[0].text);
+    $("#cpTimerReset").onclick = () => {
+      clearInterval(cockpitTimerInterval);
+      cockpitTimerInterval = null;
+      cockpitRemainingSec = durs[0].sec;
+      updateCockpitClock();
+      $("#cpTimerToggle").textContent = `▶ Lancer ${durs[0].text}`;
+    };
+  } else {
+    timerBox.classList.add("hide");
+  }
+}
+
+function updateCockpitClock() {
+  const m = Math.floor(cockpitRemainingSec / 60);
+  const s = cockpitRemainingSec % 60;
+  $("#cpTimerClock").textContent = `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+}
+
+function toggleCockpitTimer(recipeName, label) {
+  if (cockpitTimerInterval) {
+    clearInterval(cockpitTimerInterval);
+    cockpitTimerInterval = null;
+    $("#cpTimerToggle").textContent = "▶ Reprendre";
+  } else {
+    $("#cpTimerToggle").textContent = "⏸ Pause";
+    cockpitTimerInterval = setInterval(() => {
+      if (cockpitRemainingSec > 0) {
+        cockpitRemainingSec--;
+        updateCockpitClock();
+      } else {
+        clearInterval(cockpitTimerInterval);
+        cockpitTimerInterval = null;
+        notifyTimerDone(`${recipeName} · ${label}`);
+        $("#cpTimerToggle").textContent = "✅ Terminé !";
+      }
+    }, 1000);
+  }
+}
+
+function closeCockpit() {
+  clearInterval(cockpitTimerInterval);
+  cockpitTimerInterval = null;
+  const overlay = $("#cockpitOverlay");
+  if (overlay) overlay.classList.add("hide");
+  document.body.style.overflow = "";
+  if (!outdoorMode && !stepMode) releaseWakeLock();
+}
+
 function openRecipe(i){
+  currentRecipeIndex = i;
   const r=RECIPES[i],base=baseServ(r);let curServ=base;stepMode=false;let targetServiceTime="13:00";
   pushHistory(r);
   function render(){
@@ -11048,6 +11580,7 @@ function openRecipe(i){
       <div class="ori">${emojiFor(r.cat)} ${r.ori} ${r._custom?`<span class="badge custom" style="margin-left:6px">👤 Ma recette</span>`:''} ${r._modified?`<span class="badge modified" style="margin-left:6px">✏️ Modifiée</span>`:''}</div>
       <div class="dactions">
         <button id="dFav" class="actbtn ${fav?'on':''}">${fav?'★ Favori':'☆ Ajouter aux favoris'}</button>
+        <button id="btnOpenCockpit" class="cockpit-launch-btn">🚀 Cockpit Outdoor</button>
         <button id="dEdit" class="actbtn primary-act" title="Modifier les ingrédients, températures, temps ou étapes">✏️ Modifier</button>
         <button id="dDuplicate" class="actbtn" title="Créer une variante adaptée">📋 Dupliquer</button>
         <button id="dShare" class="actbtn" title="Partager cette recette (WhatsApp, SMS, presse-papier)">📤 Partager</button>
@@ -11199,6 +11732,11 @@ function openRecipe(i){
         </div>
       </div>
     `;
+    
+    $("#btnOpenCockpit").onclick = () => openCockpit(r);
+    $("#dPrev").onclick = () => navigateRecipe(-1);
+    $("#dNext").onclick = () => navigateRecipe(1);
+
     $("#dFav").onclick=()=>{toggleFav(r);renderStats();render();};
     $("#dEdit").onclick=()=>{closeModal();openRecipeEditor(r,false);};
     $("#dDuplicate").onclick=()=>{closeModal();openRecipeEditor(r,true);};
@@ -11328,6 +11866,37 @@ function closeModal(){
   if(!outdoorMode) releaseWakeLock();
 }
 $("#back").onclick=closeModal;
+
+// Touch swipe & Keyboard navigation for recipe modal
+(function setupModalInteractions(){
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const sheet = document.querySelector("#modal .sheet");
+  if(sheet){
+    sheet.addEventListener("touchstart", e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    sheet.addEventListener("touchend", e => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchEndX - touchStartX;
+      if(Math.abs(diff) > 75){
+        if(diff < 0) navigateRecipe(1); // Swipe left = next
+        else navigateRecipe(-1); // Swipe right = prev
+      }
+    }, { passive: true });
+  }
+  window.addEventListener("keydown", e => {
+    if(!$("#modal").classList.contains("open")) return;
+    if(e.key === "ArrowLeft") navigateRecipe(-1);
+    else if(e.key === "ArrowRight") navigateRecipe(1);
+    else if(e.key === "Escape") {
+      const cp = $("#cockpitOverlay");
+      if(cp && !cp.classList.contains("hide")) closeCockpit();
+      else closeModal();
+    }
+  });
+})();
+
 $("#modal").onclick=e=>{if(e.target.id==="modal")closeModal();};
 
 /* ---- calculs de dérivation kamado ---- */
