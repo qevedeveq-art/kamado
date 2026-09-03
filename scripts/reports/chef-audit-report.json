@@ -1,0 +1,24 @@
+{
+  "agent": "chef-reviewer",
+  "timestamp": "2026-09-03T08:34:33.635Z",
+  "recipesAudited": 247,
+  "cookingRecipes": 226,
+  "allergenDistribution": {
+    "lait": 127,
+    "œuf": 65,
+    "moutarde": 31,
+    "gluten": 101,
+    "soja": 39,
+    "fruits à coque": 29,
+    "poisson": 40,
+    "sésame": 27,
+    "céleri": 6,
+    "arachides": 4,
+    "mollusques": 23,
+    "crustacés": 4
+  },
+  "issuesCount": 0,
+  "warningsCount": 0,
+  "issues": [],
+  "warnings": []
+}

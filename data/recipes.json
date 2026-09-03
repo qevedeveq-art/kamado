@@ -270,7 +270,8 @@
         "Chimichurri argentin"
       ],
       "allergens": [
-        "œuf"
+        "œuf",
+        "moutarde"
       ]
     }
   },
@@ -494,7 +495,8 @@
       ],
       "allergens": [
         "lait",
-        "œuf"
+        "œuf",
+        "fruits à coque"
       ]
     }
   },
@@ -702,7 +704,8 @@
       ],
       "allergens": [
         "gluten",
-        "œuf"
+        "œuf",
+        "moutarde"
       ]
     }
   },
@@ -923,6 +926,7 @@
         "Sauce barbecue maison Kansas City"
       ],
       "allergens": [
+        "gluten",
         "œuf"
       ]
     }
@@ -1068,7 +1072,10 @@
       ],
       "allergens": [
         "lait",
-        "œuf"
+        "gluten",
+        "œuf",
+        "poisson",
+        "moutarde"
       ]
     }
   },
@@ -1176,7 +1183,7 @@
       ],
       "allergens": [
         "œuf",
-        "fruits à coque/sésame"
+        "sésame"
       ]
     }
   },
@@ -1480,6 +1487,7 @@
         "Chimichurri argentin"
       ],
       "allergens": [
+        "gluten",
         "œuf"
       ]
     }
@@ -1684,7 +1692,8 @@
       "allergens": [
         "lait",
         "gluten",
-        "œuf"
+        "œuf",
+        "moutarde"
       ]
     }
   },
@@ -1787,7 +1796,8 @@
       "allergens": [
         "lait",
         "gluten",
-        "œuf"
+        "œuf",
+        "fruits à coque"
       ]
     }
   },
@@ -1889,7 +1899,10 @@
         "Chimichurri argentin"
       ],
       "allergens": [
-        "œuf"
+        "gluten",
+        "œuf",
+        "moutarde",
+        "céleri"
       ]
     }
   },
@@ -2095,7 +2108,9 @@
       "allergens": [
         "lait",
         "gluten",
-        "œuf"
+        "œuf",
+        "fruits à coque",
+        "céleri"
       ]
     }
   },
@@ -2183,7 +2198,9 @@
       "sauces": [
         "Sauce barbecue maison Kansas City"
       ],
-      "allergens": []
+      "allergens": [
+        "moutarde"
+      ]
     }
   },
   {
@@ -2308,7 +2325,9 @@
         "Sauce moutarde-miel",
         "BBQ maison"
       ],
-      "allergens": []
+      "allergens": [
+        "moutarde"
+      ]
     }
   },
   {
@@ -2378,7 +2397,9 @@
       "sauces": [
         "Sauce barbecue maison Kansas City"
       ],
-      "allergens": []
+      "allergens": [
+        "moutarde"
+      ]
     }
   },
   {
@@ -2502,7 +2523,10 @@
         "Sauce moutarde-miel",
         "BBQ maison"
       ],
-      "allergens": []
+      "allergens": [
+        "gluten",
+        "moutarde"
+      ]
     }
   },
   {
@@ -2545,7 +2569,8 @@
         "BBQ maison"
       ],
       "allergens": [
-        "gluten"
+        "gluten",
+        "moutarde"
       ]
     }
   },
@@ -2697,7 +2722,10 @@
       "sauces": [
         "Sauce barbecue maison Kansas City"
       ],
-      "allergens": []
+      "allergens": [
+        "gluten",
+        "moutarde"
+      ]
     }
   },
   {
@@ -2853,7 +2881,9 @@
       "sauces": [
         "Sauce barbecue maison Kansas City"
       ],
-      "allergens": []
+      "allergens": [
+        "moutarde"
+      ]
     }
   },
   {
@@ -3016,7 +3046,7 @@
         "Laque hoisin-miel-soja"
       ],
       "allergens": [
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -3163,7 +3193,7 @@
         "Laque hoisin-miel-soja avec vinaigre de riz"
       ],
       "allergens": [
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -3212,6 +3242,7 @@
       "allergens": [
         "gluten",
         "œuf",
+        "poisson",
         "soja"
       ]
     }
@@ -3745,7 +3776,9 @@
         "Sauce moutarde-miel",
         "BBQ maison"
       ],
-      "allergens": []
+      "allergens": [
+        "moutarde"
+      ]
     }
   },
   {
@@ -3809,7 +3842,9 @@
       "sauces": [
         "Sauce yaourt-ail aux herbes"
       ],
-      "allergens": []
+      "allergens": [
+        "gluten"
+      ]
     }
   },
   {
@@ -3868,7 +3903,8 @@
         "Sauce yaourt-ail aux herbes"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "gluten"
       ]
     }
   },
@@ -4034,7 +4070,8 @@
         "Sauce barbecue maison Kansas City"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "céleri"
       ]
     }
   },
@@ -4403,7 +4440,7 @@
         "Laque soja-mirin-gingembre"
       ],
       "allergens": [
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -4585,8 +4622,7 @@
         "Sauce satay cacahuète, lait de coco, soja et citron vert"
       ],
       "allergens": [
-        "lait",
-        "fruits à coque/sésame",
+        "arachides",
         "soja"
       ]
     }
@@ -4718,7 +4754,7 @@
         "Tare yakitori soja-mirin-saké"
       ],
       "allergens": [
-        "fruits à coque/sésame"
+        "sésame"
       ]
     }
   },
@@ -4925,7 +4961,8 @@
       ],
       "allergens": [
         "lait",
-        "gluten"
+        "gluten",
+        "fruits à coque"
       ]
     }
   },
@@ -5026,7 +5063,9 @@
       "sauces": [
         "Sauce yaourt-ail aux herbes"
       ],
-      "allergens": []
+      "allergens": [
+        "gluten"
+      ]
     }
   },
   {
@@ -5260,7 +5299,8 @@
       ],
       "allergens": [
         "lait",
-        "gluten"
+        "gluten",
+        "moutarde"
       ]
     }
   },
@@ -5358,7 +5398,7 @@
         "Sauce barbecue maison Kansas City"
       ],
       "allergens": [
-        "fruits de mer"
+        "mollusques"
       ]
     }
   },
@@ -5612,7 +5652,8 @@
         "Yaourt menthe"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "céleri"
       ]
     }
   },
@@ -5695,7 +5736,9 @@
       "sauces": [
         "Sauce barbecue maison Kansas City"
       ],
-      "allergens": []
+      "allergens": [
+        "fruits à coque"
+      ]
     }
   },
   {
@@ -5755,7 +5798,8 @@
         "Yaourt menthe"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "fruits à coque"
       ]
     }
   },
@@ -5929,8 +5973,7 @@
         "Yaourt grec, menthe, citron, ail et cumin"
       ],
       "allergens": [
-        "lait",
-        "gluten"
+        "lait"
       ]
     }
   },
@@ -5975,7 +6018,7 @@
         "Gochujang, miel, soja, ail et huile de sésame"
       ],
       "allergens": [
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -6106,7 +6149,8 @@
         "Labneh citronné, menthe et sumac"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "sésame"
       ]
     }
   },
@@ -6385,7 +6429,8 @@
         "BBQ moutardée aux herbes de Provence"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "moutarde"
       ]
     }
   },
@@ -6880,7 +6925,9 @@
       "sauces": [
         "Réduction de moutarde ancienne au thym et jus de rôti"
       ],
-      "allergens": []
+      "allergens": [
+        "moutarde"
+      ]
     }
   },
   {
@@ -6924,7 +6971,10 @@
       "sauces": [
         "Sauce barbecue maison Kansas City"
       ],
-      "allergens": []
+      "allergens": [
+        "poisson",
+        "moutarde"
+      ]
     }
   },
   {
@@ -7000,7 +7050,9 @@
         "Sauce barbecue maison Kansas City"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "poisson",
+        "moutarde"
       ]
     }
   },
@@ -7044,7 +7096,9 @@
       "sauces": [
         "Sauce vierge citron-herbes"
       ],
-      "allergens": []
+      "allergens": [
+        "poisson"
+      ]
     }
   },
   {
@@ -7088,7 +7142,8 @@
         "Sauce vierge citron-herbes"
       ],
       "allergens": [
-        "fruits de mer"
+        "poisson",
+        "crustacés"
       ]
     }
   },
@@ -7134,7 +7189,8 @@
         "Laque soja-mirin-gingembre"
       ],
       "allergens": [
-        "fruits à coque/sésame",
+        "poisson",
+        "sésame",
         "soja"
       ]
     }
@@ -7181,7 +7237,8 @@
       ],
       "allergens": [
         "lait",
-        "fruits à coque/sésame"
+        "poisson",
+        "fruits à coque"
       ]
     }
   },
@@ -7226,7 +7283,9 @@
       ],
       "allergens": [
         "lait",
-        "fruits de mer"
+        "poisson",
+        "mollusques",
+        "fruits à coque"
       ]
     }
   },
@@ -7271,7 +7330,8 @@
       ],
       "allergens": [
         "lait",
-        "fruits de mer"
+        "poisson",
+        "crustacés"
       ]
     }
   },
@@ -7315,7 +7375,11 @@
       "sauces": [
         "Sauce vierge citron-herbes"
       ],
-      "allergens": []
+      "allergens": [
+        "gluten",
+        "poisson",
+        "moutarde"
+      ]
     }
   },
   {
@@ -7358,7 +7422,10 @@
       "sauces": [
         "Sauce vierge citron-herbes"
       ],
-      "allergens": []
+      "allergens": [
+        "poisson",
+        "mollusques"
+      ]
     }
   },
   {
@@ -7403,7 +7470,9 @@
         "Sauce vierge citron-herbes"
       ],
       "allergens": [
-        "fruits de mer"
+        "poisson",
+        "crustacés",
+        "mollusques"
       ]
     }
   },
@@ -7449,7 +7518,8 @@
       ],
       "allergens": [
         "lait",
-        "fruits de mer"
+        "poisson",
+        "mollusques"
       ]
     }
   },
@@ -7493,7 +7563,8 @@
         "Sauce vierge citron-herbes"
       ],
       "allergens": [
-        "gluten"
+        "gluten",
+        "poisson"
       ]
     }
   },
@@ -7542,7 +7613,9 @@
         "Sauce vierge citron-herbes"
       ],
       "allergens": [
-        "œuf"
+        "gluten",
+        "œuf",
+        "poisson"
       ]
     }
   },
@@ -7588,7 +7661,10 @@
       ],
       "allergens": [
         "lait",
-        "gluten"
+        "gluten",
+        "poisson",
+        "mollusques",
+        "fruits à coque"
       ]
     }
   },
@@ -7637,7 +7713,8 @@
         "Sauce vierge citron-herbes"
       ],
       "allergens": [
-        "fruits de mer"
+        "poisson",
+        "mollusques"
       ]
     }
   },
@@ -7704,7 +7781,8 @@
         "Laque soja-mirin-gingembre"
       ],
       "allergens": [
-        "fruits à coque/sésame",
+        "poisson",
+        "sésame",
         "soja"
       ]
     }
@@ -7759,7 +7837,9 @@
         "Sauce vierge citron-herbes"
       ],
       "allergens": [
-        "œuf"
+        "gluten",
+        "œuf",
+        "poisson"
       ]
     }
   },
@@ -7804,7 +7884,9 @@
       "sauces": [
         "Sauce vierge tomate, câpres, basilic, citron et huile d'olive"
       ],
-      "allergens": []
+      "allergens": [
+        "poisson"
+      ]
     }
   },
   {
@@ -7870,7 +7952,8 @@
       ],
       "allergens": [
         "lait",
-        "fruits de mer"
+        "poisson",
+        "mollusques"
       ]
     }
   },
@@ -7916,7 +7999,8 @@
         "Crème citron vert-chipotle"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "poisson"
       ]
     }
   },
@@ -7963,7 +8047,10 @@
       ],
       "allergens": [
         "lait",
-        "gluten"
+        "gluten",
+        "poisson",
+        "mollusques",
+        "fruits à coque"
       ]
     }
   },
@@ -8025,7 +8112,8 @@
         "Raïta yaourt-menthe-citron"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "poisson"
       ]
     }
   },
@@ -8140,7 +8228,8 @@
         "Sauce hollandaise à l'aneth ou crème fraîche citron"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "poisson"
       ]
     }
   },
@@ -8243,7 +8332,7 @@
         "Chermoula citronnée"
       ],
       "allergens": [
-        "fruits à coque/sésame"
+        "sésame"
       ]
     }
   },
@@ -8379,7 +8468,8 @@
       ],
       "allergens": [
         "lait",
-        "gluten"
+        "gluten",
+        "fruits à coque"
       ]
     }
   },
@@ -8467,7 +8557,8 @@
         "Yaourt aux herbes"
       ],
       "allergens": [
-        "fruits à coque/sésame"
+        "fruits à coque",
+        "sésame"
       ]
     }
   },
@@ -8576,6 +8667,8 @@
         "Yaourt aux herbes"
       ],
       "allergens": [
+        "gluten",
+        "fruits à coque",
         "soja"
       ]
     }
@@ -8907,7 +9000,7 @@
       ],
       "allergens": [
         "lait",
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -8979,7 +9072,9 @@
       "sauces": [
         "Sauce barbecue maison Kansas City"
       ],
-      "allergens": []
+      "allergens": [
+        "moutarde"
+      ]
     }
   },
   {
@@ -9099,7 +9194,9 @@
       ],
       "allergens": [
         "lait",
-        "œuf"
+        "œuf",
+        "moutarde",
+        "céleri"
       ]
     }
   },
@@ -9144,7 +9241,8 @@
         "Yaourt aux herbes"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "œuf"
       ]
     }
   },
@@ -9190,7 +9288,7 @@
       ],
       "allergens": [
         "lait",
-        "fruits à coque/sésame"
+        "sésame"
       ]
     }
   },
@@ -9262,7 +9360,8 @@
         "Jus beurre-orange-moutarde"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "moutarde"
       ]
     }
   },
@@ -9334,7 +9433,7 @@
       ],
       "allergens": [
         "lait",
-        "fruits à coque/sésame"
+        "sésame"
       ]
     }
   },
@@ -9431,7 +9530,8 @@
         "Salade verte au vinaigre de Xérès"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "gluten"
       ]
     }
   },
@@ -9514,7 +9614,7 @@
       "allergens": [
         "lait",
         "gluten",
-        "fruits de mer"
+        "mollusques"
       ]
     }
   },
@@ -9556,7 +9656,7 @@
       "sauces": [],
       "allergens": [
         "gluten",
-        "fruits de mer"
+        "mollusques"
       ]
     }
   },
@@ -9616,7 +9716,7 @@
       "sauces": [],
       "allergens": [
         "gluten",
-        "fruits de mer"
+        "mollusques"
       ]
     }
   },
@@ -9880,7 +9980,7 @@
       "allergens": [
         "lait",
         "gluten",
-        "fruits à coque/sésame"
+        "fruits à coque"
       ]
     }
   },
@@ -10149,7 +10249,7 @@
       "allergens": [
         "lait",
         "gluten",
-        "fruits de mer"
+        "mollusques"
       ]
     }
   },
@@ -10248,7 +10348,9 @@
       "spice": "Doux",
       "season": "toute",
       "sauces": [],
-      "allergens": []
+      "allergens": [
+        "gluten"
+      ]
     }
   },
   {
@@ -10288,7 +10390,7 @@
       "sauces": [],
       "allergens": [
         "lait",
-        "fruits à coque/sésame"
+        "fruits à coque"
       ]
     }
   },
@@ -10443,8 +10545,9 @@
       "sauces": [],
       "allergens": [
         "lait",
+        "gluten",
         "œuf",
-        "fruits de mer"
+        "mollusques"
       ]
     }
   },
@@ -10535,7 +10638,7 @@
         "lait",
         "gluten",
         "œuf",
-        "fruits de mer"
+        "mollusques"
       ]
     }
   },
@@ -10651,8 +10754,8 @@
         "lait",
         "gluten",
         "œuf",
-        "fruits à coque/sésame",
-        "fruits de mer"
+        "mollusques",
+        "fruits à coque"
       ]
     }
   },
@@ -10736,7 +10839,9 @@
       "season": "automne",
       "sauces": [],
       "allergens": [
-        "fruits à coque/sésame"
+        "lait",
+        "gluten",
+        "fruits à coque"
       ]
     }
   },
@@ -10876,8 +10981,8 @@
         "lait",
         "gluten",
         "œuf",
-        "fruits à coque/sésame",
-        "fruits de mer"
+        "mollusques",
+        "fruits à coque"
       ]
     }
   },
@@ -10993,7 +11098,7 @@
         "lait",
         "gluten",
         "œuf",
-        "fruits à coque/sésame"
+        "fruits à coque"
       ]
     }
   },
@@ -11056,7 +11161,7 @@
       ],
       "allergens": [
         "lait",
-        "fruits à coque/sésame"
+        "fruits à coque"
       ]
     }
   },
@@ -11873,7 +11978,7 @@
       ],
       "allergens": [
         "lait",
-        "fruits à coque/sésame",
+        "arachides",
         "soja"
       ]
     }
@@ -11920,9 +12025,8 @@
         "Sauce gochujang-sésame"
       ],
       "allergens": [
-        "lait",
         "œuf",
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -12028,7 +12132,8 @@
         "Tzatziki"
       ],
       "allergens": [
-        "gluten"
+        "gluten",
+        "moutarde"
       ]
     }
   },
@@ -12087,7 +12192,9 @@
       "sauces": [
         "Salsa verde citron vert-coriandre"
       ],
-      "allergens": []
+      "allergens": [
+        "gluten"
+      ]
     }
   },
   {
@@ -12170,7 +12277,8 @@
         "Sauce barbecue maison Kansas City"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "moutarde"
       ]
     }
   },
@@ -12216,7 +12324,7 @@
       ],
       "allergens": [
         "œuf",
-        "fruits de mer"
+        "mollusques"
       ]
     }
   },
@@ -12444,7 +12552,7 @@
       "allergens": [
         "lait",
         "gluten",
-        "fruits à coque/sésame"
+        "sésame"
       ]
     }
   },
@@ -12488,9 +12596,8 @@
         "Sauce gochujang-sésame"
       ],
       "allergens": [
-        "lait",
         "œuf",
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -12706,8 +12813,8 @@
       "sauces": [],
       "allergens": [
         "gluten",
-        "fruits à coque/sésame",
-        "fruits de mer"
+        "mollusques",
+        "fruits à coque"
       ]
     }
   },
@@ -12855,7 +12962,8 @@
       "season": "ete",
       "sauces": [],
       "allergens": [
-        "gluten"
+        "gluten",
+        "moutarde"
       ]
     }
   },
@@ -12946,7 +13054,7 @@
       ],
       "allergens": [
         "œuf",
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -13030,7 +13138,9 @@
       "season": "ete",
       "sauces": [],
       "allergens": [
-        "fruits à coque/sésame",
+        "gluten",
+        "poisson",
+        "arachides",
         "soja"
       ]
     }
@@ -13079,6 +13189,7 @@
       "season": "toute",
       "sauces": [],
       "allergens": [
+        "gluten",
         "œuf",
         "soja"
       ]
@@ -13175,9 +13286,8 @@
         "Sauce gochujang-sésame"
       ],
       "allergens": [
-        "lait",
         "gluten",
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -13249,6 +13359,7 @@
         "Chimichurri rouge (Rojo)"
       ],
       "allergens": [
+        "gluten",
         "œuf"
       ]
     }
@@ -13296,7 +13407,7 @@
         "Sauce yaourt-ail express (façon toum)"
       ],
       "allergens": [
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -13457,8 +13568,9 @@
         "Mojo aux agrumes"
       ],
       "allergens": [
+        "gluten",
         "œuf",
-        "fruits à coque/sésame"
+        "arachides"
       ]
     }
   },
@@ -13552,7 +13664,7 @@
       ],
       "allergens": [
         "gluten",
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -13603,7 +13715,9 @@
         "Marinade Teriyaki épicée"
       ],
       "allergens": [
-        "œuf"
+        "œuf",
+        "poisson",
+        "mollusques"
       ]
     }
   },
@@ -13703,6 +13817,7 @@
       ],
       "allergens": [
         "gluten",
+        "mollusques",
         "soja"
       ]
     }
@@ -13750,7 +13865,8 @@
       ],
       "allergens": [
         "lait",
-        "gluten"
+        "gluten",
+        "fruits à coque"
       ]
     }
   },
@@ -13855,7 +13971,8 @@
       ],
       "allergens": [
         "lait",
-        "fruits à coque/sésame",
+        "gluten",
+        "sésame",
         "soja"
       ]
     }
@@ -13917,7 +14034,9 @@
         "Yaourt aux herbes"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "gluten",
+        "fruits à coque"
       ]
     }
   },
@@ -13962,7 +14081,8 @@
         "Laque soja-mirin-gingembre"
       ],
       "allergens": [
-        "fruits à coque/sésame",
+        "gluten",
+        "sésame",
         "soja"
       ]
     }
@@ -14007,7 +14127,7 @@
         "Yaourt aux herbes"
       ],
       "allergens": [
-        "fruits à coque/sésame"
+        "sésame"
       ]
     }
   },
@@ -14053,7 +14173,8 @@
         "Yaourt aux herbes"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "fruits à coque"
       ]
     }
   },
@@ -14286,7 +14407,7 @@
         "Laque soja-mirin-gingembre"
       ],
       "allergens": [
-        "fruits à coque/sésame",
+        "sésame",
         "soja"
       ]
     }
@@ -14348,7 +14469,8 @@
         "Sauce moutarde-miel, vinaigre de cidre et huile de noix"
       ],
       "allergens": [
-        "fruits à coque/sésame"
+        "fruits à coque",
+        "moutarde"
       ]
     }
   },
@@ -14421,7 +14543,8 @@
         "Sauce tahini-citron, câpres et herbes"
       ],
       "allergens": [
-        "fruits à coque/sésame"
+        "sésame",
+        "céleri"
       ]
     }
   },
@@ -14513,7 +14636,8 @@
         "Yaourt aux herbes"
       ],
       "allergens": [
-        "lait"
+        "lait",
+        "gluten"
       ]
     }
   },

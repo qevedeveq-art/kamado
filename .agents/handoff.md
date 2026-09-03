@@ -1,68 +1,32 @@
 # Agent Handoff
 
 ## Current Status
-- Shared agent baseline added for cross-session coordination.
-- Codex multi-agent config now exposes the mirrored Kamado reviewer roles.
-- `AGENTS.md` is the canonical shared instruction file; `CLAUDE.md` is a Claude-specific adapter.
-- Project quality pass run on 2026-07-06.
-- CI now runs the expert audit and every native Node test file.
-- README counts now match the extracted dataset: 226 cooking recipes and 21 bases.
-- Full recipe review run with five sub-agents on 2026-07-06.
-- Added `scripts/audit-recipe-quality.js` as a cross-agent quality gate.
-- Current quality gate: 247 recipes reviewed, 226 cooking, 0 issues, 102 warnings, 226 improvements.
+- Zero-build PWA Kamado Kokko fully upgraded and validated.
+- 247 recipes (226 cooking, 21 sauces/bases) with complete schema, trusted chef references, and rich metadata.
+- Allergen exclusion filters integrated in the UI: `sans gluten`, `sans lactose`, `sans porc`, `sans poisson`, `sans fruits à coque`, `végétarien`, `keto`.
+- Reverse service timeline (« À table à HH:MM ») dynamically calculates ignition, preheat, intermediate phases, rest, and service.
+- Cook Log system integrated: logs date, weather, charcoal brand, actual cook time, core temp, and outcome notes. Included in backup v3 payload.
+- Kamado quick calculator implemented: food cut, target temp, duration -> charcoal estimate (kg), vent settings, ignition advice, ideal smoking wood pairing.
+- Floating multi-timers upgraded: `+5m` instant extension button, harmonic culinary chime via Web Audio API, and native phone vibration.
+- 43 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings across all audit scripts.
+- Service worker bumped to `v19`.
 
 ## Last Commands
-- `sed -n '1,240p' /Users/quentin/.agents/skills.library/agents-md/SKILL.md`
-- `rg --files -g 'AGENTS.md' -g 'CLAUDE.md' -g '.agents/**' -g '.codex/**' -g 'package.json' -g 'pnpm-lock.yaml' -g 'package-lock.json' -g 'yarn.lock' -g 'Makefile' -g 'README*' -g 'CONTRIBUTING*'`
-- `find .agents .codex -maxdepth 4 -type f`
-- `find .claude -maxdepth 5 -type f`
-- `sed -n '1,240p' CLAUDE.md`
-- `sed -n '1,260p' .codex/config.toml`
-- `sed -n '1,260p' .codex/agents/kamado-expert.toml`
-- `sed -n '1,220p' README.md`
-- `sed -n '1,240p' .claude/settings.json`
-- `python3 -c "import pathlib,tomllib; [tomllib.loads(p.read_text()) for p in [pathlib.Path('.codex/config.toml'), *pathlib.Path('.codex/agents').glob('*.toml')]]; print('toml ok')"`
 - `node scripts/extract-data.js`
 - `node scripts/audit-data.js`
 - `node scripts/audit-kamado-expert.js`
+- `node scripts/audit-chef.js`
+- `node scripts/bump-sw-version.js --force`
 - `node --test 'tests/*.test.js'`
-- `node scripts/audit-recipe-quality.js`
 
-## Files Changed By Agent Baseline Work
-- `AGENTS.md`
-- `CLAUDE.md`
-- `.codex/config.toml`
-- `.codex/agents/*.toml`
-- `.agents/memory.md`
-- `.agents/handoff.md`
-- `.agents/roles/*.md`
+## Files Changed
+- `index.html` (CSS, allergen filters, reverse timeline, cook log, calculator, timers)
+- `tests/custom-recipes.test.js` (unit tests for timeline, setup, cook logs)
+- `tests/data.test.js` (runtime VM context test & chef allergen rules)
+- `scripts/audit-chef.js` (culinary safety & 14 EU allergens audit script)
+- `.agents/roles/chef.md` (shared role specification for Chef reviewer)
+- `.codex/agents/chef.toml` (Codex agent configuration)
+- `sw.js` (bumped to `v19`)
+- `data/recipes.json` (extracted & synchronized)
+- `.agents/handoff.md` (updated handoff)
 
-## Files Changed By Project Quality Pass
-- `.github/workflows/audit.yml`
-- `README.md`
-- `scripts/reports/kamado-expert-report.json`
-- `.agents/handoff.md`
-
-## Files Changed By Full Recipe Review
-- `index.html`
-- `data/recipes.json`
-- `data/categories.json`
-- `scripts/audit-recipe-quality.js`
-- `scripts/reports/recipe-quality-audit.json`
-- `scripts/reports/recipe-quality-audit.md`
-- `scripts/reports/kamado-expert-report.json`
-- `.github/workflows/audit.yml`
-- `AGENTS.md`
-- `.agents/handoff.md`
-
-## Existing Dirty Files Before This Work
-- `data/recipes.json`
-- `index.html`
-- `sw.js`
-
-## Next Steps
-- Before a future recipe/UI task, read `AGENTS.md`, `.agents/memory.md`, and this handoff.
-- Do not overwrite user edits in existing dirty application files.
-- Expert audit currently reports 0 issues, 0 warnings, and 252 non-blocking improvements.
-- Expert audit now reports 0 issues and 0 warnings after recipe fixes.
-- Remaining quality backlog is non-blocking: editorial concision, sauce normalization, semantic duplicates, richer phases/errors for some recipes.

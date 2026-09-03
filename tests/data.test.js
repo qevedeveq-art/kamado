@@ -125,3 +125,89 @@ test("wrap material starts with an allowed family", () => {
     assert.ok(ok, `${r.nom}: wrap.materiau="${r.wrap.materiau}"`);
   }
 });
+
+test("index.html client runtime executes without any reference or syntax error", () => {
+  const vm = require("node:vm");
+  const scriptStart = INDEX_HTML.indexOf("<script>");
+  const scriptEnd = INDEX_HTML.lastIndexOf("</script>");
+  const scriptContent = INDEX_HTML.slice(scriptStart + 8, scriptEnd);
+
+  const elements = {};
+  function mockEl(tag, id) {
+    return {
+      tagName: tag,
+      id: id || "",
+      classList: { add() {}, remove() {}, toggle() {}, contains() { return false; } },
+      style: {},
+      setAttribute() {},
+      getAttribute() { return ""; },
+      addEventListener(event, fn) { this["on" + event] = fn; },
+      appendChild() {},
+      querySelector(s) { return mockEl("div"); },
+      querySelectorAll(s) { return [mockEl("div")]; },
+      innerHTML: "",
+      textContent: "",
+      value: ""
+    };
+  }
+
+  const doc = {
+    querySelector(s) {
+      if (!elements[s]) elements[s] = mockEl("div", s.replace("#", ""));
+      return elements[s];
+    },
+    querySelectorAll(s) { return [mockEl("div")]; },
+    getElementById(id) { return this.querySelector("#" + id); },
+    body: mockEl("body"),
+    createElement(tag) { return mockEl(tag); },
+    addEventListener() {}
+  };
+
+  const win = {
+    document: doc,
+    localStorage: { getItem() { return null; }, setItem() {}, removeItem() {} },
+    location: { origin: "http://localhost:8000", pathname: "/", hash: "", protocol: "http:" },
+    navigator: { serviceWorker: { register() { return Promise.resolve(); } } },
+    matchMedia() { return { matches: false }; },
+    scrollTo() {},
+    requestAnimationFrame(cb) { cb(); },
+    scrollY: 0,
+    addEventListener() {}
+  };
+
+  const context = vm.createContext({
+    document: doc,
+    window: win,
+    localStorage: win.localStorage,
+    location: win.location,
+    navigator: win.navigator,
+    matchMedia: win.matchMedia,
+    scrollTo: win.scrollTo,
+    requestAnimationFrame: win.requestAnimationFrame,
+    console,
+    TextEncoder: global.TextEncoder,
+    TextDecoder: global.TextDecoder,
+    atob: global.atob,
+    btoa: global.btoa,
+    Set: global.Set,
+    Map: global.Map,
+    Date: global.Date,
+    JSON: global.JSON,
+    Math: global.Math,
+    parseInt: global.parseInt,
+    parseFloat: global.parseFloat,
+    setTimeout: global.setTimeout,
+    clearTimeout: global.clearTimeout
+  });
+
+  const count = vm.runInContext(scriptContent + "\n; RECIPES.length;", context);
+  assert.ok(count >= 240, `expected >=240 recipes, got ${count}`);
+});
+
+test("chef allergen rules: no false positives on muscade/coco, detects beer and fish", () => {
+  const { execSync } = require("child_process");
+  const out = execSync("node scripts/audit-chef.js", { encoding: "utf8" });
+  const result = JSON.parse(out);
+  assert.equal(result.issues, 0, `Chef audit reported ${result.issues} issues`);
+});
+

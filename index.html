@@ -2876,6 +2876,330 @@ body.outdoor-mode .modal.open .sheet {
   background: linear-gradient(90deg, rgba(255,208,108,.86), rgba(255,138,50,.42), transparent 72%) !important;
 }
 
+/* Badges pour recettes personnalisées et modifiées */
+.badge.custom { color: var(--green); border-color: rgba(130,168,82,0.4); background: rgba(130,168,82,0.14); }
+.badge.modified { color: var(--accent2); border-color: rgba(242,169,59,0.4); background: rgba(242,169,59,0.14); }
+.chip.chip-mine { border-color: var(--accent2); color: var(--accent2); }
+.chip.chip-mine.active { background: var(--accent2); color: #161813; border-color: var(--accent2); }
+
+/* Bouton Nouvelle Recette Header */
+.btn-new-recipe {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--ember) 100%);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(231,90,30,0.35);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+.btn-new-recipe:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(231,90,30,0.5);
+  filter: brightness(1.1);
+}
+.btn-new-recipe:active { transform: scale(0.96); }
+@media (max-width: 600px) {
+  .btn-new-recipe .btn-text-long { display: none; }
+  .btn-new-recipe .btn-text-short { display: inline; }
+}
+@media (min-width: 601px) {
+  .btn-new-recipe .btn-text-long { display: inline; }
+  .btn-new-recipe .btn-text-short { display: none; }
+}
+
+/* Boutons d'action avancés dans la fiche recette */
+.actbtn.primary-act { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 700; }
+.actbtn.warn-act { background: rgba(242,169,59,0.15); color: var(--accent2); border-color: var(--accent2); }
+.actbtn.danger-act { background: rgba(211,55,25,0.15); color: #ff7b7b; border-color: var(--ember); }
+
+/* Editeur de recette (Modal) */
+.editor-sheet {
+  max-width: 760px;
+  width: 100%;
+}
+.ed-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ed-save-btn {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.ed-save-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+.ed-save-btn:active { transform: scale(0.97); }
+.ed-body {
+  padding: 20px 24px 40px;
+}
+.ed-group {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.ed-group label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+}
+.ed-group .req { color: var(--accent); }
+.ed-group input, .ed-group select, .ed-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--line);
+  background: rgba(31, 34, 26, 0.7);
+  color: var(--txt);
+  font-size: 14px;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+.ed-group input:focus, .ed-group select:focus, .ed-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(231, 90, 30, 0.25);
+  background: var(--card);
+}
+.ed-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.ed-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .ed-row-2, .ed-row-3 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+.ed-section-title {
+  font-family: var(--font-title);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent2);
+  margin: 22px 0 12px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+}
+.ed-details {
+  background: rgba(31, 34, 26, 0.5);
+  border: 1px solid var(--line);
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  margin: 18px 0;
+}
+.ed-details summary {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--accent2);
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+.ed-advanced-content {
+  margin-top: 14px;
+}
+.ed-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.ed-error {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(211, 55, 25, 0.15);
+  border: 1px solid var(--ember);
+  color: #ff9080;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Badge configuration & montage kamado */
+.setup-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(31, 34, 26, 0.85);
+  border: 1px solid rgba(242, 169, 59, 0.35);
+  border-radius: var(--border-radius-md);
+  padding: 10px 14px;
+  margin: 12px 0 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.setup-icon { font-size: 26px; line-height: 1; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+.setup-title { font-size: 13.5px; font-weight: 700; color: var(--txt); }
+.setup-title b { color: var(--accent2); }
+.setup-desc { font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+
+/* Wake Lock pill */
+.wakelock-pill {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  background: rgba(242, 169, 59, 0.18);
+  color: var(--accent2);
+  border: 1px solid rgba(242, 169, 59, 0.4);
+  border-radius: 12px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+/* Smart Paste Box */
+.smart-paste-box {
+  background: rgba(22, 24, 19, 0.9);
+  border: 1px dashed var(--accent2);
+  border-radius: var(--border-radius-md);
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+.smart-paste-box textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--txt);
+  font-family: var(--font-body);
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+/* Rétroplanning de service */
+.timeline-box {
+  background: rgba(22, 24, 19, 0.85);
+  border: 1px solid rgba(242, 169, 59, 0.3);
+  border-radius: var(--border-radius-md);
+  padding: 14px 16px;
+  margin: 16px 0;
+}
+.tb-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.tb-title { font-size: 13.5px; font-weight: 700; color: var(--txt); }
+.tb-title b { color: var(--accent2); }
+.tb-time-wrap { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.tb-time-input {
+  background: var(--card2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--accent2);
+  font-weight: 800;
+  font-size: 14px;
+  padding: 4px 8px;
+  outline: none;
+}
+.tb-list { display: flex; flex-direction: column; gap: 8px; }
+.tb-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.02);
+  font-size: 13px;
+}
+.tb-hour {
+  font-weight: 800;
+  color: var(--accent2);
+  min-width: 48px;
+  font-family: var(--font-title);
+  font-variant-numeric: tabular-nums;
+}
+.tb-action { color: var(--txt); flex: 1; }
+
+/* Cook Log */
+.cook-log-section {
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.cook-log-item {
+  background: var(--card2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 8px;
+  font-size: 13px;
+}
+.cook-log-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--accent2);
+  margin-bottom: 4px;
+}
+.cook-log-meta { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+
+/* Timer +5m */
+.tadd {
+  background: var(--card2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--accent2);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tadd:hover { border-color: var(--accent); }
+
+/* Calculateur Allumage & Bois */
+.kamado-calc-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--border-radius-lg);
+  padding: 18px 20px;
+  margin: 16px 0 24px;
+}
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.calc-res-box {
+  background: rgba(242, 169, 59, 0.08);
+  border: 1px solid rgba(242, 169, 59, 0.25);
+  border-radius: var(--border-radius-md);
+  padding: 14px 16px;
+}
+.calc-res-title { font-weight: 700; color: var(--accent2); font-size: 14px; margin-bottom: 8px; }
+
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 </style>
@@ -2885,7 +3209,12 @@ body.outdoor-mode .modal.open .sheet {
   <div class="brand">
     <span class="flame">🔥</span>
     <span class="ember-spark" aria-hidden="true"></span>
-  <div><h1>Livre de recettes Kamado</h1><small>Kamado Kokko · Édition complète</small></div>
+    <div><h1>Livre de recettes Kamado</h1><small>Kamado Kokko · Édition complète</small></div>
+    <button id="btnNewRecipe" class="btn-new-recipe" title="Créer une nouvelle recette">
+      <span>➕</span>
+      <span class="btn-text-long">Nouvelle recette</span>
+      <span class="btn-text-short">Recette</span>
+    </button>
   </div>
   <div class="quickstats" id="quickstats"></div>
   <div class="search"><input id="q" type="search" placeholder="Rechercher une recette, un ingrédient…" autocomplete="off"></div>
@@ -2950,9 +3279,202 @@ body.outdoor-mode .modal.open .sheet {
 
 <!-- DETAIL -->
 <div class="modal" id="modal"><div class="sheet">
-  <div class="sheet-head"><button class="back" id="back">‹</button><h2 id="d-title"></h2></div>
+  <div class="sheet-head">
+    <button class="back" id="back">‹</button>
+    <h2 id="d-title"></h2>
+    <span id="wakeLockStatus" class="wakelock-pill" title="Écran maintenu allumé pour la cuisson">☀️ Écran allumé</span>
+  </div>
   <div class="sheet-body" id="d-body"></div>
 </div></div>
+
+<!-- RECIPE EDITOR MODAL -->
+<div class="modal" id="editorModal" role="dialog" aria-modal="true" aria-labelledby="edModalTitle">
+  <div class="sheet editor-sheet">
+    <div class="sheet-head">
+      <button class="back" id="edBack" title="Fermer sans enregistrer">‹</button>
+      <h2 id="edModalTitle">Nouvelle recette</h2>
+      <div class="ed-top-actions">
+        <button class="ed-save-btn" id="edTopSave">Enregistrer</button>
+      </div>
+    </div>
+    <div class="sheet-body ed-body">
+      <form id="recipeForm" onsubmit="return false;">
+        <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+          <button type="button" id="btnToggleSmartPaste" class="actbtn" style="font-size:12px;padding:6px 12px">📋 Pré-remplir depuis un texte copié</button>
+        </div>
+        <div id="smartPasteBox" class="smart-paste-box hide">
+          <div style="font-size:12.5px;font-weight:700;color:var(--accent2);margin-bottom:6px">Collez le texte brut d'une recette :</div>
+          <textarea id="smartPasteInput" rows="5" placeholder="Collez le texte ici (titre, ingrédients, étapes...). Les champs seront automatiquement analysés et distribués."></textarea>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button type="button" id="btnApplySmartPaste" class="actbtn primary-act" style="padding:6px 12px;font-size:12px">✨ Analyser et remplir</button>
+            <button type="button" id="btnCancelSmartPaste" class="actbtn" style="padding:6px 12px;font-size:12px">Fermer</button>
+          </div>
+        </div>
+
+        <div class="ed-group">
+          <label for="edNom">Nom de la recette <span class="req">*</span></label>
+          <input type="text" id="edNom" required placeholder="ex. Picanha au romarin & sel fumé">
+        </div>
+
+        <div class="ed-row-2">
+          <div class="ed-group">
+            <label for="edCat">Catégorie <span class="req">*</span></label>
+            <select id="edCat">
+              <option value="boeuf">🥩 Bœuf</option>
+              <option value="porc">🐖 Porc</option>
+              <option value="volaille">🍗 Volaille</option>
+              <option value="agneau">🐑 Agneau & Gibier</option>
+              <option value="poisson">🐟 Poissons & Mer</option>
+              <option value="legumes">🥗 Légumes & Sides</option>
+              <option value="pizza">🍕 Pizzas & Pains</option>
+              <option value="monde">🌍 Cuisines du monde</option>
+              <option value="dessert">🍮 Desserts</option>
+              <option value="vegetarien">🌱 Végétarien</option>
+              <option value="sauces">🧂 Sauces & Marinades</option>
+            </select>
+          </div>
+          <div class="ed-group">
+            <label for="edOri">Origine / Style</label>
+            <input type="text" id="edOri" placeholder="ex. Brésil · churrasco maison">
+          </div>
+        </div>
+
+        <div class="ed-section-title">🔥 Cuisson Kamado</div>
+        <div class="ed-row-2">
+          <div class="ed-group">
+            <label for="edMode">Mode de cuisson <span class="req">*</span></label>
+            <input type="text" id="edMode" list="modesList" placeholder="ex. Direct, Indirect, Fumage">
+            <datalist id="modesList">
+              <option value="Direct">
+              <option value="Direct vif (saisie)">
+              <option value="Indirect (déflecteur)">
+              <option value="Fumage low & slow">
+              <option value="Reverse-sear (2 temps)">
+              <option value="Plancha / fonte">
+              <option value="Pierre à pizza">
+              <option value="Braisé en cocotte">
+            </datalist>
+          </div>
+          <div class="ed-group">
+            <label for="edTempK">Température Kamado <span class="req">*</span></label>
+            <input type="text" id="edTempK" placeholder="ex. 110 °C ou 200–220 °C">
+          </div>
+        </div>
+
+        <div class="ed-row-3">
+          <div class="ed-group">
+            <label for="edCoeur">À cœur cible</label>
+            <input type="text" id="edCoeur" placeholder="ex. 54 °C (saignant) ou 74 °C">
+          </div>
+          <div class="ed-group">
+            <label for="edTemps">Temps de cuisson <span class="req">*</span></label>
+            <input type="text" id="edTemps" placeholder="ex. 45 min, 1 h 30, 4 h">
+          </div>
+          <div class="ed-group">
+            <label for="edPour">Portions</label>
+            <input type="text" id="edPour" placeholder="ex. 4 personnes">
+          </div>
+        </div>
+
+        <div class="ed-row-2">
+          <div class="ed-group">
+            <label for="edBois">Bois de fumage conseillé</label>
+            <input type="text" id="edBois" placeholder="ex. Chêne, Pommier, Hickory ou —">
+          </div>
+          <div class="ed-group">
+            <label for="edSauce">Sauce / Accompagnement</label>
+            <input type="text" id="edSauce" placeholder="ex. Chimichurri argentin">
+          </div>
+        </div>
+
+        <div class="ed-section-title">📋 Ingrédients & Étapes</div>
+        <div class="ed-group">
+          <label for="edIngs">Ingrédients (1 par ligne) <span class="req">*</span></label>
+          <textarea id="edIngs" rows="5" placeholder="1 picanha de 1,2 kg&#10;2 c. à soupe de gros sel de mer&#10;1 branche de romarin frais&#10;Huile d'olive"></textarea>
+        </div>
+
+        <div class="ed-group">
+          <label for="edEtapes">Étapes de préparation & cuisson (1 par ligne) <span class="req">*</span></label>
+          <textarea id="edEtapes" rows="6" placeholder="Quadriller le gras au couteau sans entamer la chair.&#10;Stabiliser le kamado à 110 °C avec le déflecteur céramique.&#10;Fumer indirectement jusqu'à 48 °C à cœur (environ 50 min).&#10;Retirer le déflecteur et ouvrir les évents pour monter à 250 °C.&#10;Saisir 2 min par face en cuisson directe.&#10;Laisser reposer 10 min avant de trancher."></textarea>
+        </div>
+
+        <div class="ed-group">
+          <label for="edAstuce">💡 Astuce du chef / Note perso</label>
+          <input type="text" id="edAstuce" placeholder="ex. Trancher finement perpendiculairement aux fibres.">
+        </div>
+
+        <details class="ed-details">
+          <summary>⚙️ Paramètres avancés Kamado (optionnels)</summary>
+          <div class="ed-advanced-content">
+            <div class="ed-row-2">
+              <div class="ed-group">
+                <label for="edVentsBottom">Évent bas (air)</label>
+                <input type="text" id="edVentsBottom" placeholder="ex. 1/4 ouvert (1 cm)">
+              </div>
+              <div class="ed-group">
+                <label for="edVentsTop">Évent haut (chapeau)</label>
+                <input type="text" id="edVentsTop" placeholder="ex. marguerite 1/2 ouverte">
+              </div>
+            </div>
+
+            <div class="ed-row-3">
+              <div class="ed-group">
+                <label for="edCharbon">Charbon estimé (kg)</label>
+                <input type="number" step="0.1" min="0" max="10" id="edCharbon" placeholder="ex. 1.5">
+              </div>
+              <div class="ed-group">
+                <label for="edRepos">Repos (min)</label>
+                <input type="number" min="0" max="120" id="edRepos" placeholder="ex. 10">
+              </div>
+              <div class="ed-group">
+                <label for="edDiff">Difficulté (1 à 5)</label>
+                <select id="edDiff">
+                  <option value="1">1 - Très facile</option>
+                  <option value="2">2 - Facile</option>
+                  <option value="3" selected>3 - Intermédiaire</option>
+                  <option value="4">4 - Confirmé</option>
+                  <option value="5">5 - Expert</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="ed-row-2">
+              <div class="ed-group">
+                <label for="edMarinade">Marinade (heures)</label>
+                <input type="number" step="0.5" min="0" max="72" id="edMarinade" placeholder="ex. 4">
+              </div>
+              <div class="ed-group">
+                <label for="edEquip">Équipement (séparé par des virgules)</label>
+                <input type="text" id="edEquip" placeholder="ex. déflecteur, sonde thermique, pince">
+              </div>
+            </div>
+
+            <div class="ed-group">
+              <label for="edErreurs">⚠️ Erreurs à éviter (1 par ligne)</label>
+              <textarea id="edErreurs" rows="2" placeholder="Ouvrir le couvercle trop souvent&#10;Piquer la viande à la fourchette"></textarea>
+            </div>
+
+            <div class="ed-group">
+              <label for="edSecurite">🛡️ Sécurité alimentaire</label>
+              <input type="text" id="edSecurite" placeholder="ex. Contrôler 74 °C à cœur pour la volaille">
+            </div>
+
+            <div class="ed-group">
+              <label for="edSource">📚 Source ou inspiration</label>
+              <input type="text" id="edSource" placeholder="ex. Recette maison / Meathead AmazingRibs">
+            </div>
+          </div>
+        </details>
+
+        <div class="ed-actions">
+          <button type="button" class="actbtn" id="edCancel">Annuler</button>
+          <button type="submit" class="actbtn primary-act" id="edSave">💾 Enregistrer la recette</button>
+        </div>
+        <div id="edError" class="ed-error hide"></div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script>
 /* ================= DONNÉES RECETTES ================= */
@@ -8236,12 +8758,32 @@ function wineServiceTemp(label){
 }
 function allergens(r){
   const h=haystack(r), a=[];
-  if(/fromage|beurre|creme|crème|yaourt|lait|mozzarella|feta|cheddar|mascarpone|parmesan|halloumi/.test(h))a.push("lait");
-  if(/gluten|farine|pain|pita|naan|buns|baguette|pate\b|chapelure|focaccia|pizza/.test(h))a.push("gluten");
-  if(/oeuf|œuf|œufs|mayonnaise/.test(h))a.push("œuf");
-  if(/cacahuete|amande|pecan|sésame|sesame|tahini/.test(h)||(/noix/.test(h)&&!/saint-jacques/.test(h)))a.push("fruits à coque/sésame");
-  if(/soja|miso|teriyaki|tamari/.test(h))a.push("soja");
-  if(/crevette|gambas|moule|homard|saint-jacques|calamar|coquillage/.test(h))a.push("fruits de mer");
+  // Lait (exclure le lait de coco végétal)
+  const laitText=h.replace(/lait de coco/g, "");
+  if(/fromage|beurre|creme|yaourt|yogourt|\blait\b|mozzarella|feta|cheddar|mascarpone|parmesan|halloumi|comte\b|gruyere|gorgonzola|roquefort|chevre|pecorino|reblochon|raclette|emmental|brie\b|camembert|ricotta|burrata|paneer|ghee/.test(laitText))a.push("lait");
+  // Gluten (céréales, farines, pains, bière, chapelure, pâtes)
+  if(/gluten|farine|\bpain\b|pita|naan|\bbun\b|\bbuns\b|baguette|\bpate\b|\bpates\b|chapelure|focaccia|pizza|brioche|toast|seigle|orge|avoine|\bble\b|malt|\bbiere\b|ale\b|lager|stout|guinness|worcestershire|speculoos|crouton/.test(h))a.push("gluten");
+  // Œufs
+  if(/oeuf|œuf|mayonnaise|aioli|bearnaise|hollandaise/.test(h))a.push("œuf");
+  // Poisson
+  if(r.cat==="poisson"||/saumon|thon\b|cabillaud|daurade|dorade|truite|maquereau|sardine|hareng|anchois|\bbar\b|loup de mer|turbot|\blieu\b|merlu|eglefin|\bsole\b|fletan|morue|espadon|poisson|nuoc.mam|worcestershire/.test(h))a.push("poisson");
+  // Crustacés
+  if(/crevette|gambas|homard|langouste|langoustine|crabe|ecrevisse|tourteau/.test(h))a.push("crustacés");
+  // Mollusques
+  if(/moule|huitre|saint-jacques|calamar|encornet|poulpe|seiche|coquillage|palourde|\bcoque\b/.test(h))a.push("mollusques");
+  // Arachides
+  if(/cacahuete|arachide/.test(h))a.push("arachides");
+  // Fruits à coque (exclure noix de muscade, noix de coco et noix de saint-jacques)
+  const nutText=h.replace(/noix de muscade/g, "").replace(/noix de coco/g, "").replace(/noix de saint-jacques/g, "");
+  if(/amande|noisette|pecan|pistache|noix de cajou|cajou|macadamia|pignon|\bnoix\b/.test(nutText))a.push("fruits à coque");
+  // Graines de sésame
+  if(/sesame|tahini|tahin|zaatar|gomasio/.test(h))a.push("sésame");
+  // Soja
+  if(/soja|edamame|miso|tofu|teriyaki|tamari/.test(h))a.push("soja");
+  // Moutarde
+  if(/moutarde/.test(h))a.push("moutarde");
+  // Céleri
+  if(/celeri/.test(h))a.push("céleri");
   return [...new Set(a)];
 }
 function seasonFor(r){
@@ -8407,7 +8949,10 @@ function dietTags(r){
   const alls=allergens(r), h=haystack(r), tags=[];
   if(!alls.includes("gluten"))tags.push("sans gluten");
   if(!alls.includes("lait"))tags.push("sans lactose");
-  if(["legumes","vegetarien","dessert","pizza","sauces"].includes(r.cat)&&!/bœuf|boeuf|porc|poulet|agneau|canard|dinde|jambon|lard|saumon|thon|cabillaud|crevette|gambas|moule|homard|calamar|saint-jacques/.test(h))tags.push("végétarien");
+  if(!alls.includes("poisson")&&!alls.includes("crustacés")&&!alls.includes("mollusques")&&r.cat!=="poisson")tags.push("sans poisson");
+  if(!/porc|jambon|lard|bacon|saucisse de toulouse|chorizo|échine|ribs|travers/i.test(h)&&r.cat!=="porc")tags.push("sans porc");
+  if(!alls.includes("fruits à coque")&&!alls.includes("arachides"))tags.push("sans fruits à coque");
+  if(["legumes","vegetarien","dessert","pizza","sauces"].includes(r.cat)&&!/bœuf|boeuf|porc|poulet|agneau|canard|dinde|jambon|lard|saumon|thon|cabillaud|crevette|gambas|moule|homard|calamar|saint-jacques|poisson|anchois/.test(h))tags.push("végétarien");
   if(/bœuf|boeuf|porc|poulet|agneau|canard|dinde|saumon|thon|cabillaud|crevette|gambas|œuf|oeuf|fromage|beurre/.test(h)&&!/sucre|miel|farine|pain|pâte|pate|riz|pomme de terre|patate|sirop|banane|pêche|peche/.test(h))tags.push("keto");
   return tags;
 }
@@ -8521,9 +9066,65 @@ let shoppingList=LS.get("kokko_shopping",[]);
 let pantryProfile=LS.get("kokko_pantry_profile",{have:"",avoid:"",diet:"all",equipment:"all",available:"all"});
 let savedSession=LS.get("kokko_session",{recipes:[],serviceTime:"13:00"});
 let outdoorMode=!!LS.get("kokko_outdoor_mode",false);
+let stepMode=false;
+let cookLogs=LS.get("kokko_cook_logs",{});
+
+/* ---- recettes personnalisées et surcharges ---- */
+const BUILTIN_RECIPES = RECIPES.map(r => ({ ...r }));
+let customRecipes = LS.get("kokko_custom_recipes", []);
+let recipeOverrides = LS.get("kokko_recipe_overrides", {});
+if (!Array.isArray(customRecipes)) customRecipes = [];
+if (!recipeOverrides || typeof recipeOverrides !== "object" || Array.isArray(recipeOverrides)) recipeOverrides = {};
+
+function refreshActiveRecipes() {
+  const active = BUILTIN_RECIPES.map(orig => {
+    const ov = recipeOverrides[orig.nom];
+    if (ov) {
+      return { ...orig, ...ov, _modified: true, _orig: orig };
+    }
+    return { ...orig };
+  });
+  customRecipes.forEach(cr => {
+    active.push({ ...cr, _custom: true });
+  });
+  RECIPES.length = 0;
+  RECIPES.push(...active);
+}
+refreshActiveRecipes();
 const rid=r=>r.nom;
+
+/* ---- maintien de l'écran allumé (Screen Wake Lock) ---- */
+let wakeLock = null;
+async function requestWakeLock(){
+  if("wakeLock" in navigator && !wakeLock){
+    try{
+      wakeLock = await navigator.wakeLock.request("screen");
+      wakeLock.addEventListener("release", ()=>{ wakeLock=null; updateWakeLockUI(); });
+      updateWakeLockUI();
+    }catch(e){}
+  }
+}
+function releaseWakeLock(){
+  if(wakeLock){
+    wakeLock.release().catch(()=>{});
+    wakeLock=null;
+    updateWakeLockUI();
+  }
+}
+function updateWakeLockUI(){
+  const el=$("#wakeLockStatus");
+  if(el) el.style.display = wakeLock ? "inline-flex" : "none";
+}
+document.addEventListener("visibilitychange", ()=>{
+  if(document.visibilityState === "visible" && (stepMode || outdoorMode)){
+    requestWakeLock();
+  }
+});
+
 function applyOutdoorMode(){
   document.body.classList.toggle("outdoor-mode", outdoorMode);
+  if(outdoorMode) requestWakeLock();
+  else if(!stepMode) releaseWakeLock();
 }
 applyOutdoorMode();
 function multiValues(value){
@@ -8569,7 +9170,7 @@ function renderHistory(){
 }
 
 /* ---- état filtres ---- */
-let curCat="all",curQ="",curHave=pantryProfile.have||"",curMode="all",curTime="all",curDiff="all",curSeason="all",curDiet=multiValues(pantryProfile.diet),curEquip=multiValues(pantryProfile.equipment),curAvailable=pantryProfile.available||"all",curQuality="all",curSort="default",favOnly=false;
+let curCat="all",curQ="",curHave=pantryProfile.have||"",curMode="all",curTime="all",curDiff="all",curSeason="all",curDiet=multiValues(pantryProfile.diet),curEquip=multiValues(pantryProfile.equipment),curAvailable=pantryProfile.available||"all",curQuality="all",curSort="default",favOnly=false,myOnly=false;
 
 function renderStats(){
   const total=cookingRecipes().length;
@@ -8577,21 +9178,33 @@ function renderStats(){
   const ratedCount=Object.keys(ratings).filter(n=>RECIPES.some(r=>rid(r)===n)).length;
   const quick=cookingRecipes().filter(r=>timeBucket(r)==="express").length;
   const bases=baseRecipes().length;
+  const myCount=cookingRecipes().filter(r=>r._custom||r._modified).length;
   $("#quickstats").innerHTML=`
     <div class="qstat"><b>${total}</b><span>recettes kamado</span></div>
     <div class="qstat"><b>${quick}</b><span>express</span></div>
     <div class="qstat"><b>${favCount}</b><span>favoris</span></div>
+    ${myCount?`<div class="qstat"><b>${myCount}</b><span>mes créations</span></div>`:''}
     <div class="qstat"><b>${ratedCount}</b><span>notées</span></div>
     <div class="qstat"><b>${bases}</b><span>bases utiles</span></div>`;
 }
 
 /* ---- chips catégories ---- */
 function renderChips(){
+  const myCount = RECIPES.filter(r=>r._custom||r._modified).length;
   $("#chips").innerHTML=CATS.filter(c=>c.id!=="sauces").map(c=>{
     const n=c.id==="all"?cookingRecipes().length:RECIPES.filter(r=>r.cat===c.id).length;
-    return `<div class="chip ${c.id===curCat?'active':''}" data-cat="${c.id}">${c.e} ${c.nom}${c.id!=='all'?` <span style="opacity:.6">${n}</span>`:''}</div>`;
-  }).join("");
-  $$("#chips .chip").forEach(ch=>ch.onclick=()=>{curCat=ch.dataset.cat;renderChips();renderList();window.scrollTo({top:0,behavior:'smooth'});});
+    return `<div class="chip ${c.id===curCat&&!myOnly?'active':''}" data-cat="${c.id}">${c.e} ${c.nom}${c.id!=='all'?` <span style="opacity:.6">${n}</span>`:''}</div>`;
+  }).join("") + (myCount>0 ? `<div class="chip chip-mine ${myOnly?'active':''}" data-cat="mine">👤 Mes créations <span style="opacity:.6">${myCount}</span></div>` : '');
+  $$("#chips .chip").forEach(ch=>ch.onclick=()=>{
+    if(ch.dataset.cat==="mine"){
+      myOnly=!myOnly;
+      if(myOnly) curCat="all";
+    } else {
+      myOnly=false;
+      curCat=ch.dataset.cat;
+    }
+    renderChips();renderList();window.scrollTo({top:0,behavior:'smooth'});
+  });
 }
 
 /* ---- barre de filtres ---- */
@@ -8624,8 +9237,8 @@ function renderFilterBar(){
      <option value="hiver">Hiver / fêtes</option>
    </select>
    <div class="multifilter" role="group" aria-label="Régimes">
-     <span class="multifilter-label">Régimes</span>
-     ${["sans gluten","sans lactose","végétarien","keto"].map(v=>`<button class="fbtn multi-diet ${curDiet.includes(v)?'on':''}" data-value="${v}">${v}</button>`).join("")}
+     <span class="multifilter-label">Régimes / Sans</span>
+     ${["sans gluten","sans lactose","sans porc","sans poisson","sans fruits à coque","végétarien","keto"].map(v=>`<button class="fbtn multi-diet ${curDiet.includes(v)?'on':''}" data-value="${v}">${v}</button>`).join("")}
    </div>
    <div class="multifilter" role="group" aria-label="Matériel">
      <span class="multifilter-label">Matériel</span>
@@ -8660,6 +9273,8 @@ function renderFilterBar(){
      <option value="recent">Récents</option>
    </select>
    <button id="fFav" class="fbtn ${favOnly?'on':''}">${favOnly?'★':'☆'} Favoris</button>
+   <button id="fMine" class="fbtn ${myOnly?'on':''}">👤 Mes créations</button>
+   <button id="fNew" class="fbtn" style="background:linear-gradient(135deg,var(--accent),var(--ember));color:#fff;border-color:rgba(255,255,255,0.25);font-weight:700">➕ Créer</button>
    <button id="fRand" class="fbtn">🎲 Au hasard</button>`;
   $("#fMode").value=curMode;$("#fTime").value=curTime;$("#fDiff").value=curDiff;$("#fSeason").value=curSeason;$("#fAvailable").value=curAvailable;$("#fQuality").value=curQuality;$("#fSort").value=curSort;
   $("#fMode").onchange=e=>{curMode=e.target.value;renderList();};
@@ -8672,6 +9287,8 @@ function renderFilterBar(){
   $("#fQuality").onchange=e=>{curQuality=e.target.value;renderList();};
   $("#fSort").onchange=e=>{curSort=e.target.value;renderList();};
   $("#fFav").onclick=()=>{favOnly=!favOnly;renderFilterBar();renderStats();renderList();renderBases();};
+  $("#fMine").onclick=()=>{myOnly=!myOnly;renderChips();renderFilterBar();renderList();};
+  $("#fNew").onclick=()=>{openRecipeEditor();};
   $("#fRand").onclick=()=>{const l=RECIPES.filter(matches);const pool=l.length?l:cookingRecipes();openRecipe(RECIPES.indexOf(pool[Math.floor(Math.random()*pool.length)]));};
 }
 
@@ -8682,19 +9299,22 @@ function renderSmartBar(){
     <button id="sSeason" class="fbtn ${curSeason===currentSeason()?'on':''}">Saison</button>
     <button id="sPantry" class="fbtn ${curHave?'on':''}">Garde-manger</button>
     <button id="sOutdoor" class="fbtn ${outdoorMode?'on':''}">Mode extérieur</button>
+    <button id="sMine" class="fbtn ${myOnly?'on':''}">Mes créations</button>
     <button id="sReset" class="fbtn">Réinitialiser</button>`;
   const active=[];
   if(curHave)active.push(`ingrédients : ${curHave}`);
   if(curDiet.length)active.push(`régimes : ${curDiet.join(", ")}`);
   if(curEquip.length)active.push(`matériel : ${curEquip.join(", ")}`);
   if(curAvailable!=="all")active.push(`temps max : ${curAvailable} min`);
+  if(myOnly)active.push("mes créations");
   sn.textContent=active.length?`Profil actif · ${active.join(" · ")}`:"Astuce : combinez ingrédients, exclusions, régime, matériel et temps disponible pour trouver une cuisson réaliste.";
   $("#sTonight").onclick=()=>{curAvailable=curAvailable==="all"?"90":"all";pantryProfile.available=curAvailable;LS.set("kokko_pantry_profile",pantryProfile);renderFilterBar();renderSmartBar();renderList();};
   $("#sSeason").onclick=()=>{curSeason=curSeason===currentSeason()?"all":currentSeason();renderFilterBar();renderSmartBar();renderList();};
   $("#sPantry").onclick=()=>{$("#have").focus();};
   $("#sOutdoor").onclick=()=>{outdoorMode=!outdoorMode;LS.set("kokko_outdoor_mode",outdoorMode);applyOutdoorMode();renderSmartBar();};
+  $("#sMine").onclick=()=>{myOnly=!myOnly;renderChips();renderFilterBar();renderSmartBar();renderList();};
   $("#sReset").onclick=()=>{
-    curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet=[];curEquip=[];curAvailable="all";curQuality="all";curSort="default";favOnly=false;
+    curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet=[];curEquip=[];curAvailable="all";curQuality="all";curSort="default";favOnly=false;myOnly=false;
     pantryProfile={have:"",avoid:"",diet:[],equipment:[],available:"all"};
     LS.set("kokko_pantry_profile",pantryProfile);
     $("#q").value="";$("#have").value="";
@@ -8705,6 +9325,7 @@ function renderSmartBar(){
 /* ---- filtrage ---- */
 function matches(r){
   if(r.cat==="sauces")return false;
+  if(myOnly&&!r._custom&&!r._modified)return false;
   if(curCat!=="all"&&r.cat!==curCat)return false;
   if(favOnly&&!favs.has(rid(r)))return false;
   if(curMode!=="all"){const x=r.mode.toLowerCase();
@@ -8753,6 +9374,8 @@ function card(r){
       </div>
     </div>
     <div class="meta">
+      ${r._custom?`<span class="badge custom">👤 Ma recette</span>`:''}
+      ${r._modified?`<span class="badge modified">✏️ Modifiée</span>`:''}
       <span class="badge mode">${r.mode}</span>
       <span class="badge temp">🌡️ ${r.tempK}</span>
       ${r.coeur?`<span class="badge coeur">à cœur ${r.coeur}</span>`:''}
@@ -8779,6 +9402,7 @@ function renderList(){
   });
   const bits=[];
   if(favOnly)bits.push("favoris");
+  if(myOnly)bits.push("mes créations");
   if(curHave)bits.push("avec vos ingrédients");
   $("#count").textContent=`${list.length} recette${list.length>1?'s':''}`+(bits.length?` · ${bits.join(" · ")}`:"");
   if(!list.length){$("#grid").innerHTML=`<div class="empty">Aucune recette ne correspond.<br>Élargissez les filtres, retirez un ingrédient ou changez de mot-clé.</div>`;return;}
@@ -8788,7 +9412,6 @@ function renderList(){
 }
 
 /* ---- fiche détail ---- */
-let stepMode=false;
 function formatDurationMin(min){
   if(min==null)return"";
   if(min<60)return`${min} min`;
@@ -8888,8 +9511,119 @@ function drawThermometerSVG(tempStr) {
   `;
 }
 
+function withF(s){
+  if(!s)return"";
+  return String(s).replace(/(\d+)(?:\s*[–-]\s*(\d+))?\s*°?\s*C\b/gi, (m,t1,t2)=>{
+    const f1=Math.round(parseInt(t1,10)*9/5+32);
+    if(t2){
+      const f2=Math.round(parseInt(t2,10)*9/5+32);
+      return `${t1}–${t2} °C (${f1}–${f2} °F)`;
+    }
+    return `${t1} °C (${f1} °F)`;
+  });
+}
+
+function kamadoSetup(r){
+  const h=haystack(r);
+  if(/pizza|pierre/i.test(r.mode)||/pizza|pain/i.test(r.cat))
+    return {label:"Déflecteur + Pierre à pizza (Four)",icon:"🍕",desc:"Déflecteur céramique posé, surmonté de la pierre à pizza préchauffée 25–30 min."};
+  if(/cocotte|brais/i.test(r.mode)||/cocotte/i.test(h))
+    return {label:"Déflecteur + Cocotte en fonte",icon:"🥘",desc:"Déflecteur céramique sous la grille pour mijoter sans brûler le fond de la cocotte."};
+  if(/reverse|2 temps|deux temps/i.test(r.mode)||/indirect puis direct/i.test(r.mode))
+    return {label:"Configuration 2 temps (Indirect puis Direct)",icon:"🌓",desc:"1. Déflecteur en place pour montée douce à cœur → 2. Retrait du déflecteur pour saisie directe sur braises."};
+  if(/fumage|slow|indirect|rotissoire|four/i.test(r.mode))
+    return {label:"Déflecteur céramique (Cuisson indirecte)",icon:"🛡️",desc:"Déflecteur céramique installé entre les braises et la grille."};
+  if(/plancha/i.test(r.mode)||/plancha/i.test(h))
+    return {label:"Plancha en fonte",icon:"🍳",desc:"Plaque ou demi-lune en fonte sur le kamado pour saisie uniforme."};
+  return {label:"Grille directe (Saisie vive sur braises)",icon:"🔥",desc:"Grille positionnée directement au-dessus du foyer de braises, sans déflecteur."};
+}
+
+function shareRecipe(r,servings){
+  const f=servings/baseServ(r);
+  const ingsList=r.ings.map(x=>"• "+scaleIng(x,f)).join("\n");
+  const text=`${r.nom} (${servings} pers.)\n`+
+    `🔥 Kamado : ${r.mode} · ${r.tempK} · ⏱️ ${r.temps}`+(r.coeur?` · Cœur : ${r.coeur}`:"")+"\n\n"+
+    `📋 Ingrédients :\n${ingsList}\n\n`+
+    (r.astuce?`💡 Conseil : ${r.astuce}\n\n`:"")+
+    `Recette Kamado Kokko : ${location.origin}${location.pathname}`;
+
+  if(navigator.share){
+    navigator.share({title:r.nom,text}).catch(()=>{});
+  } else if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(()=>{
+      const btn=$("#dShare");
+      if(btn){
+        btn.textContent="✅ Copié !";
+        setTimeout(()=>btn.textContent="📤 Partager",1600);
+      }
+    }).catch(()=>{});
+  }
+}
+
+function computeTimeline(r, targetTimeStr) {
+  if (!targetTimeStr) targetTimeStr = "13:00";
+  const [tH, tM] = targetTimeStr.split(":").map(x => parseInt(x, 10) || 0);
+  const targetMin = tH * 60 + tM;
+
+  const repos = r.repos_min || 0;
+  const cookDur = parseRecipeDuration(r) || parseMinutes(r.temps) || 45;
+  const preheat = (/pizza|pain/i.test(r.cat) ? 40 : (/fumage/i.test(r.mode) ? 35 : 25));
+
+  function minToTime(m) {
+    let mod = Math.round(m) % 1440;
+    if (mod < 0) mod += 1440;
+    const h = Math.floor(mod / 60);
+    const mn = mod % 60;
+    return `${String(h).padStart(2, "0")}:${String(mn).padStart(2, "0")}`;
+  }
+
+  const steps = [];
+  const igniteMin = targetMin - repos - cookDur - preheat;
+  steps.push({ time: minToTime(igniteMin), desc: `Allumage du charbon & réglage des évents (${r.tempK || "température cible"})` });
+
+  const startCookMin = targetMin - repos - cookDur;
+  steps.push({ time: minToTime(startCookMin), desc: `Stabilisation terminée · Enfournement${r.bois && r.bois !== "—" ? ` & ajout du bois (${r.bois})` : ""}` });
+
+  if (Array.isArray(r.phases) && r.phases.length > 1) {
+    let accMin = startCookMin;
+    for (let p = 0; p < r.phases.length - 1; p++) {
+      accMin += Number(r.phases[p].duration_min) || (cookDur / r.phases.length);
+      steps.push({ time: minToTime(accMin), desc: `Étape : ${r.phases[p + 1].name}${r.phases[p + 1].target ? ` (${r.phases[p + 1].target})` : ""}` });
+    }
+  }
+
+  if (repos > 0) {
+    const restMin = targetMin - repos;
+    steps.push({ time: minToTime(restMin), desc: `Fin de cuisson · Sortie du kamado et repos (${repos} min sous papier boucher ou alu)` });
+  }
+
+  steps.push({ time: minToTime(targetMin), desc: `🍽️ Découpe et passage à table (${targetTimeStr}) !` });
+  return steps;
+}
+
+function renderCookLogs(r) {
+  const logs = (cookLogs[rid(r)] || []);
+  if (!logs.length) {
+    return `<div style="font-size:12.5px;color:var(--muted);margin-top:6px;font-style:italic">Aucune session enregistrée pour cette recette. Notez vos réglages réels et réussites !</div>`;
+  }
+  return logs.map((log, idx) => `
+    <div class="cook-log-item">
+      <div class="cook-log-header">
+        <span>${log.date || "Session"} · ${log.meteo || "☀️"}</span>
+        <button class="actbtn danger-act btn-del-log" data-idx="${idx}" style="padding:2px 6px;font-size:11px">✕</button>
+      </div>
+      <div class="cook-log-meta">
+        ${log.charbon ? `<b>Charbon :</b> ${escHtml(log.charbon)} · ` : ""}
+        ${log.duree ? `<b>Durée :</b> ${escHtml(log.duree)} · ` : ""}
+        ${log.coeur ? `<b>À cœur :</b> ${escHtml(log.coeur)}` : ""}
+      </div>
+      ${log.obs ? `<div style="color:var(--txt);font-size:12.5px;margin-top:4px">${escHtml(log.obs)}</div>` : ""}
+    </div>
+  `).join("");
+}
+
 function openRecipe(i){
-  const r=RECIPES[i],base=baseServ(r);let curServ=base;stepMode=false;
+  const r=RECIPES[i],base=baseServ(r);let curServ=base;stepMode=false;let targetServiceTime="13:00";
   pushHistory(r);
   function render(){
     const f=curServ/base;
@@ -8897,6 +9631,7 @@ function openRecipe(i){
     const sauces=sauceText(r), alls=allergens(r);
     const rating=+ratings[rid(r)]||0;
     const q=qualityInfo(r), diets=dietTags(r), equip=equipmentTags(r);
+    const setup=kamadoSetup(r);
     const ings=r.ings.map(x=>`<li>${scaleIng(x,f)}</li>`).join("");
     let stepsHtml;
     if(stepMode){
@@ -8919,9 +9654,14 @@ function openRecipe(i){
           </svg>
         </div>
       ` : ''}
-      <div class="ori">${emojiFor(r.cat)} ${r.ori}</div>
+      <div class="ori">${emojiFor(r.cat)} ${r.ori} ${r._custom?`<span class="badge custom" style="margin-left:6px">👤 Ma recette</span>`:''} ${r._modified?`<span class="badge modified" style="margin-left:6px">✏️ Modifiée</span>`:''}</div>
       <div class="dactions">
         <button id="dFav" class="actbtn ${fav?'on':''}">${fav?'★ Favori':'☆ Ajouter aux favoris'}</button>
+        <button id="dEdit" class="actbtn primary-act" title="Modifier les ingrédients, températures, temps ou étapes">✏️ Modifier</button>
+        <button id="dDuplicate" class="actbtn" title="Créer une variante adaptée">📋 Dupliquer</button>
+        <button id="dShare" class="actbtn" title="Partager cette recette (WhatsApp, SMS, presse-papier)">📤 Partager</button>
+        ${r._modified?`<button id="dReset" class="actbtn warn-act" title="Rétablir la version d'origine">↺ Rétablir l'originale</button>`:''}
+        ${r._custom?`<button id="dDelete" class="actbtn danger-act" title="Supprimer définitivement cette recette">🗑️ Supprimer</button>`:''}
         <button id="dPrint" class="actbtn">Imprimer / PDF</button>
       </div>
       <div class="ratingrow" id="ratingRow">
@@ -8929,16 +9669,23 @@ function openRecipe(i){
         ${[1,2,3,4,5].map(n=>`<button class="ratebtn ${n<=rating?'on':''}" data-rate="${n}" title="${n}/5">★</button>`).join("")}
         ${rating?`<button class="actbtn" id="clearRating" style="padding:7px 10px">Effacer</button>`:''}
       </div>
+      <div class="setup-badge">
+        <span class="setup-icon">${setup.icon}</span>
+        <div>
+          <div class="setup-title">Montage Kamado : <b>${setup.label}</b></div>
+          <div class="setup-desc">${setup.desc}</div>
+        </div>
+      </div>
       <div class="specbar">
         <div class="spec"><div class="l">Mode</div><div class="v">${r.mode}</div></div>
         <div class="spec wide-spec" style="display:flex; align-items:center; gap:10px">
           ${drawThermometerSVG(r.tempK)}
           <div>
             <div class="l">Temp. Kamado</div>
-            <div class="v temp">${r.tempK}</div>
+            <div class="v temp">${withF(r.tempK)}</div>
           </div>
         </div>
-        ${r.coeur?`<div class="spec"><div class="l">À cœur</div><div class="v coeur">${r.coeur}</div></div>`:''}
+        ${r.coeur?`<div class="spec"><div class="l">À cœur</div><div class="v coeur">${withF(r.coeur)}</div></div>`:''}
         <div class="spec"><div class="l">Cuisson</div><div class="v">${r.temps}</div></div>
         <div class="spec"><div class="l">Niveau</div><div class="v">${niveau(r)}</div></div>
         <div class="spec"><div class="l">Piquant</div><div class="v">${spiceLevel(r)}</div></div>
@@ -8966,11 +9713,30 @@ function openRecipe(i){
       <h4>Ingrédients${f!==1?` <span style="font-weight:400;color:var(--muted);text-transform:none;font-size:11px">(quantités ajustées, indicatives)</span>`:''}</h4>
       <ul class="ings">${ings}</ul>
 
+      ${r.cat !== "sauces" ? `
+        <div class="timeline-box">
+          <div class="tb-head">
+            <span class="tb-title">⏱️ Rétroplanning : <b>À table à</b></span>
+            <div class="tb-time-wrap">
+              <input type="time" id="targetServiceTime" value="${targetServiceTime}" class="tb-time-input">
+            </div>
+          </div>
+          <div class="tb-list" id="tbList">
+            ${computeTimeline(r, targetServiceTime).map(s => `
+              <div class="tb-item">
+                <span class="tb-hour">${s.time}</span>
+                <span class="tb-action">${s.desc}</span>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      ` : ""}
+
       <div class="stepswitch">
         <h4 style="margin:0;border:0">Préparation</h4>
         <button id="sMode" class="modebtn ${stepMode?'on':''}">${stepMode?'📖 Lecture':'👨‍🍳 Mode cuisson'}</button>
       </div>
-      ${stepMode?`<div class="hint">Cochez les étapes au fur et à mesure · ▶ lance un minuteur</div>`:''}
+      ${stepMode?`<div class="hint">Cochez les étapes au fur et à mesure · ▶ lance un minuteur · ☀️ écran maintenu allumé</div>`:''}
       ${stepsHtml}
       <div class="tip"><b>👁 Signes de bonne cuisson.</b> ${donenessSigns(r)}</div>
       ${sauces?`<div class="tip"><b>🥣 Sauce associée.</b> ${sauces}</div>`:''}
@@ -8980,14 +9746,83 @@ function openRecipe(i){
 
       <h4>📝 Mes notes</h4>
       <textarea id="dNote" class="note" placeholder="Vos réglages, vos variantes, le temps réel observé…">${(notes[rid(r)]||"").replace(/</g,"&lt;")}</textarea>
+
+      <div class="cook-log-section">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h4 style="margin:0;border:0">📖 Journal de mes cuissons</h4>
+          <button id="btnAddCookLog" class="actbtn" style="font-size:11.5px;padding:5px 10px">➕ Noter une session</button>
+        </div>
+        <div id="cookLogForm" class="hide" style="margin-top:12px;background:var(--card);padding:12px;border-radius:8px;border:1px solid var(--line)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px">
+            <div>
+              <label style="font-size:11px;font-weight:700;color:var(--muted)">Météo</label>
+              <select id="clMeteo" style="width:100%;padding:6px;background:var(--card2);color:var(--txt);border:1px solid var(--line);border-radius:6px">
+                <option value="☀️ Beau temps">☀️ Beau temps</option>
+                <option value="💨 Grand vent">💨 Grand vent</option>
+                <option value="🌧️ Pluie / Humide">🌧️ Pluie / Humide</option>
+                <option value="❄️ Froid hivernal">❄️ Froid hivernal</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;color:var(--muted)">Charbon utilisé</label>
+              <input type="text" id="clCharbon" placeholder="ex. Quebracho / Marabu" style="width:100%;padding:6px;background:var(--card2);color:var(--txt);border:1px solid var(--line);border-radius:6px;box-sizing:border-box">
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px">
+            <div>
+              <label style="font-size:11px;font-weight:700;color:var(--muted)">Durée réelle</label>
+              <input type="text" id="clDuree" placeholder="ex. 1 h 15 min" style="width:100%;padding:6px;background:var(--card2);color:var(--txt);border:1px solid var(--line);border-radius:6px;box-sizing:border-box">
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;color:var(--muted)">À cœur final atteint</label>
+              <input type="text" id="clCoeur" placeholder="ex. 56 °C" style="width:100%;padding:6px;background:var(--card2);color:var(--txt);border:1px solid var(--line);border-radius:6px;box-sizing:border-box">
+            </div>
+          </div>
+          <label style="font-size:11px;font-weight:700;color:var(--muted)">Observations & résultat</label>
+          <textarea id="clObs" rows="2" placeholder="Fumée parfaite, croûte bien caramélisée, viande ultra juteuse..." style="width:100%;padding:6px;background:var(--card2);color:var(--txt);border:1px solid var(--line);border-radius:6px;box-sizing:border-box;margin-bottom:8px"></textarea>
+          <div style="display:flex;gap:8px;justify-content:flex-end">
+            <button id="clSave" class="actbtn primary-act" style="font-size:12px;padding:6px 12px">Enregistrer</button>
+            <button id="clCancel" class="actbtn" style="font-size:12px;padding:6px 12px">Annuler</button>
+          </div>
+        </div>
+        <div id="cookLogList">
+          ${renderCookLogs(r)}
+        </div>
+      </div>
     `;
     $("#dFav").onclick=()=>{toggleFav(r);renderStats();render();};
+    $("#dEdit").onclick=()=>{closeModal();openRecipeEditor(r,false);};
+    $("#dDuplicate").onclick=()=>{closeModal();openRecipeEditor(r,true);};
+    $("#dShare").onclick=()=>shareRecipe(r,curServ);
+    const resetBtn=$("#dReset");
+    if(resetBtn)resetBtn.onclick=()=>{
+      if(confirm(`Rétablir "${r.nom}" à sa version d'origine ? Vos modifications sur cette recette seront réinitialisées.`)){
+        resetRecipeOverride(r);
+        renderStats();renderChips();renderFilterBar();renderList();
+        const origNom=r._orig?r._orig.nom:r.nom;
+        const targetIdx=RECIPES.findIndex(x=>x.nom===origNom);
+        if(targetIdx>=0)openRecipe(targetIdx);else closeModal();
+      }
+    };
+    const delBtn=$("#dDelete");
+    if(delBtn)delBtn.onclick=()=>{
+      if(confirm(`Supprimer définitivement votre recette "${r.nom}" ? Cette action est irréversible.`)){
+        deleteCustomRecipe(r);
+        closeModal();
+        renderStats();renderChips();renderFilterBar();renderList();renderBases();
+      }
+    };
     $("#dPrint").onclick=()=>window.print();
     $$("#ratingRow .ratebtn").forEach(b=>b.onclick=()=>{ratings[rid(r)]=+b.dataset.rate;LS.set("kokko_ratings",ratings);renderStats();renderList();render();});
     const clear=$("#clearRating");if(clear)clear.onclick=()=>{delete ratings[rid(r)];LS.set("kokko_ratings",ratings);renderStats();renderList();render();};
     $("#sMinus").onclick=()=>{if(curServ>1){curServ--;render();}};
     $("#sPlus").onclick=()=>{if(curServ<60){curServ++;render();}};
-    $("#sMode").onclick=()=>{stepMode=!stepMode;render();};
+    $("#sMode").onclick=()=>{
+      stepMode=!stepMode;
+      if(stepMode) requestWakeLock();
+      else if(!outdoorMode) releaseWakeLock();
+      render();
+    };
     $("#sCopy").onclick=()=>{
       const txt=`${r.nom} — ${curServ} portions\n`+r.ings.map(x=>"• "+scaleIng(x,f)).join("\n")+(sauces?`\n\nSauce associée : ${sauces}`:"");
       const done=()=>{$("#sCopy").textContent="✅ Copié !";setTimeout(()=>$("#sCopy").textContent="📋 Copier",1600);};
@@ -9001,21 +9836,466 @@ function openRecipe(i){
     const note=$("#dNote");if(note)note.oninput=e=>{notes[rid(r)]=e.target.value;LS.set("kokko_notes",notes);};
     $$("#d-body .ck").forEach(ck=>ck.onchange=e=>e.target.closest(".cstep").classList.toggle("done",e.target.checked));
     $$("#d-body .tbtn").forEach(b=>b.onclick=()=>startTimer(+b.dataset.sec,r.nom+" · "+b.dataset.lab));
+
+    const timeInput = $("#targetServiceTime");
+    if(timeInput){
+      timeInput.onchange = e => {
+        targetServiceTime = e.target.value;
+        const listEl = $("#tbList");
+        if(listEl){
+          listEl.innerHTML = computeTimeline(r, targetServiceTime).map(s => `
+            <div class="tb-item">
+              <span class="tb-hour">${s.time}</span>
+              <span class="tb-action">${s.desc}</span>
+            </div>
+          `).join("");
+        }
+      };
+    }
+
+    const btnAddLog = $("#btnAddCookLog");
+    const clForm = $("#cookLogForm");
+    if(btnAddLog && clForm){
+      btnAddLog.onclick = () => clForm.classList.toggle("hide");
+      const cancelBtn = $("#clCancel");
+      if(cancelBtn) cancelBtn.onclick = () => clForm.classList.add("hide");
+      const saveBtn = $("#clSave");
+      if(saveBtn) saveBtn.onclick = () => {
+        const entry = {
+          date: new Date().toLocaleDateString("fr-FR"),
+          meteo: $("#clMeteo") ? $("#clMeteo").value : "☀️",
+          charbon: $("#clCharbon") ? $("#clCharbon").value.trim() : "",
+          duree: $("#clDuree") ? $("#clDuree").value.trim() : "",
+          coeur: $("#clCoeur") ? $("#clCoeur").value.trim() : "",
+          obs: $("#clObs") ? $("#clObs").value.trim() : ""
+        };
+        const id = rid(r);
+        if(!cookLogs[id]) cookLogs[id] = [];
+        cookLogs[id].unshift(entry);
+        LS.set("kokko_cook_logs", cookLogs);
+        clForm.classList.add("hide");
+        const listEl = $("#cookLogList");
+        if(listEl) listEl.innerHTML = renderCookLogs(r);
+        bindDelLogButtons();
+      };
+    }
+    function bindDelLogButtons(){
+      $$(".btn-del-log").forEach(b => {
+        b.onclick = () => {
+          const idx = parseInt(b.dataset.idx, 10);
+          const id = rid(r);
+          if(cookLogs[id] && cookLogs[id][idx]){
+            cookLogs[id].splice(idx, 1);
+            LS.set("kokko_cook_logs", cookLogs);
+            const listEl = $("#cookLogList");
+            if(listEl) listEl.innerHTML = renderCookLogs(r);
+            bindDelLogButtons();
+          }
+        };
+      });
+    }
+    bindDelLogButtons();
   }
   render();
   $("#modal").classList.add("open");document.body.style.overflow="hidden";
+  updateWakeLockUI();
   const sheet=$(".sheet");
   if(sheet)sheet.scrollTop=0;
   $("#d-body").scrollTop=0;
 }
-function closeModal(){$("#modal").classList.remove("open");document.body.style.overflow="";}
+function closeModal(){
+  $("#modal").classList.remove("open");
+  document.body.style.overflow="";
+  if(!outdoorMode) releaseWakeLock();
+}
 $("#back").onclick=closeModal;
 $("#modal").onclick=e=>{if(e.target.id==="modal")closeModal();};
+
+/* ---- calculs de dérivation kamado ---- */
+function deriveDifficulty(durMin, mode) {
+  let d;
+  if (durMin < 30) d = 1;
+  else if (durMin < 60) d = 2;
+  else if (durMin < 180) d = 3;
+  else if (durMin < 360) d = 4;
+  else d = 5;
+  if (/fumage|brais/i.test(mode || "")) d = Math.min(5, d + 1);
+  return Math.max(1, Math.min(5, d));
+}
+function deriveVents(tempC) {
+  if (tempC <= 110) return { bottom: "1/8 ouvert", top: "1/8 ouvert" };
+  if (tempC <= 140) return { bottom: "1/4 ouvert", top: "1/4 ouvert" };
+  if (tempC <= 180) return { bottom: "1/3 ouvert", top: "1/3 ouvert" };
+  if (tempC <= 230) return { bottom: "1/2 ouvert", top: "1/2 ouvert" };
+  return { bottom: "grand ouvert", top: "grand ouvert" };
+}
+function deriveCharbon(durMin) {
+  if (durMin < 30) return 1;
+  if (durMin < 60) return 1.2;
+  if (durMin < 120) return 1.5;
+  if (durMin < 240) return 2.5;
+  if (durMin < 480) return 4;
+  return 5;
+}
+function deriveRepos(cat, mode, durMin) {
+  if (cat === "poisson") return 5;
+  if (cat === "legumes" || cat === "vegetarien") return 0;
+  if (cat === "dessert") return 30;
+  if (cat === "pizza") return 0;
+  if (/fumage|brais/i.test(mode || "") && durMin > 180) return 30;
+  if (cat === "volaille") return 15;
+  if (durMin >= 60) return 10;
+  return 5;
+}
+
+/* ---- gestionnaire d'édition de recette ---- */
+let currentEditingRecipe = null;
+
+function applySmartPaste(text){
+  if(!text||!text.trim())return;
+  const lines=text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+  if(!lines.length)return;
+
+  let title="";
+  const ings=[];
+  const steps=[];
+  let currentSection="header";
+
+  for(let i=0;i<lines.length;i++){
+    const line=lines[i];
+    const normLine=line.toLowerCase();
+
+    if(/^(ingr[ée]dients?|pour la marinade|dans le panier|courses?|marinade)/i.test(normLine)){
+      currentSection="ings";
+      continue;
+    }
+    if(/^(pr[ée]paration|instructions?|[ée]tapes?|m[ée]thode|cuisson)/i.test(normLine)){
+      currentSection="steps";
+      continue;
+    }
+
+    if(currentSection==="header"){
+      if(!title&&!/^(\*|-|•|\d+[\.\)])/.test(line)){
+        title=line.replace(/^[#\s]+/, "");
+        continue;
+      }
+      if(/^(\*|-|•|\d+\s*(?:g|kg|cl|ml|c\.|cuill[eè]re|tranche|gousse|pinc[ée]|morceau))/i.test(line)){
+        currentSection="ings";
+      }else{
+        currentSection="steps";
+      }
+    }
+
+    if(currentSection==="ings"){
+      ings.push(line.replace(/^[-*•\s]+/, ""));
+    }else{
+      steps.push(line.replace(/^\d+[\.\)\s]+/, "").replace(/^[-*•\s]+/, ""));
+    }
+  }
+
+  if(title)$("#edNom").value=title;
+  if(ings.length)$("#edIngs").value=ings.join("\n");
+  if(steps.length)$("#edEtapes").value=steps.join("\n");
+
+  const tempMatch=text.match(/\b(\d{2,3}(?:\s*[–-]\s*\d{2,3})?)\s*°?\s*C\b/i);
+  if(tempMatch)$("#edTempK").value=`${tempMatch[1]} °C`;
+  const timeMatch=text.match(/\b(\d+\s*(?:h|min)(?:\s*\d+\s*min)?)\b/i);
+  if(timeMatch)$("#edTemps").value=timeMatch[1];
+}
+
+function openRecipeEditor(recipeToEdit = null, isDuplicate = false) {
+  const isNew = !recipeToEdit || isDuplicate;
+  currentEditingRecipe = {
+    recipe: recipeToEdit,
+    isNew,
+    isDuplicate,
+    origNom: recipeToEdit ? (recipeToEdit._orig ? recipeToEdit._orig.nom : recipeToEdit.nom) : null
+  };
+
+  const modal = $("#editorModal");
+  const titleEl = $("#edModalTitle");
+  const errEl = $("#edError");
+  errEl.classList.add("hide");
+  errEl.textContent = "";
+
+  const spBox = $("#smartPasteBox");
+  if(spBox) spBox.classList.add("hide");
+  const spIn = $("#smartPasteInput");
+  if(spIn) spIn.value = "";
+
+  if (isDuplicate && recipeToEdit) {
+    titleEl.textContent = `Dupliquer : ${recipeToEdit.nom}`;
+    $("#edNom").value = `${recipeToEdit.nom} (ma version)`;
+  } else if (recipeToEdit) {
+    titleEl.textContent = `Modifier : ${recipeToEdit.nom}`;
+    $("#edNom").value = recipeToEdit.nom;
+  } else {
+    titleEl.textContent = "Nouvelle recette Kamado";
+    $("#edNom").value = "";
+  }
+
+  const r = recipeToEdit || {};
+  $("#edCat").value = r.cat || (curCat !== "all" && curCat !== "sauces" ? curCat : "boeuf");
+  $("#edOri").value = isDuplicate ? `${r.ori || "Maison"} · variante` : (r.ori || "");
+  $("#edMode").value = r.mode || "Direct";
+  $("#edTempK").value = r.tempK || "180 °C";
+  $("#edCoeur").value = r.coeur || "";
+  $("#edTemps").value = r.temps || "30 min";
+  $("#edPour").value = r.pour || "4 personnes";
+  $("#edBois").value = r.bois || "—";
+  $("#edSauce").value = r.sauce ? (Array.isArray(r.sauce) ? r.sauce.join(" | ") : r.sauce) : "";
+  $("#edIngs").value = Array.isArray(r.ings) ? r.ings.join("\n") : "";
+  $("#edEtapes").value = Array.isArray(r.etapes) ? r.etapes.join("\n") : "";
+  $("#edAstuce").value = r.astuce || "";
+
+  const vents = r.vents || {};
+  $("#edVentsBottom").value = vents.bottom || "";
+  $("#edVentsTop").value = vents.top || "";
+  $("#edCharbon").value = r.charbon_kg != null ? r.charbon_kg : "";
+  $("#edRepos").value = r.repos_min != null ? r.repos_min : "";
+  $("#edDiff").value = r.difficulty != null ? r.difficulty : (r.mode ? deriveDifficulty(parseMinutes(r.temps) || 30, r.mode) : 3);
+  $("#edMarinade").value = r.marinade_h != null ? r.marinade_h : "";
+  $("#edEquip").value = Array.isArray(r.equipement) ? r.equipement.join(", ") : "";
+  $("#edErreurs").value = Array.isArray(r.erreurs) ? r.erreurs.join("\n") : "";
+  $("#edSecurite").value = r.notes_securite || "";
+  $("#edSource").value = r.source || (isNew ? "Création personnelle" : "");
+
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+  setTimeout(() => $("#edNom").focus(), 80);
+}
+
+function closeRecipeEditor() {
+  const modal = $("#editorModal");
+  modal.classList.remove("open");
+  if (!$("#modal").classList.contains("open")) {
+    document.body.style.overflow = "";
+  }
+  currentEditingRecipe = null;
+}
+
+function saveRecipeFromEditor() {
+  const errEl = $("#edError");
+  errEl.classList.add("hide");
+
+  const nom = $("#edNom").value.trim();
+  if (!nom) {
+    errEl.textContent = "Veuillez indiquer un nom pour la recette.";
+    errEl.classList.remove("hide");
+    $("#edNom").focus();
+    return;
+  }
+
+  const ings = $("#edIngs").value.split("\n").map(s => s.trim()).filter(Boolean);
+  if (!ings.length) {
+    errEl.textContent = "Veuillez renseigner au moins un ingrédient.";
+    errEl.classList.remove("hide");
+    $("#edIngs").focus();
+    return;
+  }
+
+  const etapes = $("#edEtapes").value.split("\n").map(s => s.trim()).filter(Boolean);
+  if (!etapes.length) {
+    errEl.textContent = "Veuillez renseigner au moins une étape de préparation.";
+    errEl.classList.remove("hide");
+    $("#edEtapes").focus();
+    return;
+  }
+
+  const cat = $("#edCat").value;
+  const ori = $("#edOri").value.trim() || (cat === "sauces" ? "Base" : "Maison");
+  const mode = $("#edMode").value.trim() || "Direct";
+  const tempK = $("#edTempK").value.trim() || "180 °C";
+  const coeur = $("#edCoeur").value.trim();
+  const temps = $("#edTemps").value.trim() || "30 min";
+  const pour = $("#edPour").value.trim() || "4 personnes";
+  const bois = $("#edBois").value.trim() || "—";
+  const sauce = $("#edSauce").value.trim();
+  const astuce = $("#edAstuce").value.trim();
+
+  const durMin = parseMinutes(temps) || 30;
+  const numTemp = (tempK.match(/\d+/) ? parseInt(tempK.match(/\d+/)[0], 10) : 180);
+  const vBottom = $("#edVentsBottom").value.trim();
+  const vTop = $("#edVentsTop").value.trim();
+  const vents = (vBottom || vTop) ? { bottom: vBottom || "1/2 ouvert", top: vTop || "1/2 ouvert" } : deriveVents(numTemp);
+
+  const charbonVal = $("#edCharbon").value.trim();
+  const charbon_kg = charbonVal ? parseFloat(charbonVal) : deriveCharbon(durMin);
+
+  const reposVal = $("#edRepos").value.trim();
+  const repos_min = reposVal ? parseInt(reposVal, 10) : deriveRepos(cat, mode, durMin);
+
+  const marinadeVal = $("#edMarinade").value.trim();
+  const marinade_h = marinadeVal ? parseFloat(marinadeVal) : undefined;
+
+  const diffVal = $("#edDiff").value;
+  const difficulty = diffVal ? parseInt(diffVal, 10) : deriveDifficulty(durMin, mode);
+
+  const equipStr = $("#edEquip").value.trim();
+  const equipement = equipStr ? equipStr.split(",").map(s => s.trim()).filter(Boolean) : undefined;
+
+  const erreursStr = $("#edErreurs").value.trim();
+  const erreurs = erreursStr ? erreursStr.split("\n").map(s => s.trim()).filter(Boolean) : undefined;
+
+  const notes_securite = $("#edSecurite").value.trim() || undefined;
+  const source = $("#edSource").value.trim() || undefined;
+
+  const isNew = currentEditingRecipe ? currentEditingRecipe.isNew : true;
+  const editingObj = currentEditingRecipe ? currentEditingRecipe.recipe : null;
+
+  if (isNew) {
+    const id = "custom_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 7);
+    const newRecipe = {
+      id,
+      nom,
+      cat,
+      ori,
+      mode,
+      tempK,
+      coeur,
+      temps,
+      pour,
+      bois,
+      ings,
+      etapes,
+      astuce,
+      sauce,
+      vents,
+      charbon_kg,
+      repos_min,
+      marinade_h,
+      difficulty,
+      equipement,
+      erreurs,
+      notes_securite,
+      source: source || "Création personnelle",
+      _custom: true,
+      createdAt: new Date().toISOString()
+    };
+    customRecipes.unshift(newRecipe);
+    LS.set("kokko_custom_recipes", customRecipes);
+  } else if (editingObj && editingObj._custom) {
+    const idx = customRecipes.findIndex(x => x.id === editingObj.id || x.nom === editingObj.nom);
+    const updated = {
+      ...editingObj,
+      nom,
+      cat,
+      ori,
+      mode,
+      tempK,
+      coeur,
+      temps,
+      pour,
+      bois,
+      ings,
+      etapes,
+      astuce,
+      sauce,
+      vents,
+      charbon_kg,
+      repos_min,
+      marinade_h,
+      difficulty,
+      equipement,
+      erreurs,
+      notes_securite,
+      source: source || editingObj.source || "Création personnelle",
+      updatedAt: new Date().toISOString()
+    };
+    if (idx >= 0) {
+      customRecipes[idx] = updated;
+    } else {
+      customRecipes.unshift(updated);
+    }
+    LS.set("kokko_custom_recipes", customRecipes);
+  } else {
+    const origKey = currentEditingRecipe.origNom || (editingObj ? editingObj.nom : nom);
+    recipeOverrides[origKey] = {
+      nom,
+      cat,
+      ori,
+      mode,
+      tempK,
+      coeur,
+      temps,
+      pour,
+      bois,
+      ings,
+      etapes,
+      astuce,
+      sauce,
+      vents,
+      charbon_kg,
+      repos_min,
+      marinade_h,
+      difficulty,
+      equipement,
+      erreurs,
+      notes_securite,
+      source: source || (editingObj ? editingObj.source : "Recette adaptée"),
+      _modified: true,
+      updatedAt: new Date().toISOString()
+    };
+    LS.set("kokko_recipe_overrides", recipeOverrides);
+  }
+
+  refreshActiveRecipes();
+  closeRecipeEditor();
+  renderChips();
+  renderStats();
+  renderFilterBar();
+  renderSmartBar();
+  renderList();
+  renderBases();
+
+  const newIndex = RECIPES.findIndex(r => r.nom === nom);
+  if (newIndex >= 0) {
+    openRecipe(newIndex);
+  }
+}
+
+function deleteCustomRecipe(r) {
+  customRecipes = customRecipes.filter(x => x.id !== r.id && x.nom !== r.nom);
+  LS.set("kokko_custom_recipes", customRecipes);
+  favs.delete(rid(r));
+  saveFavs();
+  delete ratings[rid(r)];
+  LS.set("kokko_ratings", ratings);
+  delete notes[rid(r)];
+  LS.set("kokko_notes", notes);
+  refreshActiveRecipes();
+}
+
+function resetRecipeOverride(r) {
+  const origKey = (r._orig ? r._orig.nom : r.nom);
+  delete recipeOverrides[origKey];
+  LS.set("kokko_recipe_overrides", recipeOverrides);
+  refreshActiveRecipes();
+}
 
 /* ---- minuteurs multiples ---- */
 const timersWrap=document.createElement("div");timersWrap.id="timers";document.body.appendChild(timersWrap);
 const fmtT=s=>{s=Math.max(0,Math.round(s));const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),x=s%60;return (h?h+":"+String(m).padStart(2,"0"):m)+":"+String(x).padStart(2,"0");};
-function beepAlarm(){try{const a=new(window.AudioContext||window.webkitAudioContext)();const o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.type="sine";o.frequency.value=880;g.gain.value=.001;o.start();let n=0;const iv=setInterval(()=>{g.gain.value=g.gain.value>.05?.001:.35;if(++n>12){clearInterval(iv);o.stop();}},220);}catch(e){}if(navigator.vibrate)navigator.vibrate([300,150,300,150,400]);}
+function beepAlarm(){
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const notes = [523.25, 659.25, 783.99, 1046.50];
+    notes.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.001, ctx.currentTime + idx * 0.14);
+      gain.gain.exponentialRampToValueAtTime(0.3, ctx.currentTime + idx * 0.14 + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.14 + 0.35);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime + idx * 0.14);
+      osc.stop(ctx.currentTime + idx * 0.14 + 0.38);
+    });
+  }catch(e){}
+  if(navigator.vibrate) navigator.vibrate([300, 150, 300, 150, 500]);
+}
 function startTimer(sec,label){
   const card=document.createElement("div");card.className="tcard";
   card.innerHTML=`
@@ -9029,22 +10309,24 @@ function startTimer(sec,label){
       <span class="tlab"></span>
       <span class="tnum"></span>
     </div>
-    <button class="tbp">⏸</button>
-    <button class="tbx">✕</button>
+    <button class="tbp" title="Pause / Reprendre">⏸</button>
+    <button class="tadd" title="Ajouter 5 minutes">+5m</button>
+    <button class="tbx" title="Fermer">✕</button>
   `;
   timersWrap.appendChild(card);
   const lab=card.querySelector(".tlab"),
         num=card.querySelector(".tnum"),
         bp=card.querySelector(".tbp"),
+        bAdd=card.querySelector(".tadd"),
         bx=card.querySelector(".tbx"),
         fg=card.querySelector(".tring-fg");
         
-  let rem=sec,paused=false; 
+  let rem=sec,total=sec,paused=false; 
   lab.textContent=label||"Minuteur"; 
   num.textContent=fmtT(rem);
   
   function updateRing() {
-    const offset = (1 - (rem / sec)) * 94.2;
+    const offset = Math.max(0, Math.min(94.2, (1 - (rem / total)) * 94.2));
     fg.setAttribute("stroke-dashoffset", offset);
   }
   updateRing();
@@ -9062,6 +10344,12 @@ function startTimer(sec,label){
     }
   },1000);
   
+  bAdd.onclick=()=>{
+    rem+=300;
+    total+=300;
+    num.textContent=fmtT(rem);
+    updateRing();
+  };
   bp.onclick=()=>{paused=!paused;bp.textContent=paused?"▶":"⏸";};
   bx.onclick=()=>{clearInterval(iv);card.remove();};
 }
@@ -9892,7 +11180,7 @@ function exportData(){
 function buildExportPayload(){
   return {
     app:"kamado-kokko",
-    version:2,
+    version:3,
     exportedAt:new Date().toISOString(),
     favs:[...favs],
     notes,
@@ -9900,7 +11188,10 @@ function buildExportPayload(){
     history:viewHistory,
     shopping:shoppingList,
     pantryProfile,
-    session:savedSession
+    session:savedSession,
+    customRecipes,
+    recipeOverrides,
+    cookLogs
   };
 }
 function encodeTransfer(data){
@@ -9926,6 +11217,25 @@ function mergeImportedData(data){
   if(data.pantryProfile&&typeof data.pantryProfile==="object")pantryProfile={...pantryProfile,...data.pantryProfile};
   if(data.session&&typeof data.session==="object")savedSession={...savedSession,...data.session};
   viewHistory=[...(Array.isArray(data.history)?data.history:[]),...viewHistory].filter((x,i,a)=>a.indexOf(x)===i).slice(0,8);
+
+  if(Array.isArray(data.customRecipes)){
+    const map=new Map(customRecipes.map(r=>[r.id||r.nom, r]));
+    data.customRecipes.forEach(cr=>{
+      if(cr&&cr.nom) map.set(cr.id||cr.nom, cr);
+    });
+    customRecipes=[...map.values()];
+    LS.set("kokko_custom_recipes", customRecipes);
+  }
+  if(data.recipeOverrides&&typeof data.recipeOverrides==="object"&&!Array.isArray(data.recipeOverrides)){
+    recipeOverrides={...recipeOverrides, ...data.recipeOverrides};
+    LS.set("kokko_recipe_overrides", recipeOverrides);
+  }
+  if(data.cookLogs&&typeof data.cookLogs==="object"&&!Array.isArray(data.cookLogs)){
+    cookLogs={...cookLogs, ...data.cookLogs};
+    LS.set("kokko_cook_logs", cookLogs);
+  }
+
+  refreshActiveRecipes();
   saveFavs();
   LS.set("kokko_notes",notes);
   LS.set("kokko_ratings",ratings);
@@ -9963,7 +11273,7 @@ function importData(file){
     try{
       const data=JSON.parse(reader.result);
       mergeImportedData(data);
-      $("#syncStatus").textContent=`Import terminé : ${favs.size} favori(s), ${Object.keys(notes).length} note(s), ${Object.keys(ratings).length} note(s) chiffrée(s).`;
+      $("#syncStatus").textContent=`Import terminé : ${favs.size} favori(s), ${customRecipes.length} création(s), ${Object.keys(recipeOverrides).length} recette(s) modifiée(s).`;
     }catch(e){
       $("#syncStatus").textContent="Import impossible : fichier de sauvegarde Kamado invalide.";
     }
@@ -9976,9 +11286,9 @@ function renderDataTools(){
     <h2>💾 Données iPhone + PC</h2>
     <div class="callout" style="border-color:var(--accent)">
       <h3>Sauvegarder et transférer</h3>
-      <p style="margin:0">Les favoris et notes restent sur l'appareil, dans le navigateur. Pour les retrouver sur iPhone et PC, exportez une sauvegarde puis importez-la sur l'autre appareil.</p>
+      <p style="margin:0">Les favoris, notes et recettes personnalisées restent sur l'appareil, dans le navigateur. Pour les retrouver sur iPhone et PC, exportez une sauvegarde puis importez-la sur l'autre appareil.</p>
       <div class="syncgrid">
-        <button id="dataExport" class="syncbtn primary">Exporter mes favoris et notes</button>
+        <button id="dataExport" class="syncbtn primary">Exporter mes données (recettes, favoris, notes)</button>
         <label class="filepick">Importer une sauvegarde JSON
           <input id="dataImport" type="file" accept="application/json,.json">
         </label>
@@ -10024,7 +11334,7 @@ function renderDataTools(){
       const raw=$("#transferCode").value.trim();
       const code=raw.includes("#sync=")?raw.split("#sync=")[1]:raw;
       mergeImportedData(decodeTransfer(code));
-      $("#syncStatus").textContent=`Code importé : ${favs.size} favori(s), ${Object.keys(notes).length} note(s).`;
+      $("#syncStatus").textContent=`Code importé : ${favs.size} favori(s), ${customRecipes.length} création(s), ${Object.keys(notes).length} note(s).`;
     }catch(e){
       $("#syncStatus").textContent="Code invalide ou incomplet.";
     }
@@ -10068,8 +11378,157 @@ $$(".tab").forEach((t,i,arr)=>{
   });
 });
 
+/* ---- gestionnaires éditeur de recette ---- */
+const btnNewRecipe = $("#btnNewRecipe");
+if(btnNewRecipe) btnNewRecipe.onclick = () => openRecipeEditor();
+const edBack = $("#edBack");
+if(edBack) edBack.onclick = closeRecipeEditor;
+const edCancel = $("#edCancel");
+if(edCancel) edCancel.onclick = closeRecipeEditor;
+const edTopSave = $("#edTopSave");
+if(edTopSave) edTopSave.onclick = saveRecipeFromEditor;
+const recipeForm = $("#recipeForm");
+if(recipeForm) recipeForm.onsubmit = e => { e.preventDefault(); saveRecipeFromEditor(); };
+const edModal = $("#editorModal");
+if(edModal) edModal.onclick = e => { if(e.target.id === "editorModal") closeRecipeEditor(); };
+
+window.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    if (edModal && edModal.classList.contains("open")) {
+      closeRecipeEditor();
+    } else if ($("#modal") && $("#modal").classList.contains("open")) {
+      closeModal();
+    }
+  }
+});
+
+const btnToggleSP = $("#btnToggleSmartPaste");
+if(btnToggleSP) btnToggleSP.onclick = () => {
+  const box = $("#smartPasteBox");
+  if(box) box.classList.toggle("hide");
+};
+const btnCancelSP = $("#btnCancelSmartPaste");
+if(btnCancelSP) btnCancelSP.onclick = () => {
+  const box = $("#smartPasteBox");
+  if(box) box.classList.add("hide");
+};
+const btnApplySP = $("#btnApplySmartPaste");
+if(btnApplySP) btnApplySP.onclick = () => {
+  const txt = $("#smartPasteInput").value;
+  applySmartPaste(txt);
+  const box = $("#smartPasteBox");
+  if(box) box.classList.add("hide");
+};
+
+/* ---- calculateur express allumage & bois ---- */
+function renderKamadoCalculator() {
+  return `
+    <div class="kamado-calc-card">
+      <h2 style="margin-top:0;font-size:20px;border:none;padding:0;color:var(--accent2)">🪵 Calculateur Express : Allumage, Charbon & Bois</h2>
+      <p style="margin:0 0 16px;font-size:13px;color:var(--muted)">Estimez en temps réel le réglage de départ du kamado, la quantité de charbon et le profil de bois idéal selon votre pièce.</p>
+      <div class="calc-grid">
+        <div>
+          <label style="font-size:12px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px">Aliment / Découpe</label>
+          <select id="calcFood" class="fsel" style="width:100%">
+            <option value="boeuf">🥩 Bœuf & Gibier</option>
+            <option value="porc">🐖 Porc & Travers</option>
+            <option value="volaille">🍗 Volaille entière / découpes</option>
+            <option value="agneau">🐑 Agneau & Mouton</option>
+            <option value="poisson">🐟 Poissons & Coquillages</option>
+            <option value="legumes">🥗 Légumes & Végétarien</option>
+            <option value="pizza">🍕 Pizzas & Pains</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px">Température cible</label>
+          <select id="calcTemp" class="fsel" style="width:100%">
+            <option value="110">110 °C (Fumage / Low & Slow)</option>
+            <option value="150">150 °C (Mijoté / Rôtissage doux)</option>
+            <option value="180">180 °C (Rôtissage classique)</option>
+            <option value="230">230 °C (Grill direct / Plancha)</option>
+            <option value="350">350 °C (Four à pizza très vif)</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px">Durée prévue</label>
+          <select id="calcDur" class="fsel" style="width:100%">
+            <option value="30">30 min (Express / Grill)</option>
+            <option value="60">1 heure (Rôtissage)</option>
+            <option value="120">2 heures (Intermédiaire)</option>
+            <option value="240">4 heures (Ribs / Échine)</option>
+            <option value="480">8 heures (Pulled pork / Brisket)</option>
+          </select>
+        </div>
+      </div>
+      <div id="calcResult" class="calc-res-box"></div>
+    </div>
+  `;
+}
+
+function updateKamadoCalculator() {
+  const food = $("#calcFood") ? $("#calcFood").value : "boeuf";
+  const temp = $("#calcTemp") ? parseInt($("#calcTemp").value, 10) : 110;
+  const dur = $("#calcDur") ? parseInt($("#calcDur").value, 10) : 60;
+  const resEl = $("#calcResult");
+  if (!resEl) return;
+
+  const charbon = deriveCharbon(dur);
+  const vents = deriveVents(temp);
+
+  let allumage = "";
+  if (temp <= 140) {
+    allumage = "Allumage central en 1 seul point (1 allume-feu naturel). Fermer le couvercle et brider les évents dès 85–90 °C pour ne pas dépasser la cible.";
+  } else if (temp <= 200) {
+    allumage = "Allumage en 2 points espacés. Laisser prendre 10 min couvercle ouvert, puis fermer et stabiliser à mi-ouverture.";
+  } else {
+    allumage = "Allumage en 3 points en triangle pour créer un lit ardent homogène. Évents grand ouverts.";
+  }
+
+  const woodProfiles = {
+    boeuf: "Chêne, Hickory ou Pecan (fumée charpentée et ronde, tenue parfaite sur le bœuf)",
+    porc: "Pommier, Cerisier ou Érable (arôme fruité doux, caramélisation sublime)",
+    volaille: "Pommier, Cerisier ou Aulne (très délicat, ne masque pas la volaille)",
+    agneau: "Romarin séché, Sarments de vigne ou Chêne (arômes méditerranéens)",
+    poisson: "Aulne, Hêtre ou bois d'agrumes (fumée légère qui préserve les chairs fines)",
+    legumes: "Olivier, Hêtre ou Sarments de vigne (notes végétales subtiles)",
+    pizza: "Hêtre ou Chêne bien sec fendu fin (flamme vive et propre sans suie)"
+  };
+
+  resEl.innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:12px">
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase">Charbon estimé</div>
+        <div style="font-size:18px;font-weight:800;color:var(--accent2);margin-top:2px">${String(charbon).replace(".", ",")} kg</div>
+        <div style="font-size:11.5px;color:var(--muted)">Privilégiez de gros morceaux pour une bonne circulation d'air.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase">Réglage des évents</div>
+        <div style="font-size:14px;font-weight:700;color:var(--txt);margin-top:2px">Bas : <b>${vents.bottom}</b> · Haut : <b>${vents.top}</b></div>
+        <div style="font-size:11.5px;color:var(--muted)">Stabilisez 10–15 min avant d'enfourner.</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(242,169,59,0.2)">
+      <div style="font-size:12px;font-weight:700;color:var(--accent2)">🔥 Méthode d'allumage :</div>
+      <div style="font-size:12.5px;color:var(--txt);margin-top:2px">${allumage}</div>
+    </div>
+    <div style="margin-top:8px">
+      <div style="font-size:12px;font-weight:700;color:var(--accent2)">🪵 Bois conseillé :</div>
+      <div style="font-size:12.5px;color:var(--txt);margin-top:2px">${woodProfiles[food] || "Pommier ou Chêne"}</div>
+    </div>
+  `;
+}
+
+function initKamadoCalculator() {
+  ["calcFood", "calcTemp", "calcDur"].forEach(id => {
+    const el = $("#" + id);
+    if (el) el.onchange = updateKamadoCalculator;
+  });
+  updateKamadoCalculator();
+}
+
 /* ---- init ---- */
-$("#guide").innerHTML=GUIDE;
+$("#guide").innerHTML = renderKamadoCalculator() + GUIDE;
+initKamadoCalculator();
 $("#temp").innerHTML=TEMP;
 $("#vins").innerHTML=VINS;
 renderAssistant();

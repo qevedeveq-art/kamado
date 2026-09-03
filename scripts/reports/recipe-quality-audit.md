@@ -1,6 +1,6 @@
 # Recipe Quality Audit
 
-Generated: 2026-07-05T22:37:59.964Z
+Generated: 2026-09-03T08:34:33.383Z
 
 ## Summary
 

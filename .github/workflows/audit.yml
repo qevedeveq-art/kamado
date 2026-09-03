@@ -37,5 +37,8 @@ jobs:
       - name: Run cross-agent recipe quality audit
         run: node scripts/audit-recipe-quality.js
 
+      - name: Run chef safety and allergen audit
+        run: node scripts/audit-chef.js
+
       - name: Run unit tests
         run: node --test 'tests/*.test.js'
