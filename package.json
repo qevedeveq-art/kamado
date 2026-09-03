@@ -1,0 +1,23 @@
+{
+  "name": "kamado-kokko",
+  "version": "1.20.0",
+  "description": "L application de reference pour les utilisateurs de kamados",
+  "private": true,
+  "scripts": {
+    "test": "node --test 'tests/*.test.js'",
+    "extract": "node scripts/extract-data.js",
+    "audit:data": "node scripts/audit-data.js",
+    "audit:expert": "node scripts/audit-kamado-expert.js",
+    "audit:chef": "node scripts/audit-chef.js",
+    "audit:quality": "node scripts/audit-recipe-quality.js",
+    "audit": "node scripts/audit-data.js && node scripts/audit-kamado-expert.js && node scripts/audit-chef.js",
+    "build:mobile": "node scripts/prepare-mobile.js",
+    "mobile:sync": "npm run build:mobile && npx cap sync"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/ios": "^6.0.0"
+  }
+}
