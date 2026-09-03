@@ -1,25 +1,18 @@
 # Agent Handoff
 
 ## Current Status
-- Zero-build PWA & native mobile app Kamado fully universalized (all specific brand references removed; compatible with all ceramic kamados : Big Green Egg, Kamado Joe, Monolith, Primo, The Bastard, etc.).
-- 249 recipes (228 cooking, 21 sauces/bases) with complete schema, trusted chef references, and rich metadata.
-- Storage keys universalized (`kamado_*` with transparent legacy fallback for existing users).
-- App metadata and packaging universalized (`capacitor.config.json` -> `com.kamado.app`, `manifest.webmanifest`, `package.json`).
-- Guide tab enriched with « Les 4 Règles d'Or des Communautés Mondiales » (Egghead Forum, Kamado Joe Nation, Pitmaster Club) : Thin Blue Smoke, Catch it on the way up, Coal Basket Stacking, Water Pan demystification.
-- « Thin Blue Smoke » safety badge dynamically displayed on all indirect / smoking recipes to prevent acrid creosote.
-- Allergen exclusion filters integrated in the UI: `sans gluten`, `sans lactose`, `sans porc`, `sans poisson`, `sans fruits à coque`, `végétarien`, `keto`.
-- Reverse service timeline (« À table à HH:MM ») dynamically calculates ignition, preheat, intermediate phases, rest, and service.
-- Cook Log system integrated: logs date, weather, charcoal brand, actual cook time, core temp, and outcome notes. Included in backup v3 payload.
-- Kamado quick calculator implemented: food cut, target temp, duration -> charcoal estimate (kg), vent settings, ignition advice, ideal smoking wood pairing.
-- Floating multi-timers upgraded: `+5m` instant extension button, harmonic culinary chime via Web Audio API, native phone vibration, and Notification API background alerts.
-- Interactive Meat Doneness Visualizer in `#temp` with core and pull temperatures, color slice cross-sections, and resting intervals.
-- Print / PDF binder layout overhauled with `@media print` (2-column ingredients with checkboxes, crisp typography, clean formatting).
-- Burp safety badge and airtight extinction instructions.
-- Ultra-contrast "Plein Soleil" outdoor mode with instant toggle.
-- Mobile Capacitor configuration added (`capacitor.config.json`, `package.json`, `scripts/prepare-mobile.js`) for native iOS App Store & Android Play Store deployment.
-- Security hardened with strict Content Security Policy (CSP) and hybrid IndexedDB + LocalStorage persistence.
-- 45 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings across all audit scripts.
-- Service worker bumped to `v23`.
+- Zero-build PWA & native mobile app Kamado fully universalized and upgraded to v24.
+- Complete allergen audit and overhaul:
+  - Eliminated the `boeuf` / `oeuf` substring collision that was tagging pure beef recipes (côte de bœuf, tomahawk, brisket, bavette, burgers) with "œuf".
+  - Refined detection to check actual preparation ingredients (`r.ings`, `r.sauce`, `r.nom`, `r.cat`) instead of search tags/astuces.
+  - Eliminated false positive on `fruits à coque` from `beurre noisette` (brown butter is dairy, not tree nut) and `champignons` (which matched `pignon`).
+  - Eliminated false positive on `poisson` from `four à sole` in flammekueche.
+- Frontend unification & high-contrast accessibility:
+  - Replaced the clashing beige modal sheet with a unified, luxurious, high-contrast Kamado Master Charcoal & Flame dark aesthetic.
+  - Upgraded `--txt` to `#fffaf0` and `--muted` to `#cbd4c0` (WCAG AAA contrast > 8.5:1).
+  - High-contrast styling for all badges (allergens, mode, temp, coeur, sauce), filter bars, search inputs, tables, and prose guides.
+- 46 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings across all audit scripts.
+- Service worker bumped to `v24`.
 
 ## Last Commands
 - `node scripts/extract-data.js`
@@ -29,12 +22,9 @@
 - `node scripts/bump-sw-version.js --force`
 
 ## Files Changed
-- `index.html` (universal branding, universal storage keys with legacy fallback, Crêpes au kamado)
-- `manifest.webmanifest` (app name universalized)
-- `capacitor.config.json` (appId and appName universalized)
-- `package.json` (name and description universalized)
-- `README.md` (universal branding)
-- `scripts/prepare-mobile.js` (asset sync)
-- `sw.js` (bumped to `v23`)
+- `index.html` (allergen overhaul, unified dark modal sheet, WCAG AAA contrast tokens)
+- `scripts/audit-chef.js` (refined allergen detection, added 2 false-positive guard checks)
+- `tests/data.test.js` (added allergen precision assertion test)
+- `sw.js` (bumped to `v24`)
 - `.agents/handoff.md` (updated handoff)
 

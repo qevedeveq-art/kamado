@@ -211,3 +211,18 @@ test("chef allergen rules: no false positives on muscade/coco, detects beer and 
   assert.equal(result.issues, 0, `Chef audit reported ${result.issues} issues`);
 });
 
+test("allergen precision: cote de boeuf has no egg, beurre noisette has no nuts", () => {
+  const fs = require("fs");
+  const recipes = JSON.parse(fs.readFileSync("data/recipes.json", "utf8"));
+  const { execSync } = require("child_process");
+  const report = JSON.parse(execSync("node scripts/audit-chef.js", { encoding: "utf8" }));
+  assert.equal(report.issues, 0);
+
+  // Check direct allergen outputs on key recipes
+  const html = fs.readFileSync("index.html", "utf8");
+  assert.ok(html.includes("function allergenHaystack(r)"), "index.html must have allergenHaystack");
+  assert.ok(html.includes("oeufText=h.replace"), "index.html must strip boeuf from oeuf check");
+  assert.ok(html.includes("beurre noisette"), "index.html must guard beurre noisette");
+});
+
+

@@ -852,16 +852,16 @@ td b { color: #fff; }
   /* --- Named semantic tokens --- */
   --card:             #1e2018;   /* darker, more carbonised card */
   --card2:            #272a1f;   /* secondary card fill */
-  --line:             #333629;   /* ember-ash border */
+  --line:             #48523c;   /* clean structural ember-ash border */
 
   /* --- Text --- */
-  --txt:              #f2ead8;   /* aged parchment white, warmer */
-  --muted:            #8c9180;   /* ash grey */
+  --txt:              #fffaf0;   /* crisp parchment white, high contrast */
+  --muted:            #cbd4c0;   /* legible stone ash grey (WCAG AAA compliant) */
 
   /* --- Fire palette (intentionally richer, less neon) --- */
   --ember-core:       #c94b14;   /* deep charcoal ember — replaces old --accent */
   --ember-glow:       #e85e20;   /* bright live ember */
-  --flame-gold:       #d9903a;   /* flame lick gold — replaces old --accent2 */
+  --flame-gold:       #ffca70;   /* flame lick gold — high contrast */
   --braise-rouge:     #b83012;   /* deep red braise — replaces old --ember */
   --wood-oak:         #7a5c3a;   /* smoked oak brown */
   --smoke:            #4a5260;   /* blue-grey smoke */
@@ -2615,27 +2615,33 @@ header {
 }
 
 .sheet {
-  background:
-    linear-gradient(180deg, rgba(255, 251, 239, .99), rgba(238, 222, 185, .99)),
-    repeating-linear-gradient(0deg, transparent 0 31px, rgba(125, 51, 12, .045) 31px 32px) !important;
+  background: linear-gradient(180deg, #1c2016 0%, #13160f 100%) !important;
+  border-top: 3px solid var(--flame) !important;
+  border: 1px solid rgba(255, 193, 90, 0.28) !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85) !important;
+  color: var(--txt) !important;
 }
 
 .sheet-head {
   min-height: 64px;
+  background: rgba(19, 22, 15, 0.96) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
 .sheet-head h2 {
-  font-size: clamp(19px, 5vw, 25px) !important;
-  line-height: 1.15 !important;
+  font-size: clamp(20px, 5vw, 26px) !important;
+  line-height: 1.2 !important;
+  color: #fffaf0 !important;
 }
 
 .sheet .ori {
   display: inline-block;
-  padding: 5px 9px;
-  background: rgba(141, 54, 8, .08);
-  border: 1px solid rgba(141, 54, 8, .18);
+  padding: 6px 12px;
+  background: rgba(255, 138, 50, 0.14) !important;
+  border: 1px solid rgba(255, 193, 90, 0.35) !important;
   border-radius: 10px;
-  color: #7a2d05 !important;
+  color: var(--flame-2) !important;
+  font-weight: 600 !important;
 }
 
 .sheet .specbar {
@@ -2644,23 +2650,34 @@ header {
 
 .sheet .spec {
   border-radius: 12px !important;
-  background: rgba(255,255,255,.62) !important;
+  background: rgba(35, 41, 29, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
 }
 
 .sheet .spec .l {
-  letter-spacing: 1px !important;
+  letter-spacing: 0.8px !important;
+  color: #c8cfbf !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
 }
 
 .sheet .spec .v {
   font-family: var(--font-title) !important;
   line-height: 1.32 !important;
+  color: #ffffff !important;
 }
 
 .sheet .servrow {
-  background: rgba(255,255,255,.42);
-  border: 1px solid rgba(91,40,10,.18);
+  background: rgba(35, 41, 29, 0.88) !important;
+  border: 1px solid rgba(255, 193, 90, 0.25) !important;
   border-radius: 14px;
-  padding: 10px !important;
+  padding: 12px !important;
+  color: var(--txt) !important;
+}
+
+.sheet .servlbl {
+  color: #d6ded0 !important;
+  font-weight: 700 !important;
 }
 
 .sheet .tip,
@@ -2670,17 +2687,25 @@ header {
 }
 
 .sheet .tip {
-  background: rgba(255,255,255,.54) !important;
+  background: rgba(35, 41, 29, 0.92) !important;
+  border-left: 4px solid var(--flame) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
   border-left-width: 4px !important;
   border-radius: 12px !important;
+  color: #f7f3e6 !important;
+}
+
+.sheet .tip b {
+  color: var(--flame-2) !important;
 }
 
 .sheet .steps li,
 .sheet .cstep {
-  background: rgba(255,255,255,.32);
-  border: 1px solid rgba(91,40,10,.12) !important;
+  background: rgba(28, 33, 23, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
   border-radius: 12px;
-  margin-bottom: 9px;
+  margin-bottom: 10px;
+  color: #f7f3e6 !important;
 }
 
 .sheet .steps li {
@@ -2690,6 +2715,9 @@ header {
 .sheet .steps li::before {
   left: 12px !important;
   top: 14px !important;
+  background: var(--flame) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
 }
 
 .sheet .csteps {
@@ -2708,26 +2736,30 @@ header {
 }
 
 .sheet .cstep.done {
-  background: rgba(94,130,37,.12) !important;
-  border-color: rgba(58,94,13,.28) !important;
+  background: rgba(45, 62, 30, 0.45) !important;
+  border-color: rgba(169, 216, 111, 0.40) !important;
 }
 
 .sheet .cstep.done span {
   text-decoration: line-through;
   text-decoration-thickness: 2px;
-  color: #4f4636 !important;
+  color: #a4ae9c !important;
 }
 
 .sheet .tbtn {
-  background: #8d3608 !important;
-  color: #fff8e7 !important;
+  background: linear-gradient(135deg, var(--ember-glow), var(--flame-gold)) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
   border: 0 !important;
   margin-top: 10px;
+  box-shadow: 0 4px 14px rgba(232, 94, 32, 0.35) !important;
 }
 
 .sheet .phase-card {
   border-radius: 12px !important;
-  background: rgba(255,255,255,.48) !important;
+  background: rgba(35, 41, 29, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: var(--txt) !important;
 }
 
 .sheet .phase-card::before {
@@ -2735,17 +2767,33 @@ header {
 }
 
 .sheet .phase-badge {
-  color: #16110a !important;
-  background: rgba(255,255,255,.58) !important;
-  border-color: rgba(91,40,10,.22) !important;
+  color: #ffffff !important;
+  background: rgba(48, 56, 40, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.20) !important;
 }
 
 .sheet .phase-badge.temp {
-  color: #8a2f06 !important;
+  color: var(--flame-2) !important;
 }
 
 .sheet .phase-badge.dur {
-  color: #284400 !important;
+  color: var(--leaf) !important;
+}
+
+.sheet h4 {
+  color: var(--flame-2) !important;
+  font-family: var(--font-title) !important;
+  font-size: 16px !important;
+  margin: 18px 0 10px !important;
+  border-bottom: 1px solid rgba(255, 193, 90, 0.25) !important;
+  padding-bottom: 4px !important;
+}
+
+.sheet ul.ings li {
+  color: #f5f0e4 !important;
+  font-size: 14.5px !important;
+  line-height: 1.55 !important;
+  padding: 4px 0 !important;
 }
 
 .sheet .quality-checks {
@@ -3383,11 +3431,156 @@ body.sun-mode header {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(93, 148, 184, 0.12);
-  border: 1px solid rgba(93, 148, 184, 0.35);
+  background: rgba(93, 148, 184, 0.14);
+  border: 1px solid rgba(93, 148, 184, 0.40);
   border-radius: var(--border-radius-md);
   padding: 10px 14px;
   margin: 10px 0 16px;
+  color: #fffaf0;
+}
+.smoke-badge-title {
+  color: #aae0ff !important;
+  font-weight: 700 !important;
+}
+
+/* ================= FRONTEND UNIFICATION & HIGH-CONTRAST ACCESSIBILITY ================= */
+body {
+  color: #fffaf0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Secondary & Muted text contrast */
+.count, .smartnote, .legend, .empty, .foot, .hint, .tlab, .ratingrow span,
+.qstat span, .multifilter-label, .secret-body, .ed-hint, .source-note {
+  color: #cbd4c0 !important;
+}
+
+/* Header & Quickstats */
+.brand small {
+  color: #e2e8da !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.8px !important;
+}
+.qstat {
+  color: #cbd4c0 !important;
+}
+.qstat b {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* Search bar & inputs */
+.search input, .ingredientbar input, select.fsel {
+  background: #191d14 !important;
+  color: #fffaf0 !important;
+  border: 1px solid rgba(255, 193, 90, 0.35) !important;
+}
+.search input::placeholder, .ingredientbar input::placeholder {
+  color: #aab2a0 !important;
+}
+
+/* Tabs & Chips */
+.tab {
+  background: rgba(30, 36, 25, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #e8eee0 !important;
+  font-weight: 600 !important;
+}
+.tab.active {
+  background: linear-gradient(135deg, rgba(232, 94, 32, 0.9), rgba(201, 75, 20, 0.95)) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 193, 90, 0.6) !important;
+}
+.chip {
+  background: rgba(28, 33, 23, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  color: #e2e8da !important;
+}
+.chip.active {
+  background: rgba(232, 94, 32, 0.35) !important;
+  border-color: var(--flame-gold) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* Card titles and origin */
+.rc h3 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+.rc .ori {
+  color: #ffca70 !important;
+  font-weight: 600 !important;
+  font-size: 11.5px !important;
+}
+
+/* Allergen badges - High Contrast & Crisp */
+.badge.allergen {
+  color: #ffd2c7 !important;
+  background: rgba(140, 38, 20, 0.45) !important;
+  border: 1px solid rgba(255, 114, 82, 0.45) !important;
+  font-weight: 700 !important;
+}
+
+/* Mode & Temp badges */
+.rc .badge.mode {
+  color: #ffd894 !important;
+  background: rgba(130, 60, 10, 0.45) !important;
+  border: 1px solid rgba(255, 193, 90, 0.35) !important;
+}
+.rc .badge.temp {
+  color: #ffb88c !important;
+  background: rgba(130, 48, 12, 0.45) !important;
+  border: 1px solid rgba(255, 116, 50, 0.35) !important;
+}
+.rc .badge.coeur {
+  color: #bbf082 !important;
+  background: rgba(48, 86, 22, 0.45) !important;
+  border: 1px solid rgba(150, 212, 74, 0.35) !important;
+}
+.rc .badge.sauce {
+  color: #aae0ff !important;
+  background: rgba(25, 65, 95, 0.45) !important;
+  border: 1px solid rgba(114, 184, 232, 0.35) !important;
+}
+
+/* Content pages (Prose, Guide, Accords Vins, Températures) */
+.prose h2, .prose h3 {
+  color: #ffffff !important;
+}
+.prose p, .prose li {
+  color: #f2ede0 !important;
+  line-height: 1.6 !important;
+}
+.callout {
+  background: rgba(28, 34, 23, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-left: 4px solid var(--flame) !important;
+  color: #f2ede0 !important;
+}
+table th {
+  background: #252c1e !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid var(--line) !important;
+}
+table td {
+  color: #f2ede0 !important;
+  border-color: #38402f !important;
+}
+table td.t-temp, table td.t-coeur {
+  color: var(--flame-gold) !important;
+  font-weight: 700 !important;
+}
+
+/* Substitutions and interactive panels */
+.subs-interactive-box, .timeline-box, .meat-viz-card {
+  background: rgba(26, 31, 21, 0.95) !important;
+  border: 1px solid rgba(255, 193, 90, 0.3) !important;
+  color: #fffaf0 !important;
+}
+.sub-title, .meat-viz-cut-name {
+  color: #ffffff !important;
 }
 
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
@@ -8995,34 +9188,60 @@ function wineServiceTemp(label){
   if(/blanc|rosé|champagne|riesling|gewurz|sauvignon|chardonnay|chenin|albariño|muscadet|sancerre|vouvray|chablis|meursault|picpoul|vinho verde|cassis|savennières|jurançon sec|sylvaner|crémant|lambrusco/.test(s))return"8–10 °C";
   return"16–18 °C";
 }
+function allergenHaystack(r){
+  return norm([
+    r.nom,
+    r.cat,
+    (r.ings||[]).join(" "),
+    r.sauce
+  ].filter(Boolean).join(" "));
+}
 function allergens(r){
-  const h=haystack(r), a=[];
-  // Lait (exclure le lait de coco végétal)
-  const laitText=h.replace(/lait de coco/g, "");
+  const h=allergenHaystack(r), a=[];
+  // Lait (exclure lait et crème de coco, beurre de cacahuète)
+  const laitText=h.replace(/(?:lait|creme) de coco/g, "").replace(/beurre de (?:cacahuete|cajou|cacahouete)/g, "");
   if(/fromage|beurre|creme|yaourt|yogourt|\blait\b|mozzarella|feta|cheddar|mascarpone|parmesan|halloumi|comte\b|gruyere|gorgonzola|roquefort|chevre|pecorino|reblochon|raclette|emmental|brie\b|camembert|ricotta|burrata|paneer|ghee/.test(laitText))a.push("lait");
-  // Gluten (céréales, farines, pains, bière, chapelure, pâtes)
-  if(/gluten|farine|\bpain\b|pita|naan|\bbun\b|\bbuns\b|baguette|\bpate\b|\bpates\b|chapelure|focaccia|pizza|brioche|toast|seigle|orge|avoine|\bble\b|malt|\bbiere\b|ale\b|lager|stout|guinness|worcestershire|speculoos|crouton/.test(h))a.push("gluten");
-  // Œufs
-  if(/oeuf|œuf|mayonnaise|aioli|bearnaise|hollandaise/.test(h))a.push("œuf");
-  // Poisson
-  if(r.cat==="poisson"||/saumon|thon\b|cabillaud|daurade|dorade|truite|maquereau|sardine|hareng|anchois|\bbar\b|loup de mer|turbot|\blieu\b|merlu|eglefin|\bsole\b|fletan|morue|espadon|poisson|nuoc.mam|worcestershire/.test(h))a.push("poisson");
+
+  // Gluten (exclure pâtes aromatiques de curry/piment/soja/tomate)
+  const glutenText=h.replace(/pate de (?:piment|curry|soja|arachide|sesame|tomate|miso|ail|gingembre)/g, "");
+  if(/gluten|farine|\bpain\b|pita|naan|\bbun\b|\bbuns\b|baguette|\bpates?\b|chapelure|focaccia|pizza|brioche|toast|seigle|orge|avoine|\bble\b|malt|\bbiere\b|ale\b|lager|stout|guinness|worcestershire|speculoos|crouton/.test(glutenText))a.push("gluten");
+
+  // Œufs (exclure boeuf/bœuf qui contient oeuf en sous-chaîne !)
+  const oeufText=h.replace(/\bb[oœ]eufs?\b/g, "").replace(/b[oœ]euf/g, "");
+  if(/\b[oœ]eufs?\b|mayonnaise|aioli|bearnaise|hollandaise/.test(oeufText))a.push("œuf");
+
+  // Poisson (exclure "au lieu de", et pour sauces exclure mention poisson du nom)
+  const poissonText=(r.cat==="sauces"?h.replace(/\b(?:rub|sauce|marinade)[^,]*(?:poisson|saumon)/g, ""):h).replace(/au lieu de/g, "");
+  if(r.cat==="poisson"||/saumon|thon\b|cabillaud|daurade|dorade|truite|maquereau|sardine|hareng|anchois|\bbar\b|loup de mer|turbot|\blieu\b|merlu|eglefin|\bsole\b|fletan|morue|espadon|poisson|nuoc.mam|worcestershire/.test(poissonText))a.push("poisson");
+
   // Crustacés
   if(/crevette|gambas|homard|langouste|langoustine|crabe|ecrevisse|tourteau/.test(h))a.push("crustacés");
-  // Mollusques
-  if(/moule|huitre|saint-jacques|calamar|encornet|poulpe|seiche|coquillage|palourde|\bcoque\b/.test(h))a.push("mollusques");
+
+  // Mollusques (exclure fruits à coque et à la coque)
+  const molluskText=h.replace(/fruits? a coque/g, "").replace(/a la coque/g, "");
+  if(/moule|huitre|saint-jacques|calamar|encornet|poulpe|seiche|coquillage|palourde|\bcoques?\b/.test(molluskText))a.push("mollusques");
+
   // Arachides
   if(/cacahuete|arachide/.test(h))a.push("arachides");
-  // Fruits à coque (exclure noix de muscade, noix de coco et noix de saint-jacques)
-  const nutText=h.replace(/noix de muscade/g, "").replace(/noix de coco/g, "").replace(/noix de saint-jacques/g, "");
-  if(/amande|noisette|pecan|pistache|noix de cajou|cajou|macadamia|pignon|\bnoix\b/.test(nutText))a.push("fruits à coque");
+
+  // Fruits à coque (exclure muscade, coco, saint-jacques, veau, joue, beurre et beurre noisette)
+  const nutText=h.replace(/noix de (?:muscade|coco|saint-jacques|st-jacques|veau|joue|beurre)/g, "")
+                 .replace(/beurre noisette/g, "beurre")
+                 .replace(r.cat === "poisson" ? /\bles noix\b/g : /$^/, "");
+  if(/\bamandes?\b|\bnoisettes?\b|\bpecans?\b|\bpistaches?\b|noix de cajou|\bcajous?\b|\bmacadamias?\b|\bpignons?\b|\bnoix\b/.test(nutText))a.push("fruits à coque");
+
   // Graines de sésame
   if(/sesame|tahini|tahin|zaatar|gomasio/.test(h))a.push("sésame");
+
   // Soja
   if(/soja|edamame|miso|tofu|teriyaki|tamari/.test(h))a.push("soja");
+
   // Moutarde
   if(/moutarde/.test(h))a.push("moutarde");
+
   // Céleri
   if(/celeri/.test(h))a.push("céleri");
+
   return [...new Set(a)];
 }
 function seasonFor(r){

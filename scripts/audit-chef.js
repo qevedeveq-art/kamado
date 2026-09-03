@@ -44,56 +44,83 @@ function haystack(r) {
   ].join(" "));
 }
 
+function allergenHaystack(r) {
+  return norm([
+    r.nom,
+    r.cat,
+    (r.ings || []).join(" "),
+    r.sauce
+  ].filter(Boolean).join(" "));
+}
+
 function detectAllergens(r) {
-  const h = haystack(r);
+  const h = allergenHaystack(r);
   const a = [];
 
-  const laitText = h.replace(/lait de coco/g, "");
+  // Lait (exclure lait/crème de coco, beurre de cacahuète)
+  const laitText = h.replace(/(?:lait|creme) de coco/g, "").replace(/beurre de (?:cacahuete|cajou|cacahouete)/g, "");
   if (/fromage|beurre|creme|yaourt|yogourt|\blait\b|mozzarella|feta|cheddar|mascarpone|parmesan|halloumi|comte\b|gruyere|gorgonzola|roquefort|chevre|pecorino|reblochon|raclette|emmental|brie\b|camembert|ricotta|burrata|paneer|ghee/.test(laitText)) {
     a.push("lait");
   }
 
-  if (/gluten|farine|\bpain\b|pita|naan|\bbun\b|\bbuns\b|baguette|\bpate\b|\bpates\b|chapelure|focaccia|pizza|brioche|toast|seigle|orge|avoine|\bble\b|malt|\bbiere\b|ale\b|lager|stout|guinness|worcestershire|speculoos|crouton/.test(h)) {
+  // Gluten (exclure pâtes aromatiques de curry/piment/soja/tomate)
+  const glutenText = h.replace(/pate de (?:piment|curry|soja|arachide|sesame|tomate|miso|ail|gingembre)/g, "");
+  if (/gluten|farine|\bpain\b|pita|naan|\bbun\b|\bbuns\b|baguette|\bpates?\b|chapelure|focaccia|pizza|brioche|toast|seigle|orge|avoine|\bble\b|malt|\bbiere\b|ale\b|lager|stout|guinness|worcestershire|speculoos|crouton/.test(glutenText)) {
     a.push("gluten");
   }
 
-  if (/oeuf|œuf|mayonnaise|aioli|bearnaise|hollandaise/.test(h)) {
+  // Œufs (exclure boeuf/bœuf qui contient oeuf en sous-chaîne !)
+  const oeufText = h.replace(/\bb[oœ]eufs?\b/g, "").replace(/b[oœ]euf/g, "");
+  if (/\b[oœ]eufs?\b|mayonnaise|aioli|bearnaise|hollandaise/.test(oeufText)) {
     a.push("œuf");
   }
 
-  if (r.cat === "poisson" || /saumon|thon\b|cabillaud|daurade|dorade|truite|maquereau|sardine|hareng|anchois|\bbar\b|loup de mer|turbot|\blieu\b|merlu|eglefin|\bsole\b|fletan|morue|espadon|poisson|nuoc.mam|worcestershire/.test(h)) {
+  // Poisson (exclure "au lieu de", et pour sauces exclure mention poisson du nom)
+  const poissonText = (r.cat === "sauces" ? h.replace(/\b(?:rub|sauce|marinade)[^,]*(?:poisson|saumon)/g, "") : h).replace(/au lieu de/g, "");
+  if (r.cat === "poisson" || /saumon|thon\b|cabillaud|daurade|dorade|truite|maquereau|sardine|hareng|anchois|\bbar\b|loup de mer|turbot|\blieu\b|merlu|eglefin|\bsole\b|fletan|morue|espadon|poisson|nuoc.mam|worcestershire/.test(poissonText)) {
     a.push("poisson");
   }
 
+  // Crustacés
   if (/crevette|gambas|homard|langouste|langoustine|crabe|ecrevisse|tourteau/.test(h)) {
     a.push("crustacés");
   }
 
-  if (/moule|huitre|saint-jacques|calamar|encornet|poulpe|seiche|coquillage|palourde|\bcoque\b/.test(h)) {
+  // Mollusques (exclure fruits à coque et à la coque)
+  const molluskText = h.replace(/fruits? a coque/g, "").replace(/a la coque/g, "");
+  if (/moule|huitre|saint-jacques|calamar|encornet|poulpe|seiche|coquillage|palourde|\bcoques?\b/.test(molluskText)) {
     a.push("mollusques");
   }
 
+  // Arachides
   if (/cacahuete|arachide/.test(h)) {
     a.push("arachides");
   }
 
-  const nutText = h.replace(/noix de muscade/g, "").replace(/noix de coco/g, "").replace(/noix de saint-jacques/g, "");
-  if (/amande|noisette|pecan|pistache|noix de cajou|cajou|macadamia|pignon|\bnoix\b/.test(nutText)) {
+  // Fruits à coque (exclure muscade, coco, saint-jacques, veau, joue, beurre et beurre noisette)
+  const nutText = h.replace(/noix de (?:muscade|coco|saint-jacques|st-jacques|veau|joue|beurre)/g, "")
+                   .replace(/beurre noisette/g, "beurre")
+                   .replace(r.cat === "poisson" ? /\bles noix\b/g : /$^/, "");
+  if (/\bamandes?\b|\bnoisettes?\b|\bpecans?\b|\bpistaches?\b|noix de cajou|\bcajous?\b|\bmacadamias?\b|\bpignons?\b|\bnoix\b/.test(nutText)) {
     a.push("fruits à coque");
   }
 
+  // Sésame
   if (/sesame|tahini|tahin|zaatar|gomasio/.test(h)) {
     a.push("sésame");
   }
 
+  // Soja
   if (/soja|edamame|miso|tofu|teriyaki|tamari/.test(h)) {
     a.push("soja");
   }
 
+  // Moutarde
   if (/moutarde/.test(h)) {
     a.push("moutarde");
   }
 
+  // Céleri
   if (/celeri/.test(h)) {
     a.push("céleri");
   }
@@ -106,7 +133,7 @@ const warnings = [];
 const allergenStats = {};
 
 RECIPES.forEach(r => {
-  const h = haystack(r);
+  const h = allergenHaystack(r);
   const detectedAllergens = detectAllergens(r);
 
   detectedAllergens.forEach(all => {
@@ -153,6 +180,28 @@ RECIPES.forEach(r => {
         recipe: r.nom,
         type: "allergen_omission",
         detail: "Recette de la catégorie poisson sans allergène poisson/crustacés/mollusques."
+      });
+    }
+  }
+
+  // Check 5: Boeuf must never trigger oeuf (unless true egg ingredient)
+  if (r.nom.includes("Côte de bœuf") || r.nom.includes("Entrecôte") || r.nom.includes("Brisket")) {
+    if (detectedAllergens.includes("œuf")) {
+      issues.push({
+        recipe: r.nom,
+        type: "allergen_false_positive",
+        detail: "Faux positif d'œuf détecté dans une découpe de bœuf pure."
+      });
+    }
+  }
+
+  // Check 6: Beurre noisette must never trigger fruits à coque
+  if (r.nom.includes("beurre noisette") && !/amande|pecan|pistache|pignon/.test(h)) {
+    if (detectedAllergens.includes("fruits à coque")) {
+      issues.push({
+        recipe: r.nom,
+        type: "allergen_false_positive",
+        detail: "Le beurre noisette (beurre bruni) ne doit pas être étiqueté comme fruit à coque."
       });
     }
   }
