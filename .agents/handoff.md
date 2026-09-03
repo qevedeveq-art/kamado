@@ -10,6 +10,7 @@
 - 47 tests passing natively via `node --test 'tests/*.test.js'`.
 - All 4 audits passing (Data, Kamado Expert, Chef Reviewer, Sommelier).
 - Service worker bumped to `v34`.
+- GitHub repository `qevedeveq-art/kamado` switched from public to PRIVATE.
 
 ## Last Commands
 - `node scripts/extract-data.js`
