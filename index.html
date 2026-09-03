@@ -9980,7 +9980,6 @@ function card(r){
       ${needsBurp?`<span class="badge safety-tag" title="Réflexe anti-flashback requis au-dessus de 150 °C">⚠️ Burp</span>`:''}
       ${isSmoked?`<span class="badge smoke-tag" title="Règle de fumée propre : attendre la fumée bleu pâle">💨 Fumée propre</span>`:''}
       <span class="badge spice">${spiceLevel(r)}</span>
-      <span class="badge">Qualité : ${q.label} ${q.score}/${q.max}</span>
       ${diets.slice(0,2).map(d=>`<span class="badge">${d}</span>`).join("")}
       ${rating?`<span class="badge">★ ${rating}/5</span>`:''}
       ${alls.length?`<span class="badge allergen">Allergènes : ${alls.join(", ")}</span>`:''}
@@ -10059,35 +10058,20 @@ function renderRichSchema(r){
   return out.join("");
 }
 function renderRecipeDetailGuidance(r){
-  const q=qualityInfo(r);
-  const checks=q.checks.map(c=>`<div class="qcheck ${c.ok?'ok':'miss'}">${c.ok?'<span style="font-size:14px">✅</span>':'<span style="font-size:14px">⚠️</span>'} <span>${c.label}</span></div>`).join("");
   const prep=prepChecklist(r).map(x=>`<li>${x}</li>`).join("");
   const safety=safetyGuidance(r).map(x=>`<li>${x}</li>`).join("");
   const service=serviceGuidance(r).map(x=>`<li>${x}</li>`).join("");
   const chef=chefControlPoints(r).map(x=>`<li>${x}</li>`).join("");
-  const refs=chefSourcesFor(r).map(ref=>`<li><a href="${ref.url}" target="_blank" rel="noopener">${ref.name}</a> · ${ref.why}</li>`).join("");
-  const advice=recipeQualityAdvice(r).map(x=>`<li>${x}</li>`).join("");
   return `
     <div class="rich-section">
       <h4>🧭 Avant de commencer (Mise en place)</h4>
       <ul class="detail-list">${prep}</ul>
     </div>
-    <div class="rich-section">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px">
-        <h4 style="margin:0; border:none; padding:0">✅ Contrôle qualité de la fiche</h4>
-        <span style="font-size:12.5px; font-weight:800; color:#ffca70; background:rgba(255,193,90,0.18); padding:3px 10px; border-radius:999px; border:1px solid rgba(255,193,90,0.4)">Score : ${q.score}/${q.max} · ${q.label}</span>
-      </div>
-      <div class="quality-checks">${checks}</div>
-      ${q.gaps.length?`<ul class="detail-list" style="margin-top:10px">${advice}</ul>`:""}
-    </div>
     <div class="detail-grid">
       ${safety?`<div class="rich-section"><h4>🛡 Contrôles sécurité</h4><ul class="detail-list">${safety}</ul></div>`:""}
       ${service?`<div class="rich-section"><h4>🍽 Service & découpe</h4><ul class="detail-list">${service}</ul></div>`:""}
     </div>
-    <div class="detail-grid">
-      ${chef?`<div class="rich-section"><h4>👨‍🍳 Contrôle chef</h4><ul class="detail-list">${chef}</ul></div>`:""}
-      <div class="rich-section"><h4>📚 Références fiables</h4><ul class="detail-list">${refs}</ul></div>
-    </div>`;
+    ${chef?`<div class="rich-section"><h4>👨‍🍳 Conseils & Repères du Chef</h4><ul class="detail-list">${chef}</ul></div>`:""}`;
 }
 
 function drawThermometerSVG(tempStr) {

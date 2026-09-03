@@ -1,17 +1,15 @@
 # Agent Handoff
 
 ## Current Status
-- Zero-build PWA & native mobile app Kamado fully universalized and upgraded to v26.
-- Comprehensive UI overhaul & bug fixes:
-  - Eliminated overlapping bullets on ingredients text: eradicated all competing legacy padding overrides (`padding: 4px 0 !important;` and `padding-left: 16px`) and transitioned `.sheet .ings li` to a modern flex layout with static gold ember bullets (`gap: 12px`).
-  - Eradicated ancient parchment CSS blocks (lines 1603-1695 & 1980-2265) that were forcing dark text (`#1a160d`, `#2b2518`, `#2e4412`, `#7d2010`) on dark backgrounds.
-  - Overhauled "Contrôles qualité" (`.quality-checks`, `.qcheck`, `.quality-tile`):
-    - Replaced faint ASCII dots with clear visual status emojis (`✅` and `⚠️`).
-    - Made `.qcheck.ok` bold emerald-green with crisp white text (`#ffffff`), and `.qcheck.miss` warm vermilion with light salmon text (`#ffd8d0`).
-    - Added score summary badge directly beside the header (`Score : X/8 · Qualité`).
-    - Upgraded `.quality-tile` in the data tab with clear high-contrast cards.
+- Zero-build PWA & native mobile app Kamado fully universalized and upgraded to v27.
+- Simplified and cleaned culinary recipe view:
+  - Removed internal technical sections "Contrôle qualité de la fiche" and "Références fiables" from the recipe detail modal.
+  - Removed "Qualité : X/8" badge from main recipe cards.
+  - The recipe sheet now focuses exclusively on culinary execution: Mise en place, Sécurité alimentaire, Service & découpe, Conseils du Chef, Réglages Kamado, Phases et Ingrédients.
+  - All 249 recipes verified 100% complete and up to date (0 audit issues, 0 warnings).
+  - Documented web recipe import strategy and automated CLI workflow (`scripts/import-url.js`).
 - 46 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings across all audit scripts.
-- Service worker bumped to `v26`.
+- Service worker bumped to `v27`.
 
 ## Last Commands
 - `node scripts/extract-data.js`
@@ -21,7 +19,7 @@
 - `node scripts/bump-sw-version.js --force`
 
 ## Files Changed
-- `index.html` (eradicated all duplicate parchment blocks, converted ingredients to flex layout, overhauled quality checks & tiles)
-- `sw.js` (bumped to `v26`)
+- `index.html` (removed quality checks and references from recipe guidance, removed quality badge from cards)
+- `sw.js` (bumped to `v27`)
 - `.agents/handoff.md` (updated handoff)
 
