@@ -3641,6 +3641,209 @@ table td.t-temp, table td.t-coeur {
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
 
+
+/* ===== SOMMELIER & ACCORDS VINS STYLES ===== */
+.wine-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 18px 0 24px;
+}
+.wine-rule-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(155,59,106,0.3);
+  border-radius: 12px;
+  padding: 14px;
+  transition: transform 0.15s ease, border-color 0.2s ease;
+}
+.wine-rule-card:hover {
+  transform: translateY(-2px);
+  border-color: #f39ac7;
+}
+.wrule-num {
+  font-size: 10px;
+  font-weight: 800;
+  color: #f39ac7;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.wrule-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.wrule-desc {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted, #b3b0a6);
+}
+
+.wine-explorer-section {
+  margin-top: 20px;
+}
+.wine-search-bar {
+  margin-bottom: 12px;
+}
+.wine-search-bar input {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(155,59,106,0.4);
+  border-radius: 14px;
+  padding: 12px 18px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.wine-search-bar input:focus {
+  border-color: #f39ac7;
+  box-shadow: 0 0 12px rgba(243,154,199,0.2);
+}
+
+.wine-filter-pills {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+  scrollbar-width: none;
+}
+.wine-filter-pills::-webkit-scrollbar { display: none; }
+.wpill {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--fg, #ddd);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.wpill:hover { border-color: #f39ac7; }
+.wpill.active {
+  background: linear-gradient(135deg, #9b3b6a, #c24d86);
+  color: #fff;
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 2px 8px rgba(155,59,106,0.35);
+}
+
+.wine-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 14px;
+}
+.wine-item-card {
+  background: rgba(22,24,20,0.85);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-left: 4px solid #c24d86;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.15s ease, border-color 0.2s ease;
+}
+.wine-item-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.25);
+  border-left-color: #f39ac7;
+}
+.wic-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.wic-dish {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+}
+.wic-temp {
+  font-size: 11px;
+  background: rgba(255,255,255,0.08);
+  padding: 3px 8px;
+  border-radius: 10px;
+  color: #ffb86b;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.wic-main-wine {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #f39ac7;
+}
+.wic-alt-wine {
+  font-size: 12.5px;
+  color: var(--muted, #a8a29e);
+}
+.wic-desc {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #ddd;
+  background: rgba(0,0,0,0.25);
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+.wic-beer {
+  font-size: 11.5px;
+  color: #ffb86b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+/* Sommelier card inside Recipe Detail Sheet */
+.sommelier-card {
+  background: linear-gradient(135deg, rgba(155,59,106,0.14), rgba(26,27,24,0.85));
+  border: 1px solid rgba(243,154,199,0.3);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin: 14px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.sommelier-icon { font-size: 26px; line-height: 1; flex-shrink: 0; }
+.sommelier-body { flex: 1; }
+.sommelier-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.sommelier-tag {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #f39ac7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.sommelier-temp {
+  font-size: 11.5px;
+  color: #ffb86b;
+  font-weight: 700;
+}
+.sommelier-wine {
+  font-size: 14.5px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.sommelier-desc {
+  font-size: 12.5px;
+  color: #e0ded7;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.sommelier-alt {
+  font-size: 12px;
+  color: var(--muted, #a8a29e);
+}
+
 /* ===== FRONT-END MODERNIZATION SUITE ===== */
 .modal-nav {
   display: flex;
@@ -10166,79 +10369,80 @@ const TEMP = `
 </table>
 `;
 
-const VINS = `
-<div class="callout" style="border-color:#9b3b6a">
-  <h3>🍷 Bien accorder vins & cuisson au kamado</h3>
-  <p style="margin:0">Trois principes pour ne pas se tromper : <b>la puissance du plat appelle la puissance du vin</b> (une côte de bœuf écrase un vin léger) ; <b>le fumé et le caramélisé adorent les rouges épicés et boisés</b> (Syrah, Zinfandel, Malbec) ; <b>le gras et le piquant se domptent avec un peu de fraîcheur ou de sucre</b> (rosé vif, blanc demi-sec, vin fruité).</p>
-  <p style="margin:8px 0 0;font-size:13px;color:var(--muted)">🌡️ Servez les rouges puissants à 16–18 °C, les rouges légers à 14–15 °C, les blancs et rosés à 8–10 °C. En été, n'ayez pas peur de rafraîchir un rouge léger (gamay, pinot).</p>
+const VINS = `<div class="callout" style="border-color:#9b3b6a;background:linear-gradient(180deg,rgba(155,59,106,0.12),transparent)">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+    <span style="font-size:32px">🍷</span>
+    <div>
+      <h3 style="margin:0;font-size:20px;color:#f39ac7">Guide Expert des Accords Vins & Braises</h3>
+      <div style="font-size:12.5px;color:var(--muted)">Établi d'après les préceptes de <b>Philippe Faure-Brac</b> (Meilleur Sommelier du Monde), <b>Olivier Poussier</b>, la <b>Revue du Vin de France (RVF)</b> et la science des arômes de <b>Meathead Goldwyn</b>.</div>
+    </div>
+  </div>
+  <p style="margin:8px 0 0;font-size:14px;line-height:1.5">
+    Le kamado confère une signature aromatique singulière : <b>sucs concentrés par l'étanchéité céramique, caramélisation de Maillard intense et fumée de bois noble</b>. Les accords traditionnels de four doivent être réajustés pour tenir tête à cette intensité.
+  </p>
 </div>
 
-<h2>🥩 Bœuf</h2>
-<table>
-<tr><th>Plat</th><th>Accord vin</th><th>Alternative</th></tr>
-<tr><td>Côte / entrecôte grillée</td><td><b>Bordeaux, Madiran, Cahors</b></td><td>Malbec d'Argentine</td></tr>
-<tr><td>Picanha, asado</td><td><b>Malbec, Tannat</b></td><td>Syrah</td></tr>
-<tr><td>Brisket / beef ribs fumés</td><td><b>Zinfandel, Syrah</b></td><td>Primitivo, Bière brune</td></tr>
-<tr><td>Bavette, onglet (saignant)</td><td><b>Côtes-du-Rhône, Beaujolais cru</b></td><td>Chinon (cabernet franc)</td></tr>
-<tr><td>Burger</td><td><b>Côtes-du-Rhône, Zinfandel</b></td><td>Bière IPA ou ambrée</td></tr>
-</table>
-
-<h2>🐖 Porc</h2>
-<table>
-<tr><th>Plat</th><th>Accord vin</th><th>Alternative</th></tr>
-<tr><td>Travers / ribs sauce BBQ</td><td><b>Zinfandel, Primitivo</b></td><td>Bière ambrée, cidre</td></tr>
-<tr><td>Pulled pork</td><td><b>Côtes-du-Rhône, rosé corsé</b></td><td>Lambrusco, cidre brut</td></tr>
-<tr><td>Carré / filet rôti</td><td><b>Pinot noir, Beaujolais</b></td><td>Chenin demi-sec (Vouvray)</td></tr>
-<tr><td>Porc laqué / char siu</td><td><b>Gewurztraminer, Riesling</b></td><td>Pinot noir fruité</td></tr>
-<tr><td>Saucisses / charcuterie</td><td><b>Beaujolais, rosé sec</b></td><td>Bière blonde</td></tr>
-</table>
-
-<h2>🍗 Volaille</h2>
-<table>
-<tr><th>Plat</th><th>Accord vin</th><th>Alternative</th></tr>
-<tr><td>Poulet rôti / crapaudine</td><td><b>Chardonnay, Bourgogne blanc</b></td><td>Pinot noir léger</td></tr>
-<tr><td>Magret de canard</td><td><b>Madiran, Cahors, Pinot noir</b></td><td>Côtes-du-Rhône</td></tr>
-<tr><td>Poulet épicé (tandoori, peri-peri)</td><td><b>Riesling, Gewurztraminer</b></td><td>Rosé fruité, bière blonde</td></tr>
-<tr><td>Yakitori / teriyaki</td><td><b>Riesling sec, Champagne</b></td><td>Saké, bière japonaise</td></tr>
-<tr><td>Dinde / chapon des fêtes</td><td><b>Bourgogne (blanc ou rouge)</b></td><td>Champagne, Jura</td></tr>
-</table>
-
-<h2>🐑 Agneau & gibier</h2>
-<table>
-<tr><th>Plat</th><th>Accord vin</th><th>Alternative</th></tr>
-<tr><td>Gigot / carré d'agneau</td><td><b>Bordeaux, Pauillac, Côtes-du-Rhône</b></td><td>Rioja</td></tr>
-<tr><td>Agneau aux épices (méchoui, tagine)</td><td><b>Syrah, Côtes-du-Rhône</b></td><td>Rouge du Languedoc</td></tr>
-<tr><td>Chevreuil, cerf, biche</td><td><b>Châteauneuf-du-Pape, Hermitage</b></td><td>Bourgogne structuré (Pommard)</td></tr>
-<tr><td>Sanglier (civet)</td><td><b>Cahors, Madiran, Gigondas</b></td><td>Côtes-du-Rhône village</td></tr>
-<tr><td>Cailles, gibier à plume</td><td><b>Pinot noir, Bourgogne</b></td><td>Saint-Émilion souple</td></tr>
-</table>
-
-<h2>🐟 Poissons & fruits de mer</h2>
-<table>
-<tr><th>Plat</th><th>Accord vin</th><th>Alternative</th></tr>
-<tr><td>Saumon grillé / fumé</td><td><b>Bourgogne blanc, Pinot gris</b></td><td>Pinot noir léger, Champagne</td></tr>
-<tr><td>Bar, dorade entière</td><td><b>Sancerre, Muscadet, Provence blanc</b></td><td>Picpoul de Pinet</td></tr>
-<tr><td>Thon mi-cuit</td><td><b>Rosé de Provence, Tavel</b></td><td>Pinot noir frais</td></tr>
-<tr><td>Gambas, coquillages, paella</td><td><b>Albariño, Muscadet, blanc sec</b></td><td>Cava, Txakoli</td></tr>
-<tr><td>Sardines, maquereaux grillés</td><td><b>Muscadet, rosé sec</b></td><td>Vinho Verde, bière blonde</td></tr>
-</table>
-
-<h2>🥗 Légumes, fromages & desserts</h2>
-<table>
-<tr><th>Plat</th><th>Accord vin</th><th>Alternative</th></tr>
-<tr><td>Légumes grillés, halloumi</td><td><b>Rosé de Provence, blanc sec</b></td><td>Vermentino</td></tr>
-<tr><td>Aubergine/champignon fumés (umami)</td><td><b>Pinot noir, Beaujolais</b></td><td>Rouge léger frais</td></tr>
-<tr><td>Mont d'Or / fromage fumé</td><td><b>Vin du Jura (Savagnin), Côtes-du-Jura</b></td><td>Blanc de Savoie</td></tr>
-<tr><td>Ananas / pêches rôties</td><td><b>Vouvray demi-sec, Sauternes</b></td><td>Champagne demi-sec</td></tr>
-<tr><td>Cheesecake, desserts crémeux</td><td><b>Sauternes, Muscat</b></td><td>Crémant doux</td></tr>
-</table>
-
-<div class="callout" style="margin-top:18px">
-  <h3>🍺 Et sans vin ?</h3>
-  <p style="margin:0">Le barbecue se marie magnifiquement avec la <b>bière</b> : <b>IPA/ambrée</b> sur le bœuf et les plats épicés, <b>brune/stout</b> sur le fumé et le brisket, <b>blonde/lager</b> sur la volaille et le poisson, <b>blanche</b> sur les grillades légères. Le <b>cidre brut</b> est l'allié naturel du porc et des ribs. Pour les sans-alcool : thé glacé maison, limonade au gingembre, kombucha.</p>
+<!-- LES 5 LOIS D'OR DE LA SOMMELLERIE AU KAMADO -->
+<div class="wine-rules-grid">
+  <div class="wine-rule-card">
+    <div class="wrule-num">LOI 1</div>
+    <div class="wrule-title">Maillard &amp; Tannins</div>
+    <div class="wrule-desc">La croûte sombre caramélisée désarme l'astringence des tannins. Les grands rouges puissants (Pauillac, Cahors, Madiran, Barolo) s'épanouissent sur une côte grillée saignante.</div>
+  </div>
+  <div class="wine-rule-card">
+    <div class="wrule-num">LOI 2</div>
+    <div class="wrule-title">Fumé &amp; Fruits Noirs</div>
+    <div class="wrule-desc">Le fumé de bois dur (chêne, hickory) entre en conflit avec les vins végétaux ou trop boisés en fût neuf. Préférez la Syrah épicée, le Malbec d'altitude ou le Zinfandel confit.</div>
+  </div>
+  <div class="wine-rule-card">
+    <div class="wrule-num">LOI 3</div>
+    <div class="wrule-title">Gras &amp; Tension Acide</div>
+    <div class="wrule-desc">Le collagène et le gras fondu (pulled pork, poitrine, travers) saturent les papilles. Une belle acidité tranchante (Riesling sec, Chenin, Beaujolais cru, Tavel) nettoie le palais.</div>
+  </div>
+  <div class="wine-rule-card">
+    <div class="wrule-num">LOI 4</div>
+    <div class="wrule-title">Sauces BBQ &amp; Piments</div>
+    <div class="wrule-desc">Le sucre (miel, mélasse) et le piment (jerk, tandoori) rendent les vins secs râpeux et amers. Règle absolue : opposer des sucres résiduels (demi-sec) ou un fruit très solaire.</div>
+  </div>
+  <div class="wine-rule-card">
+    <div class="wrule-num">LOI 5</div>
+    <div class="wrule-title">Thermique en Extérieur</div>
+    <div class="wrule-desc">Sur une terrasse d'été à 28 °C, un rouge servi à température ambiante brûle d'alcool. Rafraîchissez impérativement vos rouges à 15–16 °C (13 °C pour les gamay/pinots).</div>
+  </div>
 </div>
-<p class="legend" style="margin-top:14px">⚠️ L'abus d'alcool est dangereux pour la santé. À consommer avec modération.</p>
-`;
+
+<!-- EXPLORATEUR INTERACTIF D'ACCORDS -->
+<div class="wine-explorer-section">
+  <div class="wine-search-bar">
+    <input type="search" id="wineFilterInput" placeholder="🔍 Rechercher un plat, une viande, une appellation ou un cépage (ex : côte de bœuf, Pauillac, saumon, Syrah, ribs, Chablis)..." autocomplete="off">
+  </div>
+  <div class="wine-filter-pills" id="wineCategoryPills">
+    <button class="wpill active" data-cat="all">Tous les accords</button>
+    <button class="wpill" data-cat="boeuf">🥩 Bœuf &amp; Rouge</button>
+    <button class="wpill" data-cat="porc">🐖 Porc &amp; Fumés</button>
+    <button class="wpill" data-cat="volaille">🍗 Volaille &amp; Canard</button>
+    <button class="wpill" data-cat="agneau">🐑 Agneau &amp; Gibier</button>
+    <button class="wpill" data-cat="poisson">🐟 Poissons &amp; Mer</button>
+    <button class="wpill" data-cat="pizza">🍕 Pizza &amp; Pains</button>
+    <button class="wpill" data-cat="legumes">🥗 Légumes &amp; Fromages</button>
+    <button class="wpill" data-cat="dessert">🍮 Desserts</button>
+    <button class="wpill" data-cat="biere">🍺 Bières Craft</button>
+  </div>
+  <div id="wineGridOut" class="wine-cards-grid"></div>
+</div>
+
+<!-- SOURCES OFFICIELLES & MENTION LÉGALE -->
+<div class="callout" style="margin-top:24px;border-color:rgba(255,255,255,0.15)">
+  <h4 style="margin:0 0 6px;color:var(--muted)">📚 Sources &amp; Références de Sommellerie</h4>
+  <p style="margin:0;font-size:12.5px;color:var(--muted);line-height:1.5">
+    • <b>Philippe Faure-Brac</b> — <i>Comment goûter le vin</i> &amp; <i>Accords Vins &amp; Mets</i> (Éd. EPA / Chêne).<br>
+    • <b>La Revue du Vin de France (RVF)</b> — <i>Le Guide des Meilleurs Vins de France</i> (appellations, terroirs et millésimes).<br>
+    • <b>Olivier Poussier</b> — Meilleurs accords viandes maturées et cuisson haute température.<br>
+    • <b>Dr. Greg Blonder &amp; Meathead Goldwyn</b> — <i>The Science of BBQ and Grilling</i> (Interaction tannins / protéines dénaturées).<br>
+    • <b>Court of Master Sommeliers (CMS)</b> — Standards internationaux de service et accords mets-vins.
+  </p>
+</div>
+<p class="legend" style="margin-top:14px">⚠️ L'abus d'alcool est dangereux pour la santé. À consommer avec modération.</p>`;
 
 /* ================= LOGIQUE ================= */
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
@@ -10278,6 +10482,400 @@ function spiceLevel(r){
   if(/paprika|cumin|curry|tandoori|ras-el-hanout|epices|épic/.test(h))return"Épicé doux";
   return"Doux";
 }
+
+const WINE_DATABASE = [
+  // BOEUF
+  {
+    cat: "boeuf",
+    dish: "Côte de bœuf maturée / Tomahawk au sel",
+    temp: "16–18 °C",
+    main: "Pauillac, Saint-Estèphe ou Cornas (Cabernet / Syrah tannique)",
+    alt: "Malbec d'altitude (Mendoza, Argentine) ou Cahors (Clos Triguedina)",
+    desc: "La réaction de Maillard (croûte grillée) et le persillage intramusculaire désarment l'astringence des tannins. Le vin structure la chair et rafraîchit le palais.",
+    beer: "Imperial Stout ou Dark Ale au malt torréfié"
+  },
+  {
+    cat: "boeuf",
+    dish: "Brisket fumé texan & Dino Beef Ribs (8 h au chêne)",
+    temp: "16–17 °C",
+    main: "Zinfandel de Lodi / Sonoma (Californie) ou Primitivo di Manduria",
+    alt: "Saint-Joseph rouge (Syrah granitique) ou Gigondas",
+    desc: "Le collagène fondu et le bark poivré/fumé au chêne appellent les notes confiturées, vanillées et chaleureuses du Zinfandel.",
+    beer: "Baltic Porter ou Smoked Beer (Rauchbier)"
+  },
+  {
+    cat: "boeuf",
+    dish: "Picanha au gros sel (Churrasco)",
+    temp: "16–18 °C",
+    main: "Malbec argentin (Vallée de l'Uco) ou Tannat de Madiran (Château Montus)",
+    alt: "Syrah de Barossa Valley (Australie) ou Collioure",
+    desc: "L'épaisse couche de gras croustillant et fondant exige des tannins structurés et un fruit noir puissant (mûre, pruneau).",
+    beer: "Double IPA résineuse"
+  },
+  {
+    cat: "boeuf",
+    dish: "Bavette d'aloyau & Onglet saignant à l'échalote",
+    temp: "14–15 °C",
+    main: "Chinon ou Saumur-Champigny (Cabernet Franc ligérien)",
+    alt: "Morgon Côte du Py ou Fleurie (Beaujolais cru)",
+    desc: "L'acidité vive et le fruité croquant de fruits rouges contrastent admirablement le goût sanguin et ferreux de la viande saignante.",
+    beer: "Red Ale irlandaise"
+  },
+  {
+    cat: "boeuf",
+    dish: "Smash Burgers & Burgers gourmets au cheddar",
+    temp: "15–16 °C",
+    main: "Côtes-du-Rhône Village (Rasteau, Cairanne) ou Syrah rhodanienne",
+    alt: "Zinfandel fruité ou Cabernet-Sauvignon du Chili",
+    desc: "Gras du fromage fondu et caramélisation du bœuf : vin rond et épicé, sans excès d'amertume boisée.",
+    beer: "American IPA houblonnée (Citra / Mosaic)"
+  },
+  {
+    cat: "boeuf",
+    dish: "Tataki de bœuf mariné au gingembre et sésame",
+    temp: "14–15 °C",
+    main: "Pinot Noir de Bourgogne (Mercurey) ou d'Alsace",
+    alt: "Tavel rosé corsé ou Saké sec",
+    desc: "Texture fondante crue-cuite : la finesse aromatique et la fraîcheur du Pinot Noir ne masquent pas le gingembre ni le sésame.",
+    beer: "Lager japonaise (Asahi, Kirin)"
+  },
+  {
+    cat: "boeuf",
+    dish: "Ris de veau braisés au foin & croustillants",
+    temp: "11–13 °C",
+    main: "Meursault ou Chassagne-Montrachet (Chardonnay riche)",
+    alt: "Jurançon sec ou Arbois Savagnin",
+    desc: "La texture crémeuse et le beurre noisette du ris de veau réclament le gras noble et la fraîcheur minérale d'un grand blanc bourguignon.",
+    beer: "Bière Triple d'Abbaye"
+  },
+  {
+    cat: "boeuf",
+    dish: "Côte de veau épaisse aux morilles et vin jaune",
+    temp: "12–14 °C",
+    main: "Côtes-du-Jura (Chardonnay / Savagnin) ou Vin Jaune",
+    alt: "Meursault Premier Cru ou Pinot Noir fin",
+    desc: "Accord d'école : on résonne avec le vin de la sauce aux morilles, où le goût de noix et de sous-bois sublime la viande tendre.",
+    beer: "Bière de Garde blonde"
+  },
+
+  // PORC
+  {
+    cat: "porc",
+    dish: "Travers de porc glacés BBQ (Ribs sauce Kansas City)",
+    temp: "15–16 °C",
+    main: "Zinfandel californien ou Syrah du Languedoc (Pic Saint-Loup)",
+    alt: "Cidre brut fermier ou Bière ambrée",
+    desc: "Les sauces BBQ sucrées et caramélisées durcissent les vins secs légers. Il faut la générosité et le fruité confit du Zinfandel.",
+    beer: "Amber Ale ou Brown Ale"
+  },
+  {
+    cat: "porc",
+    dish: "Pulled Pork (Échine effilochée fumée au pommier)",
+    temp: "10–12 °C",
+    main: "Tavel rosé (le roi des rosés de gastronomie) ou Côtes-du-Rhône rosé",
+    alt: "Lambrusco secco (rouge pétillant sec italien) ou Vouvray demi-sec",
+    desc: "L'acidité vive du rosé vineux ou l'effervescence du Lambrusco coupent instantanément la richesse beurrée du porc effiloché.",
+    beer: "Cidre fermier demi-sec ou IPA fruitée"
+  },
+  {
+    cat: "porc",
+    dish: "Pluma & Presa ibérique de Bellota à la plancha",
+    temp: "16–18 °C",
+    main: "Ribera del Duero Reserva (Tempranillo espagnol) ou Priorat",
+    alt: "Bandol rouge (Mourvèdre noble) ou Cornas",
+    desc: "Le gras oléique et de noisette du porc de gland s'entrelace avec les tanins polis et le boisé noble du grand Tempranillo ibérique.",
+    beer: "Bière ambrée au malt fumé"
+  },
+  {
+    cat: "porc",
+    dish: "Poitrine de porc croustillante (Pork Belly)",
+    temp: "9–11 °C",
+    main: "Riesling sec Grand Cru d'Alsace (Rangen ou Schlossberg)",
+    alt: "Champagne Blanc de Noirs ou Chenin de Savennières",
+    desc: "La couche de gras dense exige la vivacité d'un blanc tendu et salin pour trancher sans saturer le palais.",
+    beer: "Saison belge acidulée"
+  },
+  {
+    cat: "porc",
+    dish: "Porc laqué cantonais (Char Siu) au miel et cinq-épices",
+    temp: "10–12 °C",
+    main: "Gewurztraminer Grand Cru d'Alsace ou Pinot Gris sec",
+    alt: "Pinot Noir fruité ou Champagne Rosé",
+    desc: "Le laquage sucré-salé hoisin-miel exige un vin aux arômes exotiques et de gingembre avec un équilibre acide précis.",
+    beer: "Bière Blanche au zeste d'orange"
+  },
+
+  // VOLAILLE
+  {
+    cat: "volaille",
+    dish: "Poulet entier rôti en crapaudine / Beer Can Chicken",
+    temp: "10–12 °C",
+    main: "Meursault ou Mâcon-Villages (Chardonnay de Bourgogne sur lies)",
+    alt: "Brouilly ou Saint-Amour (Beaujolais cru soyeux)",
+    desc: "La peau croustillante dorée et la chair juteuse du poulet rôti aux herbes s'accordent magistralement avec la rondeur beurrée du Chardonnay.",
+    beer: "Blonde artisanale de fermentation haute"
+  },
+  {
+    cat: "volaille",
+    dish: "Magret de canard fumé aux sarments de vigne",
+    temp: "16–18 °C",
+    main: "Madiran (Château Montus) ou Cahors (Malbec)",
+    alt: "Saint-Émilion Grand Cru ou Hermitage rouge",
+    desc: "Le canard est une viande rouge à fibres serrées et couche de gras dense : le Tannat du Sud-Ouest est le partenaire historique absolu.",
+    beer: "Dubbel belge aux malts caramel"
+  },
+  {
+    cat: "volaille",
+    dish: "Canard laqué croustillant au kamado façon Pékin",
+    temp: "9–11 °C",
+    main: "Gewurztraminer d'Alsace ou Pinot Gris Vendanges Tardives",
+    alt: "Champagne Rosé de saignée ou Riesling off-dry",
+    desc: "La peau laquée croustillante au miel et cinq-épices fusionne avec les notes de rose, de litchi et d'épices douces du grand cépage alsacien.",
+    beer: "Bière de blé épicée (Witbier)"
+  },
+  {
+    cat: "volaille",
+    dish: "Suprêmes de pintade fermière aux morilles sous peau",
+    temp: "11–13 °C",
+    main: "Côtes-du-Jura Chardonnay/Savagnin ou Meursault Premier Cru",
+    alt: "Volnay ou Beaune Premier Cru (Pinot Noir)",
+    desc: "Le parfum de sous-bois des morilles résonne avec le côté pierreux et noisette des grands blancs jurassiens et bourguignons.",
+    beer: "Bière Blonde dorée d'Abbaye"
+  },
+  {
+    cat: "volaille",
+    dish: "Poulet Jerk jamaïcain ou Poulet Tandoori (épicé)",
+    temp: "8–10 °C",
+    main: "Riesling Kabinett (Moselle allemande) ou Vouvray demi-sec",
+    alt: "Rosé de Bandol frais ou Vinho Verde",
+    desc: "La capsaïcine du piment est calmée par les sucres résiduels légers et la fraîcheur vive du Riesling rhénan.",
+    beer: "Lager mexicaine bien fraîche avec tranche de lime"
+  },
+
+  // POISSON
+  {
+    cat: "poisson",
+    dish: "Turbot sauvage entier grillé en panier (Getaria / Elkano)",
+    temp: "8–10 °C",
+    main: "Txakoli de Getaria (blanc basque salin) ou Albariño (Rías Baixas)",
+    alt: "Chablis Premier Cru (Montée de Tonnerre) ou Meursault",
+    desc: "L'émulsion de collagène marin et de refrito aillé au vinaigre de txakoli réclame la vivacité perlant et la minéralité iodée basque.",
+    beer: "Gose saline artisanale"
+  },
+  {
+    cat: "poisson",
+    dish: "Saumon sur planche de cèdre / Fumé à chaud",
+    temp: "10–12 °C",
+    main: "Pouilly-Fuissé ou Chablis Premier Cru (Chardonnay)",
+    alt: "Pinot Noir léger d'Alsace ou Sancerre rouge",
+    desc: "Le gras noble du saumon et le boisé résineux du cèdre s'harmonisent avec le gras de cuve et la tension minérale d'un grand Bourgogne blanc.",
+    beer: "Pale Ale florale"
+  },
+  {
+    cat: "poisson",
+    dish: "Bar (Loup de mer) entier en croûte de sel et herbes",
+    temp: "9–11 °C",
+    main: "Cassis blanc (Clos Sainte-Magdeleine) ou Bandol blanc",
+    alt: "Vermentino de Corse (Patrimonio) ou Sancerre blanc",
+    desc: "Chair étuvée sous sel préservée dans sa pureté d'origine : les cépages méditerranéens (Clairette, Marsanne) apportent fenouil et fleurs d'agrumes.",
+    beer: "Blanche au blé et coriandre"
+  },
+  {
+    cat: "poisson",
+    dish: "Tataki de thon rouge au yuzu & sésame noir",
+    temp: "10–12 °C",
+    main: "Tavel rosé (Domaine de la Mordorée) ou Bandol rosé de garde",
+    alt: "Pinot Noir frais d'Alsace ou Saké Junmai Daiginjo",
+    desc: "Poisson rouge noble consommé mi-cuit : le Tavel est un rosé de saignée profond capable de soutenir la mâche du thon.",
+    beer: "IPA fruitée sans excès d'amertume"
+  },
+  {
+    cat: "poisson",
+    dish: "Homard & Gambas au beurre d'estragon",
+    temp: "10–12 °C",
+    main: "Condrieu (Viognier sur abricot et fleurs) ou Pessac-Léognan blanc",
+    alt: "Champagne Blanc de Blancs (100 % Chardonnay)",
+    desc: "Chair sucrée et raffinée du crustacé grillé : le bouquet opulent du Viognier et le beurré de l'estragon créent un mariage princier.",
+    beer: "Bière Saison fermière"
+  },
+  {
+    cat: "poisson",
+    dish: "Éclade de moules aux aiguilles de pin",
+    temp: "8–9 °C",
+    main: "Muscadet Sèvre-et-Maine sur lie (climat Granit)",
+    alt: "Gros-Plant du Pays Nantais ou Manzanilla de Sanlúcar",
+    desc: "Iode intense et fumée résineuse vive : Muscadet tranchant et salin indispensable pour désaltérer.",
+    beer: "Pilsner artisanale bien sèche"
+  },
+
+  // AGNEAU & GIBIER
+  {
+    cat: "agneau",
+    dish: "Gigot d'agneau rosé aux herbes / Carré d'agneau",
+    temp: "16–18 °C",
+    main: "Pauillac ou Saint-Julien (Bordeaux rouge) / Châteauneuf-du-Pape",
+    alt: "Rioja Gran Reserva (Espagne) ou Chianti Classico Riserva",
+    desc: "L'accord mythique : les notes de cèdre, de cassis et de sous-bois du Cabernet s'entrelacent avec le goût sauvage du gras d'agneau.",
+    beer: "Porter anglais au malt chocolat"
+  },
+  {
+    cat: "agneau",
+    dish: "Épaule d'agneau confite 7 h aux épices / Méchoui",
+    temp: "16–17 °C",
+    main: "Pic Saint-Loup (Languedoc) ou Faugères (Syrah/Grenache)",
+    alt: "Syrah du Maroc (Coteaux de l'Atlas) ou Hermitage",
+    desc: "Chair confite effilochable aux épices douces : le vin de garrigue (romarin, thym, poivre noir) est en résonance parfaite.",
+    beer: "Stout chaleureux"
+  },
+  {
+    cat: "agneau",
+    dish: "Chevreuil, Cerf & Civet de sanglier braisé au kamado",
+    temp: "17–18 °C",
+    main: "Châteauneuf-du-Pape vieux millésime ou Hermitage rouge",
+    alt: "Cahors de garde ou Barolo piémontais (Nebbiolo)",
+    desc: "Gibiers à poil puissants : vins tanniques patinés par l'âge aux arômes de truffe, cuir et gibier.",
+    beer: "Imperial Stout barriqué"
+  },
+
+  // PIZZA & PAINS
+  {
+    cat: "pizza",
+    dish: "Pizza napolitaine Margherita / Spianata piccante",
+    temp: "14–16 °C",
+    main: "Chianti Classico (Sangiovese toscan) ou Barbera d'Alba",
+    alt: "Nero d'Avola de Sicile ou Lambrusco di Sorbara sec",
+    desc: "L'acidité naturelle de la tomate cuite au feu de bois demande l'acidité tranchante et le fruit cerise du Sangiovese italien.",
+    beer: "Lager italienne (Peroni Gran Riserva)"
+  },
+  {
+    cat: "pizza",
+    dish: "Calzone napolitain soufflé à la ricotta & fior di latte",
+    temp: "10–12 °C",
+    main: "Fiano di Avellino ou Greco di Tufo (blancs volcaniques de Campanie)",
+    alt: "Valpolicella Ripasso",
+    desc: "La richesse fondante de la ricotta cuite au feu de bois réclame la fraîcheur minérale et les notes d'amande du Fiano campanien.",
+    beer: "Pilsner artisanale non filtrée"
+  },
+
+  // LEGUMES & FROMAGES
+  {
+    cat: "legumes",
+    dish: "Baingan Bharta & Aubergines brûlées fumées",
+    temp: "15–16 °C",
+    main: "Côtes-du-Rhône Village ou Syrah septentrionale fraîche",
+    alt: "Cinsault du Chili (Vallée de l'Itata)",
+    desc: "La chair confite au goût de braise intense apprécie les arômes de violette, d'olive noire et de poivre d'une Syrah rhodanienne.",
+    beer: "Pale Ale houblonnée"
+  },
+  {
+    cat: "legumes",
+    dish: "Mont d'Or & Camembert coulant fumé aux braises",
+    temp: "12–14 °C",
+    main: "Vin Jaune ou Côtes-du-Jura Savagnin (oxydatif sur la noix)",
+    alt: "Chignin-Bergeron de Savoie (Roussanne) ou Cidre extra-brut",
+    desc: "Le fromage chaud enrichi par la fumée de bois s'accorde au sommet avec la puissance aromatique de noix et d'épices du Savagnin jurassien.",
+    beer: "Bière Triple blonde"
+  },
+
+  // DESSERTS
+  {
+    cat: "dessert",
+    dish: "Giant Skillet Cookie au chocolat noir fondant",
+    temp: "12–14 °C",
+    main: "Banyuls Rimage (Grenache doux naturel) ou Maury Grenat",
+    alt: "Porto Vintage ou Stout impérial au café",
+    desc: "L'amertume et le fondant du chocolat noir chaud trouvent leur complice absolu dans les arômes de cerise noire et de cacao d'un Banyuls rouge.",
+    beer: "Pastry Stout au cacao et vanille"
+  },
+  {
+    cat: "dessert",
+    dish: "Ananas ou Pêches rôties caramélisées au rhum",
+    temp: "10–12 °C",
+    main: "Jurançon moelleux ou Vouvray moelleux (Chenin)",
+    alt: "Sauternes ou Tokaji Aszú (Hongrie)",
+    desc: "L'acidité naturelle des fruits rôtis équilibre la richesse liquoreuse du vin blanc doux aux notes de miel et de mangue.",
+    beer: "Bière Sour fruitée aux fruits de la passion"
+  },
+  {
+    cat: "dessert",
+    dish: "Poires pochées fumées au vin chaud et épices",
+    temp: "13–15 °C",
+    main: "Maury rouge ou Porto Tawny 10 ans d'âge",
+    alt: "Banyuls Grand Cru",
+    desc: "Les épices chaudes (cannelle, girofle, badiane) et le sirop de vin résonnent avec la figue sèche et le cuir du Tawny vieilli en fûts.",
+    beer: "Barleywine vieilli en fût de chêne"
+  },
+
+  // BIERES CRAFT
+  {
+    cat: "biere",
+    dish: "Guide général des Bières Artisanales au Barbecue",
+    temp: "6–10 °C",
+    main: "IPA / DIPA (Amertume & Houblons résineux sur le gras du bœuf et des saucisses)",
+    alt: "Imperial Stout / Porter (Malts torréfiés café/cacao sur Brisket et Ribs fumés)",
+    desc: "Saison & Blanche sur poissons et volailles légères. Sour & Gose acidulée sur porc effiloché et viandes grasses.",
+    beer: "La bière artisanale offre une infinité de ponts aromatiques avec les braises du kamado."
+  }
+];
+
+function initVinsExplorer(){
+  const grid = $("#wineGridOut");
+  if(!grid) return;
+  const filterInput = $("#wineFilterInput");
+  const pills = $$("#wineCategoryPills .wpill");
+  
+  let currentCat = "all";
+  let searchVal = "";
+  
+  function renderWineCards(){
+    const q = norm(searchVal).trim();
+    const filtered = WINE_DATABASE.filter(item => {
+      if(currentCat !== "all" && item.cat !== currentCat) return false;
+      if(q){
+        const haystack = norm([item.dish, item.main, item.alt, item.desc, item.beer, item.cat].join(" "));
+        if(!haystack.includes(q)) return false;
+      }
+      return true;
+    });
+    
+    if(!filtered.length){
+      grid.innerHTML = '<div class="empty" style="grid-column:1/-1;padding:30px">Aucun accord ne correspond à votre recherche. Essayez avec un autre mot-clé (ex : côte, riesling, canard)...</div>';
+      return;
+    }
+    
+    grid.innerHTML = filtered.map(item => `
+      <div class="wine-item-card">
+        <div class="wic-head">
+          <div class="wic-dish">${item.dish}</div>
+          <div class="wic-temp">${item.temp}</div>
+        </div>
+        <div class="wic-main-wine">🍷 ${item.main}</div>
+        <div class="wic-alt-wine">🔄 Alternative : ${item.alt}</div>
+        <div class="wic-desc">${item.desc}</div>
+        ${item.beer ? `<div class="wic-beer">🍺 Accord bière : ${item.beer}</div>` : ''}
+      </div>
+    `).join("");
+  }
+  
+  if(filterInput){
+    filterInput.oninput = e => {
+      searchVal = e.target.value;
+      renderWineCards();
+    };
+  }
+  
+  pills.forEach(btn => {
+    btn.onclick = () => {
+      pills.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentCat = btn.dataset.cat;
+      renderWineCards();
+    };
+  });
+  
+  renderWineCards();
+}
+
 /* Accord vin – aligné sur la table VINS et audité par un oenologue. */
 function wineFor(r){
   if(!r)return null;
@@ -11600,6 +12198,26 @@ function openRecipe(i){
           <div class="setup-desc">${setup.desc}</div>
         </div>
       </div>
+      
+      ${(() => {
+        const w = wineFor(r);
+        if (!w || r.cat === "sauces") return '';
+        return `
+          <div class="sommelier-card">
+            <div class="sommelier-icon">🍷</div>
+            <div class="sommelier-body">
+              <div class="sommelier-header">
+                <span class="sommelier-tag">Accord Sommelier du Kamado</span>
+                <span class="sommelier-temp">🌡️ Service : ${wineServiceTemp(w.label)}</span>
+              </div>
+              <div class="sommelier-wine"><b>${w.label}</b></div>
+              <div class="sommelier-desc">${w.detail}</div>
+              <div class="sommelier-alt">🔄 Alternative recommandée : <b>${w.alt}</b></div>
+            </div>
+          </div>
+        `;
+      })()}
+
       ${r.cat !== "sauces" ? `
         <div class="safety-burp-badge">
           <span style="font-size:26px;flex-shrink:0">⚠️</span>
@@ -13720,6 +14338,7 @@ $("#temp").innerHTML = renderMeatTempVisualizer() + TEMP;
 initMeatTempVisualizer();
 applySunMode();
 $("#vins").innerHTML=VINS;
+initVinsExplorer();
 renderAssistant();
 renderMenuBuilder();
 renderBases();

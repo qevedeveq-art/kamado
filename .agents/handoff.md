@@ -1,15 +1,14 @@
 # Agent Handoff
 
 ## Current Status
-- Zero-build PWA & native mobile app Kamado upgraded to v30.
-- Complete Front-End Modernization Suite:
-  - Added Recipe Modal Navigation: Flèches `‹` / `›` in header, left/right keyboard arrows, and mobile touch swipe gestures to easily browse recipes without leaving the sheet.
-  - Added Quick Filter Chips (`#quickChips`): Instant 1-tap horizontal scrollable filter pills for Express (< 30 min), Saisie vive, Four indirect, Low & Slow, Favoris, Pizza & Pains, Végétarien.
-  - Added Cockpit Outdoor View (`#cockpitOverlay`): Dedicated high-contrast fullscreen cooking mode with giant typography, live dome & core doneness targets, step progress counter, and integrated countdown timers with audio/haptic alerts.
-  - Added Intelligent BBQ Search (`matchesQuery`): Multi-token fuzzy query and BBQ synonym mapping (ribs ➔ travers, brisket ➔ poitrine, pulled ➔ effiloché, etc.).
-  - Added Progressive Rendering / Infinite Scroll in Grid: Initial instant render of 24 recipes with seamless infinite scroll (`IntersectionObserver` + button fallback), maintaining 60 fps even on older mobile devices.
+- Zero-build PWA & native mobile app Kamado upgraded to v31.
+- Complete Wine & Sommelier Overhaul (Accords Vins):
+  - Enriched with authoritative sommellerie standards: Philippe Faure-Brac (Meilleur Sommelier du Monde 1992, UDSF), Olivier Poussier (Meilleur Sommelier du Monde 2000), Revue du Vin de France (RVF), and Meathead Goldwyn (AmazingRibs wine & BBQ science).
+  - Integrated the 5 Golden Laws of BBQ Sommellerie (Maillard vs tannins, oak smoke vs fruit, collagen melting vs acidity, glazes/heat vs residual sugar, and summer outdoor serving temperatures).
+  - Created interactive Wine Explorer in "Accords vins" tab with real-time text search and category pills (Bœuf, Porc, Volaille, Agneau, Mer, Pizza, Fromages, Desserts, Bières Craft).
+  - Embedded dedicated Sommelier Cards inside each Recipe Modal (`openRecipe`), displaying optimal AOC/cépage, accessible alternative, sommelier notes, and precise serving temperature.
 - 46 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings on Data & Chef audits.
-- Service worker bumped to `v30`.
+- Service worker bumped to `v31`.
 
 ## Last Commands
 - `node scripts/extract-data.js`
@@ -19,7 +18,8 @@
 - `node scripts/bump-sw-version.js --force`
 
 ## Files Changed
-- `index.html` (modal nav & swipe, quick chips, cockpit outdoor view, BBQ fuzzy search, progressive grid)
-- `sw.js` (bumped to `v30`)
+- `index.html` (comprehensive wine guide, interactive sommelier explorer, recipe modal sommelier cards)
+- `data/vins.html` (regenerated)
+- `sw.js` (bumped to `v31`)
 - `.agents/handoff.md` (updated handoff)
 
