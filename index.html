@@ -782,19 +782,32 @@ td b { color: #fff; }
 .print-footer { display: none; }
 
 @media print{
-  body{background:#fff!important;color:#111!important}
-  header,#tab-recettes,#tab-menus,#tab-bases,#tab-guide,#tab-temp,#tab-vins,#tab-assistant,#tab-donnees,#timers,.modal:not(.open),.sheet-head .back,.dactions,.servrow,.stepswitch,.note{display:none!important}
-  .modal.open{display:block!important;position:static!important;background:#fff!important;overflow:visible!important}
-  .sheet{box-shadow:none!important;max-width:none!important;margin:0!important;border-radius:0!important;background:#fff!important;color:#111!important;max-height:none!important;overflow:visible!important}
-  .sheet-head{position:static!important;background:#fff!important;color:#111!important;border-bottom:2px solid #111!important;padding:0 0 10px!important}
-  .sheet-body{padding:0!important}
-  .spec,.tip{background:#fff!important;border-color:#999!important;color:#111!important}
-  .badge,.pill{border-color:#999!important;color:#111!important;background:#fff!important}
-  .ings li,.steps li{border-bottom:1px solid #ddd!important;color:#111!important}
-  .print-footer { display: flex !important; align-items: center; justify-content: space-between; border-top: 1px solid #111!important; padding-top: 15px!important; margin-top: 30px!important; font-size: 11px!important; color: #555!important; }
-  .print-qr-wrap { display: flex !important; align-items: center!important; gap: 10px!important; }
-  .print-qr-img { width: 75px!important; height: 75px!important; display: block!important; }
-  .print-signature { font-weight: 700!important; font-family: var(--font-title)!important; text-transform: uppercase!important; letter-spacing: 0.5px!important; }
+  @page { margin: 1.2cm; size: A4 portrait; }
+  body { background: #fff !important; color: #111 !important; font-size: 11pt !important; }
+  header, #tab-recettes, #tab-menus, #tab-bases, #tab-guide, #tab-temp, #tab-vins, #tab-assistant, #tab-donnees,
+  #timers, .modal:not(.open), .sheet-head .back, .dactions, .servrow, .stepswitch, .note,
+  .timeline-box, .cook-log-section, .subs-interactive-box, .safety-burp-badge, .ratingrow, .wakelock-pill {
+    display: none !important;
+  }
+  .modal.open { display: block !important; position: static !important; background: #fff !important; overflow: visible !important; }
+  .sheet { box-shadow: none !important; max-width: 100% !important; margin: 0 !important; border: none !important; background: #fff !important; color: #111 !important; max-height: none !important; overflow: visible !important; }
+  .sheet-head { position: static !important; background: #fff !important; color: #111 !important; border-bottom: 2px solid #000 !important; padding: 0 0 8px !important; }
+  .sheet-head h3 { font-size: 18pt !important; color: #000 !important; font-weight: 800 !important; }
+  .sheet-body { padding: 12px 0 !important; }
+  .setup-badge { background: #f9f9f9 !important; border: 1.5px solid #333 !important; color: #000 !important; margin: 8px 0 14px !important; padding: 8px 12px !important; }
+  .setup-title b { color: #000 !important; }
+  .specbar { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 6px !important; border: 1px solid #ccc !important; padding: 8px !important; margin-bottom: 14px !important; }
+  .spec { background: transparent !important; border: none !important; padding: 2px !important; }
+  .spec .l { font-size: 8pt !important; text-transform: uppercase !important; color: #666 !important; }
+  .spec .v { font-size: 10pt !important; font-weight: 700 !important; color: #000 !important; }
+  .ings { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 4px 16px !important; list-style: none !important; padding: 0 !important; }
+  .ings li { border-bottom: 1px dashed #ddd !important; padding: 3px 0 !important; font-size: 9.5pt !important; color: #000 !important; }
+  .ings li::before { content: "☐ " !important; font-weight: bold !important; }
+  .steps { padding-left: 20px !important; }
+  .steps li { margin-bottom: 6px !important; font-size: 9.5pt !important; line-height: 1.4 !important; color: #000 !important; }
+  .tip { background: #fafafa !important; border: 1px solid #ddd !important; border-left: 3px solid #000 !important; color: #111 !important; font-size: 9pt !important; padding: 6px 10px !important; margin-top: 10px !important; }
+  .print-footer { display: flex !important; align-items: center; justify-content: space-between; border-top: 1.5px solid #000 !important; padding-top: 10px !important; margin-top: 20px !important; font-size: 8.5pt !important; color: #444 !important; }
+  .print-signature { font-weight: 700 !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3199,6 +3212,124 @@ body.outdoor-mode .modal.open .sheet {
   padding: 14px 16px;
 }
 .calc-res-title { font-weight: 700; color: var(--accent2); font-size: 14px; margin-bottom: 8px; }
+
+/* Réflexe sécurité Burp */
+.safety-burp-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(211, 55, 25, 0.12);
+  border: 1px solid rgba(211, 55, 25, 0.4);
+  border-radius: var(--border-radius-md);
+  padding: 10px 14px;
+  margin: 10px 0 16px;
+}
+.safety-burp-title { font-size: 13px; font-weight: 800; color: var(--accent2); }
+.safety-burp-desc { font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+
+/* Substitutions d'ingrédients */
+.subs-interactive-box { margin: 12px 0 16px; }
+.subs-toggle-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(242, 169, 59, 0.12);
+  border: 1px solid rgba(242, 169, 59, 0.35);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--accent2);
+  font-weight: 700;
+  font-size: 12.5px;
+  cursor: pointer;
+  text-align: left;
+}
+.subs-detail-box {
+  background: var(--card2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 6px;
+  font-size: 13px;
+}
+.subs-detail-box ul { margin: 0; padding-left: 18px; }
+.subs-detail-box li { margin-bottom: 4px; }
+
+/* Simulateur visuel de cuisson à cœur */
+.meat-viz-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--border-radius-lg);
+  padding: 18px 20px;
+  margin: 16px 0 24px;
+}
+.meat-types-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.doneness-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meat-slice-display {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--line);
+  border-radius: var(--border-radius-md);
+  padding: 16px;
+  margin-top: 14px;
+}
+
+/* Mode Plein Soleil (Contraste Extrême) */
+body.sun-mode {
+  --bg: #ffffff !important;
+  --card: #ffffff !important;
+  --card2: #f2f2f2 !important;
+  --txt: #000000 !important;
+  --muted: #222222 !important;
+  --line: #000000 !important;
+  --accent: #b83012 !important;
+  --accent2: #b83012 !important;
+  --header-bg: #ffffff !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+body.sun-mode .rc,
+body.sun-mode .tcard,
+body.sun-mode .sheet,
+body.sun-mode .modal,
+body.sun-mode .menu-card,
+body.sun-mode .kamado-calc-card,
+body.sun-mode .meat-viz-card,
+body.sun-mode .timeline-box,
+body.sun-mode .setup-badge,
+body.sun-mode .safety-burp-badge {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+  box-shadow: none !important;
+}
+body.sun-mode .fbtn,
+body.sun-mode .actbtn,
+body.sun-mode .stp,
+body.sun-mode .fsel,
+body.sun-mode .tb-time-input {
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+  background: #ffffff !important;
+}
+body.sun-mode .fbtn.on,
+body.sun-mode .actbtn.on {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+body.sun-mode header {
+  background: #ffffff !important;
+  border-bottom: 2px solid #000000 !important;
+}
 
 /* ================= END KAMADO IDENTITY OVERRIDE ================= */
 
@@ -9066,8 +9197,13 @@ let shoppingList=LS.get("kokko_shopping",[]);
 let pantryProfile=LS.get("kokko_pantry_profile",{have:"",avoid:"",diet:"all",equipment:"all",available:"all"});
 let savedSession=LS.get("kokko_session",{recipes:[],serviceTime:"13:00"});
 let outdoorMode=!!LS.get("kokko_outdoor_mode",false);
+let sunMode=!!LS.get("kokko_sun_mode",false);
 let stepMode=false;
 let cookLogs=LS.get("kokko_cook_logs",{});
+
+function applySunMode(){
+  document.body.classList.toggle("sun-mode", sunMode);
+}
 
 /* ---- recettes personnalisées et surcharges ---- */
 const BUILTIN_RECIPES = RECIPES.map(r => ({ ...r }));
@@ -9299,6 +9435,7 @@ function renderSmartBar(){
     <button id="sSeason" class="fbtn ${curSeason===currentSeason()?'on':''}">Saison</button>
     <button id="sPantry" class="fbtn ${curHave?'on':''}">Garde-manger</button>
     <button id="sOutdoor" class="fbtn ${outdoorMode?'on':''}">Mode extérieur</button>
+    <button id="sSun" class="fbtn ${sunMode?'on':''}">☀️ Plein soleil</button>
     <button id="sMine" class="fbtn ${myOnly?'on':''}">Mes créations</button>
     <button id="sReset" class="fbtn">Réinitialiser</button>`;
   const active=[];
@@ -9306,12 +9443,24 @@ function renderSmartBar(){
   if(curDiet.length)active.push(`régimes : ${curDiet.join(", ")}`);
   if(curEquip.length)active.push(`matériel : ${curEquip.join(", ")}`);
   if(curAvailable!=="all")active.push(`temps max : ${curAvailable} min`);
+  if(sunMode)active.push("plein soleil");
   if(myOnly)active.push("mes créations");
   sn.textContent=active.length?`Profil actif · ${active.join(" · ")}`:"Astuce : combinez ingrédients, exclusions, régime, matériel et temps disponible pour trouver une cuisson réaliste.";
   $("#sTonight").onclick=()=>{curAvailable=curAvailable==="all"?"90":"all";pantryProfile.available=curAvailable;LS.set("kokko_pantry_profile",pantryProfile);renderFilterBar();renderSmartBar();renderList();};
   $("#sSeason").onclick=()=>{curSeason=curSeason===currentSeason()?"all":currentSeason();renderFilterBar();renderSmartBar();renderList();};
   $("#sPantry").onclick=()=>{$("#have").focus();};
-  $("#sOutdoor").onclick=()=>{outdoorMode=!outdoorMode;LS.set("kokko_outdoor_mode",outdoorMode);applyOutdoorMode();renderSmartBar();};
+  $("#sOutdoor").onclick=()=>{
+    outdoorMode=!outdoorMode;
+    LS.set("kokko_outdoor_mode",outdoorMode);
+    applyOutdoorMode();
+    renderSmartBar();
+  };
+  $("#sSun").onclick=()=>{
+    sunMode=!sunMode;
+    LS.set("kokko_sun_mode",sunMode);
+    applySunMode();
+    renderSmartBar();
+  };
   $("#sMine").onclick=()=>{myOnly=!myOnly;renderChips();renderFilterBar();renderSmartBar();renderList();};
   $("#sReset").onclick=()=>{
     curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet=[];curEquip=[];curAvailable="all";curQuality="all";curSort="default";favOnly=false;myOnly=false;
@@ -9622,6 +9771,34 @@ function renderCookLogs(r) {
   `).join("");
 }
 
+function renderInteractiveSubstitutions(r) {
+  let list = [];
+  if (Array.isArray(r.substitutions) && r.substitutions.length) {
+    list = r.substitutions;
+  } else {
+    const h = haystack(r);
+    if (/vinaigre de cidre/i.test(h)) list.push({ ingredient: "Vinaigre de cidre", par: "Jus de pomme + trait de vinaigre blanc, ou jus de citron" });
+    if (/cassonade|vergeoise|sucre brun/i.test(h)) list.push({ ingredient: "Cassonade / Sucre brun", par: "Miel, sirop d'érable ou sucre roux classique" });
+    if (/worcestershire/i.test(h)) list.push({ ingredient: "Sauce Worcestershire", par: "Sauce soja + trait de vinaigre balsamique et mélasse" });
+    if (/beurre/i.test(h)) list.push({ ingredient: "Beurre doux", par: "Huile d'olive ou graisse de canard pour la cuisson" });
+    if (/moutarde/i.test(h)) list.push({ ingredient: "Moutarde forte", par: "Moutarde douce, moutarde à l'ancienne ou raifort râpé" });
+  }
+  if (!list.length) return "";
+  return `
+    <div class="subs-interactive-box">
+      <button id="btnToggleSubs" class="subs-toggle-btn" type="button">
+        <span>🔄 Substitutions & alternatives (${list.length})</span>
+        <span id="subsArrow">▾</span>
+      </button>
+      <div id="subsDetailBox" class="subs-detail-box hide">
+        <ul>
+          ${list.map(s => `<li><b>${escHtml(s.ingredient)}</b> ➔ ${escHtml(s.par)}</li>`).join("")}
+        </ul>
+      </div>
+    </div>
+  `;
+}
+
 function openRecipe(i){
   const r=RECIPES[i],base=baseServ(r);let curServ=base;stepMode=false;let targetServiceTime="13:00";
   pushHistory(r);
@@ -9676,6 +9853,15 @@ function openRecipe(i){
           <div class="setup-desc">${setup.desc}</div>
         </div>
       </div>
+      ${r.cat !== "sauces" ? `
+        <div class="safety-burp-badge">
+          <span style="font-size:22px">⚠️</span>
+          <div>
+            <div class="safety-burp-title">Réflexe Sécurité : Le « Burp » (Anti-retour de flamme)</div>
+            <div class="safety-burp-desc">Au-dessus de 150 °C, ouvrez d'abord le couvercle de <b>3 à 5 cm pendant 3 secondes</b> pour renouveler l'air doucement avant l'ouverture complète.</div>
+          </div>
+        </div>
+      ` : ""}
       <div class="specbar">
         <div class="spec"><div class="l">Mode</div><div class="v">${r.mode}</div></div>
         <div class="spec wide-spec" style="display:flex; align-items:center; gap:10px">
@@ -9712,6 +9898,7 @@ function openRecipe(i){
 
       <h4>Ingrédients${f!==1?` <span style="font-weight:400;color:var(--muted);text-transform:none;font-size:11px">(quantités ajustées, indicatives)</span>`:''}</h4>
       <ul class="ings">${ings}</ul>
+      ${renderInteractiveSubstitutions(r)}
 
       ${r.cat !== "sauces" ? `
         <div class="timeline-box">
@@ -9895,6 +10082,16 @@ function openRecipe(i){
       });
     }
     bindDelLogButtons();
+
+    const btnSubs = $("#btnToggleSubs");
+    const boxSubs = $("#subsDetailBox");
+    const arrSubs = $("#subsArrow");
+    if(btnSubs && boxSubs){
+      btnSubs.onclick = () => {
+        const isHidden = boxSubs.classList.toggle("hide");
+        if(arrSubs) arrSubs.textContent = isHidden ? "▾" : "▴";
+      };
+    }
   }
   render();
   $("#modal").classList.add("open");document.body.style.overflow="hidden";
@@ -11526,10 +11723,133 @@ function initKamadoCalculator() {
   updateKamadoCalculator();
 }
 
+/* ---- guide visuel interactif des cuissons à cœur ---- */
+const MEAT_DONENESS_DATA = {
+  boeuf: {
+    label: "🥩 Bœuf & Canard",
+    levels: [
+      { id: "bleu", name: "Bleu", tempC: "48–50 °C", tempF: "118–122 °F", pullC: "46 °C", rest: "5 min", color: "#8a0f1a", desc: "Cœur tiède et rouge rubis profond, texture très tendre, saisie extérieure vive." },
+      { id: "saignant", name: "Saignant", tempC: "52–54 °C", tempF: "125–129 °F", pullC: "50 °C", rest: "6–8 min", color: "#b82332", desc: "Cœur chaud rose-rouge, jutosité maximale, fibres détendues. La référence pour côte ou faux-filet." },
+      { id: "apoint", name: "À point", tempC: "56–58 °C", tempF: "133–136 °F", pullC: "54 °C", rest: "7–10 min", color: "#d95f6c", desc: "Cœur rose tendre homogène, viande ferme et juteuse." },
+      { id: "cuit", name: "Bien cuit", tempC: "65–68 °C", tempF: "149–154 °F", pullC: "63 °C", rest: "5 min", color: "#8c6b58", desc: "Cœur gris-brun sans trace de rose, texture plus ferme." },
+      { id: "effiloche", name: "Effiloché (Brisket / Paleron)", tempC: "93–95 °C", tempF: "199–203 °F", pullC: "92 °C", rest: "60–120 min", color: "#42281b", desc: "Collagène totalement fondu en gélatine, viande effilochable à la fourchette." }
+    ]
+  },
+  porc: {
+    label: "🐖 Porc",
+    levels: [
+      { id: "rose", name: "Rosé / Juteux (Filet / Échine)", tempC: "63–65 °C", tempF: "145–149 °F", pullC: "61 °C", rest: "5–7 min", color: "#e8808d", desc: "Légèrement perlé au centre, ultra juteux, conforme aux recommandations USDA modernes." },
+      { id: "apoint", name: "À point", tempC: "68–71 °C", tempF: "154–160 °F", pullC: "66 °C", rest: "5 min", color: "#c48c7c", desc: "Chair blanche opaque, moelleuse." },
+      { id: "effiloche", name: "Effiloché (Pulled Pork)", tempC: "93–95 °C", tempF: "199–203 °F", pullC: "92 °C", rest: "45–60 min", color: "#543320", desc: "Travers ou épaule qui s'effiloche sans couteau, humidité préservée par le collagène fondu." }
+    ]
+  },
+  volaille: {
+    label: "🍗 Volaille",
+    levels: [
+      { id: "blanc", name: "Blancs / Suprêmes", tempC: "72–74 °C", tempF: "162–165 °F", pullC: "70 °C", rest: "5 min", color: "#ebdcd0", desc: "Sécurité totale (pasteurisation instantanée) sans dessécher les fibres." },
+      { id: "cuisse", name: "Cuisses & Poulet entier", tempC: "78–82 °C", tempF: "172–180 °F", pullC: "76 °C", rest: "10 min", color: "#cfa686", desc: "Tissus conjonctifs des articulations assouplis, chair qui se détache de l'os." },
+      { id: "effiloche", name: "Effiloché de volaille", tempC: "88–92 °C", tempF: "190–198 °F", pullC: "86 °C", rest: "15 min", color: "#9c7255", desc: "Idéal pour tacos ou pulled chicken fumé au bois de pommier." }
+    ]
+  },
+  agneau: {
+    label: "🐑 Agneau",
+    levels: [
+      { id: "rose", name: "Rosé (Côtelettes / Carré)", tempC: "54–56 °C", tempF: "129–133 °F", pullC: "52 °C", rest: "5–8 min", color: "#c73a4b", desc: "Le meilleur équilibre entre tendreté et saveur délicate de l'agneau." },
+      { id: "apoint", name: "À point", tempC: "60–63 °C", tempF: "140–145 °F", pullC: "58 °C", rest: "8 min", color: "#cf7c89", desc: "Viande plus ferme, saveur plus prononcée." },
+      { id: "confit", name: "Confit 7h / Gigot effiloché", tempC: "90–93 °C", tempF: "194–199 °F", pullC: "88 °C", rest: "20 min", color: "#593623", desc: "Cuisson douce et longue, viande fondante qui se mange à la cuillère." }
+    ]
+  },
+  poisson: {
+    label: "🐟 Saumon & Poissons",
+    levels: [
+      { id: "micuit", name: "Mi-cuit / Tataki", tempC: "46–48 °C", tempF: "115–118 °F", pullC: "44 °C", rest: "2 min", color: "#e8523c", desc: "Cœur translucide et soyeux, extérieur saisi à la flamme ou fumé." },
+      { id: "nacre", name: "Nacré / Moelleux", tempC: "50–52 °C", tempF: "122–125 °F", pullC: "48 °C", rest: "3 min", color: "#f07562", desc: "Les lamelles se séparent sous une légère pression de la fourchette." },
+      { id: "cuit", name: "Cuit à cœur", tempC: "58–62 °C", tempF: "136–144 °F", pullC: "56 °C", rest: "3 min", color: "#f7b2a6", desc: "Chair entièrement opaque et feuilletée." }
+    ]
+  }
+};
+
+let currentMeatType = "boeuf";
+let currentDonenessIdx = 1;
+
+function renderMeatTempVisualizer() {
+  return `
+    <div class="meat-viz-card">
+      <h2 style="margin-top:0;font-size:20px;border:none;padding:0;color:var(--accent2)">🥩 Guide Visuel des Cuissons à Cœur</h2>
+      <p style="margin:0 0 16px;font-size:13px;color:var(--muted)">Visualisez en direct la couleur à cœur, la température cible, le palier de retrait de grille et le repos requis.</p>
+      <div class="meat-types-row" id="meatTypeSelector">
+        ${Object.keys(MEAT_DONENESS_DATA).map(key => `
+          <button class="fbtn ${key === currentMeatType ? 'on' : ''}" data-meat="${key}">${MEAT_DONENESS_DATA[key].label}</button>
+        `).join("")}
+      </div>
+      <div style="margin:16px 0 8px">
+        <label style="font-size:12px;font-weight:700;color:var(--muted);display:block;margin-bottom:8px">Degré de cuisson souhaité :</label>
+        <div class="doneness-buttons" id="donenessButtons"></div>
+      </div>
+      <div class="meat-slice-display" id="meatSliceDisplay"></div>
+    </div>
+  `;
+}
+
+function updateMeatSlice() {
+  const meatObj = MEAT_DONENESS_DATA[currentMeatType];
+  if (!meatObj) return;
+  const level = meatObj.levels[currentDonenessIdx] || meatObj.levels[0];
+  const buttonsEl = $("#donenessButtons");
+  const displayEl = $("#meatSliceDisplay");
+
+  if (buttonsEl) {
+    buttonsEl.innerHTML = meatObj.levels.map((lvl, idx) => `
+      <button class="fbtn ${idx === currentDonenessIdx ? 'on' : ''}" data-idx="${idx}">${lvl.name}</button>
+    `).join("");
+    $$("#donenessButtons button").forEach(b => {
+      b.onclick = () => {
+        currentDonenessIdx = parseInt(b.dataset.idx, 10);
+        updateMeatSlice();
+      };
+    });
+  }
+
+  if (displayEl) {
+    displayEl.innerHTML = `
+      <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+        <div style="width:110px;height:70px;border-radius:12px;background:radial-gradient(ellipse at center, ${level.color} 0%, ${level.color} 65%, #3a1e0d 95%);border:2px solid rgba(255,255,255,0.2);box-shadow:0 6px 16px rgba(0,0,0,0.4);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:11px;text-shadow:0 1px 3px rgba(0,0,0,0.8)">
+          Coupe à cœur
+        </div>
+        <div style="flex:1;min-width:200px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+            <span style="font-size:16px;font-weight:800;color:var(--txt)">${level.name}</span>
+            <span style="font-size:18px;font-weight:800;color:var(--accent2);font-family:var(--font-title)">${level.tempC} <span style="font-size:13px;color:var(--muted)">(${level.tempF})</span></span>
+          </div>
+          <p style="margin:6px 0 10px;font-size:12.5px;color:var(--muted);line-height:1.4">${level.desc}</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:12px">
+            <span style="background:rgba(211,55,25,0.15);padding:4px 8px;border-radius:6px;border:1px solid rgba(211,55,25,0.3)"><b>Sortie de grille :</b> ${level.pullC} (anticipation inertie)</span>
+            <span style="background:rgba(242,169,59,0.15);padding:4px 8px;border-radius:6px;border:1px solid rgba(242,169,59,0.3)"><b>Repos requis :</b> ${level.rest}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+}
+
+function initMeatTempVisualizer() {
+  $$("#meatTypeSelector button").forEach(b => {
+    b.onclick = () => {
+      currentMeatType = b.dataset.meat;
+      currentDonenessIdx = 0;
+      $$("#meatTypeSelector button").forEach(x => x.classList.toggle("on", x === b));
+      updateMeatSlice();
+    };
+  });
+  updateMeatSlice();
+}
+
 /* ---- init ---- */
 $("#guide").innerHTML = renderKamadoCalculator() + GUIDE;
 initKamadoCalculator();
-$("#temp").innerHTML=TEMP;
+$("#temp").innerHTML = renderMeatTempVisualizer() + TEMP;
+initMeatTempVisualizer();
+applySunMode();
 $("#vins").innerHTML=VINS;
 renderAssistant();
 renderMenuBuilder();

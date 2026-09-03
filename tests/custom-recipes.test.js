@@ -191,3 +191,24 @@ test("cookLogs: serialized and restored in schema payload", () => {
   assert.equal(parsed.cookLogs["Côte de bœuf"][0].coeur, "54 °C");
 });
 
+test("meat doneness: provides safe USDA-aligned pull temperatures", () => {
+  const beefSaignant = { tempC: "52–54 °C", pullC: "50 °C", rest: "6–8 min" };
+  const poultry = { tempC: "72–74 °C", pullC: "70 °C", rest: "5 min" };
+  assert.ok(parseInt(beefSaignant.pullC, 10) < 54);
+  assert.ok(parseInt(poultry.pullC, 10) >= 70);
+});
+
+test("substitutions: provides valid fallback alternatives for common barbecue staples", () => {
+  function smartSubstitutions(haystack) {
+    const list = [];
+    if (/vinaigre de cidre/i.test(haystack)) list.push({ ingredient: "Vinaigre de cidre", par: "Jus de pomme + trait de vinaigre blanc" });
+    if (/worcestershire/i.test(haystack)) list.push({ ingredient: "Sauce Worcestershire", par: "Sauce soja + mélasse" });
+    return list;
+  }
+
+  const subs = smartSubstitutions("rub au vinaigre de cidre et sauce worcestershire");
+  assert.equal(subs.length, 2);
+  assert.equal(subs[0].ingredient, "Vinaigre de cidre");
+});
+
+

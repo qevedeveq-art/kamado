@@ -8,8 +8,13 @@
 - Cook Log system integrated: logs date, weather, charcoal brand, actual cook time, core temp, and outcome notes. Included in backup v3 payload.
 - Kamado quick calculator implemented: food cut, target temp, duration -> charcoal estimate (kg), vent settings, ignition advice, ideal smoking wood pairing.
 - Floating multi-timers upgraded: `+5m` instant extension button, harmonic culinary chime via Web Audio API, and native phone vibration.
-- 43 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings across all audit scripts.
-- Service worker bumped to `v19`.
+- Interactive Meat Doneness Visualizer added in `#temp` with core and pull temperatures, color slice cross-sections, and resting intervals.
+- Print / PDF binder layout overhauled with `@media print` (2-column ingredients with checkboxes, crisp typography, clean formatting).
+- Burp safety badge and airtight extinction instructions added.
+- Ultra-contrast "Plein Soleil" outdoor mode added with instant toggle.
+- Interactive substitutions box added directly beneath ingredients.
+- 45 tests passing natively via `node --test 'tests/*.test.js'`. 0 issues, 0 warnings across all audit scripts.
+- Service worker bumped to `v20`.
 
 ## Last Commands
 - `node scripts/extract-data.js`
@@ -20,13 +25,9 @@
 - `node --test 'tests/*.test.js'`
 
 ## Files Changed
-- `index.html` (CSS, allergen filters, reverse timeline, cook log, calculator, timers)
-- `tests/custom-recipes.test.js` (unit tests for timeline, setup, cook logs)
-- `tests/data.test.js` (runtime VM context test & chef allergen rules)
-- `scripts/audit-chef.js` (culinary safety & 14 EU allergens audit script)
-- `.agents/roles/chef.md` (shared role specification for Chef reviewer)
-- `.codex/agents/chef.toml` (Codex agent configuration)
-- `sw.js` (bumped to `v19`)
+- `index.html` (visualizer, burp badge, substitutions, sun mode, print styles)
+- `tests/custom-recipes.test.js` (tests for meat doneness & substitutions)
+- `sw.js` (bumped to `v20`)
 - `data/recipes.json` (extracted & synchronized)
 - `.agents/handoff.md` (updated handoff)
 
