@@ -36,6 +36,7 @@ function main() {
   const filesToCopy = [
     "index.html",
     "manifest.webmanifest",
+    "kamado_cover.jpg",
     "kamado_kokko_cover.jpg",
     "sw.js"
   ];

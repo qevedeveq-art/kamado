@@ -1,7 +1,7 @@
 {
-  "name": "kamado-kokko",
-  "version": "1.20.0",
-  "description": "L application de reference pour les utilisateurs de kamados",
+  "name": "kamado",
+  "version": "1.22.0",
+  "description": "L application universelle de reference pour les utilisateurs de kamados",
   "private": true,
   "scripts": {
     "test": "node --test 'tests/*.test.js'",

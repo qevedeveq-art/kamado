@@ -1,6 +1,6 @@
 {
-  "appId": "com.kamadokokko.app",
-  "appName": "Kamado Kokko",
+  "appId": "com.kamado.app",
+  "appName": "Kamado",
   "webDir": "www",
   "bundledWebRuntime": false,
   "server": {

@@ -1,8 +1,8 @@
-# Kamado Kokko
+# Kamado — Livre de recettes & Guide universel
 
-![Kamado Kokko Cover](kamado_kokko_cover.jpg)
+![Kamado Cover](kamado_cover.jpg)
 
-Application web progressive (PWA) de recettes, d'assistance et de planification pour les amateurs de cuisine au Kamado (Kokko, Big Green Egg, Kamado Joe).
+Application web progressive (PWA) et mobile native de recettes, d'assistance et de planification universelle pour tous les amateurs de cuisine au barbecue céramique Kamado (Big Green Egg, Kamado Joe, Monolith, Primo, The Bastard, etc.).
 
 **URL publique** : [https://qevedeveq-art.github.io/kamado/](https://qevedeveq-art.github.io/kamado/)
 
