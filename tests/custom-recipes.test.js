@@ -82,10 +82,10 @@ test("derivation fallbacks: computes proper defaults for missing fields", () => 
   assert.equal(repos, 5);
 });
 
-test("backup schema v3 payload: preserves customRecipes and recipeOverrides", () => {
+test("backup schema v4 payload: preserves recipes and active cooking session", () => {
   const payload = {
     app: "kamado-kokko",
-    version: 3,
+    version: 4,
     exportedAt: new Date().toISOString(),
     favs: ["Poulet rôti"],
     notes: {},
@@ -95,17 +95,19 @@ test("backup schema v3 payload: preserves customRecipes and recipeOverrides", ()
     pantryProfile: {},
     session: {},
     customRecipes: [{ id: "c1", nom: "Mon magret fumé" }],
-    recipeOverrides: { "Poulet rôti": { tempK: "190 °C" } }
+    recipeOverrides: { "Poulet rôti": { tempK: "190 °C" } },
+    activeCookSession: { version: 2, recipeId: "c1", status: "active", updatedAt: 1_000 }
   };
 
-  assert.equal(payload.version, 3);
+  assert.equal(payload.version, 4);
   assert.equal(payload.customRecipes.length, 1);
   assert.equal(payload.recipeOverrides["Poulet rôti"].tempK, "190 °C");
 
   const serialized = JSON.stringify(payload);
   const parsed = JSON.parse(serialized);
-  assert.equal(parsed.version, 3);
+  assert.equal(parsed.version, 4);
   assert.equal(parsed.customRecipes[0].nom, "Mon magret fumé");
+  assert.equal(parsed.activeCookSession.recipeId, "c1");
 });
 
 test("withF: converts Celsius temperatures to Fahrenheit equivalent correctly", () => {
@@ -210,5 +212,3 @@ test("substitutions: provides valid fallback alternatives for common barbecue st
   assert.equal(subs.length, 2);
   assert.equal(subs[0].ingredient, "Vinaigre de cidre");
 });
-
-

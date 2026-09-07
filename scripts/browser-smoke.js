@@ -70,6 +70,46 @@ async function main() {
     await page.locator("#modal.open").waitFor();
     assert.equal(new URL(page.url()).hash, "#recette=cote-de-boeuf-reverse-sear");
 
+    await page.locator("#btnOpenCockpit").click();
+    await page.locator("#cockpitOverlay:not(.hide)").waitFor();
+    assert.equal(await page.locator("#cockpitOverlay").getAttribute("aria-hidden"), "false");
+    assert.equal(await page.locator("#cpStepTitle").textContent(), "Chauffe indirecte");
+    await page.locator("#cpObservedDome").fill("90");
+    await page.locator("#cpObservedCore").fill("41");
+    await page.locator("#cpRecordTemps").click();
+    assert.match(await page.locator("#cpGuidance").textContent(), /Température basse.+légèrement/s);
+    await page.locator("#cpTimerToggle").click();
+    assert.equal(await page.locator("#cpTimerToggle").textContent(), "Pause");
+    await page.locator("#cpClose").click();
+    assert.equal(await page.locator("#cockpitOverlay").getAttribute("aria-hidden"), "true");
+
+    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.locator("#modal.open").waitFor();
+    assert.equal(await page.locator("#btnOpenCockpit").textContent(), "Reprendre la cuisson");
+    assert.equal(await page.locator("#activeCookBanner:not(.hide)").count(), 1);
+    await page.locator("#btnOpenCockpit").click();
+    await page.locator("#cockpitOverlay:not(.hide)").waitFor();
+    assert.equal(await page.locator("#cpTimerToggle").textContent(), "Pause");
+    assert.equal(await page.evaluate(() => buildExportPayload().activeCookSession.recipeId), "cote-de-boeuf-reverse-sear");
+    await page.locator("#cpNextStep").focus();
+    await page.keyboard.press("Tab");
+    assert.equal(await page.evaluate(() => document.activeElement && document.activeElement.id), "cpDiscard");
+    await page.locator("#cpTimerToggle").click();
+    await page.locator("#cpNextStep").click();
+    assert.equal(await page.locator("#cpStepTitle").textContent(), "Saisie directe");
+    await page.locator("#cpObservedDome").fill("320");
+    await page.locator("#cpObservedCore").fill("53");
+    await page.locator("#cpRecordTemps").click();
+    assert.match(await page.locator("#cpGuidance").textContent(), /Zone cible atteinte/);
+    await page.locator("#cpNextStep").click();
+    await page.waitForFunction(() => document.querySelector("#cockpitOverlay").classList.contains("hide"));
+    const cookState = await page.evaluate(() => ({
+      session: JSON.parse(localStorage.getItem("kamado_active_cook_v2")),
+      logs: JSON.parse(localStorage.getItem("kamado_cook_logs"))
+    }));
+    assert.equal(cookState.session.data, null);
+    assert.equal(Object.values(cookState.logs.data).flat().some(log => /Cook Engine 2\.0/.test(log.notes || log.obs || "")), true);
+
     if (process.env.KAMADO_CAPTURE_SCREENSHOTS === "1") {
       const outputDir = path.join(ROOT, "assets", "screenshots");
       fs.mkdirSync(outputDir, { recursive: true });
@@ -102,7 +142,7 @@ async function main() {
     assert.match(await page.locator("#transferCode").inputValue(), /^[A-Za-z0-9+/=_-]+$/);
     assert.deepEqual(consoleErrors, []);
 
-    process.stdout.write("Browser smoke passed: editorial search, static recipe, deep link, QR, focus, offline reload and backup code.\n");
+    process.stdout.write("Browser smoke passed: editorial search, static recipe, persistent Cook Engine, QR, focus, offline reload and backup code.\n");
   } finally {
     if (browser) await browser.close();
     server.kill("SIGTERM");

@@ -4219,6 +4219,8 @@ table td.t-temp, table td.t-coeur {
   color: #ff9d42;
   letter-spacing: -0.3px;
 }
+.cockpit-session-meta { margin-top: 2px; color: #a8a29e; font-size: 11px; }
+.cockpit-top-actions { display: flex; align-items: center; gap: 8px; }
 .cockpit-close {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.2);
@@ -4264,9 +4266,11 @@ table td.t-temp, table td.t-coeur {
   padding: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
 }
+.cp-progress-track { height: 5px; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,.1); }
+.cp-progress-bar { width: 100%; height: 100%; border-radius: inherit; background: #ff7b00; transform: scaleX(0); transform-origin: left; }
 .cockpit-step-header {
   display: flex;
   justify-content: space-between;
@@ -4279,17 +4283,36 @@ table td.t-temp, table td.t-coeur {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+.cp-mode-badge { padding: 4px 9px; border: 1px solid rgba(255,157,66,.4); border-radius: 999px; color: #ffd1a3; font-size: 11px; font-weight: 800; text-transform: capitalize; }
+.cp-step-title { margin: 0; color: #fff; font: 800 clamp(24px,4vw,34px)/1.1 var(--font-body); letter-spacing: -.4px; }
 .cockpit-step-text {
-  font-size: 22px;
+  font-size: 19px;
   line-height: 1.55;
   font-weight: 600;
   color: #ffffff;
-  min-height: 110px;
+  min-height: 72px;
 }
 @media (max-width: 600px) {
-  .cockpit-step-text { font-size: 18px; }
-  .cockpit-dashboard { grid-template-columns: 1fr; }
+  .cockpit-overlay { padding: 10px; }
+  .cockpit-step-text { min-height: 0; font-size: 17px; }
+  .cockpit-dashboard { grid-template-columns: repeat(2,1fr); }
+  .cockpit-dashboard .cp-stat-box:last-child { grid-column: 1 / -1; }
+  .cockpit-main-card { padding: 17px; }
+  .cockpit-bottom-nav { grid-template-columns: 1fr; }
+  .cockpit-top-actions { align-items: stretch; flex-direction: column-reverse; }
 }
+.cp-readings { display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; align-items: end; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.1); }
+.cp-reading-field { display: grid; gap: 6px; }
+.cp-reading-field label { color: #c4beb4; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+.cp-reading-field input { width: 100%; min-height: 46px; padding: 9px 12px; border: 1px solid rgba(255,255,255,.2); border-radius: 10px; background: rgba(0,0,0,.42); color: #fff; font: 800 19px/1 var(--font-body); }
+.cp-record-btn { min-height: 46px; padding: 10px 16px; border: 0; border-radius: 10px; background: #f0ece3; color: #181713; font-weight: 850; cursor: pointer; }
+.cp-guidance { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cp-guidance-item { padding: 11px 13px; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; background: rgba(255,255,255,.04); color: #ccc6bc; font-size: 12px; line-height: 1.45; }
+.cp-guidance-item b { display: block; margin-bottom: 3px; color: #fff; }
+.cp-guidance-item[data-status="stable"],.cp-guidance-item[data-status="ready"] { border-color: rgba(145,182,103,.65); background: rgba(145,182,103,.09); }
+.cp-guidance-item[data-status="low"],.cp-guidance-item[data-status="high"],.cp-guidance-item[data-status="over"] { border-color: rgba(255,123,0,.72); background: rgba(255,123,0,.09); }
+.cp-guidance-item[data-status="approaching"] { border-color: rgba(239,180,81,.65); }
+@media (max-width:600px){.cp-readings{grid-template-columns:1fr 1fr}.cp-record-btn{grid-column:1 / -1}.cp-guidance{grid-template-columns:1fr}}
 .cockpit-timer-box {
   background: rgba(0,0,0,0.5);
   border-radius: 16px;
@@ -4311,6 +4334,7 @@ table td.t-temp, table td.t-coeur {
   gap: 12px;
   justify-content: center;
 }
+.cp-timer-context { margin: -5px 0 10px; color: #aaa39a; font-size: 11px; }
 .cp-timer-btn {
   background: #ff7b00;
   color: #fff;
@@ -4327,6 +4351,9 @@ table td.t-temp, table td.t-coeur {
   color: #eee;
   box-shadow: none;
 }
+.cp-timer-btn:disabled { cursor: not-allowed; opacity: .4; }
+.cp-timer-btn:active,.cp-record-btn:active,.cockpit-nav-btn:active { transform: scale(.98); }
+.cp-session-note { color: #aaa39a; font-size: 11px; text-align: center; }
 .cockpit-bottom-nav {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -4355,6 +4382,15 @@ table td.t-temp, table td.t-coeur {
   color: #fff;
   box-shadow: 0 4px 18px rgba(255,123,0,0.4);
 }
+.active-cook-banner { max-width: 1088px; margin: 10px auto; padding: 12px 14px; border: 1px solid rgba(255,123,0,.55); border-radius: 13px; background: rgba(43,28,18,.94); display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.active-cook-banner.hide { display: none !important; }
+.active-cook-copy { display: grid; gap: 2px; }
+.active-cook-copy small { color: var(--accent2); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.active-cook-copy strong { color: var(--txt); font-size: 14px; }
+.active-cook-copy span { color: var(--muted); font-size: 11px; }
+.active-cook-resume { min-height: 40px; padding: 8px 15px; border: 0; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 800; cursor: pointer; white-space: nowrap; }
+.active-cook-resume:active { transform: scale(.98); }
+@media(max-width:600px){.active-cook-banner{margin-inline:12px;align-items:stretch;flex-direction:column}.active-cook-resume{width:100%}}
 
 .load-more-wrap {
   grid-column: 1 / -1;
@@ -4507,6 +4543,14 @@ table td.t-temp, table td.t-coeur {
       <a href="./guides/methodologie/">Méthodologie et indépendance</a>
     </nav>
   </div>
+  <div id="activeCookBanner" class="active-cook-banner hide" aria-live="polite">
+    <div class="active-cook-copy">
+      <small>Cuisson active</small>
+      <strong id="activeCookTitle"></strong>
+      <span id="activeCookProgress"></span>
+    </div>
+    <button type="button" class="active-cook-resume" id="activeCookResume">Reprendre la session</button>
+  </div>
   <div class="chips" id="chips"></div>
   <div class="quick-chips" id="quickChips"></div>
   <div id="filterbar"></div>
@@ -4565,42 +4609,55 @@ table td.t-temp, table td.t-coeur {
 </div></div>
 
 <!-- COCKPIT PLEIN ÉCRAN OUTDOOR -->
-<div id="cockpitOverlay" class="cockpit-overlay hide" role="dialog" aria-modal="true" aria-labelledby="cpRecipeTitle">
+<div id="cockpitOverlay" class="cockpit-overlay hide" role="dialog" aria-modal="true" aria-labelledby="cpRecipeTitle" aria-hidden="true">
   <div class="cockpit-content">
     <div class="cockpit-top">
-      <div class="cockpit-rec-title" id="cpRecipeTitle">Titre</div>
-      <button class="cockpit-close" id="cpClose" title="Quitter le mode cockpit">✕ Quitter</button>
+      <div><div class="cockpit-rec-title" id="cpRecipeTitle">Titre</div><div class="cockpit-session-meta" id="cpSessionMeta"></div></div>
+      <div class="cockpit-top-actions"><button class="cockpit-close" id="cpDiscard" type="button">Abandonner</button><button class="cockpit-close" id="cpClose" type="button">Fermer</button></div>
     </div>
     <div class="cockpit-dashboard">
       <div class="cp-stat-box">
-        <div class="cp-stat-label">🌡️ Dôme Kamado</div>
+        <div class="cp-stat-label">Dôme cible</div>
         <div class="cp-stat-val" id="cpDomeTemp">—</div>
       </div>
       <div class="cp-stat-box">
-        <div class="cp-stat-label">🎯 Cœur visé</div>
+        <div class="cp-stat-label">Cœur visé</div>
         <div class="cp-stat-val" id="cpCoreTemp">—</div>
       </div>
       <div class="cp-stat-box">
-        <div class="cp-stat-label">💨 Montage</div>
+        <div class="cp-stat-label">Montage</div>
         <div class="cp-stat-val" id="cpSetup">—</div>
       </div>
     </div>
     <div class="cockpit-main-card">
+      <div class="cp-progress-track" aria-hidden="true"><div class="cp-progress-bar" id="cpProgressBar"></div></div>
       <div class="cockpit-step-header">
         <span class="cp-step-counter" id="cpStepCounter">Étape 1 / 1</span>
+        <span class="cp-mode-badge" id="cpStepMode">Cuisson</span>
       </div>
+      <h2 class="cp-step-title" id="cpStepTitle">Préparation</h2>
       <div class="cockpit-step-text" id="cpStepText">Préparation...</div>
+      <div class="cp-readings">
+        <div class="cp-reading-field"><label for="cpObservedDome">Dôme observé (°C)</label><input id="cpObservedDome" type="number" inputmode="decimal" min="0" max="500" placeholder="ex. 118"></div>
+        <div class="cp-reading-field"><label for="cpObservedCore">Cœur observé (°C)</label><input id="cpObservedCore" type="number" inputmode="decimal" min="-20" max="150" placeholder="ex. 48"></div>
+        <button class="cp-record-btn" id="cpRecordTemps" type="button">Analyser</button>
+      </div>
+      <div class="cp-guidance" id="cpGuidance" aria-live="polite"></div>
       <div class="cockpit-timer-box hide" id="cpTimerBox">
         <div class="cp-timer-clock" id="cpTimerClock">00:00</div>
+        <div class="cp-timer-context" id="cpTimerContext"></div>
         <div class="cp-timer-controls">
-          <button class="cp-timer-btn" id="cpTimerToggle">▶ Démarrer</button>
-          <button class="cp-timer-btn sec" id="cpTimerReset">↺ Reset</button>
+          <button class="cp-timer-btn sec" id="cpTimerMinus" type="button">− 5 min</button>
+          <button class="cp-timer-btn" id="cpTimerToggle" type="button">Démarrer</button>
+          <button class="cp-timer-btn sec" id="cpTimerPlus" type="button">+ 5 min</button>
+          <button class="cp-timer-btn sec" id="cpTimerReset" type="button">Réinitialiser</button>
         </div>
       </div>
+      <div class="cp-session-note">Sauvegarde locale automatique. La session reprend après fermeture ou rechargement.</div>
     </div>
     <div class="cockpit-bottom-nav">
-      <button class="cockpit-nav-btn prev" id="cpPrevStep">◀ Précédente</button>
-      <button class="cockpit-nav-btn next" id="cpNextStep">Étape suivante ▶</button>
+      <button class="cockpit-nav-btn prev" id="cpPrevStep">Étape précédente</button>
+      <button class="cockpit-nav-btn next" id="cpNextStep">Étape suivante</button>
     </div>
   </div>
 </div>
@@ -4822,10 +4879,12 @@ table td.t-temp, table td.t-coeur {
 
 <script src="./scripts/recipe-links.js"></script>
 <script src="./scripts/editorial-search.js"></script>
+<script src="./scripts/cook-engine.js"></script>
 <script>
 /* ================= DONNÉES RECETTES ================= */
 const { recipeRef, recipeHash, recipeUrl, parseRecipeHash, findRecipeIndex } = window.KamadoRecipeLinks;
 const { matchesRecipeQuery, scoreRecipeQuery } = window.KamadoEditorialSearch;
+const { buildCookPlan, createCookSession, hydrateCookSession, syncSessionTimer, startSessionTimer, pauseSessionTimer, adjustSessionTimer, resetSessionTimer, setCookStep, advanceCookSession, recordCookObservation, evaluateCookTemperatures, completeCookSession } = window.KamadoCookEngine;
 const CATS = [{id:"all",nom:"Tout",e:"🍴"},{id:"boeuf",nom:"Bœuf",e:"🥩"},{id:"porc",nom:"Porc",e:"🐖"},{id:"volaille",nom:"Volaille",e:"🍗"},{id:"agneau",nom:"Agneau & Gibier",e:"🐑"},{id:"poisson",nom:"Poissons & Mer",e:"🐟"},{id:"legumes",nom:"Légumes & Sides",e:"🥗"},{id:"pizza",nom:"Pizzas & Pains",e:"🍕"},{id:"monde",nom:"Cuisines du monde",e:"🌍"},{id:"dessert",nom:"Desserts",e:"🍮"},{id:"vegetarien",nom:"Végétarien",e:"🌱"},{id:"sauces",nom:"Sauces & Marinades",e:"🧂"}];
 
 const RECIPES = [
@@ -11960,12 +12019,12 @@ function renderCookJournalUI(){
               <div class="jic-date">${escHtml(log.date || "")}</div>
             </div>
             <div class="jic-meta">
-              ${log.duration ? `<span class="jic-badge">⏱ ${escHtml(log.duration)}</span>` : ''}
-              ${log.temp ? `<span class="jic-badge">🌡️ ${escHtml(log.temp)}</span>` : ''}
-              ${log.wood ? `<span class="jic-badge">🪵 ${escHtml(log.wood)}</span>` : ''}
+              ${(log.duration||log.duree) ? `<span class="jic-badge">⏱ ${escHtml(log.duration||log.duree)}</span>` : ''}
+              ${(log.temp||log.coeur) ? `<span class="jic-badge">🌡️ ${escHtml(log.temp||log.coeur)}</span>` : ''}
+              ${(log.wood||log.charbon) ? `<span class="jic-badge">🪵 ${escHtml(log.wood||log.charbon)}</span>` : ''}
               ${log.rating ? `<span class="jic-badge">★ ${escHtml(log.rating)}/5</span>` : ''}
             </div>
-            ${log.notes ? `<div class="jic-notes">« ${escHtml(log.notes)} »</div>` : ''}
+            ${(log.notes||log.obs) ? `<div class="jic-notes">« ${escHtml(log.notes||log.obs)} »</div>` : ''}
           </div>
         `).join("") : '<div class="empty" style="padding:16px">Aucune session enregistrée pour le moment. Ajoutez des comptes-rendus depuis les fiches recettes !</div>'}
       </div>
@@ -12597,6 +12656,8 @@ let outdoorMode=!!LS.get("kamado_outdoor_mode",false);
 let sunMode=!!LS.get("kamado_sun_mode",false);
 let stepMode=false;
 let cookLogs=LS.get("kamado_cook_logs",{});
+const COOK_SESSION_KEY="kamado_active_cook_v2";
+let activeCookSession=LS.get(COOK_SESSION_KEY,null);
 
 function applySunMode(){
   document.body.classList.toggle("sun-mode", sunMode);
@@ -13327,9 +13388,9 @@ function renderInteractiveSubstitutions(r) {
 
 
 let currentRecipeIndex = 0;
-let cockpitStep = 0;
 let cockpitTimerInterval = null;
-let cockpitRemainingSec = 0;
+let cockpitRecipe = null;
+let cockpitPlan = [];
 let lastRecipeFocus = null;
 
 function navigateRecipe(delta) {
@@ -13341,104 +13402,153 @@ function navigateRecipe(delta) {
   openRecipe(RECIPES.indexOf(activeList[nextPos]));
 }
 
+function cookRecipeKey(r){return r&&(r.id||r.nom);}
+function cookSessionRecipe(){return activeCookSession?RECIPES.find(r=>cookRecipeKey(r)===activeCookSession.recipeId):null;}
+function persistCookSession(){LS.set(COOK_SESSION_KEY,activeCookSession||null);}
+function formatCookClock(totalSec){
+  const sec=Math.max(0,Math.round(Number(totalSec)||0)),h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;
+  return h?`${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`:`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+}
+function formatCookCore(target){
+  if(!target)return"Contrôle selon la recette";
+  return target.min===target.max?`${target.min} °C`:`${target.min}–${target.max} °C`;
+}
+function renderActiveCookBanner(){
+  const banner=$("#activeCookBanner"),recipe=cookSessionRecipe();
+  if(!banner)return;
+  if(!activeCookSession||!recipe||activeCookSession.status!=="active"){
+    banner.classList.add("hide");return;
+  }
+  activeCookSession=hydrateCookSession(activeCookSession,recipe,Date.now());
+  const plan=buildCookPlan(recipe),step=plan[activeCookSession.stepIndex];
+  $("#activeCookTitle").textContent=recipe.nom;
+  $("#activeCookProgress").textContent=`${step.title} · étape ${activeCookSession.stepIndex+1} sur ${plan.length}${activeCookSession.timer.running?" · minuteur en cours":""}`;
+  $("#activeCookResume").onclick=()=>{
+    const index=RECIPES.indexOf(recipe);
+    if(index>=0)openRecipe(index);
+    openCockpit(recipe);
+  };
+  banner.classList.remove("hide");
+}
+
 function openCockpit(r) {
-  cockpitStep = 0;
+  const recipeId=cookRecipeKey(r);
+  if(activeCookSession&&activeCookSession.status==="active"&&activeCookSession.recipeId!==recipeId){
+    if(!confirm(`Une cuisson de « ${activeCookSession.recipeName} » est déjà active. La remplacer par « ${r.nom} » ?`))return false;
+  }
+  activeCookSession=activeCookSession&&activeCookSession.recipeId===recipeId
+    ?hydrateCookSession(activeCookSession,r,Date.now())
+    :createCookSession(r,Date.now());
+  cockpitRecipe=r;
+  cockpitPlan=buildCookPlan(r);
+  persistCookSession();
   requestWakeLock();
-  const overlay = $("#cockpitOverlay");
-  if (!overlay) return;
+  const overlay=$("#cockpitOverlay");
+  if(!overlay)return false;
   overlay.classList.remove("hide");
-  document.body.style.overflow = "hidden";
-  
-  $("#cpRecipeTitle").textContent = r.nom;
-  $("#cpDomeTemp").textContent = r.tempK || "—";
-  $("#cpCoreTemp").textContent = r.coeur || "—";
-  $("#cpSetup").textContent = kamadoSetup(r).label;
-  
-  renderCockpitStep(r);
-  
-  $("#cpClose").onclick = closeCockpit;
-  $("#cpPrevStep").onclick = () => {
-    if (cockpitStep > 0) {
-      cockpitStep--;
-      renderCockpitStep(r);
-    }
+  overlay.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+  $("#cpRecipeTitle").textContent=r.nom;
+  $("#cpSetup").textContent=kamadoSetup(r).label;
+  $("#cpSessionMeta").textContent=`Démarrée à ${new Date(activeCookSession.startedAt).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})} · état conservé sur cet appareil`;
+  $("#cpClose").onclick=closeCockpit;
+  $("#cpDiscard").onclick=()=>{
+    if(!confirm("Abandonner cette session de cuisson ? Les relevés non journalisés seront supprimés."))return;
+    activeCookSession=null;persistCookSession();renderActiveCookBanner();closeCockpit();
   };
-  $("#cpNextStep").onclick = () => {
-    if (cockpitStep < r.etapes.length - 1) {
-      cockpitStep++;
-      renderCockpitStep(r);
-    } else {
-      closeCockpit();
-    }
+  $("#cpPrevStep").onclick=()=>{
+    if(activeCookSession.stepIndex>0){activeCookSession=setCookStep(activeCookSession,r,activeCookSession.stepIndex-1,Date.now());persistCookSession();renderCockpitStep();}
   };
+  $("#cpNextStep").onclick=()=>{
+    if(activeCookSession.stepIndex<cockpitPlan.length-1){activeCookSession=advanceCookSession(activeCookSession,r,Date.now());persistCookSession();renderCockpitStep();}
+    else finishCookSession();
+  };
+  $("#cpRecordTemps").onclick=recordCockpitTemperatures;
+  $("#cpTimerToggle").onclick=toggleCockpitTimer;
+  $("#cpTimerMinus").onclick=()=>changeCockpitTimer(-300);
+  $("#cpTimerPlus").onclick=()=>changeCockpitTimer(300);
+  $("#cpTimerReset").onclick=()=>{activeCookSession=resetSessionTimer(activeCookSession,cockpitRecipe,Date.now());persistCookSession();renderCockpitTimer();};
+  renderCockpitStep();
+  setTimeout(()=>$("#cpClose").focus(),0);
+  return true;
 }
 
-function renderCockpitStep(r) {
-  const total = r.etapes.length;
-  $("#cpStepCounter").textContent = `Étape ${cockpitStep + 1} / ${total}`;
-  const isLast = cockpitStep === total - 1;
-  $("#cpNextStep").textContent = isLast ? "🏁 Terminer la cuisson" : "Étape suivante ▶";
-  $("#cpPrevStep").style.visibility = cockpitStep === 0 ? "hidden" : "visible";
-  
-  const stepText = r.etapes[cockpitStep];
-  $("#cpStepText").textContent = stepText;
-  
-  const durs = parseAllDurs(stepText);
-  const timerBox = $("#cpTimerBox");
-  clearInterval(cockpitTimerInterval);
-  cockpitTimerInterval = null;
-  if (durs.length > 0) {
-    timerBox.classList.remove("hide");
-    cockpitRemainingSec = durs[0].sec;
-    updateCockpitClock();
-    $("#cpTimerToggle").textContent = `▶ Lancer ${durs[0].text}`;
-    $("#cpTimerToggle").onclick = () => toggleCockpitTimer(r.nom, durs[0].text);
-    $("#cpTimerReset").onclick = () => {
-      clearInterval(cockpitTimerInterval);
-      cockpitTimerInterval = null;
-      cockpitRemainingSec = durs[0].sec;
-      updateCockpitClock();
-      $("#cpTimerToggle").textContent = `▶ Lancer ${durs[0].text}`;
-    };
-  } else {
-    timerBox.classList.add("hide");
-  }
+function latestCookObservation(){
+  return [...activeCookSession.observations].reverse().find(item=>item.stepIndex===activeCookSession.stepIndex)||null;
+}
+function renderCookGuidance(observation){
+  const step=cockpitPlan[activeCookSession.stepIndex],guidance=evaluateCookTemperatures(step,observation);
+  $("#cpGuidance").innerHTML=`<div class="cp-guidance-item" data-status="${guidance.dome.status}"><b>Stabilité du dôme</b>${escHtml(guidance.dome.message)}</div><div class="cp-guidance-item" data-status="${guidance.core.status}"><b>Progression à cœur</b>${escHtml(guidance.core.message)}</div>`;
+}
+function renderCockpitStep() {
+  if(!activeCookSession||!cockpitRecipe)return;
+  clearInterval(cockpitTimerInterval);cockpitTimerInterval=null;
+  activeCookSession=hydrateCookSession(activeCookSession,cockpitRecipe,Date.now());
+  const step=cockpitPlan[activeCookSession.stepIndex],total=cockpitPlan.length,isLast=activeCookSession.stepIndex===total-1;
+  $("#cpStepCounter").textContent=`Étape ${activeCookSession.stepIndex+1} / ${total}`;
+  $("#cpStepMode").textContent=step.mode||"cuisson";
+  $("#cpStepTitle").textContent=step.title;
+  $("#cpStepText").textContent=step.instruction;
+  $("#cpDomeTemp").textContent=step.targetDomeC!=null?`${step.targetDomeC} °C`:(cockpitRecipe.tempK||"Selon recette");
+  $("#cpCoreTemp").textContent=formatCookCore(step.targetCore);
+  $("#cpProgressBar").style.transform=`scaleX(${(activeCookSession.stepIndex+1)/total})`;
+  $("#cpNextStep").textContent=isLast?"Terminer et journaliser":"Étape suivante";
+  $("#cpPrevStep").style.visibility=activeCookSession.stepIndex===0?"hidden":"visible";
+  const observation=latestCookObservation();
+  $("#cpObservedDome").value=observation&&observation.domeC!=null?observation.domeC:"";
+  $("#cpObservedCore").value=observation&&observation.coreC!=null?observation.coreC:"";
+  renderCookGuidance(observation);
+  $("#cpTimerBox").classList.remove("hide");
+  renderCockpitTimer();renderActiveCookBanner();
 }
 
-function updateCockpitClock() {
-  const m = Math.floor(cockpitRemainingSec / 60);
-  const s = cockpitRemainingSec % 60;
-  $("#cpTimerClock").textContent = `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+function renderCockpitTimer(){
+  if(!activeCookSession)return;
+  const wasRunning=activeCookSession.timer.running;
+  activeCookSession=syncSessionTimer(activeCookSession,Date.now());
+  if(wasRunning&&!activeCookSession.timer.running&&activeCookSession.timer.remainingSec===0){persistCookSession();notifyTimerDone(`${cockpitRecipe.nom} · ${cockpitPlan[activeCookSession.stepIndex].title}`);}
+  $("#cpTimerClock").textContent=formatCookClock(activeCookSession.timer.remainingSec);
+  $("#cpTimerContext").textContent=activeCookSession.timer.durationSec?`Durée prévue pour cette phase : ${formatCookClock(activeCookSession.timer.durationSec)}`:"Aucune durée prévue : ajoutez 5 minutes pour lancer un minuteur.";
+  $("#cpTimerToggle").textContent=activeCookSession.timer.running?"Pause":(activeCookSession.timer.remainingSec?"Démarrer":"Minuteur terminé");
+  $("#cpTimerToggle").disabled=!activeCookSession.timer.running&&activeCookSession.timer.remainingSec===0;
+  $("#cpTimerMinus").disabled=activeCookSession.timer.remainingSec===0;
+  if(activeCookSession.timer.running&&!cockpitTimerInterval)cockpitTimerInterval=setInterval(()=>{renderCockpitTimer();renderActiveCookBanner();},1000);
+  else if(!activeCookSession.timer.running&&cockpitTimerInterval){clearInterval(cockpitTimerInterval);cockpitTimerInterval=null;}
 }
 
-function toggleCockpitTimer(recipeName, label) {
-  if (cockpitTimerInterval) {
-    clearInterval(cockpitTimerInterval);
-    cockpitTimerInterval = null;
-    $("#cpTimerToggle").textContent = "▶ Reprendre";
-  } else {
-    $("#cpTimerToggle").textContent = "⏸ Pause";
-    cockpitTimerInterval = setInterval(() => {
-      if (cockpitRemainingSec > 0) {
-        cockpitRemainingSec--;
-        updateCockpitClock();
-      } else {
-        clearInterval(cockpitTimerInterval);
-        cockpitTimerInterval = null;
-        notifyTimerDone(`${recipeName} · ${label}`);
-        $("#cpTimerToggle").textContent = "✅ Terminé !";
-      }
-    }, 1000);
-  }
+function toggleCockpitTimer(){
+  activeCookSession=activeCookSession.timer.running?pauseSessionTimer(activeCookSession,Date.now()):startSessionTimer(activeCookSession,Date.now());
+  persistCookSession();renderCockpitTimer();renderActiveCookBanner();
+}
+function changeCockpitTimer(deltaSec){
+  activeCookSession=adjustSessionTimer(activeCookSession,deltaSec,Date.now());
+  persistCookSession();renderCockpitTimer();renderActiveCookBanner();
+}
+function recordCockpitTemperatures(){
+  const dome=$("#cpObservedDome").value,core=$("#cpObservedCore").value;
+  if(dome===""&&core===""){$("#cpGuidance").innerHTML='<div class="cp-guidance-item" data-status="high"><b>Relevé incomplet</b>Saisissez au moins une température avant l’analyse.</div>';return;}
+  activeCookSession=recordCookObservation(activeCookSession,{domeC:dome,coreC:core},Date.now());
+  persistCookSession();renderCookGuidance(latestCookObservation());renderActiveCookBanner();
+}
+function finishCookSession(){
+  const result=completeCookSession(activeCookSession,cockpitRecipe,Date.now()),key=rid(cockpitRecipe);
+  if(!cookLogs[key])cookLogs[key]=[];
+  cookLogs[key].unshift(result.log);LS.set("kamado_cook_logs",cookLogs);
+  activeCookSession=null;persistCookSession();renderActiveCookBanner();renderAssistant();closeCockpit();
+  const launch=$("#btnOpenCockpit");
+  if(launch){launch.textContent="Cuisson enregistrée";setTimeout(()=>launch.textContent="Démarrer la cuisson guidée",1800);}
 }
 
 function closeCockpit() {
-  clearInterval(cockpitTimerInterval);
-  cockpitTimerInterval = null;
-  const overlay = $("#cockpitOverlay");
-  if (overlay) overlay.classList.add("hide");
-  document.body.style.overflow = "";
-  if (!outdoorMode && !stepMode) releaseWakeLock();
+  if(activeCookSession&&cockpitRecipe){activeCookSession=hydrateCookSession(activeCookSession,cockpitRecipe,Date.now());persistCookSession();}
+  clearInterval(cockpitTimerInterval);cockpitTimerInterval=null;
+  const overlay=$("#cockpitOverlay");
+  if(overlay){overlay.classList.add("hide");overlay.setAttribute("aria-hidden","true");}
+  document.body.style.overflow="";
+  if(!outdoorMode&&!stepMode)releaseWakeLock();
+  renderActiveCookBanner();
+  const launch=$("#btnOpenCockpit");
+  if(launch&&launch.focus)launch.focus();
 }
 
 function updateRecipeLocation(r, mode){
@@ -13463,6 +13573,7 @@ function openRecipe(i,options={}){
     const rating=+ratings[rid(r)]||0;
     const q=qualityInfo(r), diets=dietTags(r), equip=equipmentTags(r);
     const setup=kamadoSetup(r);
+    const hasActiveCook=activeCookSession&&activeCookSession.status==="active"&&activeCookSession.recipeId===cookRecipeKey(r);
     const ings=r.ings.map(x=>`<li>${scaleIng(x,f)}</li>`).join("");
     let stepsHtml;
     if(stepMode){
@@ -13488,7 +13599,7 @@ function openRecipe(i,options={}){
       <div class="ori">${emojiFor(r.cat)} ${r.ori} ${r._custom?`<span class="badge custom" style="margin-left:6px">👤 Ma recette</span>`:''} ${r._modified?`<span class="badge modified" style="margin-left:6px">✏️ Modifiée</span>`:''}</div>
       <div class="dactions">
         <button id="dFav" class="actbtn ${fav?'on':''}">${fav?'★ Favori':'☆ Ajouter aux favoris'}</button>
-        <button id="btnOpenCockpit" class="cockpit-launch-btn">🚀 Cockpit Outdoor</button>
+        <button id="btnOpenCockpit" class="cockpit-launch-btn">${hasActiveCook?"Reprendre la cuisson":"Démarrer la cuisson guidée"}</button>
         <button id="dEdit" class="actbtn primary-act" title="Modifier les ingrédients, températures, temps ou étapes">✏️ Modifier</button>
         <button id="dDuplicate" class="actbtn" title="Créer une variante adaptée">📋 Dupliquer</button>
         <button id="dShare" class="actbtn" title="Partager cette recette (WhatsApp, SMS, presse-papier)">📤 Partager</button>
@@ -13832,21 +13943,21 @@ $("#back").onclick=closeModal;
   }
   window.addEventListener("keydown", e => {
     if(!$("#modal").classList.contains("open")) return;
+    const cp=$("#cockpitOverlay"),cockpitOpen=cp&&!cp.classList.contains("hide");
+    const focusRoot=cockpitOpen?cp.querySelector(".cockpit-content"):sheet;
     const editable=/^(INPUT|TEXTAREA|SELECT)$/.test(e.target&&e.target.tagName)||e.target&&e.target.isContentEditable;
-    if(e.key === "Tab"&&sheet){
-      const focusable=[...sheet.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')];
+    if(e.key === "Tab"&&focusRoot){
+      const focusable=[...focusRoot.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')];
       if(focusable.length){
         const first=focusable[0],last=focusable[focusable.length-1];
         if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
         else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
       }
-    } else if(!editable&&e.key === "ArrowLeft") navigateRecipe(-1);
+    } else if(e.key === "Escape"&&cockpitOpen) closeCockpit();
+    else if(cockpitOpen)return;
+    else if(!editable&&e.key === "ArrowLeft") navigateRecipe(-1);
     else if(!editable&&e.key === "ArrowRight") navigateRecipe(1);
-    else if(e.key === "Escape") {
-      const cp = $("#cockpitOverlay");
-      if(cp && !cp.classList.contains("hide")) closeCockpit();
-      else closeModal();
-    }
+    else if(e.key === "Escape") closeModal();
   });
 })();
 
@@ -15142,7 +15253,7 @@ function exportData(){
 function buildExportPayload(){
   return {
     app:"kamado",
-    version:3,
+    version:4,
     exportedAt:new Date().toISOString(),
     favs:[...favs],
     notes,
@@ -15153,7 +15264,8 @@ function buildExportPayload(){
     session:savedSession,
     customRecipes,
     recipeOverrides,
-    cookLogs
+    cookLogs,
+    activeCookSession
   };
 }
 function encodeTransfer(data){
@@ -15196,6 +15308,11 @@ function mergeImportedData(data){
     cookLogs={...cookLogs, ...data.cookLogs};
     LS.set("kamado_cook_logs", cookLogs);
   }
+  if(data.activeCookSession&&typeof data.activeCookSession==="object"&&data.activeCookSession.status==="active"){
+    const importedUpdated=Number(data.activeCookSession.updatedAt)||0;
+    const localUpdated=Number(activeCookSession&&activeCookSession.updatedAt)||0;
+    if(!activeCookSession||importedUpdated>localUpdated){activeCookSession=data.activeCookSession;persistCookSession();}
+  }
 
   refreshActiveRecipes();
   saveFavs();
@@ -15212,6 +15329,7 @@ function mergeImportedData(data){
   renderChips();
   renderFilterBar();
   renderSmartBar();
+  renderActiveCookBanner();
   renderList();
   renderBases();
 }
@@ -15700,7 +15818,7 @@ renderAssistant();
 renderMenuBuilder();
 renderBases();
 renderDataTools();
-renderStats();renderChips();renderFilterBar();renderSmartBar();renderHistory();renderEditorialCollections();renderList();
+renderStats();renderChips();renderFilterBar();renderSmartBar();renderHistory();renderEditorialCollections();renderActiveCookBanner();renderList();
 importHashTransfer();
 openRecipeFromLocation();
 if("serviceWorker" in navigator && location.protocol!=="file:"){

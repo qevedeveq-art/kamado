@@ -10,6 +10,7 @@ const limits = {
   "manifest.webmanifest": 10 * 1024,
   "scripts/recipe-links.js": 10 * 1024,
   "scripts/editorial-search.js": 15 * 1024,
+  "scripts/cook-engine.js": 20 * 1024,
   "assets/editorial.css": 20 * 1024,
   "recettes/index.html": 500 * 1024
 };

@@ -10,6 +10,7 @@ const CATS = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "cate
 const INDEX_HTML = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
 const RECIPE_LINKS = require("../scripts/recipe-links.js");
 const EDITORIAL_SEARCH = require("../scripts/editorial-search.js");
+const COOK_ENGINE = require("../scripts/cook-engine.js");
 
 test("dataset has expected scale", () => {
   assert.ok(RECIPES.length >= 200, `expected >=200 recipes, got ${RECIPES.length}`);
@@ -176,7 +177,8 @@ test("index.html client runtime executes without any reference or syntax error",
     scrollY: 0,
     addEventListener() {},
     KamadoRecipeLinks: RECIPE_LINKS,
-    KamadoEditorialSearch: EDITORIAL_SEARCH
+    KamadoEditorialSearch: EDITORIAL_SEARCH,
+    KamadoCookEngine: COOK_ENGINE
   };
 
   const context = vm.createContext({
@@ -221,7 +223,16 @@ test("editorial discovery is wired into the app shell", () => {
   assert.match(INDEX_HTML, /id="editorialCollections"/);
   assert.match(INDEX_HTML, /mode:fumage/);
   assert.match(INDEX_HTML, /function renderEditorialCollections\(\)/);
-  assert.match(INDEX_HTML, /renderHistory\(\);renderEditorialCollections\(\);renderList\(\);/);
+  assert.match(INDEX_HTML, /renderHistory\(\);renderEditorialCollections\(\);renderActiveCookBanner\(\);renderList\(\);/);
+});
+
+test("Cook Engine 2.0 is wired for persistent guided sessions", () => {
+  assert.ok(INDEX_HTML.includes('<script src="./scripts/cook-engine.js"></script>'));
+  assert.match(INDEX_HTML, /id="activeCookBanner"/);
+  assert.match(INDEX_HTML, /id="cockpitOverlay"[\s\S]*?aria-hidden="true"/);
+  assert.match(INDEX_HTML, /id="cpObservedDome"[\s\S]*?id="cpObservedCore"/);
+  assert.match(INDEX_HTML, /activeCookSession[\s\S]*?persistCookSession/);
+  assert.match(INDEX_HTML, /version:4[\s\S]*?activeCookSession/);
 });
 
 test("chef allergen rules: no false positives on muscade/coco, detects beer and fish", () => {

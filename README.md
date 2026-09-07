@@ -29,13 +29,19 @@ L'application est conçue pour être **ultra-rapide, 100 % utilisable hors-ligne
 * **SEO vérifiable** : métadonnées sociales, données structurées `WebPage`/`Article`/`ItemList`, `sitemap.xml` et `robots.txt` générés depuis la même source que l'application.
 * Le balisage enrichi `Recipe` reste volontairement désactivé tant que chaque recette ne dispose pas d'une photographie représentative du plat fini.
 
-### 🚀 Mode « Cockpit Outdoor » (Plein Écran Plein Soleil)
+### 🚀 Cook Engine 2.0 — Cockpit de cuisson guidée
 * Conçu pour cuisiner les mains occupées à 2 mètres du kamado :
   * **Typographie géante et contraste maximal** (noir profond et orange braise éclatant).
+  * Plan de cuisson généré depuis les phases structurées de la recette, avec repli sur ses étapes lorsqu'elles ne sont pas disponibles.
   * Rappel permanent de la **température dôme cible**, de la **température à cœur** et du **montage déflecteur**.
-  * Déroulé pas-à-pas avec détection automatique des durées et **minuteur tactile géant**.
+  * **Minuteur absolu persistant** : une cuisson reprend au bon instant après fermeture, rechargement ou passage de l'application en arrière-plan.
+  * Relevés manuels dôme/cœur et conseils prudents de stabilisation, sans prétendre piloter automatiquement les évents.
+  * Session active visible dès l'accueil, sauvegardée localement et incluse dans les exports/transferts de données.
+  * Fin de cuisson journalisée automatiquement dans le **Journal de Braises**.
   * **Maintien de l'écran allumé automatique** (Screen Wake Lock API) pour éviter toute mise en veille.
   * **Alertes sonores et retour haptique** (vibrations smartphone à l'échéance).
+
+L'intégration de sondes connectées reste volontairement hors de cette phase : elle fait partie de la future couche d'intégrations matérielles, indépendante des marques.
 
 ### 🚨 Module « SOS Kamado & Dépannage Express »
 * Accès d'urgence immédiat en cas d'aléa thermique :
@@ -89,11 +95,11 @@ L'application fonctionne à 100 % hors connexion grâce aux Service Workers :
 Le projet intègre des contrôles automatisés sur les données, l'expertise culinaire, la PWA et ses parcours critiques :
 
 ```bash
-npm test                    # 66 tests natifs (node --test)
+npm test                    # 73 tests natifs (node --test)
 npm run audit               # Données, métier, éditorial/SEO et budget PWA
 npm run audit:editorial     # Fiches canoniques, guides, sitemap et robots
 npm run audit:quality       # Revue transverse de la qualité des recettes
-node scripts/browser-smoke.js # Chromium : recherche, pages statiques, lien direct, QR et offline
+node scripts/browser-smoke.js # Chromium : recherche, Cook Engine persistant, QR et offline
 ```
 
 Le smoke test navigateur attend le paquet `playwright` dans `NODE_PATH`. La CI l'installe dans un répertoire temporaire afin de préserver l'architecture zéro-build du projet.
