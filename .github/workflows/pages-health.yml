@@ -1,0 +1,29 @@
+name: Pages health
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-public-app:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify GitHub Pages app shell
+        env:
+          APP_URL: https://qevedeveq-art.github.io/kamado
+        run: |
+          set -euo pipefail
+          work_dir="$(mktemp -d)"
+          trap 'rm -rf "$work_dir"' EXIT
+          curl --fail --silent --show-error --location --retry 3 --retry-delay 2 "$APP_URL/" --output "$work_dir/index.html"
+          grep --fixed-strings '<title>Livre de recettes — Kamado</title>' "$work_dir/index.html"
+          curl --fail --silent --show-error --location --retry 3 "$APP_URL/manifest.webmanifest" --output "$work_dir/manifest.webmanifest"
+          curl --fail --silent --show-error --location --retry 3 "$APP_URL/scripts/recipe-links.js" --output "$work_dir/recipe-links.js"
+          curl --fail --silent --show-error --location --retry 3 "$APP_URL/sw.js" --output "$work_dir/sw.js"
+          grep --fixed-strings 'KamadoRecipeLinks' "$work_dir/recipe-links.js"
+          grep --extended-regexp 'const VERSION = "v[0-9]+";' "$work_dir/sw.js"

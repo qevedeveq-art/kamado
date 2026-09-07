@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="apple-touch-icon" href="data:image/png;base64,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">
-<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="./icons/icon-180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="./icons/icon-192.png" sizes="192x192">
 <link rel="manifest" href="./manifest.webmanifest">
 <meta name="theme-color" content="#0d0e0b">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -37,8 +34,8 @@
   --shadow-inset: inset 0 1px 1px rgba(255,255,255,0.05);
   --border-radius-lg: 16px;
   --border-radius-md: 12px;
-  --font-title: 'Outfit', -apple-system, sans-serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-title: Georgia, 'Times New Roman', serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -201,7 +198,8 @@ section { padding: 12px 0 40px; }
 }
 .rc:active { transform: scale(0.98); }
 .rc .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-.rc h3 { font-size: 17px; font-weight: 800; margin: 0 0 4px; line-height: 1.25; color: #fff; font-family: var(--font-title); }
+.rc h2 { font-size: 17px; font-weight: 800; margin: 0 0 4px; line-height: 1.25; color: #fff; font-family: var(--font-title); }
+.card-open { appearance: none; border: 0; padding: 0; background: transparent; color: inherit; font: inherit; line-height: inherit; text-align: left; cursor: pointer; }
 .rc .ori { color: var(--accent2); font-size: 12px; font-weight: 700; }
 .rc .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 12px; }
 .badge {
@@ -832,14 +830,7 @@ td b { color: #fff; }
   All existing class names and layout classes are preserved.
 */
 
-/* ===== GOOGLE FONTS — add to <link> in <head> ===== */
-/*
-  Replace existing Google Fonts href with:
-  https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap
-
-  Fraunces is an optical-size serif with a warm, artisanal inkiness.
-  It replaces Outfit for display/title roles. Plus Jakarta Sans stays for body.
-*/
+/* System font stacks keep the outdoor PWA fast and fully usable offline. */
 
 /* ===== TOKENS ===== */
 :root {
@@ -882,9 +873,9 @@ td b { color: #fff; }
   --shadow-ember:     0 4px 20px rgba(200, 70, 20, 0.28);
 
   /* --- Typography --- */
-  --font-display:     'Fraunces', 'Georgia', serif;
-  --font-title:       'Fraunces', 'Georgia', serif;
-  --font-body:        'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-display:     Georgia, 'Times New Roman', serif;
+  --font-title:       Georgia, 'Times New Roman', serif;
+  --font-body:        -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* --- Geometry (unchanged) --- */
   --border-radius-lg: 16px;
@@ -1115,7 +1106,7 @@ header {
 .rc:active { transform: scale(0.98) translateY(0); }
 
 /* Card title — display serif, parchment tone */
-.rc h3 {
+.rc h2 {
   font-size: 17px;
   font-weight: 700;
   margin: 0 0 4px;
@@ -1710,7 +1701,7 @@ body {
   border-left-color: var(--ember-glow) !important;
 }
 
-.rc h3,
+.rc h2,
 .prose h3,
 td b {
   color: #fff7e8 !important;
@@ -2500,6 +2491,15 @@ header {
   outline-offset: 2px !important;
 }
 
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid rgba(255, 193, 90, .9) !important;
+  outline-offset: 3px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}
+
 .grid {
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)) !important;
   gap: 18px !important;
@@ -2539,7 +2539,7 @@ header {
   background: linear-gradient(90deg, rgba(255,138,50,.75), rgba(255,193,90,.42), transparent 72%) !important;
 }
 
-.rc h3 {
+.rc h2 {
   color: #fff7e8 !important;
   font-size: 18px !important;
   line-height: 1.22 !important;
@@ -2782,7 +2782,7 @@ header {
   color: var(--leaf) !important;
 }
 
-.sheet h4 {
+.sheet h3 {
   color: var(--flame-2) !important;
   font-family: var(--font-title) !important;
   font-size: 16px !important;
@@ -2860,7 +2860,7 @@ header {
     min-height: 215px;
     padding: 17px 18px !important;
   }
-  .rc h3 {
+  .rc h2 {
     font-size: 17px !important;
   }
   .rc .badge {
@@ -2913,7 +2913,7 @@ body.outdoor-mode .rc {
   border-left-width: 6px !important;
 }
 
-body.outdoor-mode .rc h3,
+body.outdoor-mode .rc h2,
 body.outdoor-mode .rc .badge,
 body.outdoor-mode .smartnote,
 body.outdoor-mode .count {
@@ -3545,7 +3545,7 @@ body {
 }
 
 /* Card titles and origin */
-.rc h3 {
+.rc h2 {
   color: #ffffff !important;
   font-weight: 700 !important;
 }
@@ -4440,18 +4440,18 @@ table td.t-temp, table td.t-coeur {
 </section>
 
 <!-- DETAIL -->
-<div class="modal" id="modal"><div class="sheet">
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="d-title" aria-hidden="true"><div class="sheet" tabindex="-1">
   <div class="sheet-head">
-    <button class="back" id="back">‹</button>
+    <button class="back" id="back" aria-label="Fermer la recette">‹</button>
     <h2 id="d-title"></h2>
-    <div class="modal-nav"><button class="nav-arrow" id="dPrev" title="Recette précédente (◀)">‹</button><button class="nav-arrow" id="dNext" title="Recette suivante (▶)">›</button></div>
+    <div class="modal-nav"><button class="nav-arrow" id="dPrev" title="Recette précédente (◀)" aria-label="Recette précédente">‹</button><button class="nav-arrow" id="dNext" title="Recette suivante (▶)" aria-label="Recette suivante">›</button></div>
     <span id="wakeLockStatus" class="wakelock-pill" title="Écran maintenu allumé pour la cuisson">☀️ Écran allumé</span>
   </div>
   <div class="sheet-body" id="d-body"></div>
 </div></div>
 
 <!-- COCKPIT PLEIN ÉCRAN OUTDOOR -->
-<div id="cockpitOverlay" class="cockpit-overlay hide">
+<div id="cockpitOverlay" class="cockpit-overlay hide" role="dialog" aria-modal="true" aria-labelledby="cpRecipeTitle">
   <div class="cockpit-content">
     <div class="cockpit-top">
       <div class="cockpit-rec-title" id="cpRecipeTitle">Titre</div>
@@ -4706,13 +4706,16 @@ table td.t-temp, table td.t-coeur {
   </div>
 </div>
 
+<script src="./scripts/recipe-links.js"></script>
 <script>
 /* ================= DONNÉES RECETTES ================= */
+const { recipeRef, recipeHash, recipeUrl, parseRecipeHash, findRecipeIndex } = window.KamadoRecipeLinks;
 const CATS = [{id:"all",nom:"Tout",e:"🍴"},{id:"boeuf",nom:"Bœuf",e:"🥩"},{id:"porc",nom:"Porc",e:"🐖"},{id:"volaille",nom:"Volaille",e:"🍗"},{id:"agneau",nom:"Agneau & Gibier",e:"🐑"},{id:"poisson",nom:"Poissons & Mer",e:"🐟"},{id:"legumes",nom:"Légumes & Sides",e:"🥗"},{id:"pizza",nom:"Pizzas & Pains",e:"🍕"},{id:"monde",nom:"Cuisines du monde",e:"🌍"},{id:"dessert",nom:"Desserts",e:"🍮"},{id:"vegetarien",nom:"Végétarien",e:"🌱"},{id:"sauces",nom:"Sauces & Marinades",e:"🧂"}];
 
 const RECIPES = [
 /* ===== BŒUF ===== */
 {cat:"boeuf",
+id:"cote-de-boeuf-reverse-sear",
 nom:"Côte de bœuf reverse-sear",
 ori:"France · la cuisson parfaite en 2 temps",
 pour:"3–4 pers",
@@ -4732,6 +4735,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 phases:[{name:"Chauffe indirecte",mode:"indirect",temp_C:120,duration_min:50,action:"Pierre déflectrice. Sonde à cœur, monter doucement jusqu'à 48–50 °C."},{name:"Saisie directe",mode:"direct",temp_C:320,duration_min:8,action:"Braises vives, retirer la pierre. 60–90 s par face + tranches grasses jusqu'à 52–54 °C."}],
 source:"https://www.seriouseats.com/reverse-sear-steak-recipe"},
 {cat:"boeuf",
+id:"entrecote-grillee-maitre-d-hotel",
 nom:"Entrecôte grillée maître d'hôtel",
 ori:"France · grillade directe express",
 pour:"2 pers",
@@ -4751,6 +4755,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 chef_ref:{chef:"Philippe Etchebest",work:"Mes 100 recettes tout simplement (Albin Michel, 2019)",note:"Entrecôte saisie beurre composé : geste bistrot codifié dont Philippe Etchebest (MOF 2000) est la voix médiatique française contemporaine la plus lisible."},
 source:"Escoffier — Le Guide Culinaire (1903), chap. Grillades, entrée « Entrecôte grillée, beurre maître d'hôtel »"},
 {cat:"boeuf",
+id:"brisket-fume-poitrine-de-boeuf",
 nom:"Brisket fumé (poitrine de bœuf)",
 ori:"USA · Texas low & slow, le Graal du BBQ",
 pour:"8–10 pers",
@@ -4774,6 +4779,7 @@ erreurs:["Sonde dans le 'point' (partie grasse) : lecture faussée → planter a
 notes_securite:"Brisket = pièce entière : cuisson à cœur non gouvernée par 63 °C (USDA whole-muscle beef) mais par le rendu collagène (93–96 °C) qui prend plusieurs heures au-dessus de 60 °C — la pasteurisation est garantie de facto. Repos MINIMUM 1 h emballé dans une glacière sèche (holding 60–65 °C) : couper avant = perte massive de jus. Ne jamais servir tiède (<57 °C) : redoux bactérien.",
 source:"Méthode 'Texas low & slow' popularisée par Aaron Franklin (Franklin Barbecue, Austin)"},
 {cat:"boeuf",
+id:"rosbif-roti-a-l-anglaise",
 nom:"Rosbif rôti à l'anglaise",
 ori:"France/UK · rôti du dimanche",
 pour:"5–6 pers",
@@ -4794,6 +4800,7 @@ phases:[{name:"Saisie directe",mode:"direct",temp_C:230,duration_min:5,action:"D
 chef_ref:{chef:"Auguste Escoffier",work:"Le Guide culinaire (Flammarion, 1903)",note:"Rôti de bœuf saignant tranché fin, jus de rôtissage : Escoffier codifie la méthode dans Le Guide culinaire (1903), toujours la base des rôtis français."},
 source:"Larousse Gastronomique 2023, entrée « rosbif »"},
 {cat:"boeuf",
+id:"bavette-a-l-echalote",
 nom:"Bavette à l'échalote",
 ori:"France · bistrot",
 pour:"3–4 pers",
@@ -4813,6 +4820,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 chef_ref:{chef:"Philippe Etchebest",work:"Mes 100 recettes tout simplement (Albin Michel, 2019)",note:"Bavette à l'échalote façon bistrot : plat emblématique du répertoire bistrot que Philippe Etchebest (MOF 2000) défend comme fondamental du bistrot français."},
 source:"Larousse Gastronomique 2023, entrée « bavette à l'échalote »"},
 {cat:"boeuf",
+id:"burgers-smash-maison",
 nom:"Burgers smash maison",
 ori:"USA · le vrai smash burger",
 pour:"4 burgers",
@@ -4833,6 +4841,7 @@ notes_securite:["Viande hachée : cœur à 71 °C impératif (USDA FSIS) — pas
 phases:[{name:"Saisie smash",mode:"direct",temp_C:300,duration_min:3,action:"Plaque fonte incandescente. Écraser la boule à la spatule, croûte Maillard 90 s."},{name:"Retournement fromage",mode:"direct",temp_C:300,duration_min:2,action:"Décoller au triangle, retourner, fromage, cloche 60 s. Sortir à 70 °C à cœur."}],
 source:"https://www.seriouseats.com/the-best-smashed-burgers-recipe"},
 {cat:"boeuf",
+id:"brochettes-de-boeuf-marine",
 nom:"Brochettes de bœuf mariné",
 ori:"France · barbecue convivial",
 pour:"4 pers",
@@ -4851,6 +4860,7 @@ repos_min:5,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/the-best-marinated-grilled-steak-recipe"},
 {cat:"boeuf",
+id:"tomahawk-au-beurre-noisette",
 nom:"Tomahawk au beurre noisette",
 ori:"USA/France · pièce spectacle",
 pour:"2–3 pers",
@@ -4870,6 +4880,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 phases:[{name:"Chauffe indirecte",mode:"indirect",temp_C:120,duration_min:45,action:"Pierre déflectrice. Sonde plantée à cœur jusqu'à 48–50 °C."},{name:"Saisie directe arrosée",mode:"direct",temp_C:320,duration_min:8,action:"Braises vives. 60–90 s par face + bandes grasses, arroser beurre/thym/ail jusqu'à 54 °C."}],
 source:"https://amazingribs.com/tested-recipes/beef-steaks-recipes/tomahawk-steak-recipe/"},
 {cat:"boeuf",
+id:"onglet-grille-sauce-au-poivre",
 nom:"Onglet grillé, sauce au poivre",
 ori:"France · le secret des bouchers",
 pour:"2 pers",
@@ -4888,6 +4899,7 @@ repos_min:5,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/hanger-steak-recipe"},
 {cat:"boeuf",
+id:"joue-de-boeuf-fumee-braisee",
 nom:"Joue de bœuf fumée braisée",
 ori:"France · cuisson lente fondante",
 pour:"4 pers",
@@ -4910,6 +4922,7 @@ equipement:["Cocotte en fonte avec couvercle","Pierre déflectrice","Sonde 2 can
 erreurs:["Braiser sans fumer d'abord : on perd la signature kamado","Liquide à ras des joues : elles bouillent au lieu de braiser → mi-hauteur max","Couper la cuisson à 90 °C : le collagène n'est pas fondu → patientez jusqu'à 96 °C"],
 source:"Yves Camdeborde — 'La Cuisine du Comptoir' (Ed. Marabout, 2007), technique braisage adaptée kamado via amazingribs.com/tested-recipes/beef-recipes/braised-beef-cheeks"},
 {cat:"boeuf",
+id:"pastrami-fume-maison",
 nom:"Pastrami fumé maison",
 ori:"USA/Juif d'Europe centrale · le sandwich de New York",
 pour:"8 pers",
@@ -4935,6 +4948,7 @@ erreurs:["Pas de sel rose : risque botulique réel","Saumure non lestée : viand
 notes_securite:"Sel rose obligatoire pour neutraliser botulisme en saumure longue. Bien doser : 0,25 c.s./kg de viande max.",
 source:"Meathead Goldwyn — amazingribs.com/tested-recipes/beef-recipes/close-katzs-deli-pastrami-recipe (reproduction du pastrami Katz's)"},
 {cat:"boeuf",
+id:"beef-short-ribs-dino-ribs",
 nom:"Beef short ribs « dino ribs »",
 ori:"USA · les côtes de bœuf géantes du Texas",
 pour:"4 pers",
@@ -4959,6 +4973,7 @@ erreurs:["Couper la membrane des os : les os tombent → laisser, elle tient la 
 notes_securite:"Plate short ribs de côtes premières (3-4 os) : durée d'exposition >65 °C >4 h = pasteurisation totale. Ne pas confondre avec les 'flanken cut' (coupe coréenne 1 cm) qui se cuisent 3 min direct. Repos 1 h en holding 60 °C obligatoire pour redistribution des jus intramusculaires très abondants.",
 source:"Texas-style beef ribs, Aaron Franklin / Goldee's BBQ"},
 {cat:"boeuf",
+id:"tri-tip-sauce-santa-maria",
 nom:"Tri-tip sauce Santa Maria",
 ori:"USA · Californie, le secret de la côte Ouest",
 pour:"5 pers",
@@ -4978,6 +4993,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 phases:[{name:"Chauffe indirecte",mode:"indirect",temp_C:120,duration_min:40,action:"Pierre déflectrice. Sonde à cœur jusqu'à 48–50 °C."},{name:"Saisie directe",mode:"direct",temp_C:300,duration_min:8,action:"Braises vives. Toutes faces jusqu'à 54 °C. Trancher perpendiculaire aux deux directions de fibres."}],
 source:"https://amazingribs.com/tested-recipes/beef-and-bison-recipes/santa-maria-tri-tip-recipe/"},
 {cat:"boeuf",
+id:"plat-de-cotes-braise-au-vin",
 nom:"Plat de côtes braisé au vin",
 ori:"France · cuisson lente du dimanche",
 pour:"4 pers",
@@ -5001,6 +5017,7 @@ erreurs:["Saisie négligée : pas de fond aromatique","Vin médiocre : sauce dé
 chef_ref:{chef:"Paul Bocuse",work:"La Cuisine du marché (Flammarion, 1976)",note:"Pot-au-feu bourgeois avec plat de côtes : technique de blanchiment + bouillon clarifié qui reste la référence Bocuse pour cette pièce mijotée."},
 source:"Cuisine bourgeoise française (Pellaprat, Larousse gastronomique)"},
 {cat:"boeuf",
+id:"picanha-entiere-facon-churrasco",
 nom:"Picanha entière façon churrasco",
 ori:"Brésil · gras croustillant et cœur rosé",
 pour:"4–5 pers",
@@ -5020,6 +5037,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 phases:[{name:"Chauffe indirecte",mode:"indirect",temp_C:150,duration_min:45,action:"Pierre déflectrice. Gras vers le haut, sonde à cœur jusqu'à 48–50 °C."},{name:"Saisie directe",mode:"direct",temp_C:280,duration_min:10,action:"Braises vives. Saisir toutes faces, gras qui fond et laque jusqu'à 52–55 °C."}],
 source:"https://www.seriouseats.com/picanha-grilled-brazilian-sirloin-cap-recipe"},
 {cat:"boeuf",
+id:"short-ribs-de-boeuf-facon-texas",
 nom:"Short ribs de bœuf façon Texas",
 ori:"USA · côtes de bœuf fumées",
 pour:"4 pers",
@@ -5042,6 +5060,7 @@ equipement:["Pierre céramique","Papier boucher","Sonde 2 canaux","Vaporisateur"
 erreurs:["Retirer la membrane des os : ils tombent","Sortir à 90 °C : collagène pas fondu","Sauce sucrée : trahison Texas"],
 source:"Texas-style, Aaron Franklin"},
 {cat:"boeuf",
+id:"dino-beef-ribs-travers-de-boeuf-geants-fumes-au-chene",
 nom:"Dino Beef Ribs (travers de bœuf géants fumés au chêne)",
 ori:"Texas · les mythiques beef plate short ribs de 8 heures",
 pour:"6–8 pers",
@@ -5081,6 +5100,7 @@ notes_securite:"Grosses pièces riches en tissu conjonctif : longue exposition (
 source:"Aaron Franklin — Franklin Barbecue: A Meat-Smoking Manifesto",
 sauce:"Sauce barbecue maison (Kansas City) | Chimichurri argentin"},
 {cat:"boeuf",
+id:"onglet-yakitori-au-binchotan-maison",
 nom:"Onglet yakitori au binchotan maison",
 ori:"Japon/fusion · brochettes de bœuf",
 pour:"4 pers",
@@ -5101,6 +5121,7 @@ notes_securite:"USDA/FSIS : bœuf whole muscle = 63 °C recommandé, saignant 52
 source:"https://www.seriouseats.com/yakitori-japanese-grilled-chicken-skewers-recipe",
 sauce:"Tare yakitori réduite : soja, mirin, saké, sucre et gingembre"},
 {cat:"boeuf",
+id:"cote-de-boeuf-caveman-sur-braises",
 nom:"Côte de bœuf caveman sur braises",
 ori:"USA · saisie primitive contrôlée",
 pour:"4 pers",
@@ -5125,6 +5146,7 @@ notes_securite:"Technique 'caveman' (Alton Brown) : côte de bœuf posée DIRECT
 source:"Francis Mallmann — 'Seven Fires: Grilling the Argentine Way' (Artisan Books, 2009), technique caveman/rescoldo",
 sauce:"Beurre maître d'hôtel ou chimichurri"},
 {cat:"boeuf",
+id:"burnt-ends-de-poitrine-de-boeuf",
 nom:"Burnt ends de poitrine de bœuf",
 ori:"Kansas City · cubes confits fumés",
 pour:"6 pers",
@@ -5150,6 +5172,7 @@ notes_securite:"Burnt ends = point (partie grasse) du brisket coupé en cubes de
 source:"Steven Raichlen — 'Project Smoke' (Workman, 2016), chap. Kansas City burnt ends ; voir aussi amazingribs.com/tested-recipes/beef-brisket-recipes/burnt-ends",
 sauce:"Sauce BBQ épaisse + jus de cuisson réduit"},
 {cat:"boeuf",
+id:"bistecca-alla-fiorentina-t-bone",
 nom:"Bistecca alla Fiorentina (T-bone)",
 ori:"Italie · la reine de Florence sur braises",
 pour:"2–4 pers",
@@ -5171,6 +5194,7 @@ phases:[{name:"Saisie directe",mode:"direct",temp_C:300,duration_min:9,action:"B
 source:"https://www.seriouseats.com/bistecca-alla-fiorentina-recipe",
 sauce:"Beurre maître d'hôtel | Beurre de piment fumé (Chipotle)"},
 {cat:"boeuf",
+id:"picanha-au-sel-de-gros-churrasco",
 nom:"Picanha au sel de gros (churrasco)",
 ori:"Brésil · capello da padre saisi sur braises",
 pour:"4–5 pers",
@@ -5194,6 +5218,7 @@ erreurs:["Trop saler trop tôt (>1h) : la viande perd ses jus → saler max 30 m
 source:"https://www.seriouseats.com/grilled-picanha-brazilian-barbecue-recipe",
 sauce:"Chimichurri argentin"},
 {cat:"boeuf",
+id:"tomahawk-reverse-sear",
 nom:"Tomahawk reverse-sear",
 ori:"USA · côte à os long de 5 cm d'épaisseur",
 pour:"3–4 pers",
@@ -5218,6 +5243,7 @@ erreurs:["Sonde plantée contre l'os : lecture faussée vers le bas → planter 
 source:"Méthode reverse-sear popularisée par J. Kenji López-Alt (Serious Eats)",
 sauce:"Beurre maître d'hôtel échalote-persil"},
 {cat:"boeuf",
+id:"paleron-de-boeuf-fume-facon-brisket-smoked-chuck-roast",
 nom:"Paleron de bœuf fumé façon Brisket (Smoked Chuck Roast)",
 ori:"USA / BBQ contemporain · le substitut parfait de la poitrine pour 4 à 6 personnes",
 pour:"5–6 pers",
@@ -5256,6 +5282,7 @@ notes_securite:"Morceau gélatineux riche en collagène : nécessite une cuisson
 source:"AmazingRibs.com — Smoked Chuck Roast 'Poor Man’s Brisket'",
 sauce:"Sauce barbecue maison (Kansas City) | Sauce au poivre vert"},
 {cat:"boeuf",
+id:"boeuf-bourguignon-au-kamado",
 nom:"Bœuf bourguignon au kamado",
 ori:"France · Bourgogne, braisé vin rouge",
 pour:"6 pers",
@@ -5280,6 +5307,7 @@ erreurs:["Viande mal séchée avant saisie : elle bout au lieu de brunir, sauce 
 chef_ref:{chef:"Paul Bocuse",work:"La Cuisine du marché (Flammarion, 1976)",note:"Bœuf bourguignon avec marinade au vin rouge, glaçage des oignons grelot à brun et champignons sautés séparément : codification bocusienne du plat bourguignon, respectée ici sur kamado."},
 source:"Paul Bocuse — 'La Cuisine du marché' (Flammarion, 1976), chap. bœuf bourguignon"},
 {cat:"boeuf",
+id:"pot-au-feu-bourgeois-au-kamado",
 nom:"Pot-au-feu bourgeois au kamado",
 ori:"France · plat national mijoté",
 pour:"6 pers",
@@ -5303,6 +5331,7 @@ erreurs:["Faire bouillir au lieu de frémir : viande sèche, bouillon trouble �
 chef_ref:{chef:"Paul Bocuse",work:"La Cuisine du marché (Flammarion, 1976)",note:"Pot-au-feu bourgeois avec blanchiment préalable des viandes, bouillon clarifié et os à moelle en gaze : version codifiée par Bocuse et référence pédagogique française."},
 source:"Paul Bocuse — 'La Cuisine du marché' (Flammarion, 1976), chap. pot-au-feu bourgeois"},
 {cat:"boeuf",
+id:"daube-provencale-au-kamado",
 nom:"Daube provençale au kamado",
 ori:"France · Provence, mijoté au vin rouge & orange",
 pour:"6 pers",
@@ -5326,6 +5355,7 @@ substitutions:[{ingredient:"Paleron",par:"Joue de bœuf, jarret désossé ou mac
 erreurs:["Marinade trop courte (<12 h) : goût plat, chair peu parfumée → 24 h obligatoires","Zeste avec la partie blanche : amertume désagréable → économe rasant seulement l'écorce orange","Olives ajoutées dès le début : elles deviennent amères et poussiéreuses → dernière 30 min","Ébullition franche : viande sèche → 145 °C indirect couvercle fermé"],
 source:"Larousse Gastronomique 2023, entrée « daube provençale » ; adaptation kamado inspirée de Reine Sammut (chef provençal)"},
 {cat:"boeuf",
+id:"blanquette-de-veau-au-kamado",
 nom:"Blanquette de veau au kamado",
 ori:"France · plat bourgeois classique",
 pour:"6 pers",
@@ -5351,6 +5381,7 @@ source:"Auguste Escoffier — 'Le Guide culinaire' (Flammarion, 1903), chap. bla
 
 /* ===== PORC ===== */
 {cat:"porc",
+id:"pulled-pork-echine-effilochee",
 nom:"Pulled pork (échine effilochée)",
 ori:"USA · le roi du low & slow",
 pour:"8–10 pers",
@@ -5374,6 +5405,7 @@ erreurs:["Sortir trop tôt (<92 °C) : difficile à effilocher, fibres dures →
 notes_securite:"Épaule entière : la longue exposition >60 °C pasteurise complètement, la 'zone danger' 4–60 °C ne doit pas dépasser 4 h cumulées. Repos MINIMUM 45 min emballé dans glacière sèche pour redistribution — effilocher trop tôt = sécheresse. Servir >63 °C. Sauce vinaigrée (mustard/Carolina) à ajouter au moment du service, pas en cuisson (elle brûle).",
 source:"https://amazingribs.com/tested-recipes/pork-recipes/last-meal-pulled-pork-recipe/"},
 {cat:"porc",
+id:"travers-de-porc-glaces-ribs",
 nom:"Travers de porc glacés (ribs)",
 ori:"USA · méthode 3-2-1",
 pour:"4 pers",
@@ -5396,6 +5428,7 @@ erreurs:["Garder la membrane sous les côtes : empêche la fumée de pénétrer 
 notes_securite:"Costillar de porc travers : cuisson lente >60 °C garantit la sécurité. Test du 'bend' : soulever la rack avec pince, elle doit fléchir à 90° et fissurer légèrement en surface. Test du cure-dent entre 2 os : glisse comme dans du beurre chaud. Ne pas dépasser 1 h à découvert phase 3 : sur-cuisson = viande qui tombe (fall-off-the-bone est un défaut compétition).",
 source:"https://amazingribs.com/tested-recipes/pork-recipes/last-meal-ribs/"},
 {cat:"porc",
+id:"carre-de-porc-roti-aux-herbes",
 nom:"Carré de porc rôti aux herbes",
 ori:"France · rôti généreux",
 pour:"5–6 pers",
@@ -5414,6 +5447,7 @@ repos_min:10,
 vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 source:"Larousse Gastronomique 2023, entrée « carré de porc rôti »"},
 {cat:"porc",
+id:"filet-mignon-fume-au-miel",
 nom:"Filet mignon fumé au miel",
 ori:"France · tendre et parfumé",
 pour:"4 pers",
@@ -5436,6 +5470,7 @@ equipement:["Pierre déflectrice","Sonde fine","Pinceau à miel","Cerisier"],
 erreurs:["Sortir à 70 °C : filet sec","Miel dès le début : brûle","Pas de marinade : aromatique pauvre"],
 source:"Reverse-sear popularisé par Meathead Goldwyn (AmazingRibs.com)"},
 {cat:"porc",
+id:"poitrine-de-porc-croustillante",
 nom:"Poitrine de porc croustillante",
 ori:"Asie/France · peau soufflée",
 pour:"4 pers",
@@ -5455,6 +5490,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 phases:[{name:"Rendu du gras indirect",mode:"indirect",temp_C:150,duration_min:90,action:"Pierre déflectrice, couenne sèche vers le haut. Sonde à cœur jusqu'à 72 °C."},{name:"Croustillance directe",mode:"direct",temp_C:250,duration_min:20,action:"Retirer la pierre. Couenne côté feu, souffler jusqu'au pop-corn craquant. Cœur 75 °C."}],
 source:"https://www.seriouseats.com/crispy-slow-roasted-pork-belly-recipe"},
 {cat:"porc",
+id:"echine-marinee-a-la-biere",
 nom:"Échine marinée à la bière",
 ori:"France · grillade du week-end",
 pour:"4 pers",
@@ -5474,6 +5510,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 phases:[{name:"Saisie directe",mode:"direct",temp_C:220,duration_min:6,action:"Grille directe, marquer chaque face 90 s pour la croûte Maillard."},{name:"Réduction marinade",mode:"préparation",temp_C:100,duration_min:2,action:"Porter la marinade à ébullition 2 min avant de l'utiliser en laque."},{name:"Finition indirecte",mode:"indirect",temp_C:220,duration_min:13,action:"Décaler côté indirect. Sonde à 68 °C, la marinade bouillie continue à laquer sans brûler."}],
 source:"https://www.biggreenegg.eu/en/inspiration/recipes/pork-neck-in-beer-marinade"},
 {cat:"porc",
+id:"saucisses-chipolatas-grillees",
 nom:"Saucisses & chipolatas grillées",
 ori:"France · le classique convivial",
 pour:"6 pers",
@@ -5492,6 +5529,7 @@ repos_min:5,
 vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 source:"Larousse Gastronomique 2023, entrée « saucisse, chipolata »"},
 {cat:"porc",
+id:"porchetta-roulee-aux-herbes",
 nom:"Porchetta roulée aux herbes",
 ori:"Italie · rôti de fête",
 pour:"8 pers",
@@ -5514,6 +5552,7 @@ equipement:["Ficelle de boucher","Pierre déflectrice","Sonde 2 canaux"],
 erreurs:["Ficelage lâche : roulé qui s'ouvre","Croustillage trop fort : couenne carbonise","Pas de repos : jus partout au tranchage"],
 source:"Kenji López-Alt — seriouseats.com/porchetta-italian-herb-stuffed-roast-pork-recipe"},
 {cat:"porc",
+id:"jambonneau-fume-glace",
 nom:"Jambonneau fumé glacé",
 ori:"France/Allemagne · pièce rustique",
 pour:"4 pers",
@@ -5537,6 +5576,7 @@ equipement:["Bac saumure","Pierre déflectrice","Pinceau à glace","Hêtre sec"]
 erreurs:["Saumure trop salée : jambon immangeable","Glaçage trop tôt : sucre brûle","Pas de pellicule : la fumée glisse"],
 source:"Meathead Goldwyn — 'Meathead: The Science of Great Barbecue and Grilling' (Rux Martin/Houghton Mifflin, 2016), chap. ham & pork shoulder"},
 {cat:"porc",
+id:"pork-belly-burnt-ends",
 nom:"Pork belly burnt ends",
 ori:"USA · les « bouchées brûlées », bonbons de BBQ",
 pour:"6 pers",
@@ -5560,6 +5600,7 @@ equipement:["Pierre déflectrice","Bac aluminium","Couteau de boucher","Sonde"],
 erreurs:["Cubes trop petits : ils sèchent","Glaçage trop épais : pâteux","Pas de gras dans la poitrine : burnt ends secs"],
 source:"Matt Pittman — meatchurch.com/blogs/recipes/pork-belly-burnt-ends"},
 {cat:"porc",
+id:"baby-back-ribs-facon-memphis",
 nom:"Baby back ribs façon Memphis",
 ori:"USA · Memphis, les ribs au rub sec",
 pour:"4 pers",
@@ -5584,6 +5625,7 @@ erreurs:["Ajout de sauce en cuisson : hérésie Memphis → sauce servie à côt
 notes_securite:"Style Memphis 'dry' = jamais wrap, jamais sauce en cuisson — juste rub sec et fumée longue. Test 'bend' : soulever la rack à la pince, elle fléchit à 45–60° et fissure. Servir avec sauce à côté ('sauce on the side'). Ne pas confondre avec KC style (sauce sucrée en cuisson).",
 source:"Steven Raichlen — 'BBQ USA' (Workman, 2003), chap. Memphis dry ribs (Charles Vergos' Rendezvous)"},
 {cat:"porc",
+id:"carolina-pulled-pork-sauce-vinaigree",
 nom:"Carolina pulled pork (sauce vinaigrée)",
 ori:"USA · Caroline du Nord, le pulled pork acidulé",
 pour:"10 pers",
@@ -5609,6 +5651,7 @@ erreurs:["Stopper à 88 °C : la viande ne s'effiloche pas → 95 °C impératif
 notes_securite:"Style Carolina : sauce vinaigrée (Eastern NC = vinaigre + piment, Lexington = ketchup + vinaigre, SC = moutarde jaune). Ajouter la sauce APRÈS effilochage, jamais en cuisson. Long cook >12 h à 105–115 °C : pasteurisation totale garantie. Éviter d'ajouter du liquide dans la lèchefrite avant la 4e heure (perturbe le bark).",
 source:"John Shelton Reed & Dale Volberg Reed — 'Holy Smoke: The Big Book of North Carolina Barbecue' (UNC Press, 2008)"},
 {cat:"porc",
+id:"travers-de-porc-laques-aigre-doux",
 nom:"Travers de porc laqués aigre-doux",
 ori:"Chine · char siu de côtes",
 pour:"4 pers",
@@ -5631,6 +5674,7 @@ equipement:["Pierre déflectrice","Pinceau à sauce","Bac à marinade"],
 erreurs:["Laque dès indirect : brûle","Travers non aplatis : cuisson inégale","Sauce trop liquide : pas de brillance"],
 source:"Fuchsia Dunlop — 'Every Grain of Rice' (W.W. Norton, 2012), technique char siu adaptée ; voir aussi seriouseats.com/char-siu-chinese-bbq-pork-recipe"},
 {cat:"porc",
+id:"cote-de-porc-tomahawk-saumuree",
 nom:"Côte de porc tomahawk saumurée",
 ori:"France/USA · côte épaisse ultra juteuse",
 pour:"2 pers",
@@ -5650,6 +5694,7 @@ vents:{bottom:"1/3 ouvert puis grand ouvert",top:"1/3 ouvert puis grand ouvert"}
 phases:[{name:"Chauffe indirecte",mode:"indirect",temp_C:150,duration_min:40,action:"Pierre déflectrice. Sonde à cœur, cible 58–60 °C avant la saisie."},{name:"Saisie directe",mode:"direct",temp_C:260,duration_min:8,action:"Retirer la pierre. Toutes faces + os, jusqu'à 63–65 °C. Repos 3 min avant tranche."}],
 source:"https://www.seriouseats.com/the-food-lab-the-best-way-to-cook-thick-cut-pork-chops"},
 {cat:"porc",
+id:"ribs-asiatiques-au-cinq-epices",
 nom:"Ribs asiatiques au cinq-épices",
 ori:"Chine/USA · travers laqués",
 pour:"4 pers",
@@ -5674,6 +5719,7 @@ erreurs:["Membrane non retirée : ribs caoutchouteuses","Laque dès le début : 
 source:"Kenji López-Alt — seriouseats.com/chinese-style-glazed-pork-ribs-recipe (ribs cinq-épices)",
 sauce:"Laque hoisin-miel-soja avec vinaigre de riz"},
 {cat:"porc",
+id:"banh-mi-de-porc-grille",
 nom:"Banh mi de porc grillé",
 ori:"Vietnam · sandwich au kamado",
 pour:"4 pers",
@@ -5694,6 +5740,7 @@ notes_securite:"USDA/FSIS : porc whole muscle = 63 °C + 3 min. Poitrine ou éch
 source:"https://www.seriouseats.com/banh-mi-vietnamese-sandwich-with-grilled-pork-recipe",
 sauce:"Mayonnaise sriracha-citron vert"},
 {cat:"porc",
+id:"poitrine-de-porc-miso-erable-en-cubes",
 nom:"Poitrine de porc miso-érable en cubes",
 ori:"Japon/Canada · cubes fumés umami",
 pour:"6 pers",
@@ -5718,6 +5765,7 @@ erreurs:["Cubes trop petits : sèchent → 3 cm mini","Glaçage trop tôt : cara
 source:"Matt Pittman — meatchurch.com/blogs/recipes/pork-belly-burnt-ends, fusion miso inspirée de Ivan Orkin 'Ivan Ramen' (Ten Speed Press, 2013)",
 sauce:"Laque miso-érable, soja et vinaigre de riz"},
 {cat:"porc",
+id:"filet-mignon-farci-chorizo-manchego",
 nom:"Filet mignon farci chorizo-manchego",
 ori:"Espagne · porc roulé fumé",
 pour:"4 pers",
@@ -5739,6 +5787,7 @@ phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:160,duration_min:30,act
 source:"https://amazingribs.com/tested-recipes/pork-recipes/stuffed-pork-tenderloin-recipe/",
 sauce:"Crème poivron grillé-paprika"},
 {cat:"porc",
+id:"lechon-asado-porc-roti-cubain",
 nom:"Lechón asado (porc rôti cubain)",
 ori:"Cuba · poitrine ou épaule de porc croustillante au mojo",
 pour:"6–8 pers",
@@ -5762,6 +5811,7 @@ erreurs:["Pas d'injection : marinade superficielle uniquement","Croustillage tro
 source:"Ana Sofía Peláez — 'The Cuban Table' (St. Martin's Press, 2014), chap. lechón asado avec mojo criollo",
 sauce:"Mojo aux agrumes"},
 {cat:"porc",
+id:"porchetta-italienne-poitrine-roulee-24h",
 nom:"Porchetta italienne (poitrine roulée 24h)",
 ori:"Italie · Lazio · poitrine et longe roulées aux herbes",
 pour:"8–10 pers",
@@ -5786,6 +5836,7 @@ erreurs:["Couenne humide au moment du sear : pas de cloquage → séchage 24 h o
 source:"Steven Raichlen — barbecuebible.com/recipe/porchetta (adaptation kamado de la tradition d'Ariccia)",
 sauce:"Sauce verte italienne (salsa verde)"},
 {cat:"porc",
+id:"cassoulet-toulousain-au-kamado",
 nom:"Cassoulet toulousain au kamado",
 ori:"France · Toulouse, haricots blancs, canard confit et croûte gratinée",
 pour:"8 pers",
@@ -5810,6 +5861,7 @@ notes_securite:"USDA/FSIS : saucisse de porc fraîche (haché sous boyau) = 70 �
 chef_ref:{chef:"Auguste Escoffier",work:"Le Guide culinaire (Flammarion, 1903)",note:"Cassoulet toulousain codifié par Escoffier dans Le Guide culinaire : haricots blancs + confit de canard + saucisse de Toulouse + croûte cassée et enfoncée plusieurs fois — respect strict de la tradition sur kamado."},
 source:"Auguste Escoffier — 'Le Guide culinaire' (Flammarion, 1903), chap. cassoulet toulousain ; adaptation kamado inspirée de Prosper Montagné (Larousse Gastronomique)"},
 {cat:"porc",
+id:"choucroute-garnie-alsacienne-au-kamado",
 nom:"Choucroute garnie alsacienne au kamado",
 ori:"France · Alsace, chou fermenté et charcuteries",
 pour:"6 pers",
@@ -5833,6 +5885,7 @@ erreurs:["Choucroute non rincée : sel excessif, plat immangeable → rinçage �
 notes_securite:"USDA/FSIS : jarret de porc (pièce entière) = 63 °C + 3 min repos ; saucisses fraîches ou fumées (Strasbourg, Montbéliard) = 70 °C à cœur pour toute chair hachée. La choucroute est un aliment fermenté sûr, mais restes à refroidir <4 °C en moins de 2 h. Réchauffage à ≥ 72 °C. Ne jamais dépasser 2 réchauffages successifs (risque de développement de spores Bacillus cereus). Choucroute réchauffée = meilleure au 2ᵉ jour, mais consommer sous 72 h maximum.",
 source:"Larousse Gastronomique 2023, entrée « choucroute garnie alsacienne » ; méthode traditionnelle Winstub de Strasbourg"},
 {cat:"porc",
+id:"travers-de-porc-turbo-ribs",
 nom:"Travers de porc « Turbo Ribs »",
 ori:"USA · méthode rapide de compétition",
 pour:"4 pers",
@@ -5859,6 +5912,7 @@ source:"https://amazingribs.com/tested-recipes/pork-recipes/sweet-baby-rays-barb
 
 /* ===== VOLAILLE ===== */
 {cat:"volaille",
+id:"poulet-entier-a-la-cannette-beer-can",
 nom:"Poulet entier à la cannette (beer can)",
 ori:"USA · poulet vapeur-rôti spectaculaire",
 pour:"4 pers",
@@ -5881,6 +5935,7 @@ erreurs:["Cuisson à 74 °C au blanc : sur-cuit → mesurer à la cuisse","Canet
 notes_securite:"USDA/FSIS : volaille entière = 74 °C à cœur cuisse OBLIGATOIRE (Salmonella, Campylobacter). Ne jamais consommer un poulet <74 °C à la cuisse même si la peau est dorée. Sonde plantée dans la partie la plus épaisse de la cuisse SANS toucher l'os (fausserait la mesure). La canette n'apporte AUCUNE saveur — c'est un mythe (Meathead Goldwyn) — sert uniquement de support vertical. Prudence : la bière chaude ne bout pas (65 °C max dans la canette), aucun risque d'explosion à 160 °C ambiant. Ne jamais réutiliser la canette (émail intérieur détérioré).",
 source:"https://amazingribs.com/tested-recipes/chicken-and-poultry-recipes/beer-can-chicken-recipe/"},
 {cat:"volaille",
+id:"poulet-crapaudine-spatchcock",
 nom:"Poulet crapaudine (spatchcock)",
 ori:"France/USA · cuisson rapide & homogène",
 pour:"4 pers",
@@ -5901,6 +5956,7 @@ notes_securite:"USDA/FSIS : volaille = 74 °C cuisse OBLIGATOIRE. La technique s
 phases:[{name:"Cuisson indirecte peau vers le haut",mode:"indirect",temp_C:190,duration_min:40,action:"Pierre déflectrice. Sonde plantée dans la cuisse jusqu'à 68–70 °C."},{name:"Croustillance directe",mode:"direct",temp_C:190,duration_min:10,action:"Retirer la pierre, peau côté feu. Colorer jusqu'à 74 °C à la cuisse, jus clair."}],
 source:"https://www.seriouseats.com/spatchcocked-butterflied-roast-chicken-recipe"},
 {cat:"volaille",
+id:"magret-de-canard-peau-croustillante",
 nom:"Magret de canard, peau croustillante",
 ori:"France · Sud-Ouest",
 pour:"2 pers",
@@ -5921,6 +5977,7 @@ notes_securite:"Standard USDA 74 °C pour la volaille cuite. Dérogation culinai
 chef_ref:{chef:"Hélène Darroze",work:"Personne ne me suivra jamais dans ma cuisine (Cherche Midi, 2018)",note:"Magret rosé peau croustillante quadrillée, technique landaise : Hélène Darroze (4 générations landaises) reste la voix française la plus reconnue pour cette cuisson."},
 source:"https://www.seriouseats.com/pan-seared-duck-breast-recipe"},
 {cat:"volaille",
+id:"cuisses-de-poulet-marinees-citron-thym",
 nom:"Cuisses de poulet marinées citron-thym",
 ori:"France · économique et savoureux",
 pour:"4 pers",
@@ -5941,6 +5998,7 @@ notes_securite:"USDA/FSIS : cuisse de volaille = 74 °C à cœur près de l'os O
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:190,duration_min:30,action:"Pierre déflectrice, cuisses peau vers le haut. Sonde près de l'os jusqu'à 70 °C."},{name:"Croustillance directe",mode:"direct",temp_C:190,duration_min:8,action:"Peau côté feu pour dorer jusqu'à 74 °C. Attention aux flambées du jus."}],
 source:"https://cooking.nytimes.com/recipes/1017256-grilled-lemon-thyme-chicken-thighs"},
 {cat:"volaille",
+id:"ailes-de-poulet-buffalo",
 nom:"Ailes de poulet Buffalo",
 ori:"USA · l'apéro BBQ par excellence",
 pour:"4 pers",
@@ -5961,6 +6019,7 @@ notes_securite:"USDA/FSIS : ailes = 74 °C à cœur (partie charnue près articu
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:190,duration_min:25,action:"Pierre déflectrice, ailes espacées, peau saupoudrée levure chimique. Sonde jusqu'à 70 °C."},{name:"Croustillance directe",mode:"direct",temp_C:190,duration_min:10,action:"Retirer la pierre. Retourner régulièrement jusqu'à 74 °C, croûte croustillante. Sauce hors feu."}],
 source:"https://www.seriouseats.com/the-best-buffalo-wings-food-lab-recipe"},
 {cat:"volaille",
+id:"pintade-rotie-aux-marrons",
 nom:"Pintade rôtie aux marrons",
 ori:"France · volaille de fête",
 pour:"4 pers",
@@ -5985,6 +6044,7 @@ notes_securite:"USDA/FSIS : gibier à plumes d'élevage (pintade, faisan) = 74 �
 chef_ref:{chef:"Georges Blanc",work:"Le Grand Livre de Cuisine Bressane et Lyonnaise (Éditions Robert Laffont, 1988)",note:"Volaille rôtie sur peau (démarche bressane) : Georges Blanc (3 étoiles ininterrompues depuis 1981 à Vonnas) est la référence française sur la volaille de Bresse rôtie."},
 source:"Joël Robuchon — 'Le Grand Livre de Cuisine' (Alain Ducasse Ed., 2001), recette pintade aux marrons"},
 {cat:"volaille",
+id:"chapon-dinde-roti-des-fetes",
 nom:"Chapon/dinde rôti des fêtes",
 ori:"France · la grande pièce de Noël",
 pour:"8–10 pers",
@@ -6010,6 +6070,7 @@ notes_securite:"USDA/FSIS : volaille farcie = 74 °C à cœur DE LA FARCE (pas s
 chef_ref:{chef:"Georges Blanc",work:"Le Grand Livre de Cuisine Bressane et Lyonnaise (Éditions Robert Laffont, 1988)",note:"Grande volaille de fête rôtie : Georges Blanc reste la référence française pour la cuisson longue peau tendue d'une volaille de Bresse festive."},
 source:"Kenji López-Alt — seriouseats.com/food-lab-complete-guide-to-buying-prepping-brining-seasoning-roasting-thanksgiving-turkey"},
 {cat:"volaille",
+id:"coquelet-crapaudine-a-l-ail",
 nom:"Coquelet crapaudine à l'ail",
 ori:"France · format individuel",
 pour:"2 pers",
@@ -6029,6 +6090,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 notes_securite:"USDA/FSIS : coquelet (poulet <1 kg) = 74 °C cuisse OBLIGATOIRE. Cuisson rapide (25 min) demande une T° ambiante précisément stable — utiliser thermomètre grille. Piquer la cuisse au couteau si sonde indisponible : le jus doit être limpide.",
 source:"https://www.seriouseats.com/butterflied-roast-chicken-with-quick-jus-recipe"},
 {cat:"volaille",
+id:"poulet-peri-peri",
 nom:"Poulet peri-peri",
 ori:"Mozambique/Portugal/Afrique du Sud · piment africain",
 pour:"4 pers",
@@ -6049,6 +6111,7 @@ notes_securite:"USDA/FSIS : volaille = 74 °C cuisse. Réserver la sauce de serv
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:190,duration_min:30,action:"Pierre déflectrice, crapaudiné peau vers le haut. Sonde cuisse jusqu'à 70 °C."},{name:"Croustillance directe",mode:"direct",temp_C:230,duration_min:15,action:"Retirer la pierre, peau côté feu. Badigeonner avec sauce peri-peri propre jusqu'à 74 °C."}],
 source:"https://www.seriouseats.com/grilled-peri-peri-chicken-recipe"},
 {cat:"volaille",
+id:"shish-taouk-brochettes-libanaises",
 nom:"Shish taouk (brochettes libanaises)",
 ori:"Liban/Levant · brochettes au yaourt",
 pour:"4 pers",
@@ -6068,6 +6131,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:["Cœur à 74 °C minimum, mesuré au plus épais de la cuisse (USDA FSIS)","Chaîne du froid stricte : ne jamais laisser plus de 2 h à température ambiante (1 h si >30 °C)","Nettoyer immédiatement planche, ustensiles et surfaces après contact avec la volaille crue (Salmonella/Campylobacter)","Ne jamais réutiliser la marinade crue pour badigeonner en fin de cuisson : réserver une portion propre ou la bouillir 2 min"],
 source:"https://www.seriouseats.com/shish-taouk-lebanese-grilled-chicken-skewers-recipe"},
 {cat:"volaille",
+id:"cuisses-de-poulet-teriyaki",
 nom:"Cuisses de poulet teriyaki",
 ori:"Japon · laque soja-mirin",
 pour:"4 pers",
@@ -6088,6 +6152,7 @@ notes_securite:["Cœur à 74 °C minimum, mesuré au plus épais de la cuisse (U
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:190,duration_min:25,action:"Pierre déflectrice, peau vers le haut. Sonde près de l'os jusqu'à 74 °C, collagène qui fond."},{name:"Laquage direct",mode:"direct",temp_C:190,duration_min:10,action:"Retirer la pierre. Badigeonner teriyaki en 3 couches, laisser caraméliser jusqu'à 80 °C."}],
 source:"https://www.seriouseats.com/real-deal-chicken-teriyaki-recipe"},
 {cat:"volaille",
+id:"poulet-shawarma-au-kamado",
 nom:"Poulet shawarma au kamado",
 ori:"Levant · épices chaudes et sauce blanche",
 pour:"4 pers",
@@ -6108,6 +6173,7 @@ notes_securite:["Cœur à 74 °C minimum, mesuré au plus épais de la cuisse (U
 phases:[{name:"Saisie directe",mode:"direct",temp_C:220,duration_min:8,action:"Bloc de cuisses empilées sur pique. Colorer toutes faces pour la croûte épicée."},{name:"Cuisson indirecte",mode:"indirect",temp_C:220,duration_min:22,action:"Décaler indirect. Sonde au cœur du bloc jusqu'à 75 °C, trancher les couches externes au fur et à mesure."}],
 source:"https://cooking.nytimes.com/recipes/1017256-oven-roasted-chicken-shawarma"},
 {cat:"volaille",
+id:"poulet-jerk-jamaicain",
 nom:"Poulet jerk jamaïcain",
 ori:"Jamaïque · épicé et fumé",
 pour:"4 pers",
@@ -6129,6 +6195,7 @@ phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:180,duration_min:40,act
 source:"https://www.seriouseats.com/jamaican-jerk-chicken-recipe",
 sauce:"Sauce jerk fraîche : citron vert, oignon nouveau, thym et piment"},
 {cat:"volaille",
+id:"brochettes-de-dinde-satay",
 nom:"Brochettes de dinde satay",
 ori:"Indonésie · grillade minute",
 pour:"4 pers",
@@ -6149,6 +6216,7 @@ notes_securite:"USDA/FSIS : dinde = 74 °C à cœur. Marinade satay (arachide, c
 source:"https://www.seriouseats.com/chicken-satay-with-peanut-sauce-recipe",
 sauce:"Sauce satay cacahuète, lait de coco, soja et citron vert"},
 {cat:"volaille",
+id:"canard-entier-laque-orange-soja",
 nom:"Canard entier laqué orange-soja",
 ori:"France/Asie · peau brillante",
 pour:"4 pers",
@@ -6173,6 +6241,7 @@ notes_securite:"USDA/FSIS : volaille entière = 74 °C cuisse. Canard exception 
 source:"Fuchsia Dunlop — 'The Food of Sichuan' (Bloomsbury, 2019) et technique canard laqué de Beijing via https://www.seriouseats.com/peking-duck",
 sauce:"Réduction orange-soja-miel au jus de canard"},
 {cat:"volaille",
+id:"yakitori-de-cuisses-de-poulet",
 nom:"Yakitori de cuisses de poulet",
 ori:"Japon · brochettes laquées",
 pour:"4 pers",
@@ -6193,6 +6262,7 @@ notes_securite:["Cœur à 74 °C minimum, mesuré au plus épais de la cuisse (U
 source:"https://www.seriouseats.com/yakitori-japanese-grilled-chicken-skewers-recipe",
 sauce:"Tare yakitori soja-mirin-saké"},
 {cat:"volaille",
+id:"magret-de-canard-fume-seche-charcuterie",
 nom:"Magret de canard fumé-séché (charcuterie)",
 ori:"Sud-Ouest France · technique de séchoir de Pierre Wynants",
 pour:"4 pers (apéritif/charcuterie)",
@@ -6216,6 +6286,7 @@ chef_ref:{chef:"Yves Camdeborde",work:"Le Bistrot d'à côté (Éditions de La M
 source:"Michael Ruhlman & Brian Polcyn — 'Charcuterie: The Craft of Salting, Smoking, and Curing' (W.W. Norton, 2005), chap. duck breast prosciutto",
 sauce:"À déguster nature ou avec confit d'oignon"},
 {cat:"volaille",
+id:"coq-au-vin-au-kamado",
 nom:"Coq au vin au kamado",
 ori:"France · Bourgogne, volaille braisée au vin rouge",
 pour:"6 pers",
@@ -6241,6 +6312,7 @@ notes_securite:"USDA/FSIS : volaille = 74 °C à la cuisse (partie la plus épai
 chef_ref:{chef:"Paul Bocuse",work:"La Cuisine du marché (Flammarion, 1976)",note:"Coq au vin avec marinade 12 h, flambage au cognac, roux blond, garniture d'oignons grelot glacés et champignons sautés séparément : version codifiée par Bocuse, référence pédagogique française."},
 source:"Paul Bocuse — 'La Cuisine du marché' (Flammarion, 1976), chap. coq au vin de Bourgogne"},
 {cat:"volaille",
+id:"confit-de-canard-au-kamado",
 nom:"Confit de canard au kamado",
 ori:"France · Sud-Ouest, cuisses cuites dans la graisse de canard",
 pour:"4 pers",
@@ -6266,6 +6338,7 @@ notes_securite:"USDA/FSIS : volaille = 74 °C à cœur pour la sécurité microb
 chef_ref:{chef:"Alain Ducasse",work:"Grand Livre de Cuisine d'Alain Ducasse : Bistrots, brasseries et restaurants de tradition (Alain Ducasse Édition, 2004)",note:"Confit de canard basse température maîtrisée (85–90 °C dans la graisse), salage à sec 24 h, finition peau croustillante : méthode codifiée par Ducasse dans son Grand Livre de Cuisine."},
 source:"Alain Ducasse — 'Grand Livre de Cuisine: Bistrots, brasseries et restaurants de tradition' (Alain Ducasse Édition, 2004), chap. confit de canard"},
 {cat:"volaille",
+id:"poulet-basquaise-au-kamado",
 nom:"Poulet basquaise au kamado",
 ori:"France · Pays basque, poivrons et piment d'Espelette",
 pour:"4 pers",
@@ -6292,6 +6365,7 @@ source:"Philippe Etchebest — 'Mes 100 recettes tout simplement' (Albin Michel,
 
 /* ===== AGNEAU ===== */
 {cat:"agneau",
+id:"gigot-d-agneau-roti-rose",
 nom:"Gigot d'agneau rôti rosé",
 ori:"France · le grand classique de Pâques",
 pour:"6 pers",
@@ -6316,6 +6390,7 @@ notes_securite:"USDA/FSIS : agneau pièce entière (whole muscle) = 63 °C minim
 chef_ref:{chef:"Auguste Escoffier",work:"Le Guide culinaire (Flammarion, 1903)",note:"Gigot d'agneau rôti rosé, ail-romarin, jus de rôtissage : méthode codifiée par Escoffier dans Le Guide culinaire (1903), toujours la base pédagogique française."},
 source:"Anne Willan — 'La Varenne Pratique' (Crown, 1989), recette gigot d'agneau pascal ; voir aussi cooking.nytimes.com/recipes/1015819-classic-rack-of-lamb"},
 {cat:"agneau",
+id:"carre-d-agneau-en-croute-d-herbes",
 nom:"Carré d'agneau en croûte d'herbes",
 ori:"France · pièce raffinée",
 pour:"3–4 pers",
@@ -6335,6 +6410,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:180,duration_min:22,action:"Pierre déflectrice, os protégés par alu. Sonde à cœur jusqu'à 48 °C."},{name:"Saisie directe",mode:"direct",temp_C:260,duration_min:8,action:"Retirer la pierre. Colorer côté croûte d'herbes, jusqu'à 54 °C (rosé)."}],
 source:"https://www.seriouseats.com/herb-crusted-rack-of-lamb-recipe"},
 {cat:"agneau",
+id:"epaule-d-agneau-confite-7-heures",
 nom:"Épaule d'agneau confite 7 heures",
 ori:"France · cuisson lente fondante",
 pour:"6 pers",
@@ -6360,6 +6436,7 @@ erreurs:["Stopper à 80 °C : la viande tient à l'os → 93 °C minimum pour l'
 chef_ref:{chef:"Alain Ducasse",work:"Grand Livre de Cuisine d'Alain Ducasse : Bistrots, brasseries et restaurants de tradition (Alain Ducasse Édition, 2004)",note:"Épaule d'agneau confite douze heures : la cuisson lente à couvert popularisée par Ducasse (Grand Livre de Cuisine, cuisson longue basse température)."},
 source:"Alain Ducasse — 'Grand Livre de Cuisine: Méditerranée' (Alain Ducasse Ed., 2005), recette épaule d'agneau de 7 heures"},
 {cat:"agneau",
+id:"cotelettes-d-agneau-grillees",
 nom:"Côtelettes d'agneau grillées",
 ori:"France · grillade express",
 pour:"4 pers",
@@ -6378,6 +6455,7 @@ repos_min:5,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/grilled-lamb-chops-recipe"},
 {cat:"agneau",
+id:"souris-d-agneau-braisees-au-miel",
 nom:"Souris d'agneau braisées au miel",
 ori:"France/Maghreb · fondant garanti",
 pour:"4 pers",
@@ -6400,6 +6478,7 @@ equipement:["Cocotte en fonte","Pierre déflectrice","Sonde 2 canaux","Pinces"],
 erreurs:["Sauter la saisie : viande pâle","Miel trop tôt : caramélisation amère","Liquide insuffisant : souris brûlées au fond"],
 source:"Yotam Ottolenghi & Sami Tamimi — 'Jerusalem' (Ten Speed Press, 2012), souris d'agneau au miel et épices"},
 {cat:"agneau",
+id:"filet-de-chevreuil-roti-sauce-grand-veneur",
 nom:"Filet de chevreuil rôti, sauce grand veneur",
 ori:"France · gibier de saison",
 pour:"4 pers",
@@ -6419,6 +6498,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:160,duration_min:18,action:"Pierre déflectrice. Sonde à cœur jusqu'à 46 °C (pièce très maigre, marge étroite)."},{name:"Saisie directe",mode:"direct",temp_C:260,duration_min:7,action:"Retirer la pierre. Croûte toutes faces, sortir à 52–56 °C max. Repos obligatoire 5 min."}],
 source:"Escoffier — Le Guide Culinaire (1903), sauce Grand Veneur"},
 {cat:"agneau",
+id:"cuissot-de-chevreuil-roti-sauce-poivrade",
 nom:"Cuissot de chevreuil rôti, sauce poivrade",
 ori:"France · grande pièce de gibier",
 pour:"6 pers",
@@ -6441,6 +6521,7 @@ equipement:["Pierre déflectrice","Sonde fine","Chinois étamine","Cocotte sauce
 erreurs:["Trop cuit : chevreuil sec et goût fort","Pas de marinade : note sauvage trop forte","Poivrade non réduite : sauce délavée"],
 source:"Auguste Escoffier — 'Le Guide Culinaire' (1903), chap. Gibier, cuissot de chevreuil sauce poivrade"},
 {cat:"agneau",
+id:"civet-de-sanglier-fume-puis-braise",
 nom:"Civet de sanglier fumé puis braisé",
 ori:"France · mijoté de chasse",
 pour:"6 pers",
@@ -6464,6 +6545,7 @@ erreurs:["Sécher marinade : c'est ce qui empêche la fumée d'accrocher","Vin m
 chef_ref:{chef:"Régis Marcon",work:"Champignons, les recettes de saison (Éditions de La Martinière, 2013)",note:"Civet de sanglier au vin : plat de gibier auvergnat que Régis Marcon (3 étoiles à Saint-Bonnet-le-Froid) revendique dans sa cuisine forestière du Velay."},
 source:"Larousse Gastronomique (Ed. Larousse, 1938/2007), entrée 'civet de sanglier' ; adaptation fumage kamado via biggreenegg.eu/en/inspiration/recipes"},
 {cat:"agneau",
+id:"pave-de-cerf-sauce-aux-airelles",
 nom:"Pavé de cerf, sauce aux airelles",
 ori:"France · gibier noble et fin",
 pour:"4 pers",
@@ -6483,6 +6565,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:150,duration_min:20,action:"Pierre déflectrice. Sonde à cœur, monter doucement jusqu'à 46–48 °C."},{name:"Saisie directe",mode:"direct",temp_C:260,duration_min:6,action:"Retirer la pierre. Croûte rapide toutes faces jusqu'à 52–55 °C rosé."}],
 source:"Larousse Gastronomique 2023, entrée « cerf, sauce grand veneur »"},
 {cat:"volaille",
+id:"cailles-roties-au-raisin-lard",
 nom:"Cailles rôties au raisin & lard",
 ori:"France · gibier à plume",
 pour:"4 pers",
@@ -6504,6 +6587,7 @@ notes_securite:"Petite volaille/gibier à plume : viser 74 °C à la cuisse (USD
 chef_ref:{chef:"Régis Marcon",work:"Champignons, les recettes de saison (Éditions de La Martinière, 2013)",note:"Gibier à plume en cocotte, lard fumé au hêtre : technique forestière signature des Marcon (Saint-Bonnet-le-Froid)."},
 source:"Escoffier — Le Guide Culinaire (1903), chap. Gibier à plumes, « Cailles aux raisins »"},
 {cat:"agneau",
+id:"filet-de-biche-en-croute-d-epices",
 nom:"Filet de biche en croûte d'épices",
 ori:"France · venaison rosée raffinée",
 pour:"4 pers",
@@ -6523,6 +6607,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:150,duration_min:18,action:"Pierre déflectrice. Sonde à cœur, croûte café-cacao qui parfume, jusqu'à 46 °C."},{name:"Saisie directe",mode:"direct",temp_C:260,duration_min:6,action:"Retirer la pierre. Colorer 60 s par face jusqu'à 52–55 °C, croûte scellée."}],
 source:"Larousse Gastronomique 2023, entrée « biche / venaison »"},
 {cat:"agneau",
+id:"keftas-d-agneau-menthe-cumin",
 nom:"Keftas d'agneau menthe-cumin",
 ori:"Maghreb · brochettes hachées",
 pour:"4 pers",
@@ -6543,6 +6628,7 @@ notes_securite:"USDA/FSIS : viande hachée agneau = 71 °C OBLIGATOIRE. Pétriss
 source:"https://www.seriouseats.com/grilled-lamb-kefta-kebabs-recipe",
 sauce:"Yaourt grec, menthe, citron, ail et cumin"},
 {cat:"agneau",
+id:"cotelettes-d-agneau-gochujang",
 nom:"Côtelettes d'agneau gochujang",
 ori:"Corée/fusion · sucré-piquant",
 pour:"4 pers",
@@ -6562,6 +6648,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/gochujang-glazed-lamb-chops-recipe",
 sauce:"Gochujang, miel, soja, ail et huile de sésame"},
 {cat:"agneau",
+id:"mechoui-d-epaule-d-agneau-effilochee",
 nom:"Méchoui d'épaule d'agneau effilochée",
 ori:"Maghreb · épices et fumée douce",
 pour:"6 pers",
@@ -6587,6 +6674,7 @@ notes_securite:"USDA/FSIS : agneau long cook 6+ h à 120 °C = pasteurisation to
 source:"Paula Wolfert — 'The Food of Morocco' (Ecco, 2011), chap. méchoui traditionnel",
 sauce:"Chermoula citronnée ou yaourt menthe-cumin"},
 {cat:"agneau",
+id:"brochettes-d-agneau-zaatar-citron",
 nom:"Brochettes d'agneau zaatar-citron",
 ori:"Levant · grillade aromatique",
 pour:"4 pers",
@@ -6607,6 +6695,7 @@ notes_securite:"USDA/FSIS : agneau whole muscle = 63 °C + 3 min repos. Cubes 3 
 source:"https://www.seriouseats.com/grilled-lamb-kebabs-with-zaatar-recipe",
 sauce:"Labneh citronné, menthe et sumac"},
 {cat:"agneau",
+id:"navarin-d-agneau-printanier-au-kamado",
 nom:"Navarin d'agneau printanier au kamado",
 ori:"France · ragoût de printemps aux légumes nouveaux",
 pour:"6 pers",
@@ -6631,6 +6720,7 @@ notes_securite:"USDA/FSIS : agneau pièce entière = 63 °C + 3 min repos minimu
 chef_ref:{chef:"Auguste Escoffier",work:"Le Guide culinaire (Flammarion, 1903)",note:"Navarin d'agneau printanier avec légumes nouveaux tournés et petits pois : recette codifiée par Escoffier dans Le Guide culinaire, référence pédagogique française pour les ragoûts de printemps."},
 source:"Auguste Escoffier — 'Le Guide culinaire' (Flammarion, 1903), chap. navarin printanier"},
 {cat:"agneau",
+id:"selle-d-agneau-a-la-broche-fumee-de-sarments",
 nom:"Selle d'agneau à la broche, fumée de sarments",
 ori:"France · rôtissoire kamado, fumée courte",
 pour:"6 pers",
@@ -6654,6 +6744,7 @@ notes_securite:"USDA/FSIS agneau pièce entière : 63 °C à cœur + 3 min repos
 source:"https://www.biggreenegg.eu/en/indirect-cooking",
 sauce:"Jus de rôti à la fleur de thym et zeste de citron"},
 {cat:"agneau",
+id:"travers-d-agneau-fumes-3-2-1",
 nom:"Travers d'agneau fumés 3-2-1",
 ori:"BBQ américain · lamb ribs low & slow",
 pour:"4 pers",
@@ -6678,6 +6769,7 @@ notes_securite:"USDA/FSIS : agneau whole muscle 63 °C + 3 min. La cuisson 6 h �
 source:"https://amazingribs.com/more-technique-and-science/",
 sauce:"BBQ moutardée aux herbes de Provence"},
 {cat:"agneau",
+id:"epaule-d-agneau-pulled-fumee-mediterraneenne",
 nom:"Épaule d'agneau pulled fumée méditerranéenne",
 ori:"BBQ américain revisité Méditerranée",
 pour:"8 pers",
@@ -6703,6 +6795,7 @@ notes_securite:"USDA/FSIS : agneau long cook 9+ h à 110 °C = pasteurisation to
 source:"https://amazingribs.com/more-technique-and-science/",
 sauce:"Yaourt grec, menthe, citron confit, ail écrasé"},
 {cat:"agneau",
+id:"merguez-maison-fumees-au-bois-d-olivier",
 nom:"Merguez maison fumées au bois d'olivier",
 ori:"Maghreb · saucisse d'agneau piquante fumée puis grillée",
 pour:"6 pers",
@@ -6726,6 +6819,7 @@ notes_securite:"USDA/FSIS : saucisse d'agneau (haché) = 71 °C à cœur obligat
 source:"https://blog.thermoworks.com/chef-recommended-tw-approved/",
 sauce:"Chermoula citronnée ou harissa maison"},
 {cat:"agneau",
+id:"kleftiko-d-agneau-en-papillote-au-kamado",
 nom:"Kleftiko d'agneau en papillote au kamado",
 ori:"Grèce · agneau bandit cuit en papillote scellée",
 pour:"6 pers",
@@ -6750,6 +6844,7 @@ notes_securite:"USDA/FSIS agneau : 63 °C + 3 min pour pièce entière ; ici cui
 source:"https://www.biggreenegg.eu/en/indirect-cooking",
 sauce:"Jus concentré au citron et vin blanc"},
 {cat:"agneau",
+id:"rogan-josh-d-agneau-au-dutch-oven",
 nom:"Rogan josh d'agneau au Dutch oven",
 ori:"Cachemire (Inde) · curry d'agneau au safran et cardamome",
 pour:"6 pers",
@@ -6773,6 +6868,7 @@ notes_securite:"USDA/FSIS agneau : la cuisson longue à 160 °C > 85 °C pasteur
 source:"https://blog.thermoworks.com/chef-recommended-tw-approved/",
 sauce:"Yaourt à la coriandre et concombre (raïta)"},
 {cat:"agneau",
+id:"adana-kebab-agneau-hache-epice-au-maras",
 nom:"Adana kebab (agneau haché épicé au maras)",
 ori:"Turquie · brochette plate d'agneau haché au piment maras",
 pour:"4 pers",
@@ -6796,6 +6892,7 @@ notes_securite:"USDA/FSIS haché d'agneau : 71 °C à cœur strict (pas de rosé
 source:"https://blog.thermoworks.com/chef-recommended-tw-approved/",
 sauce:"Yaourt à l'ail et menthe, sumac citronné"},
 {cat:"agneau",
+id:"rable-de-lapin-fume-au-thym-et-pommier",
 nom:"Râble de lapin fumé au thym et pommier",
 ori:"France · gibier fin, fumage court",
 pour:"4 pers",
@@ -6821,6 +6918,7 @@ sauce:"Réduction de moutarde ancienne au thym et jus de rôti"},
 
 /* ===== POISSONS ===== */
 {cat:"poisson",
+id:"saumon-sur-planche-de-cedre",
 nom:"Saumon sur planche de cèdre",
 ori:"USA/Canada · fumage délicat sur bois",
 pour:"4 pers",
@@ -6840,6 +6938,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 notes_securite:"USDA/FSIS : poisson = 63 °C à cœur pour cuisson complète. Cuisson mi-cuite (52 °C) acceptable si saumon sashimi-grade (congelé -20 °C ≥ 24 h, garantit destruction Anisakis). Enfants, femmes enceintes, immunodéprimés : 63 °C IMPÉRATIF. Planche de cèdre : IMBIBER 2 h à l'eau AVANT usage (sinon combustion complète), à usage unique.",
 source:"https://amazingribs.com/tested-recipes/fish-and-seafood-recipes/cedar-plank-salmon-recipe/"},
 {cat:"poisson",
+id:"saumon-fume-a-chaud-sauce-aneth",
 nom:"Saumon fumé à chaud, sauce aneth",
 ori:"Scandinavie · fumage maison",
 pour:"6 pers",
@@ -6864,6 +6963,7 @@ erreurs:["Pas de pellicule : la fumée ne tient pas → 1 h de séchage non nég
 notes_securite:"USDA/FSIS : poisson en fumage chaud = 63 °C à cœur MINIMUM. Ne PAS confondre avec le fumage à froid (recette distincte, T° <25 °C, exige sashimi-grade + protocoles spécifiques). Fumage chaud sécurise le poisson même non sashimi-grade. Consommation dans les 4 j au frigo, ou congélation sous vide 3 mois.",
 source:"Meathead Goldwyn — amazingribs.com/tested-recipes/fish-and-seafood-recipes/hot-smoked-salmon-recipe"},
 {cat:"poisson",
+id:"bar-entier-grille-au-fenouil",
 nom:"Bar entier grillé au fenouil",
 ori:"Méditerranée · pêche du jour",
 pour:"2 pers",
@@ -6883,6 +6983,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 notes_securite:"USDA/FSIS : poisson entier = 63 °C à cœur, chair s'écaille facilement à la fourchette. Pour un bar de 800 g–1 kg, sonde plantée dans la partie la plus épaisse (juste derrière la tête). Éviter la sur-cuisson : au-delà de 65 °C, la chair devient sèche et cotonneuse. Fenouil branche brûlé en fin donne l'arôme anisé — retirer avant service.",
 source:"https://www.seriouseats.com/grilled-whole-fish-recipe"},
 {cat:"poisson",
+id:"gambas-grillees-ail-piment",
 nom:"Gambas grillées ail & piment",
 ori:"Espagne/Méditerranée · apéro de la mer",
 pour:"4 pers",
@@ -6902,6 +7003,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : crustacés = chair opaque et ferme (55–60 °C à cœur). Gambas cuites = queue enroulée en 'C' (bien cuites) — enroulée en 'O' = SUR-CUITES, texture caoutchouteuse. Décortiquer à cru côté ventre laisse la carapace protéger la chair pendant cuisson. Ne pas laisser plus de 2 h à T° ambiante avant cuisson (histamine).",
 source:"https://www.seriouseats.com/grilled-gambas-al-ajillo-shrimp-recipe"},
 {cat:"poisson",
+id:"pave-de-thon-mi-cuit-croute-de-sesame",
 nom:"Pavé de thon mi-cuit, croûte de sésame",
 ori:"Japon/fusion · tataki grillé",
 pour:"2 pers",
@@ -6921,6 +7023,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : poisson à consommer cru/mi-cuit = SASHIMI-GRADE OBLIGATOIRE (congelé -20 °C ≥ 24 h ou pêche certifiée). Sans cette garantie : cuisson complète à 63 °C. Le thon rouge de Méditerranée est classé espèce à risque mercure : consommation modérée (femmes enceintes, enfants : éviter). Saisie 30 sec/face à 300 °C direct = croûte + intérieur cru. Ne JAMAIS servir tataki tiède : réfrigérer immédiatement au sortir du grill.",
 source:"https://www.seriouseats.com/seared-sesame-crusted-tuna-recipe"},
 {cat:"poisson",
+id:"truite-en-papillote-citron-amande",
 nom:"Truite en papillote citron-amande",
 ori:"France · cuisson douce",
 pour:"2 pers",
@@ -6940,6 +7043,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 notes_securite:"USDA/FSIS : poisson d'eau douce = 63 °C à cœur (Diphyllobothrium spp. possible). Salmurer 4 h dans saumure 5% (sel + sucre) avant fumage = pellicle brillante. Fumage 2–3 h à 90 °C ambiante indirecte. Truite entière : sonde dans la chair du dos derrière la tête.",
 source:"Larousse Gastronomique 2023, entrée « truite en papillote »"},
 {cat:"poisson",
+id:"saint-jacques-grillees-au-beurre-noisette",
 nom:"Saint-Jacques grillées au beurre noisette",
 ori:"France · finesse iodée",
 pour:"2 pers",
@@ -6959,6 +7063,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : coquillages/mollusques = chair opaque à cœur. Saint-Jacques : pastilles nacrées, saisir 2 min max/face à 260 °C. Sur-cuisson = caoutchouc. La coquille doit être fermée à l'achat (vivante) ; si ouverte = MORTE = jeter. Idéalement pêche fraîche du jour, sinon congélation -18 °C acceptable. Corail : peut être laissé (goût iodé) ou retiré selon préférence.",
 source:"https://www.seriouseats.com/pan-seared-scallops-with-brown-butter-sauce-recipe"},
 {cat:"poisson",
+id:"homard-grille-au-beurre-d-estragon",
 nom:"Homard grillé au beurre d'estragon",
 ori:"France · plat de fête iodé",
 pour:"2 pers",
@@ -6978,6 +7083,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : crustacés = 60 °C à cœur, chair blanche opaque. Homard vivant : tuer humainement d'un coup de couteau ferme entre les yeux (RSPCA méthode) — pas d'ébullition à vif. Après cuisson, la chair de la queue doit se détacher de la carapace facilement. Ne jamais recuire un homard : sec et caoutchouteux.",
 source:"https://www.seriouseats.com/grilled-lobster-tails-with-garlic-herb-butter-recipe"},
 {cat:"poisson",
+id:"maquereaux-grilles-a-la-moutarde",
 nom:"Maquereaux grillés à la moutarde",
 ori:"France · poisson bleu économique",
 pour:"4 pers",
@@ -6997,6 +7103,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 notes_securite:"USDA/FSIS : poisson gras (maquereau, sardine, hareng) = 60 °C à cœur. Poisson à risque HISTAMINE ÉLEVÉ (scombrotoxine) : rupture chaîne froid = histamine irréversible → intoxication. Acheter frais du matin, cuire dans les 24 h, ne jamais laisser >2 h hors frigo. Symptômes intoxication histamine : rougeurs, palpitations dans les heures suivantes.",
 source:"https://www.bbcgoodfood.com/recipes/grilled-mackerel-mustard-sauce"},
 {cat:"poisson",
+id:"poulpe-grille-a-la-galicienne",
 nom:"Poulpe grillé à la galicienne",
 ori:"Espagne · pulpo a la brasa",
 pour:"4 pers",
@@ -7016,6 +7123,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"Poulpe : congélation -18 °C ≥ 48 h AVANT cuisson attendrit les fibres (méthode traditionnelle galicienne) — sans ce processus, chair très caoutchouteuse. Précuire à l'eau frémissante 45 min (poulpe 1.5 kg) OU cocotte-minute 20 min AVANT grill. Le grill kamado seul ne cuit PAS un poulpe frais — sert uniquement au 'finish' croustillant.",
 source:"https://www.seriouseats.com/grilled-octopus-with-paprika-recipe"},
 {cat:"poisson",
+id:"paella-au-kamado",
 nom:"Paella au kamado",
 ori:"Espagne · le plat de partage par excellence",
 pour:"6 pers",
@@ -7035,6 +7143,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 notes_securite:"USDA/FSIS : ingrédients composites — respecter T° par catégorie. Riz bomba (ou calasparra) OBLIGATOIRE — riz basmati/thai ne prennent pas le socarrat. Ne PAS remuer une fois le bouillon versé (règle sacrée valencienne). Socarrat croustillant = 2 min haute T° final quand plus de liquide. Mollusques (moules, palourdes) : jeter ceux qui ne s'ouvrent PAS après cuisson.",
 source:"https://www.kamadojoe.com/blogs/recipes/paella"},
 {cat:"poisson",
+id:"moules-a-la-plancha-ail-persil",
 nom:"Moules à la plancha, ail & persil",
 ori:"France/Espagne · fruits de mer minute",
 pour:"4 pers",
@@ -7054,6 +7163,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : mollusques bivalves = tous ouverts après cuisson (indicateur cuit ET vivant à l'origine). Trier CRU : moules ouvertes qui ne se referment PAS après tapotage = MORTES = JETER. Après cuisson : moules NON ouvertes = jeter (non cuites ou déjà mortes). Vérifier zone de production (bulletin ARS/Ifremer pour toxines diarrhéiques ASP/DSP).",
 source:"https://www.seriouseats.com/moules-mariniere-mussels-white-wine-recipe"},
 {cat:"poisson",
+id:"sardines-grillees-en-direct",
 nom:"Sardines grillées en direct",
 ori:"Méditerranée/Portugal · l'été à la braise",
 pour:"4 pers",
@@ -7073,6 +7183,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : poisson gras petit format = 60 °C. HISTAMINE : sardine = scombroïde à risque, acheter très fraîche (œil bombé et brillant, ouïes rouge vif), cuire sous 24 h max, ne jamais laisser >2 h hors frigo. Ne pas vider (perle de graisse préserve le goût) — sauf convives sensibles. Cuisson directe 220 °C, 3 min/face.",
 source:"https://www.seriouseats.com/grilled-sardines-recipe"},
 {cat:"poisson",
+id:"dorade-en-croute-de-sel",
 nom:"Dorade en croûte de sel",
 ori:"Méditerranée · cuisson sous le sel",
 pour:"2 pers",
@@ -7093,6 +7204,7 @@ notes_securite:"USDA/FSIS : poisson entier = 63 °C. La croûte de sel scelle la
 chef_ref:{chef:"Michel Guérard",work:"La Grande Cuisine minceur (Robert Laffont, 1976)",note:"Poisson entier en croûte de sel : technique que Michel Guérard (3 étoiles à Eugénie-les-Bains) a portée au haut niveau dans sa Cuisine gourmande."},
 source:"Larousse Gastronomique 2023, entrée « dorade en croûte de sel »"},
 {cat:"poisson",
+id:"huitres-chaudes-gratinees",
 nom:"Huîtres chaudes gratinées",
 ori:"France · iode et beurre",
 pour:"4 pers",
@@ -7112,6 +7224,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"Huîtres CRUES à l'ouverture : cru donc obligatoirement vivantes (coquille fermée hermétique, resserre au toucher). Toute huître déjà ouverte ou molle = JETER. Vérifier veille sanitaire ARS/Ifremer (norovirus, Vibrio) — éviter septembre-mars huîtres douteuses. Cuisson courte à 250 °C 3–4 min : la chair se rétracte et perd sa transparence. Femmes enceintes : cuisson complète obligatoire, jamais crues.",
 source:"https://www.seriouseats.com/oysters-rockefeller-recipe"},
 {cat:"poisson",
+id:"calamars-grilles-en-persillade",
 nom:"Calamars grillés en persillade",
 ori:"Méditerranée · tendres et iodés",
 pour:"4 pers",
@@ -7131,6 +7244,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:["Calamars/mollusques : chair opaque et ferme (63 °C cœur)","Chaîne du froid stricte : ≤4 °C, cuisson dans les 24 h après achat","Vérifier la traçabilité et la zone de pêche (veille Ifremer/ARS pour vibrio & norovirus)"],
 source:"https://www.seriouseats.com/grilled-squid-with-lemon-and-olive-oil-recipe"},
 {cat:"poisson",
+id:"saumon-laque-teriyaki",
 nom:"Saumon laqué teriyaki",
 ori:"Japon/fusion · pavé brillant et fondant",
 pour:"4 pers",
@@ -7151,6 +7265,7 @@ notes_securite:["Cœur à 63 °C minimum pour un poisson entier ou pavé (FoodSa
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:190,duration_min:10,action:"Pierre déflectrice, pavé peau côté grille. Sonde à cœur jusqu'à 46–48 °C."},{name:"Laquage direct",mode:"direct",temp_C:190,duration_min:4,action:"Retirer la pierre. Badigeonner teriyaki en 2 couches, caraméliser jusqu'à 50–54 °C nacré."}],
 source:"https://www.seriouseats.com/teriyaki-salmon-recipe"},
 {cat:"poisson",
+id:"loup-de-mer-bar-entier-en-croute-de-sel-et-herbes-de-provence",
 nom:"Loup de mer (bar) entier en croûte de sel et herbes de Provence",
 ori:"Méditerranée · chair ultra juteuse sous coque minérale",
 pour:"4 pers",
@@ -7185,6 +7300,7 @@ notes_securite:"Poisson entier non écaillé : la sonde thermique doit être ins
 source:"Alain Ducasse — Le Grand Livre de la Méditerranée",
 sauce:"Sauce vierge aux herbes et tomates | Beurre blanc"},
 {cat:"poisson",
+id:"espadon-grille-vierge-de-tomates",
 nom:"Espadon grillé vierge de tomates",
 ori:"Méditerranée · poisson ferme",
 pour:"4 pers",
@@ -7205,6 +7321,7 @@ notes_securite:"USDA/FSIS : poisson = 63 °C à cœur. Espadon : espèce à risq
 source:"https://cooking.nytimes.com/recipes/1017844-grilled-swordfish-with-tomato-vinaigrette",
 sauce:"Sauce vierge tomate, câpres, basilic, citron et huile d'olive"},
 {cat:"poisson",
+id:"moules-fumees-en-cocotte",
 nom:"Moules fumées en cocotte",
 ori:"Atlantique · apéro iodé",
 pour:"4 pers",
@@ -7229,6 +7346,7 @@ notes_securite:"Moules crues à cuire en cocotte chaude jusqu'à ouverture compl
 source:"Steven Raichlen — 'Project Smoke' (Workman, 2016), chap. smoked shellfish ; voir aussi barbecuebible.com/recipe/smoked-mussels",
 sauce:"Crème ail-persil au jus fumé des moules"},
 {cat:"poisson",
+id:"tacos-de-poisson-croustillant-sur-plancha",
 nom:"Tacos de poisson croustillant sur plancha",
 ori:"Baja California · poisson grillé",
 pour:"4 pers",
@@ -7249,6 +7367,7 @@ notes_securite:"USDA/FSIS : poisson blanc (cabillaud, tilapia, lieu noir) = 63 �
 source:"https://www.seriouseats.com/the-best-baja-fish-tacos-recipe",
 sauce:"Crème citron vert-chipotle"},
 {cat:"poisson",
+id:"huitres-gratinees-au-kamado",
 nom:"Huîtres gratinées au kamado",
 ori:"Atlantique · entrée iodée",
 pour:"4 pers",
@@ -7269,6 +7388,7 @@ notes_securite:"Cuisson courte 250 °C direct 4 min + gratin haut 30 sec broil :
 source:"https://www.kamadojoe.com/blogs/recipes/grilled-oysters",
 sauce:"Beurre ail-persil-citron"},
 {cat:"poisson",
+id:"salmon-tikka-pave-de-saumon-tandoori",
 nom:"Salmon Tikka (pavé de saumon tandoori)",
 ori:"Inde · pavés de saumon marinés et saisis sur peau",
 pour:"4 pers",
@@ -7289,6 +7409,7 @@ notes_securite:"USDA/FSIS : saumon = 63 °C sauf sashimi-grade (congelé -20 °C
 phases:[{name:"Saisie directe",mode:"direct",temp_C:220,duration_min:3,action:"Grille très chaude, huilée. Marquer 90 s la face marinée pour croûte tandoori."},{name:"Cuisson indirecte",mode:"indirect",temp_C:220,duration_min:6,action:"Décaler indirect. Sonde à cœur jusqu'à 52 °C (mi-cuit) ou 63 °C (à point)."}],
 source:"https://www.seriouseats.com/tandoori-salmon-recipe"},
 {cat:"poisson",
+id:"saumon-gravlax-fume-a-froid",
 nom:"Saumon gravlax fumé à froid",
 ori:"Scandinavie · gravlax suédois revisité fumée nordique",
 pour:"6–8 pers",
@@ -7314,6 +7435,7 @@ sauce:"Sauce hollandaise à l'aneth ou crème fraîche citron"},
 
 /* ===== LÉGUMES ===== */
 {cat:"legumes",
+id:"legumes-grilles-mediterraneens",
 nom:"Légumes grillés méditerranéens",
 ori:"Méditerranée · l'accompagnement coloré",
 pour:"4 pers",
@@ -7332,6 +7454,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/grilled-vegetables-guide"},
 {cat:"legumes",
+id:"aubergines-fumees-facon-baba-ganoush",
 nom:"Aubergines fumées façon baba ganoush",
 ori:"Liban/Moyen-Orient · caviar d'aubergine",
 pour:"4 pers",
@@ -7351,6 +7474,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 phases:[{name:"Fumage direct sur braises",mode:"direct",temp_C:220,duration_min:15,action:"Aubergines entières posées directement sur les braises. Peau qui carbonise, chair qui fume."},{name:"Fondant indirect",mode:"indirect",temp_C:220,duration_min:20,action:"Décaler indirect, sonde bâton. Attendre chair totalement fondante, peau qui se détache."}],
 source:"https://www.seriouseats.com/the-best-baba-ganoush-recipe"},
 {cat:"legumes",
+id:"pommes-de-terre-braisees-au-romarin",
 nom:"Pommes de terre braisées au romarin",
 ori:"France · l'accompagnement universel",
 pour:"4 pers",
@@ -7369,6 +7493,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/crispy-roast-potatoes-with-rosemary-and-garlic-recipe"},
 {cat:"legumes",
+id:"mais-grille-beurre-epice",
 nom:"Maïs grillé beurre épicé",
 ori:"Mexique/USA · elote",
 pour:"4 pers",
@@ -7387,6 +7512,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/grilled-mexican-street-corn-elotes-recipe"},
 {cat:"legumes",
+id:"champignons-portobello-farcis",
 nom:"Champignons portobello farcis",
 ori:"Italie/fusion · végétarien gourmand",
 pour:"4 pers",
@@ -7406,6 +7532,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 chef_ref:{chef:"Régis Marcon",work:"Champignons, les recettes de saison (Éditions de La Martinière, 2013)",note:"Gros champignons rôtis farcis : filiation directe du travail de Régis Marcon sur les champignons, Bocuse d'Or 1995 et référence mondiale sur le cèpe."},
 source:"https://www.seriouseats.com/stuffed-portobello-mushrooms-recipe"},
 {cat:"legumes",
+id:"asperges-grillees-au-parmesan",
 nom:"Asperges grillées au parmesan",
 ori:"France/Italie · printemps",
 pour:"4 pers",
@@ -7424,6 +7551,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/grilled-asparagus-with-parmesan-recipe"},
 {cat:"legumes",
+id:"chou-fleur-entier-roti-tahini",
 nom:"Chou-fleur entier rôti & tahini",
 ori:"Moyen-Orient · pièce végétarienne spectacle",
 pour:"4 pers",
@@ -7442,6 +7570,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/whole-roasted-cauliflower-with-tahini-recipe"},
 {cat:"legumes",
+id:"mont-d-or-camembert-fume",
 nom:"Mont d'Or / Camembert fumé",
 ori:"France · fromage chaud convivial",
 pour:"4 pers",
@@ -7464,6 +7593,7 @@ equipement:["Pierre déflectrice","Hêtre","Plateau bois ou planche"],
 erreurs:["T° > 140 °C : fromage qui suinte huile","Trop de fumée : amertume","Pas striée : croûte casse pas"],
 source:"Cyril Lignac — technique Mont d'Or au four (adaptation kamado direct low) ; voir aussi https://www.cuisineactuelle.fr/recettes/mont-d-or-au-four"},
 {cat:"legumes",
+id:"pleurotes-facon-steak-balsamique",
 nom:"Pleurotes façon steak, balsamique",
 ori:"France · alternative végétale au steak",
 pour:"2 pers",
@@ -7482,6 +7612,7 @@ repos_min:0,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/oyster-mushroom-steak-recipe"},
 {cat:"legumes",
+id:"ratatouille-fumee-au-kamado",
 nom:"Ratatouille fumée au kamado",
 ori:"Provence · le classique réinventé",
 pour:"4 pers",
@@ -7501,6 +7632,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 phases:[{name:"Marquage direct",mode:"direct",temp_C:200,duration_min:10,action:"Griller aubergines/courgettes/poivrons sur grille directe pour la note fumée."},{name:"Mijotage indirect",mode:"indirect",temp_C:200,duration_min:35,action:"Rassembler en cocotte fonte + tomates + oignons/ail. Couvercle entrouvert jusqu'à texture fondante."}],
 source:"https://cooking.nytimes.com/recipes/1015648-confit-byaldi-thomas-kellers-take-on-ratatouille"},
 {cat:"legumes",
+id:"halloumi-grille-au-miel-origan",
 nom:"Halloumi grillé au miel & origan",
 ori:"Chypre/Grèce · le fromage qui grille",
 pour:"4 pers",
@@ -7519,6 +7651,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.biggreenegg.eu/en/inspiration/recipes/grilled-halloumi-with-honey"},
 {cat:"legumes",
+id:"gratin-dauphinois-en-cocotte",
 nom:"Gratin dauphinois en cocotte",
 ori:"France · Dauphiné, l'accompagnement roi",
 pour:"6 pers",
@@ -7541,6 +7674,7 @@ equipement:["Cocotte en fonte","Mandoline","Pierre déflectrice"],
 erreurs:["Pas de couvercle au début : croûte avant cuisson","Crème entière obligatoire : la légère caille","Ail haché trop fin : brûle"],
 source:"Joël Robuchon — 'Le Grand Livre de Cuisine' (Alain Ducasse Ed., 2001), recette gratin dauphinois authentique (sans fromage)"},
 {cat:"legumes",
+id:"patate-douce-braisee-beurre-epice",
 nom:"Patate douce braisée, beurre épicé",
 ori:"International · accompagnement réconfortant",
 pour:"4 pers",
@@ -7559,6 +7693,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/grilled-sweet-potatoes-recipe"},
 {cat:"legumes",
+id:"pommes-de-terre-hasselback",
 nom:"Pommes de terre Hasselback",
 ori:"Suède · l'accordéon croustillant",
 pour:"4 pers",
@@ -7577,6 +7712,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/hasselback-potatoes-recipe"},
 {cat:"legumes",
+id:"carottes-glacees-miso-miel",
 nom:"Carottes glacées miso-miel",
 ori:"Fusion · l'accompagnement umami",
 pour:"4 pers",
@@ -7597,6 +7733,7 @@ phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:200,duration_min:25,act
 chef_ref:{chef:"Alain Passard",work:"Collages & Recettes (Alain Ducasse Édition, 2010)",note:"Carotte glacée arrosée à sa réduction : héritière de la ligne 'légumes rôtis rendus complexes' que Passard a codifiée à l'Arpège."},
 source:"https://www.seriouseats.com/miso-glazed-carrots-recipe"},
 {cat:"legumes",
+id:"baked-beans-bbq",
 nom:"Baked beans BBQ",
 ori:"USA · le haricot fumé incontournable",
 pour:"6 pers",
@@ -7619,6 +7756,7 @@ equipement:["Bac aluminium","Pierre déflectrice","Cuillère longue"],
 erreurs:["Haricots crus en début : trop long","Sauce trop sucrée : caramélise","Sans fumage : c'est juste des haricots à la sauce"],
 source:"Side dish classique du BBQ américain (Boston baked beans, Steven Raichlen)"},
 {cat:"legumes",
+id:"pain-a-l-ail-gratine",
 nom:"Pain à l'ail gratiné",
 ori:"International · le garlic bread du barbecue",
 pour:"6 pers",
@@ -7637,6 +7775,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/the-best-garlic-bread-recipe"},
 {cat:"legumes",
+id:"coleslaw-maison",
 nom:"Coleslaw maison",
 ori:"USA · la salade qui accompagne tout BBQ",
 pour:"6 pers",
@@ -7658,6 +7797,7 @@ erreurs:["Fumer tous les légumes avec la sauce : la mayonnaise chauffe et devie
 notes_securite:"Sauce à base de mayonnaise/yaourt : maintenir au froid ≤4 °C après mélange, ne pas laisser plus de 2 h à température ambiante (1 h si forte chaleur). Refroidir le chou fumé avant d'ajouter la sauce.",
 source:"Adaptation kamado de coleslaw BBQ crémeux inspirée d'AmazingRibs — https://amazingribs.com/tested-recipes/salad-side-recipes/creamy-coleslaw-recipe/"},
 {cat:"legumes",
+id:"frites-de-patate-douce-au-four",
 nom:"Frites de patate douce au four",
 ori:"International · l'accompagnement croustillant",
 pour:"4 pers",
@@ -7676,6 +7816,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/the-best-baked-sweet-potato-fries-recipe"},
 {cat:"legumes",
+id:"courge-butternut-rotie-erable-piment",
 nom:"Courge butternut rôtie érable-piment",
 ori:"Automne · accompagnement doux-fumé",
 pour:"4 pers",
@@ -7695,6 +7836,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://cooking.nytimes.com/recipes/1017766-maple-roasted-butternut-squash",
 sauce:"Yaourt citronné au tahini et piment doux"},
 {cat:"legumes",
+id:"endives-braisees-au-kamado",
 nom:"Endives braisées au kamado",
 ori:"Nord de la France · amer-doux fumé",
 pour:"4 pers",
@@ -7718,6 +7860,7 @@ erreurs:["Sucre absent : amertume domine","Liquide insuffisant : endives brûlen
 source:"Alain Passard — 'Collages & Recettes' (Alternatives, 2010), technique endives braisées ; adaptation kamado biggreenegg.eu/en/inspiration/recipes",
 sauce:"Jus beurre-orange-moutarde"},
 {cat:"legumes",
+id:"betteraves-roties-en-croute-de-sel",
 nom:"Betteraves rôties en croûte de sel",
 ori:"Végétal · cuisson douce fumée",
 pour:"4 pers",
@@ -7742,6 +7885,7 @@ chef_ref:{chef:"Alain Passard",work:"Collages & Recettes (Alain Ducasse Édition
 source:"Yotam Ottolenghi — 'Plenty' (Ebury Press, 2010), chap. betteraves en croûte de sel",
 sauce:"Crème raifort-yaourt ou tahini citron"},
 {cat:"legumes",
+id:"tartiflette-savoyarde-au-kamado",
 nom:"Tartiflette savoyarde au kamado",
 ori:"France · Savoie, pommes de terre au Reblochon AOP",
 pour:"6 pers",
@@ -7767,6 +7911,7 @@ sauce:"Salade verte au vinaigre de Xérès"},
 
 /* ===== PIZZAS ===== */
 {cat:"pizza",
+id:"pizza-napolitaine",
 nom:"Pizza napolitaine",
 ori:"Italie · le four à bois à la maison",
 pour:"4 pizzas",
@@ -7788,6 +7933,7 @@ erreurs:["Pierre placée chaude : fend → placer à froid, montée progressive"
 notes_securite:"Pierre à pizza : placer à FROID dans le kamado, monter en T° progressivement. Choc thermique = pierre fend. Vérifier T° pierre au thermomètre infrarouge, viser 380–400 °C surface. En kamado domestique, compter 4–6 min par pizza.",
 source:"Associazione Verace Pizza Napoletana — Disciplinare AVPN (2008) ; adaptation kamado kamadojoe.com/blogs/recipes/neapolitan-pizza"},
 {cat:"pizza",
+id:"focaccia-romarin-gros-sel",
 nom:"Focaccia romarin & gros sel",
 ori:"Italie · pain moelleux à l'huile",
 pour:"6 pers",
@@ -7806,6 +7952,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/foolproof-focaccia-recipe"},
 {cat:"pizza",
+id:"pain-de-campagne-en-cocotte",
 nom:"Pain de campagne en cocotte",
 ori:"France · boulange maison",
 pour:"1 pain",
@@ -7825,6 +7972,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 phases:[{name:"Cuisson couverte",mode:"indirect",temp_C:230,duration_min:25,action:"Cocotte fonte préchauffée, pâte scarifiée. Couvercle fermé pour vapeur et croûte fine."},{name:"Dorure découverte",mode:"indirect",temp_C:210,duration_min:20,action:"Retirer le couvercle. Croûte qui dore, sonde à cœur jusqu'à 95 °C."}],
 source:"https://www.kamadojoe.com/blogs/recipes/dutch-oven-bread"},
 {cat:"pizza",
+id:"tarte-flambee-flammekueche",
 nom:"Tarte flambée (flammekueche)",
 ori:"Alsace · fine et croustillante",
 pour:"4 pers",
@@ -7843,6 +7991,7 @@ repos_min:0,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"Larousse Gastronomique 2023, entrée « flammekueche (tarte flambée alsacienne) »"},
 {cat:"pizza",
+id:"naan-a-l-ail-au-beurre",
 nom:"Naan à l'ail au beurre",
 ori:"Inde · pain plat indispensable",
 pour:"6 naans",
@@ -7861,6 +8010,7 @@ repos_min:0,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/homemade-garlic-naan-recipe"},
 {cat:"pizza",
+id:"fougasse-aux-olives",
 nom:"Fougasse aux olives",
 ori:"Provence · pain du Sud",
 pour:"4 pers",
@@ -7879,6 +8029,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"Larousse Gastronomique 2023, entrée « fougasse »"},
 {cat:"pizza",
+id:"pains-pitas-gonfles-a-la-flamme-sur-pierre-refractaire",
 nom:"Pains Pitas gonflés à la flamme sur pierre réfractaire",
 ori:"Levant / Grèce · le pain de poche soufflé en 2 minutes",
 pour:"8 pitas",
@@ -7914,6 +8065,7 @@ notes_securite:"Chaleur extrême (300 °C) : port de gants ignifugés haute temp
 source:"Yotam Ottolenghi — Jerusalem (Ebury Press)",
 sauce:"Sauce Tzatziki authentique | Sauce yaourt-ail express (façon toum)"},
 {cat:"pizza",
+id:"calzone-napolitain-souffle-a-la-ricotta-fior-di-latte-spianata",
 nom:"Calzone napolitain soufflé à la ricotta, fior di latte & spianata",
 ori:"Italie / Naples · le chausson croustillant au feu de bois",
 pour:"4 calzones",
@@ -7949,6 +8101,7 @@ notes_securite:"Chaleur extrême (330–350 °C) : maintenir le dôme fermé pen
 source:"Associazione Verace Pizza Napoletana (AVPN) — Calzone tradizionale",
 sauce:"Sauce tomate San Marzano à l'ail et origan"},
 {cat:"pizza",
+id:"pizza-blanche-poire-gorgonzola-noix",
 nom:"Pizza blanche poire-gorgonzola-noix",
 ori:"Italie/fusion · sucré-salé",
 pour:"2 pizzas",
@@ -7968,6 +8121,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/pear-gorgonzola-walnut-pizza-recipe",
 sauce:"Base crème légère au poivre"},
 {cat:"pizza",
+id:"lahmacun-agneau-epice",
 nom:"Lahmacun agneau épicé",
 ori:"Turquie · pizza fine à rouler",
 pour:"4 pièces",
@@ -7988,6 +8142,7 @@ notes_securite:"Viande hachée agneau/bœuf : viser 71 °C au centre de la couch
 source:"https://www.seriouseats.com/lahmacun-turkish-flatbread-recipe",
 sauce:"Yaourt citron-ail et persil"},
 {cat:"pizza",
+id:"pizza-al-taglio-romaine-72h",
 nom:"Pizza al taglio romaine 72h",
 ori:"Italie · Rome · pâte hydratée fermentée 72 h",
 pour:"2 plaques 40×30 cm",
@@ -8009,6 +8164,7 @@ erreurs:["Hydratation mal pesée : pâte indomptable ou sèche → balance préc
 source:"Gabriele Bonci — 'Il gioco della pizza' (Rizzoli, 2009), pâte hydratée 72h style Pizzarium",
 sauce:"Sauce tomate San Marzano simple"},
 {cat:"pizza",
+id:"flammekueche-alsacienne-traditionnelle",
 nom:"Flammekueche alsacienne traditionnelle",
 ori:"France · Alsace, pâte sans levure sur pierre brûlante",
 pour:"6 pers (3 tartes)",
@@ -8033,6 +8189,7 @@ source:"Larousse Gastronomique 2023, entrée « flammekueche (tarte flambée als
 
 /* ===== DESSERTS ===== */
 {cat:"dessert",
+id:"ananas-roti-au-rhum-et-miel",
 nom:"Ananas rôti au rhum et miel",
 ori:"Antilles · dessert grillé caramélisé",
 pour:"4 pers",
@@ -8052,6 +8209,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 phases:[{name:"Marquage direct",mode:"direct",temp_C:220,duration_min:5,action:"Tranches d'ananas sur grille directe pour rayer et démarrer la caramélisation."},{name:"Rôtissage indirect",mode:"indirect",temp_C:220,duration_min:12,action:"Décaler indirect. Badigeonner rhum+miel, laisser réduire en sirop caramélisé."}],
 source:"https://www.bbqbible.com/recipe/grilled-pineapple-with-rum-glaze/"},
 {cat:"dessert",
+id:"bananes-au-chocolat",
 nom:"Bananes au chocolat",
 ori:"International · le dessert minute du BBQ",
 pour:"4 pers",
@@ -8070,6 +8228,7 @@ repos_min:30,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.biggreenegg.eu/en/inspiration/recipes/grilled-bananas-with-chocolate"},
 {cat:"dessert",
+id:"peches-grillees-mascarpone",
 nom:"Pêches grillées, mascarpone",
 ori:"Italie/France · dessert d'été",
 pour:"4 pers",
@@ -8088,6 +8247,7 @@ repos_min:30,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/grilled-peaches-with-mascarpone-recipe"},
 {cat:"dessert",
+id:"crumble-pommes-fruits-rouges-fume",
 nom:"Crumble pommes-fruits rouges fumé",
 ori:"France/UK · dessert réconfortant",
 pour:"6 pers",
@@ -8106,6 +8266,7 @@ repos_min:30,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://cooking.nytimes.com/recipes/1015936-apple-berry-crumble"},
 {cat:"dessert",
+id:"crepes-au-kamado-plaque",
 nom:"Crêpes au kamado (plaque)",
 ori:"France · le goûter sur le barbecue",
 pour:"4 pers",
@@ -8124,6 +8285,7 @@ repos_min:30,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"Larousse Gastronomique 2023, entrée « crêpes sucrées »"},
 {cat:"dessert",
+id:"cheesecake-fume",
 nom:"Cheesecake fumé",
 ori:"USA · le dessert BBQ surprenant",
 pour:"8 pers",
@@ -8146,6 +8308,7 @@ equipement:["Moule à charnière","Bac bain-marie","Pommier sec","Sonde fine"],
 erreurs:["T° > 150 °C : surface craquée","Sortir trop tôt : centre liquide","Pas de bain-marie : cuit en couronne"],
 source:"Steven Raichlen — barbecuebible.com/recipe/smoked-cheesecake (twist fumé du NY cheesecake Junior's)"},
 {cat:"dessert",
+id:"pain-perdu-grille-caramelise",
 nom:"Pain perdu grillé caramélisé",
 ori:"France · le dessert anti-gaspi",
 pour:"4 pers",
@@ -8164,6 +8327,7 @@ repos_min:30,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"Larousse Gastronomique 2023, entrée « pain perdu »"},
 {cat:"dessert",
+id:"clafoutis-aux-cerises",
 nom:"Clafoutis aux cerises",
 ori:"France · Limousin, le dessert d'été",
 pour:"6 pers",
@@ -8183,6 +8347,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 chef_ref:{chef:"Henri-Paul Pellaprat",work:"L'Art culinaire moderne (Comptoir Français du Livre, 1935)",note:"Clafoutis limousin aux cerises entières : méthode codifiée par Pellaprat dans L'Art culinaire moderne (1935), référence pédagogique française."},
 source:"Larousse Gastronomique 2023, entrée « clafoutis »"},
 {cat:"dessert",
+id:"tarte-tatin-au-kamado",
 nom:"Tarte Tatin au kamado",
 ori:"France · pommes caramélisées renversées",
 pour:"6 pers",
@@ -8203,6 +8368,7 @@ phases:[{name:"Caramel direct",mode:"direct",temp_C:190,duration_min:10,action:"
 chef_ref:{chef:"Henri-Paul Pellaprat",work:"L'Art culinaire moderne (Comptoir Français du Livre, 1935)",note:"Tarte Tatin : Pellaprat codifie la méthode caramel-pâte inversée dans L'Art culinaire moderne (1935), version enseignée depuis au Cordon Bleu."},
 source:"Larousse Gastronomique 2023, entrée « tarte Tatin »"},
 {cat:"dessert",
+id:"brownie-fondant-en-cocotte",
 nom:"Brownie fondant en cocotte",
 ori:"USA · chocolat coulant au barbecue",
 pour:"8 pers",
@@ -8222,6 +8388,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 chef_ref:{chef:"Michel Bras",work:"Bras, Laguiole, Aubrac, France (Éditions du Rouergue, 2002)",note:"Cœur coulant en fonte : filiation directe du 'coulant au chocolat' créé par Michel Bras en 1981 — cœur cru surprise dans une pâte cuite."},
 source:"https://www.kingarthurbaking.com/recipes/fudge-brownies-recipe"},
 {cat:"dessert",
+id:"s-mores-au-barbecue",
 nom:"S'mores au barbecue",
 ori:"USA · le dessert de feu de camp",
 pour:"4 pers",
@@ -8240,6 +8407,7 @@ repos_min:30,
 vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 source:"https://www.seriouseats.com/the-best-smores-recipe"},
 {cat:"dessert",
+id:"figues-roties-miel-chevre",
 nom:"Figues rôties miel & chèvre",
 ori:"Méditerranée · sucré-salé d'automne",
 pour:"4 pers",
@@ -8258,6 +8426,7 @@ repos_min:30,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/grilled-figs-with-honey-and-goat-cheese-recipe"},
 {cat:"dessert",
+id:"cookie-geant-en-skillet",
 nom:"Cookie géant en skillet",
 ori:"USA · le cookie à partager",
 pour:"6 pers",
@@ -8277,6 +8446,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 chef_ref:{chef:"Cyril Lignac",work:"La Pâtisserie (La Martinière, 2017)",note:"Cookie géant fondant en poêle fonte : registre 'pâtisserie de bistrot familiale' que Cyril Lignac a popularisé auprès du grand public français."},
 source:"https://www.seriouseats.com/skillet-chocolate-chip-cookie-recipe"},
 {cat:"dessert",
+id:"poires-roties-au-vin-epice",
 nom:"Poires rôties au vin épicé",
 ori:"France · dessert d'hiver parfumé",
 pour:"4 pers",
@@ -8295,6 +8465,7 @@ repos_min:30,
 vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 source:"https://cooking.nytimes.com/recipes/1016611-red-wine-poached-pears"},
 {cat:"dessert",
+id:"banana-bread-fume-aux-noix",
 nom:"Banana bread fumé aux noix",
 ori:"USA · cake au feu de bois",
 pour:"8 tranches",
@@ -8313,6 +8484,7 @@ repos_min:30,
 vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 source:"https://amazingribs.com/tested-recipes/desserts/smoked-banana-bread-recipe/"},
 {cat:"dessert",
+id:"peches-roties-mascarpone",
 nom:"Pêches rôties mascarpone",
 ori:"Été · fruit grillé minute",
 pour:"4 pers",
@@ -8333,6 +8505,7 @@ phases:[{name:"Marquage direct",mode:"direct",temp_C:220,duration_min:3,action:"
 source:"https://www.seriouseats.com/grilled-peaches-with-mascarpone-recipe",
 sauce:"Mascarpone vanille, miel et zeste de citron"},
 {cat:"dessert",
+id:"brownie-skillet-noix-de-pecan",
 nom:"Brownie skillet noix de pécan",
 ori:"USA · dessert fonte au kamado",
 pour:"6 pers",
@@ -8353,6 +8526,7 @@ chef_ref:{chef:"Michel Bras",work:"Bras, Laguiole, Aubrac, France (Éditions du 
 source:"https://www.seriouseats.com/the-best-chewy-fudgy-brownies-recipe",
 sauce:"Sauce chocolat café ou crème anglaise vanillée"},
 {cat:"dessert",
+id:"abricots-rotis-romarin-amande",
 nom:"Abricots rôtis romarin-amande",
 ori:"Été · fruit rapide au feu",
 pour:"4 pers",
@@ -8373,6 +8547,7 @@ phases:[{name:"Marquage direct",mode:"direct",temp_C:210,duration_min:3,action:"
 source:"https://www.seriouseats.com/grilled-apricots-with-rosemary-recipe",
 sauce:"Mascarpone vanille, miel et zeste de citron"},
 {cat:"dessert",
+id:"cobbler-fruits-rouges-en-fonte",
 nom:"Cobbler fruits rouges en fonte",
 ori:"USA · dessert de partage",
 pour:"6 pers",
@@ -8394,6 +8569,7 @@ sauce:"Sauce chocolat café ou crème anglaise vanillée"},
 
 /* ===== SAUCES & RUBS ===== */
 {cat:"sauces",
+id:"chimichurri-argentin",
 nom:"Chimichurri argentin",
 ori:"Argentine · la sauce reine du grill",
 pour:"1 bol (6 pers)",
@@ -8406,6 +8582,7 @@ ings:["1 gros bouquet de persil plat","3 gousses d'ail","1 c. à c. d'origan sé
 etapes:["Hachez finement le persil et l'ail au couteau (pas au mixeur, qui réduit en purée).","Mélangez avec l'origan, le piment, le vinaigre et le sel.","Versez l'huile d'olive, mélangez.","Laissez infuser au moins 1 h à température ambiante avant de servir.","Se conserve 1 semaine au frais, l'huile fige (sortez-la en avance)."],
 astuce:"Le chimichurri sublime le bœuf grillé (asado, entrecôte, picanha) mais aussi l'agneau et les légumes. Haché au couteau, il garde du mordant."},
 {cat:"sauces",
+id:"sauce-barbecue-maison-kansas-city",
 nom:"Sauce barbecue maison (Kansas City)",
 ori:"USA · sucrée, fumée, épaisse",
 pour:"1 pot (10 pers)",
@@ -8418,6 +8595,7 @@ ings:["250 ml de ketchup","3 c. à s. de mélasse (ou cassonade brune)","3 c. à
 etapes:["Mélangez tous les ingrédients dans une casserole.","Portez à frémissement puis baissez le feu.","Laissez réduire 20–25 min à feu doux jusqu'à consistance nappante.","Rectifiez l'équilibre sucré/acide/piquant selon votre goût.","Se conserve 2 semaines au frais."],
 astuce:"Appliquez-la en fin de cuisson (dernières 30 min) : le sucre brûlerait si on la met trop tôt. Parfaite sur travers, pulled pork, burnt ends."},
 {cat:"sauces",
+id:"rub-barbecue-tout-usage-sec",
 nom:"Rub barbecue tout usage (sec)",
 ori:"USA · le mélange d'épices universel",
 pour:"1 pot",
@@ -8430,6 +8608,7 @@ ings:["4 c. à s. de paprika (doux + fumé)","3 c. à s. de cassonade","2 c. à 
 etapes:["Mélangez toutes les épices dans un bocal hermétique.","Massez la viande de rub 1 h à 24 h avant cuisson (plus c'est long, plus ça pénètre).","Pour les grosses pièces, badigeonnez d'abord de moutarde jaune comme liant.","Se conserve plusieurs mois au sec, à l'abri de la lumière."],
 astuce:"La base 8:3:2 (paprika:sucre:sel) est le squelette de tous les rubs américains. Ajustez ensuite les épices à votre goût."},
 {cat:"sauces",
+id:"beurre-maitre-d-hotel",
 nom:"Beurre maître d'hôtel",
 ori:"France · le classique sur la viande grillée",
 pour:"6 pers",
@@ -8442,6 +8621,7 @@ ings:["120 g de beurre mou","1 bouquet de persil haché","1 gousse d'ail (option
 etapes:["Travaillez le beurre mou à la fourchette.","Incorporez persil, ail, jus de citron, sel, poivre.","Roulez en boudin dans du film alimentaire.","Réservez au frais jusqu'à raffermissement.","Coupez une rondelle qui fond sur la viande chaude à la sortie du grill."],
 astuce:"Déclinez-le : beurre d'escargot (ail+persil) pour les coquillages, beurre café de Paris (herbes+épices+anchois) pour le steak."},
 {cat:"sauces",
+id:"sauce-au-poivre-vert",
 nom:"Sauce au poivre vert",
 ori:"France · sauce bistrot pour le steak",
 pour:"4 pers",
@@ -8454,6 +8634,7 @@ ings:["2 c. à s. de poivre vert (en saumure)","20 cl de crème liquide","1 éch
 etapes:["Faites suer l'échalote au beurre.","Déglacez au cognac (flambez si vous voulez), ajoutez le fond de veau.","Ajoutez le poivre vert écrasé, réduisez 2 min.","Versez la crème, laissez épaissir 5 min à feu doux.","Rectifiez l'assaisonnement, servez sur le steak."],
 astuce:"Récupérez les sucs de la viande reposée dans la sauce : ils lui donnent de la profondeur."},
 {cat:"sauces",
+id:"marinade-tandoori-au-yaourt",
 nom:"Marinade tandoori au yaourt",
 ori:"Inde · marinade épicée pour volaille",
 pour:"4 pers",
@@ -8466,6 +8647,7 @@ ings:["20 cl de yaourt nature","2 c. à s. de jus de citron","2 gousses d'ail, 1
 etapes:["Mixez ou mélangez tous les ingrédients en une marinade lisse.","Incisez la volaille (cuisses, blancs) pour que la marinade pénètre.","Enrobez la volaille et laissez mariner 4 h à toute une nuit au frais.","Pour l'agneau, restez sur 4–12 h ; pour le poisson ferme, limitez à 30–60 min.","Le yaourt attendrit la chair et forme une croûte épicée à la cuisson."],
 astuce:"L'acidité du yaourt + le citron attendrissent réellement la viande : c'est le secret des grillades tandoor moelleuses."},
 {cat:"sauces",
+id:"chermoula-marinade-maghrebine",
 nom:"Chermoula (marinade maghrébine)",
 ori:"Maghreb · herbes, épices et citron",
 pour:"4 pers",
@@ -8478,6 +8660,7 @@ ings:["1 bouquet de coriandre + persil","3 gousses d'ail","1 c. à c. de cumin, 
 etapes:["Hachez finement les herbes et l'ail (ou mixez grossièrement).","Mélangez avec les épices, le citron et l'huile d'olive.","Enrobez poisson, crevettes ou poulet, laissez mariner 1–2 h.","Pour servir à cru en sauce d'accompagnement, réservez une portion propre avant tout contact avec poisson, crevettes ou poulet crus."],
 astuce:"La chermoula est l'âme du poisson grillé maghrébin (dorade, sardines, bar) mais relève aussi les légumes."},
 {cat:"sauces",
+id:"sauce-teriyaki-maison",
 nom:"Sauce teriyaki maison",
 ori:"Japon · laque sucrée-salée",
 pour:"6 pers",
@@ -8490,6 +8673,7 @@ ings:["10 cl de sauce soja","10 cl de mirin","5 cl de saké","2 c. à s. de sucr
 etapes:["Mélangez soja, mirin, saké, sucre, gingembre dans une casserole.","Portez à frémissement, laissez réduire 8–10 min jusqu'à consistance sirupeuse.","Pour une laque plus épaisse, ajoutez la Maïzena diluée.","Badigeonnez la viande/poisson en plusieurs couches en fin de cuisson."],
 astuce:"Le glaçage en couches successives (badigeonner-griller-badigeonner) crée la laque brillante caractéristique."},
 {cat:"sauces",
+id:"marinade-coreenne-base-bulgogi",
 nom:"Marinade coréenne (base bulgogi)",
 ori:"Corée · soja, poire et sésame",
 pour:"4 pers",
@@ -8502,6 +8686,7 @@ ings:["6 c. à s. de sauce soja","2 c. à s. de sucre","2 c. à s. d'huile de s�
 etapes:["Mélangez tous les ingrédients.","La poire râpée contient une enzyme qui attendrit la viande.","Marinez du bœuf finement tranché 4 h (bulgogi, galbi).","Saisissez à feu vif : la marinade caramélise vite.","S'utilise aussi sur le porc et le poulet."],
 astuce:"Ne dépassez pas une nuit de marinade : l'enzyme de la poire finirait par rendre la viande pâteuse."},
 {cat:"sauces",
+id:"sauce-yaourt-ail-express-facon-toum",
 nom:"Sauce yaourt-ail express (façon toum)",
 ori:"Liban/Méditerranée · sauce blanche des grillades",
 pour:"6 pers",
@@ -8514,6 +8699,7 @@ ings:["25 cl de yaourt grec","2 gousses d'ail écrasées","2 c. à s. d'huile d'
 etapes:["Mélangez le yaourt avec l'ail écrasé, le citron et l'huile.","Salez, ajoutez les herbes hachées si souhaité.","Laissez reposer 30 min pour que les saveurs se lient.","Servez avec brochettes, shawarma, souvlaki, falafels."],
 astuce:"Pour une version tzatziki, ajoutez du concombre râpé et essoré. Pour un toum plus puissant, montez ail + huile au mixeur."},
 {cat:"sauces",
+id:"mojo-aux-agrumes-marinade-sauce",
 nom:"Mojo aux agrumes (marinade-sauce)",
 ori:"Cuba/Canaries · ail et agrumes",
 pour:"4 pers",
@@ -8526,6 +8712,7 @@ ings:["Jus de 2 oranges + 2 citrons verts","6 gousses d'ail","1 c. à c. de cumi
 etapes:["Écrasez l'ail avec le sel et le cumin en pâte.","Ajoutez les jus d'agrumes, la coriandre hachée, l'origan.","Versez l'huile d'olive en filet.","Marinez le porc 4 h (façon lechon cubain) ou servez en sauce vive."],
 astuce:"Le mojo est l'accord parfait du porc rôti et des bananes plantain grillées. Réservez-en à cru pour servir."},
 {cat:"sauces",
+id:"chimichurri-rouge-rojo",
 nom:"Chimichurri rouge (Rojo)",
 ori:"Argentine · sauce relevée au piment et origan",
 pour:"1 bol",
@@ -8538,6 +8725,7 @@ ings:["1 bouquet de coriandre ou persil","3 gousses d'ail hachées","2 c. à s. 
 etapes:["Hachez très finement les herbes et l'ail au couteau.","Mélangez-les avec le paprika fumé, le piment en flocons, l'origan et le sel.","Incorporez le vinaigre puis l'huile d'olive en émulsionnant légèrement.","Laissez reposer 1 h pour marier les parfums. Servez avec du bœuf ou du porc."],
 astuce:"Le paprika fumé confère au chimichurri rouge son arôme boisé caractéristique qui se marie merveilleusement avec les cuissons sur braises."},
 {cat:"sauces",
+id:"marinade-jerk-jamaicaine",
 nom:"Marinade Jerk jamaïcaine",
 ori:"Jamaïque · marinade caraïbe intensément parfumée",
 pour:"4–6 pers",
@@ -8550,6 +8738,7 @@ ings:["4 cébettes ou oignons verts","2 piments antillais (habanero ou scotch bo
 etapes:["Mixez tous les ingrédients dans un robot culinaire jusqu'à obtenir une pâte épaisse.","Badigeonnez généreusement le poulet ou le porc de cette pâte.","Laissez mariner au frais pendant au moins 4 h (24 h idéalement).","Faites griller la viande au kamado. La marinade va former une croûte sombre caractéristique (le jerk)."],
 astuce:"Le jerk jamaïcain est traditionnellement très piquant. Vous pouvez retirer les graines du piment pour atténuer la force tout en gardant l'arôme."},
 {cat:"sauces",
+id:"beurre-de-piment-fume-chipotle",
 nom:"Beurre de piment fumé (Chipotle)",
 ori:"Fusion · beurre composé épicé et boisé",
 pour:"8 pers",
@@ -8562,6 +8751,7 @@ ings:["150 g de beurre doux (ramolli à température ambiante)","2 c. à c. de s
 etapes:["Dans un bol, travaillez le beurre à la fourchette pour obtenir une texture pommade.","Incorporez la sauce chipotle, le zeste de citron vert et la coriandre hachée.","Déposez le beurre sur du film alimentaire, roulez-le en boudin serré.","Placez au frais pendant 1 h pour le raffermir."],
 astuce:"Déposez une rondelle de ce beurre épicé sur un épi de maïs grillé bien chaud, un filet de saumon ou un steak à sa sortie du kamado."},
 {cat:"sauces",
+id:"sauce-bbq-moutarde-et-miel-carolina-gold",
 nom:"Sauce BBQ moutarde et miel (Carolina Gold)",
 ori:"USA · sauce acidulée de Caroline du Sud",
 pour:"1 pot",
@@ -8574,6 +8764,7 @@ ings:["150 g de moutarde jaune (type américaine)","4 c. à s. de miel liquide",
 etapes:["Versez tous les ingrédients dans une petite casserole.","Faites chauffer à feu doux en remuant constamment pendant 5 à 8 min.","La sauce ne doit pas bouillir, mais simplement frémir pour dissoudre les sucres.","Laissez refroidir. Transvasez dans un flacon ou pot en verre."],
 astuce:"Cette sauce dorée (Carolina Gold) est l'accord parfait pour le porc effiloché (pulled pork) et les travers de porc de style Caroline."},
 {cat:"sauces",
+id:"sauce-tzatziki-authentique",
 nom:"Sauce Tzatziki authentique",
 ori:"Grèce · fraîcheur et onctuosité",
 pour:"4–6 pers",
@@ -8586,6 +8777,7 @@ ings:["300 g de yaourt grec épais (10% de matière grasse)","1 concombre","2 go
 etapes:["Râpez le concombre avec sa peau, salez-le légèrement et laissez-le dégorger dans une passoire pendant 15 min.","Pressez vigoureusement le concombre râpé dans vos mains pour extraire le maximum d'eau (c'est crucial pour ne pas liquéfier la sauce).","Dans un bol, mélangez le yaourt grec avec l'ail, l'huile d'olive, le vinaigre, le sel, le poivre et l'aneth.","Incorporez le concombre pressé et réservez au frais 1 h avant de servir."],
 astuce:"Utilisez du vrai yaourt grec à base de lait de brebis ou de chèvre égoutté pour obtenir la texture crémeuse idéale."},
 {cat:"sauces",
+id:"rub-lemon-herb-poisson-et-legumes",
 nom:"Rub Lemon-Herb (poisson et légumes)",
 ori:"Fusion · mélange sec zesté et herbacé",
 pour:"1 pot",
@@ -8598,6 +8790,7 @@ ings:["3 c. à s. de zestes de citron séchés","2 c. à s. d'aneth séché","1 
 etapes:["Mélangez tous les ingrédients dans un bocal hermétique.","Conservez dans un bocal hermétique à l'abri de la lumière et de l'humidité.","Saupoudrez généreusement sur des pavés de saumon, de cabillaud ou sur des légumes avant cuisson au kamado.","Frottez légèrement pour faire adhérer le rub avant cuisson."],
 astuce:"Les zestes de citron séchés apportent une acidité vive qui ne s'évapore pas à la chaleur des braises."},
 {cat:"sauces",
+id:"sauce-alabama-white-bbq",
 nom:"Sauce Alabama White BBQ",
 ori:"USA · sauce blanche acidulée mythique pour volaille",
 pour:"1 pot",
@@ -8610,6 +8803,7 @@ ings:["200 g de mayonnaise de qualité","4 c. à s. de vinaigre de cidre","1 c. 
 etapes:["Dans un bol, mélangez la mayonnaise avec le vinaigre de cidre et le raifort.","Ajoutez le jus de citron, la cassonade et les épices.","Fouettez énergiquement jusqu'à obtenir une texture de crème fluide.","Réservez au frais. Utilisez pour napper le poulet chaud à la sortie du Kamado."],
 astuce:"Le vinaigre de cidre et le raifort coupent le gras de la mayonnaise pour donner une sauce incroyablement vive et parfumée."},
 {cat:"sauces",
+id:"pesto-rosso-grille-au-kamado",
 nom:"Pesto Rosso grillé au Kamado",
 ori:"Italie · pesto rouge relevé aux tomates grillées",
 pour:"1 pot",
@@ -8622,6 +8816,7 @@ ings:["100 g de tomates séchées à l'huile","50 g de pignons de pin torréfié
 etapes:["Faites torréfier les pignons sur une petite plaque en fonte au Kamado pendant 2 min.","Dans le bol d'un robot, mixez les tomates séchées, l'ail et les pignons torréfiés.","Ajoutez les feuilles de basilic, le parmesan et l'huile d'olive, puis mixez par impulsions.","Le pesto doit garder un peu de texture. Salez et poivrez selon votre goût."],
 astuce:"Servez ce pesto riche sur des légumes grillés (aubergines, courgettes) ou pour farcir des filets de poulet avant cuisson."},
 {cat:"sauces",
+id:"marinade-teriyaki-epicee",
 nom:"Marinade Teriyaki épicée",
 ori:"Japon/Fusion · marinade relevée au gingembre et piment",
 pour:"4 pers",
@@ -8634,6 +8829,7 @@ ings:["120 ml de sauce soja","2 c. à s. de miel ou de sirop d'érable","1 c. à
 etapes:["Mélangez tous les ingrédients dans une petite casserole.","Faites frémir à feu doux pendant 5 min pour dissoudre le miel.","Laissez refroidir complètement la marinade.","Utilisez pour mariner des pavés de saumon, de porc ou de poulet pendant 2 h."],
 astuce:"Le piment équilibre magnifiquement la douceur de la laque teriyaki classique et caramélise à la cuisson."},
 {cat:"sauces",
+id:"laque-bbq-erable-et-bourbon",
 nom:"Laque BBQ érable et bourbon",
 ori:"USA · glaçage sirupeux et caramélisé",
 pour:"1 pot",
@@ -8648,6 +8844,7 @@ astuce:"L'alcool du bourbon s'évapore complètement, ne laissant qu'un arôme d
 
 /* ===== TOUR DU MONDE ===== */
 {cat:"monde",
+id:"picanha-grillee-rumsteak-bresilien",
 nom:"Picanha grillée (rumsteak brésilien)",
 ori:"Brésil · l'étoile du churrasco",
 pour:"4 pers",
@@ -8666,6 +8863,7 @@ repos_min:5,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/brazilian-style-picanha-steak-recipe"},
 {cat:"monde",
+id:"yakitori-brochettes-japonaises",
 nom:"Yakitori (brochettes japonaises)",
 ori:"Japon · izakaya",
 pour:"4 pers",
@@ -8685,6 +8883,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : volaille en brochettes = 74 °C à cœur (cubes 2 cm). Sauce tare : appliquer au badigeon dans les 2 dernières minutes uniquement — sinon le mirin/miel brûle. Le vrai yakitori se cuit sur binchotan (charbon blanc japonais) qui brûle à 800 °C — le kamado avec braises très chaudes s'en approche. Brochettes en bambou trempées 30 min à l'eau (évite combustion).",
 source:"https://www.seriouseats.com/yakitori-japanese-grilled-chicken-skewers-recipe"},
 {cat:"monde",
+id:"char-siu-porc-laque-chinois",
 nom:"Char siu (porc laqué chinois)",
 ori:"Chine · porc rôti cantonais",
 pour:"4 pers",
@@ -8704,6 +8903,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:160,duration_min:45,action:"Pierre déflectrice. Sonde à cœur jusqu'à 65 °C, laquer avec marinade bouillie à mi-cuisson."},{name:"Caramélisation directe",mode:"direct",temp_C:230,duration_min:5,action:"Retirer la pierre. Bords laqués côté feu pour croûte laquée brillante jusqu'à 68 °C."}],
 source:"https://www.seriouseats.com/char-siu-chinese-barbecue-pork-recipe"},
 {cat:"monde",
+id:"satay-de-poulet-sauce-cacahuete",
 nom:"Satay de poulet, sauce cacahuète",
 ori:"Indonésie/Thaïlande · brochettes parfumées",
 pour:"4 pers",
@@ -8723,6 +8923,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:["Cœur à 74 °C minimum, mesuré au plus épais de la cuisse (USDA FSIS)","Chaîne du froid stricte : ne jamais laisser plus de 2 h à température ambiante (1 h si >30 °C)","Nettoyer immédiatement planche, ustensiles et surfaces après contact avec la volaille crue (Salmonella/Campylobacter)","Ne jamais réutiliser la marinade crue pour badigeonner en fin de cuisson : réserver une portion propre ou la bouillir 2 min"],
 source:"https://www.seriouseats.com/grilled-chicken-satay-with-peanut-sauce-recipe"},
 {cat:"monde",
+id:"bulgogi-boeuf-marine-coreen",
 nom:"Bulgogi (bœuf mariné coréen)",
 ori:"Corée · barbecue coréen",
 pour:"4 pers",
@@ -8742,6 +8943,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : bœuf whole muscle tranché = 63 °C ou saisie flash acceptable (<60 sec sur chaque face). La marinade sucrée (poire + sucre + soja) caramélise vite : viande directement sur braises à 320 °C pour Maillard sans brûler le sucre. Utiliser gril à trous fins (les tranches sont fines). Servir immédiatement, ne pas laisser reposer (sèche vite).",
 source:"https://www.seriouseats.com/bulgogi-korean-grilled-marinated-beef-recipe"},
 {cat:"monde",
+id:"poulet-tandoori",
 nom:"Poulet tandoori",
 ori:"Inde · yaourt épicé et grillé",
 pour:"4 pers",
@@ -8763,6 +8965,7 @@ notes_securite:"USDA/FSIS : volaille = 74 °C à cœur cuisse. Marinade au yaour
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:200,duration_min:32,action:"Pierre déflectrice. Sonde cuisse jusqu'à 70 °C, la croûte tandoori sèche et parfume."},{name:"Croustillance directe",mode:"direct",temp_C:200,duration_min:8,action:"Retirer la pierre. Colorer les bords côté feu jusqu'à 74 °C. Attention aux flambées d'huile-ghee."}],
 source:"https://www.seriouseats.com/tandoori-chicken-recipe"},
 {cat:"monde",
+id:"souvlaki-pita-porc-grec",
 nom:"Souvlaki & pita (porc grec)",
 ori:"Grèce · brochettes du soleil",
 pour:"4 pers",
@@ -8781,6 +8984,7 @@ repos_min:5,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/grilled-pork-souvlaki-recipe"},
 {cat:"monde",
+id:"tacos-al-pastor",
 nom:"Tacos al pastor",
 ori:"Mexique · porc mariné à l'ananas",
 pour:"6 pers",
@@ -8800,6 +9004,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:180,duration_min:37,action:"Pierre déflectrice. Tranches marinées sur grille, chair qui absorbe le fumé jusqu'à 68 °C."},{name:"Saisie directe",mode:"direct",temp_C:180,duration_min:8,action:"Retirer la pierre. Colorer les bords côté feu jusqu'à 71 °C, hacher grossièrement pour les tacos."}],
 source:"https://www.seriouseats.com/tacos-al-pastor-recipe"},
 {cat:"monde",
+id:"travers-bbq-kansas-city",
 nom:"Travers BBQ Kansas City",
 ori:"USA · ribs sauce sucrée-fumée",
 pour:"4 pers",
@@ -8823,6 +9028,7 @@ equipement:["Pierre déflectrice","Alu épais","Pinceau à sauce","Hickory"],
 erreurs:["Pas de membrane retirée : ribs dures","Sauce KC trop tôt : sucre brûle","Méthode 3-2-1 stricte : varier selon épaisseur"],
 source:"Steven Raichlen — 'Project Smoke' (Workman, 2016), chap. Kansas City ribs ; voir aussi amazingribs.com/tested-recipes/pork-rib-recipes/last-meal-ribs"},
 {cat:"monde",
+id:"merguez-mechoui-d-agneau",
 nom:"Merguez & méchoui d'agneau",
 ori:"Maghreb · grillade épicée",
 pour:"6 pers",
@@ -8842,6 +9048,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 notes_securite:"USDA/FSIS : viande hachée mixte bœuf/agneau = 71 °C OBLIGATOIRE (surface totale multipliée = risque E. coli/Salmonella accru). Boyau de mouton naturel trempé 30 min à l'eau tiède avant embossage. Ne jamais consommer merguez rosée à cœur. Ne pas piquer les merguez à la cuisson (perte de gras et jus). Cuire à feu moyen 200 °C, 12–15 min en retournant.",
 source:"https://www.barbecuebible.com/recipe/mechoui-moroccan-roast-lamb/"},
 {cat:"monde",
+id:"jerk-chicken-jamaicain",
 nom:"Jerk chicken jamaïcain",
 ori:"Jamaïque · épicé et fumé",
 pour:"4 pers",
@@ -8865,6 +9072,7 @@ erreurs:["Pas de scotch bonnet : pas de jerk authentique","Marinade trop courte 
 notes_securite:"USDA/FSIS : volaille = 74 °C cuisse. La pâte jerk (piment scotch bonnet, thym, all-spice, gingembre) contient du piment très fort (SHU 100 000–350 000) : porter des gants pour la préparation. Cuisson traditionnelle sur bois de pimento (piment de la Jamaïque) — substitution : cerisier + all-spice moulu dans le charbon.",
 source:"Helen Willinsky — 'Jerk from Jamaica: Barbecue Caribbean Style' (Ten Speed Press, 2007)"},
 {cat:"monde",
+id:"asado-d-entrana-chimichurri",
 nom:"Asado d'entraña & chimichurri",
 ori:"Argentine · l'art du grill",
 pour:"4 pers",
@@ -8884,6 +9092,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : bœuf pièce entière = 63 °C recommandé, mais saignant 54–56 °C acceptable si viande fraîche tracée. L'asado utilise braises exclusivement (jamais flamme directe), position variable en hauteur pour contrôle T° (échelle 'a la cruz'). Chimichurri (persil, ail, vinaigre, huile) préparé 2 h avant service pour maturation.",
 source:"https://www.seriouseats.com/grilled-skirt-steak-with-chimichurri-recipe"},
 {cat:"monde",
+id:"kofte-epicees-boulettes-turques",
 nom:"Köfte épicées (boulettes turques)",
 ori:"Turquie/Moyen-Orient · brochettes hachées",
 pour:"4 pers",
@@ -8903,6 +9112,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : viande hachée agneau/bœuf = 71 °C OBLIGATOIRE. Pétrissage 5 min à la main : développe l'élasticité (myosine) qui empêche l'éclatement à la cuisson. Repos 30 min frigo avant cuisson stabilise les liaisons. Cuisson directe 220 °C, 8 min en retournant régulièrement.",
 source:"https://www.seriouseats.com/grilled-turkish-kofte-kebabs-recipe"},
 {cat:"monde",
+id:"shawarma-de-poulet",
 nom:"Shawarma de poulet",
 ori:"Moyen-Orient · épices et broche",
 pour:"4 pers",
@@ -8923,6 +9133,7 @@ notes_securite:["Cœur à 74 °C minimum, mesuré au plus épais de la cuisse (U
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:180,duration_min:35,action:"Bloc de cuisses empilées sur pique, pierre déflectrice. Sonde au cœur du bloc jusqu'à 74 °C."},{name:"Charring direct",mode:"direct",temp_C:240,duration_min:5,action:"Retirer la pierre, colorer les faces externes puis trancher les bords dorés."}],
 source:"https://www.seriouseats.com/chicken-shawarma-recipe"},
 {cat:"monde",
+id:"galbi-cotes-de-boeuf-coreennes",
 nom:"Galbi (côtes de bœuf coréennes)",
 ori:"Corée · KBBQ, côtes marinées",
 pour:"4 pers",
@@ -8941,6 +9152,7 @@ repos_min:5,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/grilled-korean-style-short-ribs-galbi-recipe"},
 {cat:"monde",
+id:"birria-de-boeuf-tacos",
 nom:"Birria de bœuf (tacos)",
 ori:"Mexique · Jalisco, le ragoût épicé",
 pour:"6 pers",
@@ -8964,6 +9176,7 @@ erreurs:["Pas de réhydratation piments : sauce granuleuse","Bouillon insuffisan
 notes_securite:"Braisé long >6 h à 110 °C dans consomé chilé : pasteurisation totale. Le consomé (jus) est réutilisé pour tremper les tacos QUESABIRRIA (Tijuana style) — porter à ébullition avant service si servi le lendemain. Piments guajillo + ancho + chipotle : gants pour manipulation, aération pour rissolage.",
 source:"Diana Kennedy — 'The Cuisines of Mexico' (Harper & Row, 1972), chap. birria de Jalisco ; voir aussi cooking.nytimes.com/recipes/1021754-birria-de-res-tacos"},
 {cat:"monde",
+id:"kleftiko-agneau-grec-a-l-etouffee",
 nom:"Kleftiko (agneau grec à l'étouffée)",
 ori:"Grèce · agneau « du voleur » en papillote",
 pour:"5 pers",
@@ -8986,6 +9199,7 @@ equipement:["Papier sulfurisé","Cocotte avec couvercle","Ficelle alimentaire","
 erreurs:["Ouvrir la papillote avant 3 h : vapeur perdue","Pas de citron entier : signature kleftiko manque","Papier alu seul : moins authentique que sulfurisé"],
 source:"Diane Kochilas — 'The Glorious Foods of Greece' (William Morrow, 2001), chap. kleftiko"},
 {cat:"monde",
+id:"tagine-d-agneau-aux-abricots",
 nom:"Tagine d'agneau aux abricots",
 ori:"Maroc · mijoté sucré-salé",
 pour:"6 pers",
@@ -9008,6 +9222,7 @@ equipement:["Plat tagine (terre cuite ou fonte)","Pierre déflectrice","Cuillèr
 erreurs:["Ras el hanout brûlé : amer","Abricots dès le début : se défont","Couvercle ouvert : tagine sèche"],
 source:"Paula Wolfert — 'The Food of Morocco' (Ecco, 2011), tagine d'agneau aux abricots et amandes"},
 {cat:"monde",
+id:"boerewors-facon-braai",
 nom:"Boerewors façon braai",
 ori:"Afrique du Sud · la saucisse du barbecue",
 pour:"6 pers",
@@ -9027,6 +9242,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 notes_securite:["Saucisse/boerewors (contient du haché) : cœur à 71 °C impératif (USDA FSIS)","Piquer légèrement en fin de cuisson : jus clair = cuit à cœur","Chaîne du froid stricte jusqu’à la grille"],
 source:"https://www.weber.com/US/en/recipes/red-meat/boerewors/weber-31815.html"},
 {cat:"monde",
+id:"lahmacun-pizza-turque",
 nom:"Lahmacun (pizza turque)",
 ori:"Turquie · « pizza » fine à la viande",
 pour:"4 pers",
@@ -9046,6 +9262,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"Viande hachée agneau/bœuf : viser 71 °C au centre de la garniture. Étaler très finement jusqu'aux bords pour cuire la viande avant que la pierre ne surcolore la pâte.",
 source:"https://www.seriouseats.com/lahmacun-turkish-flatbread-recipe"},
 {cat:"monde",
+id:"gyros-de-porc-grec",
 nom:"Gyros de porc grec",
 ori:"Grèce · la broche verticale en pita",
 pour:"4 pers",
@@ -9065,6 +9282,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 phases:[{name:"Saisie directe",mode:"direct",temp_C:220,duration_min:6,action:"Bloc de tranches empilées sur pique. Colorer toutes faces pour la croûte."},{name:"Cuisson indirecte",mode:"indirect",temp_C:180,duration_min:34,action:"Décaler indirect. Sonde au cœur jusqu'à 75 °C, trancher les couches externes au couteau au fur et à mesure."}],
 source:"https://www.seriouseats.com/homemade-pork-gyros-recipe"},
 {cat:"monde",
+id:"carne-asada-tacos-mexicains",
 nom:"Carne asada (tacos mexicains)",
 ori:"Mexique · bœuf mariné grillé",
 pour:"4 pers",
@@ -9084,6 +9302,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : bœuf whole muscle = 63 °C recommandé, saignant 54 °C acceptable si viande tracée. Marinade citron/orange + coriandre + ail 4 h max (au-delà, texture farineuse). Cuisson directe 320 °C, 3 min/face pour bavette de 2 cm. Trancher très fin (3 mm) perpendiculairement au grain pour tacos.",
 source:"https://www.seriouseats.com/the-best-carne-asada-recipe"},
 {cat:"monde",
+id:"tsukune-boulettes-de-poulet-japonaises",
 nom:"Tsukune (boulettes de poulet japonaises)",
 ori:"Japon · yakitori de boulettes",
 pour:"4 pers",
@@ -9103,6 +9322,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 notes_securite:"USDA/FSIS : volaille hachée = 74 °C OBLIGATOIRE (Salmonella + surface accrue). Œuf cru servi en 'dipping' (yolk trempé) traditionnel : uniquement œufs pasteurisés extra-frais (moins de 5 jours), sinon substituer par yaourt épais. Pétrissage 3 min pour texture élastique. Cuisson binchotan haute T° 350 °C, 4 min en tournant.",
 source:"https://www.seriouseats.com/tsukune-japanese-chicken-meatballs-recipe"},
 {cat:"monde",
+id:"pinchos-morunos-brochettes-espagnoles",
 nom:"Pinchos morunos (brochettes espagnoles)",
 ori:"Espagne · brochettes épicées d'influence maure",
 pour:"4 pers",
@@ -9121,6 +9341,7 @@ repos_min:5,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/pinchos-morunos-spanish-moorish-pork-skewers-recipe"},
 {cat:"monde",
+id:"thit-nuong-porc-citronnelle-vietnamien",
 nom:"Thịt nướng (porc citronnelle vietnamien)",
 ori:"Vietnam · porc grillé parfumé",
 pour:"4 pers",
@@ -9140,6 +9361,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:"USDA/FSIS : porc whole muscle = 63 °C + 3 min. Marinade nuoc mam + citronnelle + ail + sucre 4 h min. Cuisson directe 280 °C sur brochettes bambou trempées 30 min. Sucre caramélise vite : rotation constante pour éviter la carbonisation.",
 source:"https://www.seriouseats.com/vietnamese-grilled-lemongrass-pork-thit-nuong-recipe"},
 {cat:"monde",
+id:"pollo-a-la-brasa-poulet-peruvien",
 nom:"Pollo a la brasa (poulet péruvien)",
 ori:"Pérou · poulet rôti mariné",
 pour:"4 pers",
@@ -9159,6 +9381,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 notes_securite:["Cœur à 74 °C minimum, mesuré au plus épais de la cuisse (USDA FSIS)","Chaîne du froid stricte : ne jamais laisser plus de 2 h à température ambiante (1 h si >30 °C)","Nettoyer immédiatement planche, ustensiles et surfaces après contact avec la volaille crue (Salmonella/Campylobacter)","Ne jamais réutiliser la marinade crue pour badigeonner en fin de cuisson : réserver une portion propre ou la bouillir 2 min"],
 source:"https://www.seriouseats.com/peruvian-style-roast-chicken-with-green-sauce-recipe"},
 {cat:"monde",
+id:"chicken-tikka-inde",
 nom:"Chicken tikka (Inde)",
 ori:"Inde · cubes de poulet marinés au yaourt",
 pour:"4 pers",
@@ -9178,6 +9401,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 notes_securite:["Cœur à 74 °C minimum, mesuré au plus épais de la cuisse (USDA FSIS)","Chaîne du froid stricte : ne jamais laisser plus de 2 h à température ambiante (1 h si >30 °C)","Nettoyer immédiatement planche, ustensiles et surfaces après contact avec la volaille crue (Salmonella/Campylobacter)","Ne jamais réutiliser la marinade crue pour badigeonner en fin de cuisson : réserver une portion propre ou la bouillir 2 min"],
 source:"https://www.seriouseats.com/grilled-chicken-tikka-recipe"},
 {cat:"monde",
+id:"samgyeopsal-poitrine-de-porc-coreenne",
 nom:"Samgyeopsal (poitrine de porc coréenne)",
 ori:"Corée · le barbecue de table",
 pour:"4 pers",
@@ -9196,6 +9420,7 @@ repos_min:5,
 vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/samgyeopsal-gui-korean-grilled-pork-belly-recipe"},
 {cat:"monde",
+id:"lomo-al-trapo-boeuf-au-torchon",
 nom:"Lomo al trapo (bœuf au torchon)",
 ori:"Colombie · cuisson spectaculaire directement sur braises",
 pour:"4–6 pers",
@@ -9220,6 +9445,7 @@ notes_securite:"Filet de bœuf enveloppé dans torchon coton (100%, jamais synth
 source:"Steven Raichlen — barbecuebible.com/recipe/lomo-al-trapo (technique colombienne d'Antioquia)",
 sauce:"Chimichurri argentin | Chimichurri rouge (Rojo)"},
 {cat:"monde",
+id:"chuan-r-d-agneau-au-cumin-piment",
 nom:"Chuan'r d'agneau au cumin & piment",
 ori:"Chine · street food pékinoise parfumée",
 pour:"4 pers",
@@ -9239,6 +9465,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/xinjiang-cumin-lamb-skewers-chuanr-recipe",
 sauce:"Sauce yaourt-ail express (façon toum)"},
 {cat:"monde",
+id:"kabab-koobideh-brochettes-d-agneau-perses",
 nom:"Kabab Koobideh (brochettes d'agneau perses)",
 ori:"Iran · brochettes hachées ultra fondantes",
 pour:"4 pers",
@@ -9259,6 +9486,7 @@ notes_securite:"USDA/FSIS : viande hachée mixte = 71 °C OBLIGATOIRE. Kabab koo
 source:"https://www.seriouseats.com/kabab-koobideh-persian-ground-meat-kebabs-recipe",
 sauce:"Sauce yaourt-ail express (façon toum) | Sauce Tzatziki authentique"},
 {cat:"monde",
+id:"sosaties-d-agneau-au-curry-abricot",
 nom:"Sosaties d'agneau au curry & abricot",
 ori:"Afrique du Sud · le classique du braai",
 pour:"4–6 pers",
@@ -9280,6 +9508,7 @@ phases:[{name:"Saisie directe",mode:"direct",temp_C:220,duration_min:4,action:"G
 source:"https://www.weber.com/ZA/en/recipes/lamb/sosaties/weber-31817.html",
 sauce:"Sauce Tzatziki authentique | Sauce yaourt-ail express (façon toum)"},
 {cat:"monde",
+id:"suya-de-boeuf-nigerian-a-l-arachide",
 nom:"Suya de bœuf nigérian à l'arachide",
 ori:"Nigeria · street food d'Afrique de l'Ouest épicée et croquante",
 pour:"4 pers",
@@ -9299,6 +9528,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.barbecuebible.com/recipe/nigerian-suya-beef-skewers/",
 sauce:"Mojo aux agrumes"},
 {cat:"monde",
+id:"espetada-de-boeuf-au-laurier-maderienne",
 nom:"Espetada de bœuf au laurier madérienne",
 ori:"Portugal · brochettes suspendues traditionnelles de Madère",
 pour:"4 pers",
@@ -9318,6 +9548,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"Steven Raichlen — Planet Barbecue! (2010), chap. Portugal/Madeira",
 sauce:"Beurre maître d'hôtel | Beurre de piment fumé (Chipotle)"},
 {cat:"monde",
+id:"daeji-bulgogi-porc-epice-coreen",
 nom:"Daeji Bulgogi (porc épicé coréen)",
 ori:"Corée · poitrine de porc grillée caramélisée",
 pour:"4 pers",
@@ -9337,6 +9568,7 @@ vents:{bottom:"grand ouvert",top:"grand ouvert"},
 source:"https://www.seriouseats.com/dwaeji-bulgogi-korean-spicy-pork-recipe",
 sauce:"Marinade coréenne (base bulgogi)"},
 {cat:"monde",
+id:"bo-la-lot-boeuf-en-feuilles-de-betel",
 nom:"Bò Lá Lốt (bœuf en feuilles de betel)",
 ori:"Vietnam · petites bouchées grillées parfumées",
 pour:"4 pers",
@@ -9357,6 +9589,7 @@ notes_securite:"USDA/FSIS : bœuf haché = 71 °C OBLIGATOIRE. Feuille de bétel
 source:"https://www.seriouseats.com/vietnamese-grilled-beef-in-betel-leaves-bo-la-lot-recipe",
 sauce:"Sauce teriyaki maison | Marinade Teriyaki épicée"},
 {cat:"monde",
+id:"char-siu-cantonais-laque",
 nom:"Char Siu cantonais laqué",
 ori:"Hong-Kong / Canton · porc rôti laqué hoisin-miel",
 pour:"4–5 pers",
@@ -9378,6 +9611,7 @@ erreurs:["Glaçer trop tôt : le miel brûle, devient amer → glaçage seulemen
 source:"Fuchsia Dunlop — 'Land of Fish and Rice' (W.W. Norton, 2016) ; recette de référence seriouseats.com/char-siu-chinese-bbq-pork-recipe par Kenji López-Alt",
 sauce:"Laque hoisin-miel-soja"},
 {cat:"monde",
+id:"smoked-queso-dip-au-kamado",
 nom:"Smoked Queso Dip au kamado",
 ori:"USA / Tex-Mex · apéritif culte des forums kamado",
 pour:"6–8 pers",
@@ -9403,6 +9637,7 @@ source:"https://amazingribs.com/tested-recipes/cheese-recipes/smoked-mac-and-che
 
 /* ===== VÉGÉTARIEN ===== */
 {cat:"vegetarien",
+id:"burger-vegetarien-haricots-champignons",
 nom:"Burger végétarien haricots-champignons",
 ori:"International · le burger sans viande qui tient",
 pour:"4 burgers",
@@ -9421,6 +9656,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/the-best-black-bean-burger-recipe"},
 {cat:"vegetarien",
+id:"brochettes-halloumi-legumes",
 nom:"Brochettes halloumi & légumes",
 ori:"Méditerranée · le végé qui grille",
 pour:"4 pers",
@@ -9439,6 +9675,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.biggreenegg.eu/en/inspiration/recipes/halloumi-and-vegetable-skewers"},
 {cat:"vegetarien",
+id:"aubergine-entiere-fumee-facon-steak",
 nom:"Aubergine entière fumée façon steak",
 ori:"Moyen-Orient/fusion · la viande végétale",
 pour:"4 pers",
@@ -9458,6 +9695,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 phases:[{name:"Fumage direct",mode:"direct",temp_C:220,duration_min:12,action:"Aubergines entières sur braises. Peau qui carbonise, chair qui absorbe le goût fumé."},{name:"Fondant indirect",mode:"indirect",temp_C:220,duration_min:23,action:"Décaler indirect. Miso-tamari badigeonné, chair complètement fondante, texture 'steak' à la fourchette."}],
 source:"https://www.seriouseats.com/grilled-whole-eggplant-recipe"},
 {cat:"vegetarien",
+id:"chou-pointu-roti-au-beurre-noisette",
 nom:"Chou pointu rôti au beurre noisette",
 ori:"Europe du Nord · le légume star",
 pour:"4 pers",
@@ -9477,6 +9715,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:200,duration_min:25,action:"Pierre déflectrice. Chou en quartiers face coupée sur grille jusqu'à cœur fondant."},{name:"Coloration directe",mode:"direct",temp_C:200,duration_min:10,action:"Retirer la pierre. Feuilles extérieures qui croustillent, arroser beurre noisette juste avant service."}],
 source:"https://cooking.nytimes.com/recipes/1020747-roasted-cabbage-wedges-with-brown-butter"},
 {cat:"vegetarien",
+id:"tofu-marine-grille-teriyaki",
 nom:"Tofu mariné grillé teriyaki",
 ori:"Asie · protéine végétale laquée",
 pour:"4 pers",
@@ -9495,6 +9734,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/grilled-teriyaki-tofu-recipe"},
 {cat:"vegetarien",
+id:"butternut-rotie-sauce-tahini",
 nom:"Butternut rôtie, sauce tahini",
 ori:"Moyen-Orient/fusion · courge caramélisée",
 pour:"4 pers",
@@ -9513,6 +9753,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://cooking.nytimes.com/recipes/1020049-roasted-butternut-squash-with-tahini-and-feta"},
 {cat:"vegetarien",
+id:"poivrons-farcis-riz-feta",
 nom:"Poivrons farcis riz-feta",
 ori:"Méditerranée/Balkans · plat complet végé",
 pour:"4 pers",
@@ -9531,6 +9772,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://cooking.nytimes.com/recipes/1017674-stuffed-peppers-with-rice-and-feta"},
 {cat:"vegetarien",
+id:"parmigiana-d-aubergines-en-cocotte",
 nom:"Parmigiana d'aubergines en cocotte",
 ori:"Italie · gratin végétarien fondant",
 pour:"6 pers",
@@ -9549,6 +9791,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/the-best-eggplant-parmesan-recipe"},
 {cat:"vegetarien",
+id:"shakshuka-en-cocotte",
 nom:"Shakshuka en cocotte",
 ori:"Maghreb/Levant · œufs pochés à la tomate",
 pour:"4 pers",
@@ -9567,6 +9810,7 @@ repos_min:0,
 vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/shakshuka-north-african-poached-egg-tomato-pepper-recipe"},
 {cat:"vegetarien",
+id:"patatas-bravas-grillees",
 nom:"Patatas bravas grillées",
 ori:"Espagne · la tapa de pommes de terre",
 pour:"4 pers",
@@ -9586,6 +9830,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:210,duration_min:30,action:"Pierre déflectrice. Cubes de pommes de terre précuites vapeur, huilés, jusqu'à tendres et dorés."},{name:"Croustillance directe",mode:"direct",temp_C:210,duration_min:8,action:"Retirer la pierre. Faire croustiller sur plaque fonte, sauce brava et alioli hors feu."}],
 source:"https://www.seriouseats.com/the-best-patatas-bravas-recipe"},
 {cat:"vegetarien",
+id:"tofu-fume-laque-miso-sesame",
 nom:"Tofu fumé laqué miso-sésame",
 ori:"Japon/fusion · végétarien riche en umami",
 pour:"4 pers",
@@ -9608,6 +9853,7 @@ equipement:["Tofu ferme bio","Presse-tofu (ou planche+poids)","Cerisier sec","Pi
 erreurs:["Tofu non pressé : éponge à eau, pas à fumée","Marinade salée : tofu immangeable","Trop direct : carbonisation surface"],
 source:"Nancy Singleton Hachisu — 'Japanese Farm Food' (Andrews McMeel, 2012), tofu fumé maison ; adaptation miso-sésame via seriouseats.com"},
 {cat:"vegetarien",
+id:"steaks-de-chou-rouge-fumes",
 nom:"Steaks de chou rouge fumés",
 ori:"Végétarien · tranche épaisse caramélisée",
 pour:"4 pers",
@@ -9628,6 +9874,7 @@ phases:[{name:"Cuisson indirecte",mode:"indirect",temp_C:180,duration_min:30,act
 source:"https://amazingribs.com/tested-recipes/side-dish-recipes/smoked-cabbage-steaks-recipe/",
 sauce:"Sauce moutarde-miel, vinaigre de cidre et huile de noix"},
 {cat:"vegetarien",
+id:"celeri-rave-entier-roti-comme-une-piece",
 nom:"Céleri-rave entier rôti comme une pièce",
 ori:"Végétarien · centre de table",
 pour:"4 pers",
@@ -9651,6 +9898,7 @@ erreurs:["Pas brossé : amertume de terre","Pas piqué : peut éclater","Servi c
 source:"Yotam Ottolenghi — 'Plenty More' (Ebury Press, 2014), céleri-rave entier rôti au sel",
 sauce:"Sauce tahini-citron, câpres et herbes"},
 {cat:"vegetarien",
+id:"quesadillas-legumes-fumes",
 nom:"Quesadillas légumes fumés",
 ori:"Mexique/fusion · végétarien rapide",
 pour:"4 pers",
@@ -9670,6 +9918,7 @@ vents:{bottom:"1/2 ouvert",top:"1/2 ouvert"},
 source:"https://www.seriouseats.com/the-best-quesadillas-recipe",
 sauce:"Salsa roja ou crème citron vert-coriandre"},
 {cat:"vegetarien",
+id:"beer-can-cabbage-chou-a-la-biere",
 nom:"Beer can cabbage (chou à la bière)",
 ori:"USA/Fusion · le chou rôti à la vapeur de bière",
 pour:"4 pers",
@@ -9689,6 +9938,7 @@ vents:{bottom:"1/3 ouvert",top:"1/3 ouvert"},
 notes_securite:"Chou entier évidé au cœur + canette de bière ou bouillon dedans, cuisson indirecte long. Végétarien sécuritaire par nature. Rub épicé sur les feuilles extérieures. Trancher au service comme un rôti. Alternative canette : ramequin en verre borosilicaté avec bouillon aromatisé.",
 source:"https://amazingribs.com/tested-recipes/side-dish-recipes/beer-can-cabbage-recipe/"},
 {cat:"vegetarien",
+id:"provoleta-grille-fromage-argentin",
 nom:"Provoleta grillé (fromage argentin)",
 ori:"Argentine · entrée coulante du barbecue",
 pour:"2–4 pers",
@@ -9709,6 +9959,7 @@ notes_securite:"Provolone italien de type dulce (jeune, doux) ou piccante (vieux
 source:"https://www.seriouseats.com/grilled-provoleta-argentine-cheese-recipe",
 sauce:"Chimichurri argentin | Chimichurri rouge (Rojo)"},
 {cat:"vegetarien",
+id:"tandoori-gobi-chou-fleur-tandoori",
 nom:"Tandoori Gobi (chou-fleur tandoori)",
 ori:"Inde · chou-fleur rôti entier aux épices",
 pour:"4 pers",
@@ -9729,6 +9980,7 @@ notes_securite:"Végétarien, pas de risque bactériologique majeur. Précuisson
 source:"https://www.seriouseats.com/whole-roasted-cauliflower-recipe",
 sauce:"Sauce yaourt-ail express (façon toum) | Sauce Tzatziki authentique"},
 {cat:"porc",
+id:"pluma-iberique-a-la-plancha-fleur-de-sel-romarin",
 nom:"Pluma ibérique à la plancha, fleur de sel & romarin",
 ori:"Espagne · la découpe noble du porc bellota",
 pour:"4 pers",
@@ -9761,6 +10013,7 @@ notes_securite:"Norme de sécurité standard porc : 63 °C à cœur + 3 min de r
 source:"Asador Etxebarri — Atxondo, Espagne",
 sauce:"Chimichurri argentin"},
 {cat:"porc",
+id:"presa-iberique-marinee-au-pimenton-de-la-vera-ail-doux",
 nom:"Presa ibérique marinée au pimentón de la Vera & ail doux",
 ori:"Espagne · pièce d'exception persillée",
 pour:"4 pers",
@@ -9796,6 +10049,7 @@ phases:[
 source:"Gastronomie d'Estrémadure, Espagne",
 sauce:"Sauce barbecue maison (Kansas City) | Chimichurri argentin"},
 {cat:"boeuf",
+id:"ris-de-veau-braises-au-foin-puis-dores-sur-fonte",
 nom:"Ris de veau braisés au foin puis dorés sur fonte",
 ori:"France · haute gastronomie de bistrot",
 pour:"4 pers",
@@ -9832,6 +10086,7 @@ phases:[
 source:"Auguste Escoffier — Le Guide Culinaire (adaptation braisage kamado)",
 sauce:"Jus de veau réduit aux morilles | Beurre maître d'hôtel"},
 {cat:"boeuf",
+id:"cote-de-veau-epaisse-aux-morilles-et-vin-jaune",
 nom:"Côte de veau épaisse aux morilles et vin jaune",
 ori:"France / Franche-Comté · découpe généreuse de terroir",
 pour:"2–4 pers",
@@ -9871,6 +10126,7 @@ phases:[
 source:"Cuisine traditionnelle franc-comtoise",
 sauce:"Sauce aux morilles et vin jaune"},
 {cat:"volaille",
+id:"canard-laque-croustillant-au-kamado-facon-pekin",
 nom:"Canard laqué croustillant au kamado façon Pékin",
 ori:"Chine / Pékin · peau vitrifiée ultra-croustillante",
 pour:"4–6 pers",
@@ -9907,6 +10163,7 @@ phases:[
 source:"Tradition impériale de Pékin / Da Dong Roast Duck",
 sauce:"Sauce Hoisin | Sauce teriyaki maison"},
 {cat:"volaille",
+id:"supremes-de-pintade-fermiere-rotis-sous-peau-aux-morilles",
 nom:"Suprêmes de pintade fermière rôtis sous peau aux morilles",
 ori:"France · volaille noble rôtie en douceur",
 pour:"4 pers",
@@ -9938,6 +10195,7 @@ notes_securite:"Volaille : cuisson impérative à 74 °C à cœur pour éliminer
 source:"Paul Bocuse — La Cuisine du Marché",
 sauce:"Jus de volaille aux morilles"},
 {cat:"poisson",
+id:"turbot-entier-grille-en-panier-sur-braises-vives-facon-getaria",
 nom:"Turbot entier grillé en panier sur braises vives façon Getaria",
 ori:"Pays Basque espagnol · le maître du feu marin",
 pour:"4 pers",
@@ -9972,6 +10230,7 @@ notes_securite:"Poisson entier de prestige : chair nacrée à 52–54 °C au niv
 source:"Restaurant Elkano — Getaria (3 étoiles Michelin, légende mondiale du turbot au feu de bois)",
 sauce:"Refrito à l'ail, piment et vinaigre de cidre"},
 {cat:"poisson",
+id:"saint-pierre-roti-entier-au-thym-citron-et-fenouil-sauvage",
 nom:"Saint-Pierre rôti entier au thym citron et fenouil sauvage",
 ori:"Méditerranée · chair fine et feuilletée",
 pour:"2–4 pers",
@@ -10005,6 +10264,7 @@ notes_securite:"Poisson blanc noble : ne jamais surcuire au-delà de 55 °C au r
 source:"Gérald Passédat — Le Petit Nice, Marseille",
 sauce:"Sauce vierge aux herbes et tomates"},
 {cat:"poisson",
+id:"tataki-de-thon-rouge-marine-au-yuzu-croute-de-sesame-noir",
 nom:"Tataki de thon rouge mariné au yuzu & croûte de sésame noir",
 ori:"Japon · saisie éclair à 300 °C et cœur fondant cru",
 pour:"4 pers",
@@ -10038,6 +10298,7 @@ notes_securite:"Thon consommé quasi-cru à cœur : utiliser impérativement un 
 source:"Technique traditionnelle japonaise Tataki / Nobu Matsuhisa",
 sauce:"Sauce ponzu au yuzu | Sauce teriyaki maison"},
 {cat:"poisson",
+id:"eclade-de-moules-aux-aiguilles-de-pin-facon-kamado",
 nom:"Éclade de moules aux aiguilles de pin façon kamado",
 ori:"France / Charente-Maritime · cuisson spectaculaire aux aiguilles sèches",
 pour:"4 pers",
@@ -10071,6 +10332,7 @@ notes_securite:"Pasteurisation à 80 °C à cœur. Moules fraîches vivantes et 
 source:"Recette patrimoniale de l'Île d'Oléron et du bassin de Marennes",
 sauce:"Beurre salé aux herbes"},
 {cat:"legumes",
+id:"baingan-bharta-caviar-d-aubergines-brulees-fumees-a-l-indienne",
 nom:"Baingan Bharta (caviar d'aubergines brûlées fumées à l'indienne)",
 ori:"Inde / Pendjab · chair confite au goût de braise intense",
 pour:"4 pers",
@@ -10107,6 +10369,7 @@ notes_securite:"Légume végétarien sans risque bactérien. Attention lors de l
 source:"Madhur Jaffrey — A Taste of India",
 sauce:"Sauce yaourt-ail express (façon toum)"},
 {cat:"legumes",
+id:"barigoule-d-artichauts-poivrade-au-lard-et-vin-blanc-en-cocotte",
 nom:"Barigoule d'artichauts poivrade au lard et vin blanc en cocotte",
 ori:"France / Provence · mijoté printanier parfumé aux herbes",
 pour:"4 pers",
@@ -10143,6 +10406,7 @@ notes_securite:"Préparation en cocotte fonte couverte : hygiène parfaite, cons
 source:"Jean-André Charial — L'Oustau de Baumanière, Les Baux-de-Provence",
 sauce:"Vinaigrette tiède aux herbes"},
 {cat:"monde",
+id:"kofte-d-agneau-et-boeuf-au-sumac-menthe-sur-brochettes",
 nom:"Kofte d'agneau et bœuf au sumac & menthe sur brochettes",
 ori:"Turquie / Moyen-Orient · brochettes juteuses au goût de braise",
 pour:"4 pers (8 brochettes)",
@@ -10179,6 +10443,7 @@ notes_securite:"Préparations de viandes hachées : cuire obligatoirement à 71 
 source:"Cuisine de rue d'Istanbul / Chef Musa Dağdeviren (Çiya Sofrası)",
 sauce:"Sauce yaourt-ail express (façon toum) | Sauce Tzatziki authentique"},
 {cat:"monde",
+id:"satay-de-boeuf-balinais-a-la-citronnelle-sauce-cacahuete",
 nom:"Satay de bœuf balinais à la citronnelle & sauce cacahuète",
 ori:"Indonésie / Bali · brochettes parfumées mariné minute",
 pour:"4 pers",
@@ -10211,6 +10476,7 @@ notes_securite:"Bœuf émincé mariné : cuisson vive directe, respecter 56–58
 source:"Street food de Bali / Sanur Night Market",
 sauce:"Sauce cacahuète épicée (Satay) | Sauce soja sucrée au piment"},
 {cat:"monde",
+id:"tacos-de-birria-de-boeuf-fume-au-kamado-consomme-mijote",
 nom:"Tacos de Birria de bœuf fumé au kamado & consommé mijoté",
 ori:"Mexique / Jalisco · bœuf fondant effiloché et tortillas trempées",
 pour:"6 pers",
@@ -10248,6 +10514,7 @@ notes_securite:"Long braisage en milieu acide (tomates + vinaigre) au-delà de 9
 source:"Recette emblématique de Jalisco, Mexique",
 sauce:"Consommé de Birria épicé | Salsa roja"},
 {cat:"dessert",
+id:"giant-skillet-cookie-aux-pepites-de-chocolat-en-poele-fonte",
 nom:"Giant Skillet Cookie aux pépites de chocolat en poêle fonte",
 ori:"USA · le cookie familial fondant au centre et croustillant aux bords",
 pour:"6–8 pers",
@@ -10286,6 +10553,7 @@ notes_securite:"Présence d'œufs : la pâte atteint plus de 75 °C au centre à
 source:"Serious Eats / J. Kenji López-Alt — Skillet Chocolate Chip Cookie",
 sauce:"Glace vanille artisanale | Coulis de caramel au beurre salé"},
 {cat:"dessert",
+id:"poires-pochees-fumees-au-vin-chaud-et-epices-douces",
 nom:"Poires pochées fumées au vin chaud et épices douces",
 ori:"France / Terroir · dessert d'hiver infusé aux braises",
 pour:"4 pers",
@@ -10321,6 +10589,7 @@ notes_securite:"Dessert à base de fruits pochés dans une réduction alcoolisé
 source:"Tradition des poires au vin rouge et épices / Le Guide Culinaire",
 sauce:"Réduction de vin aux épices | Crème mascarpone vanillée"},
 {cat:"vegetarien",
+id:"steak-de-chou-fleur-roti-au-kamado-chimichurri-frais",
 nom:"Steak de chou-fleur rôti au kamado & chimichurri frais",
 ori:"Argentine / Végétal contemporain · la tranche rôtie aux braises",
 pour:"4 pers",
@@ -10358,6 +10627,7 @@ phases:[
 source:"Yotam Ottolenghi — Flavour",
 sauce:"Chimichurri argentin | Sauce yaourt-ail express (façon toum)"},
 {cat:"sauces",
+id:"sauce-alabama-white-bbq-sauce-blanche-mayo-vinaigre",
 nom:"Sauce Alabama White BBQ (sauce blanche mayo-vinaigre)",
 ori:"USA / Alabama · l'iconique sauce de Big Bob Gibson",
 pour:"8–10 pers (environ 400 ml)",
@@ -10394,6 +10664,7 @@ notes_securite:"Contient des œufs (mayonnaise) et du poisson/gluten (sauce Worc
 source:"Big Bob Gibson BBQ — Decatur, Alabama (1925)",
 sauce:"Idéale pour : Poulet crapaudine, Ailes de poulet, Porc effiloché"},
 {cat:"sauces",
+id:"sauce-carolina-gold-moutarde-bbq-de-caroline-du-sud",
 nom:"Sauce Carolina Gold (moutarde BBQ de Caroline du Sud)",
 ori:"USA / South Carolina · la sauce acidulée et dorée des colons allemands",
 pour:"8–10 pers (environ 350 ml)",
@@ -11433,7 +11704,7 @@ function openRecipeQR(r){
   const title = $("#qrModalTitle");
   if(!modal || !container || !title) return;
 
-  const url = location.origin + location.pathname + "#recipe-" + encodeURIComponent(r.nom);
+  const url = recipeUrl(r, location);
   title.textContent = r.nom;
   container.innerHTML = generateQRCodeSVG(url, 220);
   modal.classList.add("open");
@@ -12382,25 +12653,25 @@ function renderChips(){
 function renderFilterBar(){
   const fb=$("#filterbar");
   fb.innerHTML=`
-   <select id="fMode" class="fsel">
+   <select id="fMode" class="fsel" aria-label="Mode de cuisson">
      <option value="all">Mode : tous</option>
      <option value="direct">Direct (saisie)</option>
      <option value="indirect">Indirect (four)</option>
      <option value="fumage">Fumage / mijoté</option>
    </select>
-   <select id="fTime" class="fsel">
+   <select id="fTime" class="fsel" aria-label="Durée de cuisson">
      <option value="all">Durée : toutes</option>
      <option value="express">Express (&lt; 30 min)</option>
      <option value="moyen">Moyen (30–120 min)</option>
      <option value="long">Long (&gt; 2 h)</option>
    </select>
-   <select id="fDiff" class="fsel">
+   <select id="fDiff" class="fsel" aria-label="Niveau de difficulté">
      <option value="all">Niveau : tous</option>
      <option value="Facile">Facile</option>
      <option value="Intermédiaire">Intermédiaire</option>
      <option value="Avancé">Avancé</option>
    </select>
-   <select id="fSeason" class="fsel">
+   <select id="fSeason" class="fsel" aria-label="Saison">
      <option value="all">Saison : toutes</option>
      <option value="printemps">Printemps</option>
      <option value="ete">Été</option>
@@ -12422,20 +12693,20 @@ function renderFilterBar(){
        ["rotissoire","Rôtissoire"]
      ].map(([v,l])=>`<button class="fbtn multi-equip ${curEquip.includes(v)?'on':''}" data-value="${v}">${l}</button>`).join("")}
    </div>
-   <select id="fAvailable" class="fsel">
+   <select id="fAvailable" class="fsel" aria-label="Temps disponible">
      <option value="all">Disponible : tout</option>
      <option value="45">Ce soir (&lt; 45 min)</option>
      <option value="90">Ce soir (&lt; 1 h 30)</option>
      <option value="180">Demi-journée (&lt; 3 h)</option>
    </select>
-   <select id="fQuality" class="fsel">
+   <select id="fQuality" class="fsel" aria-label="Niveau de détail">
      <option value="all">Qualité : toutes</option>
      <option value="source">Avec source</option>
      <option value="security">Avec sécurité</option>
      <option value="errors">Avec erreurs</option>
      <option value="rich">Très détaillées</option>
    </select>
-   <select id="fSort" class="fsel">
+   <select id="fSort" class="fsel" aria-label="Ordre des recettes">
      <option value="default">Tri : recommandé</option>
      <option value="time">Durée</option>
      <option value="difficulty">Difficulté</option>
@@ -12584,11 +12855,11 @@ function card(r){
   const band=tempBand(r);
   const needsBurp = r.cat !== "sauces" && (band === "t400" || band === "t300" || band === "t200");
   const isSmoked = String(r.mode).toLowerCase().includes("fumage") || String(r.mode).toLowerCase().includes("slow") || String(r.mode).toLowerCase().includes("indirect");
-  return `<div class="rc band-${band}" data-i="${i}">
+  return `<article class="rc band-${band}" data-i="${i}">
     <div class="top">
-      <div><h3>${r.nom}</h3><div class="ori">${r.ori}</div></div>
+      <div><h2><button type="button" class="card-open" aria-label="Ouvrir la recette ${escHtml(r.nom)}">${escHtml(r.nom)}</button></h2><div class="ori">${escHtml(r.ori)}</div></div>
       <div class="rstack">
-        <button class="favstar ${fav?'on':''}" data-fav="${i}">${fav?'★':'☆'}</button>
+        <button class="favstar ${fav?'on':''}" data-fav="${i}" aria-label="${fav?'Retirer des favoris':'Ajouter aux favoris'} : ${escHtml(r.nom)}">${fav?'★':'☆'}</button>
         <div class="emoji">${emojiFor(r.cat)}</div>
       </div>
     </div>
@@ -12608,7 +12879,7 @@ function card(r){
       ${alls.length?`<span class="badge allergen">Allergènes : ${alls.join(", ")}</span>`:''}
       ${sauces?`<span class="badge sauce">Sauce : ${sauces}</span>`:''}
     </div>
-  </div>`;
+  </article>`;
 }
 let currentFilteredList = [];
 let visibleRecipeCount = 24;
@@ -12685,21 +12956,21 @@ function renderRichSchema(r){
         </div>
         ${p.action?`<div class="phase-action">${p.action}</div>`:""}
       </li>`).join("");
-    out.push(`<div class="rich-section"><h4>🕐 Phases de cuisson</h4><ol class="phases-list">${items}</ol></div>`);
+    out.push(`<div class="rich-section"><h3>🕐 Phases de cuisson</h3><ol class="phases-list">${items}</ol></div>`);
   }
   const inline=[];
   if(r.vents)inline.push(`<div class="rich-row"><b>🌬 Évents</b> · Bas : ${r.vents.bottom} · Haut : ${r.vents.top}</div>`);
   if(r.wrap)inline.push(`<div class="rich-row"><b>📦 Wrap</b> · ${r.wrap.materiau} à ${r.wrap.at_temp_coeur_C} °C cœur${r.wrap.apres?` · ${r.wrap.apres}`:""}</div>`);
   if(r.brine)inline.push(`<div class="rich-row"><b>🧂 Saumure</b> · ${formatDurationMin(r.brine.hours*60)}${r.brine.recette?` · ${r.brine.recette}`:""}</div>`);
   if(r.marinade_h)inline.push(`<div class="rich-row"><b>🌿 Marinade</b> · ${formatDurationMin(r.marinade_h*60)}</div>`);
-  if(inline.length)out.push(`<div class="rich-section"><h4>🔧 Réglages kamado</h4>${inline.join("")}</div>`);
+  if(inline.length)out.push(`<div class="rich-section"><h3>🔧 Réglages kamado</h3>${inline.join("")}</div>`);
   if(Array.isArray(r.equipement)&&r.equipement.length){
     out.push(`
       <div class="rich-section equipement-box">
         <div class="equip-head">
           <span class="equip-icon">🛠️</span>
           <div>
-            <h4 class="equip-title">Équipement nécessaire</h4>
+            <h3 class="equip-title">Équipement nécessaire</h3>
             <span class="equip-subtitle">Accessoires et matériel indispensables pour cette cuisson au kamado</span>
           </div>
         </div>
@@ -12710,16 +12981,16 @@ function renderRichSchema(r){
     `);
   }
   if(Array.isArray(r.substitutions)&&r.substitutions.length){
-    out.push(`<div class="rich-section"><h4>🔄 Substitutions possibles</h4><ul class="subs-list">${r.substitutions.map(s=>`<li><b>${s.ingredient}</b> → ${s.par}</li>`).join("")}</ul></div>`);
+    out.push(`<div class="rich-section"><h3>🔄 Substitutions possibles</h3><ul class="subs-list">${r.substitutions.map(s=>`<li><b>${s.ingredient}</b> → ${s.par}</li>`).join("")}</ul></div>`);
   }
   if(Array.isArray(r.erreurs)&&r.erreurs.length){
-    out.push(`<div class="rich-section"><h4>⚠️ Erreurs fréquentes à éviter</h4><ul class="erreurs-list">${r.erreurs.map(e=>`<li>${e}</li>`).join("")}</ul></div>`);
+    out.push(`<div class="rich-section"><h3>⚠️ Erreurs fréquentes à éviter</h3><ul class="erreurs-list">${r.erreurs.map(e=>`<li>${e}</li>`).join("")}</ul></div>`);
   }
   if(r.notes_securite){
     const body=Array.isArray(r.notes_securite)
       ?`<ul class="erreurs-list">${r.notes_securite.map(n=>`<li>${n}</li>`).join("")}</ul>`
       :`<p>${r.notes_securite}</p>`;
-    out.push(`<div class="security-callout"><h4>🛡 Sécurité alimentaire</h4>${body}</div>`);
+    out.push(`<div class="security-callout"><h3>🛡 Sécurité alimentaire</h3>${body}</div>`);
   }
   if(r.source){
     out.push(`<div class="rich-source"><b>📚 Source / inspiration</b> · ${r.source}</div>`);
@@ -12733,14 +13004,14 @@ function renderRecipeDetailGuidance(r){
   const chef=chefControlPoints(r).map(x=>`<li>${x}</li>`).join("");
   return `
     <div class="rich-section">
-      <h4>🧭 Avant de commencer (Mise en place)</h4>
+      <h3>🧭 Avant de commencer (Mise en place)</h3>
       <ul class="detail-list">${prep}</ul>
     </div>
     <div class="detail-grid">
-      ${safety?`<div class="rich-section"><h4>🛡 Contrôles sécurité</h4><ul class="detail-list">${safety}</ul></div>`:""}
-      ${service?`<div class="rich-section"><h4>🍽 Service & découpe</h4><ul class="detail-list">${service}</ul></div>`:""}
+      ${safety?`<div class="rich-section"><h3>🛡 Contrôles sécurité</h3><ul class="detail-list">${safety}</ul></div>`:""}
+      ${service?`<div class="rich-section"><h3>🍽 Service & découpe</h3><ul class="detail-list">${service}</ul></div>`:""}
     </div>
-    ${chef?`<div class="rich-section"><h4>👨‍🍳 Conseils & Repères du Chef</h4><ul class="detail-list">${chef}</ul></div>`:""}`;
+    ${chef?`<div class="rich-section"><h3>👨‍🍳 Conseils & Repères du Chef</h3><ul class="detail-list">${chef}</ul></div>`:""}`;
 }
 
 function drawThermometerSVG(tempStr) {
@@ -12795,16 +13066,16 @@ function kamadoSetup(r){
 function shareRecipe(r,servings){
   const f=servings/baseServ(r);
   const ingsList=r.ings.map(x=>"• "+scaleIng(x,f)).join("\n");
+  const url=recipeUrl(r,location);
   const text=`${r.nom} (${servings} pers.)\n`+
     `🔥 Kamado : ${r.mode} · ${r.tempK} · ⏱️ ${r.temps}`+(r.coeur?` · Cœur : ${r.coeur}`:"")+"\n\n"+
     `📋 Ingrédients :\n${ingsList}\n\n`+
-    (r.astuce?`💡 Conseil : ${r.astuce}\n\n`:"")+
-    `Recette Kamado : ${location.origin}${location.pathname}`;
+    (r.astuce?`💡 Conseil : ${r.astuce}`:"");
 
   if(navigator.share){
-    navigator.share({title:r.nom,text}).catch(()=>{});
+    navigator.share({title:r.nom,text,url}).catch(()=>{});
   } else if(navigator.clipboard){
-    navigator.clipboard.writeText(text).then(()=>{
+    navigator.clipboard.writeText(`${text}\n\nRecette Kamado : ${url}`).then(()=>{
       const btn=$("#dShare");
       if(btn){
         btn.textContent="✅ Copié !";
@@ -12909,6 +13180,7 @@ let currentRecipeIndex = 0;
 let cockpitStep = 0;
 let cockpitTimerInterval = null;
 let cockpitRemainingSec = 0;
+let lastRecipeFocus = null;
 
 function navigateRecipe(delta) {
   const activeList = currentFilteredList.length ? currentFilteredList : RECIPES;
@@ -13019,7 +13291,18 @@ function closeCockpit() {
   if (!outdoorMode && !stepMode) releaseWakeLock();
 }
 
-function openRecipe(i){
+function updateRecipeLocation(r, mode){
+  if(!window.history || !window.history[`${mode}State`])return;
+  const nextHash=recipeHash(r);
+  if(location.hash===nextHash)return;
+  window.history[`${mode}State`]({recipe:recipeRef(r)},"",`${location.pathname}${location.search||""}${nextHash}`);
+}
+
+function openRecipe(i,options={}){
+  if(!Number.isInteger(i)||i<0||i>=RECIPES.length)return false;
+  const modal=$("#modal");
+  const wasOpen=modal.classList.contains("open");
+  if(!wasOpen&&document.activeElement)lastRecipeFocus=document.activeElement;
   currentRecipeIndex = i;
   const r=RECIPES[i],base=baseServ(r);let curServ=base;stepMode=false;let targetServiceTime="13:00";
   pushHistory(r);
@@ -13148,7 +13431,7 @@ function openRecipe(i){
         <button class="copybtn" id="sAddList" style="margin-left:5px; background:var(--accent2); color:#161813; padding: 8px 10px; font-size:11.5px">🛒 + Liste</button>
       </div>
 
-      <h4>Ingrédients${f!==1?` <span style="font-weight:400;color:var(--muted);text-transform:none;font-size:11px">(quantités ajustées, indicatives)</span>`:''}</h4>
+      <h3>Ingrédients${f!==1?` <span style="font-weight:400;color:var(--muted);text-transform:none;font-size:11px">(quantités ajustées, indicatives)</span>`:''}</h3>
       <ul class="ings">${ings}</ul>
       ${renderInteractiveSubstitutions(r)}
 
@@ -13157,7 +13440,7 @@ function openRecipe(i){
           <div class="tb-head">
             <span class="tb-title">⏱️ Rétroplanning : <b>À table à</b></span>
             <div class="tb-time-wrap">
-              <input type="time" id="targetServiceTime" value="${targetServiceTime}" class="tb-time-input">
+              <input type="time" id="targetServiceTime" value="${targetServiceTime}" class="tb-time-input" aria-label="Heure de service">
             </div>
           </div>
           <div class="tb-list" id="tbList">
@@ -13172,7 +13455,7 @@ function openRecipe(i){
       ` : ""}
 
       <div class="stepswitch">
-        <h4 style="margin:0;border:0">Préparation</h4>
+        <h3 style="margin:0;border:0">Préparation</h3>
         <button id="sMode" class="modebtn ${stepMode?'on':''}">${stepMode?'📖 Lecture':'👨‍🍳 Mode cuisson'}</button>
       </div>
       ${stepMode?`<div class="hint">Cochez les étapes au fur et à mesure · ▶ lance un minuteur · ☀️ écran maintenu allumé</div>`:''}
@@ -13183,12 +13466,12 @@ function openRecipe(i){
       ${renderRecipeDetailGuidance(r)}
       ${renderRichSchema(r)}
 
-      <h4>📝 Mes notes</h4>
+      <h3>📝 Mes notes</h3>
       <textarea id="dNote" class="note" placeholder="Vos réglages, vos variantes, le temps réel observé…">${(notes[rid(r)]||"").replace(/</g,"&lt;")}</textarea>
 
       <div class="cook-log-section">
         <div style="display:flex;justify-content:space-between;align-items:center">
-          <h4 style="margin:0;border:0">📖 Journal de mes cuissons</h4>
+          <h3 style="margin:0;border:0">📖 Journal de mes cuissons</h3>
           <button id="btnAddCookLog" class="actbtn" style="font-size:11.5px;padding:5px 10px">➕ Noter une session</button>
         </div>
         <div id="cookLogForm" class="hide" style="margin-top:12px;background:var(--card);padding:12px;border-radius:8px;border:1px solid var(--line)">
@@ -13352,16 +13635,30 @@ function openRecipe(i){
     }
   }
   render();
-  $("#modal").classList.add("open");document.body.style.overflow="hidden";
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+  document.title=`${r.nom} — Kamado`;
+  if(options.updateLocation!==false)updateRecipeLocation(r,wasOpen?"replace":"push");
   updateWakeLockUI();
   const sheet=$(".sheet");
   if(sheet)sheet.scrollTop=0;
   $("#d-body").scrollTop=0;
+  setTimeout(()=>$("#back").focus(),0);
+  return true;
 }
-function closeModal(){
-  $("#modal").classList.remove("open");
+function closeModal(options={}){
+  const modal=$("#modal");
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden","true");
   document.body.style.overflow="";
+  document.title="Livre de recettes — Kamado";
+  if(options.clearLocation!==false&&parseRecipeHash(location.hash)&&window.history){
+    window.history.replaceState(null,"",`${location.pathname}${location.search||""}`);
+  }
   if(!outdoorMode) releaseWakeLock();
+  if(lastRecipeFocus&&lastRecipeFocus.isConnected&&lastRecipeFocus.focus)lastRecipeFocus.focus();
+  lastRecipeFocus=null;
 }
 $("#back").onclick=closeModal;
 
@@ -13385,8 +13682,16 @@ $("#back").onclick=closeModal;
   }
   window.addEventListener("keydown", e => {
     if(!$("#modal").classList.contains("open")) return;
-    if(e.key === "ArrowLeft") navigateRecipe(-1);
-    else if(e.key === "ArrowRight") navigateRecipe(1);
+    const editable=/^(INPUT|TEXTAREA|SELECT)$/.test(e.target&&e.target.tagName)||e.target&&e.target.isContentEditable;
+    if(e.key === "Tab"&&sheet){
+      const focusable=[...sheet.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')];
+      if(focusable.length){
+        const first=focusable[0],last=focusable[focusable.length-1];
+        if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+        else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+      }
+    } else if(!editable&&e.key === "ArrowLeft") navigateRecipe(-1);
+    else if(!editable&&e.key === "ArrowRight") navigateRecipe(1);
     else if(e.key === "Escape") {
       const cp = $("#cockpitOverlay");
       if(cp && !cp.classList.contains("hide")) closeCockpit();
@@ -14773,6 +15078,24 @@ function importHashTransfer(){
     window.history.replaceState(null,"",location.pathname);
   }catch(e){}
 }
+function openRecipeFromLocation(){
+  const ref=parseRecipeHash(location.hash);
+  if(!ref){
+    if($("#modal").classList.contains("open"))closeModal({clearLocation:false});
+    return false;
+  }
+  const index=findRecipeIndex(RECIPES,ref);
+  if(index<0){
+    if($("#modal").classList.contains("open"))closeModal({clearLocation:false});
+    return false;
+  }
+  const opened=openRecipe(index,{updateLocation:false});
+  if(opened&&ref.kind==="legacy-name"&&window.history){
+    window.history.replaceState({recipe:recipeRef(RECIPES[index])},"",`${location.pathname}${location.search||""}${recipeHash(RECIPES[index])}`);
+  }
+  return opened;
+}
+window.addEventListener("hashchange",openRecipeFromLocation);
 function importData(file){
   if(!file)return;
   const reader=new FileReader();
@@ -15229,6 +15552,7 @@ renderBases();
 renderDataTools();
 renderStats();renderChips();renderFilterBar();renderSmartBar();renderHistory();renderList();
 importHashTransfer();
+openRecipeFromLocation();
 if("serviceWorker" in navigator && location.protocol!=="file:"){
   navigator.serviceWorker.register("./sw.js").catch(()=>{});
 }

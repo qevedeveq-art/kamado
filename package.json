@@ -10,7 +10,8 @@
     "audit:expert": "node scripts/audit-kamado-expert.js",
     "audit:chef": "node scripts/audit-chef.js",
     "audit:quality": "node scripts/audit-recipe-quality.js",
-    "audit": "node scripts/audit-data.js && node scripts/audit-kamado-expert.js && node scripts/audit-chef.js && node scripts/audit-sommelier.js",
+    "audit:performance": "node scripts/audit-performance-budget.js",
+    "audit": "node scripts/audit-data.js && node scripts/audit-kamado-expert.js && node scripts/audit-chef.js && node scripts/audit-sommelier.js && node scripts/audit-performance-budget.js",
     "build:mobile": "node scripts/prepare-mobile.js",
     "mobile:sync": "npm run build:mobile && npx cap sync",
     "audit:sommelier": "node scripts/audit-sommelier.js"

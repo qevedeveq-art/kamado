@@ -8,6 +8,7 @@ const path = require("node:path");
 const RECIPES = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "recipes.json"), "utf8"));
 const CATS = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "categories.json"), "utf8"));
 const INDEX_HTML = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
+const RECIPE_LINKS = require("../scripts/recipe-links.js");
 
 test("dataset has expected scale", () => {
   assert.ok(RECIPES.length >= 200, `expected >=200 recipes, got ${RECIPES.length}`);
@@ -172,7 +173,8 @@ test("index.html client runtime executes without any reference or syntax error",
     scrollTo() {},
     requestAnimationFrame(cb) { cb(); },
     scrollY: 0,
-    addEventListener() {}
+    addEventListener() {},
+    KamadoRecipeLinks: RECIPE_LINKS
   };
 
   const context = vm.createContext({
@@ -204,6 +206,14 @@ test("index.html client runtime executes without any reference or syntax error",
   assert.ok(count >= 240, `expected >=240 recipes, got ${count}`);
 });
 
+test("recipe links are wired into sharing, QR codes and startup navigation", () => {
+  assert.ok(INDEX_HTML.includes('<script src="./scripts/recipe-links.js"></script>'));
+  assert.match(INDEX_HTML, /function openRecipeQR\(r\)[\s\S]*?recipeUrl\(r, location\)/);
+  assert.match(INDEX_HTML, /function shareRecipe\(r,servings\)[\s\S]*?navigator\.share\(\{title:r\.nom,text,url\}\)/);
+  assert.match(INDEX_HTML, /function openRecipeFromLocation\(\)/);
+  assert.match(INDEX_HTML, /importHashTransfer\(\);\s*openRecipeFromLocation\(\);/);
+});
+
 test("chef allergen rules: no false positives on muscade/coco, detects beer and fish", () => {
   const { execSync } = require("child_process");
   const out = execSync("node scripts/audit-chef.js", { encoding: "utf8" });
@@ -224,5 +234,4 @@ test("allergen precision: cote de boeuf has no egg, beurre noisette has no nuts"
   assert.ok(html.includes("oeufText=h.replace"), "index.html must strip boeuf from oeuf check");
   assert.ok(html.includes("beurre noisette"), "index.html must guard beurre noisette");
 });
-
 

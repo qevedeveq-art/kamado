@@ -16,6 +16,7 @@ L'application est conçue pour être **ultra-rapide, 100 % utilisable hors-ligne
 * **246 recettes de cuisson et 23 sauces & bases** couvrant l'ensemble des techniques du kamado : saisie directe à haute température, rôtissage indirect, fumage *Low & Slow*, cuisson sur pierre à pizza, cocotte en fonte et plancha.
 * **100 % enrichies** : chaque fiche comporte les réglages d'évents (haut/bas), les besoins en charbon (kg), les phases de cuisson structurées, la température à cœur exacte, l'équipement requis, les allergènes certifiés (norme UE) et les accords mets-vins.
 * **Navigation fluide & tactile** : feuilletage des recettes via des flèches `‹` / `›`, touches fléchées du clavier et geste de balayage tactile (*swipe*) sur smartphone.
+* **Liens permanents** : chaque recette possède un identifiant stable ; les liens partagés et QR codes ouvrent directement la bonne fiche, y compris après une recharge hors ligne.
 * **Recherche intelligente & synonymes BBQ** : moteur multi-mots avec tolérance aux synonymes courants (ex: *ribs* trouve les travers, *brisket* trouve la poitrine, *effiloché* trouve le pulled pork).
 * **Pilules de filtres rapides** : accès direct en 1 tap aux cuissons `⚡ < 30 min`, `🔥 Saisie vive`, `🛡️ Four indirect`, `💨 Low & Slow`, `🍕 Pizza & Pains`, `🌿 Végétarien` et `⭐ Favoris`.
 
@@ -76,16 +77,16 @@ L'application fonctionne à 100 % hors connexion grâce aux Service Workers :
 
 ## 🔬 Suite d'Audit Multi-Agents & Qualité du Code
 
-Le projet intègre une batterie de 4 audits spécialisés automatisés assurant l'intégrité absolue des données :
+Le projet intègre des contrôles automatisés sur les données, l'expertise culinaire, la PWA et ses parcours critiques :
 
 ```bash
-npm test              # 47 tests unitaires natifs (node --test)
-npm run audit         # Lance les 4 audits spécialisés :
-                      # 1. audit-data.js      (schéma, doublons, cohérence globale)
-                      # 2. audit-expert.js    (expertise kamado, sécurité, phases, évents)
-                      # 3. audit-chef.js      (14 allergènes officiels UE, températures USDA)
-                      # 4. audit-sommelier.js (accords vins, zéro clash, températures de service)
+npm test                    # 58 tests natifs (node --test)
+npm run audit               # Données, expert kamado, chef, sommelier et budget PWA
+npm run audit:quality       # Revue transverse de la qualité des recettes
+node scripts/browser-smoke.js # Chromium : lien direct, QR, clavier, offline et sauvegarde
 ```
+
+Le smoke test navigateur attend le paquet `playwright` dans `NODE_PATH`. La CI l'installe dans un répertoire temporaire afin de préserver l'architecture zéro-build du projet.
 
 ---
 
@@ -95,6 +96,7 @@ Chaque recette s'appuie sur le schéma enrichi du Kamado :
 
 | Champ | Type | Description |
 |-------|------|-------------|
+| `id` | `string` | Identifiant permanent utilisé dans les liens et QR codes |
 | `nom` | `string` | Titre unique et gastronomique |
 | `cat` | `string` | Catégorie (`boeuf`, `porc`, `volaille`, `agneau`, `poisson`, `legumes`, `pizza`, `monde`, `dessert`, `sauces`) |
 | `mode` | `string` | Configuration (`Direct`, `Indirect`, `Fumage lent`, `Plancha`, `Four à pizza`, `Braisage cocotte`) |

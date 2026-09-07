@@ -1,6 +1,7 @@
 [
   {
     "cat": "boeuf",
+    "id": "cote-de-boeuf-reverse-sear",
     "nom": "Côte de bœuf reverse-sear",
     "ori": "France · la cuisson parfaite en 2 temps",
     "pour": "3–4 pers",
@@ -63,6 +64,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "entrecote-grillee-maitre-d-hotel",
     "nom": "Entrecôte grillée maître d'hôtel",
     "ori": "France · grillade directe express",
     "pour": "2 pers",
@@ -111,6 +113,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "brisket-fume-poitrine-de-boeuf",
     "nom": "Brisket fumé (poitrine de bœuf)",
     "ori": "USA · Texas low & slow, le Graal du BBQ",
     "pour": "8–10 pers",
@@ -198,6 +201,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "rosbif-roti-a-l-anglaise",
     "nom": "Rosbif rôti à l'anglaise",
     "ori": "France/UK · rôti du dimanche",
     "pour": "5–6 pers",
@@ -271,6 +275,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "bavette-a-l-echalote",
     "nom": "Bavette à l'échalote",
     "ori": "France · bistrot",
     "pour": "3–4 pers",
@@ -320,6 +325,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "burgers-smash-maison",
     "nom": "Burgers smash maison",
     "ori": "USA · le vrai smash burger",
     "pour": "4 burgers",
@@ -387,6 +393,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "brochettes-de-boeuf-marine",
     "nom": "Brochettes de bœuf mariné",
     "ori": "France · barbecue convivial",
     "pour": "4 pers",
@@ -430,6 +437,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "tomahawk-au-beurre-noisette",
     "nom": "Tomahawk au beurre noisette",
     "ori": "USA/France · pièce spectacle",
     "pour": "2–3 pers",
@@ -491,6 +499,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "onglet-grille-sauce-au-poivre",
     "nom": "Onglet grillé, sauce au poivre",
     "ori": "France · le secret des bouchers",
     "pour": "2 pers",
@@ -534,6 +543,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "joue-de-boeuf-fumee-braisee",
     "nom": "Joue de bœuf fumée braisée",
     "ori": "France · cuisson lente fondante",
     "pour": "4 pers",
@@ -604,6 +614,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "pastrami-fume-maison",
     "nom": "Pastrami fumé maison",
     "ori": "USA/Juif d'Europe centrale · le sandwich de New York",
     "pour": "8 pers",
@@ -695,6 +706,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "beef-short-ribs-dino-ribs",
     "nom": "Beef short ribs « dino ribs »",
     "ori": "USA · les côtes de bœuf géantes du Texas",
     "pour": "4 pers",
@@ -778,6 +790,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "tri-tip-sauce-santa-maria",
     "nom": "Tri-tip sauce Santa Maria",
     "ori": "USA · Californie, le secret de la côte Ouest",
     "pour": "5 pers",
@@ -835,6 +848,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "plat-de-cotes-braise-au-vin",
     "nom": "Plat de côtes braisé au vin",
     "ori": "France · cuisson lente du dimanche",
     "pour": "4 pers",
@@ -910,6 +924,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "picanha-entiere-facon-churrasco",
     "nom": "Picanha entière façon churrasco",
     "ori": "Brésil · gras croustillant et cœur rosé",
     "pour": "4–5 pers",
@@ -968,6 +983,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "short-ribs-de-boeuf-facon-texas",
     "nom": "Short ribs de bœuf façon Texas",
     "ori": "USA · côtes de bœuf fumées",
     "pour": "4 pers",
@@ -1054,6 +1070,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "dino-beef-ribs-travers-de-boeuf-geants-fumes-au-chene",
     "nom": "Dino Beef Ribs (travers de bœuf géants fumés au chêne)",
     "ori": "Texas · les mythiques beef plate short ribs de 8 heures",
     "pour": "6–8 pers",
@@ -1131,6 +1148,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "onglet-yakitori-au-binchotan-maison",
     "nom": "Onglet yakitori au binchotan maison",
     "ori": "Japon/fusion · brochettes de bœuf",
     "pour": "4 pers",
@@ -1178,6 +1196,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "cote-de-boeuf-caveman-sur-braises",
     "nom": "Côte de bœuf caveman sur braises",
     "ori": "USA · saisie primitive contrôlée",
     "pour": "4 pers",
@@ -1252,6 +1271,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "burnt-ends-de-poitrine-de-boeuf",
     "nom": "Burnt ends de poitrine de bœuf",
     "ori": "Kansas City · cubes confits fumés",
     "pour": "6 pers",
@@ -1340,6 +1360,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "bistecca-alla-fiorentina-t-bone",
     "nom": "Bistecca alla Fiorentina (T-bone)",
     "ori": "Italie · la reine de Florence sur braises",
     "pour": "2–4 pers",
@@ -1404,6 +1425,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "picanha-au-sel-de-gros-churrasco",
     "nom": "Picanha au sel de gros (churrasco)",
     "ori": "Brésil · capello da padre saisi sur braises",
     "pour": "4–5 pers",
@@ -1478,6 +1500,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "tomahawk-reverse-sear",
     "nom": "Tomahawk reverse-sear",
     "ori": "USA · côte à os long de 5 cm d'épaisseur",
     "pour": "3–4 pers",
@@ -1565,6 +1588,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "paleron-de-boeuf-fume-facon-brisket-smoked-chuck-roast",
     "nom": "Paleron de bœuf fumé façon Brisket (Smoked Chuck Roast)",
     "ori": "USA / BBQ contemporain · le substitut parfait de la poitrine pour 4 à 6 personnes",
     "pour": "5–6 pers",
@@ -1641,6 +1665,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "boeuf-bourguignon-au-kamado",
     "nom": "Bœuf bourguignon au kamado",
     "ori": "France · Bourgogne, braisé vin rouge",
     "pour": "6 pers",
@@ -1743,6 +1768,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "pot-au-feu-bourgeois-au-kamado",
     "nom": "Pot-au-feu bourgeois au kamado",
     "ori": "France · plat national mijoté",
     "pour": "6 pers",
@@ -1845,6 +1871,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "daube-provencale-au-kamado",
     "nom": "Daube provençale au kamado",
     "ori": "France · Provence, mijoté au vin rouge & orange",
     "pour": "6 pers",
@@ -1945,6 +1972,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "blanquette-de-veau-au-kamado",
     "nom": "Blanquette de veau au kamado",
     "ori": "France · plat bourgeois classique",
     "pour": "6 pers",
@@ -2049,6 +2077,7 @@
   },
   {
     "cat": "porc",
+    "id": "pulled-pork-echine-effilochee",
     "nom": "Pulled pork (échine effilochée)",
     "ori": "USA · le roi du low & slow",
     "pour": "8–10 pers",
@@ -2138,6 +2167,7 @@
   },
   {
     "cat": "porc",
+    "id": "travers-de-porc-glaces-ribs",
     "nom": "Travers de porc glacés (ribs)",
     "ori": "USA · méthode 3-2-1",
     "pour": "4 pers",
@@ -2220,6 +2250,7 @@
   },
   {
     "cat": "porc",
+    "id": "carre-de-porc-roti-aux-herbes",
     "nom": "Carré de porc rôti aux herbes",
     "ori": "France · rôti généreux",
     "pour": "5–6 pers",
@@ -2265,6 +2296,7 @@
   },
   {
     "cat": "porc",
+    "id": "filet-mignon-fume-au-miel",
     "nom": "Filet mignon fumé au miel",
     "ori": "France · tendre et parfumé",
     "pour": "4 pers",
@@ -2337,6 +2369,7 @@
   },
   {
     "cat": "porc",
+    "id": "poitrine-de-porc-croustillante",
     "nom": "Poitrine de porc croustillante",
     "ori": "Asie/France · peau soufflée",
     "pour": "4 pers",
@@ -2396,6 +2429,7 @@
   },
   {
     "cat": "porc",
+    "id": "echine-marinee-a-la-biere",
     "nom": "Échine marinée à la bière",
     "ori": "France · grillade du week-end",
     "pour": "4 pers",
@@ -2464,6 +2498,7 @@
   },
   {
     "cat": "porc",
+    "id": "saucisses-chipolatas-grillees",
     "nom": "Saucisses & chipolatas grillées",
     "ori": "France · le classique convivial",
     "pour": "6 pers",
@@ -2509,6 +2544,7 @@
   },
   {
     "cat": "porc",
+    "id": "porchetta-roulee-aux-herbes",
     "nom": "Porchetta roulée aux herbes",
     "ori": "Italie · rôti de fête",
     "pour": "8 pers",
@@ -2587,6 +2623,7 @@
   },
   {
     "cat": "porc",
+    "id": "jambonneau-fume-glace",
     "nom": "Jambonneau fumé glacé",
     "ori": "France/Allemagne · pièce rustique",
     "pour": "4 pers",
@@ -2663,6 +2700,7 @@
   },
   {
     "cat": "porc",
+    "id": "pork-belly-burnt-ends",
     "nom": "Pork belly burnt ends",
     "ori": "USA · les « bouchées brûlées », bonbons de BBQ",
     "pour": "6 pers",
@@ -2739,6 +2777,7 @@
   },
   {
     "cat": "porc",
+    "id": "baby-back-ribs-facon-memphis",
     "nom": "Baby back ribs façon Memphis",
     "ori": "USA · Memphis, les ribs au rub sec",
     "pour": "4 pers",
@@ -2821,6 +2860,7 @@
   },
   {
     "cat": "porc",
+    "id": "carolina-pulled-pork-sauce-vinaigree",
     "nom": "Carolina pulled pork (sauce vinaigrée)",
     "ori": "USA · Caroline du Nord, le pulled pork acidulé",
     "pour": "10 pers",
@@ -2914,6 +2954,7 @@
   },
   {
     "cat": "porc",
+    "id": "travers-de-porc-laques-aigre-doux",
     "nom": "Travers de porc laqués aigre-doux",
     "ori": "Chine · char siu de côtes",
     "pour": "4 pers",
@@ -2986,6 +3027,7 @@
   },
   {
     "cat": "porc",
+    "id": "cote-de-porc-tomahawk-saumuree",
     "nom": "Côte de porc tomahawk saumurée",
     "ori": "France/USA · côte épaisse ultra juteuse",
     "pour": "2 pers",
@@ -3047,6 +3089,7 @@
   },
   {
     "cat": "porc",
+    "id": "ribs-asiatiques-au-cinq-epices",
     "nom": "Ribs asiatiques au cinq-épices",
     "ori": "Chine/USA · travers laqués",
     "pour": "4 pers",
@@ -3133,6 +3176,7 @@
   },
   {
     "cat": "porc",
+    "id": "banh-mi-de-porc-grille",
     "nom": "Banh mi de porc grillé",
     "ori": "Vietnam · sandwich au kamado",
     "pour": "4 pers",
@@ -3182,6 +3226,7 @@
   },
   {
     "cat": "porc",
+    "id": "poitrine-de-porc-miso-erable-en-cubes",
     "nom": "Poitrine de porc miso-érable en cubes",
     "ori": "Japon/Canada · cubes fumés umami",
     "pour": "6 pers",
@@ -3260,6 +3305,7 @@
   },
   {
     "cat": "porc",
+    "id": "filet-mignon-farci-chorizo-manchego",
     "nom": "Filet mignon farci chorizo-manchego",
     "ori": "Espagne · porc roulé fumé",
     "pour": "4 pers",
@@ -3322,6 +3368,7 @@
   },
   {
     "cat": "porc",
+    "id": "lechon-asado-porc-roti-cubain",
     "nom": "Lechón asado (porc rôti cubain)",
     "ori": "Cuba · poitrine ou épaule de porc croustillante au mojo",
     "pour": "6–8 pers",
@@ -3399,6 +3446,7 @@
   },
   {
     "cat": "porc",
+    "id": "porchetta-italienne-poitrine-roulee-24h",
     "nom": "Porchetta italienne (poitrine roulée 24h)",
     "ori": "Italie · Lazio · poitrine et longe roulées aux herbes",
     "pour": "8–10 pers",
@@ -3503,6 +3551,7 @@
   },
   {
     "cat": "porc",
+    "id": "cassoulet-toulousain-au-kamado",
     "nom": "Cassoulet toulousain au kamado",
     "ori": "France · Toulouse, haricots blancs, canard confit et croûte gratinée",
     "pour": "8 pers",
@@ -3612,6 +3661,7 @@
   },
   {
     "cat": "porc",
+    "id": "choucroute-garnie-alsacienne-au-kamado",
     "nom": "Choucroute garnie alsacienne au kamado",
     "ori": "France · Alsace, chou fermenté et charcuteries",
     "pour": "6 pers",
@@ -3712,6 +3762,7 @@
   },
   {
     "cat": "porc",
+    "id": "travers-de-porc-turbo-ribs",
     "nom": "Travers de porc « Turbo Ribs »",
     "ori": "USA · méthode rapide de compétition",
     "pour": "4 pers",
@@ -3809,6 +3860,7 @@
   },
   {
     "cat": "volaille",
+    "id": "poulet-entier-a-la-cannette-beer-can",
     "nom": "Poulet entier à la cannette (beer can)",
     "ori": "USA · poulet vapeur-rôti spectaculaire",
     "pour": "4 pers",
@@ -3875,6 +3927,7 @@
   },
   {
     "cat": "volaille",
+    "id": "poulet-crapaudine-spatchcock",
     "nom": "Poulet crapaudine (spatchcock)",
     "ori": "France/USA · cuisson rapide & homogène",
     "pour": "4 pers",
@@ -3935,6 +3988,7 @@
   },
   {
     "cat": "volaille",
+    "id": "magret-de-canard-peau-croustillante",
     "nom": "Magret de canard, peau croustillante",
     "ori": "France · Sud-Ouest",
     "pour": "2 pers",
@@ -3982,6 +4036,7 @@
   },
   {
     "cat": "volaille",
+    "id": "cuisses-de-poulet-marinees-citron-thym",
     "nom": "Cuisses de poulet marinées citron-thym",
     "ori": "France · économique et savoureux",
     "pour": "4 pers",
@@ -4040,6 +4095,7 @@
   },
   {
     "cat": "volaille",
+    "id": "ailes-de-poulet-buffalo",
     "nom": "Ailes de poulet Buffalo",
     "ori": "USA · l'apéro BBQ par excellence",
     "pour": "4 pers",
@@ -4101,6 +4157,7 @@
   },
   {
     "cat": "volaille",
+    "id": "pintade-rotie-aux-marrons",
     "nom": "Pintade rôtie aux marrons",
     "ori": "France · volaille de fête",
     "pour": "4 pers",
@@ -4172,6 +4229,7 @@
   },
   {
     "cat": "volaille",
+    "id": "chapon-dinde-roti-des-fetes",
     "nom": "Chapon/dinde rôti des fêtes",
     "ori": "France · la grande pièce de Noël",
     "pour": "8–10 pers",
@@ -4255,6 +4313,7 @@
   },
   {
     "cat": "volaille",
+    "id": "coquelet-crapaudine-a-l-ail",
     "nom": "Coquelet crapaudine à l'ail",
     "ori": "France · format individuel",
     "pour": "2 pers",
@@ -4296,6 +4355,7 @@
   },
   {
     "cat": "volaille",
+    "id": "poulet-peri-peri",
     "nom": "Poulet peri-peri",
     "ori": "Mozambique/Portugal/Afrique du Sud · piment africain",
     "pour": "4 pers",
@@ -4354,6 +4414,7 @@
   },
   {
     "cat": "volaille",
+    "id": "shish-taouk-brochettes-libanaises",
     "nom": "Shish taouk (brochettes libanaises)",
     "ori": "Liban/Levant · brochettes au yaourt",
     "pour": "4 pers",
@@ -4404,6 +4465,7 @@
   },
   {
     "cat": "volaille",
+    "id": "cuisses-de-poulet-teriyaki",
     "nom": "Cuisses de poulet teriyaki",
     "ori": "Japon · laque soja-mirin",
     "pour": "4 pers",
@@ -4471,6 +4533,7 @@
   },
   {
     "cat": "volaille",
+    "id": "poulet-shawarma-au-kamado",
     "nom": "Poulet shawarma au kamado",
     "ori": "Levant · épices chaudes et sauce blanche",
     "pour": "4 pers",
@@ -4539,6 +4602,7 @@
   },
   {
     "cat": "volaille",
+    "id": "poulet-jerk-jamaicain",
     "nom": "Poulet jerk jamaïcain",
     "ori": "Jamaïque · épicé et fumé",
     "pour": "4 pers",
@@ -4606,6 +4670,7 @@
   },
   {
     "cat": "volaille",
+    "id": "brochettes-de-dinde-satay",
     "nom": "Brochettes de dinde satay",
     "ori": "Indonésie · grillade minute",
     "pour": "4 pers",
@@ -4653,6 +4718,7 @@
   },
   {
     "cat": "volaille",
+    "id": "canard-entier-laque-orange-soja",
     "nom": "Canard entier laqué orange-soja",
     "ori": "France/Asie · peau brillante",
     "pour": "4 pers",
@@ -4734,6 +4800,7 @@
   },
   {
     "cat": "volaille",
+    "id": "yakitori-de-cuisses-de-poulet",
     "nom": "Yakitori de cuisses de poulet",
     "ori": "Japon · brochettes laquées",
     "pour": "4 pers",
@@ -4785,6 +4852,7 @@
   },
   {
     "cat": "volaille",
+    "id": "magret-de-canard-fume-seche-charcuterie",
     "nom": "Magret de canard fumé-séché (charcuterie)",
     "ori": "Sud-Ouest France · technique de séchoir de Pierre Wynants",
     "pour": "4 pers (apéritif/charcuterie)",
@@ -4886,6 +4954,7 @@
   },
   {
     "cat": "volaille",
+    "id": "coq-au-vin-au-kamado",
     "nom": "Coq au vin au kamado",
     "ori": "France · Bourgogne, volaille braisée au vin rouge",
     "pour": "6 pers",
@@ -4992,6 +5061,7 @@
   },
   {
     "cat": "volaille",
+    "id": "confit-de-canard-au-kamado",
     "nom": "Confit de canard au kamado",
     "ori": "France · Sud-Ouest, cuisses cuites dans la graisse de canard",
     "pour": "4 pers",
@@ -5092,6 +5162,7 @@
   },
   {
     "cat": "volaille",
+    "id": "poulet-basquaise-au-kamado",
     "nom": "Poulet basquaise au kamado",
     "ori": "France · Pays basque, poivrons et piment d'Espelette",
     "pour": "4 pers",
@@ -5197,6 +5268,7 @@
   },
   {
     "cat": "agneau",
+    "id": "gigot-d-agneau-roti-rose",
     "nom": "Gigot d'agneau rôti rosé",
     "ori": "France · le grand classique de Pâques",
     "pour": "6 pers",
@@ -5266,6 +5338,7 @@
   },
   {
     "cat": "agneau",
+    "id": "carre-d-agneau-en-croute-d-herbes",
     "nom": "Carré d'agneau en croûte d'herbes",
     "ori": "France · pièce raffinée",
     "pour": "3–4 pers",
@@ -5328,6 +5401,7 @@
   },
   {
     "cat": "agneau",
+    "id": "epaule-d-agneau-confite-7-heures",
     "nom": "Épaule d'agneau confite 7 heures",
     "ori": "France · cuisson lente fondante",
     "pour": "6 pers",
@@ -5424,6 +5498,7 @@
   },
   {
     "cat": "agneau",
+    "id": "cotelettes-d-agneau-grillees",
     "nom": "Côtelettes d'agneau grillées",
     "ori": "France · grillade express",
     "pour": "4 pers",
@@ -5465,6 +5540,7 @@
   },
   {
     "cat": "agneau",
+    "id": "souris-d-agneau-braisees-au-miel",
     "nom": "Souris d'agneau braisées au miel",
     "ori": "France/Maghreb · fondant garanti",
     "pour": "4 pers",
@@ -5536,6 +5612,7 @@
   },
   {
     "cat": "agneau",
+    "id": "filet-de-chevreuil-roti-sauce-grand-veneur",
     "nom": "Filet de chevreuil rôti, sauce grand veneur",
     "ori": "France · gibier de saison",
     "pour": "4 pers",
@@ -5597,6 +5674,7 @@
   },
   {
     "cat": "agneau",
+    "id": "cuissot-de-chevreuil-roti-sauce-poivrade",
     "nom": "Cuissot de chevreuil rôti, sauce poivrade",
     "ori": "France · grande pièce de gibier",
     "pour": "6 pers",
@@ -5678,6 +5756,7 @@
   },
   {
     "cat": "agneau",
+    "id": "civet-de-sanglier-fume-puis-braise",
     "nom": "Civet de sanglier fumé puis braisé",
     "ori": "France · mijoté de chasse",
     "pour": "6 pers",
@@ -5760,6 +5839,7 @@
   },
   {
     "cat": "agneau",
+    "id": "pave-de-cerf-sauce-aux-airelles",
     "nom": "Pavé de cerf, sauce aux airelles",
     "ori": "France · gibier noble et fin",
     "pour": "4 pers",
@@ -5821,6 +5901,7 @@
   },
   {
     "cat": "volaille",
+    "id": "cailles-roties-au-raisin-lard",
     "nom": "Cailles rôties au raisin & lard",
     "ori": "France · gibier à plume",
     "pour": "4 pers",
@@ -5888,6 +5969,7 @@
   },
   {
     "cat": "agneau",
+    "id": "filet-de-biche-en-croute-d-epices",
     "nom": "Filet de biche en croûte d'épices",
     "ori": "France · venaison rosée raffinée",
     "pour": "4 pers",
@@ -5949,6 +6031,7 @@
   },
   {
     "cat": "agneau",
+    "id": "keftas-d-agneau-menthe-cumin",
     "nom": "Keftas d'agneau menthe-cumin",
     "ori": "Maghreb · brochettes hachées",
     "pour": "4 pers",
@@ -5995,6 +6078,7 @@
   },
   {
     "cat": "agneau",
+    "id": "cotelettes-d-agneau-gochujang",
     "nom": "Côtelettes d'agneau gochujang",
     "ori": "Corée/fusion · sucré-piquant",
     "pour": "4 pers",
@@ -6041,6 +6125,7 @@
   },
   {
     "cat": "agneau",
+    "id": "mechoui-d-epaule-d-agneau-effilochee",
     "nom": "Méchoui d'épaule d'agneau effilochée",
     "ori": "Maghreb · épices et fumée douce",
     "pour": "6 pers",
@@ -6127,6 +6212,7 @@
   },
   {
     "cat": "agneau",
+    "id": "brochettes-d-agneau-zaatar-citron",
     "nom": "Brochettes d'agneau zaatar-citron",
     "ori": "Levant · grillade aromatique",
     "pour": "4 pers",
@@ -6174,6 +6260,7 @@
   },
   {
     "cat": "agneau",
+    "id": "navarin-d-agneau-printanier-au-kamado",
     "nom": "Navarin d'agneau printanier au kamado",
     "ori": "France · ragoût de printemps aux légumes nouveaux",
     "pour": "6 pers",
@@ -6287,6 +6374,7 @@
   },
   {
     "cat": "agneau",
+    "id": "selle-d-agneau-a-la-broche-fumee-de-sarments",
     "nom": "Selle d'agneau à la broche, fumée de sarments",
     "ori": "France · rôtissoire kamado, fumée courte",
     "pour": "6 pers",
@@ -6366,6 +6454,7 @@
   },
   {
     "cat": "agneau",
+    "id": "travers-d-agneau-fumes-3-2-1",
     "nom": "Travers d'agneau fumés 3-2-1",
     "ori": "BBQ américain · lamb ribs low & slow",
     "pour": "4 pers",
@@ -6453,6 +6542,7 @@
   },
   {
     "cat": "agneau",
+    "id": "epaule-d-agneau-pulled-fumee-mediterraneenne",
     "nom": "Épaule d'agneau pulled fumée méditerranéenne",
     "ori": "BBQ américain revisité Méditerranée",
     "pour": "8 pers",
@@ -6541,6 +6631,7 @@
   },
   {
     "cat": "agneau",
+    "id": "merguez-maison-fumees-au-bois-d-olivier",
     "nom": "Merguez maison fumées au bois d'olivier",
     "ori": "Maghreb · saucisse d'agneau piquante fumée puis grillée",
     "pour": "6 pers",
@@ -6620,6 +6711,7 @@
   },
   {
     "cat": "agneau",
+    "id": "kleftiko-d-agneau-en-papillote-au-kamado",
     "nom": "Kleftiko d'agneau en papillote au kamado",
     "ori": "Grèce · agneau bandit cuit en papillote scellée",
     "pour": "6 pers",
@@ -6703,6 +6795,7 @@
   },
   {
     "cat": "agneau",
+    "id": "rogan-josh-d-agneau-au-dutch-oven",
     "nom": "Rogan josh d'agneau au Dutch oven",
     "ori": "Cachemire (Inde) · curry d'agneau au safran et cardamome",
     "pour": "6 pers",
@@ -6788,6 +6881,7 @@
   },
   {
     "cat": "agneau",
+    "id": "adana-kebab-agneau-hache-epice-au-maras",
     "nom": "Adana kebab (agneau haché épicé au maras)",
     "ori": "Turquie · brochette plate d'agneau haché au piment maras",
     "pour": "4 pers",
@@ -6871,6 +6965,7 @@
   },
   {
     "cat": "agneau",
+    "id": "rable-de-lapin-fume-au-thym-et-pommier",
     "nom": "Râble de lapin fumé au thym et pommier",
     "ori": "France · gibier fin, fumage court",
     "pour": "4 pers",
@@ -6952,6 +7047,7 @@
   },
   {
     "cat": "poisson",
+    "id": "saumon-sur-planche-de-cedre",
     "nom": "Saumon sur planche de cèdre",
     "ori": "USA/Canada · fumage délicat sur bois",
     "pour": "4 pers",
@@ -6999,6 +7095,7 @@
   },
   {
     "cat": "poisson",
+    "id": "saumon-fume-a-chaud-sauce-aneth",
     "nom": "Saumon fumé à chaud, sauce aneth",
     "ori": "Scandinavie · fumage maison",
     "pour": "6 pers",
@@ -7078,6 +7175,7 @@
   },
   {
     "cat": "poisson",
+    "id": "bar-entier-grille-au-fenouil",
     "nom": "Bar entier grillé au fenouil",
     "ori": "Méditerranée · pêche du jour",
     "pour": "2 pers",
@@ -7123,6 +7221,7 @@
   },
   {
     "cat": "poisson",
+    "id": "gambas-grillees-ail-piment",
     "nom": "Gambas grillées ail & piment",
     "ori": "Espagne/Méditerranée · apéro de la mer",
     "pour": "4 pers",
@@ -7169,6 +7268,7 @@
   },
   {
     "cat": "poisson",
+    "id": "pave-de-thon-mi-cuit-croute-de-sesame",
     "nom": "Pavé de thon mi-cuit, croûte de sésame",
     "ori": "Japon/fusion · tataki grillé",
     "pour": "2 pers",
@@ -7217,6 +7317,7 @@
   },
   {
     "cat": "poisson",
+    "id": "truite-en-papillote-citron-amande",
     "nom": "Truite en papillote citron-amande",
     "ori": "France · cuisson douce",
     "pour": "2 pers",
@@ -7264,6 +7365,7 @@
   },
   {
     "cat": "poisson",
+    "id": "saint-jacques-grillees-au-beurre-noisette",
     "nom": "Saint-Jacques grillées au beurre noisette",
     "ori": "France · finesse iodée",
     "pour": "2 pers",
@@ -7310,6 +7412,7 @@
   },
   {
     "cat": "poisson",
+    "id": "homard-grille-au-beurre-d-estragon",
     "nom": "Homard grillé au beurre d'estragon",
     "ori": "France · plat de fête iodé",
     "pour": "2 pers",
@@ -7356,6 +7459,7 @@
   },
   {
     "cat": "poisson",
+    "id": "maquereaux-grilles-a-la-moutarde",
     "nom": "Maquereaux grillés à la moutarde",
     "ori": "France · poisson bleu économique",
     "pour": "4 pers",
@@ -7402,6 +7506,7 @@
   },
   {
     "cat": "poisson",
+    "id": "poulpe-grille-a-la-galicienne",
     "nom": "Poulpe grillé à la galicienne",
     "ori": "Espagne · pulpo a la brasa",
     "pour": "4 pers",
@@ -7448,6 +7553,7 @@
   },
   {
     "cat": "poisson",
+    "id": "paella-au-kamado",
     "nom": "Paella au kamado",
     "ori": "Espagne · le plat de partage par excellence",
     "pour": "6 pers",
@@ -7496,6 +7602,7 @@
   },
   {
     "cat": "poisson",
+    "id": "moules-a-la-plancha-ail-persil",
     "nom": "Moules à la plancha, ail & persil",
     "ori": "France/Espagne · fruits de mer minute",
     "pour": "4 pers",
@@ -7543,6 +7650,7 @@
   },
   {
     "cat": "poisson",
+    "id": "sardines-grillees-en-direct",
     "nom": "Sardines grillées en direct",
     "ori": "Méditerranée/Portugal · l'été à la braise",
     "pour": "4 pers",
@@ -7587,6 +7695,7 @@
   },
   {
     "cat": "poisson",
+    "id": "dorade-en-croute-de-sel",
     "nom": "Dorade en croûte de sel",
     "ori": "Méditerranée · cuisson sous le sel",
     "pour": "2 pers",
@@ -7637,6 +7746,7 @@
   },
   {
     "cat": "poisson",
+    "id": "huitres-chaudes-gratinees",
     "nom": "Huîtres chaudes gratinées",
     "ori": "France · iode et beurre",
     "pour": "4 pers",
@@ -7685,6 +7795,7 @@
   },
   {
     "cat": "poisson",
+    "id": "calamars-grilles-en-persillade",
     "nom": "Calamars grillés en persillade",
     "ori": "Méditerranée · tendres et iodés",
     "pour": "4 pers",
@@ -7735,6 +7846,7 @@
   },
   {
     "cat": "poisson",
+    "id": "saumon-laque-teriyaki",
     "nom": "Saumon laqué teriyaki",
     "ori": "Japon/fusion · pavé brillant et fondant",
     "pour": "4 pers",
@@ -7804,6 +7916,7 @@
   },
   {
     "cat": "poisson",
+    "id": "loup-de-mer-bar-entier-en-croute-de-sel-et-herbes-de-provence",
     "nom": "Loup de mer (bar) entier en croûte de sel et herbes de Provence",
     "ori": "Méditerranée · chair ultra juteuse sous coque minérale",
     "pour": "4 pers",
@@ -7855,6 +7968,7 @@
   },
   {
     "cat": "poisson",
+    "id": "espadon-grille-vierge-de-tomates",
     "nom": "Espadon grillé vierge de tomates",
     "ori": "Méditerranée · poisson ferme",
     "pour": "4 pers",
@@ -7901,6 +8015,7 @@
   },
   {
     "cat": "poisson",
+    "id": "moules-fumees-en-cocotte",
     "nom": "Moules fumées en cocotte",
     "ori": "Atlantique · apéro iodé",
     "pour": "4 pers",
@@ -7969,6 +8084,7 @@
   },
   {
     "cat": "poisson",
+    "id": "tacos-de-poisson-croustillant-sur-plancha",
     "nom": "Tacos de poisson croustillant sur plancha",
     "ori": "Baja California · poisson grillé",
     "pour": "4 pers",
@@ -8016,6 +8132,7 @@
   },
   {
     "cat": "poisson",
+    "id": "huitres-gratinees-au-kamado",
     "nom": "Huîtres gratinées au kamado",
     "ori": "Atlantique · entrée iodée",
     "pour": "4 pers",
@@ -8065,6 +8182,7 @@
   },
   {
     "cat": "poisson",
+    "id": "salmon-tikka-pave-de-saumon-tandoori",
     "nom": "Salmon Tikka (pavé de saumon tandoori)",
     "ori": "Inde · pavés de saumon marinés et saisis sur peau",
     "pour": "4 pers",
@@ -8128,6 +8246,7 @@
   },
   {
     "cat": "poisson",
+    "id": "saumon-gravlax-fume-a-froid",
     "nom": "Saumon gravlax fumé à froid",
     "ori": "Scandinavie · gravlax suédois revisité fumée nordique",
     "pour": "6–8 pers",
@@ -8245,6 +8364,7 @@
   },
   {
     "cat": "legumes",
+    "id": "legumes-grilles-mediterraneens",
     "nom": "Légumes grillés méditerranéens",
     "ori": "Méditerranée · l'accompagnement coloré",
     "pour": "4 pers",
@@ -8287,6 +8407,7 @@
   },
   {
     "cat": "legumes",
+    "id": "aubergines-fumees-facon-baba-ganoush",
     "nom": "Aubergines fumées façon baba ganoush",
     "ori": "Liban/Moyen-Orient · caviar d'aubergine",
     "pour": "4 pers",
@@ -8348,6 +8469,7 @@
   },
   {
     "cat": "legumes",
+    "id": "pommes-de-terre-braisees-au-romarin",
     "nom": "Pommes de terre braisées au romarin",
     "ori": "France · l'accompagnement universel",
     "pour": "4 pers",
@@ -8389,6 +8511,7 @@
   },
   {
     "cat": "legumes",
+    "id": "mais-grille-beurre-epice",
     "nom": "Maïs grillé beurre épicé",
     "ori": "Mexique/USA · elote",
     "pour": "4 pers",
@@ -8433,6 +8556,7 @@
   },
   {
     "cat": "legumes",
+    "id": "champignons-portobello-farcis",
     "nom": "Champignons portobello farcis",
     "ori": "Italie/fusion · végétarien gourmand",
     "pour": "4 pers",
@@ -8484,6 +8608,7 @@
   },
   {
     "cat": "legumes",
+    "id": "asperges-grillees-au-parmesan",
     "nom": "Asperges grillées au parmesan",
     "ori": "France/Italie · printemps",
     "pour": "4 pers",
@@ -8528,6 +8653,7 @@
   },
   {
     "cat": "legumes",
+    "id": "chou-fleur-entier-roti-tahini",
     "nom": "Chou-fleur entier rôti & tahini",
     "ori": "Moyen-Orient · pièce végétarienne spectacle",
     "pour": "4 pers",
@@ -8573,6 +8699,7 @@
   },
   {
     "cat": "legumes",
+    "id": "mont-d-or-camembert-fume",
     "nom": "Mont d'Or / Camembert fumé",
     "ori": "France · fromage chaud convivial",
     "pour": "4 pers",
@@ -8638,6 +8765,7 @@
   },
   {
     "cat": "legumes",
+    "id": "pleurotes-facon-steak-balsamique",
     "nom": "Pleurotes façon steak, balsamique",
     "ori": "France · alternative végétale au steak",
     "pour": "2 pers",
@@ -8682,6 +8810,7 @@
   },
   {
     "cat": "legumes",
+    "id": "ratatouille-fumee-au-kamado",
     "nom": "Ratatouille fumée au kamado",
     "ori": "Provence · le classique réinventé",
     "pour": "4 pers",
@@ -8740,6 +8869,7 @@
   },
   {
     "cat": "legumes",
+    "id": "halloumi-grille-au-miel-origan",
     "nom": "Halloumi grillé au miel & origan",
     "ori": "Chypre/Grèce · le fromage qui grille",
     "pour": "4 pers",
@@ -8784,6 +8914,7 @@
   },
   {
     "cat": "legumes",
+    "id": "gratin-dauphinois-en-cocotte",
     "nom": "Gratin dauphinois en cocotte",
     "ori": "France · Dauphiné, l'accompagnement roi",
     "pour": "6 pers",
@@ -8856,6 +8987,7 @@
   },
   {
     "cat": "legumes",
+    "id": "patate-douce-braisee-beurre-epice",
     "nom": "Patate douce braisée, beurre épicé",
     "ori": "International · accompagnement réconfortant",
     "pour": "4 pers",
@@ -8901,6 +9033,7 @@
   },
   {
     "cat": "legumes",
+    "id": "pommes-de-terre-hasselback",
     "nom": "Pommes de terre Hasselback",
     "ori": "Suède · l'accordéon croustillant",
     "pour": "4 pers",
@@ -8946,6 +9079,7 @@
   },
   {
     "cat": "legumes",
+    "id": "carottes-glacees-miso-miel",
     "nom": "Carottes glacées miso-miel",
     "ori": "Fusion · l'accompagnement umami",
     "pour": "4 pers",
@@ -9013,6 +9147,7 @@
   },
   {
     "cat": "legumes",
+    "id": "baked-beans-bbq",
     "nom": "Baked beans BBQ",
     "ori": "USA · le haricot fumé incontournable",
     "pour": "6 pers",
@@ -9085,6 +9220,7 @@
   },
   {
     "cat": "legumes",
+    "id": "pain-a-l-ail-gratine",
     "nom": "Pain à l'ail gratiné",
     "ori": "International · le garlic bread du barbecue",
     "pour": "6 pers",
@@ -9131,6 +9267,7 @@
   },
   {
     "cat": "legumes",
+    "id": "coleslaw-maison",
     "nom": "Coleslaw maison",
     "ori": "USA · la salade qui accompagne tout BBQ",
     "pour": "6 pers",
@@ -9208,6 +9345,7 @@
   },
   {
     "cat": "legumes",
+    "id": "frites-de-patate-douce-au-four",
     "nom": "Frites de patate douce au four",
     "ori": "International · l'accompagnement croustillant",
     "pour": "4 pers",
@@ -9254,6 +9392,7 @@
   },
   {
     "cat": "legumes",
+    "id": "courge-butternut-rotie-erable-piment",
     "nom": "Courge butternut rôtie érable-piment",
     "ori": "Automne · accompagnement doux-fumé",
     "pour": "4 pers",
@@ -9300,6 +9439,7 @@
   },
   {
     "cat": "legumes",
+    "id": "endives-braisees-au-kamado",
     "nom": "Endives braisées au kamado",
     "ori": "Nord de la France · amer-doux fumé",
     "pour": "4 pers",
@@ -9373,6 +9513,7 @@
   },
   {
     "cat": "legumes",
+    "id": "betteraves-roties-en-croute-de-sel",
     "nom": "Betteraves rôties en croûte de sel",
     "ori": "Végétal · cuisson douce fumée",
     "pour": "4 pers",
@@ -9445,6 +9586,7 @@
   },
   {
     "cat": "legumes",
+    "id": "tartiflette-savoyarde-au-kamado",
     "nom": "Tartiflette savoyarde au kamado",
     "ori": "France · Savoie, pommes de terre au Reblochon AOP",
     "pour": "6 pers",
@@ -9542,6 +9684,7 @@
   },
   {
     "cat": "pizza",
+    "id": "pizza-napolitaine",
     "nom": "Pizza napolitaine",
     "ori": "Italie · le four à bois à la maison",
     "pour": "4 pizzas",
@@ -9625,6 +9768,7 @@
   },
   {
     "cat": "pizza",
+    "id": "focaccia-romarin-gros-sel",
     "nom": "Focaccia romarin & gros sel",
     "ori": "Italie · pain moelleux à l'huile",
     "pour": "6 pers",
@@ -9666,6 +9810,7 @@
   },
   {
     "cat": "pizza",
+    "id": "pain-de-campagne-en-cocotte",
     "nom": "Pain de campagne en cocotte",
     "ori": "France · boulange maison",
     "pour": "1 pain",
@@ -9726,6 +9871,7 @@
   },
   {
     "cat": "pizza",
+    "id": "tarte-flambee-flammekueche",
     "nom": "Tarte flambée (flammekueche)",
     "ori": "Alsace · fine et croustillante",
     "pour": "4 pers",
@@ -9769,6 +9915,7 @@
   },
   {
     "cat": "pizza",
+    "id": "naan-a-l-ail-au-beurre",
     "nom": "Naan à l'ail au beurre",
     "ori": "Inde · pain plat indispensable",
     "pour": "6 naans",
@@ -9812,6 +9959,7 @@
   },
   {
     "cat": "pizza",
+    "id": "fougasse-aux-olives",
     "nom": "Fougasse aux olives",
     "ori": "Provence · pain du Sud",
     "pour": "4 pers",
@@ -9853,6 +10001,7 @@
   },
   {
     "cat": "pizza",
+    "id": "pains-pitas-gonfles-a-la-flamme-sur-pierre-refractaire",
     "nom": "Pains Pitas gonflés à la flamme sur pierre réfractaire",
     "ori": "Levant / Grèce · le pain de poche soufflé en 2 minutes",
     "pour": "8 pitas",
@@ -9905,6 +10054,7 @@
   },
   {
     "cat": "pizza",
+    "id": "calzone-napolitain-souffle-a-la-ricotta-fior-di-latte-spianata",
     "nom": "Calzone napolitain soufflé à la ricotta, fior di latte & spianata",
     "ori": "Italie / Naples · le chausson croustillant au feu de bois",
     "pour": "4 calzones",
@@ -9956,6 +10106,7 @@
   },
   {
     "cat": "pizza",
+    "id": "pizza-blanche-poire-gorgonzola-noix",
     "nom": "Pizza blanche poire-gorgonzola-noix",
     "ori": "Italie/fusion · sucré-salé",
     "pour": "2 pizzas",
@@ -10004,6 +10155,7 @@
   },
   {
     "cat": "pizza",
+    "id": "lahmacun-agneau-epice",
     "nom": "Lahmacun agneau épicé",
     "ori": "Turquie · pizza fine à rouler",
     "pour": "4 pièces",
@@ -10052,6 +10204,7 @@
   },
   {
     "cat": "pizza",
+    "id": "pizza-al-taglio-romaine-72h",
     "nom": "Pizza al taglio romaine 72h",
     "ori": "Italie · Rome · pâte hydratée fermentée 72 h",
     "pour": "2 plaques 40×30 cm",
@@ -10171,6 +10324,7 @@
   },
   {
     "cat": "pizza",
+    "id": "flammekueche-alsacienne-traditionnelle",
     "nom": "Flammekueche alsacienne traditionnelle",
     "ori": "France · Alsace, pâte sans levure sur pierre brûlante",
     "pour": "6 pers (3 tartes)",
@@ -10273,6 +10427,7 @@
   },
   {
     "cat": "dessert",
+    "id": "ananas-roti-au-rhum-et-miel",
     "nom": "Ananas rôti au rhum et miel",
     "ori": "Antilles · dessert grillé caramélisé",
     "pour": "4 pers",
@@ -10331,6 +10486,7 @@
   },
   {
     "cat": "dessert",
+    "id": "bananes-au-chocolat",
     "nom": "Bananes au chocolat",
     "ori": "International · le dessert minute du BBQ",
     "pour": "4 pers",
@@ -10373,6 +10529,7 @@
   },
   {
     "cat": "dessert",
+    "id": "peches-grillees-mascarpone",
     "nom": "Pêches grillées, mascarpone",
     "ori": "Italie/France · dessert d'été",
     "pour": "4 pers",
@@ -10414,6 +10571,7 @@
   },
   {
     "cat": "dessert",
+    "id": "crumble-pommes-fruits-rouges-fume",
     "nom": "Crumble pommes-fruits rouges fumé",
     "ori": "France/UK · dessert réconfortant",
     "pour": "6 pers",
@@ -10456,6 +10614,7 @@
   },
   {
     "cat": "dessert",
+    "id": "crepes-au-kamado-plaque",
     "nom": "Crêpes au kamado (plaque)",
     "ori": "France · le goûter sur le barbecue",
     "pour": "4 pers",
@@ -10498,6 +10657,7 @@
   },
   {
     "cat": "dessert",
+    "id": "cheesecake-fume",
     "nom": "Cheesecake fumé",
     "ori": "USA · le dessert BBQ surprenant",
     "pour": "8 pers",
@@ -10569,6 +10729,7 @@
   },
   {
     "cat": "dessert",
+    "id": "pain-perdu-grille-caramelise",
     "nom": "Pain perdu grillé caramélisé",
     "ori": "France · le dessert anti-gaspi",
     "pour": "4 pers",
@@ -10610,6 +10771,7 @@
   },
   {
     "cat": "dessert",
+    "id": "clafoutis-aux-cerises",
     "nom": "Clafoutis aux cerises",
     "ori": "France · Limousin, le dessert d'été",
     "pour": "6 pers",
@@ -10658,6 +10820,7 @@
   },
   {
     "cat": "dessert",
+    "id": "tarte-tatin-au-kamado",
     "nom": "Tarte Tatin au kamado",
     "ori": "France · pommes caramélisées renversées",
     "pour": "6 pers",
@@ -10722,6 +10885,7 @@
   },
   {
     "cat": "dessert",
+    "id": "brownie-fondant-en-cocotte",
     "nom": "Brownie fondant en cocotte",
     "ori": "USA · chocolat coulant au barbecue",
     "pour": "8 pers",
@@ -10773,6 +10937,7 @@
   },
   {
     "cat": "dessert",
+    "id": "s-mores-au-barbecue",
     "nom": "S'mores au barbecue",
     "ori": "USA · le dessert de feu de camp",
     "pour": "4 pers",
@@ -10815,6 +10980,7 @@
   },
   {
     "cat": "dessert",
+    "id": "figues-roties-miel-chevre",
     "nom": "Figues rôties miel & chèvre",
     "ori": "Méditerranée · sucré-salé d'automne",
     "pour": "4 pers",
@@ -10858,6 +11024,7 @@
   },
   {
     "cat": "dessert",
+    "id": "cookie-geant-en-skillet",
     "nom": "Cookie géant en skillet",
     "ori": "USA · le cookie à partager",
     "pour": "6 pers",
@@ -10907,6 +11074,7 @@
   },
   {
     "cat": "dessert",
+    "id": "poires-roties-au-vin-epice",
     "nom": "Poires rôties au vin épicé",
     "ori": "France · dessert d'hiver parfumé",
     "pour": "4 pers",
@@ -10950,6 +11118,7 @@
   },
   {
     "cat": "dessert",
+    "id": "banana-bread-fume-aux-noix",
     "nom": "Banana bread fumé aux noix",
     "ori": "USA · cake au feu de bois",
     "pour": "8 tranches",
@@ -10996,6 +11165,7 @@
   },
   {
     "cat": "dessert",
+    "id": "peches-roties-mascarpone",
     "nom": "Pêches rôties mascarpone",
     "ori": "Été · fruit grillé minute",
     "pour": "4 pers",
@@ -11057,6 +11227,7 @@
   },
   {
     "cat": "dessert",
+    "id": "brownie-skillet-noix-de-pecan",
     "nom": "Brownie skillet noix de pécan",
     "ori": "USA · dessert fonte au kamado",
     "pour": "6 pers",
@@ -11111,6 +11282,7 @@
   },
   {
     "cat": "dessert",
+    "id": "abricots-rotis-romarin-amande",
     "nom": "Abricots rôtis romarin-amande",
     "ori": "Été · fruit rapide au feu",
     "pour": "4 pers",
@@ -11174,6 +11346,7 @@
   },
   {
     "cat": "dessert",
+    "id": "cobbler-fruits-rouges-en-fonte",
     "nom": "Cobbler fruits rouges en fonte",
     "ori": "USA · dessert de partage",
     "pour": "6 pers",
@@ -11220,6 +11393,7 @@
   },
   {
     "cat": "sauces",
+    "id": "chimichurri-argentin",
     "nom": "Chimichurri argentin",
     "ori": "Argentine · la sauce reine du grill",
     "pour": "1 bol (6 pers)",
@@ -11249,6 +11423,7 @@
   },
   {
     "cat": "sauces",
+    "id": "sauce-barbecue-maison-kansas-city",
     "nom": "Sauce barbecue maison (Kansas City)",
     "ori": "USA · sucrée, fumée, épaisse",
     "pour": "1 pot (10 pers)",
@@ -11278,6 +11453,7 @@
   },
   {
     "cat": "sauces",
+    "id": "rub-barbecue-tout-usage-sec",
     "nom": "Rub barbecue tout usage (sec)",
     "ori": "USA · le mélange d'épices universel",
     "pour": "1 pot",
@@ -11306,6 +11482,7 @@
   },
   {
     "cat": "sauces",
+    "id": "beurre-maitre-d-hotel",
     "nom": "Beurre maître d'hôtel",
     "ori": "France · le classique sur la viande grillée",
     "pour": "6 pers",
@@ -11333,6 +11510,7 @@
   },
   {
     "cat": "sauces",
+    "id": "sauce-au-poivre-vert",
     "nom": "Sauce au poivre vert",
     "ori": "France · sauce bistrot pour le steak",
     "pour": "4 pers",
@@ -11361,6 +11539,7 @@
   },
   {
     "cat": "sauces",
+    "id": "marinade-tandoori-au-yaourt",
     "nom": "Marinade tandoori au yaourt",
     "ori": "Inde · marinade épicée pour volaille",
     "pour": "4 pers",
@@ -11389,6 +11568,7 @@
   },
   {
     "cat": "sauces",
+    "id": "chermoula-marinade-maghrebine",
     "nom": "Chermoula (marinade maghrébine)",
     "ori": "Maghreb · herbes, épices et citron",
     "pour": "4 pers",
@@ -11417,6 +11597,7 @@
   },
   {
     "cat": "sauces",
+    "id": "sauce-teriyaki-maison",
     "nom": "Sauce teriyaki maison",
     "ori": "Japon · laque sucrée-salée",
     "pour": "6 pers",
@@ -11444,6 +11625,7 @@
   },
   {
     "cat": "sauces",
+    "id": "marinade-coreenne-base-bulgogi",
     "nom": "Marinade coréenne (base bulgogi)",
     "ori": "Corée · soja, poire et sésame",
     "pour": "4 pers",
@@ -11473,6 +11655,7 @@
   },
   {
     "cat": "sauces",
+    "id": "sauce-yaourt-ail-express-facon-toum",
     "nom": "Sauce yaourt-ail express (façon toum)",
     "ori": "Liban/Méditerranée · sauce blanche des grillades",
     "pour": "6 pers",
@@ -11500,6 +11683,7 @@
   },
   {
     "cat": "sauces",
+    "id": "mojo-aux-agrumes-marinade-sauce",
     "nom": "Mojo aux agrumes (marinade-sauce)",
     "ori": "Cuba/Canaries · ail et agrumes",
     "pour": "4 pers",
@@ -11527,6 +11711,7 @@
   },
   {
     "cat": "sauces",
+    "id": "chimichurri-rouge-rojo",
     "nom": "Chimichurri rouge (Rojo)",
     "ori": "Argentine · sauce relevée au piment et origan",
     "pour": "1 bol",
@@ -11555,6 +11740,7 @@
   },
   {
     "cat": "sauces",
+    "id": "marinade-jerk-jamaicaine",
     "nom": "Marinade Jerk jamaïcaine",
     "ori": "Jamaïque · marinade caraïbe intensément parfumée",
     "pour": "4–6 pers",
@@ -11582,6 +11768,7 @@
   },
   {
     "cat": "sauces",
+    "id": "beurre-de-piment-fume-chipotle",
     "nom": "Beurre de piment fumé (Chipotle)",
     "ori": "Fusion · beurre composé épicé et boisé",
     "pour": "8 pers",
@@ -11607,6 +11794,7 @@
   },
   {
     "cat": "sauces",
+    "id": "sauce-bbq-moutarde-et-miel-carolina-gold",
     "nom": "Sauce BBQ moutarde et miel (Carolina Gold)",
     "ori": "USA · sauce acidulée de Caroline du Sud",
     "pour": "1 pot",
@@ -11634,6 +11822,7 @@
   },
   {
     "cat": "sauces",
+    "id": "sauce-tzatziki-authentique",
     "nom": "Sauce Tzatziki authentique",
     "ori": "Grèce · fraîcheur et onctuosité",
     "pour": "4–6 pers",
@@ -11661,6 +11850,7 @@
   },
   {
     "cat": "sauces",
+    "id": "rub-lemon-herb-poisson-et-legumes",
     "nom": "Rub Lemon-Herb (poisson et légumes)",
     "ori": "Fusion · mélange sec zesté et herbacé",
     "pour": "1 pot",
@@ -11688,6 +11878,7 @@
   },
   {
     "cat": "sauces",
+    "id": "sauce-alabama-white-bbq",
     "nom": "Sauce Alabama White BBQ",
     "ori": "USA · sauce blanche acidulée mythique pour volaille",
     "pour": "1 pot",
@@ -11714,6 +11905,7 @@
   },
   {
     "cat": "sauces",
+    "id": "pesto-rosso-grille-au-kamado",
     "nom": "Pesto Rosso grillé au Kamado",
     "ori": "Italie · pesto rouge relevé aux tomates grillées",
     "pour": "1 pot",
@@ -11741,6 +11933,7 @@
   },
   {
     "cat": "sauces",
+    "id": "marinade-teriyaki-epicee",
     "nom": "Marinade Teriyaki épicée",
     "ori": "Japon/Fusion · marinade relevée au gingembre et piment",
     "pour": "4 pers",
@@ -11767,6 +11960,7 @@
   },
   {
     "cat": "sauces",
+    "id": "laque-bbq-erable-et-bourbon",
     "nom": "Laque BBQ érable et bourbon",
     "ori": "USA · glaçage sirupeux et caramélisé",
     "pour": "1 pot",
@@ -11793,6 +11987,7 @@
   },
   {
     "cat": "monde",
+    "id": "picanha-grillee-rumsteak-bresilien",
     "nom": "Picanha grillée (rumsteak brésilien)",
     "ori": "Brésil · l'étoile du churrasco",
     "pour": "4 pers",
@@ -11834,6 +12029,7 @@
   },
   {
     "cat": "monde",
+    "id": "yakitori-brochettes-japonaises",
     "nom": "Yakitori (brochettes japonaises)",
     "ori": "Japon · izakaya",
     "pour": "4 pers",
@@ -11880,6 +12076,7 @@
   },
   {
     "cat": "monde",
+    "id": "char-siu-porc-laque-chinois",
     "nom": "Char siu (porc laqué chinois)",
     "ori": "Chine · porc rôti cantonais",
     "pour": "4 pers",
@@ -11940,6 +12137,7 @@
   },
   {
     "cat": "monde",
+    "id": "satay-de-poulet-sauce-cacahuete",
     "nom": "Satay de poulet, sauce cacahuète",
     "ori": "Indonésie/Thaïlande · brochettes parfumées",
     "pour": "4 pers",
@@ -11991,6 +12189,7 @@
   },
   {
     "cat": "monde",
+    "id": "bulgogi-boeuf-marine-coreen",
     "nom": "Bulgogi (bœuf mariné coréen)",
     "ori": "Corée · barbecue coréen",
     "pour": "4 pers",
@@ -12038,6 +12237,7 @@
   },
   {
     "cat": "monde",
+    "id": "poulet-tandoori",
     "nom": "Poulet tandoori",
     "ori": "Inde · yaourt épicé et grillé",
     "pour": "4 pers",
@@ -12099,6 +12299,7 @@
   },
   {
     "cat": "monde",
+    "id": "souvlaki-pita-porc-grec",
     "nom": "Souvlaki & pita (porc grec)",
     "ori": "Grèce · brochettes du soleil",
     "pour": "4 pers",
@@ -12144,6 +12345,7 @@
   },
   {
     "cat": "monde",
+    "id": "tacos-al-pastor",
     "nom": "Tacos al pastor",
     "ori": "Mexique · porc mariné à l'ananas",
     "pour": "6 pers",
@@ -12202,6 +12404,7 @@
   },
   {
     "cat": "monde",
+    "id": "travers-bbq-kansas-city",
     "nom": "Travers BBQ Kansas City",
     "ori": "USA · ribs sauce sucrée-fumée",
     "pour": "4 pers",
@@ -12287,6 +12490,7 @@
   },
   {
     "cat": "monde",
+    "id": "merguez-mechoui-d-agneau",
     "nom": "Merguez & méchoui d'agneau",
     "ori": "Maghreb · grillade épicée",
     "pour": "6 pers",
@@ -12330,6 +12534,7 @@
   },
   {
     "cat": "monde",
+    "id": "jerk-chicken-jamaicain",
     "nom": "Jerk chicken jamaïcain",
     "ori": "Jamaïque · épicé et fumé",
     "pour": "4 pers",
@@ -12402,6 +12607,7 @@
   },
   {
     "cat": "monde",
+    "id": "asado-d-entrana-chimichurri",
     "nom": "Asado d'entraña & chimichurri",
     "ori": "Argentine · l'art du grill",
     "pour": "4 pers",
@@ -12444,6 +12650,7 @@
   },
   {
     "cat": "monde",
+    "id": "kofte-epicees-boulettes-turques",
     "nom": "Köfte épicées (boulettes turques)",
     "ori": "Turquie/Moyen-Orient · brochettes hachées",
     "pour": "4 pers",
@@ -12486,6 +12693,7 @@
   },
   {
     "cat": "monde",
+    "id": "shawarma-de-poulet",
     "nom": "Shawarma de poulet",
     "ori": "Moyen-Orient · épices et broche",
     "pour": "4 pers",
@@ -12554,6 +12762,7 @@
   },
   {
     "cat": "monde",
+    "id": "galbi-cotes-de-boeuf-coreennes",
     "nom": "Galbi (côtes de bœuf coréennes)",
     "ori": "Corée · KBBQ, côtes marinées",
     "pour": "4 pers",
@@ -12599,6 +12808,7 @@
   },
   {
     "cat": "monde",
+    "id": "birria-de-boeuf-tacos",
     "nom": "Birria de bœuf (tacos)",
     "ori": "Mexique · Jalisco, le ragoût épicé",
     "pour": "6 pers",
@@ -12673,6 +12883,7 @@
   },
   {
     "cat": "monde",
+    "id": "kleftiko-agneau-grec-a-l-etouffee",
     "nom": "Kleftiko (agneau grec à l'étouffée)",
     "ori": "Grèce · agneau « du voleur » en papillote",
     "pour": "5 pers",
@@ -12743,6 +12954,7 @@
   },
   {
     "cat": "monde",
+    "id": "tagine-d-agneau-aux-abricots",
     "nom": "Tagine d'agneau aux abricots",
     "ori": "Maroc · mijoté sucré-salé",
     "pour": "6 pers",
@@ -12812,6 +13024,7 @@
   },
   {
     "cat": "monde",
+    "id": "boerewors-facon-braai",
     "nom": "Boerewors façon braai",
     "ori": "Afrique du Sud · la saucisse du barbecue",
     "pour": "6 pers",
@@ -12859,6 +13072,7 @@
   },
   {
     "cat": "monde",
+    "id": "lahmacun-pizza-turque",
     "nom": "Lahmacun (pizza turque)",
     "ori": "Turquie · « pizza » fine à la viande",
     "pour": "4 pers",
@@ -12901,6 +13115,7 @@
   },
   {
     "cat": "monde",
+    "id": "gyros-de-porc-grec",
     "nom": "Gyros de porc grec",
     "ori": "Grèce · la broche verticale en pita",
     "pour": "4 pers",
@@ -12959,6 +13174,7 @@
   },
   {
     "cat": "monde",
+    "id": "carne-asada-tacos-mexicains",
     "nom": "Carne asada (tacos mexicains)",
     "ori": "Mexique · bœuf mariné grillé",
     "pour": "4 pers",
@@ -13001,6 +13217,7 @@
   },
   {
     "cat": "monde",
+    "id": "tsukune-boulettes-de-poulet-japonaises",
     "nom": "Tsukune (boulettes de poulet japonaises)",
     "ori": "Japon · yakitori de boulettes",
     "pour": "4 pers",
@@ -13048,6 +13265,7 @@
   },
   {
     "cat": "monde",
+    "id": "pinchos-morunos-brochettes-espagnoles",
     "nom": "Pinchos morunos (brochettes espagnoles)",
     "ori": "Espagne · brochettes épicées d'influence maure",
     "pour": "4 pers",
@@ -13087,6 +13305,7 @@
   },
   {
     "cat": "monde",
+    "id": "thit-nuong-porc-citronnelle-vietnamien",
     "nom": "Thịt nướng (porc citronnelle vietnamien)",
     "ori": "Vietnam · porc grillé parfumé",
     "pour": "4 pers",
@@ -13131,6 +13350,7 @@
   },
   {
     "cat": "monde",
+    "id": "pollo-a-la-brasa-poulet-peruvien",
     "nom": "Pollo a la brasa (poulet péruvien)",
     "ori": "Pérou · poulet rôti mariné",
     "pour": "4 pers",
@@ -13181,6 +13401,7 @@
   },
   {
     "cat": "monde",
+    "id": "chicken-tikka-inde",
     "nom": "Chicken tikka (Inde)",
     "ori": "Inde · cubes de poulet marinés au yaourt",
     "pour": "4 pers",
@@ -13230,6 +13451,7 @@
   },
   {
     "cat": "monde",
+    "id": "samgyeopsal-poitrine-de-porc-coreenne",
     "nom": "Samgyeopsal (poitrine de porc coréenne)",
     "ori": "Corée · le barbecue de table",
     "pour": "4 pers",
@@ -13276,6 +13498,7 @@
   },
   {
     "cat": "monde",
+    "id": "lomo-al-trapo-boeuf-au-torchon",
     "nom": "Lomo al trapo (bœuf au torchon)",
     "ori": "Colombie · cuisson spectaculaire directement sur braises",
     "pour": "4–6 pers",
@@ -13347,6 +13570,7 @@
   },
   {
     "cat": "monde",
+    "id": "chuan-r-d-agneau-au-cumin-piment",
     "nom": "Chuan'r d'agneau au cumin & piment",
     "ori": "Chine · street food pékinoise parfumée",
     "pour": "4 pers",
@@ -13396,6 +13620,7 @@
   },
   {
     "cat": "monde",
+    "id": "kabab-koobideh-brochettes-d-agneau-perses",
     "nom": "Kabab Koobideh (brochettes d'agneau perses)",
     "ori": "Iran · brochettes hachées ultra fondantes",
     "pour": "4 pers",
@@ -13445,6 +13670,7 @@
   },
   {
     "cat": "monde",
+    "id": "sosaties-d-agneau-au-curry-abricot",
     "nom": "Sosaties d'agneau au curry & abricot",
     "ori": "Afrique du Sud · le classique du braai",
     "pour": "4–6 pers",
@@ -13509,6 +13735,7 @@
   },
   {
     "cat": "monde",
+    "id": "suya-de-boeuf-nigerian-a-l-arachide",
     "nom": "Suya de bœuf nigérian à l'arachide",
     "ori": "Nigeria · street food d'Afrique de l'Ouest épicée et croquante",
     "pour": "4 pers",
@@ -13558,6 +13785,7 @@
   },
   {
     "cat": "monde",
+    "id": "espetada-de-boeuf-au-laurier-maderienne",
     "nom": "Espetada de bœuf au laurier madérienne",
     "ori": "Portugal · brochettes suspendues traditionnelles de Madère",
     "pour": "4 pers",
@@ -13605,6 +13833,7 @@
   },
   {
     "cat": "monde",
+    "id": "daeji-bulgogi-porc-epice-coreen",
     "nom": "Daeji Bulgogi (porc épicé coréen)",
     "ori": "Corée · poitrine de porc grillée caramélisée",
     "pour": "4 pers",
@@ -13651,6 +13880,7 @@
   },
   {
     "cat": "monde",
+    "id": "bo-la-lot-boeuf-en-feuilles-de-betel",
     "nom": "Bò Lá Lốt (bœuf en feuilles de betel)",
     "ori": "Vietnam · petites bouchées grillées parfumées",
     "pour": "4 pers",
@@ -13703,6 +13933,7 @@
   },
   {
     "cat": "monde",
+    "id": "char-siu-cantonais-laque",
     "nom": "Char Siu cantonais laqué",
     "ori": "Hong-Kong / Canton · porc rôti laqué hoisin-miel",
     "pour": "4–5 pers",
@@ -13803,6 +14034,7 @@
   },
   {
     "cat": "monde",
+    "id": "smoked-queso-dip-au-kamado",
     "nom": "Smoked Queso Dip au kamado",
     "ori": "USA / Tex-Mex · apéritif culte des forums kamado",
     "pour": "6–8 pers",
@@ -13894,6 +14126,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "burger-vegetarien-haricots-champignons",
     "nom": "Burger végétarien haricots-champignons",
     "ori": "International · le burger sans viande qui tient",
     "pour": "4 burgers",
@@ -13941,6 +14174,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "brochettes-halloumi-legumes",
     "nom": "Brochettes halloumi & légumes",
     "ori": "Méditerranée · le végé qui grille",
     "pour": "4 pers",
@@ -13986,6 +14220,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "aubergine-entiere-fumee-facon-steak",
     "nom": "Aubergine entière fumée façon steak",
     "ori": "Moyen-Orient/fusion · la viande végétale",
     "pour": "4 pers",
@@ -14046,6 +14281,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "chou-pointu-roti-au-beurre-noisette",
     "nom": "Chou pointu rôti au beurre noisette",
     "ori": "Europe du Nord · le légume star",
     "pour": "4 pers",
@@ -14108,6 +14344,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "tofu-marine-grille-teriyaki",
     "nom": "Tofu mariné grillé teriyaki",
     "ori": "Asie · protéine végétale laquée",
     "pour": "4 pers",
@@ -14154,6 +14391,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "butternut-rotie-sauce-tahini",
     "nom": "Butternut rôtie, sauce tahini",
     "ori": "Moyen-Orient/fusion · courge caramélisée",
     "pour": "4 pers",
@@ -14198,6 +14436,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "poivrons-farcis-riz-feta",
     "nom": "Poivrons farcis riz-feta",
     "ori": "Méditerranée/Balkans · plat complet végé",
     "pour": "4 pers",
@@ -14245,6 +14484,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "parmigiana-d-aubergines-en-cocotte",
     "nom": "Parmigiana d'aubergines en cocotte",
     "ori": "Italie · gratin végétarien fondant",
     "pour": "6 pers",
@@ -14290,6 +14530,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "shakshuka-en-cocotte",
     "nom": "Shakshuka en cocotte",
     "ori": "Maghreb/Levant · œufs pochés à la tomate",
     "pour": "4 pers",
@@ -14335,6 +14576,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "patatas-bravas-grillees",
     "nom": "Patatas bravas grillées",
     "ori": "Espagne · la tapa de pommes de terre",
     "pour": "4 pers",
@@ -14396,6 +14638,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "tofu-fume-laque-miso-sesame",
     "nom": "Tofu fumé laqué miso-sésame",
     "ori": "Japon/fusion · végétarien riche en umami",
     "pour": "4 pers",
@@ -14477,6 +14720,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "steaks-de-chou-rouge-fumes",
     "nom": "Steaks de chou rouge fumés",
     "ori": "Végétarien · tranche épaisse caramélisée",
     "pour": "4 pers",
@@ -14539,6 +14783,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "celeri-rave-entier-roti-comme-une-piece",
     "nom": "Céleri-rave entier rôti comme une pièce",
     "ori": "Végétarien · centre de table",
     "pour": "4 pers",
@@ -14613,6 +14858,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "quesadillas-legumes-fumes",
     "nom": "Quesadillas légumes fumés",
     "ori": "Mexique/fusion · végétarien rapide",
     "pour": "4 pers",
@@ -14658,6 +14904,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "beer-can-cabbage-chou-a-la-biere",
     "nom": "Beer can cabbage (chou à la bière)",
     "ori": "USA/Fusion · le chou rôti à la vapeur de bière",
     "pour": "4 pers",
@@ -14706,6 +14953,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "provoleta-grille-fromage-argentin",
     "nom": "Provoleta grillé (fromage argentin)",
     "ori": "Argentine · entrée coulante du barbecue",
     "pour": "2–4 pers",
@@ -14756,6 +15004,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "tandoori-gobi-chou-fleur-tandoori",
     "nom": "Tandoori Gobi (chou-fleur tandoori)",
     "ori": "Inde · chou-fleur rôti entier aux épices",
     "pour": "4 pers",
@@ -14804,6 +15053,7 @@
   },
   {
     "cat": "porc",
+    "id": "pluma-iberique-a-la-plancha-fleur-de-sel-romarin",
     "nom": "Pluma ibérique à la plancha, fleur de sel & romarin",
     "ori": "Espagne · la découpe noble du porc bellota",
     "pour": "4 pers",
@@ -14849,6 +15099,7 @@
   },
   {
     "cat": "porc",
+    "id": "presa-iberique-marinee-au-pimenton-de-la-vera-ail-doux",
     "nom": "Presa ibérique marinée au pimentón de la Vera & ail doux",
     "ori": "Espagne · pièce d'exception persillée",
     "pour": "4 pers",
@@ -14910,6 +15161,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "ris-de-veau-braises-au-foin-puis-dores-sur-fonte",
     "nom": "Ris de veau braisés au foin puis dorés sur fonte",
     "ori": "France · haute gastronomie de bistrot",
     "pour": "4 pers",
@@ -14974,6 +15226,7 @@
   },
   {
     "cat": "boeuf",
+    "id": "cote-de-veau-epaisse-aux-morilles-et-vin-jaune",
     "nom": "Côte de veau épaisse aux morilles et vin jaune",
     "ori": "France / Franche-Comté · découpe généreuse de terroir",
     "pour": "2–4 pers",
@@ -15040,6 +15293,7 @@
   },
   {
     "cat": "volaille",
+    "id": "canard-laque-croustillant-au-kamado-facon-pekin",
     "nom": "Canard laqué croustillant au kamado façon Pékin",
     "ori": "Chine / Pékin · peau vitrifiée ultra-croustillante",
     "pour": "4–6 pers",
@@ -15104,6 +15358,7 @@
   },
   {
     "cat": "volaille",
+    "id": "supremes-de-pintade-fermiere-rotis-sous-peau-aux-morilles",
     "nom": "Suprêmes de pintade fermière rôtis sous peau aux morilles",
     "ori": "France · volaille noble rôtie en douceur",
     "pour": "4 pers",
@@ -15150,6 +15405,7 @@
   },
   {
     "cat": "poisson",
+    "id": "turbot-entier-grille-en-panier-sur-braises-vives-facon-getaria",
     "nom": "Turbot entier grillé en panier sur braises vives façon Getaria",
     "ori": "Pays Basque espagnol · le maître du feu marin",
     "pour": "4 pers",
@@ -15199,6 +15455,7 @@
   },
   {
     "cat": "poisson",
+    "id": "saint-pierre-roti-entier-au-thym-citron-et-fenouil-sauvage",
     "nom": "Saint-Pierre rôti entier au thym citron et fenouil sauvage",
     "ori": "Méditerranée · chair fine et feuilletée",
     "pour": "2–4 pers",
@@ -15247,6 +15504,7 @@
   },
   {
     "cat": "poisson",
+    "id": "tataki-de-thon-rouge-marine-au-yuzu-croute-de-sesame-noir",
     "nom": "Tataki de thon rouge mariné au yuzu & croûte de sésame noir",
     "ori": "Japon · saisie éclair à 300 °C et cœur fondant cru",
     "pour": "4 pers",
@@ -15298,6 +15556,7 @@
   },
   {
     "cat": "poisson",
+    "id": "eclade-de-moules-aux-aiguilles-de-pin-facon-kamado",
     "nom": "Éclade de moules aux aiguilles de pin façon kamado",
     "ori": "France / Charente-Maritime · cuisson spectaculaire aux aiguilles sèches",
     "pour": "4 pers",
@@ -15349,6 +15608,7 @@
   },
   {
     "cat": "legumes",
+    "id": "baingan-bharta-caviar-d-aubergines-brulees-fumees-a-l-indienne",
     "nom": "Baingan Bharta (caviar d'aubergines brûlées fumées à l'indienne)",
     "ori": "Inde / Pendjab · chair confite au goût de braise intense",
     "pour": "4 pers",
@@ -15401,6 +15661,7 @@
   },
   {
     "cat": "legumes",
+    "id": "barigoule-d-artichauts-poivrade-au-lard-et-vin-blanc-en-cocotte",
     "nom": "Barigoule d'artichauts poivrade au lard et vin blanc en cocotte",
     "ori": "France / Provence · mijoté printanier parfumé aux herbes",
     "pour": "4 pers",
@@ -15450,6 +15711,7 @@
   },
   {
     "cat": "monde",
+    "id": "kofte-d-agneau-et-boeuf-au-sumac-menthe-sur-brochettes",
     "nom": "Kofte d'agneau et bœuf au sumac & menthe sur brochettes",
     "ori": "Turquie / Moyen-Orient · brochettes juteuses au goût de braise",
     "pour": "4 pers (8 brochettes)",
@@ -15502,6 +15764,7 @@
   },
   {
     "cat": "monde",
+    "id": "satay-de-boeuf-balinais-a-la-citronnelle-sauce-cacahuete",
     "nom": "Satay de bœuf balinais à la citronnelle & sauce cacahuète",
     "ori": "Indonésie / Bali · brochettes parfumées mariné minute",
     "pour": "4 pers",
@@ -15551,6 +15814,7 @@
   },
   {
     "cat": "monde",
+    "id": "tacos-de-birria-de-boeuf-fume-au-kamado-consomme-mijote",
     "nom": "Tacos de Birria de bœuf fumé au kamado & consommé mijoté",
     "ori": "Mexique / Jalisco · bœuf fondant effiloché et tortillas trempées",
     "pour": "6 pers",
@@ -15622,6 +15886,7 @@
   },
   {
     "cat": "dessert",
+    "id": "giant-skillet-cookie-aux-pepites-de-chocolat-en-poele-fonte",
     "nom": "Giant Skillet Cookie aux pépites de chocolat en poêle fonte",
     "ori": "USA · le cookie familial fondant au centre et croustillant aux bords",
     "pour": "6–8 pers",
@@ -15677,6 +15942,7 @@
   },
   {
     "cat": "dessert",
+    "id": "poires-pochees-fumees-au-vin-chaud-et-epices-douces",
     "nom": "Poires pochées fumées au vin chaud et épices douces",
     "ori": "France / Terroir · dessert d'hiver infusé aux braises",
     "pour": "4 pers",
@@ -15728,6 +15994,7 @@
   },
   {
     "cat": "vegetarien",
+    "id": "steak-de-chou-fleur-roti-au-kamado-chimichurri-frais",
     "nom": "Steak de chou-fleur rôti au kamado & chimichurri frais",
     "ori": "Argentine / Végétal contemporain · la tranche rôtie aux braises",
     "pour": "4 pers",
@@ -15796,6 +16063,7 @@
   },
   {
     "cat": "sauces",
+    "id": "sauce-alabama-white-bbq-sauce-blanche-mayo-vinaigre",
     "nom": "Sauce Alabama White BBQ (sauce blanche mayo-vinaigre)",
     "ori": "USA / Alabama · l'iconique sauce de Big Bob Gibson",
     "pour": "8–10 pers (environ 400 ml)",
@@ -15837,6 +16105,7 @@
   },
   {
     "cat": "sauces",
+    "id": "sauce-carolina-gold-moutarde-bbq-de-caroline-du-sud",
     "nom": "Sauce Carolina Gold (moutarde BBQ de Caroline du Sud)",
     "ori": "USA / South Carolina · la sauce acidulée et dorée des colons allemands",
     "pour": "8–10 pers (environ 350 ml)",

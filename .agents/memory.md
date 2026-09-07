@@ -16,6 +16,9 @@
 - Use `AGENTS.md` as the canonical cross-CLI instruction file.
 - Keep CLI-specific files as thin adapters that point back to shared state and role specs.
 - Use `.agents/handoff.md` for current-session state instead of burying progress in tool-specific transcripts.
+- Product north star: make Kamado the independent, expert, local-first cooking copilot for ceramic kamados across brands.
+- Approved evolution roadmap (2026-09-06): Phase 0 reliability/deep links/PWA/CI/accessibility/performance; Phase 1 searchable editorial authority; Phase 2 Cook Engine 2.0; Phase 3 optional encrypted local-first sync and personalization; Phase 4 vendor-neutral probe integrations; ongoing expert-reviewed community content.
+- Defer a generic social network, marketplace, mandatory accounts, broad AI chatbot, and proprietary grill control until the core cooking experience and editorial authority are proven.
 
 ## Working Preferences
 - Keep recipe edits conservative: preserve imported identity and enrich kamado technique, safety, and timing.
