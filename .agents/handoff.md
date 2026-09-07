@@ -18,7 +18,7 @@
   - `Recipe` rich-result markup is intentionally deferred until representative finished-dish photos exist.
   - CI verifies generated editorial output; Pages health checks cover search, sitemap and a canonical recipe page.
   - Capacitor packaging now includes runtime scripts, icons, assets and the generated editorial library.
-- Phase 2 Cook Engine 2.0 implemented and fully verified:
+- Phase 2 Cook Engine 2.0 deployed and fully verified on 2026-09-07 (`b75016e`):
   - Pure, testable runtime module converts structured recipe phases (or recipe steps as fallback) into a guided cook plan.
   - One active session persists locally with step progress, absolute-deadline timer, manual dôme/cœur observations and conservative guidance.
   - Closing or reloading preserves the cook; an app banner and recipe action resume it at the correct point.
@@ -38,6 +38,8 @@
 - Pages deployment #76 completed successfully; `index.html`, `manifest.webmanifest`, and `sw.js` return HTTP 200 at `https://qevedeveq-art.github.io/kamado/`.
 
 ## Last Commands
+- GitHub Actions `34143681113` (Data audit) and `34143680213` (Pages), both successful.
+- Production checks confirmed `index.html`, `sw.js` v37 and `scripts/cook-engine.js` are live.
 - `node scripts/bump-sw-version.js` (v36 → v37)
 - `node --test tests/cook-engine.test.js tests/data.test.js tests/pwa.test.js tests/custom-recipes.test.js` (39/39)
 - `NODE_PATH=/private/tmp/kamado-e2e-phase0/node_modules node scripts/browser-smoke.js` (persistent Cook Engine path passed)
@@ -69,10 +71,11 @@
 - Documentation/state: `README.md`, `.agents/memory.md`, `.agents/handoff.md`, `package.json`.
 
 ## Next Steps
-- Commit and push Phase 2 after the user's explicit authorization, then verify the GitHub Pages workflow and production Cook Engine path.
+- Phase 3 is the next approved milestone: optional encrypted local-first sync and personalization.
 - Submit/inspect `https://qevedeveq-art.github.io/kamado/sitemap.xml` in Google Search Console if the owner chooses to connect it.
 
 ## External Changes
+- Pushed Phase 2 commit `b75016e` to `main`; audit and GitHub Pages deployment completed successfully.
 - Changed GitHub repository visibility from private to public after explicit user approval.
 - Enabled GitHub Pages from `main` at `/ (root)` after explicit user approval.
 - Pushed Phase 1 commit `6396b35` to `main`; audit and Pages deployment completed successfully.
