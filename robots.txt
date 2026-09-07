@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qevedeveq-art.github.io/kamado/sitemap.xml

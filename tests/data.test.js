@@ -9,6 +9,7 @@ const RECIPES = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "r
 const CATS = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "categories.json"), "utf8"));
 const INDEX_HTML = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
 const RECIPE_LINKS = require("../scripts/recipe-links.js");
+const EDITORIAL_SEARCH = require("../scripts/editorial-search.js");
 
 test("dataset has expected scale", () => {
   assert.ok(RECIPES.length >= 200, `expected >=200 recipes, got ${RECIPES.length}`);
@@ -174,7 +175,8 @@ test("index.html client runtime executes without any reference or syntax error",
     requestAnimationFrame(cb) { cb(); },
     scrollY: 0,
     addEventListener() {},
-    KamadoRecipeLinks: RECIPE_LINKS
+    KamadoRecipeLinks: RECIPE_LINKS,
+    KamadoEditorialSearch: EDITORIAL_SEARCH
   };
 
   const context = vm.createContext({
@@ -214,6 +216,14 @@ test("recipe links are wired into sharing, QR codes and startup navigation", () 
   assert.match(INDEX_HTML, /importHashTransfer\(\);\s*openRecipeFromLocation\(\);/);
 });
 
+test("editorial discovery is wired into the app shell", () => {
+  assert.ok(INDEX_HTML.includes('<script src="./scripts/editorial-search.js"></script>'));
+  assert.match(INDEX_HTML, /id="editorialCollections"/);
+  assert.match(INDEX_HTML, /mode:fumage/);
+  assert.match(INDEX_HTML, /function renderEditorialCollections\(\)/);
+  assert.match(INDEX_HTML, /renderHistory\(\);renderEditorialCollections\(\);renderList\(\);/);
+});
+
 test("chef allergen rules: no false positives on muscade/coco, detects beer and fish", () => {
   const { execSync } = require("child_process");
   const out = execSync("node scripts/audit-chef.js", { encoding: "utf8" });
@@ -234,4 +244,3 @@ test("allergen precision: cote de boeuf has no egg, beurre noisette has no nuts"
   assert.ok(html.includes("oeufText=h.replace"), "index.html must strip boeuf from oeuf check");
   assert.ok(html.includes("beurre noisette"), "index.html must guard beurre noisette");
 });
-

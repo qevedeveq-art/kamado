@@ -18,6 +18,9 @@
 - Use `.agents/handoff.md` for current-session state instead of burying progress in tool-specific transcripts.
 - Product north star: make Kamado the independent, expert, local-first cooking copilot for ceramic kamados across brands.
 - Approved evolution roadmap (2026-09-06): Phase 0 reliability/deep links/PWA/CI/accessibility/performance; Phase 1 searchable editorial authority; Phase 2 Cook Engine 2.0; Phase 3 optional encrypted local-first sync and personalization; Phase 4 vendor-neutral probe integrations; ongoing expert-reviewed community content.
+- Phase 1 editorial architecture (2026-09-07): keep `index.html` as the source of truth and generate canonical static recipe pages, guide pages, sitemap and robots alongside `data/` via `scripts/extract-data.js`.
+- Do not publish `Recipe` structured data until each indexed recipe has a representative finished-dish image; use honest `WebPage`, `Article`, `CollectionPage`, `ItemList` and breadcrumb markup in the meantime.
+- Expert search syntax supports quoted phrases, `-exclusions`, and the filters `cat:`, `mode:`, `bois:`, `source:`, `ingredient:` and `temp:`.
 - Defer a generic social network, marketplace, mandatory accounts, broad AI chatbot, and proprietary grill control until the core cooking experience and editorial authority are proven.
 
 ## Working Preferences

@@ -18,7 +18,16 @@ L'application est conçue pour être **ultra-rapide, 100 % utilisable hors-ligne
 * **Navigation fluide & tactile** : feuilletage des recettes via des flèches `‹` / `›`, touches fléchées du clavier et geste de balayage tactile (*swipe*) sur smartphone.
 * **Liens permanents** : chaque recette possède un identifiant stable ; les liens partagés et QR codes ouvrent directement la bonne fiche, y compris après une recharge hors ligne.
 * **Recherche intelligente & synonymes BBQ** : moteur multi-mots avec tolérance aux synonymes courants (ex: *ribs* trouve les travers, *brisket* trouve la poitrine, *effiloché* trouve le pulled pork).
+* **Recherche experte** : guillemets pour une expression exacte, exclusions avec `-porc`, et filtres de champ comme `cat:boeuf`, `mode:fumage`, `bois:chene`, `ingredient:citron`, `source:franklin` ou `temp:110`.
+* **Parcours éditoriaux** : sélections « Premiers feux », « Les signatures », « Low & Slow » et « Fiches de référence » pour entrer dans le catalogue par intention plutôt que par catégorie.
 * **Pilules de filtres rapides** : accès direct en 1 tap aux cuissons `⚡ < 30 min`, `🔥 Saisie vive`, `🛡️ Four indirect`, `💨 Low & Slow`, `🍕 Pizza & Pains`, `🌿 Végétarien` et `⭐ Favoris`.
+
+### 📚 Bibliothèque éditoriale indexable
+
+* **269 fiches recette statiques** avec URL canonique, ingrédients, étapes, réglages, sécurité, sources et lien direct vers le mode cuisson interactif.
+* **Catalogue sans JavaScript** à [`/recettes/`](https://qevedeveq-art.github.io/kamado/recettes/) et dossiers de référence à [`/guides/`](https://qevedeveq-art.github.io/kamado/guides/).
+* **SEO vérifiable** : métadonnées sociales, données structurées `WebPage`/`Article`/`ItemList`, `sitemap.xml` et `robots.txt` générés depuis la même source que l'application.
+* Le balisage enrichi `Recipe` reste volontairement désactivé tant que chaque recette ne dispose pas d'une photographie représentative du plat fini.
 
 ### 🚀 Mode « Cockpit Outdoor » (Plein Écran Plein Soleil)
 * Conçu pour cuisiner les mains occupées à 2 mètres du kamado :
@@ -80,13 +89,20 @@ L'application fonctionne à 100 % hors connexion grâce aux Service Workers :
 Le projet intègre des contrôles automatisés sur les données, l'expertise culinaire, la PWA et ses parcours critiques :
 
 ```bash
-npm test                    # 58 tests natifs (node --test)
-npm run audit               # Données, expert kamado, chef, sommelier et budget PWA
+npm test                    # 66 tests natifs (node --test)
+npm run audit               # Données, métier, éditorial/SEO et budget PWA
+npm run audit:editorial     # Fiches canoniques, guides, sitemap et robots
 npm run audit:quality       # Revue transverse de la qualité des recettes
-node scripts/browser-smoke.js # Chromium : lien direct, QR, clavier, offline et sauvegarde
+node scripts/browser-smoke.js # Chromium : recherche, pages statiques, lien direct, QR et offline
 ```
 
 Le smoke test navigateur attend le paquet `playwright` dans `NODE_PATH`. La CI l'installe dans un répertoire temporaire afin de préserver l'architecture zéro-build du projet.
+
+Les fichiers de `data/`, `recettes/`, `guides/`, `sitemap.xml` et `robots.txt` sont dérivés de `index.html`. Après toute modification des recettes ou des guides, régénérez-les ensemble :
+
+```bash
+node scripts/extract-data.js
+```
 
 ---
 

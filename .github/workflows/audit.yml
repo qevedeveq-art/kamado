@@ -26,10 +26,10 @@ jobs:
 
       - name: Verify extracts are committed and up to date
         run: |
-          if [ -n "$(git status --porcelain data/)" ]; then
-            echo "::error::data/ is out of sync with index.html. Run 'node scripts/extract-data.js' and commit."
-            git status --porcelain data/
-            git diff data/ | head -200
+          if [ -n "$(git status --porcelain data/ recettes/ guides/ sitemap.xml robots.txt)" ]; then
+            echo "::error::Derived data or editorial pages are out of sync. Run 'node scripts/extract-data.js' and commit."
+            git status --porcelain data/ recettes/ guides/ sitemap.xml robots.txt
+            git diff -- data/ recettes/ guides/ sitemap.xml robots.txt | head -200
             exit 1
           fi
 
@@ -47,6 +47,9 @@ jobs:
 
       - name: Run sommelier audit
         run: node scripts/audit-sommelier.js
+
+      - name: Validate editorial pages and discoverability
+        run: node scripts/audit-editorial.js
 
       - name: Enforce PWA performance budget
         run: node scripts/audit-performance-budget.js

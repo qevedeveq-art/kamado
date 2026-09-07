@@ -32,6 +32,7 @@ test("service worker precaches every critical local PWA asset", () => {
   [
     "./manifest.webmanifest",
     "./scripts/recipe-links.js",
+    "./scripts/editorial-search.js",
     "./icons/icon-180.png",
     "./icons/icon-192.png",
     "./icons/icon-512.png"
@@ -56,4 +57,16 @@ test("performance budget audit passes", () => {
     encoding: "utf8"
   });
   assert.equal(JSON.parse(output).ok, true);
+});
+
+test("Capacitor bundle includes external runtime and editorial assets", () => {
+  execFileSync(process.execPath, ["scripts/prepare-mobile.js"], { cwd: ROOT, encoding: "utf8" });
+  [
+    "scripts/recipe-links.js",
+    "scripts/editorial-search.js",
+    "icons/icon-192.png",
+    "assets/editorial.css",
+    "recettes/cote-de-boeuf-reverse-sear/index.html",
+    "guides/methodologie/index.html"
+  ].forEach(relativePath => assert.ok(fs.existsSync(path.join(ROOT, "www", relativePath)), relativePath));
 });

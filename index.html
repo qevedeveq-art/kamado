@@ -3,6 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Kamado — recettes et guide de cuisson</title>
+<meta name="description" content="269 recettes kamado documentées, guides de cuisson, températures à cœur et outils pratiques utilisables hors ligne.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://qevedeveq-art.github.io/kamado/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kamado">
+<meta property="og:title" content="Kamado — recettes et guide de cuisson">
+<meta property="og:description" content="269 recettes documentées et des repères fiables pour maîtriser les cuissons au kamado.">
+<meta property="og:url" content="https://qevedeveq-art.github.io/kamado/">
+<meta property="og:image" content="https://qevedeveq-art.github.io/kamado/kamado_kokko_cover.jpg">
+<meta property="og:image:width" content="1376">
+<meta property="og:image:height" content="768">
+<meta property="og:image:alt" content="Livre de recettes Kamado">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json" id="siteStructuredData">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://qevedeveq-art.github.io/kamado/#website","url":"https://qevedeveq-art.github.io/kamado/","name":"Kamado","description":"Recettes et guide indépendant pour la cuisson au kamado","inLanguage":"fr-FR"},{"@type":"WebApplication","name":"Kamado","url":"https://qevedeveq-art.github.io/kamado/","applicationCategory":"LifestyleApplication","operatingSystem":"Tout système avec un navigateur web moderne","isAccessibleForFree":true,"description":"Copilote local-first pour préparer, piloter et documenter ses cuissons au kamado."}]}</script>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -15,7 +31,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Kamado">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data: blob:; img-src 'self' data: blob: https:; media-src 'self' data: blob:; connect-src 'self' https:;">
-<title>Livre de recettes — Kamado</title>
 <style>
 :root {
   --bg: #0f100d; 
@@ -4363,6 +4378,85 @@ table td.t-temp, table td.t-coeur {
   box-shadow: 0 6px 18px rgba(230,81,0,0.5);
 }
 
+/* Phase 1 — parcours éditoriaux et recherche experte */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.search-syntax {
+  padding: 5px 2px 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+.editorial-hub {
+  max-width: 1088px;
+  margin: 14px auto 8px;
+  padding: 20px;
+  border: 1px solid rgba(242, 169, 59, .22);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(44, 39, 28, .9), rgba(24, 27, 21, .94));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .24);
+}
+.editorial-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: end;
+}
+.editorial-kicker {
+  margin: 0 0 5px;
+  color: var(--accent2);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+.editorial-head h2 { margin: 0; color: #fff8e9; font-size: 22px; }
+.editorial-head p { max-width: 65ch; margin: 7px 0 0; color: var(--muted); font-size: 13px; }
+.editorial-proof { text-align: right; color: var(--muted); font-size: 11px; white-space: nowrap; }
+.editorial-proof strong { display: block; color: var(--accent2); font: 800 26px/1 var(--font-title); }
+.editorial-collections {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 16px;
+}
+.editorial-route {
+  min-height: 96px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(16, 18, 14, .62);
+  color: var(--txt);
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+.editorial-route:hover { transform: translateY(-1px); border-color: rgba(242, 169, 59, .5); }
+.editorial-route[aria-pressed="true"] { border-color: var(--accent2); background: rgba(231, 90, 30, .15); }
+.editorial-route b { display: block; margin-bottom: 4px; font-size: 13px; }
+.editorial-route span { display: block; color: var(--muted); font-size: 11px; line-height: 1.35; }
+.editorial-route small { display: block; margin-top: 7px; color: var(--accent2); font-size: 10px; font-weight: 800; }
+.editorial-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-size: 12px; }
+.editorial-links a { color: var(--accent2); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 760px) {
+  .editorial-hub { margin: 10px 12px 6px; padding: 16px; }
+  .editorial-head { grid-template-columns: 1fr; }
+  .editorial-proof { text-align: left; }
+  .editorial-proof strong { display: inline; margin-right: 5px; font-size: 18px; }
+  .editorial-collections { display: flex; overflow-x: auto; padding-bottom: 5px; scroll-snap-type: x proximity; }
+  .editorial-route { min-width: 205px; scroll-snap-align: start; }
+}
+
 </style>
 </head>
 <body>
@@ -4378,7 +4472,11 @@ table td.t-temp, table td.t-coeur {
     </button>
   </div>
   <div class="quickstats" id="quickstats"></div>
-  <div class="search"><input id="q" type="search" placeholder="Rechercher une recette, un ingrédient…" autocomplete="off"></div>
+  <div class="search">
+    <label class="sr-only" for="q">Rechercher dans les recettes</label>
+    <input id="q" type="search" placeholder="Recette, ingrédient, mode:fumage, -porc…" autocomplete="off" aria-describedby="searchSyntax">
+    <div class="search-syntax" id="searchSyntax">Recherche experte : guillemets pour une expression, <b>-porc</b> pour exclure, <b>cat:</b>, <b>mode:</b>, <b>bois:</b>, <b>source:</b>, <b>ingredient:</b> ou <b>temp:</b>.</div>
+  </div>
   <div class="tabs" role="tablist" aria-label="Sections principales">
     <div class="tab active" data-tab="recettes" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-recettes">🍽️ Recettes</div>
     <div class="tab" data-tab="menus" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-menus">🍱 Menus</div>
@@ -4393,6 +4491,22 @@ table td.t-temp, table td.t-coeur {
 
 <!-- RECETTES -->
 <section id="tab-recettes" role="tabpanel" aria-label="Recettes">
+  <div class="editorial-hub">
+    <div class="editorial-head">
+      <div>
+        <p class="editorial-kicker">Parcours éditoriaux</p>
+        <h2>Choisissez votre prochain feu</h2>
+        <p>Des sélections courtes pour progresser, des premières cuissons aux méthodes lentes et aux recettes emblématiques.</p>
+      </div>
+      <div class="editorial-proof"><strong id="editorialRecipeTotal">269</strong> fiches documentées</div>
+    </div>
+    <div class="editorial-collections" id="editorialCollections" role="group" aria-label="Parcours éditoriaux"></div>
+    <nav class="editorial-links" aria-label="Bibliothèque éditoriale">
+      <a href="./recettes/">Catalogue permanent A–Z</a>
+      <a href="./guides/">Guides de maîtrise</a>
+      <a href="./guides/methodologie/">Méthodologie et indépendance</a>
+    </nav>
+  </div>
   <div class="chips" id="chips"></div>
   <div class="quick-chips" id="quickChips"></div>
   <div id="filterbar"></div>
@@ -4400,7 +4514,7 @@ table td.t-temp, table td.t-coeur {
   <div class="smartbar" id="smartbar"></div>
   <div class="smartnote" id="smartnote"></div>
   <div class="historybar" id="historybar"></div>
-  <div class="count" id="count"></div>
+  <div class="count" id="count" aria-live="polite"></div>
   <div class="grid" id="grid"></div>
 </section>
 
@@ -4707,9 +4821,11 @@ table td.t-temp, table td.t-coeur {
 </div>
 
 <script src="./scripts/recipe-links.js"></script>
+<script src="./scripts/editorial-search.js"></script>
 <script>
 /* ================= DONNÉES RECETTES ================= */
 const { recipeRef, recipeHash, recipeUrl, parseRecipeHash, findRecipeIndex } = window.KamadoRecipeLinks;
+const { matchesRecipeQuery, scoreRecipeQuery } = window.KamadoEditorialSearch;
 const CATS = [{id:"all",nom:"Tout",e:"🍴"},{id:"boeuf",nom:"Bœuf",e:"🥩"},{id:"porc",nom:"Porc",e:"🐖"},{id:"volaille",nom:"Volaille",e:"🍗"},{id:"agneau",nom:"Agneau & Gibier",e:"🐑"},{id:"poisson",nom:"Poissons & Mer",e:"🐟"},{id:"legumes",nom:"Légumes & Sides",e:"🥗"},{id:"pizza",nom:"Pizzas & Pains",e:"🍕"},{id:"monde",nom:"Cuisines du monde",e:"🌍"},{id:"dessert",nom:"Desserts",e:"🍮"},{id:"vegetarien",nom:"Végétarien",e:"🌱"},{id:"sauces",nom:"Sauces & Marinades",e:"🧂"}];
 
 const RECIPES = [
@@ -12587,7 +12703,62 @@ function renderHistory(){
 }
 
 /* ---- état filtres ---- */
-let curCat="all",curQ="",curHave=pantryProfile.have||"",curMode="all",curTime="all",curDiff="all",curSeason="all",curDiet=multiValues(pantryProfile.diet),curEquip=multiValues(pantryProfile.equipment),curAvailable=pantryProfile.available||"all",curQuality="all",curSort="default",favOnly=false,myOnly=false;
+const SIGNATURE_RECIPE_IDS = new Set([
+  "cote-de-boeuf-reverse-sear",
+  "brisket-fume-poitrine-de-boeuf",
+  "pulled-pork-echine-effilochee",
+  "poulet-crapaudine-spatchcock",
+  "saumon-sur-planche-de-cedre",
+  "pizza-napolitaine"
+]);
+const EDITORIAL_COLLECTIONS = [
+  {
+    id: "premiers-feux",
+    title: "Premiers feux",
+    description: "Cuissons accessibles en moins de 1 h 30.",
+    matches: r => (r.difficulty || 3) <= 2 && parseRecipeDuration(r) <= 90
+  },
+  {
+    id: "signatures",
+    title: "Les signatures",
+    description: "Six recettes qui résument l’art du kamado.",
+    matches: r => SIGNATURE_RECIPE_IDS.has(r.id)
+  },
+  {
+    id: "low-slow",
+    title: "Low & Slow",
+    description: "Fumage propre, collagène et temps long.",
+    matches: r => /fumage|low|confit/i.test(r.mode || "") && parseRecipeDuration(r) >= 120
+  },
+  {
+    id: "fiches-reference",
+    title: "Fiches de référence",
+    description: "Sources, phases et points de contrôle complets.",
+    matches: r => !!r.source && qualityInfo(r).score >= 8
+  }
+];
+
+let curCat="all",curQ="",curHave=pantryProfile.have||"",curMode="all",curTime="all",curDiff="all",curSeason="all",curDiet=multiValues(pantryProfile.diet),curEquip=multiValues(pantryProfile.equipment),curAvailable=pantryProfile.available||"all",curQuality="all",curSort="default",curCollection="all",favOnly=false,myOnly=false;
+
+function activeEditorialCollection(){
+  return EDITORIAL_COLLECTIONS.find(collection => collection.id === curCollection) || null;
+}
+
+function renderEditorialCollections(){
+  const root=$("#editorialCollections");
+  if(!root)return;
+  $("#editorialRecipeTotal").textContent=RECIPES.length;
+  root.innerHTML=EDITORIAL_COLLECTIONS.map(collection=>{
+    const count=cookingRecipes().filter(collection.matches).length;
+    const active=curCollection===collection.id;
+    return `<button type="button" class="editorial-route" data-collection="${collection.id}" aria-pressed="${active}"><b>${collection.title}</b><span>${collection.description}</span><small>${count} recette${count>1?'s':''}</small></button>`;
+  }).join("");
+  $$("#editorialCollections [data-collection]").forEach(button=>button.onclick=()=>{
+    curCollection=curCollection===button.dataset.collection?"all":button.dataset.collection;
+    renderEditorialCollections();
+    renderList();
+  });
+}
 
 function renderStats(){
   const total=cookingRecipes().length;
@@ -12769,50 +12940,24 @@ function renderSmartBar(){
   };
   $("#sMine").onclick=()=>{myOnly=!myOnly;renderChips();renderFilterBar();renderSmartBar();renderList();};
   $("#sReset").onclick=()=>{
-    curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet=[];curEquip=[];curAvailable="all";curQuality="all";curSort="default";favOnly=false;myOnly=false;
+    curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet=[];curEquip=[];curAvailable="all";curQuality="all";curSort="default";curCollection="all";favOnly=false;myOnly=false;
     pantryProfile={have:"",avoid:"",diet:[],equipment:[],available:"all"};
     LS.set("kamado_pantry_profile",pantryProfile);
     $("#q").value="";$("#have").value="";
-    renderFilterBar();renderSmartBar();renderStats();renderChips();renderQuickChips();renderList();renderBases();
+    renderFilterBar();renderSmartBar();renderStats();renderChips();renderQuickChips();renderEditorialCollections();renderList();renderBases();
   };
 }
 
 /* ---- filtrage ---- */
 
-const BBQ_SYNONYMS = {
-  "ribs": ["travers", "cotes", "short ribs", "dino"],
-  "travers": ["ribs", "spareribs"],
-  "brisket": ["poitrine", "paleron", "chuck"],
-  "poitrine": ["brisket", "bacon", "lard"],
-  "effiloche": ["pulled", "pork", "effiloche"],
-  "pulled": ["effiloche", "pork"],
-  "steak": ["bavette", "onglet", "entrecote", "faux filet", "tomahawk"],
-  "cote": ["tomahawk", "cotelette"],
-  "burger": ["smash", "hamburger"],
-  "pain": ["pita", "naan", "focaccia", "campagne", "levain", "pizza"],
-  "pains": ["pitas", "naans", "focaccias", "pizzas"],
-  "volaille": ["poulet", "canard", "pintade", "dinde", "caille"],
-  "poisson": ["saumon", "thon", "bar", "loup", "turbot", "dorade", "cabillaud", "truite"],
-  "sauce blanche": ["alabama", "mayonnaise", "toum"]
-};
-
 function matchesQuery(r, q) {
-  if (!q) return true;
-  const h = haystack(r);
-  const nq = norm(q).trim();
-  if (h.includes(nq)) return true;
-  const tokens = nq.split(/\s+/).filter(Boolean);
-  if (!tokens.length) return true;
-  return tokens.every(tok => {
-    if (h.includes(tok)) return true;
-    const syns = BBQ_SYNONYMS[tok];
-    if (syns && syns.some(s => h.includes(norm(s)))) return true;
-    return false;
-  });
+  return !q || matchesRecipeQuery(r,q);
 }
 
 function matches(r){
   if(r.cat==="sauces")return false;
+  const editorialCollection=activeEditorialCollection();
+  if(editorialCollection&&!editorialCollection.matches(r))return false;
   if(myOnly&&!r._custom&&!r._modified)return false;
   if(curCat!=="all"&&r.cat!==curCat)return false;
   if(favOnly&&!favs.has(rid(r)))return false;
@@ -12887,15 +13032,20 @@ let visibleRecipeCount = 24;
 function renderList(resetPaging = true){
   if (resetPaging) visibleRecipeCount = 24;
   currentFilteredList = RECIPES.filter(matches);
+  const relevance=curQ?new Map(currentFilteredList.map(recipe=>[recipe,scoreRecipeQuery(recipe,curQ)])):null;
   currentFilteredList.sort((a,b)=>{
+    if(curSort==="default"&&relevance)return relevance.get(b)-relevance.get(a);
     if(curSort==="alpha")return (a.nom||"").localeCompare(b.nom||"","fr");
     if(curSort==="time")return parseRecipeDuration(a)-parseRecipeDuration(b);
     if(curSort==="difficulty")return (a.difficulty||3)-(b.difficulty||3);
+    if(curSort==="quality")return qualityInfo(b).score-qualityInfo(a).score;
     if(curSort==="rating")return (+ratings[rid(b)]||0)-(+ratings[rid(a)]||0);
     if(curSort==="recent"){const ia=viewHistory.indexOf(rid(a)), ib=viewHistory.indexOf(rid(b));return (ia<0?999:ia)-(ib<0?999:ib);}
     return 0;
   });
   const bits=[];
+  const editorialCollection=activeEditorialCollection();
+  if(editorialCollection)bits.push(`parcours ${editorialCollection.title}`);
   if(favOnly)bits.push("favoris");
   if(myOnly)bits.push("mes créations");
   if(curHave)bits.push("avec vos ingrédients");
@@ -13652,7 +13802,7 @@ function closeModal(options={}){
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden","true");
   document.body.style.overflow="";
-  document.title="Livre de recettes — Kamado";
+  document.title="Kamado — recettes et guide de cuisson";
   if(options.clearLocation!==false&&parseRecipeHash(location.hash)&&window.history){
     window.history.replaceState(null,"",`${location.pathname}${location.search||""}`);
   }
@@ -15172,7 +15322,7 @@ function renderDataTools(){
 }
 
 /* ---- recherche + onglets ---- */
-$("#q").addEventListener("input",e=>{curQ=e.target.value.toLowerCase().trim();renderList();});
+$("#q").addEventListener("input",e=>{curQ=e.target.value.trim();renderList();});
 $("#have").value=curHave;
 $("#have").addEventListener("input",e=>{curHave=e.target.value.trim();pantryProfile.have=curHave;LS.set("kamado_pantry_profile",pantryProfile);renderSmartBar();renderList();});
 const TAB_NAMES=["recettes","menus","bases","guide","temp","vins","assistant","donnees"];
@@ -15550,7 +15700,7 @@ renderAssistant();
 renderMenuBuilder();
 renderBases();
 renderDataTools();
-renderStats();renderChips();renderFilterBar();renderSmartBar();renderHistory();renderList();
+renderStats();renderChips();renderFilterBar();renderSmartBar();renderHistory();renderEditorialCollections();renderList();
 importHashTransfer();
 openRecipeFromLocation();
 if("serviceWorker" in navigator && location.protocol!=="file:"){

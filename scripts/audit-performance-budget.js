@@ -8,7 +8,10 @@ const ROOT = path.resolve(__dirname, "..");
 const limits = {
   "index.html": 900 * 1024,
   "manifest.webmanifest": 10 * 1024,
-  "scripts/recipe-links.js": 10 * 1024
+  "scripts/recipe-links.js": 10 * 1024,
+  "scripts/editorial-search.js": 15 * 1024,
+  "assets/editorial.css": 20 * 1024,
+  "recettes/index.html": 500 * 1024
 };
 
 const failures = [];
@@ -39,6 +42,21 @@ for (const icon of manifest.icons || []) {
     failures.push(`manifest.webmanifest: missing icon ${icon.src || "(empty)"}`);
   }
 }
+
+const recipes = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "recipes.json"), "utf8"));
+let largestRecipePage = { path: "", size: 0 };
+for (const recipe of recipes) {
+  const relativePath = path.join("recettes", recipe.id, "index.html");
+  const fullPath = path.join(ROOT, relativePath);
+  if (!fs.existsSync(fullPath)) {
+    failures.push(`${relativePath}: missing`);
+    continue;
+  }
+  const size = fs.statSync(fullPath).size;
+  if (size > largestRecipePage.size) largestRecipePage = { path: relativePath, size };
+  if (size > 60 * 1024) failures.push(`${relativePath}: ${size} bytes exceeds ${60 * 1024}`);
+}
+sizes.largestRecipePage = largestRecipePage;
 
 const result = { ok: failures.length === 0, sizes, failures };
 process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);

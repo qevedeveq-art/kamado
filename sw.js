@@ -1,4 +1,4 @@
-const VERSION = "v35";
+const VERSION = "v36";
 const APP_CACHE = `kamado-app-${VERSION}`;
 
 const APP_SHELL = [
@@ -6,6 +6,7 @@ const APP_SHELL = [
   "./index.html",
   "./manifest.webmanifest",
   "./scripts/recipe-links.js",
+  "./scripts/editorial-search.js",
   "./icons/icon-180.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",

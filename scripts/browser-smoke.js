@@ -39,6 +39,23 @@ async function main() {
     });
     page.on("pageerror", error => consoleErrors.push(error.message));
 
+    await page.goto(BASE_URL, { waitUntil: "networkidle" });
+    await page.locator('[data-collection="signatures"]').click();
+    assert.match(await page.locator("#count").textContent(), /^6 recettes · parcours Les signatures$/);
+    assert.equal(await page.locator("#grid .rc").count(), 6);
+    await page.locator('[data-collection="signatures"]').click();
+    await page.locator("#q").fill("mode:fumage -porc");
+    assert.equal(await page.evaluate(() => currentFilteredList.length > 0), true);
+    assert.equal(await page.evaluate(() => currentFilteredList.every(recipe => !/porc/i.test(JSON.stringify(recipe)))), true);
+
+    await page.goto(`${BASE_URL}recettes/cote-de-boeuf-reverse-sear/`, { waitUntil: "networkidle" });
+    assert.equal(await page.locator("h1").textContent(), "Côte de bœuf reverse-sear");
+    assert.equal(
+      await page.locator('link[rel="canonical"]').getAttribute("href"),
+      "https://qevedeveq-art.github.io/kamado/recettes/cote-de-boeuf-reverse-sear/"
+    );
+    assert.equal(await page.locator('a[href="../../#recette=cote-de-boeuf-reverse-sear"]').count(), 1);
+
     await page.goto(`${BASE_URL}#recette=cote-de-boeuf-reverse-sear`, { waitUntil: "networkidle" });
     await page.locator("#modal.open").waitFor();
     assert.equal(await page.locator("#d-title").textContent(), "Côte de bœuf reverse-sear");
@@ -85,7 +102,7 @@ async function main() {
     assert.match(await page.locator("#transferCode").inputValue(), /^[A-Za-z0-9+/=_-]+$/);
     assert.deepEqual(consoleErrors, []);
 
-    process.stdout.write("Browser smoke passed: deep link, QR, focus, offline reload and backup code.\n");
+    process.stdout.write("Browser smoke passed: editorial search, static recipe, deep link, QR, focus, offline reload and backup code.\n");
   } finally {
     if (browser) await browser.close();
     server.kill("SIGTERM");

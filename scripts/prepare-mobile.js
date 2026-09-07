@@ -48,10 +48,17 @@ function main() {
     }
   }
 
-  // Data folder
-  const dataDir = path.join(ROOT, "data");
-  if (fs.existsSync(dataDir)) {
-    copyDirSync(dataDir, path.join(WWW, "data"));
+  // Runtime and editorial directories referenced by index.html or the manifest.
+  for (const directory of ["data", "icons", "assets", "recettes", "guides"]) {
+    const source = path.join(ROOT, directory);
+    if (fs.existsSync(source)) copyDirSync(source, path.join(WWW, directory));
+  }
+
+  // Keep build/audit utilities out of the native bundle; only ship browser modules.
+  const runtimeScripts = ["recipe-links.js", "editorial-search.js"];
+  fs.mkdirSync(path.join(WWW, "scripts"), { recursive: true });
+  for (const script of runtimeScripts) {
+    fs.copyFileSync(path.join(ROOT, "scripts", script), path.join(WWW, "scripts", script));
   }
 
   console.log("Mobile asset directory www/ prepared successfully for Capacitor.");

@@ -12,6 +12,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { generateEditorialPages } = require("./generate-editorial-pages.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const HTML_PATH = path.join(ROOT, "index.html");
@@ -83,11 +84,20 @@ fs.writeFileSync(path.join(DATA_DIR, "guide.html"), guideText);
 fs.writeFileSync(path.join(DATA_DIR, "temperatures.html"), tempText);
 fs.writeFileSync(path.join(DATA_DIR, "vins.html"), vinsText);
 
+const editorial = generateEditorialPages({
+  recipes: enriched,
+  categories: CATS,
+  guide: guideText,
+  temperatures: tempText,
+  wines: vinsText
+});
+
 const summary = {
   recipes: enriched.length,
   categories: CATS.length,
   guideChars: guideText.length,
   tempChars: tempText.length,
-  vinsChars: vinsText.length
+  vinsChars: vinsText.length,
+  editorialPages: editorial.urls
 };
 console.log(JSON.stringify(summary, null, 2));
