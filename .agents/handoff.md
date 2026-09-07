@@ -25,7 +25,7 @@
   - Completion writes a compatible Journal de Braises entry and clears the active session.
   - Backup schema v4 includes the active session and imports the newest valid session without overwriting a newer local cook.
   - Cockpit has dialog state, keyboard focus containment, explicit abandon/close actions and offline/native packaging.
-- Phase 3 local-first sync and personalization implemented and fully verified:
+- Phase 3 local-first sync and personalization deployed and fully verified on 2026-09-07 (`0010ee9`):
   - Optional `.kamado` vault encrypts backup schema v4 entirely in-browser with AES-256-GCM and a PBKDF2-HMAC-SHA-256 key derived over 600,000 iterations.
   - Unique salt, unique IV and authenticated envelope metadata make repeated exports distinct and reject tampering or incorrect passphrases.
   - Passphrases are never persisted; length and imported file/ciphertext sizes are bounded before expensive processing.
@@ -45,6 +45,8 @@
 - Pages deployment #76 completed successfully; `index.html`, `manifest.webmanifest`, and `sw.js` return HTTP 200 at `https://qevedeveq-art.github.io/kamado/`.
 
 ## Last Commands
+- GitHub Actions `34159542210` (Data audit) and `34159541668` (Pages), both successful.
+- Production checks confirmed `index.html`, `sw.js` v38 and `scripts/local-vault.js` are live.
 - `node --test tests/local-vault.test.js tests/personalization.test.js tests/data.test.js tests/pwa.test.js` (30/30)
 - `NODE_PATH=/private/tmp/kamado-e2e-phase0/node_modules node scripts/browser-smoke.js` (encrypted vault/profile/recommendation path passed)
 - `node scripts/extract-data.js`, `npm test` (82/82), `npm run audit`, and `npm run audit:quality` all passed.
@@ -85,11 +87,12 @@
 - Documentation/state: `README.md`, `.agents/memory.md`, `.agents/handoff.md`, `package.json`.
 
 ## Next Steps
-- Commit and push Phase 3 after explicit user authorization, then verify GitHub Actions and production assets.
-- A future Phase 3 increment may add a user-chosen remote storage adapter; never upload vaults automatically or require an account.
+- Phase 4 is the next approved milestone: a vendor-neutral probe adapter contract, beginning with a safe simulator/manual feed before opt-in Web Bluetooth integrations.
+- A future sync increment may add a user-chosen remote storage adapter; never upload vaults automatically or require an account.
 - Submit/inspect `https://qevedeveq-art.github.io/kamado/sitemap.xml` in Google Search Console if the owner chooses to connect it.
 
 ## External Changes
+- Pushed Phase 3 commit `0010ee9` to `main`; audit and GitHub Pages deployment completed successfully.
 - Pushed Phase 2 commit `b75016e` to `main`; audit and GitHub Pages deployment completed successfully.
 - Changed GitHub repository visibility from private to public after explicit user approval.
 - Enabled GitHub Pages from `main` at `/ (root)` after explicit user approval.
