@@ -10,7 +10,7 @@
   - Chromium smoke test for deep links, QR, focus, offline reload and backup codes.
   - GitHub Actions updated to Node 24/actions v7 plus a scheduled GitHub Pages health check.
   - Remote Google font dependency removed for a faster and fully offline app shell.
-- Phase 1 implemented locally and fully verified:
+- Phase 1 deployed and fully verified in production on 2026-09-07 (`6396b35`):
   - Search engine supports phrases, exclusions, BBQ synonyms, field filters and relevance ranking.
   - Four intent-based pathways are exposed in the recipe hub: first cooks, signatures, low & slow and reference sheets.
   - 269 canonical static recipe pages, one catalogue, four guide pages and one guide index are generated from the app source.
@@ -40,6 +40,8 @@
 - `npm run audit:quality`
 - `NODE_PATH=/private/tmp/kamado-e2e-phase0/node_modules node scripts/browser-smoke.js`
 - Headless Chromium visual review of the app hub and canonical recipe page
+- GitHub Actions runs `34094119354` (audit) and `34094118090` (Pages), both successful
+- Production HTTP checks for the app, expert search, canonical recipe, guide index and sitemap (all 200)
 
 ## Files Changed
 - App shell: `index.html`, `sw.js`, `assets/editorial.css`.
@@ -50,10 +52,10 @@
 - Documentation/state: `README.md`, `.agents/memory.md`, `.agents/handoff.md`, `package.json`.
 
 ## Next Steps
-- Review the final diff, then commit and push Phase 1 only after explicit approval for those external actions.
-- After deployment, validate the production Pages health workflow and submit/inspect the sitemap in Google Search Console if the owner chooses to connect it.
+- Submit/inspect `https://qevedeveq-art.github.io/kamado/sitemap.xml` in Google Search Console if the owner chooses to connect it.
 - Phase 2 remains the Cook Engine 2.0 milestone from the approved roadmap.
 
 ## External Changes
 - Changed GitHub repository visibility from private to public after explicit user approval.
 - Enabled GitHub Pages from `main` at `/ (root)` after explicit user approval.
+- Pushed Phase 1 commit `6396b35` to `main`; audit and Pages deployment completed successfully.
