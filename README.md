@@ -43,6 +43,15 @@ L'application est conçue pour être **ultra-rapide, 100 % utilisable hors-ligne
 
 L'intégration de sondes connectées reste volontairement hors de cette phase : elle fait partie de la future couche d'intégrations matérielles, indépendante des marques.
 
+### Confidentialité locale et personnalisation optionnelle
+
+* **Coffre portable chiffré** : export de toutes les données dans un fichier `.kamado` protégé dans le navigateur avec AES-256-GCM.
+* **Phrase secrète non conservée** : la clé est dérivée par PBKDF2-HMAC-SHA-256 avec un sel aléatoire et 600 000 itérations ; chaque coffre utilise également un IV unique.
+* **Import authentifié** : une mauvaise phrase ou toute altération du coffre bloque le déchiffrement avant la fusion des données.
+* **Aucun compte ni cloud obligatoire** : le transfert reste manuel et local-first ; les anciens exports JSON non chiffrés restent disponibles uniquement pour compatibilité.
+* **Recommandations locales en opt-in** : lorsque l'utilisateur les active, le tri tient compte des favoris, notes, consultations récentes, niveau et mode de cuisson préféré.
+* **Classement transparent** : les fiches concernées affichent les raisons principales de leur recommandation et aucun historique n'est transmis à un tiers.
+
 ### 🚨 Module « SOS Kamado & Dépannage Express »
 * Accès d'urgence immédiat en cas d'aléa thermique :
   * *Température qui s'emballe (> 200 °C)* ➔ Procédure de fermeture étagée sans étouffement explosif.
@@ -95,11 +104,11 @@ L'application fonctionne à 100 % hors connexion grâce aux Service Workers :
 Le projet intègre des contrôles automatisés sur les données, l'expertise culinaire, la PWA et ses parcours critiques :
 
 ```bash
-npm test                    # 73 tests natifs (node --test)
+npm test                    # 82 tests natifs (node --test)
 npm run audit               # Données, métier, éditorial/SEO et budget PWA
 npm run audit:editorial     # Fiches canoniques, guides, sitemap et robots
 npm run audit:quality       # Revue transverse de la qualité des recettes
-node scripts/browser-smoke.js # Chromium : recherche, Cook Engine persistant, QR et offline
+node scripts/browser-smoke.js # Chromium : Cook Engine, coffre chiffré, personnalisation et offline
 ```
 
 Le smoke test navigateur attend le paquet `playwright` dans `NODE_PATH`. La CI l'installe dans un répertoire temporaire afin de préserver l'architecture zéro-build du projet.

@@ -11,6 +11,8 @@ const INDEX_HTML = fs.readFileSync(path.join(__dirname, "..", "index.html"), "ut
 const RECIPE_LINKS = require("../scripts/recipe-links.js");
 const EDITORIAL_SEARCH = require("../scripts/editorial-search.js");
 const COOK_ENGINE = require("../scripts/cook-engine.js");
+const LOCAL_VAULT = require("../scripts/local-vault.js");
+const PERSONALIZATION = require("../scripts/personalization.js");
 
 test("dataset has expected scale", () => {
   assert.ok(RECIPES.length >= 200, `expected >=200 recipes, got ${RECIPES.length}`);
@@ -178,7 +180,9 @@ test("index.html client runtime executes without any reference or syntax error",
     addEventListener() {},
     KamadoRecipeLinks: RECIPE_LINKS,
     KamadoEditorialSearch: EDITORIAL_SEARCH,
-    KamadoCookEngine: COOK_ENGINE
+    KamadoCookEngine: COOK_ENGINE,
+    KamadoLocalVault: LOCAL_VAULT,
+    KamadoPersonalization: PERSONALIZATION
   };
 
   const context = vm.createContext({
@@ -233,6 +237,16 @@ test("Cook Engine 2.0 is wired for persistent guided sessions", () => {
   assert.match(INDEX_HTML, /id="cpObservedDome"[\s\S]*?id="cpObservedCore"/);
   assert.match(INDEX_HTML, /activeCookSession[\s\S]*?persistCookSession/);
   assert.match(INDEX_HTML, /version:4[\s\S]*?activeCookSession/);
+});
+
+test("Phase 3 wires encrypted local vaults and explainable personalization", () => {
+  assert.ok(INDEX_HTML.includes('<script src="./scripts/local-vault.js"></script>'));
+  assert.ok(INDEX_HTML.includes('<script src="./scripts/personalization.js"></script>'));
+  assert.match(INDEX_HTML, /id="vaultPassphrase"[\s\S]*?id="vaultExport"[\s\S]*?id="vaultImport"/);
+  assert.match(INDEX_HTML, /encryptVault\(buildExportPayload\(\),passphrase\)/);
+  assert.match(INDEX_HTML, /decryptVault\(await file\.text\(\),passphrase\)/);
+  assert.match(INDEX_HTML, /scoreRecipePreference\(recipe,\{profile:cookingProfile/);
+  assert.match(INDEX_HTML, /id="profilePersonalization"/);
 });
 
 test("chef allergen rules: no false positives on muscade/coco, detects beer and fish", () => {

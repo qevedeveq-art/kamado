@@ -1,4 +1,4 @@
-const VERSION = "v37";
+const VERSION = "v38";
 const APP_CACHE = `kamado-app-${VERSION}`;
 
 const APP_SHELL = [
@@ -8,6 +8,8 @@ const APP_SHELL = [
   "./scripts/recipe-links.js",
   "./scripts/editorial-search.js",
   "./scripts/cook-engine.js",
+  "./scripts/local-vault.js",
+  "./scripts/personalization.js",
   "./icons/icon-180.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",

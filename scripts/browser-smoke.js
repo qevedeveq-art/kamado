@@ -140,9 +140,36 @@ async function main() {
     await page.locator('[data-tab="donnees"]').click();
     await page.locator("#dataCode").click();
     assert.match(await page.locator("#transferCode").inputValue(), /^[A-Za-z0-9+/=_-]+$/);
+    assert.equal(await page.locator("#profilePersonalization").isChecked(), false);
+    await page.locator("#profileExperience").selectOption("expert");
+    await page.locator("#profileMode").selectOption("fumage");
+    await page.locator("#profilePersonalization").check();
+    await page.locator("#profileSave").click();
+    assert.match(await page.locator("#profileStatus").textContent(), /Profil enregistré/);
+    assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem("kamado_pantry_profile")).data.cookingProfile.preferredMode), "fumage");
+    await page.locator('[data-tab="recettes"]').click();
+    assert.ok(await page.locator("#grid .badge.personal").count() > 0);
+    await page.locator('[data-tab="donnees"]').click();
+
+    const passphrase = "braises paisibles du dimanche";
+    await page.locator("#vaultPassphrase").fill(passphrase);
+    await page.locator("#vaultConfirm").fill(passphrase);
+    const downloadPromise = page.waitForEvent("download");
+    await page.locator("#vaultExport").click();
+    const vaultDownload = await downloadPromise;
+    assert.match(vaultDownload.suggestedFilename(), /^kamado-coffre-\d{4}-\d{2}-\d{2}\.kamado$/);
+    const vaultPath = await vaultDownload.path();
+    const vaultText = fs.readFileSync(vaultPath, "utf8");
+    const vault = JSON.parse(vaultText);
+    assert.equal(vault.app, "kamado-vault");
+    assert.equal(vault.kdf.iterations, 600000);
+    assert.doesNotMatch(vaultText, /Côte de bœuf reverse-sear/);
+    await page.locator("#vaultPassphrase").fill(passphrase);
+    await page.locator("#vaultImport").setInputFiles(vaultPath);
+    await page.locator("#vaultStatus").filter({ hasText: "Coffre importé" }).waitFor();
     assert.deepEqual(consoleErrors, []);
 
-    process.stdout.write("Browser smoke passed: editorial search, static recipe, persistent Cook Engine, QR, focus, offline reload and backup code.\n");
+    process.stdout.write("Browser smoke passed: editorial search, persistent Cook Engine, encrypted local vault, personalization, QR, focus and offline reload.\n");
   } finally {
     if (browser) await browser.close();
     server.kill("SIGTERM");

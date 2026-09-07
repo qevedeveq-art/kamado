@@ -1770,6 +1770,7 @@ td b {
   color: var(--blue) !important;
   border-color: rgba(143,196,232,0.56) !important;
 }
+.badge.personal { color: #e9f7d7 !important; background: rgba(83,112,50,.42) !important; border: 1px solid rgba(145,182,103,.5) !important; }
 
 .sheet {
   background:
@@ -4391,6 +4392,29 @@ table td.t-temp, table td.t-coeur {
 .active-cook-resume { min-height: 40px; padding: 8px 15px; border: 0; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 800; cursor: pointer; white-space: nowrap; }
 .active-cook-resume:active { transform: scale(.98); }
 @media(max-width:600px){.active-cook-banner{margin-inline:12px;align-items:stretch;flex-direction:column}.active-cook-resume{width:100%}}
+.privacy-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-top: 14px; }
+.privacy-field { display: grid; gap: 6px; }
+.privacy-field.full { grid-column: 1 / -1; }
+.privacy-field label,.privacy-label { color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+.privacy-field input,.privacy-field select { width: 100%; min-height: 44px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--txt); font: inherit; }
+.privacy-choice { display: flex; align-items: center; gap: 9px; min-height: 44px; color: var(--txt); font-weight: 700; }
+.privacy-choice input { width: 18px; height: 18px; accent-color: var(--accent); }
+.privacy-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; grid-column: 1 / -1; }
+.privacy-note { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.privacy-warning { padding: 10px 12px; border-left: 3px solid var(--accent2); background: rgba(255,157,66,.08); color: var(--txt); font-size: 12px; line-height: 1.5; }
+.privacy-status { grid-column: 1 / -1; min-height: 20px; color: var(--green); font-size: 12px; font-weight: 700; }
+.privacy-status[data-state="error"] { color: #ff9b83; }
+.syncgrid { display: grid; gap: 10px; margin-top: 14px; }
+.syncbtn,.filepick { min-height: 44px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--txt); font: 800 13px/1.3 var(--font-body); cursor: pointer; display: flex; align-items: center; justify-content: center; text-align: center; transition: transform .16s ease,border-color .16s ease,background .16s ease; }
+.syncbtn:hover,.filepick:hover { border-color: var(--accent); background: rgba(255,123,0,.09); }
+.syncbtn.primary { border-color: transparent; background: var(--accent); color: #fff; }
+.syncbtn:disabled { cursor: wait; opacity: .55; }
+.filepick { position: relative; overflow: hidden; }
+.filepick input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.copybox { width: 100%; min-height: 110px; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; resize: vertical; background: var(--panel); color: var(--txt); font: 12px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace; }
+.syncstatus { min-height: 20px; color: var(--green); font-size: 12px; font-weight: 700; }
+.syncbtn:active,.filepick:active { transform: scale(.98); }
+@media(max-width:650px){.privacy-grid,.privacy-actions{grid-template-columns:1fr}.privacy-field.full,.privacy-actions,.privacy-note,.privacy-status{grid-column:1}}
 
 .load-more-wrap {
   grid-column: 1 / -1;
@@ -4880,11 +4904,15 @@ table td.t-temp, table td.t-coeur {
 <script src="./scripts/recipe-links.js"></script>
 <script src="./scripts/editorial-search.js"></script>
 <script src="./scripts/cook-engine.js"></script>
+<script src="./scripts/local-vault.js"></script>
+<script src="./scripts/personalization.js"></script>
 <script>
 /* ================= DONNÉES RECETTES ================= */
 const { recipeRef, recipeHash, recipeUrl, parseRecipeHash, findRecipeIndex } = window.KamadoRecipeLinks;
 const { matchesRecipeQuery, scoreRecipeQuery } = window.KamadoEditorialSearch;
 const { buildCookPlan, createCookSession, hydrateCookSession, syncSessionTimer, startSessionTimer, pauseSessionTimer, adjustSessionTimer, resetSessionTimer, setCookStep, advanceCookSession, recordCookObservation, evaluateCookTemperatures, completeCookSession } = window.KamadoCookEngine;
+const { encryptVault, decryptVault } = window.KamadoLocalVault;
+const { normalizeCookingProfile, scoreRecipePreference } = window.KamadoPersonalization;
 const CATS = [{id:"all",nom:"Tout",e:"🍴"},{id:"boeuf",nom:"Bœuf",e:"🥩"},{id:"porc",nom:"Porc",e:"🐖"},{id:"volaille",nom:"Volaille",e:"🍗"},{id:"agneau",nom:"Agneau & Gibier",e:"🐑"},{id:"poisson",nom:"Poissons & Mer",e:"🐟"},{id:"legumes",nom:"Légumes & Sides",e:"🥗"},{id:"pizza",nom:"Pizzas & Pains",e:"🍕"},{id:"monde",nom:"Cuisines du monde",e:"🌍"},{id:"dessert",nom:"Desserts",e:"🍮"},{id:"vegetarien",nom:"Végétarien",e:"🌱"},{id:"sauces",nom:"Sauces & Marinades",e:"🧂"}];
 
 const RECIPES = [
@@ -12651,6 +12679,8 @@ let ratings=LS.get("kamado_ratings",{});
 let viewHistory=LS.get("kamado_history",[]);
 let shoppingList=LS.get("kamado_shopping",[]);
 let pantryProfile=LS.get("kamado_pantry_profile",{have:"",avoid:"",diet:"all",equipment:"all",available:"all"});
+let cookingProfile=normalizeCookingProfile(pantryProfile.cookingProfile);
+pantryProfile.cookingProfile=cookingProfile;
 let savedSession=LS.get("kamado_session",{recipes:[],serviceTime:"13:00"});
 let outdoorMode=!!LS.get("kamado_outdoor_mode",false);
 let sunMode=!!LS.get("kamado_sun_mode",false);
@@ -13002,7 +13032,8 @@ function renderSmartBar(){
   $("#sMine").onclick=()=>{myOnly=!myOnly;renderChips();renderFilterBar();renderSmartBar();renderList();};
   $("#sReset").onclick=()=>{
     curQ="";curHave="";curMode="all";curTime="all";curDiff="all";curSeason="all";curDiet=[];curEquip=[];curAvailable="all";curQuality="all";curSort="default";curCollection="all";favOnly=false;myOnly=false;
-    pantryProfile={have:"",avoid:"",diet:[],equipment:[],available:"all"};
+    cookingProfile=normalizeCookingProfile({});
+    pantryProfile={have:"",avoid:"",diet:[],equipment:[],available:"all",cookingProfile};
     LS.set("kamado_pantry_profile",pantryProfile);
     $("#q").value="";$("#have").value="";
     renderFilterBar();renderSmartBar();renderStats();renderChips();renderQuickChips();renderEditorialCollections();renderList();renderBases();
@@ -13061,6 +13092,8 @@ function card(r){
   const band=tempBand(r);
   const needsBurp = r.cat !== "sauces" && (band === "t400" || band === "t300" || band === "t200");
   const isSmoked = String(r.mode).toLowerCase().includes("fumage") || String(r.mode).toLowerCase().includes("slow") || String(r.mode).toLowerCase().includes("indirect");
+  const personal=scoreRecipePreference(r,{profile:cookingProfile,favorites:favs,ratings,history:viewHistory});
+  const personalReasons=personal.reasons.filter(reason=>reason!=="niveau adapté").slice(0,2);
   return `<article class="rc band-${band}" data-i="${i}">
     <div class="top">
       <div><h2><button type="button" class="card-open" aria-label="Ouvrir la recette ${escHtml(r.nom)}">${escHtml(r.nom)}</button></h2><div class="ori">${escHtml(r.ori)}</div></div>
@@ -13082,6 +13115,7 @@ function card(r){
       <span class="badge spice">${spiceLevel(r)}</span>
       ${diets.slice(0,2).map(d=>`<span class="badge">${d}</span>`).join("")}
       ${rating?`<span class="badge">★ ${rating}/5</span>`:''}
+      ${cookingProfile.personalization&&personalReasons.length?`<span class="badge personal" title="Classement calculé uniquement sur cet appareil">Pour vous · ${personalReasons.map(escHtml).join(" · ")}</span>`:''}
       ${alls.length?`<span class="badge allergen">Allergènes : ${alls.join(", ")}</span>`:''}
       ${sauces?`<span class="badge sauce">Sauce : ${sauces}</span>`:''}
     </div>
@@ -13094,8 +13128,10 @@ function renderList(resetPaging = true){
   if (resetPaging) visibleRecipeCount = 24;
   currentFilteredList = RECIPES.filter(matches);
   const relevance=curQ?new Map(currentFilteredList.map(recipe=>[recipe,scoreRecipeQuery(recipe,curQ)])):null;
+  const preference=!relevance&&curSort==="default"?new Map(currentFilteredList.map(recipe=>[recipe,scoreRecipePreference(recipe,{profile:cookingProfile,favorites:favs,ratings,history:viewHistory}).score])):null;
   currentFilteredList.sort((a,b)=>{
     if(curSort==="default"&&relevance)return relevance.get(b)-relevance.get(a);
+    if(curSort==="default"&&preference)return preference.get(b)-preference.get(a);
     if(curSort==="alpha")return (a.nom||"").localeCompare(b.nom||"","fr");
     if(curSort==="time")return parseRecipeDuration(a)-parseRecipeDuration(b);
     if(curSort==="difficulty")return (a.difficulty||3)-(b.difficulty||3);
@@ -15316,6 +15352,7 @@ function mergeImportedData(data){
 
   refreshActiveRecipes();
   saveFavs();
+  cookingProfile=normalizeCookingProfile(pantryProfile.cookingProfile);pantryProfile.cookingProfile=cookingProfile;
   LS.set("kamado_notes",notes);
   LS.set("kamado_ratings",ratings);
   LS.set("kamado_shopping",shoppingList);
@@ -15324,6 +15361,7 @@ function mergeImportedData(data){
   LS.set("kamado_history",viewHistory);
   curHave=pantryProfile.have||"";curDiet=multiValues(pantryProfile.diet);curEquip=multiValues(pantryProfile.equipment);curAvailable=pantryProfile.available||"all";
   if($("#have"))$("#have").value=curHave;
+  syncCookingProfileFields();
   renderStats();
   renderHistory();
   renderChips();
@@ -15378,13 +15416,93 @@ function importData(file){
   };
   reader.readAsText(file);
 }
+function downloadJsonFile(value,filename){
+  const blob=new Blob([JSON.stringify(value,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function setPrivacyStatus(message,state="ok"){
+  const status=$("#vaultStatus");
+  if(status){status.textContent=message;status.dataset.state=state;}
+}
+async function exportEncryptedVault(){
+  const passphrase=$("#vaultPassphrase").value,confirmation=$("#vaultConfirm").value;
+  if(passphrase!==confirmation){setPrivacyStatus("Les deux phrases secrètes ne correspondent pas.","error");return;}
+  const button=$("#vaultExport");button.disabled=true;setPrivacyStatus("Chiffrement en cours…");
+  try{
+    const vault=await encryptVault(buildExportPayload(),passphrase);
+    const day=new Date().toISOString().slice(0,10);
+    downloadJsonFile(vault,`kamado-coffre-${day}.kamado`);
+    $("#vaultPassphrase").value="";$("#vaultConfirm").value="";
+    setPrivacyStatus("Coffre chiffré créé. Conservez sa phrase secrète séparément : elle n’est jamais enregistrée.");
+  }catch(error){setPrivacyStatus(error.message||"Création du coffre impossible.","error");}
+  finally{button.disabled=false;}
+}
+async function importEncryptedVault(file){
+  if(!file){setPrivacyStatus("Sélectionnez un fichier .kamado.","error");return;}
+  if(file.size>12*1024*1024){setPrivacyStatus("Ce coffre dépasse la limite de sécurité de 12 Mo.","error");return;}
+  const passphrase=$("#vaultPassphrase").value,input=$("#vaultImport");
+  input.disabled=true;setPrivacyStatus("Déchiffrement local en cours…");
+  try{
+    const payload=await decryptVault(await file.text(),passphrase);
+    mergeImportedData(payload);
+    $("#vaultPassphrase").value="";$("#vaultConfirm").value="";$("#vaultImport").value="";
+    setPrivacyStatus(`Coffre importé : ${favs.size} favori(s), ${customRecipes.length} création(s), ${Object.keys(notes).length} note(s).`);
+  }catch(error){setPrivacyStatus(error.message||"Import chiffré impossible.","error");}
+  finally{input.disabled=false;}
+}
+function saveCookingProfile(){
+  cookingProfile=normalizeCookingProfile({
+    experience:$("#profileExperience").value,
+    preferredMode:$("#profileMode").value,
+    kamadoSize:$("#profileSize").value,
+    personalization:$("#profilePersonalization").checked
+  });
+  pantryProfile.cookingProfile=cookingProfile;LS.set("kamado_pantry_profile",pantryProfile);
+  $("#profileStatus").textContent="Profil enregistré sur cet appareil. Le tri recommandé a été actualisé.";
+  renderSmartBar();renderList();
+}
+function syncCookingProfileFields(){
+  if(!$("#profileExperience"))return;
+  $("#profileExperience").value=cookingProfile.experience;
+  $("#profileMode").value=cookingProfile.preferredMode;
+  $("#profileSize").value=cookingProfile.kamadoSize;
+  $("#profilePersonalization").checked=cookingProfile.personalization;
+}
 function renderDataTools(){
   const D=$("#donnees");
   D.innerHTML=`
     <h2>💾 Données iPhone + PC</h2>
+    <div class="callout" style="border-color:var(--green)">
+      <h3>Mon profil de cuisson</h3>
+      <p style="margin:0">Une fois activé, le tri « recommandé » combine localement favoris, notes, historique, niveau et mode préféré. La taille du kamado est mémorisée pour les futures adaptations matérielles, sans modifier aujourd’hui les températures de recette.</p>
+      <div class="privacy-grid">
+        <div class="privacy-field"><label for="profileExperience">Niveau actuel</label><select id="profileExperience"><option value="debutant">Débutant</option><option value="intermediaire">Intermédiaire</option><option value="expert">Expert</option></select></div>
+        <div class="privacy-field"><label for="profileMode">Mode préféré</label><select id="profileMode"><option value="all">Tous les modes</option><option value="direct">Cuisson directe</option><option value="indirect">Cuisson indirecte</option><option value="fumage">Fumage et low &amp; slow</option></select></div>
+        <div class="privacy-field"><label for="profileSize">Taille du kamado</label><select id="profileSize"><option value="compact">Compact, moins de 40 cm</option><option value="standard">Standard, 40 à 50 cm</option><option value="xl">XL, plus de 50 cm</option></select></div>
+        <label class="privacy-choice"><input id="profilePersonalization" type="checkbox"> Activer les recommandations locales</label>
+        <div class="privacy-actions"><button id="profileSave" class="syncbtn primary" type="button">Enregistrer mon profil</button></div>
+        <div id="profileStatus" class="privacy-status" aria-live="polite"></div>
+      </div>
+    </div>
     <div class="callout" style="border-color:var(--accent)">
-      <h3>Sauvegarder et transférer</h3>
-      <p style="margin:0">Les favoris, notes et recettes personnalisées restent sur l'appareil, dans le navigateur. Pour les retrouver sur iPhone et PC, exportez une sauvegarde puis importez-la sur l'autre appareil.</p>
+      <h3>Coffre local chiffré</h3>
+      <p style="margin:0">Transférez l’ensemble de vos données entre appareils dans un fichier chiffré avant qu’il ne quitte ce navigateur.</p>
+      <div class="privacy-grid">
+        <div class="privacy-field"><label for="vaultPassphrase">Phrase secrète</label><input id="vaultPassphrase" type="password" minlength="12" maxlength="256" autocomplete="new-password" autocapitalize="none" spellcheck="false" placeholder="12 caractères minimum"></div>
+        <div class="privacy-field"><label for="vaultConfirm">Confirmer pour l’export</label><input id="vaultConfirm" type="password" minlength="12" maxlength="256" autocomplete="new-password" autocapitalize="none" spellcheck="false" placeholder="Retapez la phrase"></div>
+        <div class="privacy-actions">
+          <button id="vaultExport" class="syncbtn primary" type="button">Créer mon coffre chiffré</button>
+          <label class="filepick" id="vaultImportButton">Ouvrir un coffre .kamado<input id="vaultImport" type="file" accept=".kamado,application/json"></label>
+        </div>
+        <div class="privacy-warning">La phrase secrète n’est ni stockée ni récupérable. Sans elle, le coffre reste définitivement illisible.</div>
+        <div id="vaultStatus" class="privacy-status" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="callout" style="border-color:var(--accent)">
+      <h3>Transfert compatible non chiffré</h3>
+      <p style="margin:0">Les anciens exports JSON, codes et liens restent disponibles pour compatibilité. Préférez le coffre ci-dessus dès que vos notes contiennent des informations personnelles.</p>
       <div class="syncgrid">
         <button id="dataExport" class="syncbtn primary">Exporter mes données (recettes, favoris, notes)</button>
         <label class="filepick">Importer une sauvegarde JSON
@@ -15409,6 +15527,10 @@ function renderDataTools(){
       <h3>Hors ligne</h3>
       <p style="margin:0">Après une première ouverture depuis un serveur web, l'application met en cache la page principale pour rester disponible hors connexion. Les notes et favoris restent privés sur chaque appareil.</p>
     </div>`;
+  syncCookingProfileFields();
+  $("#profileSave").onclick=saveCookingProfile;
+  $("#vaultExport").onclick=exportEncryptedVault;
+  $("#vaultImport").onchange=e=>importEncryptedVault(e.target.files[0]);
   $("#dataExport").onclick=exportData;
   $("#dataImport").onchange=e=>importData(e.target.files[0]);
   $("#dataCode").onclick=()=>{
