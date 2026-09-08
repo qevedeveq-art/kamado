@@ -32,13 +32,17 @@ const OFFICIAL_SAFETY_REFERENCES = [
 ];
 
 const MODE_BANDS = [
+  { re: /caveman|sur braises|braises directes/i, min: 350, max: 650, label: "caveman / braises vives" },
+  { re: /froid/i, min: 10, max: 30, label: "fumage à froid" },
+  { re: /marinade|farce|pousse|ferment|petriss|pétriss|salage|sechage|séchage|autolyse|pressage|mise en broche|prep|roul/i, min: 0, max: 25, label: "préparation / marinade / pousse" },
   { re: /fumage|low|slow/i, min: 95, max: 135, label: "fumage / low and slow" },
-  { re: /brais|cocotte|mijot/i, min: 120, max: 180, label: "braise / cocotte" },
+  { re: /brais(?:age|é|e cocotte|\b)|cocotte|mijot/i, min: 120, max: 180, label: "braise / cocotte" },
   { re: /pierre|pizza/i, min: 280, max: 420, label: "pierre / pizza" },
   { re: /plancha|fonte|cuisson vive/i, min: 210, max: 300, label: "plancha / cuisson vive" },
+  { re: /indirect|rotissoire|rôtissoire|four/i, min: 100, max: 240, label: "indirect / rotissage" },
+  { re: /repos|maintien|glaciere|glacière/i, min: 4, max: 80, label: "repos / maintien" },
   { re: /direct doux/i, min: 180, max: 240, label: "direct doux" },
-  { re: /direct|saisie|braises/i, min: 210, max: 340, label: "direct / saisie" },
-  { re: /indirect|rotissoire|rôtissoire|four/i, min: 100, max: 240, label: "indirect / rotissage" }
+  { re: /\bdirect\b|saisie|braises/i, min: 210, max: 340, label: "direct / saisie" }
 ];
 
 const FRENCH_CLASSICS = /\b(bourguignon|daube|coq au vin|magret|pot-au-feu|pot au feu|blanquette|choucroute|cassoulet|garbure|confit|tartare|entrecote|entrecôte|maitre d'hotel|maître d'hôtel|cote de boeuf|côte de bœuf|piperade|ratatouille|tarte tatin)\b/i;
@@ -110,8 +114,9 @@ function modeBand(mode) {
   return MODE_BANDS.find(band => band.re.test(mode || ""));
 }
 
-function phaseBand(mode) {
-  return MODE_BANDS.find(band => band.re.test(mode || "")) || modeBand(mode);
+function phaseBand(phase, fallbackMode) {
+  const text = typeof phase === "object" ? `${phase.mode || ""} ${phase.name || ""}` : String(phase || "");
+  return MODE_BANDS.find(band => band.re.test(text)) || modeBand(fallbackMode);
 }
 
 function hasNumericSafety(recipe, tempC) {
@@ -184,7 +189,7 @@ function auditTemperature(recipe) {
       add(recipe, "temperature", "improvement", "phases", `Somme phases ${phaseSum} min éloignée du temps affiché ${recipe.temps}.`, "Aligner phases et temps affiché, ou expliquer repos/variabilité.");
     }
     for (const [i, phase] of recipe.phases.entries()) {
-      const bandForPhase = phaseBand(phase.mode);
+      const bandForPhase = phaseBand(phase, recipe.mode);
       if (bandForPhase && typeof phase.temp_C === "number" && (phase.temp_C < bandForPhase.min - 25 || phase.temp_C > bandForPhase.max + 25)) {
         add(recipe, "temperature", "warning", `phases[${i}].temp_C`, `Phase "${phase.name}" à ${phase.temp_C} C hors bande ${bandForPhase.label}.`, "Corriger mode de phase ou température.");
       }

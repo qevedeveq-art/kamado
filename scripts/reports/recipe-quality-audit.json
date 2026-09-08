@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-08T10:21:29.839Z",
+  "reviewedAt": "2026-09-08T10:29:34.887Z",
   "recipesReviewed": 269,
   "cookingReviewed": 246,
   "references": [
@@ -14,394 +14,43 @@
   ],
   "totals": {
     "issue": 0,
-    "warning": 106,
+    "warning": 15,
     "improvement": 236,
-    "cleanCookingRecipes": 161
+    "cleanCookingRecipes": 233
   },
   "byRole": {
     "french-chef-reviewer": 6,
     "kamado-expert": 108,
     "marinade-reviewer": 1,
     "recipe-declutter": 108,
-    "temperature": 119
+    "temperature": 28
   },
   "findings": [
     {
-      "recipe": "Baked beans BBQ",
-      "category": "legumes",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Mijotage couvert (1 h 30)\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Banana bread fumé aux noix",
-      "category": "dessert",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "170 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Beef short ribs « dino ribs »",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Wrap papier boucher\" à 120 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Beer can cabbage (chou à la bière)",
-      "category": "vegetarien",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "160 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Bistecca alla Fiorentina (T-bone)",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Finition indirecte\" à 120 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Blanquette de veau au kamado",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Mijotage doux\" à 125 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Blanquette de veau au kamado",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Velouté + liaison\" à 85 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Brisket fumé (poitrine de bœuf)",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Wrap papier boucher\" à 110 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Brownie fondant en cocotte",
-      "category": "dessert",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Brownie skillet noix de pécan",
-      "category": "dessert",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "175 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Burnt ends de poitrine de bœuf",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Wrap papier boucher\" à 110 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Burnt ends de poitrine de bœuf",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Cubes glacés\" à 135 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Canard entier laqué orange-soja",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Rôti indirect\" à 170 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Canard laqué croustillant au kamado façon Pékin",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Rôtissage indirect doux\" à 160 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Carolina pulled pork (sauce vinaigrée)",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Wrap alu + jus\" à 110 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Carré d'agneau en croûte d'herbes",
-      "category": "agneau",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Carré de porc rôti aux herbes",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "160 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Cassoulet toulousain au kamado",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Précuisson haricots + garniture\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Cassoulet toulousain au kamado",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Ajout viandes dorées\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Céleri-rave entier rôti comme une pièce",
+      "recipe": "Aubergine entière fumée façon steak",
       "category": "vegetarien",
       "role": "temperature",
       "severity": "warning",
       "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson lente nu\" à 180 C hors bande direct / saisie.",
+      "message": "Phase \"Fumage direct\" à 220 C hors bande fumage / low and slow.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
-      "recipe": "Chapon/dinde rôti des fêtes",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Rôti indirect\" à 160 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Char siu (porc laqué chinois)",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 160 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Char Siu cantonais laqué",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 160 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Char Siu cantonais laqué",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Glaçage miel\" à 160 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Cheesecake fumé",
-      "category": "dessert",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson + fumage\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Choucroute garnie alsacienne au kamado",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Base + viandes salées\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Choucroute garnie alsacienne au kamado",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Ajout saucisses fumées\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Choucroute garnie alsacienne au kamado",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Saucisses de Strasbourg\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Clafoutis aux cerises",
-      "category": "dessert",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Cobbler fruits rouges en fonte",
-      "category": "dessert",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Coleslaw maison",
+      "recipe": "Aubergines fumées façon baba ganoush",
       "category": "legumes",
       "role": "temperature",
       "severity": "warning",
       "field": "phases[0].temp_C",
-      "message": "Phase \"Fumage chou\" à 110 C hors bande direct / saisie.",
+      "message": "Phase \"Fumage direct sur braises\" à 220 C hors bande caveman / braises vives.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
-      "recipe": "Confit de canard au kamado",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Confit basse T°\" à 90 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Cookie géant en skillet",
-      "category": "dessert",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Côte de bœuf caveman sur braises",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson directe sur braises\" à 500 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Côte de bœuf caveman sur braises",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Repos indirect\" à 120 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Côte de bœuf reverse-sear",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Chauffe indirecte\" à 120 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Côte de porc tomahawk saumurée",
+      "recipe": "Échine marinée à la bière",
       "category": "porc",
       "role": "temperature",
       "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Chauffe indirecte\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Côte de veau épaisse aux morilles et vin jaune",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Montée indirecte\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Cuissot de chevreuil rôti, sauce poivrade",
-      "category": "agneau",
-      "role": "temperature",
-      "severity": "warning",
       "field": "phases[1].temp_C",
-      "message": "Phase \"Rôti rosé\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Filet de biche en croûte d'épices",
-      "category": "agneau",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Filet de chevreuil rôti, sauce grand veneur",
-      "category": "agneau",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 160 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Filet mignon farci chorizo-manchego",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 160 C hors bande direct / saisie.",
+      "message": "Phase \"Réduction marinade\" à 100 C hors bande préparation / marinade / pousse.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
@@ -409,8 +58,8 @@
       "category": "porc",
       "role": "temperature",
       "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Indirect lent\" à 140 C hors bande direct / saisie.",
+      "field": "phases[0].temp_C",
+      "message": "Phase \"Fumage à froid relatif\" à 90 C hors bande fumage à froid.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
@@ -441,87 +90,6 @@
       "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
     },
     {
-      "recipe": "Gigot d'agneau rôti rosé",
-      "category": "agneau",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "170 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Gigot d'agneau rôti rosé",
-      "category": "agneau",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Rôti indirect\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Gratin dauphinois en cocotte",
-      "category": "legumes",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson lente couverte\" à 170 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Gyros de porc grec",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Jambonneau fumé glacé",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Glaçage final\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Jerk chicken jamaïcain",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Cuisson indirecte fumée\" à 160 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Kleftiko (agneau grec à l'étouffée)",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Étouffée papillote (3 h)\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Lechón asado (porc rôti cubain)",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Rôti indirect\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Magret de canard fumé-séché (charcuterie)",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Fumage à froid\" à 25 C hors bande fumage / low and slow.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
       "recipe": "Mont d'Or / Camembert fumé",
       "category": "legumes",
       "role": "temperature",
@@ -531,84 +99,21 @@
       "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
     },
     {
-      "recipe": "Mont d'Or / Camembert fumé",
-      "category": "legumes",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte fumée\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Paleron de bœuf fumé façon Brisket (Smoked Chuck Roast)",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Braisage sous papier\" à 120 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pastrami fumé maison",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Wrap papier\" à 110 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pastrami fumé maison",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Étuvée vapeur\" à 95 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pavé de cerf, sauce aux airelles",
-      "category": "agneau",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Picanha entière façon churrasco",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Chauffe indirecte\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pintade rôtie aux marrons",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Pintade rôtie aux marrons",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Rôti indirect\" à 170 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pizza napolitaine",
+      "recipe": "Pizza al taglio romaine 72h",
       "category": "pizza",
       "role": "temperature",
       "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Préchauffage pierre\" à 400 C hors bande direct / saisie.",
+      "field": "phases[3].temp_C",
+      "message": "Phase \"Cuisson blanche\" à 280 C hors bande indirect / rotissage.",
+      "suggestion": "Corriger mode de phase ou température."
+    },
+    {
+      "recipe": "Pizza al taglio romaine 72h",
+      "category": "pizza",
+      "role": "temperature",
+      "severity": "warning",
+      "field": "phases[4].temp_C",
+      "message": "Phase \"Cuisson garnie\" à 280 C hors bande indirect / rotissage.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
@@ -621,156 +126,12 @@
       "suggestion": "Corriger mode de phase ou température."
     },
     {
-      "recipe": "Poires rôties au vin épicé",
-      "category": "dessert",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Poitrine de porc croustillante",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Rendu du gras indirect\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Poitrine de porc miso-érable en cubes",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Cubes glacés\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Porchetta italienne (poitrine roulée 24h)",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 130 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Porchetta roulée aux herbes",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Rôti lent\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pork belly burnt ends",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Cubes glacés (1 h)\" à 135 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pot-au-feu bourgeois au kamado",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Blanchiment/clarification\" à 135 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pot-au-feu bourgeois au kamado",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Mijotage lent\" à 135 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pot-au-feu bourgeois au kamado",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Cuisson légumes\" à 135 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Poulet basquaise au kamado",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Mijotage poulet\" à 160 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Poulet entier à la cannette (beer can)",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Poulet entier à la cannette (beer can)",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte vapeur\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Poulet jerk jamaïcain",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Presa ibérique marinée au pimentón de la Vera & ail doux",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte fumée\" à 140 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Pulled pork (échine effilochée)",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Wrap alu + jus de pomme\" à 110 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
       "recipe": "Ribs asiatiques au cinq-épices",
       "category": "porc",
       "role": "temperature",
       "severity": "warning",
       "field": "phases[1].temp_C",
-      "message": "Phase \"Wrap miel+marinade (2 h)\" à 110 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Ribs asiatiques au cinq-épices",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Laquage final (45 min)\" à 120 C hors bande direct / saisie.",
+      "message": "Phase \"Wrap miel+marinade (2 h)\" à 110 C hors bande préparation / marinade / pousse.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
@@ -781,78 +142,6 @@
       "field": "phases[1].temp_C",
       "message": "Phase \"Base masala\" à 180 C hors bande direct / saisie.",
       "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Rosbif rôti à l'anglaise",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Rôtissage indirect\" à 160 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Saumon gravlax fumé à froid",
-      "category": "poisson",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Fumage à froid\" à 25 C hors bande fumage / low and slow.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Saumon sur planche de cèdre",
-      "category": "poisson",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
-    },
-    {
-      "recipe": "Shawarma de poulet",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Short ribs de bœuf façon Texas",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Wrap papier\" à 120 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Smoked Queso Dip au kamado",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Liaison & émulsion\" à 130 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Steaks de chou rouge fumés",
-      "category": "vegetarien",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Suprêmes de pintade fermière rôtis sous peau aux morilles",
-      "category": "volaille",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "tempK",
-      "message": "180 °C sort de la bande direct / saisie (210-340 C).",
-      "suggestion": "Vérifier mode/tempK ou préciser la cuisson multi-phase."
     },
     {
       "recipe": "Tacos al pastor",
@@ -868,116 +157,8 @@
       "category": "monde",
       "role": "temperature",
       "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Tacos al pastor",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
       "field": "phases[1].temp_C",
       "message": "Phase \"Saisie directe\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Tartiflette savoyarde au kamado",
-      "category": "legumes",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Base lardons/oignons\" à 180 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Tomahawk au beurre noisette",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Chauffe indirecte\" à 120 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Tomahawk reverse-sear",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte\" à 110 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Travers BBQ Kansas City",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Wrap beurre+cassonade (2 h)\" à 110 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Travers BBQ Kansas City",
-      "category": "monde",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Laquage KC (45 min)\" à 120 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Travers de porc « Turbo Ribs »",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"Wrap étanche\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Travers de porc « Turbo Ribs »",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"Glaçage final\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Travers de porc glacés (ribs)",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[1].temp_C",
-      "message": "Phase \"2 h emballées\" à 120 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Travers de porc glacés (ribs)",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[2].temp_C",
-      "message": "Phase \"1 h glaçage\" à 120 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Travers de porc laqués aigre-doux",
-      "category": "porc",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Cuisson indirecte (2 h)\" à 150 C hors bande direct / saisie.",
-      "suggestion": "Corriger mode de phase ou température."
-    },
-    {
-      "recipe": "Tri-tip sauce Santa Maria",
-      "category": "boeuf",
-      "role": "temperature",
-      "severity": "warning",
-      "field": "phases[0].temp_C",
-      "message": "Phase \"Chauffe indirecte\" à 120 C hors bande direct / saisie.",
       "suggestion": "Corriger mode de phase ou température."
     },
     {
