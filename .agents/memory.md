@@ -31,6 +31,9 @@
 - UI localization and bilingual experience (2026-09-08): interactive header toggle (`#btnLangToggle`) live in `index.html` with dynamic switching between 🇫🇷 FR and 🇬🇧 EN, persisted in localStorage and integrated with PWA precache (SW v43).
 - Kamado Thermals™ predictive engine (2026-09-08): ceramic thermal inertia modeling with exponential damping, evaporative stall detection (64-76°C) with butcher paper wrap triggers, and carryover cooking calculator based on thermal gradient.
 - Club Pro & High-Ticket Affiliation (2026-09-08): interactive #clubProModal showcasing Kamado Thermals and multi-probe telemetry; Section 9 in Guide featuring French ceramic maker Kokko Kamado and Combustion Inc.; local-first demo/license activation in localStorage; SW v44.
+- OEM White-Labeling & Brand Configuration (2026-09-08): zero-dependency module `scripts/brand-config.js` with instant runtime theming (Kokko, Big Green Egg, Kamado Joe, Default) via CSS custom properties and header customization; live preset switcher integrated in Club Pro modal; SW v45.
+- Technical Due Diligence & M&A Dossier (2026-09-08): comprehensive investor/acquirer audit pack created in `docs/M_AND_A_DUE_DILIGENCE.md` detailing zero-cloud architecture, culinary IP moat (269 recipes, 0 issues), GDPR compliance, and performance budgets.
+- Strategic Acquisition Pitch Memo for Kokko Kamado (2026-09-08): executive acquisition proposal created in `docs/ACQUISITION_PITCH_KOKKO.md` highlighting LTV expansion, accessory cross-selling, and 30-day turnkey integration for Kokko France.
 - Defer a generic social network, marketplace, mandatory accounts, broad AI chatbot, and proprietary grill control until the core cooking experience and editorial authority are proven.
 
 ## Working Preferences

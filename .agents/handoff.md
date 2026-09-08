@@ -67,9 +67,14 @@
   - Added header action `#btnClubPro` with interactive Pro membership state and badge.
   - Interactive `#clubProModal` showcasing Kamado Thermals, 4-channel telemetry, encrypted vaults and printable PDF cheat-sheets.
   - Added Section 9 in Guide showcasing French ceramic maker Kokko Kamado and Combustion Inc.
-  - Local-first Pro activation (demo/license toggle) persisted in localStorage (`kamado_pro_status`).
-  - Precached in Service Worker `v44`, size compliant (<950KB).
-- 110 tests passing natively via `node --test 'tests/*.test.js'`.
+  - Phase 4 OEM White-Label Engine & M&A Due Diligence Pack Deployed:
+  - Multi-brand / OEM engine `scripts/brand-config.js` with presets for `default`, `kokko` (Kokko Cooking Copilot), `bge` (Big Green Egg), and `kamadojoe` (Kamado Joe).
+  - Dynamic CSS custom properties switching (`--accent`, `--accent2`, `--ember`, `--bg`) and header DOM adaptation.
+  - Interactive OEM preset switcher buttons wired into `#clubProModal` with immediate feedback and `localStorage` persistence.
+  - Comprehensive Technical Due Diligence Pack in `docs/M_AND_A_DUE_DILIGENCE.md` (zero-cloud architecture, culinary IP moat of 269 recipes / 0 issues, GDPR compliance, performance budget).
+  - Executive Acquisition Pitch Memo in `docs/ACQUISITION_PITCH_KOKKO.md` tailored for Kokko Kamado France (LTV expansion, 30-day turnkey integration).
+  - Precached in Service Worker `v45`, mobile asset bundle updated, performance budget validated, covered by `tests/brand-config.test.js`.
+- 112 tests passing natively via `node --test 'tests/*.test.js'`.
 - All métier audits plus the PWA performance budget pass (Data, Kamado Expert, Chef Reviewer, Sommelier, app shell).
 - Phase 0 production Lighthouse baseline: performance 94, accessibility 100 and best practices 100.
 - Repository `qevedeveq-art/kamado` is PUBLIC; Pages publishes from `main` at `/ (root)`.
@@ -78,12 +83,12 @@
 ## Last Commands
 - `node scripts/audit-recipe-quality.js` -> 0 issues, 0 warnings across all 246 cooking recipes reviewed.
 - `node scripts/extract-data.js` -> extracted clean metadata, generated canonical recipe pages, guides, sitemap.
-- `npm test` -> 110/110 native node tests passing.
+- `npm test` -> 112/112 native node tests passing.
 - `npm run audit` -> Data, Kamado Expert, Chef Reviewer, Sommelier, Editorial, and Performance Budget audits all passing.
-- `node scripts/bump-sw-version.js` -> bumped service worker to v44.
-- `git commit` -> commits `13f34ea`, `612a1e9`, `d724b32`, and `9e5dca4`.
+- `node scripts/prepare-mobile.js` -> packaged Capacitor www/ directory.
 
 ## Files Changed
+- Phase 4 OEM White-Label & M&A: `scripts/brand-config.js`, `tests/brand-config.test.js`, `docs/M_AND_A_DUE_DILIGENCE.md`, `docs/ACQUISITION_PITCH_KOKKO.md`, `index.html`, `sw.js` (v45), `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`, `tests/pwa.test.js`.
 - Club Pro & Kokko Kamado Affiliation (`9e5dca4`): `index.html`, `data/guide.html`, `guides/maitriser-le-kamado/index.html`, `sw.js` (v44).
 - Kamado Thermals™ Engine (`d724b32`): `scripts/kamado-thermals.js`, `tests/kamado-thermals.test.js`, `index.html`, `sw.js` (v43), `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`, `tests/pwa.test.js`.
 - Internationalization & UI Language Switcher (`612a1e9`): `index.html`, `sw.js` (v42), `scripts/i18n.js`, `tests/i18n.test.js`, `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`.

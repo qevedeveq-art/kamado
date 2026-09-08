@@ -4906,6 +4906,15 @@ table td.t-temp, table td.t-coeur {
           <button id="btnActivateProDemo" class="actbtn primary-act">⭐ Activer mon Pass Pro (Démo / Licence)</button>
           <a href="https://www.kokko.fr" target="_blank" rel="noopener" class="actbtn warn-act">Découvrir le matériel Kokko Kamado ➔</a>
         </div>
+        <div class="pro-brand-box" style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+          <div style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:6px">🏷️ Personnalisation Marque &amp; Mode Constructeur (M&amp;A / OEM) :</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" id="brandPresetButtons">
+            <button class="actbtn" data-brand="default" style="font-size:11px;padding:4px 8px">Original</button>
+            <button class="actbtn" data-brand="kokko" style="font-size:11px;padding:4px 8px;border-color:#e65100;color:#ff9800">🇫🇷 Kokko</button>
+            <button class="actbtn" data-brand="bge" style="font-size:11px;padding:4px 8px;border-color:#2e7d32;color:#81c784">🟢 Big Green Egg</button>
+            <button class="actbtn" data-brand="kamadojoe" style="font-size:11px;padding:4px 8px;border-color:#c62828;color:#ef9a9a">🔴 Kamado Joe</button>
+          </div>
+        </div>
       </div>
 
       <div class="partners-section">
@@ -5167,6 +5176,7 @@ table td.t-temp, table td.t-coeur {
 <script src="./scripts/combustion-probe.js"></script>
 <script src="./scripts/kamado-thermals.js"></script>
 <script src="./scripts/i18n.js"></script>
+<script src="./scripts/brand-config.js"></script>
 <script>
 /* ================= DONNÉES RECETTES ================= */
 const { recipeRef, recipeHash, recipeUrl, parseRecipeHash, findRecipeIndex } = window.KamadoRecipeLinks;
@@ -5178,6 +5188,7 @@ const { getProbeSupport, createProbeState, hydrateProbeState, applyProbeReading,
 const { combustionReadingsFromStatus, openCombustionProbeConnection } = window.KamadoCombustionProbe;
 const { calculateAirflowAdvice, detectStall, calculateCarryover, evaluateThermalState } = window.KamadoThermals || {};
 const { getLanguage, setLanguage, t, translateCategory, translateMode } = window.KamadoI18n || {};
+const { BRAND_PRESETS, getBrandPreset, applyBrandPreset } = window.KamadoBrandConfig || {};
 const CATS = [{id:"all",nom:"Tout",e:"🍴"},{id:"boeuf",nom:"Bœuf",e:"🥩"},{id:"porc",nom:"Porc",e:"🐖"},{id:"volaille",nom:"Volaille",e:"🍗"},{id:"agneau",nom:"Agneau & Gibier",e:"🐑"},{id:"poisson",nom:"Poissons & Mer",e:"🐟"},{id:"legumes",nom:"Légumes & Sides",e:"🥗"},{id:"pizza",nom:"Pizzas & Pains",e:"🍕"},{id:"monde",nom:"Cuisines du monde",e:"🌍"},{id:"dessert",nom:"Desserts",e:"🍮"},{id:"vegetarien",nom:"Végétarien",e:"🌱"},{id:"sauces",nom:"Sauces & Marinades",e:"🧂"}];
 
 const RECIPES = [
@@ -12234,6 +12245,18 @@ function initClubProModal() {
       updateProUI();
     };
   }
+  const brandButtons = $$("#brandPresetButtons button");
+  if (brandButtons && brandButtons.length) {
+    brandButtons.forEach(b => {
+      b.onclick = () => {
+        const brand = b.getAttribute("data-brand");
+        if (window.KamadoBrandConfig) {
+          const preset = window.KamadoBrandConfig.applyBrandPreset(brand);
+          toast(`Mode constructeur activé : ${preset.brandName}`);
+        }
+      };
+    });
+  }
   updateProUI();
 }
 
@@ -16410,6 +16433,12 @@ renderAssistant();
 renderMenuBuilder();
 renderBases();
 renderDataTools();
+if (window.KamadoBrandConfig) {
+  try {
+    const savedPreset = localStorage.getItem("kamado_brand_preset") || "default";
+    window.KamadoBrandConfig.applyBrandPreset(savedPreset);
+  } catch (_) {}
+}
 if (window.KamadoI18n) applyLanguage(window.KamadoI18n.getLanguage());
 renderStats();renderChips();renderFilterBar();renderSmartBar();renderHistory();renderEditorialCollections();renderActiveCookBanner();renderList();
 importHashTransfer();
