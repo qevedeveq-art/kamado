@@ -4314,6 +4314,15 @@ table td.t-temp, table td.t-coeur {
 .cp-guidance-item[data-status="low"],.cp-guidance-item[data-status="high"],.cp-guidance-item[data-status="over"] { border-color: rgba(255,123,0,.72); background: rgba(255,123,0,.09); }
 .cp-guidance-item[data-status="approaching"] { border-color: rgba(239,180,81,.65); }
 @media (max-width:600px){.cp-readings{grid-template-columns:1fr 1fr}.cp-record-btn{grid-column:1 / -1}.cp-guidance{grid-template-columns:1fr}}
+.cp-probes { display: grid; gap: 10px; padding: 13px; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; background: rgba(0,0,0,.24); }
+.cp-probe-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.cp-probe-head strong { display: block; color: #fff; font-size: 13px; }
+.cp-probe-head span,.cp-probe-help { color: #aaa39a; font-size: 11px; line-height: 1.45; }
+.cp-probe-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.cp-probe-btn { min-height: 38px; padding: 8px 12px; border: 1px solid rgba(255,157,66,.45); border-radius: 9px; background: rgba(255,123,0,.11); color: #ffd1a3; font: 800 12px/1.2 var(--font-body); cursor: pointer; }
+.cp-probe-btn:hover { background: rgba(255,123,0,.2); }
+.cp-probe-status { min-height: 18px; color: #d5d0c8; font-size: 11px; line-height: 1.45; }
+.cp-probe-status[data-kind="simulator"] { color: #ffbd7a; }
 .cockpit-timer-box {
   background: rgba(0,0,0,0.5);
   border-radius: 16px;
@@ -4666,6 +4675,12 @@ table td.t-temp, table td.t-coeur {
         <div class="cp-reading-field"><label for="cpObservedCore">Cœur observé (°C)</label><input id="cpObservedCore" type="number" inputmode="decimal" min="-20" max="150" placeholder="ex. 48"></div>
         <button class="cp-record-btn" id="cpRecordTemps" type="button">Analyser</button>
       </div>
+      <section class="cp-probes" aria-labelledby="cpProbeTitle">
+        <div class="cp-probe-head"><div><strong id="cpProbeTitle">Sondes de cuisson</strong><span id="cpProbeCapability"></span></div></div>
+        <div class="cp-probe-actions"><button class="cp-probe-btn" id="cpProbeSimulate" type="button">Démo seulement · générer un relevé</button></div>
+        <div class="cp-probe-status" id="cpProbeStatus" aria-live="polite">Saisie manuelle active.</div>
+        <div class="cp-probe-help">Le simulateur sert à découvrir le suivi guidé : il ne mesure pas votre cuisson. Contrôlez toujours avec une sonde alimentaire fiable.</div>
+      </section>
       <div class="cp-guidance" id="cpGuidance" aria-live="polite"></div>
       <div class="cockpit-timer-box hide" id="cpTimerBox">
         <div class="cp-timer-clock" id="cpTimerClock">00:00</div>
@@ -4906,6 +4921,7 @@ table td.t-temp, table td.t-coeur {
 <script src="./scripts/cook-engine.js"></script>
 <script src="./scripts/local-vault.js"></script>
 <script src="./scripts/personalization.js"></script>
+<script src="./scripts/probe-adapter.js"></script>
 <script>
 /* ================= DONNÉES RECETTES ================= */
 const { recipeRef, recipeHash, recipeUrl, parseRecipeHash, findRecipeIndex } = window.KamadoRecipeLinks;
@@ -4913,6 +4929,7 @@ const { matchesRecipeQuery, scoreRecipeQuery } = window.KamadoEditorialSearch;
 const { buildCookPlan, createCookSession, hydrateCookSession, syncSessionTimer, startSessionTimer, pauseSessionTimer, adjustSessionTimer, resetSessionTimer, setCookStep, advanceCookSession, recordCookObservation, evaluateCookTemperatures, completeCookSession } = window.KamadoCookEngine;
 const { encryptVault, decryptVault } = window.KamadoLocalVault;
 const { normalizeCookingProfile, scoreRecipePreference } = window.KamadoPersonalization;
+const { getProbeSupport, createProbeState, hydrateProbeState, applyProbeReading, createProbeSimulator, nextSimulatorReadings, latestReadingsForCook } = window.KamadoProbeAdapter;
 const CATS = [{id:"all",nom:"Tout",e:"🍴"},{id:"boeuf",nom:"Bœuf",e:"🥩"},{id:"porc",nom:"Porc",e:"🐖"},{id:"volaille",nom:"Volaille",e:"🍗"},{id:"agneau",nom:"Agneau & Gibier",e:"🐑"},{id:"poisson",nom:"Poissons & Mer",e:"🐟"},{id:"legumes",nom:"Légumes & Sides",e:"🥗"},{id:"pizza",nom:"Pizzas & Pains",e:"🍕"},{id:"monde",nom:"Cuisines du monde",e:"🌍"},{id:"dessert",nom:"Desserts",e:"🍮"},{id:"vegetarien",nom:"Végétarien",e:"🌱"},{id:"sauces",nom:"Sauces & Marinades",e:"🧂"}];
 
 const RECIPES = [
@@ -12688,6 +12705,10 @@ let stepMode=false;
 let cookLogs=LS.get("kamado_cook_logs",{});
 const COOK_SESSION_KEY="kamado_active_cook_v2";
 let activeCookSession=LS.get(COOK_SESSION_KEY,null);
+const PROBE_STATE_KEY="kamado_probe_state_v1";
+let probeState=hydrateProbeState(LS.get(PROBE_STATE_KEY,null));
+let probeSimulator=createProbeSimulator();
+let probeSimulatorConfirmed=false;
 
 function applySunMode(){
   document.body.classList.toggle("sun-mode", sunMode);
@@ -13441,6 +13462,7 @@ function navigateRecipe(delta) {
 function cookRecipeKey(r){return r&&(r.id||r.nom);}
 function cookSessionRecipe(){return activeCookSession?RECIPES.find(r=>cookRecipeKey(r)===activeCookSession.recipeId):null;}
 function persistCookSession(){LS.set(COOK_SESSION_KEY,activeCookSession||null);}
+function persistProbeState(){LS.set(PROBE_STATE_KEY,probeState);}
 function formatCookClock(totalSec){
   const sec=Math.max(0,Math.round(Number(totalSec)||0)),h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;
   return h?`${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`:`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
@@ -13500,11 +13522,13 @@ function openCockpit(r) {
     else finishCookSession();
   };
   $("#cpRecordTemps").onclick=recordCockpitTemperatures;
+  $("#cpProbeSimulate").onclick=readSimulatedProbes;
   $("#cpTimerToggle").onclick=toggleCockpitTimer;
   $("#cpTimerMinus").onclick=()=>changeCockpitTimer(-300);
   $("#cpTimerPlus").onclick=()=>changeCockpitTimer(300);
   $("#cpTimerReset").onclick=()=>{activeCookSession=resetSessionTimer(activeCookSession,cockpitRecipe,Date.now());persistCookSession();renderCockpitTimer();};
   renderCockpitStep();
+  renderProbeSupport();
   setTimeout(()=>$("#cpClose").focus(),0);
   return true;
 }
@@ -13515,6 +13539,28 @@ function latestCookObservation(){
 function renderCookGuidance(observation){
   const step=cockpitPlan[activeCookSession.stepIndex],guidance=evaluateCookTemperatures(step,observation);
   $("#cpGuidance").innerHTML=`<div class="cp-guidance-item" data-status="${guidance.dome.status}"><b>Stabilité du dôme</b>${escHtml(guidance.dome.message)}</div><div class="cp-guidance-item" data-status="${guidance.core.status}"><b>Progression à cœur</b>${escHtml(guidance.core.message)}</div>`;
+}
+function renderProbeSupport(){
+  const support=getProbeSupport(navigator),capability=$("#cpProbeCapability");
+  capability.textContent=support.webBluetooth
+    ?"Bluetooth disponible dans ce navigateur · adaptateur fabricant requis"
+    :"Saisie manuelle et simulateur disponibles · Bluetooth web indisponible ici";
+}
+function readSimulatedProbes(){
+  if(!probeSimulatorConfirmed){
+    if(!confirm("Mode démonstration : ces températures sont fictives et seront ajoutées à la session. Continuer ?"))return;
+    probeSimulatorConfirmed=true;
+  }
+  const result=nextSimulatorReadings(probeSimulator,Date.now());
+  probeSimulator=result.simulator;
+  result.readings.forEach(reading=>{probeState=applyProbeReading(probeState,reading);});
+  persistProbeState();
+  const readings=latestReadingsForCook(probeState,Date.now());
+  if(readings.domeC!=null)$("#cpObservedDome").value=readings.domeC;
+  if(readings.coreC!=null)$("#cpObservedCore").value=readings.coreC;
+  $("#cpProbeStatus").dataset.kind="simulator";
+  $("#cpProbeStatus").textContent=`Simulation · dôme ${readings.domeC} °C · cœur ${readings.coreC} °C · relevé ${probeSimulator.tick}`;
+  recordCockpitTemperatures();
 }
 function renderCockpitStep() {
   if(!activeCookSession||!cockpitRecipe)return;

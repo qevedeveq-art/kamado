@@ -74,6 +74,12 @@ async function main() {
     await page.locator("#cockpitOverlay:not(.hide)").waitFor();
     assert.equal(await page.locator("#cockpitOverlay").getAttribute("aria-hidden"), "false");
     assert.equal(await page.locator("#cpStepTitle").textContent(), "Chauffe indirecte");
+    assert.match(await page.locator("#cpProbeCapability").textContent(), /(?:Saisie manuelle et simulateur disponibles|Bluetooth disponible.+adaptateur fabricant requis)/);
+    page.once("dialog", dialog => dialog.accept());
+    await page.locator("#cpProbeSimulate").click();
+    assert.equal(await page.locator("#cpObservedDome").inputValue(), "98");
+    assert.equal(await page.locator("#cpObservedCore").inputValue(), "35.8");
+    assert.match(await page.locator("#cpProbeStatus").textContent(), /Simulation.+relevé 1/);
     await page.locator("#cpObservedDome").fill("90");
     await page.locator("#cpObservedCore").fill("41");
     await page.locator("#cpRecordTemps").click();
@@ -169,7 +175,7 @@ async function main() {
     await page.locator("#vaultStatus").filter({ hasText: "Coffre importé" }).waitFor();
     assert.deepEqual(consoleErrors, []);
 
-    process.stdout.write("Browser smoke passed: editorial search, persistent Cook Engine, encrypted local vault, personalization, QR, focus and offline reload.\n");
+    process.stdout.write("Browser smoke passed: editorial search, persistent Cook Engine, probe simulator, encrypted local vault, personalization, QR, focus and offline reload.\n");
   } finally {
     if (browser) await browser.close();
     server.kill("SIGTERM");

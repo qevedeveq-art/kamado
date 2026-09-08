@@ -36,12 +36,15 @@ L'application est conçue pour être **ultra-rapide, 100 % utilisable hors-ligne
   * Rappel permanent de la **température dôme cible**, de la **température à cœur** et du **montage déflecteur**.
   * **Minuteur absolu persistant** : une cuisson reprend au bon instant après fermeture, rechargement ou passage de l'application en arrière-plan.
   * Relevés manuels dôme/cœur et conseils prudents de stabilisation, sans prétendre piloter automatiquement les évents.
+  * **Couche de sondes indépendante des marques** : contrat source/canal/rôle, validation des unités °C/°F, détection des relevés périmés et absence de collision entre appareils.
+  * **Simulateur de démonstration protégé par confirmation** pour découvrir le flux sans matériel ; les valeurs fictives restent toujours signalées comme telles.
+  * Détection locale de la capacité Web Bluetooth, sans demander de permission ni promettre la compatibilité tant qu'un adaptateur fabricant vérifié n'est pas disponible.
   * Session active visible dès l'accueil, sauvegardée localement et incluse dans les exports/transferts de données.
   * Fin de cuisson journalisée automatiquement dans le **Journal de Braises**.
   * **Maintien de l'écran allumé automatique** (Screen Wake Lock API) pour éviter toute mise en veille.
   * **Alertes sonores et retour haptique** (vibrations smartphone à l'échéance).
 
-L'intégration de sondes connectées reste volontairement hors de cette phase : elle fait partie de la future couche d'intégrations matérielles, indépendante des marques.
+La connexion à une sonde physique reste volontairement désactivée sans protocole fabricant documenté. La saisie manuelle et le simulateur fonctionnent sur tous les navigateurs ; un futur adaptateur pourra se brancher sur le même contrat sans enfermer l'application dans une marque.
 
 ### Confidentialité locale et personnalisation optionnelle
 
@@ -104,11 +107,11 @@ L'application fonctionne à 100 % hors connexion grâce aux Service Workers :
 Le projet intègre des contrôles automatisés sur les données, l'expertise culinaire, la PWA et ses parcours critiques :
 
 ```bash
-npm test                    # 82 tests natifs (node --test)
+npm test                    # 90 tests natifs (node --test)
 npm run audit               # Données, métier, éditorial/SEO et budget PWA
 npm run audit:editorial     # Fiches canoniques, guides, sitemap et robots
 npm run audit:quality       # Revue transverse de la qualité des recettes
-node scripts/browser-smoke.js # Chromium : Cook Engine, coffre chiffré, personnalisation et offline
+node scripts/browser-smoke.js # Chromium : Cook Engine, sondes, coffre chiffré, personnalisation et offline
 ```
 
 Le smoke test navigateur attend le paquet `playwright` dans `NODE_PATH`. La CI l'installe dans un répertoire temporaire afin de préserver l'architecture zéro-build du projet.

@@ -13,6 +13,7 @@ const EDITORIAL_SEARCH = require("../scripts/editorial-search.js");
 const COOK_ENGINE = require("../scripts/cook-engine.js");
 const LOCAL_VAULT = require("../scripts/local-vault.js");
 const PERSONALIZATION = require("../scripts/personalization.js");
+const PROBE_ADAPTER = require("../scripts/probe-adapter.js");
 
 test("dataset has expected scale", () => {
   assert.ok(RECIPES.length >= 200, `expected >=200 recipes, got ${RECIPES.length}`);
@@ -182,7 +183,8 @@ test("index.html client runtime executes without any reference or syntax error",
     KamadoEditorialSearch: EDITORIAL_SEARCH,
     KamadoCookEngine: COOK_ENGINE,
     KamadoLocalVault: LOCAL_VAULT,
-    KamadoPersonalization: PERSONALIZATION
+    KamadoPersonalization: PERSONALIZATION,
+    KamadoProbeAdapter: PROBE_ADAPTER
   };
 
   const context = vm.createContext({
@@ -247,6 +249,16 @@ test("Phase 3 wires encrypted local vaults and explainable personalization", () 
   assert.match(INDEX_HTML, /decryptVault\(await file\.text\(\),passphrase\)/);
   assert.match(INDEX_HTML, /scoreRecipePreference\(recipe,\{profile:cookingProfile/);
   assert.match(INDEX_HTML, /id="profilePersonalization"/);
+});
+
+test("Phase 4 wires vendor-neutral probe readings into the Cook Engine", () => {
+  assert.ok(INDEX_HTML.includes('<script src="./scripts/probe-adapter.js"></script>'));
+  assert.match(INDEX_HTML, /id="cpProbeSimulate"/);
+  assert.match(INDEX_HTML, /Le simulateur sert à découvrir le suivi guidé : il ne mesure pas votre cuisson/);
+  assert.match(INDEX_HTML, /ces températures sont fictives et seront ajoutées à la session/);
+  assert.match(INDEX_HTML, /nextSimulatorReadings\(probeSimulator,Date\.now\(\)\)/);
+  assert.match(INDEX_HTML, /latestReadingsForCook\(probeState,Date\.now\(\)\)/);
+  assert.match(INDEX_HTML, /Bluetooth disponible dans ce navigateur · adaptateur fabricant requis/);
 });
 
 test("chef allergen rules: no false positives on muscade/coco, detects beer and fish", () => {
