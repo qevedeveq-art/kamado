@@ -55,7 +55,7 @@ function main() {
   }
 
   // Keep build/audit utilities out of the native bundle; only ship browser modules.
-  const runtimeScripts = ["recipe-links.js", "editorial-search.js", "cook-engine.js", "local-vault.js", "personalization.js", "probe-adapter.js", "combustion-probe.js", "i18n.js"];
+  const runtimeScripts = ["recipe-links.js", "editorial-search.js", "cook-engine.js", "local-vault.js", "personalization.js", "probe-adapter.js", "combustion-probe.js", "kamado-thermals.js", "i18n.js"];
   fs.mkdirSync(path.join(WWW, "scripts"), { recursive: true });
   for (const script of runtimeScripts) {
     fs.copyFileSync(path.join(ROOT, "scripts", script), path.join(WWW, "scripts", script));
