@@ -16,8 +16,9 @@ const limits = {
   "scripts/probe-adapter.js": 15 * 1024,
   "scripts/combustion-probe.js": 15 * 1024,
   "scripts/kamado-thermals.js": 15 * 1024,
-  "scripts/i18n.js": 15 * 1024,
+  "scripts/i18n.js": 25 * 1024,
   "scripts/brand-config.js": 10 * 1024,
+  "scripts/recipes-i18n.js": 75 * 1024,
   "assets/editorial.css": 20 * 1024,
   "recettes/index.html": 500 * 1024
 };

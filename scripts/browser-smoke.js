@@ -31,7 +31,7 @@ async function main() {
   try {
     await waitForServer();
     browser = await chromium.launch({ headless: true });
-    const context = await browser.newContext({ serviceWorkers: "allow" });
+    const context = await browser.newContext({ serviceWorkers: "allow", locale: "fr-FR" });
     const page = await context.newPage();
     const consoleErrors = [];
     page.on("console", message => {
@@ -40,6 +40,13 @@ async function main() {
     page.on("pageerror", error => consoleErrors.push(error.message));
 
     await page.goto(BASE_URL, { waitUntil: "networkidle" });
+    await page.locator("#btnLangToggle").click();
+    assert.equal(await page.locator("html").getAttribute("lang"), "en");
+    assert.equal(await page.locator(".brand small").textContent(), "The Art of Ceramic Cooking · Guide & Recipes");
+    await page.locator("#btnLangToggle").click();
+    assert.equal(await page.locator("html").getAttribute("lang"), "fr");
+    assert.equal(await page.locator(".brand small").textContent(), "L'art de la cuisson en céramique · Guide & Recettes");
+
     await page.locator('[data-collection="signatures"]').click();
     assert.match(await page.locator("#count").textContent(), /^6 recettes · parcours Les signatures$/);
     assert.equal(await page.locator("#grid .rc").count(), 6);
@@ -61,6 +68,14 @@ async function main() {
     assert.equal(await page.locator("#d-title").textContent(), "Côte de bœuf reverse-sear");
     assert.equal(await page.locator("#modal").getAttribute("aria-hidden"), "false");
     assert.equal(await page.evaluate(() => document.activeElement && document.activeElement.id), "back");
+
+    // Test language switch on open modal
+    await page.evaluate(() => applyLanguage("en"));
+    assert.equal(await page.locator("#d-title").textContent(), "Reverse-Seared Ribeye Steak");
+    assert.equal(await page.locator("html").getAttribute("lang"), "en");
+    await page.evaluate(() => applyLanguage("fr"));
+    assert.equal(await page.locator("#d-title").textContent(), "Côte de bœuf reverse-sear");
+    assert.equal(await page.locator("html").getAttribute("lang"), "fr");
 
     await page.evaluate(() => { location.hash = "#recette=introuvable"; });
     await page.locator("#modal:not(.open)").waitFor();

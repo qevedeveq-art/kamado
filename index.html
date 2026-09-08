@@ -5177,6 +5177,7 @@ table td.t-temp, table td.t-coeur {
 <script src="./scripts/kamado-thermals.js"></script>
 <script src="./scripts/i18n.js"></script>
 <script src="./scripts/brand-config.js"></script>
+<script src="./scripts/recipes-i18n.js"></script>
 <script>
 /* ================= DONNÉES RECETTES ================= */
 const { recipeRef, recipeHash, recipeUrl, parseRecipeHash, findRecipeIndex } = window.KamadoRecipeLinks;
@@ -5188,7 +5189,14 @@ const { getProbeSupport, createProbeState, hydrateProbeState, applyProbeReading,
 const { combustionReadingsFromStatus, openCombustionProbeConnection } = window.KamadoCombustionProbe;
 const { calculateAirflowAdvice, detectStall, calculateCarryover, evaluateThermalState } = window.KamadoThermals || {};
 const { getLanguage, setLanguage, t, translateCategory, translateMode } = window.KamadoI18n || {};
+const { getRecipeName, getRecipeOrigin, translateDoneness, translateWood, translateVentValue, translateEquipmentItem, translateIngredientLine, translateStepLine } = window.KamadoRecipesI18n || {};
 const { BRAND_PRESETS, getBrandPreset, applyBrandPreset } = window.KamadoBrandConfig || {};
+
+function curLang() { return window.KamadoI18n ? window.KamadoI18n.getLanguage() : "fr"; }
+function rNom(r) { return window.KamadoRecipesI18n ? window.KamadoRecipesI18n.getRecipeName(r, curLang()) : (r ? r.nom : ""); }
+function rOri(r) { return window.KamadoRecipesI18n ? window.KamadoRecipesI18n.getRecipeOrigin(r, curLang()) : (r ? r.ori : ""); }
+function rMode(r) { return window.KamadoI18n ? window.KamadoI18n.translateMode(r.mode, curLang()) : (r ? r.mode : ""); }
+
 const CATS = [{id:"all",nom:"Tout",e:"🍴"},{id:"boeuf",nom:"Bœuf",e:"🥩"},{id:"porc",nom:"Porc",e:"🐖"},{id:"volaille",nom:"Volaille",e:"🍗"},{id:"agneau",nom:"Agneau & Gibier",e:"🐑"},{id:"poisson",nom:"Poissons & Mer",e:"🐟"},{id:"legumes",nom:"Légumes & Sides",e:"🥗"},{id:"pizza",nom:"Pizzas & Pains",e:"🍕"},{id:"monde",nom:"Cuisines du monde",e:"🌍"},{id:"dessert",nom:"Desserts",e:"🍮"},{id:"vegetarien",nom:"Végétarien",e:"🌱"},{id:"sauces",nom:"Sauces & Marinades",e:"🧂"}];
 
 const RECIPES = [
@@ -13204,11 +13212,20 @@ function activeEditorialCollection(){
 function renderEditorialCollections(){
   const root=$("#editorialCollections");
   if(!root)return;
+  const lang = curLang();
   $("#editorialRecipeTotal").textContent=RECIPES.length;
   root.innerHTML=EDITORIAL_COLLECTIONS.map(collection=>{
     const count=cookingRecipes().filter(collection.matches).length;
     const active=curCollection===collection.id;
-    return `<button type="button" class="editorial-route" data-collection="${collection.id}" aria-pressed="${active}"><b>${collection.title}</b><span>${collection.description}</span><small>${count} recette${count>1?'s':''}</small></button>`;
+    let title = collection.title, desc = collection.description;
+    if (lang === "en") {
+      if (collection.id === "premiers-feux") { title = "First Fires"; desc = "Accessible cooks ready in under 1.5 hours."; }
+      else if (collection.id === "signatures") { title = "The Signatures"; desc = "Six iconic recipes defining ceramic cooking."; }
+      else if (collection.id === "low-slow") { title = "Low & Slow"; desc = "Clean smoke, collagen breakdown and patience."; }
+      else if (collection.id === "fiches-reference") { title = "Reference Guides"; desc = "Complete sources, phases, and control points."; }
+    }
+    const countLabel = lang === "en" ? `${count} recipe${count>1?'s':''}` : `${count} recette${count>1?'s':''}`;
+    return `<button type="button" class="editorial-route" data-collection="${collection.id}" aria-pressed="${active}"><b>${title}</b><span>${desc}</span><small>${countLabel}</small></button>`;
   }).join("");
   $$("#editorialCollections [data-collection]").forEach(button=>button.onclick=()=>{
     curCollection=curCollection===button.dataset.collection?"all":button.dataset.collection;
@@ -13218,6 +13235,7 @@ function renderEditorialCollections(){
 }
 
 function renderStats(){
+  const lang = curLang();
   const total=cookingRecipes().length;
   const favCount=[...favs].filter(n=>RECIPES.some(r=>rid(r)===n)).length;
   const ratedCount=Object.keys(ratings).filter(n=>RECIPES.some(r=>rid(r)===n)).length;
@@ -13225,26 +13243,26 @@ function renderStats(){
   const bases=baseRecipes().length;
   const myCount=cookingRecipes().filter(r=>r._custom||r._modified).length;
   $("#quickstats").innerHTML=`
-    <div class="qstat"><b>${total}</b><span>recettes kamado</span></div>
-    <div class="qstat"><b>${quick}</b><span>express</span></div>
-    <div class="qstat"><b>${favCount}</b><span>favoris</span></div>
-    ${myCount?`<div class="qstat"><b>${myCount}</b><span>mes créations</span></div>`:''}
-    <div class="qstat"><b>${ratedCount}</b><span>notées</span></div>
-    <div class="qstat"><b>${bases}</b><span>bases utiles</span></div>`;
+    <div class="qstat"><b>${total}</b><span>${window.KamadoI18n ? window.KamadoI18n.t("stats.recipes", {}, lang) : "recettes kamado"}</span></div>
+    <div class="qstat"><b>${quick}</b><span>${window.KamadoI18n ? window.KamadoI18n.t("stats.express", {}, lang) : "express"}</span></div>
+    <div class="qstat"><b>${favCount}</b><span>${window.KamadoI18n ? window.KamadoI18n.t("stats.favs", {}, lang) : "favoris"}</span></div>
+    ${myCount?`<div class="qstat"><b>${myCount}</b><span>${window.KamadoI18n ? window.KamadoI18n.t("stats.creations", {}, lang) : "mes créations"}</span></div>`:''}
+    <div class="qstat"><b>${ratedCount}</b><span>${window.KamadoI18n ? window.KamadoI18n.t("stats.rated", {}, lang) : "notées"}</span></div>
+    <div class="qstat"><b>${bases}</b><span>${window.KamadoI18n ? window.KamadoI18n.t("stats.bases", {}, lang) : "bases utiles"}</span></div>`;
 }
-
 
 function renderQuickChips(){
   const qc = $("#quickChips");
   if(!qc) return;
+  const lang = curLang();
   const pills = [
     { label: "⚡ < 30 min", active: curTime === "express", action: () => { curTime = curTime === "express" ? "all" : "express"; } },
-    { label: "🔥 Saisie vive", active: curMode === "direct", action: () => { curMode = curMode === "direct" ? "all" : "direct"; } },
-    { label: "🛡️ Four indirect", active: curMode === "indirect", action: () => { curMode = curMode === "indirect" ? "all" : "indirect"; } },
+    { label: lang==='en' ? "🔥 High-heat sear" : "🔥 Saisie vive", active: curMode === "direct", action: () => { curMode = curMode === "direct" ? "all" : "direct"; } },
+    { label: lang==='en' ? "🛡️ Indirect roast" : "🛡️ Four indirect", active: curMode === "indirect", action: () => { curMode = curMode === "indirect" ? "all" : "indirect"; } },
     { label: "💨 Low & Slow", active: curMode === "fumage", action: () => { curMode = curMode === "fumage" ? "all" : "fumage"; } },
-    { label: "⭐ Favoris", active: favOnly, action: () => { favOnly = !favOnly; } },
-    { label: "🍕 Pizza & Pains", active: curCat === "pizza", action: () => { curCat = curCat === "pizza" ? "all" : "pizza"; } },
-    { label: "🌿 Végétarien", active: curCat === "vegetarien", action: () => { curCat = curCat === "vegetarien" ? "all" : "vegetarien"; } }
+    { label: lang==='en' ? "⭐ Favorites" : "⭐ Favoris", active: favOnly, action: () => { favOnly = !favOnly; } },
+    { label: lang==='en' ? "🍕 Pizza & Breads" : "🍕 Pizza & Pains", active: curCat === "pizza", action: () => { curCat = curCat === "pizza" ? "all" : "pizza"; } },
+    { label: lang==='en' ? "🌿 Vegetarian" : "🌿 Végétarien", active: curCat === "vegetarien", action: () => { curCat = curCat === "vegetarien" ? "all" : "vegetarien"; } }
   ];
   qc.innerHTML = pills.map((p, idx) => `<button class="quick-pill ${p.active ? 'active' : ''}" data-idx="${idx}">${p.label}</button>`).join("");
   qc.querySelectorAll(".quick-pill").forEach(btn => {
@@ -13282,72 +13300,82 @@ function renderChips(){
 /* ---- barre de filtres ---- */
 function renderFilterBar(){
   const fb=$("#filterbar");
+  const lang = curLang();
+  const tF = (k) => window.KamadoI18n ? window.KamadoI18n.t(`filters.${k}`, {}, lang) : "";
   fb.innerHTML=`
-   <select id="fMode" class="fsel" aria-label="Mode de cuisson">
-     <option value="all">Mode : tous</option>
-     <option value="direct">Direct (saisie)</option>
-     <option value="indirect">Indirect (four)</option>
-     <option value="fumage">Fumage / mijoté</option>
+   <select id="fMode" class="fsel" aria-label="${lang==='en'?'Cooking method':'Mode de cuisson'}">
+     <option value="all">${tF('mode_all')}</option>
+     <option value="direct">${tF('mode_direct')}</option>
+     <option value="indirect">${tF('mode_indirect')}</option>
+     <option value="fumage">${tF('mode_fumage')}</option>
    </select>
-   <select id="fTime" class="fsel" aria-label="Durée de cuisson">
-     <option value="all">Durée : toutes</option>
-     <option value="express">Express (&lt; 30 min)</option>
-     <option value="moyen">Moyen (30–120 min)</option>
-     <option value="long">Long (&gt; 2 h)</option>
+   <select id="fTime" class="fsel" aria-label="${lang==='en'?'Cooking duration':'Durée de cuisson'}">
+     <option value="all">${tF('time_all')}</option>
+     <option value="express">${tF('time_express')}</option>
+     <option value="moyen">${tF('time_medium')}</option>
+     <option value="long">${tF('time_long')}</option>
    </select>
-   <select id="fDiff" class="fsel" aria-label="Niveau de difficulté">
-     <option value="all">Niveau : tous</option>
-     <option value="Facile">Facile</option>
-     <option value="Intermédiaire">Intermédiaire</option>
-     <option value="Avancé">Avancé</option>
+   <select id="fDiff" class="fsel" aria-label="${lang==='en'?'Difficulty level':'Niveau de difficulté'}">
+     <option value="all">${tF('diff_all')}</option>
+     <option value="Facile">${tF('diff_easy')}</option>
+     <option value="Intermédiaire">${tF('diff_intermediate')}</option>
+     <option value="Avancé">${tF('diff_advanced')}</option>
    </select>
-   <select id="fSeason" class="fsel" aria-label="Saison">
-     <option value="all">Saison : toutes</option>
-     <option value="printemps">Printemps</option>
-     <option value="ete">Été</option>
-     <option value="automne">Automne</option>
-     <option value="hiver">Hiver / fêtes</option>
+   <select id="fSeason" class="fsel" aria-label="${lang==='en'?'Season':'Saison'}">
+     <option value="all">${tF('season_all')}</option>
+     <option value="printemps">${tF('season_spring')}</option>
+     <option value="ete">${tF('season_summer')}</option>
+     <option value="automne">${tF('season_autumn')}</option>
+     <option value="hiver">${tF('season_winter')}</option>
    </select>
-   <div class="multifilter" role="group" aria-label="Régimes">
-     <span class="multifilter-label">Régimes / Sans</span>
-     ${["sans gluten","sans lactose","sans porc","sans poisson","sans fruits à coque","végétarien","keto"].map(v=>`<button class="fbtn multi-diet ${curDiet.includes(v)?'on':''}" data-value="${v}">${v}</button>`).join("")}
-   </div>
-   <div class="multifilter" role="group" aria-label="Matériel">
-     <span class="multifilter-label">Matériel</span>
+   <div class="multifilter" role="group" aria-label="${tF('diets_label')}">
+     <span class="multifilter-label">${tF('diets_label')}</span>
      ${[
-       ["deflecteur","Déflecteur"],
-       ["pierre","Pierre"],
-       ["plancha","Plancha / fonte"],
-       ["cocotte","Cocotte"],
-       ["sonde","Sonde"],
-       ["rotissoire","Rôtissoire"]
+       ["sans gluten", lang==='en'?"gluten-free":"sans gluten"],
+       ["sans lactose", lang==='en'?"dairy-free":"sans lactose"],
+       ["sans porc", lang==='en'?"pork-free":"sans porc"],
+       ["sans poisson", lang==='en'?"fish-free":"sans poisson"],
+       ["sans fruits à coque", lang==='en'?"nut-free":"sans fruits à coque"],
+       ["végétarien", lang==='en'?"vegetarian":"végétarien"],
+       ["keto", "keto"]
+     ].map(([v,lbl])=>`<button class="fbtn multi-diet ${curDiet.includes(v)?'on':''}" data-value="${v}">${lbl}</button>`).join("")}
+   </div>
+   <div class="multifilter" role="group" aria-label="${tF('gear_label')}">
+     <span class="multifilter-label">${tF('gear_label')}</span>
+     ${[
+       ["deflecteur", lang==='en'?"Deflector":"Déflecteur"],
+       ["pierre", lang==='en'?"Stone":"Pierre"],
+       ["plancha", lang==='en'?"Plancha / iron":"Plancha / fonte"],
+       ["cocotte", lang==='en'?"Dutch oven":"Cocotte"],
+       ["sonde", lang==='en'?"Probe":"Sonde"],
+       ["rotissoire", lang==='en'?"Rotisserie":"Rôtissoire"]
      ].map(([v,l])=>`<button class="fbtn multi-equip ${curEquip.includes(v)?'on':''}" data-value="${v}">${l}</button>`).join("")}
    </div>
-   <select id="fAvailable" class="fsel" aria-label="Temps disponible">
-     <option value="all">Disponible : tout</option>
-     <option value="45">Ce soir (&lt; 45 min)</option>
-     <option value="90">Ce soir (&lt; 1 h 30)</option>
-     <option value="180">Demi-journée (&lt; 3 h)</option>
+   <select id="fAvailable" class="fsel" aria-label="${lang==='en'?'Available time':'Temps disponible'}">
+     <option value="all">${tF('avail_all')}</option>
+     <option value="45">${tF('avail_45')}</option>
+     <option value="90">${tF('avail_90')}</option>
+     <option value="180">${tF('avail_180')}</option>
    </select>
-   <select id="fQuality" class="fsel" aria-label="Niveau de détail">
-     <option value="all">Qualité : toutes</option>
-     <option value="source">Avec source</option>
-     <option value="security">Avec sécurité</option>
-     <option value="errors">Avec erreurs</option>
-     <option value="rich">Très détaillées</option>
+   <select id="fQuality" class="fsel" aria-label="${lang==='en'?'Detail level':'Niveau de détail'}">
+     <option value="all">${tF('quality_all')}</option>
+     <option value="source">${tF('quality_source')}</option>
+     <option value="security">${tF('quality_security')}</option>
+     <option value="errors">${tF('quality_errors')}</option>
+     <option value="rich">${tF('quality_rich')}</option>
    </select>
-   <select id="fSort" class="fsel" aria-label="Ordre des recettes">
-     <option value="default">Tri : recommandé</option>
-     <option value="time">Durée</option>
-     <option value="difficulty">Difficulté</option>
-     <option value="quality">Qualité</option>
-     <option value="rating">Note perso</option>
-     <option value="recent">Récents</option>
+   <select id="fSort" class="fsel" aria-label="${lang==='en'?'Sort order':'Ordre des recettes'}">
+     <option value="default">${tF('sort_default')}</option>
+     <option value="time">${tF('sort_time')}</option>
+     <option value="difficulty">${tF('sort_diff')}</option>
+     <option value="quality">${tF('sort_quality')}</option>
+     <option value="rating">${tF('sort_rating')}</option>
+     <option value="recent">${tF('sort_recent')}</option>
    </select>
-   <button id="fFav" class="fbtn ${favOnly?'on':''}">${favOnly?'★':'☆'} Favoris</button>
-   <button id="fMine" class="fbtn ${myOnly?'on':''}">👤 Mes créations</button>
-   <button id="fNew" class="fbtn" style="background:linear-gradient(135deg,var(--accent),var(--ember));color:#fff;border-color:rgba(255,255,255,0.25);font-weight:700">➕ Créer</button>
-   <button id="fRand" class="fbtn">🎲 Au hasard</button>`;
+   <button id="fFav" class="fbtn ${favOnly?'on':''}">${favOnly?'★':'☆'} ${tF('fav_btn')}</button>
+   <button id="fMine" class="fbtn ${myOnly?'on':''}">👤 ${tF('mine_btn')}</button>
+   <button id="fNew" class="fbtn" style="background:linear-gradient(135deg,var(--accent),var(--ember));color:#fff;border-color:rgba(255,255,255,0.25);font-weight:700">${tF('create_btn')}</button>
+   <button id="fRand" class="fbtn">${tF('random_btn')}</button>`;
   $("#fMode").value=curMode;$("#fTime").value=curTime;$("#fDiff").value=curDiff;$("#fSeason").value=curSeason;$("#fAvailable").value=curAvailable;$("#fSort").value=curSort;
   $("#fMode").onchange=e=>{curMode=e.target.value;renderList();};
   $("#fTime").onchange=e=>{curTime=e.target.value;renderList();};
@@ -13366,22 +13394,24 @@ function renderFilterBar(){
 
 function renderSmartBar(){
   const sb=$("#smartbar"), sn=$("#smartnote");
+  const lang = curLang();
+  const tS = (k) => window.KamadoI18n ? window.KamadoI18n.t(`smartbar.${k}`, {}, lang) : "";
   sb.innerHTML=`
-    <button id="sTonight" class="fbtn ${curAvailable!=="all"?'on':''}">Ce soir</button>
-    <button id="sSeason" class="fbtn ${curSeason===currentSeason()?'on':''}">Saison</button>
-    <button id="sPantry" class="fbtn ${curHave?'on':''}">Garde-manger</button>
-    <button id="sOutdoor" class="fbtn ${outdoorMode?'on':''}">Mode extérieur</button>
-    <button id="sSun" class="fbtn ${sunMode?'on':''}">☀️ Plein soleil</button>
-    <button id="sMine" class="fbtn ${myOnly?'on':''}">Mes créations</button>
-    <button id="sReset" class="fbtn">Réinitialiser</button>`;
+    <button id="sTonight" class="fbtn ${curAvailable!=="all"?'on':''}">${tS('tonight')}</button>
+    <button id="sSeason" class="fbtn ${curSeason===currentSeason()?'on':''}">${tS('season')}</button>
+    <button id="sPantry" class="fbtn ${curHave?'on':''}">${tS('pantry')}</button>
+    <button id="sOutdoor" class="fbtn ${outdoorMode?'on':''}">${tS('outdoor')}</button>
+    <button id="sSun" class="fbtn ${sunMode?'on':''}">${tS('sun')}</button>
+    <button id="sMine" class="fbtn ${myOnly?'on':''}">${tS('mine')}</button>
+    <button id="sReset" class="fbtn">${tS('reset')}</button>`;
   const active=[];
-  if(curHave)active.push(`ingrédients : ${curHave}`);
-  if(curDiet.length)active.push(`régimes : ${curDiet.join(", ")}`);
-  if(curEquip.length)active.push(`matériel : ${curEquip.join(", ")}`);
-  if(curAvailable!=="all")active.push(`temps max : ${curAvailable} min`);
-  if(sunMode)active.push("plein soleil");
-  if(myOnly)active.push("mes créations");
-  sn.textContent=active.length?`Profil actif · ${active.join(" · ")}`:"Astuce : combinez ingrédients, exclusions, régime, matériel et temps disponible pour trouver une cuisson réaliste.";
+  if(curHave)active.push(lang==='en'?`ingredients: ${curHave}`:`ingrédients : ${curHave}`);
+  if(curDiet.length)active.push(lang==='en'?`diets: ${curDiet.join(", ")}`:`régimes : ${curDiet.join(", ")}`);
+  if(curEquip.length)active.push(lang==='en'?`gear: ${curEquip.join(", ")}`:`matériel : ${curEquip.join(", ")}`);
+  if(curAvailable!=="all")active.push(lang==='en'?`max time: ${curAvailable} min`:`temps max : ${curAvailable} min`);
+  if(sunMode)active.push(lang==='en'?"high contrast":"plein soleil");
+  if(myOnly)active.push(lang==='en'?"my recipes":"mes créations");
+  sn.textContent=active.length?`${tS('active_profile')} · ${active.join(" · ")}`:tS('tip');
   $("#sTonight").onclick=()=>{curAvailable=curAvailable==="all"?"90":"all";pantryProfile.available=curAvailable;LS.set("kamado_pantry_profile",pantryProfile);renderFilterBar();renderSmartBar();renderList();};
   $("#sSeason").onclick=()=>{curSeason=curSeason===currentSeason()?"all":currentSeason();renderFilterBar();renderSmartBar();renderList();};
   $("#sPantry").onclick=()=>{$("#have").focus();};
@@ -13462,29 +13492,36 @@ function card(r){
   const isSmoked = String(r.mode).toLowerCase().includes("fumage") || String(r.mode).toLowerCase().includes("slow") || String(r.mode).toLowerCase().includes("indirect");
   const personal=scoreRecipePreference(r,{profile:cookingProfile,favorites:favs,ratings,history:viewHistory});
   const personalReasons=personal.reasons.filter(reason=>reason!=="niveau adapté").slice(0,2);
+  const title = rNom(r), origin = rOri(r);
+  const lang = curLang();
+  const nivLabel = lang === "en" ? (niv === "Avancé" ? "Advanced" : niv === "Intermédiaire" ? "Intermediate" : "Easy") : niv;
+  const burpTitle = lang === "en" ? "Anti-flashback reflex required above 150 °C / 300 °F" : "Réflexe anti-flashback requis au-dessus de 150 °C";
+  const smokeTag = lang === "en" ? "💨 Clean smoke" : "💨 Fumée propre";
+  const smokeTitle = lang === "en" ? "Thin blue smoke rule: wait for translucent blue smoke" : "Règle de fumée propre : attendre la fumée bleu pâle";
+  const coeurVal = r.coeur ? (lang === "en" && window.KamadoRecipesI18n ? window.KamadoRecipesI18n.translateDoneness(r.coeur, "en") : r.coeur) : "";
   return `<article class="rc band-${band}" data-i="${i}">
     <div class="top">
-      <div><h2><button type="button" class="card-open" aria-label="Ouvrir la recette ${escHtml(r.nom)}">${escHtml(r.nom)}</button></h2><div class="ori">${escHtml(r.ori)}</div></div>
+      <div><h2><button type="button" class="card-open" aria-label="${lang==='en'?'Open recipe':'Ouvrir la recette'} ${escHtml(title)}">${escHtml(title)}</button></h2><div class="ori">${escHtml(origin)}</div></div>
       <div class="rstack">
-        <button class="favstar ${fav?'on':''}" data-fav="${i}" aria-label="${fav?'Retirer des favoris':'Ajouter aux favoris'} : ${escHtml(r.nom)}">${fav?'★':'☆'}</button>
+        <button class="favstar ${fav?'on':''}" data-fav="${i}" aria-label="${fav?(lang==='en'?'Remove from favorites':'Retirer des favoris'):(lang==='en'?'Add to favorites':'Ajouter aux favoris')} : ${escHtml(title)}">${fav?'★':'☆'}</button>
         <div class="emoji">${emojiFor(r.cat)}</div>
       </div>
     </div>
     <div class="meta">
-      ${r._custom?`<span class="badge custom">👤 Ma recette</span>`:''}
-      ${r._modified?`<span class="badge modified">✏️ Modifiée</span>`:''}
-      <span class="badge mode">${r.mode}</span>
+      ${r._custom?`<span class="badge custom">${lang==='en'?'👤 My recipe':'👤 Ma recette'}</span>`:''}
+      ${r._modified?`<span class="badge modified">${lang==='en'?'✏️ Modified':'✏️ Modifiée'}</span>`:''}
+      <span class="badge mode">${rMode(r)}</span>
       <span class="badge temp">🌡️ ${r.tempK}</span>
-      ${r.coeur?`<span class="badge coeur">à cœur ${r.coeur}</span>`:''}
+      ${coeurVal?`<span class="badge coeur">${lang==='en'?'core ':'à cœur '}${coeurVal}</span>`:''}
       <span class="badge">⏱️ ${r.temps}</span>
-      <span class="badge niv ${nc}">${niv}</span>
-      ${needsBurp?`<span class="badge safety-tag" title="Réflexe anti-flashback requis au-dessus de 150 °C">⚠️ Burp</span>`:''}
-      ${isSmoked?`<span class="badge smoke-tag" title="Règle de fumée propre : attendre la fumée bleu pâle">💨 Fumée propre</span>`:''}
+      <span class="badge niv ${nc}">${nivLabel}</span>
+      ${needsBurp?`<span class="badge safety-tag" title="${burpTitle}">⚠️ Burp</span>`:''}
+      ${isSmoked?`<span class="badge smoke-tag" title="${smokeTitle}">${smokeTag}</span>`:''}
       <span class="badge spice">${spiceLevel(r)}</span>
       ${diets.slice(0,2).map(d=>`<span class="badge">${d}</span>`).join("")}
       ${rating?`<span class="badge">★ ${rating}/5</span>`:''}
-      ${cookingProfile.personalization&&personalReasons.length?`<span class="badge personal" title="Classement calculé uniquement sur cet appareil">Pour vous · ${personalReasons.map(escHtml).join(" · ")}</span>`:''}
-      ${alls.length?`<span class="badge allergen">Allergènes : ${alls.join(", ")}</span>`:''}
+      ${cookingProfile.personalization&&personalReasons.length?`<span class="badge personal" title="${lang==='en'?'Calculated strictly on this device':'Classement calculé uniquement sur cet appareil'}">${lang==='en'?'For you':'Pour vous'} · ${personalReasons.map(escHtml).join(" · ")}</span>`:''}
+      ${alls.length?`<span class="badge allergen">${lang==='en'?'Allergens':'Allergènes'} : ${alls.join(", ")}</span>`:''}
       ${sauces?`<span class="badge sauce">Sauce : ${sauces}</span>`:''}
     </div>
   </article>`;
@@ -13508,22 +13545,28 @@ function renderList(resetPaging = true){
     if(curSort==="recent"){const ia=viewHistory.indexOf(rid(a)), ib=viewHistory.indexOf(rid(b));return (ia<0?999:ia)-(ib<0?999:ib);}
     return 0;
   });
+  const lang = curLang();
   const bits=[];
   const editorialCollection=activeEditorialCollection();
-  if(editorialCollection)bits.push(`parcours ${editorialCollection.title}`);
-  if(favOnly)bits.push("favoris");
-  if(myOnly)bits.push("mes créations");
-  if(curHave)bits.push("avec vos ingrédients");
-  $("#count").textContent=`${currentFilteredList.length} recette${currentFilteredList.length>1?'s':''}`+(bits.length?` · ${bits.join(" · ")}`:"");
-  if(!currentFilteredList.length){$("#grid").innerHTML=`<div class="empty">Aucune recette ne correspond.<br>Élargissez les filtres, retirez un ingrédient ou changez de mot-clé.</div>`;return;}
+  if(editorialCollection)bits.push(lang==='en' ? `collection ${editorialCollection.title}` : `parcours ${editorialCollection.title}`);
+  if(favOnly)bits.push(lang==='en' ? "favorites" : "favoris");
+  if(myOnly)bits.push(lang==='en' ? "my recipes" : "mes créations");
+  if(curHave)bits.push(lang==='en' ? "with your ingredients" : "avec vos ingrédients");
+  const countWord = lang==='en' ? `recipe${currentFilteredList.length>1?'s':''}` : `recette${currentFilteredList.length>1?'s':''}`;
+  $("#count").textContent=`${currentFilteredList.length} ${countWord}`+(bits.length?` · ${bits.join(" · ")}`:"");
+  if(!currentFilteredList.length){
+    $("#grid").innerHTML=lang==='en' ? `<div class="empty">No matching recipes found.<br>Broaden your filters, remove an ingredient or change your search query.</div>` : `<div class="empty">Aucune recette ne correspond.<br>Élargissez les filtres, retirez un ingrédient ou changez de mot-clé.</div>`;
+    return;
+  }
   
   const toShow = currentFilteredList.slice(0, visibleRecipeCount);
   let gridHtml = toShow.map(card).join("");
   if (visibleRecipeCount < currentFilteredList.length) {
     const remaining = currentFilteredList.length - visibleRecipeCount;
     const nextBatch = Math.min(24, remaining);
+    const loadText = lang==='en' ? `Show next ${nextBatch} recipes (${remaining} remaining)...` : `Afficher les ${nextBatch} recettes suivantes (${remaining} restantes)...`;
     gridHtml += `<div class="load-more-wrap">
-      <button id="btnLoadMore" class="btn-load-more">Afficher les ${nextBatch} recettes suivantes (${remaining} restantes)...</button>
+      <button id="btnLoadMore" class="btn-load-more">${loadText}</button>
     </div>`;
   }
   $("#grid").innerHTML = gridHtml;
@@ -14038,6 +14081,7 @@ function openRecipe(i,options={}){
   const r=RECIPES[i],base=baseServ(r);let curServ=base;stepMode=false;let targetServiceTime="13:00";
   pushHistory(r);
   function render(){
+    const lang = curLang();
     const f=curServ/base;
     const fav=favs.has(rid(r));
     const sauces=sauceText(r), alls=allergens(r);
@@ -14045,19 +14089,26 @@ function openRecipe(i,options={}){
     const q=qualityInfo(r), diets=dietTags(r), equip=equipmentTags(r);
     const setup=kamadoSetup(r);
     const hasActiveCook=activeCookSession&&activeCookSession.status==="active"&&activeCookSession.recipeId===cookRecipeKey(r);
-    const ings=r.ings.map(x=>`<li>${scaleIng(x,f)}</li>`).join("");
+    const scaledIngs = r.ings.map(x=>scaleIng(x,f));
+    const localizedIngs = (lang === "en" && window.KamadoRecipesI18n) ? scaledIngs.map(x=>window.KamadoRecipesI18n.translateIngredientLine(x, "en")) : scaledIngs;
+    const ings = localizedIngs.map(x=>`<li>${x}</li>`).join("");
+    const localizedSteps = (lang === "en" && window.KamadoRecipesI18n) ? r.etapes.map(x=>window.KamadoRecipesI18n.translateStepLine(x, "en")) : r.etapes;
     let stepsHtml;
     if(stepMode){
-      stepsHtml=`<ul class="csteps">`+r.etapes.map((x,n)=>{
+      stepsHtml=`<ul class="csteps">`+localizedSteps.map((x,n)=>{
         const durs=parseAllDurs(x);
-        const btn=durs.map(d=>`<button class="tbtn" data-sec="${d.sec}" data-lab="Étape ${n+1} (${d.text})">▶ ${d.text}</button>`).join(" ");
+        const btn=durs.map(d=>`<button class="tbtn" data-sec="${d.sec}" data-lab="${lang==='en'?'Step':'Étape'} ${n+1} (${d.text})">▶ ${d.text}</button>`).join(" ");
         return `<li class="cstep"><label><input type="checkbox" class="ck"><span>${x}</span></label>${btn}</li>`;
       }).join("")+`</ul>`;
     } else {
-      stepsHtml=`<ol class="steps">`+r.etapes.map(x=>`<li>${x}</li>`).join("")+`</ol>`;
+      stepsHtml=`<ol class="steps">`+localizedSteps.map(x=>`<li>${x}</li>`).join("")+`</ol>`;
     }
-    $("#d-title").textContent=r.nom;
+    $("#d-title").textContent=rNom(r);
     const isSmoked = String(r.mode).toLowerCase().includes("fumage") || String(r.mode).toLowerCase().includes("slow") || String(r.mode).toLowerCase().includes("basse");
+    const nivTxt = niveau(r);
+    const nivLabel = lang === "en" ? (nivTxt === "Avancé" ? "Advanced" : nivTxt === "Intermédiaire" ? "Intermediate" : "Easy") : nivTxt;
+    const woodTxt = r.bois ? (lang === "en" && window.KamadoRecipesI18n ? window.KamadoRecipesI18n.translateWood(r.bois, "en") : r.bois) : "";
+    const donenessCues = window.KamadoRecipesI18n ? window.KamadoRecipesI18n.translateDoneness(donenessSigns(r), lang) : donenessSigns(r);
     $("#d-body").innerHTML=`
       ${isSmoked ? `
         <div class="smoke-wrap">
@@ -14067,26 +14118,26 @@ function openRecipe(i,options={}){
           </svg>
         </div>
       ` : ''}
-      <div class="ori">${emojiFor(r.cat)} ${r.ori} ${r._custom?`<span class="badge custom" style="margin-left:6px">👤 Ma recette</span>`:''} ${r._modified?`<span class="badge modified" style="margin-left:6px">✏️ Modifiée</span>`:''}</div>
+      <div class="ori">${emojiFor(r.cat)} ${rOri(r)} ${r._custom?`<span class="badge custom" style="margin-left:6px">${lang==='en'?'👤 My recipe':'👤 Ma recette'}</span>`:''} ${r._modified?`<span class="badge modified" style="margin-left:6px">${lang==='en'?'✏️ Modified':'✏️ Modifiée'}</span>`:''}</div>
       <div class="dactions">
-        <button id="dFav" class="actbtn ${fav?'on':''}">${fav?'★ Favori':'☆ Ajouter aux favoris'}</button>
-        <button id="btnOpenCockpit" class="cockpit-launch-btn">${hasActiveCook?"Reprendre la cuisson":"Démarrer la cuisson guidée"}</button>
-        <button id="dEdit" class="actbtn primary-act" title="Modifier les ingrédients, températures, temps ou étapes">✏️ Modifier</button>
-        <button id="dDuplicate" class="actbtn" title="Créer une variante adaptée">📋 Dupliquer</button>
-        <button id="dShare" class="actbtn" title="Partager cette recette (WhatsApp, SMS, presse-papier)">📤 Partager</button>
-        ${r._modified?`<button id="dReset" class="actbtn warn-act" title="Rétablir la version d'origine">↺ Rétablir l'originale</button>`:''}
-        ${r._custom?`<button id="dDelete" class="actbtn danger-act" title="Supprimer définitivement cette recette">🗑️ Supprimer</button>`:''}
-        <button id="dPrint" class="actbtn">Imprimer / PDF</button>
+        <button id="dFav" class="actbtn ${fav?'on':''}">${fav?(lang==='en'?'★ Favorite':'★ Favori'):(lang==='en'?'☆ Add to favorites':'☆ Ajouter aux favoris')}</button>
+        <button id="btnOpenCockpit" class="cockpit-launch-btn">${hasActiveCook?(lang==='en'?'Resume guided cook':'Reprendre la cuisson'):(lang==='en'?'Start guided cook':'Démarrer la cuisson guidée')}</button>
+        <button id="dEdit" class="actbtn primary-act" title="${lang==='en'?'Edit ingredients, temperatures, times or steps':'Modifier les ingrédients, températures, temps ou étapes'}">${lang==='en'?'✏️ Edit':'✏️ Modifier'}</button>
+        <button id="dDuplicate" class="actbtn" title="${lang==='en'?'Duplicate and tweak':'Créer une variante adaptée'}">${lang==='en'?'📋 Duplicate':'📋 Dupliquer'}</button>
+        <button id="dShare" class="actbtn" title="${lang==='en'?'Share this recipe':'Partager cette recette (WhatsApp, SMS, presse-papier)'}">${lang==='en'?'📤 Share':'📤 Partager'}</button>
+        ${r._modified?`<button id="dReset" class="actbtn warn-act" title="${lang==='en'?'Restore original version':'Rétablir la version d\'origine'}">${lang==='en'?'↺ Restore original':'↺ Rétablir l\'originale'}</button>`:''}
+        ${r._custom?`<button id="dDelete" class="actbtn danger-act" title="${lang==='en'?'Delete recipe':'Supprimer définitivement cette recette'}">${lang==='en'?'🗑️ Delete':'🗑️ Supprimer'}</button>`:''}
+        <button id="dPrint" class="actbtn">${lang==='en'?'Print / PDF':'Imprimer / PDF'}</button>
       </div>
       <div class="ratingrow" id="ratingRow">
-        <span>Note perso</span>
+        <span>${lang==='en'?'My rating':'Note perso'}</span>
         ${[1,2,3,4,5].map(n=>`<button class="ratebtn ${n<=rating?'on':''}" data-rate="${n}" title="${n}/5">★</button>`).join("")}
-        ${rating?`<button class="actbtn" id="clearRating" style="padding:7px 10px">Effacer</button>`:''}
+        ${rating?`<button class="actbtn" id="clearRating" style="padding:7px 10px">${lang==='en'?'Clear':'Effacer'}</button>`:''}
       </div>
       <div class="setup-badge">
         <span class="setup-icon">${setup.icon}</span>
         <div>
-          <div class="setup-title">Montage Kamado : <b>${setup.label}</b></div>
+          <div class="setup-title">${lang==='en'?'Kamado Setup:':'Montage Kamado :'} <b>${setup.label}</b></div>
           <div class="setup-desc">${setup.desc}</div>
         </div>
       </div>
@@ -14099,12 +14150,12 @@ function openRecipe(i,options={}){
             <div class="sommelier-icon">🍷</div>
             <div class="sommelier-body">
               <div class="sommelier-header">
-                <span class="sommelier-tag">Accord Sommelier du Kamado</span>
-                <span class="sommelier-temp">🌡️ Service : ${wineServiceTemp(w.label)}</span>
+                <span class="sommelier-tag">${lang==='en'?'Kamado Sommelier Pairing':'Accord Sommelier du Kamado'}</span>
+                <span class="sommelier-temp">🌡️ ${lang==='en'?'Service:':'Service :'} ${wineServiceTemp(w.label)}</span>
               </div>
               <div class="sommelier-wine"><b>${w.label}</b></div>
               <div class="sommelier-desc">${w.detail}</div>
-              <div class="sommelier-alt">🔄 Alternative recommandée : <b>${w.alt}</b></div>
+              <div class="sommelier-alt">${lang==='en'?'🔄 Recommended alternative:':'🔄 Alternative recommandée :'} <b>${w.alt}</b></div>
             </div>
           </div>
         `;
@@ -14114,8 +14165,8 @@ function openRecipe(i,options={}){
         <div class="safety-burp-badge">
           <span style="font-size:26px;flex-shrink:0">⚠️</span>
           <div>
-            <div class="safety-burp-title">🛡️ Réflexe Sécurité : Le « Burp » (Anti-flashback)</div>
-            <div class="safety-burp-desc">À partir de 150 °C, ouvrez d'abord le dôme de <b>3 à 5 cm pendant 3 secondes</b> pour réintroduire l'air sans embrasement soudain. Ne placez jamais le visage au-dessus.</div>
+            <div class="safety-burp-title">${lang==='en'?'🛡️ Safety Reflex: The \"Burp\" (Anti-flashback)':'🛡️ Réflexe Sécurité : Le « Burp » (Anti-flashback)'}</div>
+            <div class="safety-burp-desc">${lang==='en'?'From 150 °C / 300 °F, open the dome 1 to 2 inches for 3 seconds to reintroduce oxygen before opening fully. Never lean your face directly over the lid.':'À partir de 150 °C, ouvrez d\'abord le dôme de <b>3 à 5 cm pendant 3 secondes</b> pour réintroduire l\'air sans embrasement soudain. Ne placez jamais le visage au-dessus.'}</div>
           </div>
         </div>
       ` : ""}
@@ -14123,56 +14174,56 @@ function openRecipe(i,options={}){
         <div class="smoke-quality-badge">
           <span style="font-size:26px;flex-shrink:0">💨</span>
           <div>
-            <div class="smoke-badge-title">💨 Règle d'or : La Fumée Propre (« Thin Blue Smoke »)</div>
-            <div class="smoke-badge-desc">N'enfournez jamais dans la fumée blanche et épaisse du démarrage. Attendez 15–20 min une fumée <b>bleu pâle translucide</b> et parfumée pour éviter tout goût âcre.</div>
+            <div class="smoke-badge-title">${lang==='en'?'💨 Golden Rule: Clean Smoke (\"Thin Blue Smoke\")':'💨 Règle d\'or : La Fumée Propre (« Thin Blue Smoke »)'}</div>
+            <div class="smoke-badge-desc">${lang==='en'?'Never cook in thick white startup smoke. Wait 15–20 min for translucent, fragrant thin blue smoke to avoid harsh, acrid tastes.':'N\'enfournez jamais dans la fumée blanche et épaisse du démarrage. Attendez 15–20 min une fumée <b>bleu pâle translucide</b> et parfumée pour éviter tout goût âcre.'}</div>
           </div>
         </div>
       ` : ""}
       <div class="specbar">
-        <div class="spec"><div class="l">Mode</div><div class="v">${r.mode}</div></div>
+        <div class="spec"><div class="l">${lang==='en'?'Method':'Mode'}</div><div class="v">${rMode(r)}</div></div>
         <div class="spec wide-spec" style="display:flex; align-items:center; gap:10px">
           ${drawThermometerSVG(r.tempK)}
           <div>
-            <div class="l">Temp. Kamado</div>
+            <div class="l">${lang==='en'?'Kamado Temp':'Temp. Kamado'}</div>
             <div class="v temp">${withF(r.tempK)}</div>
           </div>
         </div>
-        ${r.coeur?`<div class="spec"><div class="l">À cœur</div><div class="v coeur">${withF(r.coeur)}</div></div>`:''}
-        <div class="spec"><div class="l">Cuisson</div><div class="v">${r.temps}</div></div>
-        <div class="spec"><div class="l">Niveau</div><div class="v">${niveau(r)}</div></div>
-        <div class="spec"><div class="l">Piquant</div><div class="v">${spiceLevel(r)}</div></div>
-        <div class="spec"><div class="l">Saison</div><div class="v">${seasonLabel(seasonFor(r))}</div></div>
-        ${Array.isArray(r.equipement)&&r.equipement.length?`<div class="spec wide-spec equip-spec"><div class="l" style="color:#ffb86b;font-weight:800">🛠️ Équipement</div><div class="v equip-val" style="font-size:13px;color:#ffffff;font-weight:700">${r.equipement.join(" · ")}</div></div>`:''}
-        ${r.bois?`<div class="spec wide-spec"><div class="l">Bois conseillé</div><div class="v" style="font-size:13px">${r.bois}</div></div>`:''}
-        ${alls.length?`<div class="spec wide-spec"><div class="l">Allergènes</div><div class="v" style="font-size:13px">${alls.join(", ")}</div></div>`:''}
-        ${diets.length?`<div class="spec wide-spec"><div class="l">Régimes</div><div class="v" style="font-size:13px">${diets.join(", ")}</div></div>`:''}
+        ${r.coeur?`<div class="spec"><div class="l">${lang==='en'?'Core temp':'À cœur'}</div><div class="v coeur">${withF(r.coeur)}</div></div>`:''}
+        <div class="spec"><div class="l">${lang==='en'?'Cook time':'Cuisson'}</div><div class="v">${r.temps}</div></div>
+        <div class="spec"><div class="l">${lang==='en'?'Level':'Niveau'}</div><div class="v">${nivLabel}</div></div>
+        <div class="spec"><div class="l">${lang==='en'?'Heat':'Piquant'}</div><div class="v">${spiceLevel(r)}</div></div>
+        <div class="spec"><div class="l">${lang==='en'?'Season':'Saison'}</div><div class="v">${seasonLabel(seasonFor(r))}</div></div>
+        ${Array.isArray(r.equipement)&&r.equipement.length?`<div class="spec wide-spec equip-spec"><div class="l" style="color:#ffb86b;font-weight:800">${lang==='en'?'🛠️ Equipment':'🛠️ Équipement'}</div><div class="v equip-val" style="font-size:13px;color:#ffffff;font-weight:700">${r.equipement.join(" · ")}</div></div>`:''}
+        ${woodTxt?`<div class="spec wide-spec"><div class="l">${lang==='en'?'Recommended wood':'Bois conseillé'}</div><div class="v" style="font-size:13px">${woodTxt}</div></div>`:''}
+        ${alls.length?`<div class="spec wide-spec"><div class="l">${lang==='en'?'Allergens':'Allergènes'}</div><div class="v" style="font-size:13px">${alls.join(", ")}</div></div>`:''}
+        ${diets.length?`<div class="spec wide-spec"><div class="l">${lang==='en'?'Diets':'Régimes'}</div><div class="v" style="font-size:13px">${diets.join(", ")}</div></div>`:''}
         ${sauces?`<div class="spec wide-spec"><div class="l">Sauce</div><div class="v" style="font-size:13px">${sauces}</div></div>`:''}
-        ${equip.length?`<div class="spec wide-spec"><div class="l">Matériel</div><div class="v" style="font-size:13px">${equip.join(", ")}</div></div>`:''}
-        ${r.difficulty?`<div class="spec"><div class="l">Difficulté</div><div class="v diff">${'★'.repeat(r.difficulty)}${'☆'.repeat(5-r.difficulty)}</div></div>`:''}
-        ${r.charbon_kg?`<div class="spec"><div class="l">Charbon</div><div class="v">${String(r.charbon_kg).replace(".",",")} kg</div></div>`:''}
-        ${r.repos_min?`<div class="spec"><div class="l">Repos</div><div class="v">${r.repos_min} min</div></div>`:''}
+        ${equip.length?`<div class="spec wide-spec"><div class="l">${lang==='en'?'Gear':'Matériel'}</div><div class="v" style="font-size:13px">${equip.join(", ")}</div></div>`:''}
+        ${r.difficulty?`<div class="spec"><div class="l">${lang==='en'?'Difficulty':'Difficulté'}</div><div class="v diff">${'★'.repeat(r.difficulty)}${'☆'.repeat(5-r.difficulty)}</div></div>`:''}
+        ${r.charbon_kg?`<div class="spec"><div class="l">${lang==='en'?'Charcoal':'Charbon'}</div><div class="v">${String(r.charbon_kg).replace(".",",")} kg</div></div>`:''}
+        ${r.repos_min?`<div class="spec"><div class="l">${lang==='en'?'Resting':'Repos'}</div><div class="v">${r.repos_min} min</div></div>`:''}
       </div>
 
       <div class="servrow">
-        <span class="servlbl">👥 Portions</span>
+        <span class="servlbl">${lang==='en'?'👥 Servings':'👥 Portions'}</span>
         <button class="stp" id="sMinus">−</button>
         <span class="servval" id="sVal">${curServ}</span>
         <button class="stp" id="sPlus">+</button>
-        <button class="copybtn" id="sCopy" style="padding: 8px 10px; font-size:11.5px">📋 Copier</button>
+        <button class="copybtn" id="sCopy" style="padding: 8px 10px; font-size:11.5px">${lang==='en'?'📋 Copy':'📋 Copier'}</button>
         <button class="copybtn" id="sQR" style="padding: 8px 10px; font-size:11.5px">📲 QR Code</button>
-        <button class="copybtn" id="sAddList" style="margin-left:5px; background:var(--accent2); color:#161813; padding: 8px 10px; font-size:11.5px">🛒 + Liste</button>
+        <button class="copybtn" id="sAddList" style="margin-left:5px; background:var(--accent2); color:#161813; padding: 8px 10px; font-size:11.5px">${lang==='en'?'🛒 + Grocery':'🛒 + Liste'}</button>
       </div>
 
-      <h3>Ingrédients${f!==1?` <span style="font-weight:400;color:var(--muted);text-transform:none;font-size:11px">(quantités ajustées, indicatives)</span>`:''}</h3>
+      <h3>${lang==='en'?'Ingredients':'Ingrédients'}${f!==1?` <span style="font-weight:400;color:var(--muted);text-transform:none;font-size:11px">${lang==='en'?'(adjusted quantities, indicative)':'(quantités ajustées, indicatives)'}</span>`:''}</h3>
       <ul class="ings">${ings}</ul>
       ${renderInteractiveSubstitutions(r)}
 
       ${r.cat !== "sauces" ? `
         <div class="timeline-box">
           <div class="tb-head">
-            <span class="tb-title">⏱️ Rétroplanning : <b>À table à</b></span>
+            <span class="tb-title">${lang==='en'?'⏱️ Cooking Timeline: <b>Meal at</b>':'⏱️ Rétroplanning : <b>À table à</b>'}</span>
             <div class="tb-time-wrap">
-              <input type="time" id="targetServiceTime" value="${targetServiceTime}" class="tb-time-input" aria-label="Heure de service">
+              <input type="time" id="targetServiceTime" value="${targetServiceTime}" class="tb-time-input" aria-label="${lang==='en'?'Target meal time':'Heure de service'}">
             </div>
           </div>
           <div class="tb-list" id="tbList">
@@ -14187,24 +14238,24 @@ function openRecipe(i,options={}){
       ` : ""}
 
       <div class="stepswitch">
-        <h3 style="margin:0;border:0">Préparation</h3>
-        <button id="sMode" class="modebtn ${stepMode?'on':''}">${stepMode?'📖 Lecture':'👨‍🍳 Mode cuisson'}</button>
+        <h3 style="margin:0;border:0">${lang==='en'?'Instructions':'Préparation'}</h3>
+        <button id="sMode" class="modebtn ${stepMode?'on':''}">${stepMode?(lang==='en'?'📖 Reading':'📖 Lecture'):(lang==='en'?'👨‍🍳 Cook mode':'👨‍🍳 Mode cuisson')}</button>
       </div>
-      ${stepMode?`<div class="hint">Cochez les étapes au fur et à mesure · ▶ lance un minuteur · ☀️ écran maintenu allumé</div>`:''}
+      ${stepMode?`<div class="hint">${lang==='en'?'Check off steps as you go · ▶ starts a timer · ☀️ screen kept awake':'Cochez les étapes au fur et à mesure · ▶ lance un minuteur · ☀️ écran maintenu allumé'}</div>`:''}
       ${stepsHtml}
-      <div class="tip"><b>👁 Signes de bonne cuisson.</b> ${donenessSigns(r)}</div>
-      ${sauces?`<div class="tip"><b>🥣 Sauce associée.</b> ${sauces}</div>`:''}
-      ${r.astuce?`<div class="tip"><b>💡 Astuce du chef.</b> ${r.astuce}</div>`:''}
+      <div class="tip"><b>${lang==='en'?'👁 Doneness cues.':'👁 Signes de bonne cuisson.'}</b> ${donenessCues}</div>
+      ${sauces?`<div class="tip"><b>${lang==='en'?'🥣 Paired sauce.':'🥣 Sauce associée.'}</b> ${sauces}</div>`:''}
+      ${r.astuce?`<div class="tip"><b>${lang==='en'?'💡 Chef\'s tip.':'💡 Astuce du chef.'}</b> ${r.astuce}</div>`:''}
       ${renderRecipeDetailGuidance(r)}
       ${renderRichSchema(r)}
 
-      <h3>📝 Mes notes</h3>
-      <textarea id="dNote" class="note" placeholder="Vos réglages, vos variantes, le temps réel observé…">${(notes[rid(r)]||"").replace(/</g,"&lt;")}</textarea>
+      <h3>${lang==='en'?'📝 My notes':'📝 Mes notes'}</h3>
+      <textarea id="dNote" class="note" placeholder="${lang==='en'?'Your vent adjustments, wood choices, real observed cook time…':'Vos réglages, vos variantes, le temps réel observé…'}">${(notes[rid(r)]||"").replace(/</g,"&lt;")}</textarea>
 
       <div class="cook-log-section">
         <div style="display:flex;justify-content:space-between;align-items:center">
-          <h3 style="margin:0;border:0">📖 Journal de mes cuissons</h3>
-          <button id="btnAddCookLog" class="actbtn" style="font-size:11.5px;padding:5px 10px">➕ Noter une session</button>
+          <h3 style="margin:0;border:0">${lang==='en'?'📖 Cook Log':'📖 Journal de mes cuissons'}</h3>
+          <button id="btnAddCookLog" class="actbtn" style="font-size:11.5px;padding:5px 10px">${lang==='en'?'➕ Log session':'➕ Noter une session'}</button>
         </div>
         <div id="cookLogForm" class="hide" style="margin-top:12px;background:var(--card);padding:12px;border-radius:8px;border:1px solid var(--line)">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px">
@@ -15597,28 +15648,30 @@ function pickFrom(list, seed){
 }
 function renderMenuBuilder(){
   const M=$("#menus");
+  const lang = curLang();
+  const tM = (k, p={}) => window.KamadoI18n ? window.KamadoI18n.t(`menus.${k}`, p, lang) : "";
   let currentMenu=[];
   M.innerHTML=`
-    <h2>🍱 Composer un menu kamado</h2>
+    <h2>${tM('title')}</h2>
     <div class="callout" style="border-color:var(--accent)">
-      <h3>Générateur simple</h3>
-      <p style="margin:0 0 10px;color:var(--muted);font-size:13px">Créez un menu cohérent avec une pièce principale, un accompagnement et un dessert cuits au kamado.</p>
+      <h3>${tM('simple_generator')}</h3>
+      <p style="margin:0 0 10px;color:var(--muted);font-size:13px">${tM('simple_desc')}</p>
       <div class="menu-controls">
         <select id="mStyle" class="fsel">
-          <option value="convivial">Convivial</option>
-          <option value="rapide">Rapide</option>
-          <option value="fumage">Fumage / low & slow</option>
-          <option value="vegetarien">Végétarien</option>
+          <option value="convivial">${tM('style_convivial')}</option>
+          <option value="rapide">${tM('style_rapide')}</option>
+          <option value="fumage">${tM('style_fumage')}</option>
+          <option value="vegetarien">${tM('style_vegetarien')}</option>
         </select>
         <select id="mGuests" class="fsel">
-          <option value="4">4 personnes</option>
-          <option value="6">6 personnes</option>
-          <option value="8">8 personnes</option>
+          <option value="4">${tM('guests_4')}</option>
+          <option value="6">${tM('guests_6')}</option>
+          <option value="8">${tM('guests_8')}</option>
         </select>
-        <button id="mGo" class="actbtn on">Générer un menu</button>
+        <button id="mGo" class="actbtn on">${tM('generate_btn')}</button>
       </div>
-      <button id="mCopy" class="syncbtn primary" style="margin-bottom:10px">Copier la liste de courses du menu</button>
-      <button id="mShop" class="syncbtn" style="margin-bottom:10px">Ajouter le menu à la liste de courses</button>
+      <button id="mCopy" class="syncbtn primary" style="margin-bottom:10px">${tM('copy_list_btn')}</button>
+      <button id="mShop" class="syncbtn" style="margin-bottom:10px">${tM('add_shop_btn')}</button>
       <div id="menuOut" class="menu-grid"></div>
     </div>`;
   function renderMenu(){
@@ -15633,58 +15686,59 @@ function renderMenuBuilder(){
     const sides=cookingRecipes().filter(r=>["legumes","vegetarien","pizza"].includes(r.cat)&&r.cat!=="dessert"&&isCompatibleWith(r,mainBand));
     const desserts=cookingRecipes().filter(r=>r.cat==="dessert"&&isCompatibleWith(r,mainBand));
     const picks=[
-      {label:"Plat principal",r:main},
-      {label:"Accompagnement",r:pickFrom(sides,seed>>3)},
-      {label:"Dessert",r:pickFrom(desserts,seed>>5)}
+      {label:tM('main_dish'),r:main},
+      {label:tM('side_dish'),r:pickFrom(sides,seed>>3)},
+      {label:tM('dessert'),r:pickFrom(desserts,seed>>5)}
     ];
     currentMenu=picks.filter(p=>p.r);
     const bands=[...new Set(currentMenu.map(p=>tempBand(p.r)))];
-    const compatibility=bands.length<=1||bands.includes("mixte")?"Menu compatible en température":"Menu à séquencer en deux températures";
+    const compatibility=bands.length<=1||bands.includes("mixte")?tM('comp_single'):tM('comp_multi');
     const wine=main?wineFor(main):null;
     const wineCard=wine?`<div class="menu-card" style="grid-column:1/-1;border-color:#9b3b6a;background:linear-gradient(180deg,rgba(155,59,106,0.10),transparent)">
-        <h3>🍷 Vin conseillé — accord sur ${main.nom}</h3>
+        <h3>${tM('wine_card_title', {dish: rNom(main)})}</h3>
         <div style="font-weight:800;font-size:15px;margin-top:4px">${wine.label}</div>
         <div class="ori" style="margin-top:4px">${wine.detail}</div>
-        <div class="meta" style="margin-top:8px"><span class="badge">Alternative : ${wine.alt}</span><span class="badge">Service : ${wineServiceTemp(wine.label)}</span></div>
-        <p style="margin:8px 0 0;font-size:11.5px;color:var(--muted)">⚠️ L'abus d'alcool est dangereux pour la santé.</p>
+        <div class="meta" style="margin-top:8px"><span class="badge">${tM('wine_alt', {alt: wine.alt})}</span><span class="badge">${tM('wine_service', {temp: wineServiceTemp(wine.label)})}</span></div>
+        <p style="margin:8px 0 0;font-size:11.5px;color:var(--muted)">${tM('wine_warning')}</p>
       </div>`:"";
     $("#menuOut").innerHTML=`<div class="menu-card" style="grid-column:1/-1">
-        <h3>Compatibilité cuisson</h3>
+        <h3>${tM('cook_compatibility')}</h3>
         <div class="meta">
           <span class="badge temp">${bandLabel(mainBand)}</span>
           <span class="badge">${compatibility}</span>
-          <span class="badge">${guests} personnes</span>
+          <span class="badge">${tM('guests_format', {count: guests})}</span>
         </div>
       </div>`+wineCard+picks.map(p=>p.r?`
       <div class="menu-card">
         <h3>${p.label}</h3>
-        <div style="font-weight:800">${p.r.nom}</div>
-        <div class="ori">${p.r.ori}</div>
+        <div style="font-weight:800">${rNom(p.r)}</div>
+        <div class="ori">${rOri(p.r)}</div>
         <div class="meta" style="margin-top:8px">
-          <span class="badge mode">${p.r.mode}</span>
+          <span class="badge mode">${rMode(p.r)}</span>
           <span class="badge temp">${p.r.tempK}</span>
           <span class="badge">${p.r.temps}</span>
           <span class="badge">${bandLabel(tempBand(p.r))}</span>
           ${sauceText(p.r)?`<span class="badge sauce">Sauce : ${sauceText(p.r)}</span>`:''}
         </div>
-        <button class="actbtn" data-open="${RECIPES.indexOf(p.r)}">Ouvrir</button>
-      </div>`:`<div class="menu-card"><h3>${p.label}</h3><div class="empty" style="padding:12px">Aucune recette disponible.</div></div>`).join("");
+        <button class="actbtn" data-open="${RECIPES.indexOf(p.r)}">${tM('open_btn')}</button>
+      </div>`:`<div class="menu-card"><h3>${p.label}</h3><div class="empty" style="padding:12px">${tM('no_recipe')}</div></div>`).join("");
     $$("#menuOut [data-open]").forEach(b=>b.onclick=()=>openRecipe(+b.dataset.open));
   }
   $("#mGo").onclick=renderMenu;
   $("#mCopy").onclick=()=>{
     const main=currentMenu[0]&&currentMenu[0].r, wine=main?wineFor(main):null;
-    const winePart=wine?`\n\n🍷 Vin conseillé : ${wine.label} (alt. : ${wine.alt})\n${wine.detail}`:"";
+    const winePart=wine?(lang==='en'?`\n\n🍷 Recommended Wine: ${wine.label} (alt.: ${wine.alt})\n${wine.detail}`:`\n\n🍷 Vin conseillé : ${wine.label} (alt. : ${wine.alt})\n${wine.detail}`):"";
     const txt=currentMenu.map(p=>{
       const r=p.r, sauce=sauceText(r);
-      return `${p.label} — ${r.nom}\n`+r.ings.map(x=>"• "+x).join("\n")+(sauce?`\nSauce : ${sauce}`:"");
+      const ingsList = (lang==='en'&&window.KamadoRecipesI18n)?r.ings.map(x=>"• "+window.KamadoRecipesI18n.translateIngredientLine(x,"en")).join("\n"):r.ings.map(x=>"• "+x).join("\n");
+      return `${p.label} — ${rNom(r)}\n`+ingsList+(sauce?`\nSauce : ${sauce}`:"");
     }).join("\n\n")+winePart;
-    const done=()=>{$("#mCopy").textContent="Liste copiée";setTimeout(()=>$("#mCopy").textContent="Copier la liste de courses du menu",1400);};
+    const done=()=>{$("#mCopy").textContent=lang==='en'?"List copied":"Liste copiée";setTimeout(()=>$("#mCopy").textContent=tM('copy_list_btn'),1400);};
     if(navigator.clipboard){navigator.clipboard.writeText(txt).then(done).catch(done);}else done();
   };
   $("#mShop").onclick=()=>{
     currentMenu.forEach(p=>addToShoppingList(p.r,parseInt($("#mGuests").value,10)||baseServ(p.r)));
-    const done=()=>{$("#mShop").textContent="Menu ajouté";setTimeout(()=>$("#mShop").textContent="Ajouter le menu à la liste de courses",1400);};
+    const done=()=>{$("#mShop").textContent=lang==='en'?"Menu added":"Menu ajouté";setTimeout(()=>$("#mShop").textContent=tM('add_shop_btn'),1400);};
     done();
   };
   renderMenu();
@@ -15693,17 +15747,20 @@ function renderMenuBuilder(){
 /* ---- Bases et accompagnements non principaux ---- */
 function renderBases(){
   const B=$("#bases");
+  const lang = curLang();
+  const tB = (k, p={}) => window.KamadoI18n ? window.KamadoI18n.t(`bases.${k}`, p, lang) : "";
   let bases=baseRecipes();
   if(favOnly) bases=bases.filter(r=>favs.has(rid(r)));
+  const title = tB('title') + (favOnly ? ' ' + tB('fav_suffix') : '');
   B.innerHTML=`
     <div class="bases-head">
       <div>
-        <h2>🧂 Bases utiles ${favOnly?'(Favoris)':''}</h2>
-        <p>Sauces, rubs et marinades conservés à part pour que l'onglet Recettes reste centré sur les cuissons kamado.</p>
+        <h2>${title}</h2>
+        <p>${tB('desc')}</p>
       </div>
-      <span class="badge">${bases.length} bases</span>
+      <span class="badge">${tB('count_format', {count: bases.length})}</span>
     </div>
-    ${bases.length===0?`<div class="empty">Aucune base en favoris.</div>`:`<div class="grid" style="padding:0">${bases.map(card).join("")}</div>`}`;
+    ${bases.length===0?`<div class="empty">${tB('empty_favs')}</div>`:`<div class="grid" style="padding:0">${bases.map(card).join("")}</div>`}`;
   $$("#bases .rc").forEach(c=>c.onclick=e=>{if(e.target.classList.contains('favstar'))return;openRecipe(+c.dataset.i);});
   $$("#bases .favstar").forEach(b=>b.onclick=e=>{e.stopPropagation();toggleFav(RECIPES[+b.dataset.fav]);renderStats();renderBases();});
 }
@@ -16073,7 +16130,17 @@ function applyLanguage(lang) {
   });
 
   renderChips();
+  renderQuickChips();
+  renderFilterBar();
+  renderSmartBar();
+  renderStats();
+  renderEditorialCollections();
   renderList();
+  renderBases();
+  renderMenuBuilder();
+  if ($("#modal") && $("#modal").classList.contains("open") && typeof currentRecipeIndex === "number") {
+    openRecipe(currentRecipeIndex);
+  }
 }
 
 const btnLangToggle = $("#btnLangToggle");

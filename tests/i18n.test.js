@@ -42,3 +42,11 @@ test("translateCategory and translateMode work accurately across languages", () 
   assert.equal(i18n.translateMode("Direct", "en"), "Direct Searing");
   assert.equal(i18n.translateMode("Fumage lent", "en"), "Low & Slow Smoking");
 });
+
+test("t() translates menus, bases, filters, and modal keys", () => {
+  assert.equal(i18n.t("menus.title", {}, "fr"), "🍱 Composer un menu kamado");
+  assert.equal(i18n.t("menus.title", {}, "en"), "🍱 Build a Kamado Menu");
+  assert.equal(i18n.t("bases.title", {}, "en"), "🧂 Essential Bases");
+  assert.equal(i18n.t("filters.gear_label", {}, "en"), "Equipment");
+  assert.equal(i18n.t("modal.burp_title", {}, "en"), "🛡️ Safety Reflex: The \"Burp\" (Anti-flashback)");
+});

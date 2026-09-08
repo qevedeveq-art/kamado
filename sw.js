@@ -1,4 +1,4 @@
-const VERSION = "v45";
+const VERSION = "v46";
 const APP_CACHE = `kamado-app-${VERSION}`;
 
 const APP_SHELL = [
@@ -15,6 +15,7 @@ const APP_SHELL = [
   "./scripts/kamado-thermals.js",
   "./scripts/i18n.js",
   "./scripts/brand-config.js",
+  "./scripts/recipes-i18n.js",
   "./icons/icon-180.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
