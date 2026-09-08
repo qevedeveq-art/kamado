@@ -28,7 +28,8 @@
 - Commercial reference and exit roadmap (2026-09-08): build the global benchmark across 4 phases: global expansion (i18n, Google Recipe Schema, Stores), hardware & Kamado Thermals™ predictive engine, monetization (Club Pro Freemium + high-ticket affiliate), and M&A packaging for exit.
 - Internationalization architecture (2026-09-08): zero-dependency bilingual module `scripts/i18n.js` with FR (source) and EN (expansion) dictionaries, runtime interpolation, and localStorage language preference.
 - Systematic 269-recipe quality audit completed (2026-09-08): reviewed all 246 cooking recipes across 6 strict criteria, resolving all 106 warnings to 0 issues and 0 warnings (100% clean cooking database).
-- UI localization and bilingual experience (2026-09-08): interactive header toggle (`#btnLangToggle`) live in `index.html` with dynamic switching between 🇫🇷 FR and 🇬🇧 EN, persisted in localStorage and integrated with PWA precache (SW v42).
+- UI localization and bilingual experience (2026-09-08): interactive header toggle (`#btnLangToggle`) live in `index.html` with dynamic switching between 🇫🇷 FR and 🇬🇧 EN, persisted in localStorage and integrated with PWA precache (SW v43).
+- Kamado Thermals™ predictive engine (2026-09-08): ceramic thermal inertia modeling with exponential damping, evaporative stall detection (64-76°C) with butcher paper wrap triggers, and carryover cooking calculator based on thermal gradient.
 - Defer a generic social network, marketplace, mandatory accounts, broad AI chatbot, and proprietary grill control until the core cooking experience and editorial authority are proven.
 
 ## Working Preferences

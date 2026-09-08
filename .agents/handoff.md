@@ -57,13 +57,13 @@
   - Bilingual FR/EN architecture with pure JS zero-dependency localization engine (`scripts/i18n.js`).
   - Interactive header language switcher (`#btnLangToggle`) dynamically toggling between 🇫🇷 FR and 🇬🇧 EN.
   - Dynamic translation for brand, new recipe button, search placeholder/syntax, main tabs, category chips, and live recipe list.
-  - Precached in Service Worker `v42`, bundled for Capacitor and compliant with <950KB budget.
-- Major Feature Suite 3 Deployed:
-  - 🚨 SOS & Dépannage Express Kamado (`#sosModal`): Interactive urgent troubleshooter for runaway temperature, dropping heat, acrid white smoke, pizza base burn, long stall, and flashback flare-ups with immediate action plans.
-  - 📲 Instant QR Code Sharing (`#qrModal`): Zero-dependency pure JavaScript SVG QR code generator embedded in recipe modals, allowing guests and friends to scan and open any recipe instantly on their devices.
-  - ⚖️ Rub Builder & Precision Salt Calculator: Meat weight-based spice and kosher salt calculator enforcing the 1.0–1.1% salt baseline across Texas Dalmatian, Memphis Sweet & Smoky, and Provençal poultry rub profiles.
-  - 📖 Mon Journal de Braises: Consolidated global cook journal in Assistant tab gathering all cook logs across recipes with wood used, core temperatures, personal ratings, and notes.
-- 102 tests passing natively via `node --test 'tests/*.test.js'`.
+  - Kamado Thermals™ Predictive Engine Deployed (`d724b32`):
+  - Pure JS zero-dependency thermal physics module `scripts/kamado-thermals.js`.
+  - Ceramic thermal inertia modeling: exponential response lag calculation with anticipatory dampening to prevent overshoot.
+  - Evaporative cooling plateau ("stall") detection between 64°C and 76°C with flat slope monitoring and Texas crutch butcher-paper wrap triggers.
+  - Carryover cooking predictor computing exact pull temperatures and resting windows based on cooking intensity and meat cut thickness.
+  - Precached in Service Worker `v43`, added to Capacitor mobile bundle, size-checked in performance budget, and covered by dedicated unit tests.
+- 110 tests passing natively via `node --test 'tests/*.test.js'`.
 - All métier audits plus the PWA performance budget pass (Data, Kamado Expert, Chef Reviewer, Sommelier, app shell).
 - Phase 0 production Lighthouse baseline: performance 94, accessibility 100 and best practices 100.
 - Repository `qevedeveq-art/kamado` is PUBLIC; Pages publishes from `main` at `/ (root)`.
@@ -72,14 +72,14 @@
 ## Last Commands
 - `node scripts/audit-recipe-quality.js` -> 0 issues, 0 warnings across all 246 cooking recipes reviewed.
 - `node scripts/extract-data.js` -> extracted clean metadata, generated canonical recipe pages, guides, sitemap.
-- `npm test` -> 102/102 native node tests passing.
+- `npm test` -> 110/110 native node tests passing.
 - `npm run audit` -> Data, Kamado Expert, Chef Reviewer, Sommelier, Editorial, and Performance Budget audits all passing.
-- `node scripts/bump-sw-version.js` -> bumped service worker to v42.
-- `git commit` -> commits `13f34ea` and `612a1e9`.
+- `git commit` -> commits `13f34ea`, `612a1e9`, and `d724b32`.
 
 ## Files Changed
-- Recipes and Quality Audit (`13f34ea`): `index.html`, `data/recipes.json`, `recettes/`, `scripts/audit-recipe-quality.js`, `scripts/reports/recipe-quality-audit.json`, `scripts/reports/recipe-quality-audit.md`.
+- Kamado Thermals™ Engine (`d724b32`): `scripts/kamado-thermals.js`, `tests/kamado-thermals.test.js`, `index.html`, `sw.js` (v43), `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`, `tests/pwa.test.js`.
 - Internationalization & UI Language Switcher (`612a1e9`): `index.html`, `sw.js` (v42), `scripts/i18n.js`, `tests/i18n.test.js`, `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`.
+- Recipes and Quality Audit (`13f34ea`): `index.html`, `data/recipes.json`, `recettes/`, `scripts/audit-recipe-quality.js`, `scripts/reports/recipe-quality-audit.json`, `scripts/reports/recipe-quality-audit.md`.
 - Phase 4 Combustion runtime/UI: `index.html`, `scripts/combustion-probe.js`, `sw.js` (v40).
 - Phase 4 Combustion verification/packaging: `tests/combustion-probe.test.js`, `tests/data.test.js`, `tests/pwa.test.js`, `scripts/browser-smoke.js`, `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`.
 - Phase 4 Combustion documentation/state: `README.md`, `.agents/memory.md`, `.agents/handoff.md`.
