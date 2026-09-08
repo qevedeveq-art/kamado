@@ -62,6 +62,35 @@ La connexion physique n'est activée que pour un protocole fabricant documenté.
 * **Recommandations locales en opt-in** : lorsque l'utilisateur les active, le tri tient compte des favoris, notes, consultations récentes, niveau et mode de cuisson préféré.
 * **Classement transparent** : les fiches concernées affichent les raisons principales de leur recommandation et aucun historique n'est transmis à un tiers.
 
+### 🔥 Kamado Thermals™ — Moteur Physique Prédictif
+* Modélisation algorithmique en temps réel du comportement thermodynamique de la céramique :
+  * **Inertie thermique & régulation d'évents** : calcul de la pente thermique (°C/min) et alertes d'étranglement précoce des clapets d'air pour éviter le dépassement de consigne (*thermal overshoot*).
+  * **Détection automatique du « Stall » (64–76 °C)** : repérage du plateau d'évaporation de l'humidité avec déclenchement de la consigne d'emballage (*Texas crutch* / papier boucher).
+  * **Prédicteur de redistribution thermique post-cuisson (*Carryover*)** : calcul précis de la température de sortie de grille et de la durée optimale de repos selon l'épaisseur de la pièce et l'intensité de la cuisson (+2 °C à +6 °C de gain hors flamme).
+
+### 🌐 Internationalisation & Expérience Bilingue (FR / EN)
+* **Moteur i18n natif zero-dépendance** (`scripts/i18n.js`) :
+  * Sélecteur de langue dynamique instantané dans l'en-tête (`🇫🇷 FR` / `🇬🇧 EN`).
+  * Traduction complète de l'interface : bandeau de marque, filtres, onglets, syntaxe de recherche experte, badges de catégories et fiches de cuisson.
+  * Maintien du français comme source de vérité gastronomique et extension anglaise pour la portée internationale.
+
+### ⭐ Kamado Club Pro & Matériel d'Exception (Partenaires Officiels)
+* **Pass Club Pro local-first** débloquant le cockpit multi-sondes 4 canaux, les alertes avancées Kamado Thermals™ et les fiches mémo pitmaster haute définition imprimables.
+* **Mise en avant du fabricant français [Kokko Kamado](https://www.kokko.fr)** : céramique haute densité, accastillage en acier inoxydable marin 304 garanti à vie, plancha réversible fonte demi-lune et paniers à charbon haute ventilation.
+* **Intégration sondes de pointe** : thermomètre prédictif à 8 capteurs [Combustion Inc.](https://combustion.inc) sans abonnement tiers obligatoire.
+
+### 🏷️ Mode Marque Blanche & Déploiement Constructeur (OEM Ready)
+* **Moteur multi-marques universel** (`scripts/brand-config.js`) permettant de basculer l'application sous l'identité de fabricants partenaires :
+  * **Édition Originale** (Livre de recettes Kamado)
+  * **🇫🇷 Kokko Cooking Copilot** (Orange braise, noir céramique, sous-titre officiel Kokko)
+  * **🟢 Big Green Egg Companion** (Vert forêt BGE, accent or)
+  * **🔴 Kamado Joe Fire & Smoke** (Rouge carmin, ambre)
+* Bascule dynamique des variables CSS (`--accent`, `--accent2`, `--ember`, `--bg`), des logos et titres, directement testable depuis la modale Club Pro.
+
+### 💼 Dossier M&A & Documentation Investisseurs / Repreneurs
+* **[Dossier de Due Diligence Technique](docs/M_AND_A_DUE_DILIGENCE.md)** : audit architectural complet, fossé de données culinaires (269 recettes / 0 avertissement sanitaire), 0 € de coût cloud, conformité RGPD absolue et budgets de performance.
+* **[Proposition Stratégique d'Acquisition Kokko Kamado](docs/ACQUISITION_PITCH_KOKKO.md)** : note de cadrage exécutive pour Kokko France (ROI, hausse de conversion, ventes croisées d'accessoires et déploiement sous 30 jours).
+
 ### 🚨 Module « SOS Kamado & Dépannage Express »
 * Accès d'urgence immédiat en cas d'aléa thermique :
   * *Température qui s'emballe (> 200 °C)* ➔ Procédure de fermeture étagée sans étouffement explosif.
@@ -114,10 +143,10 @@ L'application fonctionne à 100 % hors connexion grâce aux Service Workers :
 Le projet intègre des contrôles automatisés sur les données, l'expertise culinaire, la PWA et ses parcours critiques :
 
 ```bash
-npm test                    # 97 tests natifs (node --test)
-npm run audit               # Données, métier, éditorial/SEO et budget PWA
+npm test                    # 112 tests natifs (node --test)
+npm run audit               # Données, métier, sommelier, éditorial/SEO et budget PWA
 npm run audit:editorial     # Fiches canoniques, guides, sitemap et robots
-npm run audit:quality       # Revue transverse de la qualité des recettes
+npm run audit:quality       # Revue transverse de la qualité des recettes (0 warning)
 node scripts/browser-smoke.js # Chromium : Cook Engine, sondes, coffre chiffré, personnalisation et offline
 ```
 
