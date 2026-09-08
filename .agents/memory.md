@@ -30,6 +30,7 @@
 - Systematic 269-recipe quality audit completed (2026-09-08): reviewed all 246 cooking recipes across 6 strict criteria, resolving all 106 warnings to 0 issues and 0 warnings (100% clean cooking database).
 - UI localization and bilingual experience (2026-09-08): interactive header toggle (`#btnLangToggle`) live in `index.html` with dynamic switching between 🇫🇷 FR and 🇬🇧 EN, persisted in localStorage and integrated with PWA precache (SW v43).
 - Kamado Thermals™ predictive engine (2026-09-08): ceramic thermal inertia modeling with exponential damping, evaporative stall detection (64-76°C) with butcher paper wrap triggers, and carryover cooking calculator based on thermal gradient.
+- Club Pro & High-Ticket Affiliation (2026-09-08): interactive #clubProModal showcasing Kamado Thermals and multi-probe telemetry; Section 9 in Guide featuring French ceramic maker Kokko Kamado and Combustion Inc.; local-first demo/license activation in localStorage; SW v44.
 - Defer a generic social network, marketplace, mandatory accounts, broad AI chatbot, and proprietary grill control until the core cooking experience and editorial authority are proven.
 
 ## Working Preferences

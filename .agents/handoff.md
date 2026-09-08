@@ -63,6 +63,12 @@
   - Evaporative cooling plateau ("stall") detection between 64°C and 76°C with flat slope monitoring and Texas crutch butcher-paper wrap triggers.
   - Carryover cooking predictor computing exact pull temperatures and resting windows based on cooking intensity and meat cut thickness.
   - Precached in Service Worker `v43`, added to Capacitor mobile bundle, size-checked in performance budget, and covered by dedicated unit tests.
+- Kamado Club Pro & High-Ticket Affiliation Deployed (`9e5dca4`):
+  - Added header action `#btnClubPro` with interactive Pro membership state and badge.
+  - Interactive `#clubProModal` showcasing Kamado Thermals, 4-channel telemetry, encrypted vaults and printable PDF cheat-sheets.
+  - Added Section 9 in Guide showcasing French ceramic maker Kokko Kamado and Combustion Inc.
+  - Local-first Pro activation (demo/license toggle) persisted in localStorage (`kamado_pro_status`).
+  - Precached in Service Worker `v44`, size compliant (<950KB).
 - 110 tests passing natively via `node --test 'tests/*.test.js'`.
 - All métier audits plus the PWA performance budget pass (Data, Kamado Expert, Chef Reviewer, Sommelier, app shell).
 - Phase 0 production Lighthouse baseline: performance 94, accessibility 100 and best practices 100.
@@ -74,9 +80,11 @@
 - `node scripts/extract-data.js` -> extracted clean metadata, generated canonical recipe pages, guides, sitemap.
 - `npm test` -> 110/110 native node tests passing.
 - `npm run audit` -> Data, Kamado Expert, Chef Reviewer, Sommelier, Editorial, and Performance Budget audits all passing.
-- `git commit` -> commits `13f34ea`, `612a1e9`, and `d724b32`.
+- `node scripts/bump-sw-version.js` -> bumped service worker to v44.
+- `git commit` -> commits `13f34ea`, `612a1e9`, `d724b32`, and `9e5dca4`.
 
 ## Files Changed
+- Club Pro & Kokko Kamado Affiliation (`9e5dca4`): `index.html`, `data/guide.html`, `guides/maitriser-le-kamado/index.html`, `sw.js` (v44).
 - Kamado Thermals™ Engine (`d724b32`): `scripts/kamado-thermals.js`, `tests/kamado-thermals.test.js`, `index.html`, `sw.js` (v43), `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`, `tests/pwa.test.js`.
 - Internationalization & UI Language Switcher (`612a1e9`): `index.html`, `sw.js` (v42), `scripts/i18n.js`, `tests/i18n.test.js`, `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`.
 - Recipes and Quality Audit (`13f34ea`): `index.html`, `data/recipes.json`, `recettes/`, `scripts/audit-recipe-quality.js`, `scripts/reports/recipe-quality-audit.json`, `scripts/reports/recipe-quality-audit.md`.
