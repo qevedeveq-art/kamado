@@ -1,10 +1,15 @@
-"use strict";
+(function initI18n(root, factory) {
+  const api = factory();
+  if (typeof module === "object" && module.exports) module.exports = api;
+  if (root) root.KamadoI18n = api;
+})(typeof globalThis !== "undefined" ? globalThis : this, function i18nFactory() {
+  "use strict";
 
-/**
- * Kamado i18n Engine - Zero-dependency localization layer.
- * Supports French (canonical source) and English (international expansion).
- * Ready for German (de) and Dutch (nl) extensions.
- */
+  /**
+   * Kamado i18n Engine - Zero-dependency localization layer.
+   * Supports French (canonical source) and English (international expansion).
+   * Ready for German (de) and Dutch (nl) extensions.
+   */
 
 const SUPPORTED_LANGUAGES = ["fr", "en"];
 const DEFAULT_LANGUAGE = "fr";
@@ -245,22 +250,15 @@ function translateMode(modeName, lang = getLanguage()) {
   return (dict.modes && dict.modes[modeName]) || modeName;
 }
 
-const api = {
-  SUPPORTED_LANGUAGES,
-  DEFAULT_LANGUAGE,
-  DICTIONARY,
-  getLanguage,
-  setLanguage,
-  resolveLanguage,
-  t,
-  translateCategory,
-  translateMode
-};
-
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = api;
-}
-
-if (typeof window !== "undefined") {
-  window.KamadoI18n = api;
-}
+  return {
+    SUPPORTED_LANGUAGES,
+    DEFAULT_LANGUAGE,
+    DICTIONARY,
+    getLanguage,
+    setLanguage,
+    resolveLanguage,
+    t,
+    translateCategory,
+    translateMode
+  };
+});

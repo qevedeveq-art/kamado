@@ -12251,8 +12251,7 @@ function initClubProModal() {
       b.onclick = () => {
         const brand = b.getAttribute("data-brand");
         if (window.KamadoBrandConfig) {
-          const preset = window.KamadoBrandConfig.applyBrandPreset(brand);
-          toast(`Mode constructeur activé : ${preset.brandName}`);
+          window.KamadoBrandConfig.applyBrandPreset(brand);
         }
       };
     });
