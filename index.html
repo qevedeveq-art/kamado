@@ -2990,9 +2990,37 @@ body.outdoor-mode .modal.open .sheet {
 .chip.chip-mine { border-color: var(--accent2); color: var(--accent2); }
 .chip.chip-mine.active { background: var(--accent2); color: #161813; border-color: var(--accent2); }
 
+/* Actions Header & Bouton Langue */
+.header-actions {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text, #e8ede4);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+.btn-lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent2, #f2a93b);
+  transform: translateY(-1px);
+}
+.btn-lang-toggle:active { transform: scale(0.96); }
+
 /* Bouton Nouvelle Recette Header */
 .btn-new-recipe {
-  margin-left: auto;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -4539,11 +4567,16 @@ table td.t-temp, table td.t-coeur {
     <span class="flame">🔥</span>
     <span class="ember-spark" aria-hidden="true"></span>
     <div><h1>Livre de recettes Kamado</h1><small>L'art de la cuisson en céramique · Guide & Recettes</small></div>
-    <button id="btnNewRecipe" class="btn-new-recipe" title="Créer une nouvelle recette">
-      <span>➕</span>
-      <span class="btn-text-long">Nouvelle recette</span>
-      <span class="btn-text-short">Recette</span>
-    </button>
+    <div class="header-actions">
+      <button id="btnLangToggle" class="btn-lang-toggle" title="Switch to English / Passer en français" aria-label="Langue / Language">
+        <span class="lang-flag">🇬🇧</span> <span class="lang-code">EN</span>
+      </button>
+      <button id="btnNewRecipe" class="btn-new-recipe" title="Créer une nouvelle recette">
+        <span>➕</span>
+        <span class="btn-text-long">Nouvelle recette</span>
+        <span class="btn-text-short">Recette</span>
+      </button>
+    </div>
   </div>
   <div class="quickstats" id="quickstats"></div>
   <div class="search">
@@ -4939,6 +4972,7 @@ const { encryptVault, decryptVault } = window.KamadoLocalVault;
 const { normalizeCookingProfile, scoreRecipePreference } = window.KamadoPersonalization;
 const { getProbeSupport, createProbeState, hydrateProbeState, applyProbeReading, createProbeSimulator, nextSimulatorReadings, latestReadingsForCook } = window.KamadoProbeAdapter;
 const { combustionReadingsFromStatus, openCombustionProbeConnection } = window.KamadoCombustionProbe;
+const { getLanguage, setLanguage, t, translateCategory, translateMode } = window.KamadoI18n || {};
 const CATS = [{id:"all",nom:"Tout",e:"🍴"},{id:"boeuf",nom:"Bœuf",e:"🥩"},{id:"porc",nom:"Porc",e:"🐖"},{id:"volaille",nom:"Volaille",e:"🍗"},{id:"agneau",nom:"Agneau & Gibier",e:"🐑"},{id:"poisson",nom:"Poissons & Mer",e:"🐟"},{id:"legumes",nom:"Légumes & Sides",e:"🥗"},{id:"pizza",nom:"Pizzas & Pains",e:"🍕"},{id:"monde",nom:"Cuisines du monde",e:"🌍"},{id:"dessert",nom:"Desserts",e:"🍮"},{id:"vegetarien",nom:"Végétarien",e:"🌱"},{id:"sauces",nom:"Sauces & Marinades",e:"🧂"}];
 
 const RECIPES = [
@@ -12928,10 +12962,12 @@ function renderQuickChips(){
 /* ---- chips catégories ---- */
 function renderChips(){
   const myCount = RECIPES.filter(r=>r._custom||r._modified).length;
+  const lang = window.KamadoI18n ? window.KamadoI18n.getLanguage() : "fr";
   $("#chips").innerHTML=CATS.filter(c=>c.id!=="sauces").map(c=>{
     const n=c.id==="all"?cookingRecipes().length:RECIPES.filter(r=>r.cat===c.id).length;
-    return `<div class="chip ${c.id===curCat&&!myOnly?'active':''}" data-cat="${c.id}">${c.e} ${c.nom}${c.id!=='all'?` <span style="opacity:.6">${n}</span>`:''}</div>`;
-  }).join("") + (myCount>0 ? `<div class="chip chip-mine ${myOnly?'active':''}" data-cat="mine">👤 Mes créations <span style="opacity:.6">${myCount}</span></div>` : '');
+    const catNom = window.KamadoI18n ? window.KamadoI18n.translateCategory(c.id, lang) : c.nom;
+    return `<div class="chip ${c.id===curCat&&!myOnly?'active':''}" data-cat="${c.id}">${c.e} ${catNom}${c.id!=='all'?` <span style="opacity:.6">${n}</span>`:''}</div>`;
+  }).join("") + (myCount>0 ? `<div class="chip chip-mine ${myOnly?'active':''}" data-cat="mine">👤 ${lang==='en'?'My recipes':'Mes créations'} <span style="opacity:.6">${myCount}</span></div>` : '');
   $$("#chips .chip").forEach(ch=>ch.onclick=()=>{
     if(ch.dataset.cat==="mine"){
       myOnly=!myOnly;
@@ -15698,6 +15734,58 @@ $$(".tab").forEach((t,i,arr)=>{
   });
 });
 
+/* ---- internationalisation UI ---- */
+function applyLanguage(lang) {
+  const i18n = window.KamadoI18n;
+  if (!i18n) return;
+  const current = i18n.setLanguage(lang);
+  document.documentElement.lang = current;
+  const btn = $("#btnLangToggle");
+  if (btn) {
+    if (current === "en") {
+      btn.innerHTML = `<span class="lang-flag">🇫🇷</span> <span class="lang-code">FR</span>`;
+      btn.title = "Passer en français";
+      btn.setAttribute("aria-label", "Passer en français");
+    } else {
+      btn.innerHTML = `<span class="lang-flag">🇬🇧</span> <span class="lang-code">EN</span>`;
+      btn.title = "Switch to English";
+      btn.setAttribute("aria-label", "Switch to English");
+    }
+  }
+  const brandTitle = $(".brand h1");
+  if (brandTitle) brandTitle.textContent = i18n.t("app.title", {}, current);
+  const brandSmall = $(".brand small");
+  if (brandSmall) brandSmall.textContent = i18n.t("app.subtitle", {}, current);
+  const btnTextLong = $(".btn-new-recipe .btn-text-long");
+  if (btnTextLong) btnTextLong.textContent = i18n.t("app.new_recipe", {}, current);
+  const btnTextShort = $(".btn-new-recipe .btn-text-short");
+  if (btnTextShort) btnTextShort.textContent = i18n.t("app.new_recipe_short", {}, current);
+  const searchInput = $("#q");
+  if (searchInput) searchInput.placeholder = i18n.t("app.search_placeholder", {}, current);
+  const searchSyntax = $("#searchSyntax");
+  if (searchSyntax) searchSyntax.innerHTML = i18n.t("app.search_syntax", {}, current);
+
+  $$(".tab").forEach(tab => {
+    const key = tab.dataset.tab;
+    if (key) {
+      const tabKeyMap = { recettes: "recipes", menus: "menus", bases: "bases", guide: "guide", temp: "temp", vins: "vins", assistant: "assistant", donnees: "donnees" };
+      tab.textContent = i18n.t(`tabs.${tabKeyMap[key] || key}`, {}, current);
+    }
+  });
+
+  renderChips();
+  renderList();
+}
+
+const btnLangToggle = $("#btnLangToggle");
+if (btnLangToggle) {
+  btnLangToggle.onclick = () => {
+    const cur = window.KamadoI18n ? window.KamadoI18n.getLanguage() : "fr";
+    const next = cur === "fr" ? "en" : "fr";
+    applyLanguage(next);
+  };
+}
+
 /* ---- gestionnaires éditeur de recette ---- */
 const btnNewRecipe = $("#btnNewRecipe");
 if(btnNewRecipe) btnNewRecipe.onclick = () => openRecipeEditor();
@@ -16040,6 +16128,7 @@ renderAssistant();
 renderMenuBuilder();
 renderBases();
 renderDataTools();
+if (window.KamadoI18n) applyLanguage(window.KamadoI18n.getLanguage());
 renderStats();renderChips();renderFilterBar();renderSmartBar();renderHistory();renderEditorialCollections();renderActiveCookBanner();renderList();
 importHashTransfer();
 openRecipeFromLocation();
