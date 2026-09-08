@@ -44,7 +44,14 @@ L'application est conçue pour être **ultra-rapide, 100 % utilisable hors-ligne
   * **Maintien de l'écran allumé automatique** (Screen Wake Lock API) pour éviter toute mise en veille.
   * **Alertes sonores et retour haptique** (vibrations smartphone à l'échéance).
 
-La connexion à une sonde physique reste volontairement désactivée sans protocole fabricant documenté. La saisie manuelle et le simulateur fonctionnent sur tous les navigateurs ; un futur adaptateur pourra se brancher sur le même contrat sans enfermer l'application dans une marque.
+La connexion physique n'est activée que pour un protocole fabricant documenté. La saisie manuelle et le simulateur restent universels ; chaque futur matériel pourra se brancher sur le même contrat sans enfermer l'application dans une marque.
+
+#### Matériel connecté pris en charge
+
+* **Combustion Predictive Thermometer — bêta** : connexion directe et volontaire via Web Bluetooth, décodage local des huit capteurs, cœur virtuel injecté dans le Cook Engine, surface et ambiance affichées séparément. L'adaptateur suit les données officielles mais doit encore être confirmé sur un appareil physique.
+* Le dôme reste une mesure distincte : la température ambiante près de l'aliment n'est jamais présentée automatiquement comme celle du thermomètre de couvercle.
+* Aucun compte, cloud ou SDK distant n'est nécessaire. L'intégration suit la [spécification BLE publique du fabricant](https://github.com/combustion-inc/combustion-documentation) et son [SDK Android sous licence MIT](https://github.com/combustion-inc/combustion-android-ble).
+* Sur un navigateur sans Web Bluetooth, le bouton matériel est désactivé et la saisie manuelle reste disponible.
 
 ### Confidentialité locale et personnalisation optionnelle
 
@@ -107,7 +114,7 @@ L'application fonctionne à 100 % hors connexion grâce aux Service Workers :
 Le projet intègre des contrôles automatisés sur les données, l'expertise culinaire, la PWA et ses parcours critiques :
 
 ```bash
-npm test                    # 90 tests natifs (node --test)
+npm test                    # 97 tests natifs (node --test)
 npm run audit               # Données, métier, éditorial/SEO et budget PWA
 npm run audit:editorial     # Fiches canoniques, guides, sitemap et robots
 npm run audit:quality       # Revue transverse de la qualité des recettes

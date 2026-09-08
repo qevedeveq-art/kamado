@@ -14,6 +14,7 @@ const limits = {
   "scripts/local-vault.js": 15 * 1024,
   "scripts/personalization.js": 10 * 1024,
   "scripts/probe-adapter.js": 15 * 1024,
+  "scripts/combustion-probe.js": 15 * 1024,
   "assets/editorial.css": 20 * 1024,
   "recettes/index.html": 500 * 1024
 };

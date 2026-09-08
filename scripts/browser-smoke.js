@@ -74,7 +74,18 @@ async function main() {
     await page.locator("#cockpitOverlay:not(.hide)").waitFor();
     assert.equal(await page.locator("#cockpitOverlay").getAttribute("aria-hidden"), "false");
     assert.equal(await page.locator("#cpStepTitle").textContent(), "Chauffe indirecte");
-    assert.match(await page.locator("#cpProbeCapability").textContent(), /(?:Saisie manuelle et simulateur disponibles|Bluetooth disponible.+adaptateur fabricant requis)/);
+    assert.match(await page.locator("#cpProbeCapability").textContent(), /(?:Saisie manuelle et simulateur disponibles|Bluetooth disponible.+Combustion bêta disponible)/);
+    assert.equal(await page.locator("#cpProbeConnectCombustion").isDisabled(), !await page.evaluate(() => Boolean(navigator.bluetooth)));
+    await page.evaluate(() => {
+      const packet = new Uint8Array(30);
+      packet.set([0x89, 0x00, 0xDA, 0x00, 0xD7, 0x0D, 0x07, 0x33, 0x05, 0xD5, 0x18, 0x74, 0x1A], 8);
+      packet[21] = 0b101_110_01;
+      packet[22] = 0b10_11_101_1;
+      ingestCombustionStatus(window.KamadoCombustionProbe.decodeCombustionProbeStatus(packet), { id: "smoke-probe", name: "Combustion test" });
+    });
+    assert.equal(await page.locator("#cpObservedDome").inputValue(), "");
+    assert.equal(await page.locator("#cpObservedCore").inputValue(), "114.5");
+    assert.match(await page.locator("#cpProbeLive").textContent(), /Ambiance : 189\.75 °C/);
     page.once("dialog", dialog => dialog.accept());
     await page.locator("#cpProbeSimulate").click();
     assert.equal(await page.locator("#cpObservedDome").inputValue(), "98");

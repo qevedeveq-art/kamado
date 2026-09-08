@@ -38,12 +38,19 @@
   - Universal manual entry remains available and a confirmation-gated simulator feeds dôme/cœur readings into the existing cautious guidance.
   - Web Bluetooth support is detected without requesting device permissions; physical pairing waits for a verified manufacturer adapter.
   - Runtime is precached, included in the Capacitor bundle and covered by native plus Chromium tests.
+- Phase 4 Combustion adapter implemented locally (not yet committed or pushed):
+  - First physical integration targets Combustion Predictive Thermometer in beta using the manufacturer-published Probe Status service and characteristic; physical-device validation remains pending.
+  - Local decoder reads all eight packed thermistors and resolves the manufacturer-selected virtual core, surface and ambient sensors.
+  - Web Bluetooth pairing is user-initiated and service-filtered; notifications update the cockpit without automatically writing every sample into the cook journal.
+  - Live display remains responsive while local persistence is throttled to one write per five seconds.
+  - Virtual core feeds the core field, while surface and ambient remain visibly distinct from the kamado dome reading.
+  - Partial GATT failures and manual disconnects release listeners/connections; malformed or truncated packets fail closed.
 - Major Feature Suite 3 Deployed:
   - 🚨 SOS & Dépannage Express Kamado (`#sosModal`): Interactive urgent troubleshooter for runaway temperature, dropping heat, acrid white smoke, pizza base burn, long stall, and flashback flare-ups with immediate action plans.
   - 📲 Instant QR Code Sharing (`#qrModal`): Zero-dependency pure JavaScript SVG QR code generator embedded in recipe modals, allowing guests and friends to scan and open any recipe instantly on their devices.
   - ⚖️ Rub Builder & Precision Salt Calculator: Meat weight-based spice and kosher salt calculator enforcing the 1.0–1.1% salt baseline across Texas Dalmatian, Memphis Sweet & Smoky, and Provençal poultry rub profiles.
   - 📖 Mon Journal de Braises: Consolidated global cook journal in Assistant tab gathering all cook logs across recipes with wood used, core temperatures, personal ratings, and notes.
-- 90 tests passing natively via `node --test 'tests/*.test.js'`.
+- 97 tests passing natively via `node --test 'tests/*.test.js'`.
 - All métier audits plus the PWA performance budget pass (Data, Kamado Expert, Chef Reviewer, Sommelier, app shell).
 - Phase 0 production Lighthouse baseline: performance 94, accessibility 100 and best practices 100.
 - GitHub Pages incident resolved on 2026-09-06: the repository privacy change had disabled Pages on the current GitHub plan.
@@ -51,6 +58,9 @@
 - Pages deployment #76 completed successfully; `index.html`, `manifest.webmanifest`, and `sw.js` return HTTP 200 at `https://qevedeveq-art.github.io/kamado/`.
 
 ## Last Commands
+- `npm test` (97/97), `npm run audit`, `npm run audit:quality`, and `node scripts/extract-data.js` all passed for the Combustion increment.
+- `NODE_PATH=/private/tmp/kamado-e2e-phase0/node_modules node scripts/browser-smoke.js` passed with the official temperature fixture mapped into the cockpit.
+- Headless Chromium visual review at 390 × 844 confirmed the expanded hardware controls remain readable and scrollable.
 - GitHub Actions `34211295814` (Data audit) and `34211295406` (Pages), both successful.
 - Production checks confirmed the probe cockpit, `sw.js` v39 and `scripts/probe-adapter.js` are live.
 - `node --test tests/probe-adapter.test.js tests/data.test.js tests/pwa.test.js` (30/30 after collision/unit hardening)
@@ -85,6 +95,9 @@
 - Production HTTP checks for the app, expert search, canonical recipe, guide index and sitemap (all 200)
 
 ## Files Changed
+- Phase 4 Combustion runtime/UI: `index.html`, `scripts/combustion-probe.js`, `sw.js` (v40).
+- Phase 4 Combustion verification/packaging: `tests/combustion-probe.test.js`, `tests/data.test.js`, `tests/pwa.test.js`, `scripts/browser-smoke.js`, `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`.
+- Phase 4 Combustion documentation/state: `README.md`, `.agents/memory.md`, `.agents/handoff.md`.
 - Phase 4 runtime/UI: `index.html`, `scripts/probe-adapter.js`, `sw.js`.
 - Phase 4 verification/packaging: `tests/probe-adapter.test.js`, `tests/data.test.js`, `tests/pwa.test.js`, `scripts/browser-smoke.js`, `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`.
 - Phase 4 documentation/state: `README.md`, `.agents/memory.md`, `.agents/handoff.md`.
@@ -102,7 +115,7 @@
 - Documentation/state: `README.md`, `.agents/memory.md`, `.agents/handoff.md`, `package.json`.
 
 ## Next Steps
-- Review a documented probe protocol and add the first opt-in manufacturer adapter behind the vendor-neutral Phase 4 contract; keep manual and simulator fallbacks universal.
+- Validate the Combustion adapter with a physical thermometer on a Web Bluetooth browser; then add device-specific reconnection UX or select a second manufacturer with a published protocol.
 - A future sync increment may add a user-chosen remote storage adapter; never upload vaults automatically or require an account.
 - Submit/inspect `https://qevedeveq-art.github.io/kamado/sitemap.xml` in Google Search Console if the owner chooses to connect it.
 
