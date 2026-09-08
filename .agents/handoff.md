@@ -47,6 +47,7 @@
   - Partial GATT failures and manual disconnects release listeners/connections; malformed or truncated packets fail closed.
 - Approved Exit & Reference Roadmap (2026-09-08):
   - Strategic 4-phase evolution plan created and approved: Phase 1 Global expansion (i18n, Google Recipe Schema, Stores), Phase 2 Hardware & Kamado Thermals™ predictive engine, Phase 3 Monetization & Pro Club, Phase 4 M&A Packaging & Exit.
+  - Priority Quality Milestone 1.0 added: Systematic 269-recipe audit (6 strict criteria: dome thermal band vs mode, structured phases & timers, USDA core temps, charcoal kg & wood, rest & seasoning rules, EU allergens & sommelier pairings) targeting 0 warnings.
 - Global Expansion (Phase 1.1) i18n Foundation Implemented:
   - Pure JavaScript zero-dependency localization engine `scripts/i18n.js` with bilingual FR/EN dictionaries.
   - Categorized translations for cooking modes, ingredients categories, outdoor cockpit, assistant tools, encrypted vault and search.
