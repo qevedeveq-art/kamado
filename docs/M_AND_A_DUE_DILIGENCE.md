@@ -2,9 +2,10 @@
 
 > **Statut** : Clés en main (Production Ready)  
 > **Date d'audit** : Septembre 2026  
-> **Version** : 1.22.0 (Service Worker v45)  
-> **Couverture de tests** : 112/112 tests natifs réussis (100 %)  
+> **Version** : 1.23.0 (Service Worker v46)  
+> **Couverture de tests** : 118/118 tests natifs réussis (100 %)  
 > **Audits qualité & sécurité** : 0 anomalie, 0 avertissement sur 269 recettes  
+> **Internationalisation** : 100 % bilingue FR / EN (menus & 269 recettes)  
 
 ---
 
@@ -76,16 +77,17 @@ L'ensemble des actifs respecte un budget de performance rigoureusement contrôl�
 
 | Composant | Fichier | Taille actuelle | Plafond strict | Statut |
 | :--- | :--- | :--- | :--- | :--- |
-| **Application Core** | `index.html` | 938 063 octets | 950 Ko (972 800 o) | **CONFORME** |
-| **Manifest PWA** | `manifest.webmanifest` | 1 512 octets | 10 Ko | **CONFORME** |
+| **Application Core** | `index.html` | 947 037 octets | 950 Ko (972 800 o) | **CONFORME** |
+| **Dictionnaire 269 Recettes EN** | `scripts/recipes-i18n.js` | 52 434 octets | 75 Ko | **CONFORME** |
+| **Moteur i18n UI** | `scripts/i18n.js` | 20 160 octets | 25 Ko | **CONFORME** |
 | **Moteur Thermique** | `scripts/kamado-thermals.js` | 10 207 octets | 15 Ko | **CONFORME** |
-| **Sondes BLE** | `scripts/combustion-probe.js` | 6 257 octets | 15 Ko | **CONFORME** |
-| **Adaptateur Sondes** | `scripts/probe-adapter.js` | 6 592 octets | 15 Ko | **CONFORME** |
 | **Moteur de Cuisson** | `scripts/cook-engine.js` | 10 772 octets | 20 Ko | **CONFORME** |
+| **Adaptateur Sondes** | `scripts/probe-adapter.js` | 6 592 octets | 15 Ko | **CONFORME** |
+| **Sondes BLE Combustion** | `scripts/combustion-probe.js` | 6 257 octets | 15 Ko | **CONFORME** |
 | **Coffre Chiffré** | `scripts/local-vault.js` | 5 904 octets | 15 Ko | **CONFORME** |
 | **Recherche Éditoriale**| `scripts/editorial-search.js` | 5 102 octets | 15 Ko | **CONFORME** |
-| **Moteur i18n** | `scripts/i18n.js` | 8 304 octets | 15 Ko | **CONFORME** |
 | **Configuration OEM** | `scripts/brand-config.js` | 3 054 octets | 10 Ko | **CONFORME** |
+| **Manifest PWA** | `manifest.webmanifest` | 1 512 octets | 10 Ko | **CONFORME** |
 | **Styles Éditoriaux** | `assets/editorial.css` | 5 936 octets | 20 Ko | **CONFORME** |
 
 ---
@@ -160,7 +162,7 @@ Pour un fabricant de kamados ou un acteur du barbecue haut de gamme (ex: **Kokko
 ## 6. Synthèse des Tests & Commandes de Validation
 
 ```bash
-# Vérification de l'intégralité de la suite de tests natifs (112 tests)
+# Vérification de l'intégralité de la suite de tests natifs (118 tests)
 npm test
 
 # Exécution de la suite complète d'audits (données, expert, chef, sommelier, seo, performance)
