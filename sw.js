@@ -1,4 +1,4 @@
-const VERSION = "v43";
+const VERSION = "v44";
 const APP_CACHE = `kamado-app-${VERSION}`;
 
 const APP_SHELL = [

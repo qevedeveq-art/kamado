@@ -2997,6 +2997,36 @@ body.outdoor-mode .modal.open .sheet {
   align-items: center;
   gap: 8px;
 }
+.btn-club-pro {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: linear-gradient(135deg, rgba(242,169,59,0.18) 0%, rgba(231,90,30,0.22) 100%);
+  color: var(--accent2, #f2a93b);
+  border: 1px solid rgba(242,169,59,0.45);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+.btn-club-pro:hover {
+  background: linear-gradient(135deg, rgba(242,169,59,0.3) 0%, rgba(231,90,30,0.35) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(242,169,59,0.3);
+}
+.btn-club-pro.is-pro {
+  background: linear-gradient(135deg, #f2a93b 0%, #e75a1e 100%);
+  color: #1a1714;
+  border-color: transparent;
+  box-shadow: 0 2px 10px rgba(242,169,59,0.4);
+}
+@media (max-width: 600px) {
+  .btn-club-pro .btn-pro-text { display: none; }
+}
+
 .btn-lang-toggle {
   display: inline-flex;
   align-items: center;
@@ -3050,6 +3080,95 @@ body.outdoor-mode .modal.open .sheet {
   .btn-new-recipe .btn-text-long { display: inline; }
   .btn-new-recipe .btn-text-short { display: none; }
 }
+
+/* Modale Club Pro & Matériel */
+.pro-sheet {
+  max-width: 760px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid rgba(242,169,59,0.35);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(242,169,59,0.15);
+}
+.pro-content { padding: 8px 4px 20px; }
+.pro-banner {
+  background: linear-gradient(135deg, rgba(242,169,59,0.15) 0%, rgba(231,90,30,0.2) 100%);
+  border: 1px solid rgba(242,169,59,0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.pro-badge-lg {
+  display: inline-block;
+  background: linear-gradient(135deg, #f2a93b 0%, #e75a1e 100%);
+  color: #161813;
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+.pro-banner h3 { margin: 0 0 6px; font-size: 18px; color: #fff; }
+.pro-banner p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+.pro-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.pro-feature-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 14px;
+}
+.pro-feat-icon { font-size: 22px; margin-bottom: 6px; display: block; }
+.pro-feature-card h4 { margin: 0 0 4px; font-size: 14px; color: var(--accent2, #f2a93b); }
+.pro-feature-card p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.4; }
+.pro-activation-box {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pro-status-text { font-size: 13px; color: #ddd; }
+.pro-actions-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.partner-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.partner-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.partner-logo { font-size: 24px; }
+.partner-head h4 { margin: 0; font-size: 14px; color: #fff; }
+.partner-head small { color: var(--muted); font-size: 11.5px; }
+.partner-link-btn {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent2);
+  text-decoration: none;
+  background: rgba(242,169,59,0.12);
+  border: 1px solid rgba(242,169,59,0.3);
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.partner-link-btn:hover { background: rgba(242,169,59,0.25); }
+.partner-card p { margin: 0 0 10px; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+.partner-tags { display: flex; gap: 6px; flex-wrap: wrap; }
 
 /* Boutons d'action avancés dans la fiche recette */
 .actbtn.primary-act { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 700; }
@@ -4568,6 +4687,9 @@ table td.t-temp, table td.t-coeur {
     <span class="ember-spark" aria-hidden="true"></span>
     <div><h1>Livre de recettes Kamado</h1><small>L'art de la cuisson en céramique · Guide & Recettes</small></div>
     <div class="header-actions">
+      <button id="btnClubPro" class="btn-club-pro" title="Kamado Club Pro & Matériel d'Exception">
+        <span>⭐</span> <span class="btn-pro-text">Club Pro</span>
+      </button>
       <button id="btnLangToggle" class="btn-lang-toggle" title="Switch to English / Passer en français" aria-label="Langue / Language">
         <span class="lang-flag">🇬🇧</span> <span class="lang-code">EN</span>
       </button>
@@ -4740,6 +4862,87 @@ table td.t-temp, table td.t-coeur {
   </div>
 </div>
 
+
+<!-- CLUB PRO & ÉQUIPEMENT MODAL -->
+<div class="modal" id="clubProModal" role="dialog" aria-modal="true" aria-labelledby="clubProTitle">
+  <div class="sheet pro-sheet">
+    <div class="sheet-head">
+      <button class="back" id="clubProClose" title="Fermer" aria-label="Fermer">✕</button>
+      <h2 id="clubProTitle">⭐ Kamado Club Pro &amp; Matériel d'Exception</h2>
+    </div>
+    <div class="pro-content">
+      <div class="pro-banner">
+        <div class="pro-badge-lg">CLUB PRO</div>
+        <h3>L'expérience ultime de la cuisson au feu de bois</h3>
+        <p>Débloquez le cockpit prédictif avancé, la télémétrie multi-sondes sans fil et les remises exclusives auprès de nos partenaires artisans.</p>
+      </div>
+
+      <div class="pro-features-grid">
+        <div class="pro-feature-card">
+          <span class="pro-feat-icon">🔥</span>
+          <h4>Kamado Thermals™ Temps Réel</h4>
+          <p>Algorithme d'anticipation de l'inertie céramique, alertes de tirage d'évents et détection automatique du stall (Texas crutch).</p>
+        </div>
+        <div class="pro-feature-card">
+          <span class="pro-feat-icon">📡</span>
+          <h4>Cockpit Multi-Sondes 4 Canaux</h4>
+          <p>Supervision simultanée dôme, cœur, surface et ambiance pour sondes Combustion Inc. et Meater sans fil.</p>
+        </div>
+        <div class="pro-feature-card">
+          <span class="pro-feat-icon">🔐</span>
+          <h4>Coffre Chiffré &amp; Restauration</h4>
+          <p>Sauvegarde automatique chiffrée AES-256-GCM local-first avec clés dérivées PBKDF2 sans compte obligatoire.</p>
+        </div>
+        <div class="pro-feature-card">
+          <span class="pro-feat-icon">📑</span>
+          <h4>Fiches Pitmaster PDF Pro</h4>
+          <p>Génération de fiches techniques haute définition prêtes à imprimer et plastifier pour votre cuisine d'extérieur.</p>
+        </div>
+      </div>
+
+      <div class="pro-activation-box">
+        <div id="proStatusText" class="pro-status-text">Statut actuel : <b>Version Standard Gratuite</b></div>
+        <div class="pro-actions-row">
+          <button id="btnActivateProDemo" class="actbtn primary-act">⭐ Activer mon Pass Pro (Démo / Licence)</button>
+          <a href="https://www.kokko.fr" target="_blank" rel="noopener" class="actbtn warn-act">Découvrir le matériel Kokko Kamado ➔</a>
+        </div>
+      </div>
+
+      <div class="partners-section">
+        <h3 style="color:#fff;margin:0 0 14px;font-size:16px">🪵 Matériel d'Exception &amp; Partenaires Recommandés</h3>
+        <div class="partner-card">
+          <div class="partner-head">
+            <span class="partner-logo">🇫🇷</span>
+            <div>
+              <h4>Kokko Kamado — Céramique Française Haute Densité</h4>
+              <small>Le fabricant français de référence pour la cuisson au kamado</small>
+            </div>
+            <a href="https://www.kokko.fr" target="_blank" rel="noopener" class="partner-link-btn">Visiter Kokko.fr ➔</a>
+          </div>
+          <p>Conçu pour durer toute une vie : céramique haute densité ultra-résistante, charnières et cerclages en acier inoxydable marin 304, plancha en fonte demi-lune réversible, panier à charbon inox haute ventilation et chariot tout-terrain.</p>
+          <div class="partner-tags">
+            <span class="pill">Céramique garantie à vie</span>
+            <span class="pill">Inox marin 304</span>
+            <span class="pill">Plancha fonte</span>
+            <span class="pill">Conception française</span>
+          </div>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-head">
+            <span class="partner-logo">🌡️</span>
+            <div>
+              <h4>Combustion Inc. — Thermomètre Prédictif 8 Capteurs</h4>
+              <small>Précision scientifique sans fil pour la cuisson au feu</small>
+            </div>
+            <a href="https://combustion.inc" target="_blank" rel="noopener" class="partner-link-btn">Découvrir ➔</a>
+          </div>
+          <p>Le premier thermomètre sans fil doté de 8 capteurs thermiques intégrés, capable d'identifier le vrai cœur de la viande, le gradient de surface et la température de dôme sans interférence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- SOS KAMADO MODAL -->
 <div class="modal" id="sosModal" role="dialog" aria-modal="true" aria-labelledby="sosTitle">
@@ -11087,6 +11290,19 @@ const GUIDE = `
     <li><b>Aérodynamisez la pièce.</b> Coupez les morceaux de viande trop fins ou qui pendent, et arrondissez les angles pour éviter qu'ils ne brûlent sous le flux de chaleur.</li>
   </ol>
 </div>
+
+<h2>9. Matériel d'Exception &amp; Fabricants Recommandés</h2>
+<div class="callout" style="border-color:var(--accent2)">
+  <h3>🇫🇷 Kokko Kamado — Céramique Française Haute Densité</h3>
+  <p>Concepteur et fabricant français de kamados d'exception. La céramique haute densité Kokko offre une rétention thermique supérieure et une étanchéité remarquable grâce à des cerclages en acier inoxydable marin 304 et des joints en fibre d'acier tressée inusables.</p>
+  <p><b>Accessoires indispensables signés Kokko :</b></p>
+  <ul class="steps-min">
+    <li><b>Plancha réversible en fonte demi-lune</b> : une face striée pour marquer viandes et poissons, une face lisse pour smashed burgers et légumes grillés.</li>
+    <li><b>Panier à charbon inox haute ventilation</b> : facilite le secouage des cendres et optimise le tirage d'air pour une montée en chauffe 2x plus rapide.</li>
+    <li><b>Déflecteurs céramiques demi-lune</b> : permettent de cuisiner en 2 zones (directe et indirecte) simultanément.</li>
+  </ul>
+  <p style="margin-top:10px"><a href="https://www.kokko.fr" target="_blank" rel="noopener" style="color:var(--accent2);font-weight:700;text-decoration:underline">Découvrir la gamme complète sur Kokko.fr ➔</a></p>
+</div>
 `;
 const TEMP = `
 <div class="callout" style="border-color:var(--green)">
@@ -11960,6 +12176,65 @@ function initSOSModal(){
 
   btn.onclick = () => { modal.classList.add("open"); document.body.style.overflow = "hidden"; };
   close.onclick = () => { modal.classList.remove("open"); document.body.style.overflow = ""; };
+}
+
+/* ===== CLUB PRO & MATÉRIEL MODAL ===== */
+function updateProUI() {
+  const isPro = localStorage.getItem("kamado_pro_status") === "active";
+  const btn = $("#btnClubPro");
+  if (btn) {
+    btn.classList.toggle("is-pro", isPro);
+    const textEl = btn.querySelector(".btn-pro-text");
+    if (textEl) textEl.textContent = isPro ? "Membre Pro" : "Club Pro";
+  }
+  const statusEl = $("#proStatusText");
+  if (statusEl) {
+    statusEl.innerHTML = isPro
+      ? `Statut actuel : <b style="color:var(--accent2)">⭐ Pass Club Pro Actif</b> (Toutes les fonctionnalités avancées sont débloquées)`
+      : `Statut actuel : <b>Version Standard Gratuite</b>`;
+  }
+  const demoBtn = $("#btnActivateProDemo");
+  if (demoBtn) {
+    demoBtn.textContent = isPro ? "Désactiver le Pass Pro" : "⭐ Activer mon Pass Pro (Démo / Licence)";
+  }
+}
+
+function initClubProModal() {
+  const btn = $("#btnClubPro");
+  const modal = $("#clubProModal");
+  const close = $("#clubProClose");
+  const demoBtn = $("#btnActivateProDemo");
+  if (!btn || !modal) return;
+
+  btn.onclick = () => {
+    updateProUI();
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  };
+  if (close) {
+    close.onclick = () => {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    };
+  }
+  modal.onclick = e => {
+    if (e.target.id === "clubProModal") {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  };
+  if (demoBtn) {
+    demoBtn.onclick = () => {
+      const isPro = localStorage.getItem("kamado_pro_status") === "active";
+      if (isPro) {
+        localStorage.removeItem("kamado_pro_status");
+      } else {
+        localStorage.setItem("kamado_pro_status", "active");
+      }
+      updateProUI();
+    };
+  }
+  updateProUI();
 }
 
 /* ===== QR CODE MODAL FOR RECIPES ===== */
@@ -15804,7 +16079,11 @@ if(edModal) edModal.onclick = e => { if(e.target.id === "editorModal") closeReci
 
 window.addEventListener("keydown", e => {
   if (e.key === "Escape") {
-    if (edModal && edModal.classList.contains("open")) {
+    const cpModal = $("#clubProModal");
+    if (cpModal && cpModal.classList.contains("open")) {
+      cpModal.classList.remove("open");
+      document.body.style.overflow = "";
+    } else if (edModal && edModal.classList.contains("open")) {
       closeRecipeEditor();
     } else if ($("#modal") && $("#modal").classList.contains("open")) {
       closeModal();
@@ -16124,6 +16403,7 @@ $("#temp").innerHTML = renderMeatTempVisualizer() + TEMP;
 initMeatTempVisualizer();
 applySunMode();
 initSOSModal();
+initClubProModal();
 $("#vins").innerHTML=VINS;
 initVinsExplorer();
 renderAssistant();
