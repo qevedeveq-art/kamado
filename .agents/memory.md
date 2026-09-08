@@ -25,6 +25,8 @@
 - First physical probe decision (2026-09-08): support Combustion Predictive Thermometer from its manufacturer-published BLE service and MIT SDK; request the device only after an explicit click, keep all decoding local, map the manufacturer virtual core to `core`, and never silently equate its near-food ambient sensor with the kamado dome thermometer.
 - Do not publish `Recipe` structured data until each indexed recipe has a representative finished-dish image; use honest `WebPage`, `Article`, `CollectionPage`, `ItemList` and breadcrumb markup in the meantime.
 - Expert search syntax supports quoted phrases, `-exclusions`, and the filters `cat:`, `mode:`, `bois:`, `source:`, `ingredient:` and `temp:`.
+- Commercial reference and exit roadmap (2026-09-08): build the global benchmark across 4 phases: global expansion (i18n, Google Recipe Schema, Stores), hardware & Kamado Thermals™ predictive engine, monetization (Club Pro Freemium + high-ticket affiliate), and M&A packaging for exit.
+- Internationalization architecture (2026-09-08): zero-dependency bilingual module `scripts/i18n.js` with FR (source) and EN (expansion) dictionaries, runtime interpolation, and localStorage language preference.
 - Defer a generic social network, marketplace, mandatory accounts, broad AI chatbot, and proprietary grill control until the core cooking experience and editorial authority are proven.
 
 ## Working Preferences

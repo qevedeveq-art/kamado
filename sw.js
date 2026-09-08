@@ -1,4 +1,4 @@
-const VERSION = "v40";
+const VERSION = "v41";
 const APP_CACHE = `kamado-app-${VERSION}`;
 
 const APP_SHELL = [
@@ -12,6 +12,7 @@ const APP_SHELL = [
   "./scripts/personalization.js",
   "./scripts/probe-adapter.js",
   "./scripts/combustion-probe.js",
+  "./scripts/i18n.js",
   "./icons/icon-180.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",

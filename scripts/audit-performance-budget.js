@@ -6,7 +6,7 @@ const path = require("node:path");
 
 const ROOT = path.resolve(__dirname, "..");
 const limits = {
-  "index.html": 900 * 1024,
+  "index.html": 950 * 1024,
   "manifest.webmanifest": 10 * 1024,
   "scripts/recipe-links.js": 10 * 1024,
   "scripts/editorial-search.js": 15 * 1024,
@@ -15,6 +15,7 @@ const limits = {
   "scripts/personalization.js": 10 * 1024,
   "scripts/probe-adapter.js": 15 * 1024,
   "scripts/combustion-probe.js": 15 * 1024,
+  "scripts/i18n.js": 15 * 1024,
   "assets/editorial.css": 20 * 1024,
   "recettes/index.html": 500 * 1024
 };

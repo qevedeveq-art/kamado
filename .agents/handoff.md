@@ -38,23 +38,29 @@
   - Universal manual entry remains available and a confirmation-gated simulator feeds dôme/cœur readings into the existing cautious guidance.
   - Web Bluetooth support is detected without requesting device permissions; physical pairing waits for a verified manufacturer adapter.
   - Runtime is precached, included in the Capacitor bundle and covered by native plus Chromium tests.
-- Phase 4 Combustion adapter implemented locally (not yet committed or pushed):
+- Phase 4 Combustion adapter committed (`5884b1f`):
   - First physical integration targets Combustion Predictive Thermometer in beta using the manufacturer-published Probe Status service and characteristic; physical-device validation remains pending.
   - Local decoder reads all eight packed thermistors and resolves the manufacturer-selected virtual core, surface and ambient sensors.
   - Web Bluetooth pairing is user-initiated and service-filtered; notifications update the cockpit without automatically writing every sample into the cook journal.
   - Live display remains responsive while local persistence is throttled to one write per five seconds.
   - Virtual core feeds the core field, while surface and ambient remain visibly distinct from the kamado dome reading.
   - Partial GATT failures and manual disconnects release listeners/connections; malformed or truncated packets fail closed.
+- Approved Exit & Reference Roadmap (2026-09-08):
+  - Strategic 4-phase evolution plan created and approved: Phase 1 Global expansion (i18n, Google Recipe Schema, Stores), Phase 2 Hardware & Kamado Thermals™ predictive engine, Phase 3 Monetization & Pro Club, Phase 4 M&A Packaging & Exit.
+- Global Expansion (Phase 1.1) i18n Foundation Implemented:
+  - Pure JavaScript zero-dependency localization engine `scripts/i18n.js` with bilingual FR/EN dictionaries.
+  - Categorized translations for cooking modes, ingredients categories, outdoor cockpit, assistant tools, encrypted vault and search.
+  - Dynamic parameter interpolation, locale detection with localStorage persistence.
+  - Precached in Service Worker `v41`, wired in `index.html`, Capacitor bundle and covered by unit tests (102 tests passing).
 - Major Feature Suite 3 Deployed:
   - 🚨 SOS & Dépannage Express Kamado (`#sosModal`): Interactive urgent troubleshooter for runaway temperature, dropping heat, acrid white smoke, pizza base burn, long stall, and flashback flare-ups with immediate action plans.
   - 📲 Instant QR Code Sharing (`#qrModal`): Zero-dependency pure JavaScript SVG QR code generator embedded in recipe modals, allowing guests and friends to scan and open any recipe instantly on their devices.
   - ⚖️ Rub Builder & Precision Salt Calculator: Meat weight-based spice and kosher salt calculator enforcing the 1.0–1.1% salt baseline across Texas Dalmatian, Memphis Sweet & Smoky, and Provençal poultry rub profiles.
   - 📖 Mon Journal de Braises: Consolidated global cook journal in Assistant tab gathering all cook logs across recipes with wood used, core temperatures, personal ratings, and notes.
-- 97 tests passing natively via `node --test 'tests/*.test.js'`.
+- 102 tests passing natively via `node --test 'tests/*.test.js'`.
 - All métier audits plus the PWA performance budget pass (Data, Kamado Expert, Chef Reviewer, Sommelier, app shell).
 - Phase 0 production Lighthouse baseline: performance 94, accessibility 100 and best practices 100.
-- GitHub Pages incident resolved on 2026-09-06: the repository privacy change had disabled Pages on the current GitHub plan.
-- Repository `qevedeveq-art/kamado` is PUBLIC again; Pages publishes from `main` at `/ (root)`.
+- Repository `qevedeveq-art/kamado` is PUBLIC; Pages publishes from `main` at `/ (root)`.
 - Pages deployment #76 completed successfully; `index.html`, `manifest.webmanifest`, and `sw.js` return HTTP 200 at `https://qevedeveq-art.github.io/kamado/`.
 
 ## Last Commands

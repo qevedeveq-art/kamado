@@ -38,6 +38,7 @@ test("service worker precaches every critical local PWA asset", () => {
     "./scripts/personalization.js",
     "./scripts/probe-adapter.js",
     "./scripts/combustion-probe.js",
+    "./scripts/i18n.js",
     "./icons/icon-180.png",
     "./icons/icon-192.png",
     "./icons/icon-512.png"
@@ -74,6 +75,7 @@ test("Capacitor bundle includes external runtime and editorial assets", () => {
     "scripts/personalization.js",
     "scripts/probe-adapter.js",
     "scripts/combustion-probe.js",
+    "scripts/i18n.js",
     "icons/icon-192.png",
     "assets/editorial.css",
     "recettes/cote-de-boeuf-reverse-sear/index.html",
