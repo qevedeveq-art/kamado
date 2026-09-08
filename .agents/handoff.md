@@ -47,12 +47,17 @@
   - Partial GATT failures and manual disconnects release listeners/connections; malformed or truncated packets fail closed.
 - Approved Exit & Reference Roadmap (2026-09-08):
   - Strategic 4-phase evolution plan created and approved: Phase 1 Global expansion (i18n, Google Recipe Schema, Stores), Phase 2 Hardware & Kamado Thermals™ predictive engine, Phase 3 Monetization & Pro Club, Phase 4 M&A Packaging & Exit.
-  - Priority Quality Milestone 1.0 added: Systematic 269-recipe audit (6 strict criteria: dome thermal band vs mode, structured phases & timers, USDA core temps, charcoal kg & wood, rest & seasoning rules, EU allergens & sommelier pairings) targeting 0 warnings.
-- Global Expansion (Phase 1.1) i18n Foundation Implemented:
-  - Pure JavaScript zero-dependency localization engine `scripts/i18n.js` with bilingual FR/EN dictionaries.
-  - Categorized translations for cooking modes, ingredients categories, outdoor cockpit, assistant tools, encrypted vault and search.
-  - Dynamic parameter interpolation, locale detection with localStorage persistence.
-  - Precached in Service Worker `v41`, wired in `index.html`, Capacitor bundle and covered by unit tests (102 tests passing).
+  - Systematic 269-Recipe Quality & Reliability Audit Completed (`13f34ea`):
+  - 100% of the 246 cooking recipes reviewed across all 6 rigorous culinary, thermal and food-safety criteria.
+  - Resolved all 106 initial warnings down to 0 issues and 0 warnings.
+  - Aligned dough, pizza and bread temperatures and indirect setups with genuine kamado mechanics.
+  - Corrected phase modes and temperatures for caveman searing, reductions, hot-holding and enzymic marinades.
+  - Audit tools updated and synchronized with `data/recipes.json` and static pages.
+- Global Expansion & Bilingual UX Deployed (`612a1e9`):
+  - Bilingual FR/EN architecture with pure JS zero-dependency localization engine (`scripts/i18n.js`).
+  - Interactive header language switcher (`#btnLangToggle`) dynamically toggling between 🇫🇷 FR and 🇬🇧 EN.
+  - Dynamic translation for brand, new recipe button, search placeholder/syntax, main tabs, category chips, and live recipe list.
+  - Precached in Service Worker `v42`, bundled for Capacitor and compliant with <950KB budget.
 - Major Feature Suite 3 Deployed:
   - 🚨 SOS & Dépannage Express Kamado (`#sosModal`): Interactive urgent troubleshooter for runaway temperature, dropping heat, acrid white smoke, pizza base burn, long stall, and flashback flare-ups with immediate action plans.
   - 📲 Instant QR Code Sharing (`#qrModal`): Zero-dependency pure JavaScript SVG QR code generator embedded in recipe modals, allowing guests and friends to scan and open any recipe instantly on their devices.
@@ -65,43 +70,16 @@
 - Pages deployment #76 completed successfully; `index.html`, `manifest.webmanifest`, and `sw.js` return HTTP 200 at `https://qevedeveq-art.github.io/kamado/`.
 
 ## Last Commands
-- `npm test` (97/97), `npm run audit`, `npm run audit:quality`, and `node scripts/extract-data.js` all passed for the Combustion increment.
-- `NODE_PATH=/private/tmp/kamado-e2e-phase0/node_modules node scripts/browser-smoke.js` passed with the official temperature fixture mapped into the cockpit.
-- Headless Chromium visual review at 390 × 844 confirmed the expanded hardware controls remain readable and scrollable.
-- GitHub Actions `34211295814` (Data audit) and `34211295406` (Pages), both successful.
-- Production checks confirmed the probe cockpit, `sw.js` v39 and `scripts/probe-adapter.js` are live.
-- `node --test tests/probe-adapter.test.js tests/data.test.js tests/pwa.test.js` (30/30 after collision/unit hardening)
-- `NODE_PATH=/private/tmp/kamado-e2e-phase0/node_modules node scripts/browser-smoke.js` (probe simulator and all existing critical paths passed)
-- Headless Chromium visual review at 390 × 844 confirmed the probe panel remains readable and scrollable in the mobile cockpit.
-- `node scripts/extract-data.js`, `npm test` (90/90), `npm run audit`, and `npm run audit:quality` all passed after the final confirmation-copy edit.
-- GitHub Actions `34159542210` (Data audit) and `34159541668` (Pages), both successful.
-- Production checks confirmed `index.html`, `sw.js` v38 and `scripts/local-vault.js` are live.
-- `node --test tests/local-vault.test.js tests/personalization.test.js tests/data.test.js tests/pwa.test.js` (30/30)
-- `NODE_PATH=/private/tmp/kamado-e2e-phase0/node_modules node scripts/browser-smoke.js` (encrypted vault/profile/recommendation path passed)
-- `node scripts/extract-data.js`, `npm test` (82/82), `npm run audit`, and `npm run audit:quality` all passed.
-- Playwright CLI mobile visual review of the Data screen (390 × 844); responsive layout passed with zero console errors.
-- GitHub Actions `34143681113` (Data audit) and `34143680213` (Pages), both successful.
-- Production checks confirmed `index.html`, `sw.js` v37 and `scripts/cook-engine.js` are live.
-- `node scripts/bump-sw-version.js` (v36 → v37)
-- `node --test tests/cook-engine.test.js tests/data.test.js tests/pwa.test.js tests/custom-recipes.test.js` (39/39)
-- `NODE_PATH=/private/tmp/kamado-e2e-phase0/node_modules node scripts/browser-smoke.js` (persistent Cook Engine path passed)
-- `node scripts/extract-data.js`
-- `npm test` (73/73)
-- `npm run audit`
-- `npm run audit:quality`
-- `npm audit` (not applicable: zero-dependency repository has no lockfile)
-- `node scripts/audit-editorial.js`
-- `node scripts/audit-performance-budget.js`
-- `node --test tests/editorial-search.test.js tests/editorial-pages.test.js tests/pwa.test.js tests/data.test.js`
-- `npm test` (66/66)
-- `npm run audit`
-- `npm run audit:quality`
-- `NODE_PATH=/private/tmp/kamado-e2e-phase0/node_modules node scripts/browser-smoke.js`
-- Headless Chromium visual review of the app hub and canonical recipe page
-- GitHub Actions runs `34094119354` (audit) and `34094118090` (Pages), both successful
-- Production HTTP checks for the app, expert search, canonical recipe, guide index and sitemap (all 200)
+- `node scripts/audit-recipe-quality.js` -> 0 issues, 0 warnings across all 246 cooking recipes reviewed.
+- `node scripts/extract-data.js` -> extracted clean metadata, generated canonical recipe pages, guides, sitemap.
+- `npm test` -> 102/102 native node tests passing.
+- `npm run audit` -> Data, Kamado Expert, Chef Reviewer, Sommelier, Editorial, and Performance Budget audits all passing.
+- `node scripts/bump-sw-version.js` -> bumped service worker to v42.
+- `git commit` -> commits `13f34ea` and `612a1e9`.
 
 ## Files Changed
+- Recipes and Quality Audit (`13f34ea`): `index.html`, `data/recipes.json`, `recettes/`, `scripts/audit-recipe-quality.js`, `scripts/reports/recipe-quality-audit.json`, `scripts/reports/recipe-quality-audit.md`.
+- Internationalization & UI Language Switcher (`612a1e9`): `index.html`, `sw.js` (v42), `scripts/i18n.js`, `tests/i18n.test.js`, `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`.
 - Phase 4 Combustion runtime/UI: `index.html`, `scripts/combustion-probe.js`, `sw.js` (v40).
 - Phase 4 Combustion verification/packaging: `tests/combustion-probe.test.js`, `tests/data.test.js`, `tests/pwa.test.js`, `scripts/browser-smoke.js`, `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`.
 - Phase 4 Combustion documentation/state: `README.md`, `.agents/memory.md`, `.agents/handoff.md`.

@@ -27,7 +27,8 @@
 - Expert search syntax supports quoted phrases, `-exclusions`, and the filters `cat:`, `mode:`, `bois:`, `source:`, `ingredient:` and `temp:`.
 - Commercial reference and exit roadmap (2026-09-08): build the global benchmark across 4 phases: global expansion (i18n, Google Recipe Schema, Stores), hardware & Kamado Thermals™ predictive engine, monetization (Club Pro Freemium + high-ticket affiliate), and M&A packaging for exit.
 - Internationalization architecture (2026-09-08): zero-dependency bilingual module `scripts/i18n.js` with FR (source) and EN (expansion) dictionaries, runtime interpolation, and localStorage language preference.
-- Systematic 269-recipe quality audit (2026-09-08): review every single recipe across 6 strict criteria (dome thermal band vs mode, structured phases & timers, USDA-compliant core temps & carryover, charcoal kg & wood species, rest & seasoning rules, certified EU allergens & specific sommelier pairings) with a target of 0 warnings.
+- Systematic 269-recipe quality audit completed (2026-09-08): reviewed all 246 cooking recipes across 6 strict criteria, resolving all 106 warnings to 0 issues and 0 warnings (100% clean cooking database).
+- UI localization and bilingual experience (2026-09-08): interactive header toggle (`#btnLangToggle`) live in `index.html` with dynamic switching between 🇫🇷 FR and 🇬🇧 EN, persisted in localStorage and integrated with PWA precache (SW v42).
 - Defer a generic social network, marketplace, mandatory accounts, broad AI chatbot, and proprietary grill control until the core cooking experience and editorial authority are proven.
 
 ## Working Preferences
