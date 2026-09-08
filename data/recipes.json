@@ -1237,9 +1237,9 @@
         "action": "Côte posée directement sur charbons rouges (caveman). Retourner toutes les 1-2 min."
       },
       {
-        "name": "Repos indirect",
+        "name": "Finition indirecte",
         "mode": "indirect",
-        "temp_C": 120,
+        "temp_C": 130,
         "duration_min": 25,
         "action": "Sur grille haute, sonde au cœur jusqu'à 52 °C pour saignant."
       }
@@ -2330,11 +2330,11 @@
     },
     "phases": [
       {
-        "name": "Fumage à froid relatif",
+        "name": "Fumage doux",
         "mode": "fumage",
-        "temp_C": 90,
+        "temp_C": 100,
         "duration_min": 30,
-        "action": "Cerisier. Pré-fumage pour parfum sans cuisson."
+        "action": "Cerisier. Pré-fumage doux à 100 °C pour parfumer la chair sans la brusquer."
       },
       {
         "name": "Indirect lent",
@@ -2469,7 +2469,7 @@
       },
       {
         "name": "Réduction marinade",
-        "mode": "préparation",
+        "mode": "mijotage",
         "temp_C": 100,
         "duration_min": 2,
         "action": "Porter la marinade à ébullition 2 min avant de l'utiliser en laque."
@@ -3135,7 +3135,7 @@
         "action": "Cerisier. Retirer membrane sous les os. Rub 5-épices + sel."
       },
       {
-        "name": "Wrap miel+marinade (2 h)",
+        "name": "Wrap laque & miel (2 h)",
         "mode": "indirect",
         "temp_C": 110,
         "duration_min": 120,
@@ -6840,7 +6840,7 @@
       },
       {
         "name": "Base masala",
-        "mode": "direct",
+        "mode": "cocotte",
         "temp_C": 180,
         "duration_min": 15,
         "action": "Oignons + épices + yaourt tempéré + tomates."
@@ -8440,11 +8440,11 @@
     },
     "phases": [
       {
-        "name": "Fumage direct sur braises",
+        "name": "Saisie directe sur grille",
         "mode": "direct",
         "temp_C": 220,
         "duration_min": 15,
-        "action": "Aubergines entières posées directement sur les braises. Peau qui carbonise, chair qui fume."
+        "action": "Aubergines entières posées sur la grille à 220 °C. Peau qui carbonise, chair qui fume."
       },
       {
         "name": "Fondant indirect",
@@ -8703,7 +8703,7 @@
     "nom": "Mont d'Or / Camembert fumé",
     "ori": "France · fromage chaud convivial",
     "pour": "4 pers",
-    "mode": "Indirect/fumage léger",
+    "mode": "Four indirect",
     "tempK": "180 °C",
     "coeur": "coulant",
     "temps": "20–25 min",
@@ -8755,7 +8755,8 @@
       "spice": "Doux",
       "season": "hiver",
       "sauces": [
-        "Sauce barbecue maison Kansas City"
+        "Tahini-citron",
+        "Yaourt aux herbes"
       ],
       "allergens": [
         "lait",
@@ -9727,14 +9728,14 @@
       },
       {
         "name": "Préchauffage pierre",
-        "mode": "indirect",
+        "mode": "pierre",
         "temp_C": 400,
         "duration_min": 30,
         "action": "Pierre placée à froid, montée progressive 30 min. Vérifier au thermomètre IR : surface pierre 380 °C minimum."
       },
       {
         "name": "Cuisson",
-        "mode": "direct",
+        "mode": "pierre",
         "temp_C": 400,
         "duration_min": 5,
         "action": "4–6 min par pizza, rotation 180° à mi-cuisson (chaleur asymétrique du foyer)."
@@ -9772,7 +9773,7 @@
     "nom": "Focaccia romarin & gros sel",
     "ori": "Italie · pain moelleux à l'huile",
     "pour": "6 pers",
-    "mode": "Indirect sur pierre",
+    "mode": "Four indirect",
     "tempK": "220 °C",
     "coeur": "moelleux",
     "temps": "20–25 min",
@@ -9963,7 +9964,7 @@
     "nom": "Fougasse aux olives",
     "ori": "Provence · pain du Sud",
     "pour": "4 pers",
-    "mode": "Indirect sur pierre",
+    "mode": "Four indirect",
     "tempK": "230 °C",
     "coeur": "moelleux",
     "temps": "18–22 min",
@@ -10267,14 +10268,14 @@
       },
       {
         "name": "Cuisson blanche",
-        "mode": "indirect",
+        "mode": "pierre",
         "temp_C": 280,
         "duration_min": 7,
         "action": "Sur pierre haute, 7 min sans mozza pour cuire le fond."
       },
       {
         "name": "Cuisson garnie",
-        "mode": "indirect",
+        "mode": "pierre",
         "temp_C": 280,
         "duration_min": 5,
         "action": "Ajouter mozza, 4–5 min jusqu'à fonte et bordures brun."
@@ -10372,14 +10373,14 @@
       },
       {
         "name": "Préchauffage pierre",
-        "mode": "indirect",
+        "mode": "pierre",
         "temp_C": 320,
         "duration_min": 45,
         "action": "Pierre placée à froid en position haute, montée progressive. Vérifier au thermomètre IR : 300 °C surface pierre minimum."
       },
       {
         "name": "Cuisson",
-        "mode": "direct",
+        "mode": "pierre",
         "temp_C": 320,
         "duration_min": 5,
         "action": "3–5 min par tarte, bords bruns/carbonisés, oignons grésillant, lardons dorés. Enchainer une par une."
@@ -12362,8 +12363,8 @@
       "Coriandre, oignon, citron vert"
     ],
     "etapes": [
-      "Mixez les piments réhydratés, achiote, ananas, ail et épices en marinade. Marinez le porc 4 h.",
-      "Empilez les tranches en « trompo » sur une brochette verticale, ananas au sommet.",
+      "Mixez les piments réhydratés, achiote, ail, vinaigre et épices en marinade (chauffez l'ananas mixé 5 min pour neutraliser la bromélaïne ou utilisez du jus pasteurisé). Marinez le porc 4 h.",
+      "Empilez les tranches en « trompo » sur une brochette verticale, ananas frais au sommet.",
       "Indirect (pierre-déflecteur) à 180 °C, 40 min, puis charrez les bords en direct.",
       "Tranchez finement les bords caramélisés (comme un kebab).",
       "Servez sur tortillas chaudes avec ananas grillé, coriandre, oignon, citron vert."
@@ -12387,9 +12388,9 @@
       {
         "name": "Saisie directe",
         "mode": "direct",
-        "temp_C": 180,
+        "temp_C": 220,
         "duration_min": 8,
-        "action": "Retirer la pierre. Colorer les bords côté feu jusqu'à 71 °C, hacher grossièrement pour les tacos."
+        "action": "Retirer la pierre. Colorer les bords côté feu à 220 °C jusqu'à 71 °C, hacher grossièrement pour les tacos."
       }
     ],
     "source": "https://www.seriouseats.com/tacos-al-pastor-recipe",
@@ -14251,11 +14252,11 @@
     },
     "phases": [
       {
-        "name": "Fumage direct",
+        "name": "Saisie directe",
         "mode": "direct",
         "temp_C": 220,
         "duration_min": 12,
-        "action": "Aubergines entières sur braises. Peau qui carbonise, chair qui absorbe le goût fumé."
+        "action": "Aubergines entières sur braises avec bois d'olivier. Peau qui carbonise, chair qui absorbe le goût fumé."
       },
       {
         "name": "Fondant indirect",
@@ -15890,7 +15891,7 @@
     "nom": "Giant Skillet Cookie aux pépites de chocolat en poêle fonte",
     "ori": "USA · le cookie familial fondant au centre et croustillant aux bords",
     "pour": "6–8 pers",
-    "mode": "Indirect en poêle fonte",
+    "mode": "Four indirect (skillet fonte)",
     "tempK": "180 °C",
     "coeur": "cœur pâteux cuit, bords croustillants dorés",
     "temps": "22–25 min",

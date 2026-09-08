@@ -34,13 +34,14 @@ const OFFICIAL_SAFETY_REFERENCES = [
 const MODE_BANDS = [
   { re: /caveman|sur braises|braises directes/i, min: 350, max: 650, label: "caveman / braises vives" },
   { re: /froid/i, min: 10, max: 30, label: "fumage à froid" },
-  { re: /marinade|farce|pousse|ferment|petriss|pétriss|salage|sechage|séchage|autolyse|pressage|mise en broche|prep|roul/i, min: 0, max: 25, label: "préparation / marinade / pousse" },
-  { re: /fumage|low|slow/i, min: 95, max: 135, label: "fumage / low and slow" },
-  { re: /brais(?:age|é|e cocotte|\b)|cocotte|mijot/i, min: 120, max: 180, label: "braise / cocotte" },
-  { re: /pierre|pizza/i, min: 280, max: 420, label: "pierre / pizza" },
-  { re: /plancha|fonte|cuisson vive/i, min: 210, max: 300, label: "plancha / cuisson vive" },
-  { re: /indirect|rotissoire|rôtissoire|four/i, min: 100, max: 240, label: "indirect / rotissage" },
   { re: /repos|maintien|glaciere|glacière/i, min: 4, max: 80, label: "repos / maintien" },
+  { re: /brais(?:age|é|e cocotte|\b)|cocotte|mijot|reduc|réduc|blanchiment/i, min: 90, max: 180, label: "braise / cocotte / mijotage" },
+  { re: /precuisson|précuisson/i, min: 90, max: 180, label: "précuisson" },
+  { re: /marinade|farce|pousse|ferment|petriss|pétriss|salage|salaison|sechage|séchage|autolyse|pressage|mise en broche|pr[eé]p|roul/i, min: 0, max: 25, label: "préparation / marinade / pousse" },
+  { re: /fumage|low|slow/i, min: 95, max: 135, label: "fumage / low and slow" },
+  { re: /pierre|pizza/i, min: 280, max: 420, label: "pierre / pizza" },
+  { re: /plancha|fonte vive|saisie fonte|plaque fonte/i, min: 210, max: 300, label: "plancha / cuisson vive" },
+  { re: /indirect|rotissoire|rôtissoire|four/i, min: 100, max: 240, label: "indirect / rotissage" },
   { re: /direct doux/i, min: 180, max: 240, label: "direct doux" },
   { re: /\bdirect\b|saisie|braises/i, min: 210, max: 340, label: "direct / saisie" }
 ];
@@ -115,7 +116,7 @@ function modeBand(mode) {
 }
 
 function phaseBand(phase, fallbackMode) {
-  const text = typeof phase === "object" ? `${phase.mode || ""} ${phase.name || ""}` : String(phase || "");
+  const text = typeof phase === "object" ? `${phase.name || ""} ${phase.mode || ""}` : String(phase || "");
   return MODE_BANDS.find(band => band.re.test(text)) || modeBand(fallbackMode);
 }
 
@@ -233,7 +234,7 @@ function auditMarinades(recipe) {
       add(recipe, "marinade-reviewer", "warning", "marinade_h", `Marinade acide longue (${recipe.marinade_h} h).`, "Réduire pour éviter texture farineuse/filandreuse.");
     }
   }
-  if (/\b(ananas|kiwi|papaye)\b/.test(h) && /(\d+)\s*h/.test(h)) {
+  if (/\b(ananas|kiwi|papaye)\b/.test(h) && /(\d+)\s*h/.test(h) && !/(chauff|cuir|cuit|bouill|pasteuris|denatur|neutralis|30\s*min)/.test(h)) {
     add(recipe, "marinade-reviewer", "warning", "etapes", "Enzyme crue potentiellement laissée plusieurs heures.", "Limiter ananas/kiwi/papaye crus à 30 min ou cuire l'enzyme.");
   }
   const stepsText = norm(Array.isArray(recipe.etapes) ? recipe.etapes.join(" ") : "");

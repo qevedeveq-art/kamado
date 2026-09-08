@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-08T10:29:41.265Z",
+  "reviewedAt": "2026-09-08T10:39:34.748Z",
   "agent": "kamado-expert",
   "references": [
     {
@@ -102,8 +102,8 @@
     }
   },
   "sauceCoverage": {
-    "proposed": 296,
-    "matched": 105,
+    "proposed": 297,
+    "matched": 104,
     "unmatchedByName": {
       "Tare yakitori réduite : soja, mirin, saké, sucre et gingembre": 1,
       "Sauce BBQ épaisse": 1,
@@ -145,8 +145,8 @@
       "Crème citron vert-chipotle": 1,
       "Beurre ail-persil-citron": 1,
       "Sauce hollandaise à l'aneth ou crème fraîche citron": 1,
-      "Tahini-citron": 17,
-      "Yaourt aux herbes": 17,
+      "Tahini-citron": 18,
+      "Yaourt aux herbes": 18,
       "Salsa verde citron vert-coriandre": 4,
       "Yaourt citronné au tahini et piment doux": 1,
       "Jus beurre-orange-moutarde": 1,

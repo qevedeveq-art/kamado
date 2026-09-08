@@ -1,41 +1,25 @@
 # Recipe Quality Audit
 
-Generated: 2026-09-08T10:29:34.887Z
+Generated: 2026-09-08T10:39:32.363Z
 
 ## Summary
 
 - Recipes reviewed: 269
 - Cooking recipes reviewed: 246
-- Clean cooking recipes (no issue/warning): 233
+- Clean cooking recipes (no issue/warning): 246
 - Issues: 0
-- Warnings: 15
-- Improvements: 236
+- Warnings: 0
+- Improvements: 238
 
 ## Role Counts
 
 - french-chef-reviewer: 6
-- kamado-expert: 108
-- marinade-reviewer: 1
+- kamado-expert: 110
 - recipe-declutter: 108
-- temperature: 28
+- temperature: 14
 
 ## Top Findings
 
-- **WARNING** [temperature] Aubergine entière fumée façon steak `phases[0].temp_C`: Phase "Fumage direct" à 220 C hors bande fumage / low and slow. Corriger mode de phase ou température.
-- **WARNING** [temperature] Aubergines fumées façon baba ganoush `phases[0].temp_C`: Phase "Fumage direct sur braises" à 220 C hors bande caveman / braises vives. Corriger mode de phase ou température.
-- **WARNING** [temperature] Échine marinée à la bière `phases[1].temp_C`: Phase "Réduction marinade" à 100 C hors bande préparation / marinade / pousse. Corriger mode de phase ou température.
-- **WARNING** [temperature] Filet mignon fumé au miel `phases[0].temp_C`: Phase "Fumage à froid relatif" à 90 C hors bande fumage à froid. Corriger mode de phase ou température.
-- **WARNING** [temperature] Focaccia romarin & gros sel `tempK`: 220 °C sort de la bande pierre / pizza (280-420 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
-- **WARNING** [temperature] Fougasse aux olives `tempK`: 230 °C sort de la bande pierre / pizza (280-420 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
-- **WARNING** [temperature] Giant Skillet Cookie aux pépites de chocolat en poêle fonte `tempK`: 180 °C sort de la bande plancha / cuisson vive (210-300 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
-- **WARNING** [temperature] Mont d'Or / Camembert fumé `tempK`: 180 °C sort de la bande fumage / low and slow (95-135 C). Vérifier mode/tempK ou préciser la cuisson multi-phase.
-- **WARNING** [temperature] Pizza al taglio romaine 72h `phases[3].temp_C`: Phase "Cuisson blanche" à 280 C hors bande indirect / rotissage. Corriger mode de phase ou température.
-- **WARNING** [temperature] Pizza al taglio romaine 72h `phases[4].temp_C`: Phase "Cuisson garnie" à 280 C hors bande indirect / rotissage. Corriger mode de phase ou température.
-- **WARNING** [temperature] Pizza napolitaine `phases[2].temp_C`: Phase "Cuisson" à 400 C hors bande direct / saisie. Corriger mode de phase ou température.
-- **WARNING** [temperature] Ribs asiatiques au cinq-épices `phases[1].temp_C`: Phase "Wrap miel+marinade (2 h)" à 110 C hors bande préparation / marinade / pousse. Corriger mode de phase ou température.
-- **WARNING** [temperature] Rogan josh d'agneau au Dutch oven `phases[1].temp_C`: Phase "Base masala" à 180 C hors bande direct / saisie. Corriger mode de phase ou température.
-- **WARNING** [marinade-reviewer] Tacos al pastor `etapes`: Enzyme crue potentiellement laissée plusieurs heures. Limiter ananas/kiwi/papaye crus à 30 min ou cuire l'enzyme.
-- **WARNING** [temperature] Tacos al pastor `phases[1].temp_C`: Phase "Saisie directe" à 180 C hors bande direct / saisie. Corriger mode de phase ou température.
 - **IMPROVEMENT** [recipe-declutter] Adana kebab (agneau haché épicé au maras) `equipement`: Équipement trivial: Hachoir couteau. Garder seulement outils kamado ou non évidents.
 - **IMPROVEMENT** [recipe-declutter] Ailes de poulet Buffalo `notes_securite`: Notes sécurité longues ou nombreuses. Garder 1-2 points non redondants avec coeur.
 - **IMPROVEMENT** [recipe-declutter] Asado d'entraña & chimichurri `notes_securite`: Notes sécurité longues ou nombreuses. Garder 1-2 points non redondants avec coeur.
@@ -101,5 +85,20 @@ Generated: 2026-09-08T10:29:34.887Z
 - **IMPROVEMENT** [kamado-expert] Chou-fleur entier rôti & tahini `_derived.sauces`: Sauce suggérée absente du catalogue: Yaourt aux herbes. Créer la base sauce ou simplifier les suggestions.
 - **IMPROVEMENT** [kamado-expert] Choucroute garnie alsacienne au kamado `_derived.sauces`: Sauce suggérée absente du catalogue: Sauce moutarde-miel. Créer la base sauce ou simplifier les suggestions.
 - **IMPROVEMENT** [kamado-expert] Choucroute garnie alsacienne au kamado `_derived.sauces`: Sauce suggérée absente du catalogue: BBQ maison. Créer la base sauce ou simplifier les suggestions.
+- **IMPROVEMENT** [recipe-declutter] Choucroute garnie alsacienne au kamado `astuce`: Astuce longue pour un usage personnel. Réduire à deux phrases utiles en cuisine.
+- **IMPROVEMENT** [recipe-declutter] Choucroute garnie alsacienne au kamado `notes_securite`: Notes sécurité longues ou nombreuses. Garder 1-2 points non redondants avec coeur.
+- **IMPROVEMENT** [temperature] Civet de sanglier fumé puis braisé `phases`: Somme phases 3180 min éloignée du temps affiché 4–5 h (+ marinade). Aligner phases et temps affiché, ou expliquer repos/variabilité.
+- **IMPROVEMENT** [french-chef-reviewer] Confit de canard au kamado `chef_ref.note`: Référence chef trop bavarde. Réduire à une phrase centrée sur la technique.
+- **IMPROVEMENT** [recipe-declutter] Confit de canard au kamado `astuce`: Astuce longue pour un usage personnel. Réduire à deux phrases utiles en cuisine.
+- **IMPROVEMENT** [recipe-declutter] Confit de canard au kamado `notes_securite`: Notes sécurité longues ou nombreuses. Garder 1-2 points non redondants avec coeur.
+- **IMPROVEMENT** [french-chef-reviewer] Coq au vin au kamado `chef_ref.note`: Référence chef trop bavarde. Réduire à une phrase centrée sur la technique.
+- **IMPROVEMENT** [recipe-declutter] Coq au vin au kamado `astuce`: Astuce longue pour un usage personnel. Réduire à deux phrases utiles en cuisine.
+- **IMPROVEMENT** [recipe-declutter] Coq au vin au kamado `notes_securite`: Notes sécurité longues ou nombreuses. Garder 1-2 points non redondants avec coeur.
+- **IMPROVEMENT** [temperature] Coq au vin au kamado `phases`: Somme phases 160 min éloignée du temps affiché 2 h 30 (+ marinade 12 h). Aligner phases et temps affiché, ou expliquer repos/variabilité.
+- **IMPROVEMENT** [recipe-declutter] Côte de bœuf caveman sur braises `notes_securite`: Notes sécurité longues ou nombreuses. Garder 1-2 points non redondants avec coeur.
+- **IMPROVEMENT** [kamado-expert] Côte de porc tomahawk saumurée `_derived.sauces`: Sauce suggérée absente du catalogue: Sauce moutarde-miel. Créer la base sauce ou simplifier les suggestions.
+- **IMPROVEMENT** [kamado-expert] Côte de porc tomahawk saumurée `_derived.sauces`: Sauce suggérée absente du catalogue: BBQ maison. Créer la base sauce ou simplifier les suggestions.
+- **IMPROVEMENT** [kamado-expert] Côtelettes d'agneau grillées `_derived.sauces`: Sauce suggérée absente du catalogue: Jus réduit romarin-ail. Créer la base sauce ou simplifier les suggestions.
+- **IMPROVEMENT** [kamado-expert] Côtelettes d'agneau grillées `_derived.sauces`: Sauce suggérée absente du catalogue: Yaourt menthe. Créer la base sauce ou simplifier les suggestions.
 
-_171 more findings in scripts/reports/recipe-quality-audit.json._
+_158 more findings in scripts/reports/recipe-quality-audit.json._
