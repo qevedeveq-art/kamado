@@ -63,6 +63,16 @@ async function main() {
     );
     assert.equal(await page.locator('a[href="../../#recette=cote-de-boeuf-reverse-sear"]').count(), 1);
 
+    await page.goto(`${BASE_URL}recipes/cote-de-boeuf-reverse-sear/`, { waitUntil: "networkidle" });
+    assert.equal(await page.locator("h1").textContent(), "Reverse-Seared Ribeye Steak");
+    assert.equal(
+      await page.locator('link[rel="canonical"]').getAttribute("href"),
+      "https://qevedeveq-art.github.io/kamado/recipes/cote-de-boeuf-reverse-sear/"
+    );
+    assert.equal(await page.locator('link[hreflang="fr"]').getAttribute("href"), "https://qevedeveq-art.github.io/kamado/recettes/cote-de-boeuf-reverse-sear/");
+    assert.equal(await page.locator('link[hreflang="en"]').getAttribute("href"), "https://qevedeveq-art.github.io/kamado/recipes/cote-de-boeuf-reverse-sear/");
+    assert.equal(await page.locator('a[href="../../#recette=cote-de-boeuf-reverse-sear"]').count(), 1);
+
     await page.goto(`${BASE_URL}#recette=cote-de-boeuf-reverse-sear`, { waitUntil: "networkidle" });
     await page.locator("#modal.open").waitFor();
     assert.equal(await page.locator("#d-title").textContent(), "Côte de bœuf reverse-sear");

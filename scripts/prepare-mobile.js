@@ -49,7 +49,7 @@ function main() {
   }
 
   // Runtime and editorial directories referenced by index.html or the manifest.
-  for (const directory of ["data", "icons", "assets", "recettes", "guides"]) {
+  for (const directory of ["data", "icons", "assets", "recettes", "recipes", "guides"]) {
     const source = path.join(ROOT, directory);
     if (fs.existsSync(source)) copyDirSync(source, path.join(WWW, directory));
   }

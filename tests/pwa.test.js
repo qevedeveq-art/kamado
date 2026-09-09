@@ -85,6 +85,7 @@ test("Capacitor bundle includes external runtime and editorial assets", () => {
     "icons/icon-192.png",
     "assets/editorial.css",
     "recettes/cote-de-boeuf-reverse-sear/index.html",
+    "recipes/cote-de-boeuf-reverse-sear/index.html",
     "guides/methodologie/index.html"
   ].forEach(relativePath => assert.ok(fs.existsSync(path.join(ROOT, "www", relativePath)), relativePath));
 });

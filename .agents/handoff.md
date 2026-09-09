@@ -73,6 +73,13 @@
   - Interactive OEM preset switcher buttons wired into `#clubProModal` with immediate feedback and `localStorage` persistence.
   - Comprehensive Technical Due Diligence Pack in `docs/M_AND_A_DUE_DILIGENCE.md` (zero-cloud architecture, culinary IP moat of 269 recipes / 0 issues, GDPR compliance, performance budget).
   - Executive Acquisition Pitch Memo in `docs/ACQUISITION_PITCH_KOKKO.md` tailored for Kokko Kamado France (LTV expansion, 30-day turnkey integration).
+- English Static SEO Authority & Multilingual Pages (2026-09-09):
+  - 269 English static recipe pages generated in `recipes/<id>/index.html` with translated titles, origins, modes, specs, ingredients, steps, and techniques.
+  - English static catalogue `recipes/index.html` with instant client-side search and 269 recipe cards.
+  - Reciprocal `<link rel="alternate" hreflang="fr" ...>`, `hreflang="en"`, and `hreflang="x-default"` added across all 538 recipe pages and both catalogues.
+  - `sitemap.xml` expanded from 276 to 546 indexable URLs.
+  - Capacitor bundle `www/` updated to include `recipes/` directory.
+  - All 118 native tests passing, editorial audit passing (0 failures), Playwright smoke test verified.
 - Full English Localization & Recipe Translation (2026-09-08):
   - 100% of the 269 recipes translated to English (titles, origins, doneness, wood types, vents, equipment, ingredients, steps, and tips).
   - Standalone zero-dependency UMD module `scripts/recipes-i18n.js` (52 KB) containing complete `RECIPES_EN` mapping and translation helpers.
@@ -88,13 +95,15 @@
 - Pages deployment #76 completed successfully; `index.html`, `manifest.webmanifest`, and `sw.js` return HTTP 200 at `https://qevedeveq-art.github.io/kamado/`.
 
 ## Last Commands
-- `node scripts/extract-data.js` -> 269 recipes extracted, derived files updated.
+- `node scripts/extract-data.js` -> 269 recipes extracted, 546 editorial pages generated.
+- `node scripts/audit-editorial.js` -> 269 FR, 269 EN, 4 guides, 546 sitemap URLs, 0 failures.
 - `npm test` -> 118/118 native node tests passing.
 - `npm run audit` -> Data, Kamado Expert, Chef Reviewer, Sommelier, Editorial, and Performance Budget audits all passing.
 - `NODE_PATH=$(npm root -g) node scripts/browser-smoke.js` -> passed with zero console errors.
-- `node scripts/prepare-mobile.js` -> packaged Capacitor www/ directory.
+- `node scripts/prepare-mobile.js` -> packaged Capacitor www/ directory with recipes/ included.
 
 ## Files Changed
+- English Static SEO Pages: `scripts/generate-editorial-pages.js`, `scripts/audit-editorial.js`, `scripts/audit-performance-budget.js`, `scripts/prepare-mobile.js`, `scripts/browser-smoke.js`, `tests/editorial-pages.test.js`, `tests/pwa.test.js`, `recipes/` (270 files), `recettes/` (269 files updated with hreflang), `sitemap.xml`, `.agents/memory.md`, `.agents/handoff.md`.
 - Full English Localization: `scripts/recipes-i18n.js`, `tests/recipes-i18n.test.js`, `scripts/i18n.js`, `tests/i18n.test.js`, `index.html`, `sw.js` (v46), `scripts/audit-performance-budget.js`, `scripts/prepare-mobile.js`, `tests/pwa.test.js`, `scripts/browser-smoke.js`, `.gitignore`, `.agents/memory.md`, `.agents/handoff.md`.
 - Phase 4 OEM White-Label & M&A: `scripts/brand-config.js`, `tests/brand-config.test.js`, `docs/M_AND_A_DUE_DILIGENCE.md`, `docs/ACQUISITION_PITCH_KOKKO.md`, `index.html`, `sw.js` (v45), `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`, `tests/pwa.test.js`.
 - Club Pro & Kokko Kamado Affiliation (`9e5dca4`): `index.html`, `data/guide.html`, `guides/maitriser-le-kamado/index.html`, `sw.js` (v44).

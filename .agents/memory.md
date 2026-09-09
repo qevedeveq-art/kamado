@@ -35,6 +35,7 @@
 - Technical Due Diligence & M&A Dossier (2026-09-08): comprehensive investor/acquirer audit pack created in `docs/M_AND_A_DUE_DILIGENCE.md` detailing zero-cloud architecture, culinary IP moat (269 recipes, 0 issues), GDPR compliance, and performance budgets.
 - Strategic Acquisition Pitch Memo for Kokko Kamado (2026-09-08): executive acquisition proposal created in `docs/ACQUISITION_PITCH_KOKKO.md` highlighting LTV expansion, accessory cross-selling, and 30-day turnkey integration for Kokko France.
 - Full English Localization & Recipe Translation (2026-09-08): 100% of the 269 recipes and all UI menus available in English via zero-dependency UMD module `scripts/recipes-i18n.js` (52 KB) and enriched `scripts/i18n.js` (20 KB). Live dynamic switching without reload for card list, modal dialogs, menu builder, culinary bases, editorial collections, search, quick chips, smart bar, and error/empty states. Respects <950 KB app budget (index.html at 947 KB), SW v46 precache.
+- English Static SEO Authority & Multilingual Pages (2026-09-09): 269 English static pages generated in `recipes/<id>/index.html` plus catalogue `recipes/index.html` with reciprocal `<link rel="alternate" hreflang="...">` (FR, EN, x-default) and Schema.org WebPage metadata. `sitemap.xml` expanded to 546 indexable URLs. Prepares Capacitor mobile bundle with both languages.
 - Defer a generic social network, marketplace, mandatory accounts, broad AI chatbot, and proprietary grill control until the core cooking experience and editorial authority are proven.
 
 ## Working Preferences

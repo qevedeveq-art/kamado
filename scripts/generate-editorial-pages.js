@@ -3,6 +3,8 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const recipesI18n = require("./recipes-i18n.js");
+const i18n = require("./i18n.js");
 
 const ROOT = path.resolve(__dirname, "..");
 const SITE_URL = "https://qevedeveq-art.github.io/kamado";
@@ -41,13 +43,38 @@ function categoryName(recipe, categories) {
   return categories.find(category => category.id === recipe.cat)?.nom || recipe.cat;
 }
 
+function categoryNameEn(recipe) {
+  return i18n.translateCategory(recipe.cat, "en") || recipe.cat;
+}
+
 function recipeDescription(recipe) {
   return truncate(`${recipe.nom} au kamado. ${recipe.ori || ""} Cuisson ${recipe.mode}, ${recipe.tempK}, en ${recipe.temps}. ${recipe.astuce || ""}`);
 }
 
-function pageHead({ title, description, canonical, relativeRoot, type = "website", structuredData }) {
+function recipeDescriptionEn(recipe) {
+  const nomEn = recipesI18n.getRecipeName(recipe, "en");
+  const oriEn = recipesI18n.getRecipeOrigin(recipe, "en");
+  const modeEn = i18n.translateMode(recipe.mode, "en");
+  const astuceEn = recipe.astuce ? recipesI18n.translateStepLine(recipe.astuce, "en") : "";
+  return truncate(`${nomEn} on the kamado ceramic grill. ${oriEn || ""} ${modeEn} cooking, ${recipe.tempK}, in ${recipe.temps}. ${astuceEn}`);
+}
+
+function translateServings(pour) {
+  if (!pour) return "4 servings";
+  return String(pour)
+    .replace(/personnes?/gi, "servings")
+    .replace(/pers\./gi, "servings")
+    .replace(/parts?/gi, "slices")
+    .replace(/\bà\b/g, "to");
+}
+
+function pageHead({ title, description, canonical, relativeRoot, type = "website", structuredData, lang = "fr", ogLocale = "fr_FR", alternates = [] }) {
+  const alternateTags = alternates.map(alt =>
+    `<link rel="alternate" hreflang="${escapeHtml(alt.hreflang)}" href="${escapeHtml(alt.href)}">`
+  ).join("\n");
+
   return `<!DOCTYPE html>
-<html lang="fr">
+<html lang="${escapeHtml(lang)}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,9 +82,9 @@ function pageHead({ title, description, canonical, relativeRoot, type = "website
 <meta name="description" content="${escapeHtml(description)}">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="${escapeHtml(canonical)}">
-<link rel="icon" type="image/png" href="${relativeRoot}icons/icon-192.png">
+${alternateTags ? `${alternateTags}\n` : ""}<link rel="icon" type="image/png" href="${relativeRoot}icons/icon-192.png">
 <link rel="stylesheet" href="${relativeRoot}assets/editorial.css">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="${escapeHtml(ogLocale)}">
 <meta property="og:type" content="${type}">
 <meta property="og:site_name" content="Kamado">
 <meta property="og:title" content="${escapeHtml(title)}">
@@ -66,13 +93,26 @@ function pageHead({ title, description, canonical, relativeRoot, type = "website
 <meta property="og:image" content="${SITE_URL}/kamado_kokko_cover.jpg">
 <meta property="og:image:width" content="1376">
 <meta property="og:image:height" content="768">
-<meta property="og:image:alt" content="Livre de recettes Kamado">
+<meta property="og:image:alt" content="${lang === "en" ? "Kamado Recipe Book" : "Livre de recettes Kamado"}">
 <meta name="twitter:card" content="summary_large_image">
 ${structuredData ? `<script type="application/ld+json">${jsonForHtml(structuredData)}</script>` : ""}
 </head>`;
 }
 
-function siteHeader(relativeRoot) {
+function siteHeader(relativeRoot, lang = "fr", otherLangUrl = null) {
+  if (lang === "en") {
+    return `<a class="skip-link" href="#contenu">Skip to content</a>
+<header class="site-head"><div>
+  <a class="brand" href="${relativeRoot}">Kamado — independent guide</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="${relativeRoot}recipes/">Recipes</a>
+    <a href="${relativeRoot}guides/">Guides</a>
+    <a href="${relativeRoot}guides/methodologie/">Methodology</a>
+    <a href="${relativeRoot}#lang=en">App</a>
+    ${otherLangUrl ? `<a href="${otherLangUrl}" class="lang-switch" title="Version française">🇫🇷 FR</a>` : `<a href="${relativeRoot}recettes/" class="lang-switch" title="Version française">🇫🇷 FR</a>`}
+  </nav>
+</div></header>`;
+  }
   return `<a class="skip-link" href="#contenu">Aller au contenu</a>
 <header class="site-head"><div>
   <a class="brand" href="${relativeRoot}">Kamado — guide indépendant</a>
@@ -81,6 +121,7 @@ function siteHeader(relativeRoot) {
     <a href="${relativeRoot}guides/">Guides</a>
     <a href="${relativeRoot}guides/methodologie/">Méthodologie</a>
     <a href="${relativeRoot}">Application</a>
+    ${otherLangUrl ? `<a href="${otherLangUrl}" class="lang-switch" title="English version">🇬🇧 EN</a>` : `<a href="${relativeRoot}recipes/" class="lang-switch" title="English version">🇬🇧 EN</a>`}
   </nav>
 </div></header>`;
 }
@@ -129,6 +170,7 @@ function plainList(values) {
 function renderRecipePage(recipe, categories, related) {
   const id = recipe.id;
   const canonical = `${SITE_URL}/recettes/${id}/`;
+  const enUrl = `${SITE_URL}/recipes/${id}/`;
   const category = categoryName(recipe, categories);
   const description = recipeDescription(recipe);
   const breadcrumbItems = [
@@ -152,6 +194,11 @@ function renderRecipePage(recipe, categories, related) {
       }
     ]
   };
+  const alternates = [
+    { hreflang: "fr", href: canonical },
+    { hreflang: "en", href: enUrl },
+    { hreflang: "x-default", href: canonical }
+  ];
   const phases = Array.isArray(recipe.phases) && recipe.phases.length
     ? `<section><h2>Phases de cuisson</h2><ol>${recipe.phases.map(phase => `<li><strong>${escapeHtml(phase.name)}</strong> — ${escapeHtml(phase.temp_C)} °C, ${escapeHtml(phase.duration_min)} min. ${escapeHtml(phase.action || "")}</li>`).join("")}</ol></section>`
     : "";
@@ -161,10 +208,10 @@ function renderRecipePage(recipe, categories, related) {
   const source = recipe.source ? `<section class="panel source"><h2>Source ou inspiration</h2><p>${sourceHtml(recipe.source)}</p></section>` : "";
   const relatedHtml = related.length ? `<section class="related"><h2>À poursuivre sur le kamado</h2><div class="recipe-grid">${related.map(item => `<a class="recipe-card" href="../${item.id}/"><small>${escapeHtml(categoryName(item, categories))}</small><strong>${escapeHtml(item.nom)}</strong><span>${escapeHtml(item.mode)} · ${escapeHtml(item.tempK)}</span></a>`).join("")}</div></section>` : "";
 
-  return `${pageHead({ title: `${recipe.nom} au kamado`, description, canonical, relativeRoot: "../../", type: "article", structuredData })}
+  return `${pageHead({ title: `${recipe.nom} au kamado`, description, canonical, relativeRoot: "../../", type: "article", structuredData, lang: "fr", ogLocale: "fr_FR", alternates })}
 <body>
 <!-- ${GENERATED_MARKER}; do not edit. -->
-${siteHeader("../../")}
+${siteHeader("../../", "fr", `../../recipes/${id}/`)}
 <main id="contenu">
   ${breadcrumbs(breadcrumbItems)}
   <article>
@@ -175,6 +222,7 @@ ${siteHeader("../../")}
       <div class="actions">
         <a class="button" href="../../#recette=${encodeURIComponent(id)}">Ouvrir le mode cuisson</a>
         <a class="button secondary" href="../">Voir toutes les recettes</a>
+        <a class="button secondary" href="../../recipes/${encodeURIComponent(id)}/">English version 🇬🇧</a>
       </div>
     </header>
     <dl class="specs">
@@ -207,8 +255,133 @@ ${siteHeader("../../")}
 </html>`;
 }
 
+function renderRecipePageEn(recipe, categories, related) {
+  const id = recipe.id;
+  const canonical = `${SITE_URL}/recipes/${id}/`;
+  const frUrl = `${SITE_URL}/recettes/${id}/`;
+  const enNom = recipesI18n.getRecipeName(recipe, "en");
+  const enOri = recipesI18n.getRecipeOrigin(recipe, "en");
+  const enCategory = categoryNameEn(recipe);
+  const enMode = i18n.translateMode(recipe.mode, "en");
+  const enCoeur = recipe.coeur ? recipesI18n.translateDoneness(recipe.coeur, "en") : "Sensory cues";
+  const enBois = recipe.bois ? recipesI18n.translateWood(recipe.bois, "en") : "None added";
+  const description = recipeDescriptionEn(recipe);
+
+  const breadcrumbItems = [
+    { name: "Home", url: "../../", absoluteUrl: `${SITE_URL}/` },
+    { name: "Recipes", url: "../", absoluteUrl: `${SITE_URL}/recipes/` },
+    { name: enNom, absoluteUrl: canonical }
+  ];
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      breadcrumbSchema(breadcrumbItems),
+      {
+        "@type": "WebPage",
+        "@id": canonical,
+        url: canonical,
+        name: enNom,
+        description,
+        inLanguage: "en-US",
+        isPartOf: { "@type": "WebSite", name: "Kamado", url: `${SITE_URL}/` },
+        about: { "@type": "Thing", name: enNom }
+      }
+    ]
+  };
+  const alternates = [
+    { hreflang: "fr", href: frUrl },
+    { hreflang: "en", href: canonical },
+    { hreflang: "x-default", href: frUrl }
+  ];
+
+  const translatedIngs = (recipe.ings || []).map(ing => recipesI18n.translateIngredientLine(ing, "en"));
+  const translatedSteps = (recipe.etapes || []).map(step => recipesI18n.translateStepLine(step, "en"));
+
+  const phases = Array.isArray(recipe.phases) && recipe.phases.length
+    ? `<section><h2>Cooking Phases</h2><ol>${recipe.phases.map(phase => {
+        const pName = recipesI18n.translateStepLine(phase.name, "en");
+        const pAction = phase.action ? recipesI18n.translateStepLine(phase.action, "en") : "";
+        return `<li><strong>${escapeHtml(pName)}</strong> — ${escapeHtml(phase.temp_C)} °C, ${escapeHtml(phase.duration_min)} min. ${escapeHtml(pAction)}</li>`;
+      }).join("")}</ol></section>`
+    : "";
+
+  const safetyList = Array.isArray(recipe.notes_securite)
+    ? recipe.notes_securite
+    : (recipe.notes_securite ? [recipe.notes_securite] : []);
+  const safety = safetyList.length
+    ? `<section class="security-callout"><h2>Food Safety</h2>${plainList(safetyList.map(item => recipesI18n.translateStepLine(item, "en")))}</section>`
+    : "";
+
+  const erreursList = Array.isArray(recipe.erreurs)
+    ? recipe.erreurs
+    : (recipe.erreurs ? [recipe.erreurs] : []);
+  const erreurs = erreursList.length
+    ? listSection("Common Mistakes to Avoid", erreursList.map(item => recipesI18n.translateStepLine(item, "en")))
+    : "";
+
+  const tip = recipe.astuce
+    ? `<section class="tip"><h2>Key Technique</h2><p>${escapeHtml(recipesI18n.translateStepLine(recipe.astuce, "en"))}</p></section>`
+    : "";
+
+  const source = recipe.source ? `<section class="panel source"><h2>Source or Inspiration</h2><p>${sourceHtml(recipe.source)}</p></section>` : "";
+  
+  const relatedHtml = related.length ? `<section class="related"><h2>More Kamado Inspiration</h2><div class="recipe-grid">${related.map(item => {
+    const itemNom = recipesI18n.getRecipeName(item, "en");
+    const itemCat = categoryNameEn(item);
+    const itemMode = i18n.translateMode(item.mode, "en");
+    return `<a class="recipe-card" href="../${item.id}/"><small>${escapeHtml(itemCat)}</small><strong>${escapeHtml(itemNom)}</strong><span>${escapeHtml(itemMode)} · ${escapeHtml(item.tempK)}</span></a>`;
+  }).join("")}</div></section>` : "";
+
+  return `${pageHead({ title: `${enNom} on the Kamado`, description, canonical, relativeRoot: "../../", type: "article", structuredData, lang: "en", ogLocale: "en_US", alternates })}
+<body>
+<!-- ${GENERATED_MARKER}; do not edit. -->
+${siteHeader("../../", "en", `../../recettes/${id}/`)}
+<main id="contenu">
+  ${breadcrumbs(breadcrumbItems)}
+  <article>
+    <header class="hero">
+      <div class="eyebrow">Documented Recipe · ${escapeHtml(enCategory)}</div>
+      <h1>${escapeHtml(enNom)}</h1>
+      <p class="lede">${escapeHtml(enOri)}</p>
+      <div class="actions">
+        <a class="button" href="../../#recette=${encodeURIComponent(id)}">Open Cook Mode</a>
+        <a class="button secondary" href="../">View all recipes</a>
+        <a class="button secondary" href="../../recettes/${encodeURIComponent(id)}/">Version française 🇫🇷</a>
+      </div>
+    </header>
+    <dl class="specs">
+      <div><dt>Cooking Method</dt><dd>${escapeHtml(enMode)}</dd></div>
+      <div><dt>Kamado Temperature</dt><dd>${escapeHtml(recipe.tempK)}</dd></div>
+      <div><dt>Target Internal Temp</dt><dd>${escapeHtml(enCoeur)}</dd></div>
+      <div><dt>Cook Time</dt><dd>${escapeHtml(recipe.temps)}</dd></div>
+      <div><dt>Servings</dt><dd>${escapeHtml(translateServings(recipe.pour))}</dd></div>
+      <div><dt>Smoking Wood</dt><dd>${escapeHtml(enBois)}</dd></div>
+    </dl>
+    <div class="content-grid">
+      <div>
+        ${listSection("Ingredients", translatedIngs)}
+        ${listSection("Preparation & Cooking", translatedSteps, true)}
+        ${phases}
+      </div>
+      <aside>
+        ${tip}
+        ${safety}
+        ${erreurs}
+        ${source}
+      </aside>
+    </div>
+  </article>
+  ${relatedHtml}
+  <p class="method">This recipe card separates kamado settings, sensory cues, and food safety thresholds. <a href="../../guides/methodologie/">Read our editorial methodology</a>.</p>
+</main>
+<footer>Kamado is an independent, local-first ceramic cooking guide. Always verify internal core temperatures with an accurate probe.</footer>
+</body>
+</html>`;
+}
+
 function renderCatalogue(recipes, categories) {
   const canonical = `${SITE_URL}/recettes/`;
+  const enUrl = `${SITE_URL}/recipes/`;
   const description = `${recipes.length} recettes kamado documentées : températures, modes de cuisson, ingrédients, étapes, sécurité et sources.`;
   const list = recipes.map((recipe, index) => ({
     "@type": "ListItem",
@@ -222,14 +395,19 @@ function renderCatalogue(recipes, categories) {
       { "@type": "ItemList", itemListElement: list }
     ]
   };
+  const alternates = [
+    { hreflang: "fr", href: canonical },
+    { hreflang: "en", href: enUrl },
+    { hreflang: "x-default", href: canonical }
+  ];
   const cards = recipes.map(recipe => {
     const search = `${recipe.nom} ${recipe.ori} ${recipe.cat} ${recipe.mode} ${recipe.tempK} ${recipe.ings.join(" ")}`.toLowerCase();
     return `<a class="recipe-card" href="./${recipe.id}/" data-search="${escapeHtml(search)}"><small>${escapeHtml(categoryName(recipe, categories))}</small><strong>${escapeHtml(recipe.nom)}</strong><span>${escapeHtml(recipe.mode)} · ${escapeHtml(recipe.tempK)} · ${escapeHtml(recipe.temps)}</span></a>`;
   }).join("");
-  return `${pageHead({ title: `${recipes.length} recettes kamado documentées`, description, canonical, relativeRoot: "../", structuredData })}
+  return `${pageHead({ title: `${recipes.length} recettes kamado documentées`, description, canonical, relativeRoot: "../", structuredData, lang: "fr", ogLocale: "fr_FR", alternates })}
 <body>
 <!-- ${GENERATED_MARKER}; do not edit. -->
-${siteHeader("../")}
+${siteHeader("../", "fr", "../recipes/")}
 <main id="contenu">
   ${breadcrumbs([{ name: "Accueil", url: "../" }, { name: "Recettes" }])}
   <header class="hero"><div class="eyebrow">Catalogue éditorial</div><h1>Recettes kamado documentées</h1><p class="lede">${escapeHtml(description)}</p><input class="catalogue-search" id="catalogueSearch" type="search" placeholder="Filtrer le catalogue par plat, ingrédient ou cuisson" aria-label="Filtrer le catalogue"></header>
@@ -239,7 +417,55 @@ ${siteHeader("../")}
 <footer>Kamado — guide indépendant des cuissons en céramique.</footer>
 <script>
 const input=document.querySelector("#catalogueSearch"),cards=[...document.querySelectorAll(".recipe-card")],count=document.querySelector("#catalogueCount");
-input.addEventListener("input",()=>{const q=input.value.toLowerCase().normalize("NFD").replace(/[\\u0300-\\u036f]/g,"");let visible=0;cards.forEach(card=>{const hay=card.dataset.search.normalize("NFD").replace(/[\\u0300-\\u036f]/g,"");const show=hay.includes(q);card.hidden=!show;if(show)visible+=1;});count.textContent=visible;});
+input.addEventListener("input",()=>{const q=input.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");let visible=0;cards.forEach(card=>{const hay=card.dataset.search.normalize("NFD").replace(/[\u0300-\u036f]/g,"");const show=hay.includes(q);card.hidden=!show;if(show)visible+=1;});count.textContent=visible;});
+</script>
+</body>
+</html>`;
+}
+
+function renderCatalogueEn(recipes, categories) {
+  const canonical = `${SITE_URL}/recipes/`;
+  const frUrl = `${SITE_URL}/recettes/`;
+  const description = `${recipes.length} documented kamado recipes: cooking temperatures, methods, ingredients, steps, food safety, and sources.`;
+  const list = recipes.map((recipe, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    url: `${SITE_URL}/recipes/${recipe.id}/`
+  }));
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", "@id": canonical, name: "Documented Kamado Recipes", description, url: canonical, inLanguage: "en-US" },
+      { "@type": "ItemList", itemListElement: list }
+    ]
+  };
+  const alternates = [
+    { hreflang: "fr", href: frUrl },
+    { hreflang: "en", href: canonical },
+    { hreflang: "x-default", href: frUrl }
+  ];
+  const cards = recipes.map(recipe => {
+    const enNom = recipesI18n.getRecipeName(recipe, "en");
+    const enOri = recipesI18n.getRecipeOrigin(recipe, "en");
+    const enCat = categoryNameEn(recipe);
+    const enMode = i18n.translateMode(recipe.mode, "en");
+    const search = `${enNom} ${enOri} ${enCat} ${enMode} ${recipe.tempK} ${recipe.ings.join(" ")}`.toLowerCase();
+    return `<a class="recipe-card" href="./${recipe.id}/" data-search="${escapeHtml(search)}"><small>${escapeHtml(enCat)}</small><strong>${escapeHtml(enNom)}</strong><span>${escapeHtml(enMode)} · ${escapeHtml(recipe.tempK)} · ${escapeHtml(recipe.temps)}</span></a>`;
+  }).join("");
+  return `${pageHead({ title: `${recipes.length} documented kamado recipes`, description, canonical, relativeRoot: "../", structuredData, lang: "en", ogLocale: "en_US", alternates })}
+<body>
+<!-- ${GENERATED_MARKER}; do not edit. -->
+${siteHeader("../", "en", "../recettes/")}
+<main id="contenu">
+  ${breadcrumbs([{ name: "Home", url: "../" }, { name: "Recipes" }])}
+  <header class="hero"><div class="eyebrow">Editorial Catalogue</div><h1>Documented Kamado Recipes</h1><p class="lede">${escapeHtml(description)}</p><input class="catalogue-search" id="catalogueSearch" type="search" placeholder="Filter recipes by dish, ingredient or cooking method" aria-label="Filter catalogue"></header>
+  <div class="recipe-grid" id="recipeGrid">${cards}</div>
+  <p class="method"><span id="catalogueCount">${recipes.length}</span> recipes displayed. Pages are compiled from the exact same dataset as the application to prevent drift.</p>
+</main>
+<footer>Kamado — independent ceramic cooking guide.</footer>
+<script>
+const input=document.querySelector("#catalogueSearch"),cards=[...document.querySelectorAll(".recipe-card")],count=document.querySelector("#catalogueCount");
+input.addEventListener("input",()=>{const q=input.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");let visible=0;cards.forEach(card=>{const hay=card.dataset.search.normalize("NFD").replace(/[\u0300-\u036f]/g,"");const show=hay.includes(q);card.hidden=!show;if(show)visible+=1;});count.textContent=visible;});
 </script>
 </body>
 </html>`;
@@ -336,16 +562,20 @@ function removeStaleRecipePages(recipesDir, expectedIds) {
 
 function generateEditorialPages({ recipes, categories, guide, temperatures, wines, root = ROOT }) {
   const recipesDir = path.join(root, "recettes");
+  const recipesEnDir = path.join(root, "recipes");
   const guidesDir = path.join(root, "guides");
   const ids = new Set(recipes.map(recipe => recipe.id));
   removeStaleRecipePages(recipesDir, ids);
+  removeStaleRecipePages(recipesEnDir, ids);
 
   for (const recipe of recipes) {
     if (!recipe.id || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(recipe.id)) throw new Error(`Invalid editorial recipe id: ${recipe.id || recipe.nom}`);
     const related = recipes.filter(candidate => candidate.id !== recipe.id && candidate.cat === recipe.cat).slice(0, 3);
     writeFile(path.join(recipesDir, recipe.id, "index.html"), renderRecipePage(recipe, categories, related));
+    writeFile(path.join(recipesEnDir, recipe.id, "index.html"), renderRecipePageEn(recipe, categories, related));
   }
   writeFile(path.join(recipesDir, "index.html"), renderCatalogue(recipes, categories));
+  writeFile(path.join(recipesEnDir, "index.html"), renderCatalogueEn(recipes, categories));
   writeFile(path.join(guidesDir, "index.html"), renderGuideIndex());
 
   const content = { guide, temperatures, wines: staticWineGuide(wines), methodology: methodologyHtml(recipes.length) };
@@ -357,6 +587,8 @@ function generateEditorialPages({ recipes, categories, guide, temperatures, wine
     `${SITE_URL}/`,
     `${SITE_URL}/recettes/`,
     ...recipes.map(recipe => `${SITE_URL}/recettes/${recipe.id}/`),
+    `${SITE_URL}/recipes/`,
+    ...recipes.map(recipe => `${SITE_URL}/recipes/${recipe.id}/`),
     `${SITE_URL}/guides/`,
     ...GUIDE_DEFINITIONS.map(guideDefinition => `${SITE_URL}/guides/${guideDefinition.id}/`)
   ];
@@ -364,7 +596,12 @@ function generateEditorialPages({ recipes, categories, guide, temperatures, wine
   writeFile(path.join(root, "sitemap.xml"), sitemap);
   writeFile(path.join(root, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 
-  return { recipes: recipes.length, guides: GUIDE_DEFINITIONS.length, urls: urls.length };
+  return {
+    recipes: recipes.length,
+    recipesEn: recipes.length,
+    guides: GUIDE_DEFINITIONS.length,
+    urls: urls.length
+  };
 }
 
 function main() {
@@ -387,5 +624,10 @@ module.exports = {
   SITE_URL,
   GUIDE_DEFINITIONS,
   generateEditorialPages,
-  recipeDescription
+  recipeDescription,
+  recipeDescriptionEn,
+  renderRecipePage,
+  renderRecipePageEn,
+  renderCatalogue,
+  renderCatalogueEn
 };
