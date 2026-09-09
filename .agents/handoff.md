@@ -73,6 +73,18 @@
   - Interactive OEM preset switcher buttons wired into `#clubProModal` with immediate feedback and `localStorage` persistence.
   - Comprehensive Technical Due Diligence Pack in `docs/M_AND_A_DUE_DILIGENCE.md` (zero-cloud architecture, culinary IP moat of 269 recipes / 0 issues, GDPR compliance, performance budget).
   - Executive Acquisition Pitch Memo in `docs/ACQUISITION_PITCH_KOKKO.md` tailored for Kokko Kamado France (LTV expansion, 30-day turnkey integration).
+- Capacitor 6 Native Platforms Deployed (2026-09-09):
+  - Official iOS (`ios/`) and Android (`android/`) platforms added via `@capacitor/cli@^6`.
+  - Configured `capacitor.config.json` with SplashScreen plugin (1500ms auto-hide, `#121110` background, center crop).
+  - Automated native asset generation script `scripts/generate-native-assets.js` using macOS `sips` (with CI/fallback detection) generates:
+    - iOS AppIcon (universal 1024x1024) in `ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png`.
+    - iOS Splash screens (2732x2732) in `Splash.imageset`.
+    - Android adaptive mipmap launcher icons (`ic_launcher.png`, `ic_launcher_round.png`, `ic_launcher_foreground.png`) across mdpi, hdpi, xhdpi, xxhdpi, and xxxhdpi.
+    - Android portrait splash drawables across mdpi (320x480) up to xxxhdpi (1280x1920).
+  - Wired mobile lifecycle npm scripts: `build:mobile`, `mobile:assets`, `mobile:sync`, `mobile:open:ios`, `mobile:open:android`.
+  - Native `.gitignore` files preserve source code and project configuration while cleanly ignoring generated build artifacts, pods, gradle outputs, and web copies.
+  - Package bumped to v1.23.0; `npm run mobile:sync` executes cleanly in 1.2s.
+  - All 118 unit tests, 6 métier audits, and performance budgets 100% passing.
 - English Static SEO Authority & Multilingual Pages (2026-09-09):
   - 269 English static recipe pages generated in `recipes/<id>/index.html` with translated titles, origins, modes, specs, ingredients, steps, and techniques.
   - English static catalogue `recipes/index.html` with instant client-side search and 269 recipe cards.
@@ -95,6 +107,7 @@
 - Pages deployment #76 completed successfully; `index.html`, `manifest.webmanifest`, and `sw.js` return HTTP 200 at `https://qevedeveq-art.github.io/kamado/`.
 
 ## Last Commands
+- `npm run mobile:sync` -> generated native icons & splash, built mobile `www/`, synced iOS and Android in 1.18s.
 - `node scripts/extract-data.js` -> 269 recipes extracted, 546 editorial pages generated.
 - `node scripts/audit-editorial.js` -> 269 FR, 269 EN, 4 guides, 546 sitemap URLs, 0 failures.
 - `npm test` -> 118/118 native node tests passing.
@@ -103,6 +116,7 @@
 - `node scripts/prepare-mobile.js` -> packaged Capacitor www/ directory with recipes/ included.
 
 ## Files Changed
+- Capacitor 6 Native Platforms: `capacitor.config.json`, `package.json` (v1.23.0), `scripts/generate-native-assets.js`, `ios/` (Xcode project, AppIcon, Splash), `android/` (Gradle project, adaptive mipmaps, drawables), `.agents/memory.md`, `.agents/handoff.md`.
 - English Static SEO Pages: `scripts/generate-editorial-pages.js`, `scripts/audit-editorial.js`, `scripts/audit-performance-budget.js`, `scripts/prepare-mobile.js`, `scripts/browser-smoke.js`, `tests/editorial-pages.test.js`, `tests/pwa.test.js`, `recipes/` (270 files), `recettes/` (269 files updated with hreflang), `sitemap.xml`, `.agents/memory.md`, `.agents/handoff.md`.
 - Full English Localization: `scripts/recipes-i18n.js`, `tests/recipes-i18n.test.js`, `scripts/i18n.js`, `tests/i18n.test.js`, `index.html`, `sw.js` (v46), `scripts/audit-performance-budget.js`, `scripts/prepare-mobile.js`, `tests/pwa.test.js`, `scripts/browser-smoke.js`, `.gitignore`, `.agents/memory.md`, `.agents/handoff.md`.
 - Phase 4 OEM White-Label & M&A: `scripts/brand-config.js`, `tests/brand-config.test.js`, `docs/M_AND_A_DUE_DILIGENCE.md`, `docs/ACQUISITION_PITCH_KOKKO.md`, `index.html`, `sw.js` (v45), `scripts/prepare-mobile.js`, `scripts/audit-performance-budget.js`, `tests/pwa.test.js`.

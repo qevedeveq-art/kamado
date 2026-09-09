@@ -1,6 +1,6 @@
 {
   "name": "kamado",
-  "version": "1.22.0",
+  "version": "1.23.0",
   "description": "L application universelle de reference pour les utilisateurs de kamados",
   "private": true,
   "scripts": {
@@ -13,10 +13,13 @@
     "audit:quality": "node scripts/audit-recipe-quality.js",
     "audit:performance": "node scripts/audit-performance-budget.js",
     "audit:editorial": "node scripts/audit-editorial.js",
+    "audit:sommelier": "node scripts/audit-sommelier.js",
     "audit": "node scripts/audit-data.js && node scripts/audit-kamado-expert.js && node scripts/audit-chef.js && node scripts/audit-sommelier.js && node scripts/audit-editorial.js && node scripts/audit-performance-budget.js",
-    "build:mobile": "node scripts/prepare-mobile.js",
+    "build:mobile": "node scripts/prepare-mobile.js && node scripts/generate-native-assets.js",
+    "mobile:assets": "node scripts/generate-native-assets.js",
     "mobile:sync": "npm run build:mobile && npx cap sync",
-    "audit:sommelier": "node scripts/audit-sommelier.js"
+    "mobile:open:ios": "npx cap open ios",
+    "mobile:open:android": "npx cap open android"
   },
   "devDependencies": {
     "@capacitor/cli": "^6.0.0",

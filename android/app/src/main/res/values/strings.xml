@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kamado</string>
+    <string name="title_activity_main">Kamado</string>
+    <string name="package_name">com.kamado.app</string>
+    <string name="custom_url_scheme">com.kamado.app</string>
+</resources>

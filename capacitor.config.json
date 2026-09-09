@@ -2,8 +2,16 @@
   "appId": "com.kamado.app",
   "appName": "Kamado",
   "webDir": "www",
-  "bundledWebRuntime": false,
   "server": {
     "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1500,
+      "launchAutoHide": true,
+      "backgroundColor": "#121110",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP"
+    }
   }
 }
